@@ -2,7 +2,6 @@ export default {
   async fetch(request) {
     const url = new URL(request.url);
 
-    // Serve your main index
     if (url.pathname === "/" || url.pathname === "/index.html") {
       const html = await fetch("https://raw.githubusercontent.com/NeuralNetsAndPrettyPatterns/neuralnetsandprettypatterns/main/index.html");
       return new Response(await html.text(), {
@@ -10,7 +9,11 @@ export default {
       });
     }
 
-    // Proxy everything under /deepdreamstate to GitHub Pages
+    // Redirect /deepdreamstate to /deepdreamstate/
+    if (url.pathname === "/deepdreamstate") {
+      return Response.redirect(`${url.origin}/deepdreamstate/`, 301);
+    }
+
     if (url.pathname.startsWith("/deepdreamstate")) {
       const githubPath = url.pathname.replace("/deepdreamstate", "");
       const proxyUrl = `https://neuralnetsandprettypatterns.github.io/deepdreamstate${githubPath}${url.search}`;
