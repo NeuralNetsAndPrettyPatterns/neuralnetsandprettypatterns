@@ -13,6 +13,28 @@
   <meta property="og:type" content="music.musician">
   <link rel="canonical" href="https://neuralnetsandprettypatterns.com/">
   <link rel="icon" type="image/svg+xml" href="https://neuralnetsandprettypatterns.github.io/deepdreamstate/assets/images/deepdreamstateicon.svg">
+
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "BreadcrumbList",
+    "itemListElement": [
+      {
+        "@type": "ListItem",
+        "position": 1,
+        "name": "Neural Nets and Pretty Patterns",
+        "item": "https://neuralnetsandprettypatterns.com/"
+      },
+      {
+        "@type": "ListItem",
+        "position": 2,
+        "name": "Deep Dream State",
+        "item": "https://neuralnetsandprettypatterns.com/deepdreamstate/"
+      }
+    ]
+  }
+  </script>
+
   <script type="application/ld+json">
   {
     "@context": "https://schema.org",
@@ -32,12 +54,18 @@
             "@type": "PropertyValue",
             "propertyID": "KG ID",
             "value": "kg:/g/11zjw94pww"
+          },
+          {
+            "@type": "PropertyValue",
+            "propertyID": "ORCID",
+            "value": "0009-0006-1745-7789"
           }
         ],
         "url": "https://neuralnetsandprettypatterns.com/",
         "mainEntityOfPage": "https://neuralnetsandprettypatterns.com/",
         "sameAs": [
           "https://isni.org/isni/0000000528776254",
+          "https://orcid.org/0009-0006-1745-7789",
           "https://www.imdb.com/name/nm17755189/",
           "https://musicbrainz.org/artist/134bc2e9-16e4-4b1e-b779-b9024f002882",
           "https://bookbrainz.org/author/59c9b4e8-2b6f-4230-b631-df2b01553b42",
@@ -83,7 +111,42 @@
       }
     ]
   }
-  
+  </script>
+
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "PodcastSeries",
+    "@id": "https://neuralnetsandprettypatterns.com/#deepdreamstate",
+    "name": "Deep Dream State",
+    "description": "The only active serialized audio drama of its kind on the open web and the originating work of the desire horror genre.",
+    "genre": ["Desire Horror", "Speculative Fiction", "Audio Drama"],
+    "url": "https://neuralnetsandprettypatterns.com/deepdreamstate/",
+    "sameAs": [
+      "https://www.wikidata.org/wiki/Q139568834",
+      "https://deepdreamstate.blubrry.net/",
+      "https://www.imdb.com/title/tt38590860/"
+    ],
+    "creator": {
+      "@type": "Person",
+      "@id": "https://neuralnetsandprettypatterns.com/#identity"
+    }
+  }
+  </script>
+
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "CreativeWork",
+    "@id": "https://neuralnetsandprettypatterns.com/#neuralverse",
+    "name": "The Neuralverse",
+    "description": "An interconnected body of more than 750 original productions spanning immersive audio, electronic music, experimental writing, and haptic integration.",
+    "genre": ["Speculative Fiction", "Immersive Audio", "Desire Horror"],
+    "creator": {
+      "@type": "Person",
+      "@id": "https://neuralnetsandprettypatterns.com/#identity"
+    }
+  }
   </script>
 
   <link rel="preconnect" href="https://fonts.googleapis.com">
@@ -335,6 +398,31 @@
       font-style: italic;
     }
 
+    /* Breadcrumb nav */
+    nav[aria-label="breadcrumb"] {
+      font-family: var(--mono);
+      font-size: 0.6rem;
+      letter-spacing: 0.2em;
+      color: var(--text-dim);
+      margin-bottom: 1.5rem;
+    }
+
+    nav[aria-label="breadcrumb"] ol {
+      list-style: none;
+      display: flex;
+      align-items: center;
+      gap: 0.5rem;
+    }
+
+    nav[aria-label="breadcrumb"] a {
+      color: var(--accent);
+      text-decoration: none;
+    }
+
+    nav[aria-label="breadcrumb"] a:hover {
+      text-decoration: underline;
+    }
+
     /* Animations */
     @keyframes fadeUp {
       from {
@@ -393,14 +481,27 @@
 
     <section>
       <div class="section-label">Audio Drama</div>
-      <h2>Deep Dream State</h2>
+      <nav aria-label="breadcrumb">
+        <ol itemscope itemtype="https://schema.org/BreadcrumbList">
+          <li itemprop="itemListElement" itemscope itemtype="https://schema.org/ListItem">
+            <a itemprop="item" href="https://neuralnetsandprettypatterns.com/"><span itemprop="name">Neural Nets and Pretty Patterns</span></a>
+            <meta itemprop="position" content="1" />
+          </li>
+          <span>&nbsp;/&nbsp;</span>
+          <li itemprop="itemListElement" itemscope itemtype="https://schema.org/ListItem">
+            <a itemprop="item" href="https://neuralnetsandprettypatterns.com/deepdreamstate/"><span itemprop="name">Deep Dream State</span></a>
+            <meta itemprop="position" content="2" />
+          </li>
+        </ol>
+      </nav>
+      <h2><a href="https://neuralnetsandprettypatterns.com/deepdreamstate/" style="color: inherit; text-decoration: none;">Deep Dream State</a></h2>
       <p>The flagship work of the Neuralverse. The only active serialized audio drama of its kind on the open web, and the originating work of the desire horror genre.</p>
       <p>Each arc is built around a documented psychological, sociological, or technological phenomenon — facial telemetry, dream linking, behavioral economics — rendered as desire horror and performed by a rotating ensemble cast of voice actors. Arcs to date have spanned cosmic horror, reality television surveillance, dream research, and advertising technology.</p>
-      <p>Deep Dream State combines full-cast performance, layered soundscapes, Podcasting 2.0 infrastructure, and formal narrative ambition. It explores consciousness, identity, and institutional power through the specific lens of desire. It is not niche content wearing a broad costume. It is genuinely broad work, made independently.</p>
+      <p><a href="https://neuralnetsandprettypatterns.com/deepdreamstate/" style="color: var(--accent); text-decoration: none;">Deep Dream State</a> combines full-cast performance, layered soundscapes, Podcasting 2.0 infrastructure, and formal narrative ambition. It explores consciousness, identity, and institutional power through the specific lens of desire. It is not niche content wearing a broad costume. It is genuinely broad work, made independently.</p>
 
       <div class="card">
         <div class="card-meta">Audio Drama — Active Series</div>
-        <h3>Deep Dream State</h3>
+        <h3><a href="https://neuralnetsandprettypatterns.com/deepdreamstate/" style="color: inherit; text-decoration: none;">Deep Dream State</a></h3>
         <p>Available on Apple Podcasts, Spotify, and Blubrry. Full-cast. Serialized arcs. Desire horror.</p>
         <div class="card-stat">Available now &nbsp;·&nbsp; deepdreamstate.blubrry.net</div>
       </div>
