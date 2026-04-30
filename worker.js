@@ -53,3 +53,14 @@ export default {
     return new Response("Not found", { status: 404 });
   }
 };
+
+if (url.pathname.startsWith("/neuralpedia/chronology/")) {
+  const githubPath = url.pathname.endsWith("/") ? url.pathname + "index.html" : url.pathname + "/index.html";
+  const rawUrl = `https://raw.githubusercontent.com/NeuralNetsAndPrettyPatterns/neuralnetsandprettypatterns/main${githubPath}`;
+  const html = await fetch(rawUrl);
+  if (html.ok) {
+    return new Response(await html.text(), { headers: { "content-type": "text/html" } });
+  }
+  // Debug: return the URL and status so you can see what's failing
+  return new Response(`Tried: ${rawUrl} — Status: ${html.status}`, { status: 200 });
+}
