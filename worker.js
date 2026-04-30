@@ -8,9 +8,15 @@ export default {
       });
     }
     if (url.pathname === "/sitemap.xml") {
-      const xml = await fetch("https://raw.githubusercontent.com/NeuralNetsAndPrettyPatterns/neuralnetsandprettypatterns/main/sitemap.xml");
+      const xml = await fetch("https://raw.githubusercontent.com/NeuralNetsAndPrettyPatterns/neuralpedia-main/sitemap.xml");
       return new Response(await xml.text(), {
         headers: { "content-type": "application/xml" },
+      });
+    }
+    if (url.pathname === "/neuralpedia" || url.pathname === "/neuralpedia/") {
+      const html = await fetch("https://raw.githubusercontent.com/NeuralNetsAndPrettyPatterns/neuralnetsandprettypatterns/main/neuralpedia/index.html");
+      return new Response(await html.text(), {
+        headers: { "content-type": "text/html" },
       });
     }
     // Redirect /deepdreamstate to /deepdreamstate/
