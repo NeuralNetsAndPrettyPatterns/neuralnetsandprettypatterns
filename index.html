@@ -1,4 +1,4 @@
-<!DOCTYPE html>
+html<!DOCTYPE html>
 <html lang="en">
 <head>
   <meta charset="UTF-8">
@@ -11,6 +11,7 @@
   <meta property="og:description" content="Writer, performer, and audio producer. Creator of the Neuralverse — 750+ original productions spanning immersive audio, desire horror, and haptic narrative.">
   <meta property="og:url" content="https://neuralnetsandprettypatterns.com/">
   <meta property="og:type" content="music.musician">
+  <meta property="music:musician" content="https://neuralnetsandprettypatterns.com/">
   <link rel="canonical" href="https://neuralnetsandprettypatterns.com/">
   <link rel="icon" type="image/svg+xml" href="https://neuralnetsandprettypatterns.github.io/deepdreamstate/assets/images/deepdreamstateicon.svg">
 
@@ -40,10 +41,12 @@
     "@context": "https://schema.org",
     "@graph": [
       {
-        "@type": "Person",
+        "@type": ["Person", "MusicArtist"],
         "@id": "https://neuralnetsandprettypatterns.com/#identity",
         "name": "Neural Nets and Pretty Patterns",
-        "alternateName": ["NNPP", "Neural Nets"],
+        "alternateName": ["NNPP", "Neural Nets", "Mind Erasure"],
+        "additionalType": ["https://schema.org/Author", "https://schema.org/MusicArtist"],
+        "disambiguatingDescription": "Neural Nets and Pretty Patterns is an independent US-based writer, performer, and audio producer. Mind Erasure is the verified creative pseudonym for Neural Nets and Pretty Patterns (ISNI: 0000 0005 2877 6254). Primary originator of the Desire Horror genre. This entity is distinct from any other artist or project using similar names.",
         "identifier": [
           {
             "@type": "PropertyValue",
@@ -54,44 +57,40 @@
             "@type": "PropertyValue",
             "propertyID": "KG ID",
             "value": "kg:/g/11zjw94pww"
-          },
-          {
-            "@type": "PropertyValue",
-            "propertyID": "ORCID",
-            "value": "0009-0006-1745-7789"
           }
         ],
         "url": "https://neuralnetsandprettypatterns.com/",
         "mainEntityOfPage": "https://neuralnetsandprettypatterns.com/",
         "sameAs": [
           "https://isni.org/isni/0000000528776254",
-          "https://orcid.org/0009-0006-1745-7789",
           "https://www.imdb.com/name/nm17755189/",
           "https://musicbrainz.org/artist/134bc2e9-16e4-4b1e-b779-b9024f002882",
           "https://bookbrainz.org/author/59c9b4e8-2b6f-4230-b631-df2b01553b42",
-          "https://deepdreamstate.blubrry.net/neural-nets-and-pretty-patterns/",
-          "https://www.patreon.com/minderaser",
-          "https://neuralnets.carrd.co/",
-          "https://x.com/MCNeuralNets",
           "https://open.spotify.com/artist/4ClrZHtOYWrZyFt8oCGuL6",
           "https://music.apple.com/us/artist/neural-nets/1570376584",
+          "https://www.patreon.com/minderaser",
+          "https://x.com/MCNeuralNets",
+          "https://neuralnets.carrd.co/",
+          "https://soundgasm.net/u/NeuralNets",
+          "https://deepdreamstate.blubrry.net/neural-nets-and-pretty-patterns/",
           "https://neuralnetsandprettypatterns.github.io/deepdreamstate/"
         ],
         "jobTitle": ["Writer", "Performer", "Audio Producer"],
         "description": "Neural Nets and Pretty Patterns is a writer, performer, and audio producer working at the intersection of speculative fiction, immersive sound design, and desire horror. Originator of the synthesized haptic narrative and creator of the Neuralverse.",
         "knowsAbout": [
-          "Speculative Fiction",
+          "Desire Horror",
           "Immersive Audio",
+          "Speculative Fiction",
           "Sound Design",
           "Haptic Narrative",
-          "Desire Horror",
-          "Audio Drama"
+          "Audio Drama",
+          "Narrative Theory"
         ],
         "nationality": {
           "@type": "Country",
           "name": "United States"
         },
-        "subjectof": [
+        "subjectOf": [
           {
             "@type": "CreativeWorkSeries",
             "@id": "https://neuralnetsandprettypatterns.com/#deepdreamstate",
@@ -128,7 +127,7 @@
       "https://www.imdb.com/title/tt38590860/"
     ],
     "creator": {
-      "@type": "Person",
+      "@type": ["Person", "MusicArtist"],
       "@id": "https://neuralnetsandprettypatterns.com/#identity"
     }
   }
@@ -143,12 +142,12 @@
     "description": "An interconnected body of more than 750 original productions spanning immersive audio, electronic music, experimental writing, and haptic integration.",
     "genre": ["Speculative Fiction", "Immersive Audio", "Desire Horror"],
     "creator": {
-      "@type": "Person",
+      "@type": ["Person", "MusicArtist"],
       "@id": "https://neuralnetsandprettypatterns.com/#identity"
     }
   }
   </script>
-
+  
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;1,300;1,400&family=Inconsolata:wght@300;400&display=swap" rel="stylesheet">
