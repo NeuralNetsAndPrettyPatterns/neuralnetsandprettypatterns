@@ -45,31 +45,36 @@
 
   <!-- MusicArtist entity reference — reinforces music identity with key platform sameAs -->
   <script type="application/ld+json">
-  {
-    "@context": "https://schema.org",
-    "@type": "MusicArtist",
-    "@id": "https://neuralnetsandprettypatterns.com/#identity",
-    "name": "Neural Nets and Pretty Patterns",
-    "alternateName": ["NNPP", "Neural Nets"],
-    "url": "https://neuralnetsandprettypatterns.com/",
-    "sameAs": [
-      "https://open.spotify.com/artist/4ClrZHtOYWrZyFt8oCGuL6",
-      "https://music.apple.com/us/artist/neural-nets/1570376584",
-      "https://musicbrainz.org/artist/134bc2e9-16e4-4b1e-b779-b9024f002882",
-      "https://isni.org/isni/0000000528776254",
-      "https://www.imdb.com/name/nm17755189/",
-      "https://orcid.org/0009-0006-1745-7789",
-      "https://x.com/MCNeuralNets",
-      "https://www.patreon.com/minderaser"
-    ],
-    "identifier": [
-      {"@type":"PropertyValue","propertyID":"ISNI","value":"0000 0005 2877 6254"},
-      {"@type":"PropertyValue","propertyID":"KG ID","value":"kg:/g/11zjw94pww"},
-      {"@type":"PropertyValue","propertyID":"ORCID","value":"0009-0006-1745-7789"}
-    ],
-    "genre": ["Immersive Audio","Desire Horror","Electronic Music","Haptic Narrative","Audio Drama","Speculative Fiction"]
-  }
-  </script>
+{
+  "@context": "https://schema.org",
+  "@type": ["Person", "MusicArtist"],
+  "@id": "https://neuralnetsandprettypatterns.com/#identity",
+  "name": "Neural Nets and Pretty Patterns",
+  "alternateName": ["NNPP", "Neural Nets", "Mind Erasure"],
+  "description": "Creator of the Neuralverse and the Desire Horror genre. Formerly known as Mind Erasure.",
+  "disambiguatingDescription": "Neural Nets and Pretty Patterns is an independent US-based writer, performer, and audio producer. Mind Erasure is the verified creative pseudonym for Neural Nets and Pretty Patterns (ISNI: 0000 0005 2877 6254). This entity is distinct from any other artist or project using similar names.",
+  "url": "https://neuralnetsandprettypatterns.com/",
+  "sameAs": [
+    "https://isni.org/isni/0000000528776254",
+    "https://www.imdb.com/name/nm17755189/",
+    "https://musicbrainz.org/artist/134bc2e9-16e4-4b1e-b779-b9024f002882",
+    "https://bookbrainz.org/author/59c9b4e8-2b6f-4230-b631-df2b01553b42",
+    "https://open.spotify.com/artist/4ClrZHtOYWrZyFt8oCGuL6",
+    "https://music.apple.com/us/artist/neural-nets/1570376584",
+    "https://www.patreon.com/minderaser",
+    "https://x.com/MCNeuralNets",
+    "https://neuralnets.carrd.co/",
+    "https://soundgasm.net/u/NeuralNets",
+    "https://deepdreamstate.blubrry.net/neural-nets-and-pretty-patterns/",
+    "https://neuralnetsandprettypatterns.github.io/deepdreamstate/"
+  ],
+  "identifier": [
+    {"@type":"PropertyValue","propertyID":"ISNI","value":"0000 0005 2877 6254"},
+    {"@type":"PropertyValue","propertyID":"KG ID","value":"kg:/g/11zjw94pww"}
+  ],
+  "genre": ["Desire Horror","Immersive Audio","Electronic Music","Haptic Narrative","Audio Drama","Speculative Fiction"]
+}
+</script>
 
   <!-- CollectionPage + ItemList with byArtist on all applicable tracks -->
   <script type="application/ld+json">
