@@ -8,7 +8,7 @@ export default {
     }
 
     if (url.pathname === "/sitemap.xml") {
-      const xml = await fetch("https://raw.githubusercontent.com/NeuralNetsAndPrettyPatterns/neuralpedia-main/sitemap.xml");
+      const xml = await fetch("https://raw.githubusercontent.com/NeuralNetsAndPrettyPatterns/neuralnetsandprettypatterns/main/sitemap.xml");
       return new Response(await xml.text(), { headers: { "content-type": "application/xml" } });
     }
 
@@ -17,21 +17,9 @@ export default {
       return new Response(await html.text(), { headers: { "content-type": "text/html" } });
     }
 
-    // Neuralpedia chronology pages
-    if (url.pathname.startsWith("/neuralpedia/chronology/")) {
-      const githubPath = url.pathname; // e.g. /neuralpedia/chronology/page-1/
-      const rawUrl = `https://raw.githubusercontent.com/NeuralNetsAndPrettyPatterns/neuralnetsandprettypatterns/main${githubPath}index.html`;
-      const html = await fetch(rawUrl);
-      if (html.ok) {
-        return new Response(await html.text(), { headers: { "content-type": "text/html" } });
-      }
-      return new Response("Not found", { status: 404 });
-    }
-
-    // Neuralpedia series pages (e.g. /neuralpedia/mind-pop/)
     if (url.pathname.startsWith("/neuralpedia/")) {
-      const githubPath = url.pathname;
-      const rawUrl = `https://raw.githubusercontent.com/NeuralNetsAndPrettyPatterns/neuralnetsandprettypatterns/main${githubPath}index.html`;
+      const path = url.pathname.endsWith("/") ? url.pathname : url.pathname + "/";
+      const rawUrl = `https://raw.githubusercontent.com/NeuralNetsAndPrettyPatterns/neuralnetsandprettypatterns/main${path}index.html`;
       const html = await fetch(rawUrl);
       if (html.ok) {
         return new Response(await html.text(), { headers: { "content-type": "text/html" } });
@@ -53,14 +41,3 @@ export default {
     return new Response("Not found", { status: 404 });
   }
 };
-
-if (url.pathname.startsWith("/neuralpedia/chronology/")) {
-  const githubPath = url.pathname.endsWith("/") ? url.pathname + "index.html" : url.pathname + "/index.html";
-  const rawUrl = `https://raw.githubusercontent.com/NeuralNetsAndPrettyPatterns/neuralnetsandprettypatterns/main${githubPath}`;
-  const html = await fetch(rawUrl);
-  if (html.ok) {
-    return new Response(await html.text(), { headers: { "content-type": "text/html" } });
-  }
-  // Debug: return the URL and status so you can see what's failing
-  return new Response(`Tried: ${rawUrl} — Status: ${html.status}`, { status: 200 });
-}
