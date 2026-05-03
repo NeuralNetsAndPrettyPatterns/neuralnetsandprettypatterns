@@ -148,7 +148,7 @@
   }
   </script>
   
-  <link rel="preconnect" href="https://fonts.googleapis.com">
+   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;1,300;1,400&family=Inconsolata:wght@300;400&display=swap" rel="stylesheet">
 
@@ -157,16 +157,17 @@
       --black: #080808;
       --off-black: #0e0e0e;
       --deep: #111318;
-      --surface: #161a22;
-      --border: #1e2330;
+      --surface: rgba(22, 26, 34, 0.72);
+      --border: rgba(240, 244, 255, 0.15);
       --dim: #2a3040;
       --muted: #4a5568;
       --text-dim: #6b7c99;
-      --text: #b8c4d8;
-      --text-bright: #d4dce8;
+      --text: #c8d4f0;
+      --text-bright: #f0f4ff;
       --accent: #7eb8c9;
       --accent-warm: #c9a87e;
       --accent-glow: rgba(126, 184, 201, 0.12);
+      --violet-deep: #1a0a2e;
       --serif: 'Cormorant Garamond', Georgia, serif;
       --mono: 'Inconsolata', monospace;
     }
@@ -183,27 +184,26 @@
     }
 
     body {
-      background-color: var(--black);
+      width: 100%;
+      min-height: 100vh;
+      background: linear-gradient(135deg, #1a0a2e 0%, #16213e 50%, #0f3460 100%);
       color: var(--text);
       font-family: var(--serif);
       font-weight: 300;
       line-height: 1.7;
-      min-height: 100vh;
       overflow-x: hidden;
     }
 
-    /* Grain overlay */
     body::before {
       content: '';
       position: fixed;
       inset: 0;
       background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 256 256' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='noise'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23noise)' opacity='1'/%3E%3C/svg%3E");
-      opacity: 0.025;
+      opacity: 0.03;
       pointer-events: none;
       z-index: 1000;
     }
 
-    /* Ambient glow */
     body::after {
       content: '';
       position: fixed;
@@ -212,7 +212,7 @@
       transform: translateX(-50%);
       width: 80vw;
       height: 60vh;
-      background: radial-gradient(ellipse at center, rgba(126, 184, 201, 0.04) 0%, transparent 70%);
+      background: radial-gradient(ellipse at center, rgba(126, 184, 201, 0.05) 0%, transparent 70%);
       pointer-events: none;
       z-index: 0;
     }
@@ -220,15 +220,15 @@
     .container {
       position: relative;
       z-index: 1;
-      max-width: 780px;
+      max-width: 900px;
       margin: 0 auto;
-      padding: 0 2rem;
+      padding: 0 1.5rem;
     }
 
-    /* Header */
     header {
       padding: 5rem 0 3rem;
       border-bottom: 1px solid var(--border);
+      text-align: center;
     }
 
     .sigil {
@@ -237,36 +237,106 @@
       letter-spacing: 0.25em;
       color: var(--accent);
       text-transform: uppercase;
-      opacity: 0.7;
+      opacity: 0.75;
       margin-bottom: 2rem;
       animation: fadeUp 1s ease both;
     }
 
     h1 {
       font-family: var(--serif);
-      font-size: clamp(2.4rem, 6vw, 4rem);
+      font-size: clamp(2rem, 5.6vw, 4rem);
       font-weight: 300;
       line-height: 1.1;
-      letter-spacing: -0.01em;
+      letter-spacing: 0.02em;
       color: var(--text-bright);
       animation: fadeUp 1s 0.1s ease both;
-    }
-
-    h1 em {
-      font-style: italic;
-      color: var(--accent);
+      white-space: nowrap;
     }
 
     .tagline {
-      margin-top: 1.5rem;
+      margin: 1.5rem auto 0;
       font-size: 1.1rem;
       color: var(--text-dim);
       font-style: italic;
       letter-spacing: 0.02em;
       animation: fadeUp 1s 0.2s ease both;
+      max-width: 65ch;
     }
 
-    /* Sections */
+    .nav-buttons {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      gap: 0.6rem;
+      padding: 2rem 0 0;
+      margin: 0 0 1rem 0;
+    }
+
+    .nav-buttons.bottom-nav {
+      padding: 0;
+      margin: 2rem 0 2rem 0;
+    }
+
+    .nav-button {
+      width: 45px;
+      height: 45px;
+      border: 2px solid var(--text-bright);
+      border-radius: 50%;
+      background: transparent;
+      color: var(--text-bright);
+      font-size: 0.65rem;
+      letter-spacing: 0.12em;
+      cursor: pointer;
+      display: inline-flex;
+      justify-content: center;
+      align-items: center;
+      transition: all 0.3s ease;
+      font-family: var(--mono);
+      flex-shrink: 0;
+      text-decoration: none;
+      line-height: 1;
+    }
+
+    .nav-button.clock {
+      font-family: var(--serif);
+      font-size: 1.35rem;
+      letter-spacing: 0;
+    }
+
+    .nav-button:hover {
+      background: var(--text-bright);
+      color: var(--violet-deep);
+      transform: scale(1.1);
+    }
+
+    .inline-archive-link {
+      display: flex;
+      align-items: center;
+      gap: 0.6rem;
+      margin: 1.3rem 0 0;
+      max-width: 65ch;
+      color: var(--text);
+      font-size: 1.05rem;
+    }
+
+    .inline-archive-link .nav-button {
+      width: 31px;
+      height: 31px;
+      border-width: 1.5px;
+      font-size: 1rem;
+      margin: 0;
+    }
+
+    .inline-archive-link a.archive-text-link {
+      color: var(--accent);
+      text-decoration: none;
+      transition: color 0.25s ease;
+    }
+
+    .inline-archive-link a.archive-text-link:hover {
+      color: var(--text-bright);
+    }
+
     section {
       padding: 4rem 0;
       border-bottom: 1px solid var(--border);
@@ -283,7 +353,7 @@
       letter-spacing: 0.3em;
       text-transform: uppercase;
       color: var(--accent);
-      opacity: 0.6;
+      opacity: 0.7;
       margin-bottom: 1.5rem;
     }
 
@@ -297,6 +367,16 @@
       letter-spacing: -0.01em;
     }
 
+    h2 a {
+      color: inherit;
+      text-decoration: none;
+      transition: color 0.25s ease;
+    }
+
+    h2 a:hover {
+      color: var(--accent);
+    }
+
     p {
       font-size: 1.05rem;
       color: var(--text);
@@ -308,7 +388,16 @@
       margin-bottom: 0;
     }
 
-    /* Rule decorative */
+    p a {
+      color: var(--accent);
+      text-decoration: none;
+      transition: color 0.25s ease;
+    }
+
+    p a:hover {
+      color: var(--text-bright);
+    }
+
     .rule {
       display: flex;
       align-items: center;
@@ -330,7 +419,6 @@
       letter-spacing: 0.2em;
     }
 
-    /* Catalogue card */
     .card {
       background: var(--surface);
       border: 1px solid var(--border);
@@ -338,12 +426,13 @@
       padding: 2rem 2.5rem;
       margin-top: 2rem;
       position: relative;
-      transition: border-color 0.3s ease, background 0.3s ease;
+      transition: border-color 0.3s ease, background 0.3s ease, transform 0.3s ease;
     }
 
     .card:hover {
       border-left-color: var(--accent-warm);
-      background: var(--deep);
+      background: rgba(17, 19, 24, 0.86);
+      transform: translateY(-2px);
     }
 
     .card-meta {
@@ -364,6 +453,16 @@
       letter-spacing: -0.01em;
     }
 
+    .card h3 a {
+      color: inherit;
+      text-decoration: none;
+      transition: color 0.25s ease;
+    }
+
+    .card h3 a:hover {
+      color: var(--accent);
+    }
+
     .card p {
       font-size: 0.95rem;
       color: var(--text-dim);
@@ -375,12 +474,13 @@
       font-size: 0.62rem;
       letter-spacing: 0.2em;
       color: var(--accent);
-      opacity: 0.7;
+      opacity: 0.75;
     }
 
-    /* Footer */
     footer {
       padding: 3rem 0 4rem;
+      border-top: 1px solid var(--border);
+      text-align: center;
     }
 
     .isni {
@@ -395,9 +495,9 @@
       font-size: 0.85rem;
       color: var(--muted);
       font-style: italic;
+      margin: 0 auto;
     }
 
-    /* Breadcrumb nav */
     nav[aria-label="breadcrumb"] {
       font-family: var(--mono);
       font-size: 0.6rem;
@@ -416,13 +516,13 @@
     nav[aria-label="breadcrumb"] a {
       color: var(--accent);
       text-decoration: none;
+      transition: color 0.25s ease;
     }
 
     nav[aria-label="breadcrumb"] a:hover {
-      text-decoration: underline;
+      color: var(--text-bright);
     }
 
-    /* Animations */
     @keyframes fadeUp {
       from {
         opacity: 0;
@@ -434,14 +534,29 @@
       }
     }
 
-    /* Responsive */
+    @media (max-width: 760px) {
+      h1 {
+        white-space: normal;
+      }
+
+      .inline-archive-link {
+        flex-wrap: wrap;
+      }
+    }
+
     @media (max-width: 600px) {
+      .container {
+        padding: 0 1rem;
+      }
+
       header {
         padding: 3rem 0 2rem;
       }
+
       section {
         padding: 3rem 0;
       }
+
       .card {
         padding: 1.5rem;
       }
@@ -453,31 +568,38 @@
 
     <header>
       <div class="sigil">neuralnetsandprettypatterns.com</div>
-      <h1>Neural Nets<br>and <em>Pretty Patterns</em></h1>
+      <h1>Neural Nets And Pretty Patterns</h1>
       <p class="tagline">Writer. Performer. Audio producer. Architect of the Neuralverse.</p>
     </header>
 
-    <div class="nav-buttons" style="display:flex;justify-content:center;gap:0.5rem;padding:2rem 0;">
-  <a style="width:45px;height:45px;border:2px solid var(--accent);border-radius:50%;background:transparent;color:var(--accent);font-size:0.6rem;letter-spacing:0.1em;cursor:pointer;display:flex;justify-content:center;align-items:center;text-decoration:none;font-family:var(--mono);" href="https://neuralnetsandprettypatterns.com/neuralpedia/">NP</a>
-  <a style="width:45px;height:45px;border:2px solid var(--accent);border-radius:50%;background:transparent;color:var(--accent);font-size:0.6rem;letter-spacing:0.1em;cursor:pointer;display:flex;justify-content:center;align-items:center;text-decoration:none;font-family:var(--mono);" href="https://neuralnetsandprettypatterns.com/deepdreamstate/">DDS</a>
-</div>
+    <div class="nav-buttons">
+      <a class="nav-button" href="https://neuralnetsandprettypatterns.com/neuralpedia/" aria-label="Neuralpedia">NP</a>
+      <a class="nav-button clock" href="https://neuralnetsandprettypatterns.com/neuralpedia/chronology/page-1/" aria-label="Chronological Archive">◷</a>
+      <a class="nav-button" href="https://neuralnetsandprettypatterns.com/deepdreamstate/" aria-label="Deep Dream State">DDS</a>
+    </div>
 
     <section>
       <div class="section-label">Entity</div>
       <h2>Working at the intersection of speculative fiction, immersive sound, and desire horror</h2>
       <p>Neural Nets and Pretty Patterns is a writer, performer, and audio producer whose work asks a consistent question: what does it mean to want something, and what systems are built to exploit that wanting?</p>
       <p>He is the originator of the synthesized haptic narrative — the first implementation of synchronized physical sensation as a deliberate storytelling layer in audio production. That formal innovation extends immersive audio beyond what speaker or headphone alone can deliver, and predates any comparable implementation.</p>
-      <p>His primary creative universe is the Neuralverse: an interconnected body of original work spanning immersive audio, electronic music, experimental writing, and haptic integration, built over more than a decade of continuous production.</p>
+      <p>His primary creative universe is <a href="https://neuralnetsandprettypatterns.com/neuralpedia/">the Neuralverse</a>: an interconnected body of original work spanning immersive audio, electronic music, experimental writing, and haptic integration, built over more than a decade of continuous production.</p>
     </section>
 
     <section>
       <div class="section-label">Catalogue</div>
-      <h2>The Neuralverse</h2>
+      <h2><a href="https://neuralnetsandprettypatterns.com/neuralpedia/">The Neuralverse</a></h2>
       <p>More than 750 original productions, unified by a consistent interest in consciousness, identity, and the architecture of desire. No direct equivalent exists in independent audio production at this scale or consistency.</p>
+
+      <div class="inline-archive-link">
+        <a class="nav-button clock" href="https://neuralnetsandprettypatterns.com/neuralpedia/chronology/page-1/" aria-label="Chronological Archive">◷</a>
+        <a class="archive-text-link" href="https://neuralnetsandprettypatterns.com/neuralpedia/chronology/page-1/">You can browse the series chronologically.</a>
+        <a class="nav-button clock" href="https://neuralnetsandprettypatterns.com/neuralpedia/chronology/page-1/" aria-label="Chronological Archive">◷</a>
+      </div>
 
       <div class="card">
         <div class="card-meta">Catalogue — Ongoing</div>
-        <h3>The Neuralverse Archive</h3>
+        <h3><a href="https://neuralnetsandprettypatterns.com/neuralpedia/">The Neuralverse Archive</a></h3>
         <p>Spanning standalone immersive audio, electronic compositions, experimental written pieces, and live performance. Each production is built as both narrative and formal construction — rhythm, pacing, and structure chosen for immersive impact.</p>
         <div class="card-stat">750+ productions &nbsp;·&nbsp; Est. 2017 &nbsp;·&nbsp; ISNI 0000 0005 2877 6254</div>
       </div>
@@ -498,22 +620,28 @@
           </li>
         </ol>
       </nav>
-      <h2><a href="https://neuralnetsandprettypatterns.com/deepdreamstate/" style="color: inherit; text-decoration: none;">Deep Dream State</a></h2>
+      <h2><a href="https://neuralnetsandprettypatterns.com/deepdreamstate/">Deep Dream State</a></h2>
       <p>The flagship work of the Neuralverse. The only active serialized audio drama of its kind on the open web, and the originating work of the desire horror genre.</p>
       <p>Each arc is built around a documented psychological, sociological, or technological phenomenon — facial telemetry, dream linking, behavioral economics — rendered as desire horror and performed by a rotating ensemble cast of voice actors. Arcs to date have spanned cosmic horror, reality television surveillance, dream research, and advertising technology.</p>
-      <p><a href="https://neuralnetsandprettypatterns.com/deepdreamstate/" style="color: var(--accent); text-decoration: none;">Deep Dream State</a> combines full-cast performance, layered soundscapes, Podcasting 2.0 infrastructure, and formal narrative ambition. It explores consciousness, identity, and institutional power through the specific lens of desire. It is not niche content wearing a broad costume. It is genuinely broad work, made independently.</p>
+      <p><a href="https://neuralnetsandprettypatterns.com/deepdreamstate/">Deep Dream State</a> combines full-cast performance, layered soundscapes, Podcasting 2.0 infrastructure, and formal narrative ambition. It explores consciousness, identity, and institutional power through the specific lens of desire. It is not niche content wearing a broad costume. It is genuinely broad work, made independently.</p>
 
       <div class="card">
         <div class="card-meta">Audio Drama — Active Series</div>
-        <h3><a href="https://neuralnetsandprettypatterns.com/deepdreamstate/" style="color: inherit; text-decoration: none;">Deep Dream State</a></h3>
+        <h3><a href="https://neuralnetsandprettypatterns.com/deepdreamstate/">Deep Dream State</a></h3>
         <p>Available on Apple Podcasts, Spotify, and Blubrry. Full-cast. Serialized arcs. Desire horror.</p>
         <div class="card-stat">Available now &nbsp;·&nbsp; deepdreamstate.blubrry.net</div>
       </div>
     </section>
 
+    <div class="nav-buttons bottom-nav">
+      <a class="nav-button" href="https://neuralnetsandprettypatterns.com/neuralpedia/" aria-label="Neuralpedia">NP</a>
+      <a class="nav-button clock" href="https://neuralnetsandprettypatterns.com/neuralpedia/chronology/page-1/" aria-label="Chronological Archive">◷</a>
+      <a class="nav-button" href="https://neuralnetsandprettypatterns.com/deepdreamstate/" aria-label="Deep Dream State">DDS</a>
+    </div>
+
     <footer>
       <div class="isni">ISNI: 0000 0005 2877 6254</div>
-      <p class="footer-note">Official presence. More to follow.</p>
+      <p class="footer-note">Official presence of Neural Nets and Pretty Patterns.</p>
     </footer>
 
   </div>
