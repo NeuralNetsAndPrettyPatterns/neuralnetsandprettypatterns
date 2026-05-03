@@ -203,38 +203,54 @@
     .nav-buttons {
       display: flex;
       justify-content: center;
-      gap: 0.5rem;
-      margin-bottom: 3rem;
+      align-items: center;
+      gap: 0.6rem;
+      margin: 0 0 3rem 0;
+    }
+
+    .nav-buttons.bottom-nav {
+      margin: 2rem 0 2rem 0;
+      padding-top: 0.5rem;
     }
 
     .nav-button {
-      width: 45px; height: 45px;
+      width: 45px;
+      height: 45px;
       border: 2px solid #f0f4ff;
       border-radius: 50%;
       background: transparent;
       color: #f0f4ff;
-      font-size: 1.3rem;
+      font-size: 1.35rem;
       cursor: pointer;
-      display: flex;
+      display: inline-flex;
       justify-content: center;
       align-items: center;
       transition: all 0.3s ease;
       font-family: 'Cormorant Garamond', serif;
       flex-shrink: 0;
       text-decoration: none;
+      line-height: 1;
     }
 
-    .nav-button:hover { background: #f0f4ff; color: #1a0a2e; transform: scale(1.1); }
-    .nav-button.home::before { content: "⌂"; font-size: 1.5rem; }
+    .nav-button:hover {
+      background: #f0f4ff;
+      color: #1a0a2e;
+      transform: scale(1.1);
+    }
 
-    .nav-button.clock::before {
-  content: "◷";
-  font-size: 1.35rem;
-}
-    .bottom-nav {
-  margin-top: 1rem;
-  margin-bottom: 2rem;
-}
+    .inline-clock {
+      width: 31px;
+      height: 31px;
+      border-width: 1.5px;
+      font-size: 1rem;
+      vertical-align: middle;
+      margin: 0 0.4rem;
+      transform: translateY(-0.08rem);
+    }
+
+    .inline-clock:hover {
+      transform: translateY(-0.08rem) scale(1.08);
+    }
 
     .section {
       border-top: 1px solid rgba(240, 244, 255, 0.15);
@@ -274,9 +290,46 @@
       color: #c8d4f0;
       font-size: 1.05rem;
       line-height: 1.8;
+      max-width: 65ch;
+      margin-bottom: 1rem;
     }
 
-    .section ol li { margin-bottom: 0.5rem; }
+    .section ol li {
+      margin-bottom: 0.5rem;
+      padding-left: 0.15rem;
+    }
+
+    .archive-list-item {
+      line-height: 2.2;
+    }
+
+    .section a.catalogue-link {
+      color: #05010a;
+      text-decoration: none;
+      font-weight: 700;
+      -webkit-text-stroke: 0.45px #f0f4ff;
+      text-shadow:
+        1px 0 #f0f4ff,
+        -1px 0 #f0f4ff,
+        0 1px #f0f4ff,
+        0 -1px #f0f4ff;
+    }
+
+    .section a.catalogue-link:hover {
+      color: #f0f4ff;
+      -webkit-text-stroke: 0;
+      text-shadow: none;
+    }
+
+    .section h2 a.catalogue-link {
+      color: #05010a;
+      -webkit-text-stroke: 0.65px #f0f4ff;
+      text-shadow:
+        1px 0 #f0f4ff,
+        -1px 0 #f0f4ff,
+        0 1px #f0f4ff,
+        0 -1px #f0f4ff;
+    }
 
     /* Series grid */
     .series-grid {
@@ -428,11 +481,6 @@
       opacity: 0.7;
     }
 
-      <div class="nav-buttons bottom-nav">
-    <a class="nav-button home" href="https://neuralnetsandprettypatterns.com/" aria-label="Home"></a>
-    <a class="nav-button clock" href="https://neuralnetsandprettypatterns.com/neuralpedia/chronology/page-1/" aria-label="Chronological Archive"></a>
-  </div>
-
     .footer-credit {
       border-top: 1px solid rgba(240, 244, 255, 0.1);
       padding: 2rem 0;
@@ -460,9 +508,9 @@
   <p class="page-subtitle">The Neuralverse — Official Catalogue</p>
 
   <div class="nav-buttons">
-  <a class="nav-button home" href="https://neuralnetsandprettypatterns.com/" aria-label="Home"></a>
-  <a class="nav-button clock" href="https://neuralnetsandprettypatterns.com/neuralpedia/chronology/page-1/" aria-label="Chronological Archive"></a>
-</div>
+    <a class="nav-button home" href="https://neuralnetsandprettypatterns.com/" aria-label="Home">⌂</a>
+    <a class="nav-button clock" href="https://neuralnetsandprettypatterns.com/neuralpedia/chronology/page-1/" aria-label="Chronological Archive">◷</a>
+  </div>
 
   <div class="section">
     <div class="section-label">The Archive</div>
@@ -479,7 +527,12 @@
     <ol>
       <li>A list of series below. Tracks are grouped by theme or setting. Some series are linear narratives. Others share a setting or a recurring element. Each series links to its own page.</li>
       <li>A set of facets. These describe properties of individual tracks — voice, format, haptic integration — rather than narrative groupings.</li>
-      <li><a href="https://neuralnetsandprettypatterns.com/neuralpedia/chronology/page-1/">A chronological archive</a>. The complete track list runs in order of release, 50 tracks per page.</li>
+      <li class="archive-list-item">
+        <a class="nav-button inline-clock" href="https://neuralnetsandprettypatterns.com/neuralpedia/chronology/page-1/" aria-label="Chronological Archive">◷</a>
+        <a class="catalogue-link" href="https://neuralnetsandprettypatterns.com/neuralpedia/chronology/page-1/">A chronological archive</a>. The complete track list runs in order of release, 50 tracks per page.
+        <a class="nav-button inline-clock" href="https://neuralnetsandprettypatterns.com/neuralpedia/chronology/page-1/" aria-label="Chronological Archive">◷</a>
+      </li>
+    </ol>
   </div>
 
   <div class="section">
@@ -584,7 +637,7 @@
 
   <div class="section">
     <div class="section-label">Complete Archive </div>
- <h2><a href="https://neuralnetsandprettypatterns.com/neuralpedia/chronology/page-1/">Chronological Archive</a></h2>
+    <h2><a class="catalogue-link" href="https://neuralnetsandprettypatterns.com/neuralpedia/chronology/page-1/">Chronological Archive</a></h2>
 
     <p>
       Browse the complete Neuralpedia discography in chronological order across 655 original audio works by Neural Nets and Pretty Patterns.
@@ -593,6 +646,11 @@
     <div class="pagination">
       <a href="https://neuralnetsandprettypatterns.com/neuralpedia/chronology/page-1/" style="color: #7eb8c9;">Start with Page 1 of 14: Tracks 1–50 →</a>
     </div>
+  </div>
+
+  <div class="nav-buttons bottom-nav">
+    <a class="nav-button home" href="https://neuralnetsandprettypatterns.com/" aria-label="Home">⌂</a>
+    <a class="nav-button clock" href="https://neuralnetsandprettypatterns.com/neuralpedia/chronology/page-1/" aria-label="Chronological Archive">◷</a>
   </div>
 
   <div class="footer-credit">
