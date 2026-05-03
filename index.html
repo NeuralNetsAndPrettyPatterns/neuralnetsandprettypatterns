@@ -272,6 +272,11 @@
       margin: 0 0 1rem 0;
     }
 
+    .nav-buttons.bottom-nav {
+      padding: 0;
+      margin: 2rem 0 2rem 0;
+    }
+
     .nav-button {
       width: 45px;
       height: 45px;
@@ -292,10 +297,44 @@
       line-height: 1;
     }
 
+    .nav-button.clock {
+      font-family: var(--serif);
+      font-size: 1.35rem;
+      letter-spacing: 0;
+    }
+
     .nav-button:hover {
       background: var(--text-bright);
       color: var(--violet-deep);
       transform: scale(1.1);
+    }
+
+    .inline-archive-link {
+      display: flex;
+      align-items: center;
+      gap: 0.6rem;
+      margin: 1.3rem 0 0;
+      max-width: 65ch;
+      color: var(--text);
+      font-size: 1.05rem;
+    }
+
+    .inline-archive-link .nav-button {
+      width: 31px;
+      height: 31px;
+      border-width: 1.5px;
+      font-size: 1rem;
+      margin: 0;
+    }
+
+    .inline-archive-link a.archive-text-link {
+      color: var(--accent);
+      text-decoration: none;
+      transition: color 0.25s ease;
+    }
+
+    .inline-archive-link a.archive-text-link:hover {
+      color: var(--text-bright);
     }
 
     section {
@@ -499,6 +538,10 @@
       h1 {
         white-space: normal;
       }
+
+      .inline-archive-link {
+        flex-wrap: wrap;
+      }
     }
 
     @media (max-width: 600px) {
@@ -531,6 +574,7 @@
 
     <div class="nav-buttons">
       <a class="nav-button" href="https://neuralnetsandprettypatterns.com/neuralpedia/" aria-label="Neuralpedia">NP</a>
+      <a class="nav-button clock" href="https://neuralnetsandprettypatterns.com/neuralpedia/chronology/page-1/" aria-label="Chronological Archive">◷</a>
       <a class="nav-button" href="https://neuralnetsandprettypatterns.com/deepdreamstate/" aria-label="Deep Dream State">DDS</a>
     </div>
 
@@ -546,6 +590,12 @@
       <div class="section-label">Catalogue</div>
       <h2><a href="https://neuralnetsandprettypatterns.com/neuralpedia/">The Neuralverse</a></h2>
       <p>More than 750 original productions, unified by a consistent interest in consciousness, identity, and the architecture of desire. No direct equivalent exists in independent audio production at this scale or consistency.</p>
+
+      <div class="inline-archive-link">
+        <a class="nav-button clock" href="https://neuralnetsandprettypatterns.com/neuralpedia/chronology/page-1/" aria-label="Chronological Archive">◷</a>
+        <a class="archive-text-link" href="https://neuralnetsandprettypatterns.com/neuralpedia/chronology/page-1/">You can browse the series chronologically.</a>
+        <a class="nav-button clock" href="https://neuralnetsandprettypatterns.com/neuralpedia/chronology/page-1/" aria-label="Chronological Archive">◷</a>
+      </div>
 
       <div class="card">
         <div class="card-meta">Catalogue — Ongoing</div>
@@ -583,6 +633,12 @@
       </div>
     </section>
 
+    <div class="nav-buttons bottom-nav">
+      <a class="nav-button" href="https://neuralnetsandprettypatterns.com/neuralpedia/" aria-label="Neuralpedia">NP</a>
+      <a class="nav-button clock" href="https://neuralnetsandprettypatterns.com/neuralpedia/chronology/page-1/" aria-label="Chronological Archive">◷</a>
+      <a class="nav-button" href="https://neuralnetsandprettypatterns.com/deepdreamstate/" aria-label="Deep Dream State">DDS</a>
+    </div>
+
     <footer>
       <div class="isni">ISNI: 0000 0005 2877 6254</div>
       <p class="footer-note">Official presence of Neural Nets and Pretty Patterns.</p>
@@ -591,4 +647,3 @@
   </div>
 </body>
 </html>
-
