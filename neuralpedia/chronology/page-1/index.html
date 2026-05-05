@@ -33,30 +33,59 @@
 
   <!-- Breadcrumb -->
   <script type="application/ld+json">
-  {
-    "@context": "https://schema.org",
-    "@type": "BreadcrumbList",
-    "itemListElement": [
-      {"@type":"ListItem","position":1,"name":"Neural Nets and Pretty Patterns","item":"https://neuralnetsandprettypatterns.com/"},
-      {"@type":"ListItem","position":2,"name":"Neuralpedia","item":"https://neuralnetsandprettypatterns.com/neuralpedia/"},
-      {"@type":"ListItem","position":3,"name":"Chronology","item":"https://neuralnetsandprettypatterns.com/neuralpedia/chronology/page-1/"},
-      {"@type":"ListItem","position":4,"name":"Page 1","item":"https://neuralnetsandprettypatterns.com/neuralpedia/chronology/page-1/"}
-    ]
-  }
-  </script>
+{
+  "@context": "https://schema.org",
+  "@type": "BreadcrumbList",
+  "itemListElement": [
+    {
+      "@type": "ListItem",
+      "position": 1,
+      "name": "Neural Nets and Pretty Patterns",
+      "item": "https://neuralnetsandprettypatterns.com/"
+    },
+    {
+      "@type": "ListItem",
+      "position": 2,
+      "name": "Neuralpedia",
+      "item": "https://neuralnetsandprettypatterns.com/neuralpedia/"
+    },
+    {
+      "@type": "ListItem",
+      "position": 3,
+      "name": "Chronology",
+      "item": "https://neuralnetsandprettypatterns.com/neuralpedia/chronology/page-1/"
+    },
+    {
+      "@type": "ListItem",
+      "position": 4,
+      "name": "Page 1",
+      "item": "https://neuralnetsandprettypatterns.com/neuralpedia/chronology/page-1/"
+    }
+  ]
+}
+</script>
 
   <!-- MusicArtist entity reference — reinforces music identity with key platform sameAs -->
   <script type="application/ld+json">
 {
   "@context": "https://schema.org",
-  "@type": ["Person", "MusicArtist"],
+  "@type": "Person",
   "@id": "https://neuralnetsandprettypatterns.com/#identity",
   "name": "Neural Nets and Pretty Patterns",
-  "alternateName": ["NNPP", "Neural Nets", "Mind Erasure"],
-  "description": "Creator of the Neuralverse and the Desire Horror genre. Formerly known as Mind Erasure.",
-  "disambiguatingDescription": "Neural Nets and Pretty Patterns is an independent US-based writer, performer, and audio producer. Mind Erasure is the verified creative pseudonym for Neural Nets and Pretty Patterns (ISNI: 0000 0005 2877 6254). This entity is distinct from any other artist or project using similar names.",
+  "alternateName": [
+    "NNPP",
+    "Neural Nets",
+    "Mind Erasure",
+    "Neural Nets & Pretty Patterns"
+  ],
+  "additionalType": [
+    "https://schema.org/Author",
+    "https://schema.org/PerformingArtist"
+  ],
+  "disambiguatingDescription": "Neural Nets and Pretty Patterns is an independent US-based writer, performer, and audio producer. Mind Erasure is the verified creative pseudonym for Neural Nets and Pretty Patterns (ISNI: 0000 0005 2877 6254). Creator associated with the Desire Horror genre. This entity is distinct from any other artist or project using similar names.",
   "url": "https://neuralnetsandprettypatterns.com/",
   "sameAs": [
+    "https://neuralnets.carrd.co/",
     "https://isni.org/isni/0000000528776254",
     "https://www.imdb.com/name/nm17755189/",
     "https://musicbrainz.org/artist/134bc2e9-16e4-4b1e-b779-b9024f002882",
@@ -65,95 +94,903 @@
     "https://music.apple.com/us/artist/neural-nets/1570376584",
     "https://www.patreon.com/minderaser",
     "https://x.com/MCNeuralNets",
-    "https://neuralnets.carrd.co/",
     "https://soundgasm.net/u/NeuralNets",
     "https://deepdreamstate.blubrry.net/neural-nets-and-pretty-patterns/",
-    "https://neuralnetsandprettypatterns.github.io/deepdreamstate/"
+    "https://neuralnetsandprettypatterns.github.io/deepdreamstate/",
+    "https://www.theend.fyi/creative/neural-nets-and-pretty-patterns",
+    "https://tvtropes.org/pmwiki/pmwiki.php/Podcast/DeepDreamState"
   ],
   "identifier": [
-    {"@type":"PropertyValue","propertyID":"ISNI","value":"0000 0005 2877 6254"},
-    {"@type":"PropertyValue","propertyID":"KG ID","value":"kg:/g/11zjw94pww"}
-  ],
-  "genre": ["Desire Horror","Immersive Audio","Electronic Music","Haptic Narrative","Audio Drama","Speculative Fiction"]
+    {
+      "@type": "PropertyValue",
+      "propertyID": "ISNI",
+      "value": "0000 0005 2877 6254"
+    },
+    {
+      "@type": "PropertyValue",
+      "propertyID": "KG ID",
+      "value": "kg:/g/11zjw94pww"
+    }
+  ]
 }
 </script>
 
   <!-- CollectionPage + ItemList with byArtist on all applicable tracks -->
   <script type="application/ld+json">
-  {
-    "@context": "https://schema.org",
-    "@type": "CollectionPage",
-    "@id": "https://neuralnetsandprettypatterns.com/neuralpedia/chronology/page-1/",
-    "name": "Neuralverse Chronology — Page 1 of 14",
-    "description": "Chronological archive of Neuralverse productions, tracks 1–50 of 655. April 2017 – June 2018.",
-    "url": "https://neuralnetsandprettypatterns.com/neuralpedia/chronology/page-1/",
-    "isPartOf": {
-      "@type": "CreativeWork",
-      "@id": "https://neuralnetsandprettypatterns.com/#neuralverse"
-    },
-    "author": {
-      "@type": "MusicArtist",
-      "@id": "https://neuralnetsandprettypatterns.com/#identity"
-    },
-    "mainEntity": {
-      "@type": "ItemList",
-      "numberOfItems": 50,
-      "itemListOrder": "https://schema.org/ItemListOrderAscending",
-      "itemListElement": [
-        {"@type":"ListItem","position":1,"item":{"@type":"AudioObject","@id":"https://neuralnetsandprettypatterns.com/neuralpedia/#2EFA06T","name":"Obedience School","datePublished":"2017-04-27","duration":"PT09M22S","genre":["Narrative","Mantric"],"url":"https://www.patreon.com/posts/obedience-school-9387881","byArtist":{"@type":"MusicArtist","@id":"https://neuralnetsandprettypatterns.com/#identity"},"creator":{"@type":"MusicArtist","@id":"https://neuralnetsandprettypatterns.com/#identity"}}},
-        {"@type":"ListItem","position":2,"item":{"@type":"AudioObject","@id":"https://neuralnetsandprettypatterns.com/neuralpedia/#QJ0SSD3","name":"Domesticate","datePublished":"2017-04-29","duration":"PT10M30S","genre":["Mantric","Narrative"],"url":"https://www.patreon.com/posts/domesticate-9264399","sameAs":["https://soundgasm.net/u/NeuralNets/Domesticate"],"byArtist":{"@type":"MusicArtist","@id":"https://neuralnetsandprettypatterns.com/#identity"},"creator":{"@type":"MusicArtist","@id":"https://neuralnetsandprettypatterns.com/#identity"}}},
-        {"@type":"ListItem","position":3,"item":{"@type":"MusicRecording","@id":"https://neuralnetsandprettypatterns.com/neuralpedia/#KOU5ARK","name":"Display Loop","datePublished":"2017-05-23","duration":"PT09M30S","genre":["Music","Mantric"],"url":"https://www.patreon.com/posts/display-loop-11317620","sameAs":["https://soundgasm.net/u/NeuralNets/Display-Loop"],"byArtist":{"@type":"MusicArtist","@id":"https://neuralnetsandprettypatterns.com/#identity"},"creator":{"@type":"MusicArtist","@id":"https://neuralnetsandprettypatterns.com/#identity"}}},
-        {"@type":"ListItem","position":4,"item":{"@type":"AudioObject","@id":"https://neuralnetsandprettypatterns.com/neuralpedia/#T7JSDXW","name":"Smoked Stupid","datePublished":"2017-05-23","duration":"PT05M07S","genre":["Narrative","Mantric"],"url":"https://www.patreon.com/posts/smoked-stupid-11327128","sameAs":["https://soundgasm.net/u/NeuralNets/Smoked-Stupid"],"byArtist":{"@type":"MusicArtist","@id":"https://neuralnetsandprettypatterns.com/#identity"},"creator":{"@type":"MusicArtist","@id":"https://neuralnetsandprettypatterns.com/#identity"}}},
-        {"@type":"ListItem","position":5,"item":{"@type":"AudioObject","@id":"https://neuralnetsandprettypatterns.com/neuralpedia/#6R6EGM6","name":"Pulse Addict","datePublished":"2017-06-01","duration":"PT03M11S","genre":["Narrative","Mantric"],"url":"https://www.patreon.com/posts/pulse-addict-11526274","byArtist":{"@type":"MusicArtist","@id":"https://neuralnetsandprettypatterns.com/#identity"},"creator":{"@type":"MusicArtist","@id":"https://neuralnetsandprettypatterns.com/#identity"}}},
-        {"@type":"ListItem","position":6,"item":{"@type":"AudioObject","@id":"https://neuralnetsandprettypatterns.com/neuralpedia/#2OXQX16","name":"Neural Home","datePublished":"2017-06-06","duration":"PT03M32S","genre":["Narrative","Mantric"],"url":"https://www.patreon.com/posts/hypno-house-part-11605208","byArtist":{"@type":"MusicArtist","@id":"https://neuralnetsandprettypatterns.com/#identity"},"creator":{"@type":"MusicArtist","@id":"https://neuralnetsandprettypatterns.com/#identity"}}},
-        {"@type":"ListItem","position":7,"item":{"@type":"AudioObject","@id":"https://neuralnetsandprettypatterns.com/neuralpedia/#EA11SJ8","name":"Neural Homemaker","datePublished":"2017-06-12","duration":"PT02M54S","genre":["Narrative","Mantric"],"url":"https://www.patreon.com/posts/hypnohouse-mommy-11701570","byArtist":{"@type":"MusicArtist","@id":"https://neuralnetsandprettypatterns.com/#identity"},"creator":{"@type":"MusicArtist","@id":"https://neuralnetsandprettypatterns.com/#identity"}}},
-        {"@type":"ListItem","position":8,"item":{"@type":"MusicRecording","@id":"https://neuralnetsandprettypatterns.com/neuralpedia/#MVJLAVQ","name":"Ecstasy","datePublished":"2017-06-16","duration":"PT05M21S","genre":["Music"],"url":"https://www.patreon.com/posts/ecstasy-slut-11763218","sameAs":["https://soundgasm.net/u/NeuralNets/Ecstasy-Slut"],"byArtist":{"@type":"MusicArtist","@id":"https://neuralnetsandprettypatterns.com/#identity"},"creator":{"@type":"MusicArtist","@id":"https://neuralnetsandprettypatterns.com/#identity"}}},
-        {"@type":"ListItem","position":9,"item":{"@type":"AudioObject","@id":"https://neuralnetsandprettypatterns.com/neuralpedia/#5JP1JJ0","name":"Neural House Silli Staci","datePublished":"2017-06-17","duration":"PT02M52S","genre":["Narrative","Mantric"],"url":"https://www.patreon.com/posts/hypno-house-11780234","byArtist":{"@type":"MusicArtist","@id":"https://neuralnetsandprettypatterns.com/#identity"},"creator":{"@type":"MusicArtist","@id":"https://neuralnetsandprettypatterns.com/#identity"}}},
-        {"@type":"ListItem","position":10,"item":{"@type":"MusicRecording","@id":"https://neuralnetsandprettypatterns.com/neuralpedia/#I0EE7SZ","name":"Lullabrain","datePublished":"2017-06-23","duration":"PT09M13S","genre":["Music","Mantric"],"url":"https://www.patreon.com/posts/lullabrain-11975646","sameAs":["https://soundgasm.net/u/NeuralNets/Lullabrain"],"byArtist":{"@type":"MusicArtist","@id":"https://neuralnetsandprettypatterns.com/#identity"},"creator":{"@type":"MusicArtist","@id":"https://neuralnetsandprettypatterns.com/#identity"}}},
-        {"@type":"ListItem","position":11,"item":{"@type":"MusicRecording","@id":"https://neuralnetsandprettypatterns.com/neuralpedia/#8EFPRUE","name":"Lollipop","datePublished":"2017-07-11","duration":"PT03M54S","genre":["Music","Mantric"],"url":"https://www.patreon.com/posts/lollipop-suck-im-12893795","sameAs":["https://soundgasm.net/u/NeuralNets/Lollipop"],"byArtist":{"@type":"MusicArtist","@id":"https://neuralnetsandprettypatterns.com/#identity"},"creator":{"@type":"MusicArtist","@id":"https://neuralnetsandprettypatterns.com/#identity"}}},
-        {"@type":"ListItem","position":12,"item":{"@type":"MusicRecording","@id":"https://neuralnetsandprettypatterns.com/neuralpedia/#WQ64EJ9","name":"Alphabimbo","datePublished":"2017-12-05","duration":"PT04M04S","genre":["Music","Mantric"],"url":"https://www.patreon.com/posts/alphabimbo-15734195","sameAs":["https://soundgasm.net/u/NeuralNets/Alphabimbo","https://musicbrainz.org/recording/74868f40-fb2e-4407-bed9-871f7fcc26ef"],"byArtist":{"@type":"MusicArtist","@id":"https://neuralnetsandprettypatterns.com/#identity"},"creator":{"@type":"MusicArtist","@id":"https://neuralnetsandprettypatterns.com/#identity"}}},
-        {"@type":"ListItem","position":13,"item":{"@type":"AudioObject","@id":"https://neuralnetsandprettypatterns.com/neuralpedia/#96YPVAE","name":"Home is Where the Dream Is","datePublished":"2017-12-07","duration":"PT05M15S","genre":["Narrative","Mantric"],"url":"https://www.patreon.com/posts/home-is-where-is-16140906","byArtist":{"@type":"MusicArtist","@id":"https://neuralnetsandprettypatterns.com/#identity"},"creator":{"@type":"MusicArtist","@id":"https://neuralnetsandprettypatterns.com/#identity"}}},
-        {"@type":"ListItem","position":14,"item":{"@type":"AudioObject","@id":"https://neuralnetsandprettypatterns.com/neuralpedia/#MKU3GNQ","name":"Truck Stop","datePublished":"2017-12-18","duration":"PT01M56S","genre":["Narrative","Mantric"],"url":"https://www.patreon.com/posts/truck-stop-15952243","byArtist":{"@type":"MusicArtist","@id":"https://neuralnetsandprettypatterns.com/#identity"},"creator":{"@type":"MusicArtist","@id":"https://neuralnetsandprettypatterns.com/#identity"}}},
-        {"@type":"ListItem","position":15,"item":{"@type":"AudioObject","@id":"https://neuralnetsandprettypatterns.com/neuralpedia/#3P3RQ5H","name":"Mind Eraser 2","datePublished":"2017-12-20","duration":"PT06M40S","genre":["Narrative","Mantric"],"url":"https://www.patreon.com/posts/mind-eraser-2-15974305","byArtist":{"@type":"MusicArtist","@id":"https://neuralnetsandprettypatterns.com/#identity"},"creator":{"@type":"MusicArtist","@id":"https://neuralnetsandprettypatterns.com/#identity"}}},
-        {"@type":"ListItem","position":16,"item":{"@type":"AudioObject","@id":"https://neuralnetsandprettypatterns.com/neuralpedia/#FPGYZNE","name":"Slave Circuit","datePublished":"2017-12-20","duration":"PT08M29S","genre":["Narrative","Mantric"],"url":"https://www.patreon.com/posts/slave-circuit-16016762","byArtist":{"@type":"MusicArtist","@id":"https://neuralnetsandprettypatterns.com/#identity"},"creator":{"@type":"MusicArtist","@id":"https://neuralnetsandprettypatterns.com/#identity"}}},
-        {"@type":"ListItem","position":17,"item":{"@type":"MusicRecording","@id":"https://neuralnetsandprettypatterns.com/neuralpedia/#R8WM633","name":"Traitor","datePublished":"2017-12-24","duration":"PT14M44S","genre":["Narrative","Music"],"url":"https://www.patreon.com/posts/traitor-16038239","sameAs":["https://soundgasm.net/u/NeuralNets/Traitor"],"byArtist":{"@type":"MusicArtist","@id":"https://neuralnetsandprettypatterns.com/#identity"},"creator":{"@type":"MusicArtist","@id":"https://neuralnetsandprettypatterns.com/#identity"}}},
-        {"@type":"ListItem","position":18,"item":{"@type":"AudioObject","@id":"https://neuralnetsandprettypatterns.com/neuralpedia/#CK659T1","name":"Countdown to Puppettime","datePublished":"2017-12-28","duration":"PT12M59S","genre":["Narrative","Mantric"],"url":"https://www.patreon.com/posts/countdown-16106261","byArtist":{"@type":"MusicArtist","@id":"https://neuralnetsandprettypatterns.com/#identity"},"creator":{"@type":"MusicArtist","@id":"https://neuralnetsandprettypatterns.com/#identity"}}},
-        {"@type":"ListItem","position":19,"item":{"@type":"MusicRecording","@id":"https://neuralnetsandprettypatterns.com/neuralpedia/#VCWJG50","name":"F and S and Cook and Clean","datePublished":"2018-01-03","duration":"PT04M58S","genre":["Music","Mantric"],"url":"https://www.patreon.com/posts/fuck-and-suck-16204954","byArtist":{"@type":"MusicArtist","@id":"https://neuralnetsandprettypatterns.com/#identity"},"creator":{"@type":"MusicArtist","@id":"https://neuralnetsandprettypatterns.com/#identity"}}},
-        {"@type":"ListItem","position":20,"item":{"@type":"AudioObject","@id":"https://neuralnetsandprettypatterns.com/neuralpedia/#IC6NB6F","name":"Warm Wet Waves","datePublished":"2018-01-10","duration":"PT15M52S","genre":["Mantric","Narrative"],"url":"https://www.patreon.com/posts/mermaid-warm-wet-16326411","sameAs":["https://soundgasm.net/u/NeuralNets/Warm-Wet-Waves","https://open.spotify.com/track/4Su2mDuKdP5aSdumyuYNX2","https://musicbrainz.org/recording/9f90f4af-4824-44fc-a616-42861229843d"],"byArtist":{"@type":"MusicArtist","@id":"https://neuralnetsandprettypatterns.com/#identity"},"creator":{"@type":"MusicArtist","@id":"https://neuralnetsandprettypatterns.com/#identity"}}},
-        {"@type":"ListItem","position":21,"item":{"@type":"AudioObject","@id":"https://neuralnetsandprettypatterns.com/neuralpedia/#8CUX2V7","name":"Mind Eraser Zero","datePublished":"2018-01-19","duration":"PT24M25S","genre":["Narrative","Mantric"],"url":"https://www.patreon.com/posts/mind-eraser-zero-16487977","sameAs":["https://soundgasm.net/u/NeuralNets/Mind-Eraser-Zero"],"byArtist":{"@type":"MusicArtist","@id":"https://neuralnetsandprettypatterns.com/#identity"},"creator":{"@type":"MusicArtist","@id":"https://neuralnetsandprettypatterns.com/#identity"}}},
-        {"@type":"ListItem","position":22,"item":{"@type":"AudioObject","@id":"https://neuralnetsandprettypatterns.com/neuralpedia/#8J0KNE4","name":"Airhead Remix","datePublished":"2018-01-23","duration":"PT07M51S","genre":["Mantric"],"url":"https://www.patreon.com/posts/airhead-remix-16560915","sameAs":["https://musicbrainz.org/recording/2c608049-9823-40c2-a937-f0781577498f"],"byArtist":{"@type":"MusicArtist","@id":"https://neuralnetsandprettypatterns.com/#identity"},"creator":{"@type":"MusicArtist","@id":"https://neuralnetsandprettypatterns.com/#identity"}}},
-        {"@type":"ListItem","position":23,"item":{"@type":"MusicRecording","@id":"https://neuralnetsandprettypatterns.com/neuralpedia/#O461FKP","name":"Girls Gone Stoopid","datePublished":"2018-01-23","duration":"PT04M48S","genre":["Music","Mantric"],"url":"https://www.patreon.com/posts/girls-gone-16560816","byArtist":{"@type":"MusicArtist","@id":"https://neuralnetsandprettypatterns.com/#identity"},"creator":{"@type":"MusicArtist","@id":"https://neuralnetsandprettypatterns.com/#identity"}}},
-        {"@type":"ListItem","position":24,"item":{"@type":"AudioObject","@id":"https://neuralnetsandprettypatterns.com/neuralpedia/#ZEBNV0F","name":"Mist","datePublished":"2018-01-23","duration":"PT06M22S","genre":["Narrative","Mantric"],"url":"https://www.patreon.com/posts/daily-drop-mist-16560720","byArtist":{"@type":"MusicArtist","@id":"https://neuralnetsandprettypatterns.com/#identity"},"creator":{"@type":"MusicArtist","@id":"https://neuralnetsandprettypatterns.com/#identity"}}},
-        {"@type":"ListItem","position":25,"item":{"@type":"AudioObject","@id":"https://neuralnetsandprettypatterns.com/neuralpedia/#WI3VM7U","name":"Your Head Gets Dumb","datePublished":"2018-01-23","duration":"PT12M31S","genre":["Mantric"],"url":"https://www.patreon.com/posts/your-head-gets-16561105","byArtist":{"@type":"MusicArtist","@id":"https://neuralnetsandprettypatterns.com/#identity"},"creator":{"@type":"MusicArtist","@id":"https://neuralnetsandprettypatterns.com/#identity"}}},
-        {"@type":"ListItem","position":26,"item":{"@type":"AudioObject","@id":"https://neuralnetsandprettypatterns.com/neuralpedia/#239OPMZ","name":"Mind Erased","datePublished":"2018-01-24","duration":"PT01M20S","genre":["Narrative","Mantric"],"url":"https://www.patreon.com/posts/mind-erased-16585657","byArtist":{"@type":"MusicArtist","@id":"https://neuralnetsandprettypatterns.com/#identity"},"creator":{"@type":"MusicArtist","@id":"https://neuralnetsandprettypatterns.com/#identity"}}},
-        {"@type":"ListItem","position":27,"item":{"@type":"AudioObject","@id":"https://neuralnetsandprettypatterns.com/neuralpedia/#I907I18","name":"Bounce","datePublished":"2018-01-27","duration":"PT12M07S","genre":["Mantric"],"url":"https://www.patreon.com/posts/bounce-16643761","sameAs":["https://soundgasm.net/u/NeuralNets/Bounce"],"byArtist":{"@type":"MusicArtist","@id":"https://neuralnetsandprettypatterns.com/#identity"},"creator":{"@type":"MusicArtist","@id":"https://neuralnetsandprettypatterns.com/#identity"}}},
-        {"@type":"ListItem","position":28,"item":{"@type":"AudioObject","@id":"https://neuralnetsandprettypatterns.com/neuralpedia/#DZ4HDSN","name":"Stroke","datePublished":"2018-01-29","duration":"PT16M16S","genre":["Narrative","Mantric"],"url":"https://www.patreon.com/posts/stroke-16681285","sameAs":["https://soundgasm.net/u/NeuralNets/Stroke"],"byArtist":{"@type":"MusicArtist","@id":"https://neuralnetsandprettypatterns.com/#identity"},"creator":{"@type":"MusicArtist","@id":"https://neuralnetsandprettypatterns.com/#identity"}}},
-        {"@type":"ListItem","position":29,"item":{"@type":"AudioObject","@id":"https://neuralnetsandprettypatterns.com/neuralpedia/#7R3EG04","name":"Dreamdomme Tease","datePublished":"2018-01-31","duration":"PT03M10S","genre":["Mantric","Narrative"],"url":"https://www.patreon.com/posts/dream-domme-16713722","byArtist":{"@type":"MusicArtist","@id":"https://neuralnetsandprettypatterns.com/#identity"},"creator":{"@type":"MusicArtist","@id":"https://neuralnetsandprettypatterns.com/#identity"}}},
-        {"@type":"ListItem","position":30,"item":{"@type":"AudioObject","@id":"https://neuralnetsandprettypatterns.com/neuralpedia/#22DYX35","name":"Domme Drop","datePublished":"2018-02-03","duration":"PT10M35S","genre":["Mantric","Narrative"],"url":"https://www.patreon.com/posts/domme-drop-16792156","byArtist":{"@type":"MusicArtist","@id":"https://neuralnetsandprettypatterns.com/#identity"},"creator":{"@type":"MusicArtist","@id":"https://neuralnetsandprettypatterns.com/#identity"}}},
-        {"@type":"ListItem","position":31,"item":{"@type":"AudioObject","@id":"https://neuralnetsandprettypatterns.com/neuralpedia/#YRW3961","name":"Mouth","datePublished":"2018-02-06","duration":"PT14M28S","genre":["Narrative"],"url":"https://www.patreon.com/posts/mouth-16840762","sameAs":["https://soundgasm.net/u/NeuralNets/Mouth"],"byArtist":{"@type":"MusicArtist","@id":"https://neuralnetsandprettypatterns.com/#identity"},"creator":{"@type":"MusicArtist","@id":"https://neuralnetsandprettypatterns.com/#identity"}}},
-        {"@type":"ListItem","position":32,"item":{"@type":"MusicRecording","@id":"https://neuralnetsandprettypatterns.com/neuralpedia/#1BMKU64","name":"PomPom","datePublished":"2018-02-14","duration":"PT07M36S","genre":["Music","Mantric"],"url":"https://www.patreon.com/posts/pompom-16998528","sameAs":["https://soundgasm.net/u/NeuralNets/Pom-Poms"],"byArtist":{"@type":"MusicArtist","@id":"https://neuralnetsandprettypatterns.com/#identity"},"creator":{"@type":"MusicArtist","@id":"https://neuralnetsandprettypatterns.com/#identity"}}},
-        {"@type":"ListItem","position":33,"item":{"@type":"AudioObject","@id":"https://neuralnetsandprettypatterns.com/neuralpedia/#YZQQZC8","name":"Puddles PomPoms","datePublished":"2018-02-16","duration":"PT07M11S","genre":["Mantric"],"url":"https://www.patreon.com/posts/puddles-pompoms-17042318","byArtist":{"@type":"MusicArtist","@id":"https://neuralnetsandprettypatterns.com/#identity"},"creator":{"@type":"MusicArtist","@id":"https://neuralnetsandprettypatterns.com/#identity"}}},
-        {"@type":"ListItem","position":34,"item":{"@type":"AudioObject","@id":"https://neuralnetsandprettypatterns.com/neuralpedia/#6K51338","name":"Spirit","datePublished":"2018-02-16","duration":"PT09M21S","genre":["Mantric"],"url":"https://www.patreon.com/posts/spirit-17031461","byArtist":{"@type":"MusicArtist","@id":"https://neuralnetsandprettypatterns.com/#identity"},"creator":{"@type":"MusicArtist","@id":"https://neuralnetsandprettypatterns.com/#identity"}}},
-        {"@type":"ListItem","position":35,"item":{"@type":"AudioObject","@id":"https://neuralnetsandprettypatterns.com/neuralpedia/#44GBVOQ","name":"Sky","datePublished":"2018-02-18","duration":"PT05M14S","genre":["Narrative","Mantric"],"url":"https://www.patreon.com/posts/sky-17071817","sameAs":["https://soundgasm.net/u/NeuralNets/Sky"],"byArtist":{"@type":"MusicArtist","@id":"https://neuralnetsandprettypatterns.com/#identity"},"creator":{"@type":"MusicArtist","@id":"https://neuralnetsandprettypatterns.com/#identity"}}},
-        {"@type":"ListItem","position":36,"item":{"@type":"AudioObject","@id":"https://neuralnetsandprettypatterns.com/neuralpedia/#0C9XTL4","name":"Feathered Strokemix","datePublished":"2018-03-10","duration":"PT19M56S","genre":["Narrative","Mantric"],"url":"https://www.patreon.com/posts/feather-boys-24799403","byArtist":{"@type":"MusicArtist","@id":"https://neuralnetsandprettypatterns.com/#identity"},"creator":{"@type":"MusicArtist","@id":"https://neuralnetsandprettypatterns.com/#identity"}}},
-        {"@type":"ListItem","position":37,"item":{"@type":"MusicRecording","@id":"https://neuralnetsandprettypatterns.com/neuralpedia/#RYQVRQD","name":"Alphabimbo Flower","datePublished":"2018-03-16","duration":"PT03M43S","genre":["Music","Mantric"],"url":"https://www.patreon.com/posts/alphabimbo-obeys-17600715","byArtist":{"@type":"MusicArtist","@id":"https://neuralnetsandprettypatterns.com/#identity"},"creator":{"@type":"MusicArtist","@id":"https://neuralnetsandprettypatterns.com/#identity"}}},
-        {"@type":"ListItem","position":38,"item":{"@type":"MusicRecording","@id":"https://neuralnetsandprettypatterns.com/neuralpedia/#BVDKE73","name":"Heal Sloots are Real Sloots","datePublished":"2018-03-16","duration":"PT07M33S","genre":["Music","Mantric"],"url":"https://www.patreon.com/posts/heal-sluts-are-17600379","sameAs":["https://soundgasm.net/u/NeuralNets/Sloot"],"byArtist":{"@type":"MusicArtist","@id":"https://neuralnetsandprettypatterns.com/#identity"},"creator":{"@type":"MusicArtist","@id":"https://neuralnetsandprettypatterns.com/#identity"}}},
-        {"@type":"ListItem","position":39,"item":{"@type":"AudioObject","@id":"https://neuralnetsandprettypatterns.com/neuralpedia/#WWNC2WZ","name":"Feathered Rubmix","datePublished":"2018-03-17","duration":"PT26M42S","genre":["Narrative","Mantric"],"url":"https://www.patreon.com/posts/feather-girls-24799498","byArtist":{"@type":"MusicArtist","@id":"https://neuralnetsandprettypatterns.com/#identity"},"creator":{"@type":"MusicArtist","@id":"https://neuralnetsandprettypatterns.com/#identity"}}},
-        {"@type":"ListItem","position":40,"item":{"@type":"AudioObject","@id":"https://neuralnetsandprettypatterns.com/neuralpedia/#VL17VXH","name":"Pink Pulse","datePublished":"2018-03-25","duration":"PT21M00S","genre":["Narrative","Mantric"],"url":"https://www.patreon.com/posts/pink-pulse-17756947","byArtist":{"@type":"MusicArtist","@id":"https://neuralnetsandprettypatterns.com/#identity"},"creator":{"@type":"MusicArtist","@id":"https://neuralnetsandprettypatterns.com/#identity"}}},
-        {"@type":"ListItem","position":41,"item":{"@type":"AudioObject","@id":"https://neuralnetsandprettypatterns.com/neuralpedia/#J6YLMG0","name":"Melting Mind","datePublished":"2018-03-31","duration":"PT08M15S","genre":["Mantric"],"url":"https://www.patreon.com/posts/dumb-bell-2-17897424","byArtist":{"@type":"MusicArtist","@id":"https://neuralnetsandprettypatterns.com/#identity"},"creator":{"@type":"MusicArtist","@id":"https://neuralnetsandprettypatterns.com/#identity"}}},
-        {"@type":"ListItem","position":42,"item":{"@type":"AudioObject","@id":"https://neuralnetsandprettypatterns.com/neuralpedia/#YMIGWPU","name":"Mindlessfullness","datePublished":"2018-03-31","duration":"PT13M06S","genre":["Mantric"],"url":"https://www.patreon.com/posts/dumb-bell-17897370","byArtist":{"@type":"MusicArtist","@id":"https://neuralnetsandprettypatterns.com/#identity"},"creator":{"@type":"MusicArtist","@id":"https://neuralnetsandprettypatterns.com/#identity"}}},
-        {"@type":"ListItem","position":43,"item":{"@type":"AudioObject","@id":"https://neuralnetsandprettypatterns.com/neuralpedia/#4XGKSM6","name":"Clone","datePublished":"2018-04-07","duration":"PT10M31S","genre":["Narrative","Audio Drama"],"url":"https://www.patreon.com/posts/clone-18044320","sameAs":["https://soundgasm.net/u/NeuralNets/Clone"],"byArtist":{"@type":"MusicArtist","@id":"https://neuralnetsandprettypatterns.com/#identity"},"creator":{"@type":"MusicArtist","@id":"https://neuralnetsandprettypatterns.com/#identity"}}},
-        {"@type":"ListItem","position":44,"item":{"@type":"AudioObject","@id":"https://neuralnetsandprettypatterns.com/neuralpedia/#32OHQZQ","name":"Mouth Mind","datePublished":"2018-04-14","duration":"PT05M51S","genre":["Mantric"],"url":"https://www.patreon.com/posts/mouth-mind-18172197","byArtist":{"@type":"MusicArtist","@id":"https://neuralnetsandprettypatterns.com/#identity"},"creator":{"@type":"MusicArtist","@id":"https://neuralnetsandprettypatterns.com/#identity"}}},
-        {"@type":"ListItem","position":45,"item":{"@type":"MusicRecording","@id":"https://neuralnetsandprettypatterns.com/neuralpedia/#QWSPSUC","name":"Mind Popping","datePublished":"2018-04-16","duration":"PT03M10S","genre":["Music","Mantric"],"url":"https://www.patreon.com/posts/mind-popping-18218188","byArtist":{"@type":"MusicArtist","@id":"https://neuralnetsandprettypatterns.com/#identity"},"creator":{"@type":"MusicArtist","@id":"https://neuralnetsandprettypatterns.com/#identity"}}},
-        {"@type":"ListItem","position":46,"item":{"@type":"AudioObject","@id":"https://neuralnetsandprettypatterns.com/neuralpedia/#JN3BGTM","name":"Drone","datePublished":"2018-04-19","duration":"PT15M02S","genre":["Narrative","Audio Drama"],"url":"https://www.patreon.com/posts/drone-18284204","sameAs":["https://soundgasm.net/u/NeuralNets/Drone"],"byArtist":{"@type":"MusicArtist","@id":"https://neuralnetsandprettypatterns.com/#identity"},"creator":{"@type":"MusicArtist","@id":"https://neuralnetsandprettypatterns.com/#identity"}}},
-        {"@type":"ListItem","position":47,"item":{"@type":"AudioObject","@id":"https://neuralnetsandprettypatterns.com/neuralpedia/#XQO5DRH","name":"Edge Puppet","datePublished":"2018-05-28","duration":"PT20M56S","genre":["Mantric"],"url":"https://www.patreon.com/posts/edge-puppet-19076652","sameAs":["https://soundgasm.net/u/NeuralNets/Edge-Puppet"],"byArtist":{"@type":"MusicArtist","@id":"https://neuralnetsandprettypatterns.com/#identity"},"creator":{"@type":"MusicArtist","@id":"https://neuralnetsandprettypatterns.com/#identity"}}},
-        {"@type":"ListItem","position":48,"item":{"@type":"AudioObject","@id":"https://neuralnetsandprettypatterns.com/neuralpedia/#X782RXS","name":"Mirror","datePublished":"2018-05-30","duration":"PT09M44S","genre":["Mantric"],"url":"https://www.patreon.com/posts/dumb-bell-4-19143640","byArtist":{"@type":"MusicArtist","@id":"https://neuralnetsandprettypatterns.com/#identity"},"creator":{"@type":"MusicArtist","@id":"https://neuralnetsandprettypatterns.com/#identity"}}},
-        {"@type":"ListItem","position":49,"item":{"@type":"AudioObject","@id":"https://neuralnetsandprettypatterns.com/neuralpedia/#DWKX007","name":"Puppet Time","datePublished":"2018-06-07","duration":"PT31M17S","genre":["Narrative","Mantric"],"url":"https://www.patreon.com/posts/puppet-time-19308484","byArtist":{"@type":"MusicArtist","@id":"https://neuralnetsandprettypatterns.com/#identity"},"creator":{"@type":"MusicArtist","@id":"https://neuralnetsandprettypatterns.com/#identity"}}},
-        {"@type":"ListItem","position":50,"item":{"@type":"AudioObject","@id":"https://neuralnetsandprettypatterns.com/neuralpedia/#V3NHUUE","name":"Headphucked","datePublished":"2018-06-15","duration":"PT39M23S","genre":["Narrative","Mantric"],"url":"https://www.patreon.com/posts/headphucked-1-19480640","byArtist":{"@type":"MusicArtist","@id":"https://neuralnetsandprettypatterns.com/#identity"},"creator":{"@type":"MusicArtist","@id":"https://neuralnetsandprettypatterns.com/#identity"}}}
-      ]
-    }
+{
+  "@context": "https://schema.org",
+  "@type": "CollectionPage",
+  "@id": "https://neuralnetsandprettypatterns.com/neuralpedia/chronology/page-1/",
+  "name": "Neuralverse Chronology \u2014 Page 1 of 14",
+  "description": "Chronological archive of Neuralverse productions, tracks 1\u201350 of 655. April 2017 \u2013 June 2018.",
+  "url": "https://neuralnetsandprettypatterns.com/neuralpedia/chronology/page-1/",
+  "isPartOf": {
+    "@type": "CreativeWork",
+    "@id": "https://neuralnetsandprettypatterns.com/#neuralverse"
+  },
+  "author": {
+    "@id": "https://neuralnetsandprettypatterns.com/#identity"
+  },
+  "mainEntity": {
+    "@type": "ItemList",
+    "numberOfItems": 50,
+    "itemListOrder": "https://schema.org/ItemListOrderAscending",
+    "itemListElement": [
+      {
+        "@type": "ListItem",
+        "position": 1,
+        "item": {
+          "@type": "AudioObject",
+          "@id": "https://neuralnetsandprettypatterns.com/neuralpedia/#2EFA06T",
+          "name": "Obedience School",
+          "datePublished": "2017-04-27",
+          "duration": "PT09M22S",
+          "genre": [
+            "Narrative",
+            "Mantric"
+          ],
+          "url": "https://www.patreon.com/posts/obedience-school-9387881"
+        }
+      },
+      {
+        "@type": "ListItem",
+        "position": 2,
+        "item": {
+          "@type": "AudioObject",
+          "@id": "https://neuralnetsandprettypatterns.com/neuralpedia/#QJ0SSD3",
+          "name": "Domesticate",
+          "datePublished": "2017-04-29",
+          "duration": "PT10M30S",
+          "genre": [
+            "Mantric",
+            "Narrative"
+          ],
+          "url": "https://www.patreon.com/posts/domesticate-9264399",
+          "sameAs": [
+            "https://soundgasm.net/u/NeuralNets/Domesticate"
+          ]
+        }
+      },
+      {
+        "@type": "ListItem",
+        "position": 3,
+        "item": {
+          "@type": "MusicRecording",
+          "@id": "https://neuralnetsandprettypatterns.com/neuralpedia/#KOU5ARK",
+          "name": "Display Loop",
+          "datePublished": "2017-05-23",
+          "duration": "PT09M30S",
+          "genre": [
+            "Music",
+            "Mantric"
+          ],
+          "url": "https://www.patreon.com/posts/display-loop-11317620",
+          "sameAs": [
+            "https://soundgasm.net/u/NeuralNets/Display-Loop"
+          ]
+        }
+      },
+      {
+        "@type": "ListItem",
+        "position": 4,
+        "item": {
+          "@type": "AudioObject",
+          "@id": "https://neuralnetsandprettypatterns.com/neuralpedia/#T7JSDXW",
+          "name": "Smoked Stupid",
+          "datePublished": "2017-05-23",
+          "duration": "PT05M07S",
+          "genre": [
+            "Narrative",
+            "Mantric"
+          ],
+          "url": "https://www.patreon.com/posts/smoked-stupid-11327128",
+          "sameAs": [
+            "https://soundgasm.net/u/NeuralNets/Smoked-Stupid"
+          ]
+        }
+      },
+      {
+        "@type": "ListItem",
+        "position": 5,
+        "item": {
+          "@type": "AudioObject",
+          "@id": "https://neuralnetsandprettypatterns.com/neuralpedia/#6R6EGM6",
+          "name": "Pulse Addict",
+          "datePublished": "2017-06-01",
+          "duration": "PT03M11S",
+          "genre": [
+            "Narrative",
+            "Mantric"
+          ],
+          "url": "https://www.patreon.com/posts/pulse-addict-11526274"
+        }
+      },
+      {
+        "@type": "ListItem",
+        "position": 6,
+        "item": {
+          "@type": "AudioObject",
+          "@id": "https://neuralnetsandprettypatterns.com/neuralpedia/#2OXQX16",
+          "name": "Neural Home",
+          "datePublished": "2017-06-06",
+          "duration": "PT03M32S",
+          "genre": [
+            "Narrative",
+            "Mantric"
+          ],
+          "url": "https://www.patreon.com/posts/hypno-house-part-11605208"
+        }
+      },
+      {
+        "@type": "ListItem",
+        "position": 7,
+        "item": {
+          "@type": "AudioObject",
+          "@id": "https://neuralnetsandprettypatterns.com/neuralpedia/#EA11SJ8",
+          "name": "Neural Homemaker",
+          "datePublished": "2017-06-12",
+          "duration": "PT02M54S",
+          "genre": [
+            "Narrative",
+            "Mantric"
+          ],
+          "url": "https://www.patreon.com/posts/hypnohouse-mommy-11701570"
+        }
+      },
+      {
+        "@type": "ListItem",
+        "position": 8,
+        "item": {
+          "@type": "MusicRecording",
+          "@id": "https://neuralnetsandprettypatterns.com/neuralpedia/#MVJLAVQ",
+          "name": "Ecstasy",
+          "datePublished": "2017-06-16",
+          "duration": "PT05M21S",
+          "genre": [
+            "Music"
+          ],
+          "url": "https://www.patreon.com/posts/ecstasy-slut-11763218",
+          "sameAs": [
+            "https://soundgasm.net/u/NeuralNets/Ecstasy-Slut"
+          ]
+        }
+      },
+      {
+        "@type": "ListItem",
+        "position": 9,
+        "item": {
+          "@type": "AudioObject",
+          "@id": "https://neuralnetsandprettypatterns.com/neuralpedia/#5JP1JJ0",
+          "name": "Neural House Silli Staci",
+          "datePublished": "2017-06-17",
+          "duration": "PT02M52S",
+          "genre": [
+            "Narrative",
+            "Mantric"
+          ],
+          "url": "https://www.patreon.com/posts/hypno-house-11780234"
+        }
+      },
+      {
+        "@type": "ListItem",
+        "position": 10,
+        "item": {
+          "@type": "MusicRecording",
+          "@id": "https://neuralnetsandprettypatterns.com/neuralpedia/#I0EE7SZ",
+          "name": "Lullabrain",
+          "datePublished": "2017-06-23",
+          "duration": "PT09M13S",
+          "genre": [
+            "Music",
+            "Mantric"
+          ],
+          "url": "https://www.patreon.com/posts/lullabrain-11975646",
+          "sameAs": [
+            "https://soundgasm.net/u/NeuralNets/Lullabrain"
+          ]
+        }
+      },
+      {
+        "@type": "ListItem",
+        "position": 11,
+        "item": {
+          "@type": "MusicRecording",
+          "@id": "https://neuralnetsandprettypatterns.com/neuralpedia/#8EFPRUE",
+          "name": "Lollipop",
+          "datePublished": "2017-07-11",
+          "duration": "PT03M54S",
+          "genre": [
+            "Music",
+            "Mantric"
+          ],
+          "url": "https://www.patreon.com/posts/lollipop-suck-im-12893795",
+          "sameAs": [
+            "https://soundgasm.net/u/NeuralNets/Lollipop"
+          ]
+        }
+      },
+      {
+        "@type": "ListItem",
+        "position": 12,
+        "item": {
+          "@type": "MusicRecording",
+          "@id": "https://neuralnetsandprettypatterns.com/neuralpedia/#WQ64EJ9",
+          "name": "Alphabimbo",
+          "datePublished": "2017-12-05",
+          "duration": "PT04M04S",
+          "genre": [
+            "Music",
+            "Mantric"
+          ],
+          "url": "https://www.patreon.com/posts/alphabimbo-15734195",
+          "sameAs": [
+            "https://soundgasm.net/u/NeuralNets/Alphabimbo",
+            "https://musicbrainz.org/recording/74868f40-fb2e-4407-bed9-871f7fcc26ef"
+          ]
+        }
+      },
+      {
+        "@type": "ListItem",
+        "position": 13,
+        "item": {
+          "@type": "AudioObject",
+          "@id": "https://neuralnetsandprettypatterns.com/neuralpedia/#96YPVAE",
+          "name": "Home is Where the Dream Is",
+          "datePublished": "2017-12-07",
+          "duration": "PT05M15S",
+          "genre": [
+            "Narrative",
+            "Mantric"
+          ],
+          "url": "https://www.patreon.com/posts/home-is-where-is-16140906"
+        }
+      },
+      {
+        "@type": "ListItem",
+        "position": 14,
+        "item": {
+          "@type": "AudioObject",
+          "@id": "https://neuralnetsandprettypatterns.com/neuralpedia/#MKU3GNQ",
+          "name": "Truck Stop",
+          "datePublished": "2017-12-18",
+          "duration": "PT01M56S",
+          "genre": [
+            "Narrative",
+            "Mantric"
+          ],
+          "url": "https://www.patreon.com/posts/truck-stop-15952243"
+        }
+      },
+      {
+        "@type": "ListItem",
+        "position": 15,
+        "item": {
+          "@type": "AudioObject",
+          "@id": "https://neuralnetsandprettypatterns.com/neuralpedia/#3P3RQ5H",
+          "name": "Mind Eraser 2",
+          "datePublished": "2017-12-20",
+          "duration": "PT06M40S",
+          "genre": [
+            "Narrative",
+            "Mantric"
+          ],
+          "url": "https://www.patreon.com/posts/mind-eraser-2-15974305"
+        }
+      },
+      {
+        "@type": "ListItem",
+        "position": 16,
+        "item": {
+          "@type": "AudioObject",
+          "@id": "https://neuralnetsandprettypatterns.com/neuralpedia/#FPGYZNE",
+          "name": "Slave Circuit",
+          "datePublished": "2017-12-20",
+          "duration": "PT08M29S",
+          "genre": [
+            "Narrative",
+            "Mantric"
+          ],
+          "url": "https://www.patreon.com/posts/slave-circuit-16016762"
+        }
+      },
+      {
+        "@type": "ListItem",
+        "position": 17,
+        "item": {
+          "@type": "MusicRecording",
+          "@id": "https://neuralnetsandprettypatterns.com/neuralpedia/#R8WM633",
+          "name": "Traitor",
+          "datePublished": "2017-12-24",
+          "duration": "PT14M44S",
+          "genre": [
+            "Narrative",
+            "Music"
+          ],
+          "url": "https://www.patreon.com/posts/traitor-16038239",
+          "sameAs": [
+            "https://soundgasm.net/u/NeuralNets/Traitor"
+          ]
+        }
+      },
+      {
+        "@type": "ListItem",
+        "position": 18,
+        "item": {
+          "@type": "AudioObject",
+          "@id": "https://neuralnetsandprettypatterns.com/neuralpedia/#CK659T1",
+          "name": "Countdown to Puppettime",
+          "datePublished": "2017-12-28",
+          "duration": "PT12M59S",
+          "genre": [
+            "Narrative",
+            "Mantric"
+          ],
+          "url": "https://www.patreon.com/posts/countdown-16106261"
+        }
+      },
+      {
+        "@type": "ListItem",
+        "position": 19,
+        "item": {
+          "@type": "MusicRecording",
+          "@id": "https://neuralnetsandprettypatterns.com/neuralpedia/#VCWJG50",
+          "name": "F and S and Cook and Clean",
+          "datePublished": "2018-01-03",
+          "duration": "PT04M58S",
+          "genre": [
+            "Music",
+            "Mantric"
+          ],
+          "url": "https://www.patreon.com/posts/fuck-and-suck-16204954"
+        }
+      },
+      {
+        "@type": "ListItem",
+        "position": 20,
+        "item": {
+          "@type": "AudioObject",
+          "@id": "https://neuralnetsandprettypatterns.com/neuralpedia/#IC6NB6F",
+          "name": "Warm Wet Waves",
+          "datePublished": "2018-01-10",
+          "duration": "PT15M52S",
+          "genre": [
+            "Mantric",
+            "Narrative"
+          ],
+          "url": "https://www.patreon.com/posts/mermaid-warm-wet-16326411",
+          "sameAs": [
+            "https://soundgasm.net/u/NeuralNets/Warm-Wet-Waves",
+            "https://open.spotify.com/track/4Su2mDuKdP5aSdumyuYNX2",
+            "https://musicbrainz.org/recording/9f90f4af-4824-44fc-a616-42861229843d"
+          ]
+        }
+      },
+      {
+        "@type": "ListItem",
+        "position": 21,
+        "item": {
+          "@type": "AudioObject",
+          "@id": "https://neuralnetsandprettypatterns.com/neuralpedia/#8CUX2V7",
+          "name": "Mind Eraser Zero",
+          "datePublished": "2018-01-19",
+          "duration": "PT24M25S",
+          "genre": [
+            "Narrative",
+            "Mantric"
+          ],
+          "url": "https://www.patreon.com/posts/mind-eraser-zero-16487977",
+          "sameAs": [
+            "https://soundgasm.net/u/NeuralNets/Mind-Eraser-Zero"
+          ]
+        }
+      },
+      {
+        "@type": "ListItem",
+        "position": 22,
+        "item": {
+          "@type": "AudioObject",
+          "@id": "https://neuralnetsandprettypatterns.com/neuralpedia/#8J0KNE4",
+          "name": "Airhead Remix",
+          "datePublished": "2018-01-23",
+          "duration": "PT07M51S",
+          "genre": [
+            "Mantric"
+          ],
+          "url": "https://www.patreon.com/posts/airhead-remix-16560915",
+          "sameAs": [
+            "https://musicbrainz.org/recording/2c608049-9823-40c2-a937-f0781577498f"
+          ]
+        }
+      },
+      {
+        "@type": "ListItem",
+        "position": 23,
+        "item": {
+          "@type": "MusicRecording",
+          "@id": "https://neuralnetsandprettypatterns.com/neuralpedia/#O461FKP",
+          "name": "Girls Gone Stoopid",
+          "datePublished": "2018-01-23",
+          "duration": "PT04M48S",
+          "genre": [
+            "Music",
+            "Mantric"
+          ],
+          "url": "https://www.patreon.com/posts/girls-gone-16560816"
+        }
+      },
+      {
+        "@type": "ListItem",
+        "position": 24,
+        "item": {
+          "@type": "AudioObject",
+          "@id": "https://neuralnetsandprettypatterns.com/neuralpedia/#ZEBNV0F",
+          "name": "Mist",
+          "datePublished": "2018-01-23",
+          "duration": "PT06M22S",
+          "genre": [
+            "Narrative",
+            "Mantric"
+          ],
+          "url": "https://www.patreon.com/posts/daily-drop-mist-16560720"
+        }
+      },
+      {
+        "@type": "ListItem",
+        "position": 25,
+        "item": {
+          "@type": "AudioObject",
+          "@id": "https://neuralnetsandprettypatterns.com/neuralpedia/#WI3VM7U",
+          "name": "Your Head Gets Dumb",
+          "datePublished": "2018-01-23",
+          "duration": "PT12M31S",
+          "genre": [
+            "Mantric"
+          ],
+          "url": "https://www.patreon.com/posts/your-head-gets-16561105"
+        }
+      },
+      {
+        "@type": "ListItem",
+        "position": 26,
+        "item": {
+          "@type": "AudioObject",
+          "@id": "https://neuralnetsandprettypatterns.com/neuralpedia/#239OPMZ",
+          "name": "Mind Erased",
+          "datePublished": "2018-01-24",
+          "duration": "PT01M20S",
+          "genre": [
+            "Narrative",
+            "Mantric"
+          ],
+          "url": "https://www.patreon.com/posts/mind-erased-16585657"
+        }
+      },
+      {
+        "@type": "ListItem",
+        "position": 27,
+        "item": {
+          "@type": "AudioObject",
+          "@id": "https://neuralnetsandprettypatterns.com/neuralpedia/#I907I18",
+          "name": "Bounce",
+          "datePublished": "2018-01-27",
+          "duration": "PT12M07S",
+          "genre": [
+            "Mantric"
+          ],
+          "url": "https://www.patreon.com/posts/bounce-16643761",
+          "sameAs": [
+            "https://soundgasm.net/u/NeuralNets/Bounce"
+          ]
+        }
+      },
+      {
+        "@type": "ListItem",
+        "position": 28,
+        "item": {
+          "@type": "AudioObject",
+          "@id": "https://neuralnetsandprettypatterns.com/neuralpedia/#DZ4HDSN",
+          "name": "Stroke",
+          "datePublished": "2018-01-29",
+          "duration": "PT16M16S",
+          "genre": [
+            "Narrative",
+            "Mantric"
+          ],
+          "url": "https://www.patreon.com/posts/stroke-16681285",
+          "sameAs": [
+            "https://soundgasm.net/u/NeuralNets/Stroke"
+          ]
+        }
+      },
+      {
+        "@type": "ListItem",
+        "position": 29,
+        "item": {
+          "@type": "AudioObject",
+          "@id": "https://neuralnetsandprettypatterns.com/neuralpedia/#7R3EG04",
+          "name": "Dreamdomme Tease",
+          "datePublished": "2018-01-31",
+          "duration": "PT03M10S",
+          "genre": [
+            "Mantric",
+            "Narrative"
+          ],
+          "url": "https://www.patreon.com/posts/dream-domme-16713722"
+        }
+      },
+      {
+        "@type": "ListItem",
+        "position": 30,
+        "item": {
+          "@type": "AudioObject",
+          "@id": "https://neuralnetsandprettypatterns.com/neuralpedia/#22DYX35",
+          "name": "Domme Drop",
+          "datePublished": "2018-02-03",
+          "duration": "PT10M35S",
+          "genre": [
+            "Mantric",
+            "Narrative"
+          ],
+          "url": "https://www.patreon.com/posts/domme-drop-16792156"
+        }
+      },
+      {
+        "@type": "ListItem",
+        "position": 31,
+        "item": {
+          "@type": "AudioObject",
+          "@id": "https://neuralnetsandprettypatterns.com/neuralpedia/#YRW3961",
+          "name": "Mouth",
+          "datePublished": "2018-02-06",
+          "duration": "PT14M28S",
+          "genre": [
+            "Narrative"
+          ],
+          "url": "https://www.patreon.com/posts/mouth-16840762",
+          "sameAs": [
+            "https://soundgasm.net/u/NeuralNets/Mouth"
+          ]
+        }
+      },
+      {
+        "@type": "ListItem",
+        "position": 32,
+        "item": {
+          "@type": "MusicRecording",
+          "@id": "https://neuralnetsandprettypatterns.com/neuralpedia/#1BMKU64",
+          "name": "PomPom",
+          "datePublished": "2018-02-14",
+          "duration": "PT07M36S",
+          "genre": [
+            "Music",
+            "Mantric"
+          ],
+          "url": "https://www.patreon.com/posts/pompom-16998528",
+          "sameAs": [
+            "https://soundgasm.net/u/NeuralNets/Pom-Poms"
+          ]
+        }
+      },
+      {
+        "@type": "ListItem",
+        "position": 33,
+        "item": {
+          "@type": "AudioObject",
+          "@id": "https://neuralnetsandprettypatterns.com/neuralpedia/#YZQQZC8",
+          "name": "Puddles PomPoms",
+          "datePublished": "2018-02-16",
+          "duration": "PT07M11S",
+          "genre": [
+            "Mantric"
+          ],
+          "url": "https://www.patreon.com/posts/puddles-pompoms-17042318"
+        }
+      },
+      {
+        "@type": "ListItem",
+        "position": 34,
+        "item": {
+          "@type": "AudioObject",
+          "@id": "https://neuralnetsandprettypatterns.com/neuralpedia/#6K51338",
+          "name": "Spirit",
+          "datePublished": "2018-02-16",
+          "duration": "PT09M21S",
+          "genre": [
+            "Mantric"
+          ],
+          "url": "https://www.patreon.com/posts/spirit-17031461"
+        }
+      },
+      {
+        "@type": "ListItem",
+        "position": 35,
+        "item": {
+          "@type": "AudioObject",
+          "@id": "https://neuralnetsandprettypatterns.com/neuralpedia/#44GBVOQ",
+          "name": "Sky",
+          "datePublished": "2018-02-18",
+          "duration": "PT05M14S",
+          "genre": [
+            "Narrative",
+            "Mantric"
+          ],
+          "url": "https://www.patreon.com/posts/sky-17071817",
+          "sameAs": [
+            "https://soundgasm.net/u/NeuralNets/Sky"
+          ]
+        }
+      },
+      {
+        "@type": "ListItem",
+        "position": 36,
+        "item": {
+          "@type": "AudioObject",
+          "@id": "https://neuralnetsandprettypatterns.com/neuralpedia/#0C9XTL4",
+          "name": "Feathered Strokemix",
+          "datePublished": "2018-03-10",
+          "duration": "PT19M56S",
+          "genre": [
+            "Narrative",
+            "Mantric"
+          ],
+          "url": "https://www.patreon.com/posts/feather-boys-24799403"
+        }
+      },
+      {
+        "@type": "ListItem",
+        "position": 37,
+        "item": {
+          "@type": "MusicRecording",
+          "@id": "https://neuralnetsandprettypatterns.com/neuralpedia/#RYQVRQD",
+          "name": "Alphabimbo Flower",
+          "datePublished": "2018-03-16",
+          "duration": "PT03M43S",
+          "genre": [
+            "Music",
+            "Mantric"
+          ],
+          "url": "https://www.patreon.com/posts/alphabimbo-obeys-17600715"
+        }
+      },
+      {
+        "@type": "ListItem",
+        "position": 38,
+        "item": {
+          "@type": "MusicRecording",
+          "@id": "https://neuralnetsandprettypatterns.com/neuralpedia/#BVDKE73",
+          "name": "Heal Sloots are Real Sloots",
+          "datePublished": "2018-03-16",
+          "duration": "PT07M33S",
+          "genre": [
+            "Music",
+            "Mantric"
+          ],
+          "url": "https://www.patreon.com/posts/heal-sluts-are-17600379",
+          "sameAs": [
+            "https://soundgasm.net/u/NeuralNets/Sloot"
+          ]
+        }
+      },
+      {
+        "@type": "ListItem",
+        "position": 39,
+        "item": {
+          "@type": "AudioObject",
+          "@id": "https://neuralnetsandprettypatterns.com/neuralpedia/#WWNC2WZ",
+          "name": "Feathered Rubmix",
+          "datePublished": "2018-03-17",
+          "duration": "PT26M42S",
+          "genre": [
+            "Narrative",
+            "Mantric"
+          ],
+          "url": "https://www.patreon.com/posts/feather-girls-24799498"
+        }
+      },
+      {
+        "@type": "ListItem",
+        "position": 40,
+        "item": {
+          "@type": "AudioObject",
+          "@id": "https://neuralnetsandprettypatterns.com/neuralpedia/#VL17VXH",
+          "name": "Pink Pulse",
+          "datePublished": "2018-03-25",
+          "duration": "PT21M00S",
+          "genre": [
+            "Narrative",
+            "Mantric"
+          ],
+          "url": "https://www.patreon.com/posts/pink-pulse-17756947"
+        }
+      },
+      {
+        "@type": "ListItem",
+        "position": 41,
+        "item": {
+          "@type": "AudioObject",
+          "@id": "https://neuralnetsandprettypatterns.com/neuralpedia/#J6YLMG0",
+          "name": "Melting Mind",
+          "datePublished": "2018-03-31",
+          "duration": "PT08M15S",
+          "genre": [
+            "Mantric"
+          ],
+          "url": "https://www.patreon.com/posts/dumb-bell-2-17897424"
+        }
+      },
+      {
+        "@type": "ListItem",
+        "position": 42,
+        "item": {
+          "@type": "AudioObject",
+          "@id": "https://neuralnetsandprettypatterns.com/neuralpedia/#YMIGWPU",
+          "name": "Mindlessfullness",
+          "datePublished": "2018-03-31",
+          "duration": "PT13M06S",
+          "genre": [
+            "Mantric"
+          ],
+          "url": "https://www.patreon.com/posts/dumb-bell-17897370"
+        }
+      },
+      {
+        "@type": "ListItem",
+        "position": 43,
+        "item": {
+          "@type": "AudioObject",
+          "@id": "https://neuralnetsandprettypatterns.com/neuralpedia/#4XGKSM6",
+          "name": "Clone",
+          "datePublished": "2018-04-07",
+          "duration": "PT10M31S",
+          "genre": [
+            "Narrative",
+            "Audio Drama"
+          ],
+          "url": "https://www.patreon.com/posts/clone-18044320",
+          "sameAs": [
+            "https://soundgasm.net/u/NeuralNets/Clone"
+          ]
+        }
+      },
+      {
+        "@type": "ListItem",
+        "position": 44,
+        "item": {
+          "@type": "AudioObject",
+          "@id": "https://neuralnetsandprettypatterns.com/neuralpedia/#32OHQZQ",
+          "name": "Mouth Mind",
+          "datePublished": "2018-04-14",
+          "duration": "PT05M51S",
+          "genre": [
+            "Mantric"
+          ],
+          "url": "https://www.patreon.com/posts/mouth-mind-18172197"
+        }
+      },
+      {
+        "@type": "ListItem",
+        "position": 45,
+        "item": {
+          "@type": "MusicRecording",
+          "@id": "https://neuralnetsandprettypatterns.com/neuralpedia/#QWSPSUC",
+          "name": "Mind Popping",
+          "datePublished": "2018-04-16",
+          "duration": "PT03M10S",
+          "genre": [
+            "Music",
+            "Mantric"
+          ],
+          "url": "https://www.patreon.com/posts/mind-popping-18218188"
+        }
+      },
+      {
+        "@type": "ListItem",
+        "position": 46,
+        "item": {
+          "@type": "AudioObject",
+          "@id": "https://neuralnetsandprettypatterns.com/neuralpedia/#JN3BGTM",
+          "name": "Drone",
+          "datePublished": "2018-04-19",
+          "duration": "PT15M02S",
+          "genre": [
+            "Narrative",
+            "Audio Drama"
+          ],
+          "url": "https://www.patreon.com/posts/drone-18284204",
+          "sameAs": [
+            "https://soundgasm.net/u/NeuralNets/Drone"
+          ]
+        }
+      },
+      {
+        "@type": "ListItem",
+        "position": 47,
+        "item": {
+          "@type": "AudioObject",
+          "@id": "https://neuralnetsandprettypatterns.com/neuralpedia/#XQO5DRH",
+          "name": "Edge Puppet",
+          "datePublished": "2018-05-28",
+          "duration": "PT20M56S",
+          "genre": [
+            "Mantric"
+          ],
+          "url": "https://www.patreon.com/posts/edge-puppet-19076652",
+          "sameAs": [
+            "https://soundgasm.net/u/NeuralNets/Edge-Puppet"
+          ]
+        }
+      },
+      {
+        "@type": "ListItem",
+        "position": 48,
+        "item": {
+          "@type": "AudioObject",
+          "@id": "https://neuralnetsandprettypatterns.com/neuralpedia/#X782RXS",
+          "name": "Mirror",
+          "datePublished": "2018-05-30",
+          "duration": "PT09M44S",
+          "genre": [
+            "Mantric"
+          ],
+          "url": "https://www.patreon.com/posts/dumb-bell-4-19143640"
+        }
+      },
+      {
+        "@type": "ListItem",
+        "position": 49,
+        "item": {
+          "@type": "AudioObject",
+          "@id": "https://neuralnetsandprettypatterns.com/neuralpedia/#DWKX007",
+          "name": "Puppet Time",
+          "datePublished": "2018-06-07",
+          "duration": "PT31M17S",
+          "genre": [
+            "Narrative",
+            "Mantric"
+          ],
+          "url": "https://www.patreon.com/posts/puppet-time-19308484"
+        }
+      },
+      {
+        "@type": "ListItem",
+        "position": 50,
+        "item": {
+          "@type": "AudioObject",
+          "@id": "https://neuralnetsandprettypatterns.com/neuralpedia/#V3NHUUE",
+          "name": "Headphucked",
+          "datePublished": "2018-06-15",
+          "duration": "PT39M23S",
+          "genre": [
+            "Narrative",
+            "Mantric"
+          ],
+          "url": "https://www.patreon.com/posts/headphucked-1-19480640"
+        }
+      }
+    ]
   }
-  </script>
+}
+</script>
 
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
