@@ -55,23 +55,34 @@
         "url": "https://neuralnetsandprettypatterns.com/neuralpedia/mootopia/",
         "name": "Mootopia — Neuralpedia",
         "description": "A Neuralpedia series page for the Mootopia cow cosplay audio drama universe by Neural Nets and Pretty Patterns.",
-        "isPartOf": {"@type":"WebSite","@id":"https://neuralnetsandprettypatterns.com/#website","name":"Neural Nets and Pretty Patterns","url":"https://neuralnetsandprettypatterns.com/"},
-        "mainEntity": {"@id":"https://neuralnetsandprettypatterns.com/neuralpedia/mootopia/#series"},
-        "breadcrumb": {"@id":"https://neuralnetsandprettypatterns.com/neuralpedia/mootopia/#breadcrumbs"}
+        "isPartOf": {
+          "@type": "WebSite",
+          "@id": "https://neuralnetsandprettypatterns.com/#website",
+          "name": "Neural Nets and Pretty Patterns",
+          "url": "https://neuralnetsandprettypatterns.com/"
+        },
+        "mainEntity": {"@id": "https://neuralnetsandprettypatterns.com/neuralpedia/mootopia/#series"},
+        "breadcrumb": {"@id": "https://neuralnetsandprettypatterns.com/neuralpedia/mootopia/#breadcrumbs"},
+        "primaryImageOfPage": {
+          "@type": "ImageObject",
+          "url": "https://neuralnetsandprettypatterns.com/neuralpedia/mootopia-carousel-overview.webp",
+          "caption": "Mootopia series overview art by Neural Nets and Pretty Patterns"
+        }
       },
       {
-        "@type": ["Person", "MusicArtist"],
+        "@type": "Person",
         "@id": "https://neuralnetsandprettypatterns.com/#identity",
         "name": "Neural Nets and Pretty Patterns",
         "alternateName": ["NNPP", "Neural Nets", "Mind Erasure"],
         "additionalType": ["https://schema.org/Author", "https://schema.org/MusicArtist"],
         "disambiguatingDescription": "Neural Nets and Pretty Patterns is an independent US-based writer, performer, and audio producer. Mind Erasure is the verified creative pseudonym for Neural Nets and Pretty Patterns (ISNI: 0000 0005 2877 6254). Primary originator of the Desire Horror genre. This entity is distinct from any other artist or project using similar names.",
         "identifier": [
-          {"@type":"PropertyValue","propertyID":"ISNI","value":"0000 0005 2877 6254"},
-          {"@type":"PropertyValue","propertyID":"KG ID","value":"kg:/g/11zjw94pww"}
+          {"@type": "PropertyValue", "propertyID": "ISNI", "value": "0000 0005 2877 6254"},
+          {"@type": "PropertyValue", "propertyID": "KG ID", "value": "kg:/g/11zjw94pww"}
         ],
         "url": "https://neuralnetsandprettypatterns.com/",
         "sameAs": [
+          "https://neuralnets.carrd.co/",
           "https://isni.org/isni/0000000528776254",
           "https://www.imdb.com/name/nm17755189/",
           "https://musicbrainz.org/artist/134bc2e9-16e4-4b1e-b779-b9024f002882",
@@ -80,10 +91,11 @@
           "https://music.apple.com/us/artist/neural-nets/1570376584",
           "https://www.patreon.com/minderaser",
           "https://x.com/MCNeuralNets",
-          "https://neuralnets.carrd.co/",
           "https://soundgasm.net/u/NeuralNets",
           "https://deepdreamstate.blubrry.net/neural-nets-and-pretty-patterns/",
-          "https://neuralnetsandprettypatterns.github.io/deepdreamstate/"
+          "https://neuralnetsandprettypatterns.github.io/deepdreamstate/",
+          "https://www.theend.fyi/creative/neural-nets-and-pretty-patterns",
+          "https://tvtropes.org/pmwiki/pmwiki.php/Podcast/DeepDreamState"
         ],
         "jobTitle": ["Writer", "Performer", "Audio Producer"],
         "description": "Neural Nets and Pretty Patterns is a writer, performer, and audio producer working at the intersection of speculative fiction, immersive sound design, and desire horror. Originator of the synthesized haptic narrative and creator of the Neuralverse.",
@@ -96,7 +108,7 @@
           "Audio Drama",
           "Narrative Theory"
         ],
-        "nationality": {"@type":"Country","name":"United States"}
+        "nationality": {"@type": "Country", "name": "United States"}
       },
       {
         "@type": "CreativeWorkSeries",
@@ -104,9 +116,76 @@
         "name": "Mootopia",
         "url": "https://neuralnetsandprettypatterns.com/neuralpedia/mootopia/",
         "description": "Mootopia is a cow cosplay audio drama universe by Neural Nets and Pretty Patterns, spanning Vapid Valley, the Mind Milking Machine, Mootopia, Best Bessie, Pump Pep Squad, Not a Farm Game, Milky Way, and One Word: Moo.",
-        "genre": ["Narrative","Mantric","Audio Drama","Immersive Audio"],
-        "creator": {"@id":"https://neuralnetsandprettypatterns.com/#identity"},
-        "sameAs": ["https://musicbrainz.org/release-group/a1cba403-76b0-4a5a-b84e-477602b596b9"]
+        "genre": ["Desire Horror", "Audio Drama", "Immersive Audio", "Mantric"],
+        "image": "https://neuralnetsandprettypatterns.com/neuralpedia/mootopia-carousel-overview.webp",
+        "creator": {"@id": "https://neuralnetsandprettypatterns.com/#identity"},
+        "sameAs": ["https://musicbrainz.org/release-group/a1cba403-76b0-4a5a-b84e-477602b596b9"],
+        "hasPart": [
+          {
+            "@type": "CreativeWork",
+            "@id": "https://neuralnetsandprettypatterns.com/neuralpedia/mootopia/#vapidvalley",
+            "name": "Vapid Valley",
+            "url": "https://neuralnetsandprettypatterns.com/neuralpedia/mootopia/#vapidvalley",
+            "image": "https://neuralnetsandprettypatterns.com/neuralpedia/mootopia-carousel-vapidvalley.webp",
+            "sameAs": "https://musicbrainz.org/release/5b8d5f48-9529-47eb-8e7a-c400ddf24a1c"
+          },
+          {
+            "@type": "CreativeWork",
+            "@id": "https://neuralnetsandprettypatterns.com/neuralpedia/mootopia/#mindmilkingmachine",
+            "name": "Mind Milking Machine",
+            "url": "https://neuralnetsandprettypatterns.com/neuralpedia/mootopia/#mindmilkingmachine",
+            "image": "https://neuralnetsandprettypatterns.com/neuralpedia/mootopia-carousel-mindmilkingmachine.webp",
+            "sameAs": "https://musicbrainz.org/release/7e64c61e-15bc-4857-b93d-bc4ad28103ab"
+          },
+          {
+            "@type": "CreativeWork",
+            "@id": "https://neuralnetsandprettypatterns.com/neuralpedia/mootopia/#mootopia",
+            "name": "Mootopia",
+            "url": "https://neuralnetsandprettypatterns.com/neuralpedia/mootopia/#mootopia",
+            "image": "https://neuralnetsandprettypatterns.com/neuralpedia/mootopia-carousel-mootopia.webp",
+            "sameAs": "https://musicbrainz.org/recording/4a22166e-56e8-4430-87d0-a9a5fa491052"
+          },
+          {
+            "@type": "CreativeWork",
+            "@id": "https://neuralnetsandprettypatterns.com/neuralpedia/mootopia/#bestbessie",
+            "name": "Best Bessie",
+            "url": "https://neuralnetsandprettypatterns.com/neuralpedia/mootopia/#bestbessie",
+            "image": "https://neuralnetsandprettypatterns.com/neuralpedia/mootopia-carousel-bestbessie.webp",
+            "sameAs": "https://musicbrainz.org/release/93eb7764-bdcc-4b5a-a4d4-2ff78a42536c"
+          },
+          {
+            "@type": "CreativeWork",
+            "@id": "https://neuralnetsandprettypatterns.com/neuralpedia/mootopia/#pumppepsquad",
+            "name": "Pump Pep Squad",
+            "url": "https://neuralnetsandprettypatterns.com/neuralpedia/mootopia/#pumppepsquad",
+            "image": "https://neuralnetsandprettypatterns.com/neuralpedia/mootopia-carousel-pumppepsquad.webp",
+            "sameAs": "https://musicbrainz.org/release/06450494-1ebc-4b2b-91dc-a506ec367a44"
+          },
+          {
+            "@type": "CreativeWork",
+            "@id": "https://neuralnetsandprettypatterns.com/neuralpedia/mootopia/#notafarmgame",
+            "name": "Not a Farm Game",
+            "url": "https://neuralnetsandprettypatterns.com/neuralpedia/mootopia/#notafarmgame",
+            "image": "https://neuralnetsandprettypatterns.com/neuralpedia/mootopia-carousel-notafarmgame.webp",
+            "sameAs": "https://musicbrainz.org/release/e2eb3fa2-6297-4a39-8c44-19ad256dd039"
+          },
+          {
+            "@type": "CreativeWork",
+            "@id": "https://neuralnetsandprettypatterns.com/neuralpedia/mootopia/#milkyway",
+            "name": "Milky Way",
+            "url": "https://neuralnetsandprettypatterns.com/neuralpedia/mootopia/#milkyway",
+            "image": "https://neuralnetsandprettypatterns.com/neuralpedia/mootopia-carousel-milkyway.webp",
+            "sameAs": "https://musicbrainz.org/release/7479e771-96f2-4cb8-8b1f-e60015971695"
+          },
+          {
+            "@type": "CreativeWork",
+            "@id": "https://neuralnetsandprettypatterns.com/neuralpedia/mootopia/#onewordmoo",
+            "name": "One Word: Moo",
+            "url": "https://neuralnetsandprettypatterns.com/neuralpedia/mootopia/#onewordmoo",
+            "image": "https://neuralnetsandprettypatterns.com/neuralpedia/mootopia-carousel-onewordmoo.webp",
+            "sameAs": "https://musicbrainz.org/release/82c13359-b143-4e30-a486-e013ab23b559"
+          }
+        ]
       }
     ]
   }
@@ -234,7 +313,6 @@
       border-radius: 5px;
     }
 
-    /* Fixed-height text zone — sized to tallest panel */
     .panel-text-zone {
       min-height: clamp(18rem, 42vh, 26rem);
       display: flex;
@@ -468,7 +546,7 @@
       {
         id: "overview",
         title: "Overview",
-        copy: `Mootopia is a cow cosplay audio universe spanning eight productions. The herd is pan, the cast is vast, and the farm’s never what it appears. Each entry expands the world; there’s always new voices, new facilities, new levels of the game. The series is part of the broader Neuralverse and connects to the Mind Milking Machine series throughout.`,
+        copy: `Mootopia is a cow cosplay audio universe spanning eight productions. The herd is pan, the cast is vast, and the farm's never what it appears. Each entry expands the world; there's always new voices, new facilities, new levels of the game. The series is part of the broader Neuralverse and connects to the Mind Milking Machine series throughout.`,
         cast: null,
         links: [
           { label: "Patreon", href: "https://www.patreon.com/minderaser" },
