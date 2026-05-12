@@ -5,6 +5,9 @@ on:
     branches: [main]
   workflow_dispatch:
 
+permissions:
+  contents: write
+
 jobs:
   sitemap:
     runs-on: ubuntu-latest
@@ -20,28 +23,21 @@ jobs:
           echo '<?xml version="1.0" encoding="UTF-8"?>' > $OUTPUT
           echo '<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">' >> $OUTPUT
 
-          # Root index
           echo "  <url><loc>$BASE_URL/</loc><lastmod>$TODAY</lastmod><priority>1.00</priority></url>" >> $OUTPUT
 
-          # Find all HTML files and generate URLs
           find . -name "*.html" -o -name "index.html" | grep -v '.github' | sort | while read file; do
-            # Clean up the path
             path="${file#./}"
             
-            # Skip root index.html (already added)
             if [ "$path" = "index.html" ]; then continue; fi
 
-            # If it's an index.html, use the directory URL
             if [[ "$path" == */index.html ]]; then
               url="$BASE_URL/${path%index.html}"
             else
               url="$BASE_URL/$path"
             fi
 
-            # Remove trailing slash duplicates
             url="${url%/}/"
 
-            # Set priority based on depth
             depth=$(echo "$path" | tr -cd '/' | wc -c)
             if [ "$depth" -eq 0 ]; then priority="0.90"
             elif [ "$depth" -eq 1 ]; then priority="0.80"
