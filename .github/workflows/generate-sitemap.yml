@@ -27,26 +27,39 @@ jobs:
 
           find . -name "*.html" -o -name "index.html" | grep -v '.github' | sort | while read file; do
             path="${file#./}"
-            
             if [ "$path" = "index.html" ]; then continue; fi
-
             if [[ "$path" == */index.html ]]; then
               url="$BASE_URL/${path%index.html}"
             else
               url="$BASE_URL/$path"
             fi
-
             url="${url%/}/"
-
             depth=$(echo "$path" | tr -cd '/' | wc -c)
             if [ "$depth" -eq 0 ]; then priority="0.90"
             elif [ "$depth" -eq 1 ]; then priority="0.80"
             elif [ "$depth" -eq 2 ]; then priority="0.64"
             else priority="0.50"
             fi
-
             echo "  <url><loc>$url</loc><lastmod>$TODAY</lastmod><priority>$priority</priority></url>" >> $OUTPUT
           done
+
+          # Fetch and merge deepdreamstate sitemap
+          DDS_SITEMAP=$(curl -s --max-time 10 "https://neuralnetsandprettypatterns.github.io/deepdreamstate/sitemap.xml")
+          echo "DEBUG: DDS fetch length: ${#DDS_SITEMAP}"
+          if [ -n "$DDS_SITEMAP" ]; then
+            echo "$DDS_SITEMAP" | grep -o '<loc>[^<]*</loc>' | sed 's|<loc>||;s|</loc>||' | while read loc; do
+              com_loc=$(echo "$loc" | sed 's|https://neuralnetsandprettypatterns.github.io/deepdreamstate|https://neuralnetsandprettypatterns.com/deepdreamstate|')
+              depth=$(echo "$com_loc" | sed 's|https://neuralnetsandprettypatterns.com/||' | tr -cd '/' | wc -c)
+              if [ "$depth" -eq 0 ]; then priority="0.90"
+              elif [ "$depth" -eq 1 ]; then priority="0.80"
+              elif [ "$depth" -eq 2 ]; then priority="0.64"
+              else priority="0.50"
+              fi
+              echo "  <url><loc>$com_loc</loc><lastmod>$TODAY</lastmod><priority>$priority</priority></url>" >> $OUTPUT
+            done
+          else
+            echo "DEBUG: DDS sitemap fetch returned empty"
+          fi
 
           echo '</urlset>' >> $OUTPUT
 
