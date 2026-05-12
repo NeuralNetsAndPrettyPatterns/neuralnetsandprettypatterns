@@ -67,15 +67,15 @@ export default {
       const proxyUrl = `https://neuralnetsandprettypatterns.github.io/deepdreamstate${githubPath}${url.search}`;
       const response = await fetch(proxyUrl);
       const contentType = response.headers.get("content-type") || "";
-      if (contentType.includes("text/html")) {
-        let html = await response.text();
-        html = html.replaceAll(
+      if (contentType.includes("text/html") || contentType.includes("javascript")) {
+        let text = await response.text();
+        text = text.replaceAll(
           "https://neuralnetsandprettypatterns.github.io/deepdreamstate",
           "https://neuralnetsandprettypatterns.com/deepdreamstate"
         );
-        return new Response(html, {
+        return new Response(text, {
           status: response.status,
-          headers: { "content-type": "text/html" }
+          headers: { "content-type": contentType }
         });
       }
       return new Response(response.body, { status: response.status, headers: response.headers });
