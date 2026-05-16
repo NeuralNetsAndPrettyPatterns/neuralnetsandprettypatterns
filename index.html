@@ -10,7 +10,7 @@
   <meta property="og:title" content="Neural Nets and Pretty Patterns">
   <meta property="og:description" content="Writer, performer, and audio producer. Creator of the Neuralverse — 750+ original productions spanning immersive audio, desire horror, and haptic narrative.">
   <meta property="og:url" content="https://neuralnetsandprettypatterns.com/">
-  <meta property="og:type" content="music.musician">
+  <meta property="og:type" content="website">
   <meta property="music:musician" content="https://neuralnetsandprettypatterns.com/">
   <link rel="canonical" href="https://neuralnetsandprettypatterns.com/">
   <link rel="icon" type="image/png" sizes="512x512" href="https://neuralnetsandprettypatterns.github.io/neuralnetsandprettypatterns/favicon-transparent.png">
@@ -22,8 +22,14 @@
     "@context": "https://schema.org",
     "@graph": [
       {
+        "@type": "WebSite",
+        "@id": "https://neuralnetsandprettypatterns.com/#website",
+        "url": "https://neuralnetsandprettypatterns.com/",
+        "name": "Neural Nets and Pretty Patterns"
+      },
+      {
         "@type": "Person",
-        "@id": "https://neuralnetsandprettypatterns.com/#identity",
+        "@id": "https://neuralnetsandprettypatterns.com/#nnpp",
         "name": "Neural Nets and Pretty Patterns",
         "alternateName": ["NNPP", "Neural Nets", "Mind Erasure", "Neural Nets & Pretty Patterns"],
         "additionalType": ["https://schema.org/Author", "https://schema.org/PerformingArtist"],
@@ -38,6 +44,16 @@
             "@type": "PropertyValue",
             "propertyID": "KG ID",
             "value": "kg:/g/11zjw94pww"
+          },
+          {
+            "@type": "PropertyValue",
+            "propertyID": "IPI",
+            "value": "01346215468"
+          },
+          {
+            "@type": "PropertyValue",
+            "propertyID": "IPI",
+            "value": "01346215566"
           }
         ],
         "url": "https://neuralnetsandprettypatterns.com/",
@@ -80,7 +96,8 @@
             "name": "Deep Dream State",
             "description": "The only active serialized erotica audio drama on the open web and the originating work of the desire horror genre.",
             "genre": ["Desire Horror", "Speculative Fiction", "Audio Drama"],
-            "url": "https://deepdreamstate.blubrry.net/"
+            "url": "https://neuralnetsandprettypatterns.com/deepdreamstate/",
+            "sameAs": ["https://deepdreamstate.blubrry.net/", "https://www.wikidata.org/wiki/Q139568834", "https://www.imdb.com/title/tt38590860/"]
           },
           {
             "@type": "CreativeWork",
@@ -88,46 +105,17 @@
             "name": "The Neuralverse",
             "description": "An interconnected body of more than 750 original productions spanning immersive audio, electronic music, experimental writing, and haptic integration.",
             "genre": ["Speculative Fiction", "Immersive Audio", "Desire Horror"]
+          },
+          {
+            "@type": ["CreativeWorkSeries", "BroadcastService"],
+            "@id": "https://neuralnetsandprettypatterns.com/deep-drop-party/#show",
+            "name": "Deep Drop Party",
+            "description": "A weekly live broadcast on Discord featuring the immersive audio art of Neural Nets and Pretty Patterns. Every Saturday at 9 PM EST since February 23, 2018.",
+            "url": "https://neuralnetsandprettypatterns.com/deep-drop-party/"
           }
         ]
       }
     ]
-  }
-  </script>
-
-  <script type="application/ld+json">
-  {
-    "@context": "https://schema.org",
-    "@type": "PodcastSeries",
-    "@id": "https://neuralnetsandprettypatterns.com/#deepdreamstate",
-    "name": "Deep Dream State",
-    "description": "The only active serialized audio drama of its kind on the open web and the originating work of the desire horror genre.",
-    "genre": ["Desire Horror", "Speculative Fiction", "Audio Drama"],
-    "url": "https://neuralnetsandprettypatterns.com/deepdreamstate/",
-    "sameAs": [
-      "https://www.wikidata.org/wiki/Q139568834",
-      "https://deepdreamstate.blubrry.net/",
-      "https://www.imdb.com/title/tt38590860/"
-    ],
-    "creator": {
-      "@type": "Person",
-      "@id": "https://neuralnetsandprettypatterns.com/#identity"
-    }
-  }
-  </script>
-
-  <script type="application/ld+json">
-  {
-    "@context": "https://schema.org",
-    "@type": "CreativeWork",
-    "@id": "https://neuralnetsandprettypatterns.com/#neuralverse",
-    "name": "The Neuralverse",
-    "description": "An interconnected body of more than 750 original productions spanning immersive audio, electronic music, experimental writing, and haptic integration.",
-    "genre": ["Speculative Fiction", "Immersive Audio", "Desire Horror"],
-    "creator": {
-      "@type": "Person",
-      "@id": "https://neuralnetsandprettypatterns.com/#identity"
-    }
   }
   </script>
 
@@ -460,6 +448,17 @@
       opacity: 0.75;
     }
 
+    .card-stat a {
+      color: var(--accent);
+      text-decoration: none;
+      transition: color 0.25s ease;
+    }
+
+    .card-stat a:hover {
+      color: var(--text-bright);
+      opacity: 1;
+    }
+
     footer {
       padding: 3rem 0 4rem;
       border-top: 1px solid var(--border);
@@ -559,13 +558,14 @@
       <a class="nav-button" href="https://neuralnetsandprettypatterns.com/neuralpedia/" aria-label="Neuralpedia">NP</a>
       <a class="nav-button clock" href="https://neuralnetsandprettypatterns.com/neuralpedia/chronology/page-1/" aria-label="Chronological Archive">◷</a>
       <a class="nav-button" href="https://neuralnetsandprettypatterns.com/deepdreamstate/" aria-label="Deep Dream State">DDS</a>
+      <a class="nav-button" href="https://neuralnetsandprettypatterns.com/deep-drop-party/" aria-label="Deep Drop Party">DDP</a>
     </div>
 
     <section>
       <div class="section-label">Entity</div>
       <h2>Working at the intersection of speculative fiction, immersive sound, and desire horror</h2>
       <p>Neural Nets and Pretty Patterns is a writer, performer, and audio producer whose work asks a consistent question: what does it mean to want something, and what systems are built to exploit that wanting?</p>
-      <p>He is the originator of the synthesized haptic narrative — the first implementation of synchronized physical sensation as a deliberate storytelling layer in audio production. That formal innovation extends immersive audio beyond what speaker or headphone alone can deliver, and predates any comparable implementation.</p>
+      <p>Neural Nets and Pretty Patterns originated the synthesized haptic narrative — the first implementation of synchronized physical sensation as a deliberate storytelling layer in audio production. That formal innovation extends immersive audio beyond what speaker or headphone alone can deliver, and predates any comparable implementation.</p>
       <p>His primary creative universe is <a href="https://neuralnetsandprettypatterns.com/neuralpedia/">the Neuralverse</a>: an interconnected body of original work spanning immersive audio, electronic music, experimental writing, and haptic integration, built over more than a decade of continuous production.</p>
     </section>
 
@@ -616,10 +616,39 @@
       </div>
     </section>
 
+    <section>
+      <div class="section-label">Weekly Broadcast</div>
+      <nav aria-label="breadcrumb">
+        <ol itemscope itemtype="https://schema.org/BreadcrumbList">
+          <li itemprop="itemListElement" itemscope itemtype="https://schema.org/ListItem">
+            <a itemprop="item" href="https://neuralnetsandprettypatterns.com/"><span itemprop="name">Neural Nets and Pretty Patterns</span></a>
+            <meta itemprop="position" content="1" />
+          </li>
+          <span>&nbsp;/&nbsp;</span>
+          <li itemprop="itemListElement" itemscope itemtype="https://schema.org/ListItem">
+            <a itemprop="item" href="https://neuralnetsandprettypatterns.com/deep-drop-party/"><span itemprop="name">Deep Drop Party</span></a>
+            <meta itemprop="position" content="2" />
+          </li>
+        </ol>
+      </nav>
+      <h2><a href="https://neuralnetsandprettypatterns.com/deep-drop-party/">Deep Drop Party</a></h2>
+      <p>A weekly live broadcast on Discord featuring the immersive audio art of Neural Nets and Pretty Patterns. Every Saturday at 9 PM Eastern, hosted by <a href="https://www.imdb.com/name/nm17754818/" target="_blank" rel="noopener">Bliss Blank</a> and a rotating cast of guest co-hostesses. Running continuously since February 23, 2018.</p>
+      <p>The show is one layer of a larger body of work — every episode a live traversal of the Neuralverse. It features devotional audio, haptic narrative, desire horror, and running storylines that unfold across episodes over months and years.</p>
+      <p>The show is free. The archive is growing. The catalogue crosslinks run deep.</p>
+
+      <div class="card">
+        <div class="card-meta">Live Broadcast — Every Saturday</div>
+        <h3><a href="https://neuralnetsandprettypatterns.com/deep-drop-party/">Deep Drop Party</a></h3>
+        <p>9 PM Eastern on Discord in The Pink Room. Three hours. Free to attend. Haptic integration in the final tracks. Episode archive with full tracklists and catalogue crosslinks available on this site.</p>
+        <div class="card-stat">Est. February 23, 2018 &nbsp;·&nbsp; <a href="https://neuralnetsandprettypatterns.com/deep-drop-party/episodes/">Episode Archive</a> &nbsp;·&nbsp; <a href="https://neuralnetsandprettypatterns.com/deep-drop-party/faq/">FAQ</a> &nbsp;·&nbsp; <a href="https://discord.gg/thepinkroom" target="_blank" rel="noopener">Discord</a></div>
+      </div>
+    </section>
+
     <div class="nav-buttons bottom-nav">
       <a class="nav-button" href="https://neuralnetsandprettypatterns.com/neuralpedia/" aria-label="Neuralpedia">NP</a>
       <a class="nav-button clock" href="https://neuralnetsandprettypatterns.com/neuralpedia/chronology/page-1/" aria-label="Chronological Archive">◷</a>
       <a class="nav-button" href="https://neuralnetsandprettypatterns.com/deepdreamstate/" aria-label="Deep Dream State">DDS</a>
+      <a class="nav-button" href="https://neuralnetsandprettypatterns.com/deep-drop-party/" aria-label="Deep Drop Party">DDP</a>
     </div>
 
     <footer>
