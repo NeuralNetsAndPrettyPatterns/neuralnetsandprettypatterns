@@ -1,14 +1,34 @@
 export default {
   async fetch(request) {
     const url = new URL(request.url);
+
+    // ── Root
     if (url.pathname === "/" || url.pathname === "/index.html") {
       const html = await fetch("https://raw.githubusercontent.com/NeuralNetsAndPrettyPatterns/neuralnetsandprettypatterns/main/index.html");
       return new Response(await html.text(), { headers: { "content-type": "text/html" } });
     }
+
+    // ── Sitemap
     if (url.pathname === "/sitemap.xml") {
       const xml = await fetch("https://raw.githubusercontent.com/NeuralNetsAndPrettyPatterns/neuralnetsandprettypatterns/main/sitemap.xml");
       return new Response(await xml.text(), { headers: { "content-type": "application/xml" } });
     }
+
+    // ── Deep Drop Party
+    if (url.pathname === "/deep-drop-party" || url.pathname === "/deep-drop-party/") {
+      const html = await fetch("https://raw.githubusercontent.com/NeuralNetsAndPrettyPatterns/neuralnetsandprettypatterns/main/deep-drop-party/index.html");
+      return new Response(await html.text(), { headers: { "content-type": "text/html" } });
+    }
+    if (url.pathname === "/deep-drop-party/faq" || url.pathname === "/deep-drop-party/faq/") {
+      const html = await fetch("https://raw.githubusercontent.com/NeuralNetsAndPrettyPatterns/neuralnetsandprettypatterns/main/deep-drop-party/faq/index.html");
+      return new Response(await html.text(), { headers: { "content-type": "text/html" } });
+    }
+    if (url.pathname === "/deep-drop-party/episodes" || url.pathname === "/deep-drop-party/episodes/") {
+      const html = await fetch("https://raw.githubusercontent.com/NeuralNetsAndPrettyPatterns/neuralnetsandprettypatterns/main/deep-drop-party/episodes/index.html");
+      return new Response(await html.text(), { headers: { "content-type": "text/html" } });
+    }
+
+    // ── Neuralpedia
     if (url.pathname === "/neuralpedia" || url.pathname === "/neuralpedia/") {
       const html = await fetch("https://raw.githubusercontent.com/NeuralNetsAndPrettyPatterns/neuralnetsandprettypatterns/main/neuralpedia/index.html");
       return new Response(await html.text(), { headers: { "content-type": "text/html" } });
@@ -59,6 +79,8 @@ export default {
       }
       return new Response("Not found", { status: 404 });
     }
+
+    // ── Deep Dream State
     if (url.pathname === "/deepdreamstate") {
       return Response.redirect(`${url.origin}/deepdreamstate/`, 301);
     }
@@ -80,6 +102,8 @@ export default {
       }
       return new Response(response.body, { status: response.status, headers: response.headers });
     }
+
+    // ── 404
     return new Response("Not found", { status: 404 });
   }
 };
