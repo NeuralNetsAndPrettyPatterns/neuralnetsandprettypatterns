@@ -19,6 +19,10 @@ export default {
       const html = await fetch("https://raw.githubusercontent.com/NeuralNetsAndPrettyPatterns/neuralnetsandprettypatterns/main/deep-drop-party/index.html");
       return new Response(await html.text(), { headers: { "content-type": "text/html" } });
     }
+    if (url.pathname === "/deep-drop-party/now" || url.pathname === "/deep-drop-party/now/") {
+      const html = await fetch("https://raw.githubusercontent.com/NeuralNetsAndPrettyPatterns/neuralnetsandprettypatterns/main/deep-drop-party/now/index.html");
+      return new Response(await html.text(), { headers: { "content-type": "text/html" } });
+    }
     if (url.pathname === "/deep-drop-party/faq" || url.pathname === "/deep-drop-party/faq/") {
       const html = await fetch("https://raw.githubusercontent.com/NeuralNetsAndPrettyPatterns/neuralnetsandprettypatterns/main/deep-drop-party/faq/index.html");
       return new Response(await html.text(), { headers: { "content-type": "text/html" } });
