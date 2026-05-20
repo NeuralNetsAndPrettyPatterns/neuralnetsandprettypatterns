@@ -1,24 +1,68 @@
 {
   "meta": {
-    "old_catalogue": 665,
-    "last_updated": "YYYY-MM-DD"
+    "baseline_catalogue_count": 665,
+    "baseline_cutoff_date": "2026-05-20",
+    "last_updated": "2026-05-20",
+    "artist": {
+      "name": "Neural Nets and Pretty Patterns",
+      "isni": "0000 0005 2877 6254",
+      "ipi": ["01346215566", "01346215468"],
+      "kgid": "/g/11zjw94pww",
+      "imdb": "https://www.imdb.com/name/nm17755189/",
+      "musicbrainz": "https://musicbrainz.org/artist/134bc2e9-16e4-4b1e-b779-b9024f002882",
+      "bookbrainz": "https://bookbrainz.org/author/59c9b4e8-2b6f-4230-b631-df2b01553b42",
+      "theend": "https://www.theend.fyi/creative/neural-nets-and-pretty-patterns",
+      "tvtropes": "https://tvtropes.org/pmwiki/pmwiki.php/Podcast/DeepDreamState",
+      "sites": {
+        "main": "https://neuralnetsandprettypatterns.com/",
+        "hub": "https://neuralnets.carrd.co/",
+        "podcast": "https://deepdreamstate.blubrry.net/",
+        "neuralpedia": "https://neuralnetsandprettypatterns.com/neuralpedia/"
+      },
+      "social": {
+        "twitter": "https://twitter.com/MCNeuralNets",
+        "reddit": "https://www.reddit.com/user/prettypattern/",
+        "tumblr": "https://www.tumblr.com/blog/blink-blank-bliss",
+        "discord": "https://discord.gg/thepinkroom",
+        "patreon": "https://www.patreon.com/minderaser"
+      },
+      "music": {
+        "apple_music": "https://music.apple.com/us/artist/neural-nets/1570376584",
+        "spotify": "https://open.spotify.com/artist/4ClrZHtOYWrZyFt8oCGuL6"
+      },
+      "podcast_platforms": {
+        "apple_podcasts": "https://podcasts.apple.com/us/podcast/deep-dream-state/id1716722184",
+        "spotify": "https://open.spotify.com/show/3P2ZibpqEGm0iP9rUCMCS0",
+        "blubrry": "https://deepdreamstate.blubrry.net/"
+      }
+    }
   },
   "new_releases": [
     {
-      "dds_id": "XXXXXXX",
-      "title": "Series Name: Track Title: eN",
-      "series": ["Series Name"],
-      "episode": 1,
-      "release_date": "YYYY-MM-DD",
-      "genre": "Audio Drama",
-      "power_geometry": ["md", "fd", "fs"],
-      "format": "pure audio",
-      "length": "00:00",
+      "nnpp_id": "NNPP-SKG",
+      "title": "Sparkle Service",
+      "series": ["Neuroplex"],
+      "episode": 3,
+      "release_date": "2026-05-20",
+      "genre": ["Audio Drama", "Desire Horror"],
+      "power_geometry": ["fs"],
+      "format": "Pure audio",
+      "length": "20:32",
+      "duration_iso": "PT20M32S",
+      "canonical_url": "https://www.patreon.com/posts/158798188",
+      "same_as": [
+        "https://musicbrainz.org/release/c87142af-a2c9-4c13-8403-a3cc3c788745"
+      ],
       "image": "",
       "links": [
-        { "label": "Patreon", "url": "https://www.patreon.com/posts/..." }
+        { "label": "Patreon", "url": "https://www.patreon.com/posts/158798188" },
+        { "label": "MusicBrainz", "url": "https://musicbrainz.org/release/c87142af-a2c9-4c13-8403-a3cc3c788745" }
       ],
-      "is_free": false
+      "is_free": false,
+      "description": "Sparkle Service crosses over the Desire Horror and Pink Noir parts of the Neuralverse, in one fabulous apron. Echo Doll stars as the corporate trainer for the Starlight Coffee chain. She is completely plausible as a corporate trainer, which makes the gradual shift into pink noir feel almost imperceptible.",
+      "credits": {
+        "music": "Corporate base music by Denys Kyshchuk, under public license"
+      }
     }
   ]
 }
