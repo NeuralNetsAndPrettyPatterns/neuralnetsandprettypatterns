@@ -51,7 +51,7 @@
       "duration_iso": "PT20M32S",
       "canonical_url": "https://www.patreon.com/posts/158798188",
       "same_as": ["https://musicbrainz.org/release/c87142af-a2c9-4c13-8403-a3cc3c788745"],
-      "image": "",
+      "image": "https://raw.githubusercontent.com/NeuralNetsAndPrettyPatterns/neuralnetsandprettypatterns/main/SparkleService.jpg",
       "links": [
         { "label": "Patreon", "url": "https://www.patreon.com/posts/158798188" },
         { "label": "MusicBrainz", "url": "https://musicbrainz.org/release/c87142af-a2c9-4c13-8403-a3cc3c788745" }
