@@ -50,9 +50,7 @@
       "length": "20:32",
       "duration_iso": "PT20M32S",
       "canonical_url": "https://www.patreon.com/posts/158798188",
-      "same_as": [
-        "https://musicbrainz.org/release/c87142af-a2c9-4c13-8403-a3cc3c788745"
-      ],
+      "same_as": ["https://musicbrainz.org/release/c87142af-a2c9-4c13-8403-a3cc3c788745"],
       "image": "",
       "links": [
         { "label": "Patreon", "url": "https://www.patreon.com/posts/158798188" },
@@ -60,9 +58,7 @@
       ],
       "is_free": false,
       "description": "Sparkle Service crosses over the Desire Horror and Pink Noir parts of the Neuralverse, in one fabulous apron. Echo Doll stars as the corporate trainer for the Starlight Coffee chain. She is completely plausible as a corporate trainer, which makes the gradual shift into pink noir feel almost imperceptible.",
-      "credits": {
-        "music": "Corporate base music by Denys Kyshchuk, under public license"
-      }
+      "credits": { "music": "Corporate base music by Denys Kyshchuk, under public license" }
     }
   ]
 }
