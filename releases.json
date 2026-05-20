@@ -1,0 +1,23 @@
+{
+  "meta": {
+    "old_catalogue": 665,
+    "last_updated": "YYYY-MM-DD"
+  },
+  "new_releases": [
+    {
+      "dds_id": "XXXXXXX",
+      "title": "Series Name: Track Title: eN",
+      "series": ["Series Name"],
+      "episode": 1,
+      "release_date": "YYYY-MM-DD",
+      "genre": "Audio Drama",
+      "power_geometry": ["md", "fd", "fs"],
+      "format": "pure audio",
+      "length": "00:00",
+      "links": [
+        { "label": "Patreon", "url": "https://www.patreon.com/posts/..." }
+      ],
+      "is_free": false
+    }
+  ]
+}
