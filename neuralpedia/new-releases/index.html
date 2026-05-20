@@ -461,9 +461,20 @@
     const labelEl = document.getElementById('release-count-label');
 
     try {
-      const res = await fetch('/releases.json');
-      if (!res.ok) throw new Error('releases.json not found');
-      const data = await res.json();
+      const res = await fetch('https://raw.githubusercontent.com/NeuralNetsAndPrettyPatterns/neuralnetsandprettypatterns/main/releases.json', { cache: 'no-store' });
+
+      if (!res.ok) {
+        throw new Error(`HTTP ${res.status}: releases.json could not be loaded`);
+      }
+
+      const text = await res.text();
+      let data;
+      try {
+        data = JSON.parse(text);
+      } catch (parseError) {
+        console.error('Raw releases.json response:', text);
+        throw new Error(`Invalid JSON: ${parseError.message}`);
+      }
 
       const baseline = Number(data.meta?.baseline_catalogue_count || 0);
       const releases = Array.isArray(data.new_releases) ? data.new_releases : [];
@@ -577,7 +588,7 @@
       });
 
     } catch (e) {
-      list.innerHTML = '<p class="state-message">Could not load releases. Please check that releases.json is at the site root.</p>';
+      list.innerHTML = `<p class="state-message">${escapeHtml(e.message)}</p>`;
       console.error(e);
     }
   }
