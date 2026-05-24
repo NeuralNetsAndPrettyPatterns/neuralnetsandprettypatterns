@@ -14,19 +14,36 @@ export default {
       return new Response(await xml.text(), { headers: { "content-type": "application/xml" } });
     }
 
+    // ── Root JS test/data file
+    if (url.pathname === "/show-data.js") {
+      const js = await fetch("https://raw.githubusercontent.com/NeuralNetsAndPrettyPatterns/neuralnetsandprettypatterns/main/show-data.js");
+      if (!js.ok) {
+        return new Response("Not found", { status: 404 });
+      }
+      return new Response(await js.text(), {
+        headers: {
+          "content-type": "application/javascript; charset=utf-8",
+          "cache-control": "public, max-age=60"
+        }
+      });
+    }
+
     // ── Deep Drop Party
     if (url.pathname === "/deep-drop-party" || url.pathname === "/deep-drop-party/") {
       const html = await fetch("https://raw.githubusercontent.com/NeuralNetsAndPrettyPatterns/neuralnetsandprettypatterns/main/deep-drop-party/index.html");
       return new Response(await html.text(), { headers: { "content-type": "text/html" } });
     }
+
     if (url.pathname === "/deep-drop-party/now" || url.pathname === "/deep-drop-party/now/") {
       const html = await fetch("https://raw.githubusercontent.com/NeuralNetsAndPrettyPatterns/neuralnetsandprettypatterns/main/deep-drop-party/now/index.html");
       return new Response(await html.text(), { headers: { "content-type": "text/html" } });
     }
+
     if (url.pathname === "/deep-drop-party/faq" || url.pathname === "/deep-drop-party/faq/") {
       const html = await fetch("https://raw.githubusercontent.com/NeuralNetsAndPrettyPatterns/neuralnetsandprettypatterns/main/deep-drop-party/faq/index.html");
       return new Response(await html.text(), { headers: { "content-type": "text/html" } });
     }
+
     if (url.pathname === "/deep-drop-party/episodes" || url.pathname === "/deep-drop-party/episodes/") {
       const html = await fetch("https://raw.githubusercontent.com/NeuralNetsAndPrettyPatterns/neuralnetsandprettypatterns/main/deep-drop-party/episodes/index.html");
       return new Response(await html.text(), { headers: { "content-type": "text/html" } });
@@ -37,6 +54,7 @@ export default {
       const html = await fetch("https://raw.githubusercontent.com/NeuralNetsAndPrettyPatterns/neuralnetsandprettypatterns/main/neuralpedia/index.html");
       return new Response(await html.text(), { headers: { "content-type": "text/html" } });
     }
+
     if (
       url.pathname.startsWith("/neuralpedia/") &&
       (
@@ -55,6 +73,7 @@ export default {
       if (!asset.ok) {
         return new Response("Not found", { status: 404 });
       }
+
       const contentTypes = {
         ".webp": "image/webp",
         ".png": "image/png",
@@ -65,7 +84,9 @@ export default {
         ".css": "text/css",
         ".js": "application/javascript"
       };
+
       const ext = url.pathname.slice(url.pathname.lastIndexOf(".")).toLowerCase();
+
       return new Response(asset.body, {
         status: asset.status,
         headers: {
@@ -74,6 +95,7 @@ export default {
         }
       });
     }
+
     if (url.pathname.startsWith("/neuralpedia/")) {
       const path = url.pathname.endsWith("/") ? url.pathname : url.pathname + "/";
       const rawUrl = `https://raw.githubusercontent.com/NeuralNetsAndPrettyPatterns/neuralnetsandprettypatterns/main${path}index.html`;
@@ -88,11 +110,13 @@ export default {
     if (url.pathname === "/deepdreamstate") {
       return Response.redirect(`${url.origin}/deepdreamstate/`, 301);
     }
+
     if (url.pathname.startsWith("/deepdreamstate")) {
       const githubPath = url.pathname.replace("/deepdreamstate", "");
       const proxyUrl = `https://neuralnetsandprettypatterns.github.io/deepdreamstate${githubPath}${url.search}`;
       const response = await fetch(proxyUrl);
       const contentType = response.headers.get("content-type") || "";
+
       if (contentType.includes("text/html") || contentType.includes("javascript")) {
         let text = await response.text();
         text = text.replaceAll(
@@ -104,7 +128,11 @@ export default {
           headers: { "content-type": contentType }
         });
       }
-      return new Response(response.body, { status: response.status, headers: response.headers });
+
+      return new Response(response.body, {
+        status: response.status,
+        headers: response.headers
+      });
     }
 
     // ── 404
