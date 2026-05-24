@@ -1,0 +1,7 @@
+<p id="test-block">Loading...</p>
+
+<script src="/show-data.js"></script>
+<script>
+  document.getElementById("test-block").textContent =
+    "Ep. " + window.DDP_TEST.number + ": " + window.DDP_TEST.title;
+</script>
