@@ -14,13 +14,11 @@ export default {
       return new Response(await xml.text(), { headers: { "content-type": "application/xml; charset=utf-8" } });
     }
 
-    // ── Root JS test/data file
+    // ── Root show data
     if (url.pathname === "/show-data.js") {
       const js = await fetch("https://raw.githubusercontent.com/NeuralNetsAndPrettyPatterns/neuralnetsandprettypatterns/main/show-data.js");
-      if (!js.ok) {
-        return new Response("Not found", { status: 404 });
-      }
       return new Response(await js.text(), {
+        status: js.ok ? 200 : 404,
         headers: {
           "content-type": "application/javascript; charset=utf-8",
           "cache-control": "no-store"
@@ -49,13 +47,11 @@ export default {
       return new Response(await html.text(), { headers: { "content-type": "text/html; charset=utf-8" } });
     }
 
-    // ── Deep Drop Party JS test page
+    // ── Deep Drop Party testpage
     if (url.pathname === "/deep-drop-party/testpage" || url.pathname === "/deep-drop-party/testpage/") {
       const html = await fetch("https://raw.githubusercontent.com/NeuralNetsAndPrettyPatterns/neuralnetsandprettypatterns/main/deep-drop-party/testpage/index.html");
-      if (!html.ok) {
-        return new Response("Not found", { status: 404 });
-      }
       return new Response(await html.text(), {
+        status: html.ok ? 200 : 404,
         headers: {
           "content-type": "text/html; charset=utf-8",
           "cache-control": "no-store"
