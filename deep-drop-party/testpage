@@ -1,7 +1,19 @@
-<p id="test-block">Loading...</p>
-
-<script src="/show-data.js"></script>
-<script>
-  document.getElementById("test-block").textContent =
-    "Ep. " + window.DDP_TEST.number + ": " + window.DDP_TEST.title;
-</script>
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Test Page</title>
+</head>
+<body>
+  <p id="test-block">Loading...</p>
+  <script src="/show-data.js"></script>
+  <script>
+    if (window.DDP_TEST) {
+      document.getElementById("test-block").textContent =
+        "Ep. " + window.DDP_TEST.number + ": " + window.DDP_TEST.title;
+    } else {
+      document.getElementById("test-block").textContent = "DDP_TEST not loaded";
+    }
+  </script>
+</body>
+</html>
