@@ -1,0 +1,20 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>DDP JS Test</title>
+</head>
+<body>
+
+  <p id="test-block">Loading...</p>
+
+  <script src="test-data.js"></script>
+
+  <script>
+    document.getElementById("test-block").textContent =
+      "Ep. " + window.DDP_TEST.number + ": " + window.DDP_TEST.title;
+  </script>
+
+</body>
+</html>
