@@ -18,6 +18,39 @@ window.DDP = {
 
     // ── [0] CURRENT SHOW ─────────────────────────────────────
     {
+      number:      432,
+      title:       "Puppet Strings",
+      titleText:   "Puppet Strings",
+      theme:       "Dolls and the Dreams That Make Them Dance",
+      themeLabel:  "Theme",
+      date:        "2026-05-30T21:00:00-04:00",
+      dateLabel:   "Saturday, May 30",
+      kicker:      "Saturday, May 30 · 9 PM Eastern",
+      poster:      "https://raw.githubusercontent.com/NeuralNetsAndPrettyPatterns/neuralnetsandprettypatterns/main/puppetstringsdeepdrop.png",
+      posterAlt:   "Official poster for Deep Drop Party 432 - Puppet Strings.",
+      description: [
+        "The Deep Drop Party is the longest running broadcast show on Discord. It's been running uninterrupted weekly since 2018.",
+        "With a resume like that, you have to ask. \"Who's pulling the strings?\"",
+        "I mean, actually. You HAVE to ask. You have to be there tonight, at 9 PM EST. It's a rule.*",
+        "You have to hear three hours of prestige audio. These tracks revolve around dolls and the dreams that make them dance. You have to pull Bliss Blank and Dizzy Dollie's puppet strings and hear what they say. You have to play the specialized Neuralverse ARG, Mind Libs. You have to hear a secret Premiere of a DDS-derived track.",
+        "If you're very lucky, you might get fitted for a puppet string of your own. Come early and get the strings while supplies last.",
+        "* This is a joke. DDP attendance is, in actuality, entirely voluntary. We would love it if you attended, though!",
+        "** The Deep Drop Party is a joint production of Bliss Blank &amp; Neural Nets and Pretty Patterns, hosted on the Pink Room Discord Server."
+      ],
+      badges: [
+        { label: "World Premiere", cls: "badge-premiere" },
+        { label: "ARG",            cls: "badge-premiere" },
+        { label: "Free",           cls: "badge-free" }
+      ],
+      hostesses: [
+        { name: "Bliss Blank",  url: "https://www.tumblr.com/blink-blank-bliss" },
+        { name: "Dizzy Dollie", url: "https://www.imdb.com/name/nm17760876/" }
+      ],
+      tracks: []
+    },
+
+    // ── [1] PREVIOUS SHOW ────────────────────────────────────
+    {
       number:      431,
       title:       "QT&amp;A",
       titleText:   "QT&A",
@@ -25,7 +58,7 @@ window.DDP = {
       themeLabel:  "Format",
       date:        "2026-05-23T21:00:00-04:00",
       dateLabel:   "Saturday, May 23",
-      kicker:      "Saturday, May 23 · 9 PM Eastern",
+      kicker:      "Previous Show - Aired Saturday, May 23 · 9 PM Eastern",
       poster:      null,
       posterAlt:   null,
       description: [
@@ -56,18 +89,13 @@ window.DDP = {
       ]
     },
 
-    // ── [1] PREVIOUS SHOW ────────────────────────────────────
+    // ── [2+] ARCHIVE ─────────────────────────────────────────
     {
-      number:      430,
-      title:       "DisOrientation",
-      titleText:   "DisOrientation",
-      theme:       "Neuroplex",
-      themeLabel:  "Theme",
-      date:        "2026-05-16T21:00:00-04:00",
-      dateLabel:   "Saturday, May 16",
-      kicker:      "Previous Show - Aired Saturday, May 16 · 9 PM Eastern",
-      poster:      "https://raw.githubusercontent.com/NeuralNetsAndPrettyPatterns/neuralnetsandprettypatterns/main/Disorientation%20-%20Official%20Deep%20Drop%20Party%20Poster.jpg",
-      posterAlt:   "Official poster for Deep Drop Party 430 - DisOrientation. A vintage typewriter on a hot pink background with the NNPP watermark shows a page reading Deep Drop Party DisOrientation.",
+      number: 430, title: "DisOrientation", titleText: "DisOrientation",
+      theme: "Neuroplex", themeLabel: "Theme",
+      date: "2026-05-16T21:00:00-04:00", dateLabel: "May 16, 2026",
+      poster: "https://raw.githubusercontent.com/NeuralNetsAndPrettyPatterns/neuralnetsandprettypatterns/main/Disorientation%20-%20Official%20Deep%20Drop%20Party%20Poster.jpg",
+      posterAlt: "Official poster for Deep Drop Party 430 - DisOrientation. A vintage typewriter on a hot pink background with the NNPP watermark shows a page reading Deep Drop Party DisOrientation.",
       description: [
         "You don't want to miss this memo.",
         "Tonight, we're having onboarding. You definitely want to get on. <a href=\"https://www.imdb.com/name/nm17754818/\" target=\"_blank\" rel=\"noopener\">Bliss</a> is in open blazer. <a href=\"https://www.imdb.com/name/nm17760876/\" target=\"_blank\" rel=\"noopener\">Dizzy Dollie</a> is in pencil skirt.",
@@ -93,8 +121,6 @@ window.DDP = {
         { pos: "07", title: "S-Wave",               links: [{ label: "Patreon", url: "https://www.patreon.com/posts/slavewave-48150279" }], badges: [{ label: "Haptic", cls: "badge-haptic" }] }
       ]
     },
-
-    // ── [2+] ARCHIVE ─────────────────────────────────────────
     {
       number: 391, title: "Gummi Dummi", titleText: "Gummi Dummi",
       date: "2025-11-08T21:00:00-05:00", dateLabel: "November 8, 2025",
