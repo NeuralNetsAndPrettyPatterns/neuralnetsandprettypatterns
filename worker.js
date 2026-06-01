@@ -26,6 +26,24 @@ export default {
       });
     }
 
+    // ── Root images
+    if (url.pathname === "/ThePinkRoom.jpg") {
+      const img = await fetch("https://raw.githubusercontent.com/NeuralNetsAndPrettyPatterns/neuralnetsandprettypatterns/main/ThePinkRoom.jpg");
+      return new Response(img.body, {
+        status: img.ok ? 200 : 404,
+        headers: {
+          "content-type": "image/jpeg",
+          "cache-control": "public, max-age=86400"
+        }
+      });
+    }
+
+    // ── The Pink Room
+    if (url.pathname === "/the-pink-room" || url.pathname === "/the-pink-room/") {
+      const html = await fetch("https://raw.githubusercontent.com/NeuralNetsAndPrettyPatterns/neuralnetsandprettypatterns/main/the-pink-room/index.html");
+      return new Response(await html.text(), { headers: { "content-type": "text/html; charset=utf-8" } });
+    }
+
     // ── Deep Drop Party
     if (url.pathname === "/deep-drop-party" || url.pathname === "/deep-drop-party/") {
       const html = await fetch("https://raw.githubusercontent.com/NeuralNetsAndPrettyPatterns/neuralnetsandprettypatterns/main/deep-drop-party/index.html");
