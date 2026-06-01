@@ -27,7 +27,12 @@ export default {
     }
 
     // ── Root images
-    if (url.pathname === "/ThePinkRoom.jpg") {
+    if (
+      url.pathname === "/ThePinkRoom.jpg" ||
+      url.pathname === "/JustMyTypeHapticCover.jpg" ||
+      url.pathname === "/JustMyType.jpg" ||
+      url.pathname === "/SparkleService.jpg"
+    ) {
       const img = await fetch("https://raw.githubusercontent.com/NeuralNetsAndPrettyPatterns/neuralnetsandprettypatterns/main/ThePinkRoom.jpg");
       return new Response(img.body, {
         status: img.ok ? 200 : 404,
