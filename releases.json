@@ -39,6 +39,33 @@
   },
   "new_releases": [
     {
+      "nnpp_id": "NNPP-JMT-H",
+      "title": "Just My Type (Haptic)",
+      "series": ["Back Office", "Neuroplex"],
+      "episode": 3,
+      "release_date": "2026-05-29",
+      "genre": ["Audio Drama", "Desire Horror", "Haptic Audio"],
+      "power_geometry": ["fs"],
+      "format": "Haptic audio",
+      "length": "20:11",
+      "duration_iso": "PT20M11S",
+      "canonical_url": "https://www.patreon.com/posts/159795760",
+      "same_as": [
+        "https://musicbrainz.org/release/f8e52b35-27a8-4983-aa28-248170303789",
+        "https://musicbrainz.org/recording/7ade1357-fcd1-465d-b155-baf36e9664d7"
+      ],
+      "image": "https://raw.githubusercontent.com/NeuralNetsAndPrettyPatterns/neuralnetsandprettypatterns/main/JustMyTypeHapticCover.jpg",
+      "links": [
+        { "label": "Patreon", "url": "https://www.patreon.com/posts/159795760" },
+        { "label": "MusicBrainz", "url": "https://musicbrainz.org/release/f8e52b35-27a8-4983-aa28-248170303789" },
+        { "label": "XToys", "url": "https://xtoys.app/" }
+      ],
+      "is_free": false,
+      "description": "Just My Type (Haptic) brings haptic storytelling to the Back Office training scenario. Haptic narrative was developed by Neural Nets and Pretty Patterns in conjunction with <a href=\"https://github.com/qdot\">QDot</a> and then <a href=\"https://xtoys.app/\">XToys</a>, which still actively maintains the interface. The training scenarios are perfect for haptics — corporate-seeming at first, with a darker story running beneath. The typing noises produce something very special. All haptics sound unusual on regular players but work well on XToys. Full content warnings and descriptions available on the main audio track.",
+      "credits": { "performer": "Panda Moanium", "performer_imdb": "https://www.imdb.com/name/nm18291392/" },
+      "haptic": true
+    },
+    {
       "nnpp_id": "NNPP-JMT",
       "title": "Just My Type",
       "series": ["Back Office", "Neuroplex"],
