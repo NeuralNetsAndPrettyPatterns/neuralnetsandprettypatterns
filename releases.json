@@ -6,7 +6,10 @@
     "artist": {
       "name": "Neural Nets and Pretty Patterns",
       "isni": "0000 0005 2877 6254",
-      "ipi": ["01346215566", "01346215468"],
+      "ipi": [
+        "01346215566",
+        "01346215468"
+      ],
       "kgid": "/g/11zjw94pww",
       "imdb": "https://www.imdb.com/name/nm17755189/",
       "musicbrainz": "https://musicbrainz.org/artist/134bc2e9-16e4-4b1e-b779-b9024f002882",
@@ -41,11 +44,20 @@
     {
       "nnpp_id": "NNPP-JMT-H",
       "title": "Just My Type (Haptic)",
-      "series": ["Back Office", "Neuroplex"],
+      "series": [
+        "Back Office",
+        "Neuroplex"
+      ],
       "episode": 3,
       "release_date": "2026-05-29",
-      "genre": ["Audio Drama", "Desire Horror", "Haptic Audio"],
-      "power_geometry": ["fs"],
+      "genre": [
+        "Audio Drama",
+        "Desire Horror",
+        "Haptic Audio"
+      ],
+      "power_geometry": [
+        "fs"
+      ],
       "format": "Haptic audio",
       "length": "20:11",
       "duration_iso": "PT20M11S",
@@ -56,58 +68,105 @@
       ],
       "image": "https://raw.githubusercontent.com/NeuralNetsAndPrettyPatterns/neuralnetsandprettypatterns/main/JustMyTypeHapticCover.jpg",
       "links": [
-        { "label": "Patreon", "url": "https://www.patreon.com/posts/159795760" },
-        { "label": "MusicBrainz", "url": "https://musicbrainz.org/release/f8e52b35-27a8-4983-aa28-248170303789" },
-        { "label": "XToys", "url": "https://xtoys.app/" }
+        {
+          "label": "Patreon",
+          "url": "https://www.patreon.com/posts/159795760"
+        },
+        {
+          "label": "MusicBrainz",
+          "url": "https://musicbrainz.org/release/f8e52b35-27a8-4983-aa28-248170303789"
+        },
+        {
+          "label": "XToys",
+          "url": "https://xtoys.app/"
+        }
       ],
       "is_free": false,
-      "description": "Just My Type (Haptic) brings haptic storytelling to the Back Office training scenario. Haptic narrative was developed by Neural Nets and Pretty Patterns in conjunction with <a href=\"https://github.com/qdot\">QDot</a> and then <a href=\"https://xtoys.app/\">XToys</a>, which still actively maintains the interface. The training scenarios are perfect for haptics — corporate-seeming at first, with a darker story running beneath. The typing noises produce something very special. All haptics sound unusual on regular players but work well on XToys. Full content warnings and descriptions available on the main audio track.",
-      "credits": { "performer": "Panda Moanium", "performer_imdb": "https://www.imdb.com/name/nm18291392/" },
+      "description": "Just My Type (Haptic) brings haptic storytelling to the Back Office training scenario. Haptic narrative was developed by Neural Nets and Pretty Patterns in conjunction with QDot and XToys, which still actively maintains the interface. The training scenarios are perfect for haptics \u2014 corporate-seeming at first, with a darker story running beneath. The typing noises produce something very special. All haptics sound unusual on regular players but work well on XToys. Full content warnings and descriptions available on the main audio track.",
+      "credits": {
+        "performer": "Panda Moanium",
+        "performer_imdb": "https://www.imdb.com/name/nm18291392/"
+      },
       "haptic": true
     },
     {
       "nnpp_id": "NNPP-JMT",
       "title": "Just My Type",
-      "series": ["Back Office", "Neuroplex"],
+      "series": [
+        "Back Office",
+        "Neuroplex"
+      ],
       "episode": 3,
       "release_date": "2026-05-29",
-      "genre": ["Audio Drama", "Desire Horror"],
-      "power_geometry": ["fs"],
+      "genre": [
+        "Audio Drama",
+        "Desire Horror"
+      ],
+      "power_geometry": [
+        "fs"
+      ],
       "format": "Pure audio",
       "length": "20:11",
       "duration_iso": "PT20M11S",
       "canonical_url": "https://www.patreon.com/posts/159598729/",
-      "same_as": ["https://musicbrainz.org/release/946613c3-3f38-480c-a370-420a6cca4f89"],
+      "same_as": [
+        "https://musicbrainz.org/release/946613c3-3f38-480c-a370-420a6cca4f89"
+      ],
       "image": "https://raw.githubusercontent.com/NeuralNetsAndPrettyPatterns/neuralnetsandprettypatterns/main/JustMyType.jpg",
       "links": [
-        { "label": "Patreon", "url": "https://www.patreon.com/posts/159598729/" },
-        { "label": "MusicBrainz", "url": "https://musicbrainz.org/release/946613c3-3f38-480c-a370-420a6cca4f89" }
+        {
+          "label": "Patreon",
+          "url": "https://www.patreon.com/posts/159598729/"
+        },
+        {
+          "label": "MusicBrainz",
+          "url": "https://musicbrainz.org/release/946613c3-3f38-480c-a370-420a6cca4f89"
+        }
       ],
       "is_free": false,
       "description": "Just My Type shows us how Neuroplex is building the administrative assistants of the future. It keeps all the synthservs extremely linked in. It follows the same progression as other Back Office training audios. Initially plausible corporate training takes a turn into an altogether different kind of training. Upbeat engineered soundscapes slip into ambient dream.",
-      "credits": { "performer": "Panda Moanium" }
+      "credits": {
+        "performer": "Panda Moanium"
+      }
     },
     {
       "nnpp_id": "NNPP-SKG",
       "title": "Sparkle Service",
-      "series": ["Neuroplex"],
+      "series": [
+        "Neuroplex"
+      ],
       "episode": 3,
       "release_date": "2026-05-20",
-      "genre": ["Audio Drama", "Desire Horror"],
-      "power_geometry": ["fs"],
+      "genre": [
+        "Audio Drama",
+        "Desire Horror"
+      ],
+      "power_geometry": [
+        "fs"
+      ],
       "format": "Pure audio",
       "length": "20:32",
       "duration_iso": "PT20M32S",
       "canonical_url": "https://www.patreon.com/posts/158798188",
-      "same_as": ["https://musicbrainz.org/release/c87142af-a2c9-4c13-8403-a3cc3c788745"],
+      "same_as": [
+        "https://musicbrainz.org/release/c87142af-a2c9-4c13-8403-a3cc3c788745"
+      ],
       "image": "https://raw.githubusercontent.com/NeuralNetsAndPrettyPatterns/neuralnetsandprettypatterns/main/SparkleService.jpg",
       "links": [
-        { "label": "Patreon", "url": "https://www.patreon.com/posts/158798188" },
-        { "label": "MusicBrainz", "url": "https://musicbrainz.org/release/c87142af-a2c9-4c13-8403-a3cc3c788745" }
+        {
+          "label": "Patreon",
+          "url": "https://www.patreon.com/posts/158798188"
+        },
+        {
+          "label": "MusicBrainz",
+          "url": "https://musicbrainz.org/release/c87142af-a2c9-4c13-8403-a3cc3c788745"
+        }
       ],
       "is_free": false,
       "description": "Sparkle Service crosses over the Desire Horror and Pink Noir parts of the Neuralverse, in one fabulous apron. Echo Doll stars as the corporate trainer for the Starlight Coffee chain. She is completely plausible as a corporate trainer, which makes the gradual shift into pink noir feel almost imperceptible.",
-      "credits": { "music": "Corporate base music by Denys Kyshchuk, under public license" }
+      "credits": {
+        "music": "Corporate base music by Denys Kyshchuk, under public license"
+      }
     }
   ]
 }
