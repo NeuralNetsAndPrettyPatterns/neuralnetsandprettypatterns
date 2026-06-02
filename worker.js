@@ -49,6 +49,29 @@ export default {
       return new Response(await html.text(), { headers: { "content-type": "text/html; charset=utf-8" } });
     }
 
+    // ── The Pink Room — Weekly Events
+    if (url.pathname === "/the-pink-room/weekly-events" || url.pathname === "/the-pink-room/weekly-events/") {
+      const html = await fetch("https://raw.githubusercontent.com/NeuralNetsAndPrettyPatterns/neuralnetsandprettypatterns/main/the-pink-room/weekly-events/index.html");
+      return new Response(await html.text(), {
+        status: html.ok ? 200 : 404,
+        headers: {
+          "content-type": "text/html; charset=utf-8",
+          "cache-control": "no-store"
+        }
+      });
+    }
+
+    if (url.pathname === "/the-pink-room/weekly-events/events-data.js") {
+      const js = await fetch("https://raw.githubusercontent.com/NeuralNetsAndPrettyPatterns/neuralnetsandprettypatterns/main/the-pink-room/weekly-events/events-data.js");
+      return new Response(await js.text(), {
+        status: js.ok ? 200 : 404,
+        headers: {
+          "content-type": "application/javascript; charset=utf-8",
+          "cache-control": "no-store"
+        }
+      });
+    }
+
     // ── Deep Drop Party
     if (url.pathname === "/deep-drop-party" || url.pathname === "/deep-drop-party/") {
       const html = await fetch("https://raw.githubusercontent.com/NeuralNetsAndPrettyPatterns/neuralnetsandprettypatterns/main/deep-drop-party/index.html");
