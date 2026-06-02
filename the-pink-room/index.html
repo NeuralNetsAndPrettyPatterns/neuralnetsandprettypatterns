@@ -8,7 +8,7 @@
     <meta name="googlebot" content="index,follow,max-image-preview:large,max-snippet:-1">
     <title>The Pink Room | Neural Nets and Pretty Patterns</title>
     <link rel="canonical" href="https://neuralnetsandprettypatterns.com/the-pink-room/">
-    <meta name="description" content="The Pink Room is the official Discord server for Neural Nets and Pretty Patterns. Over 15,000 members, weekly broadcast events, and the longest-running continuous broadcast show on Discord.">
+    <meta name="description" content="The Pink Room is the official Discord server for Neural Nets and Pretty Patterns. Over 15,000 members. Four weekly events: Neuralverse Day, Deep Dream Day, File Friday, and the Deep Drop Party. Free. On Discord.">
     <meta name="author" content="Neural Nets and Pretty Patterns">
     <meta name="theme-color" content="#ff2d78">
     <link rel="icon" type="image/png" sizes="512x512" href="https://neuralnetsandprettypatterns.github.io/neuralnetsandprettypatterns/favicon-transparent.png">
@@ -86,7 +86,10 @@
                 "isPartOf": { "@id": "https://neuralnetsandprettypatterns.com/#website" },
                 "about": { "@id": "https://neuralnetsandprettypatterns.com/the-pink-room/#community" },
                 "mainEntity": { "@id": "https://neuralnetsandprettypatterns.com/the-pink-room/#community" },
-                "hasPart": { "@id": "https://neuralnetsandprettypatterns.com/the-pink-room/#faq" },
+                "hasPart": [
+                    { "@id": "https://neuralnetsandprettypatterns.com/the-pink-room/#faq" },
+                    { "@id": "https://neuralnetsandprettypatterns.com/the-pink-room/weekly-events/" }
+                ],
                 "inLanguage": "en-US",
                 "breadcrumb": { "@id": "https://neuralnetsandprettypatterns.com/the-pink-room/#breadcrumbs" }
             },
@@ -102,7 +105,7 @@
                     {
                         "@type": "Question",
                         "name": "What events does it have?",
-                        "acceptedAnswer": { "@type": "Answer", "text": "The Pink Room has four ongoing weekly broadcast events. Every Wednesday at 10pm EST, Neural Nets plays a recent track for free. Every Thursday at 10pm EST, Neural Nets plays an advance episode of the Desire Horror audio drama. The Deep Drop Party runs every week since 2018 and is the longest-running continuous broadcast show on Discord. File Friday, hosted by Syndi Rella every Friday, is a curated experience focused on a particular track. All events require at least 20 attendees." }
+                        "acceptedAnswer": { "@type": "Answer", "text": "The Pink Room has four ongoing weekly broadcast events. Neuralverse Day is every Wednesday at 10pm EST — a free premiere of a standalone Neuralverse track. Deep Dream Day is every Thursday at 10pm EST — an advance episode of the Deep Dream State audio drama. The Deep Drop Party runs every Saturday at 9pm EST since 2018 and is the longest-running continuous broadcast show on Discord. File Friday, hosted by Syndi Rella every Friday at 11pm EST, is a curated experience focused on a particular track. All events require at least 20 attendees. See this week's schedule at neuralnetsandprettypatterns.com/the-pink-room/weekly-events/" }
                     },
                     {
                         "@type": "Question",
@@ -167,7 +170,6 @@
             min-height: 100vh;
         }
 
-        /* Sparkle canvas */
         #sparkles {
             position: fixed;
             inset: 0;
@@ -175,7 +177,6 @@
             z-index: 0;
         }
 
-        /* Noise grain */
         body::after {
             content: '';
             position: fixed;
@@ -185,7 +186,6 @@
             z-index: 999;
         }
 
-        /* Radial pink glow background */
         .bg-glow {
             position: fixed;
             inset: 0;
@@ -265,10 +265,7 @@
         .btn-ghost { background: transparent; border: 1px solid var(--border-hi); color: var(--text-dim); }
         .btn-ghost:hover { border-color: var(--pink); color: var(--text); }
 
-        /* FAQ */
         .faq-list { display: flex; flex-direction: column; gap: 2px; }
-
-        .faq-item { }
 
         .faq-q {
             width: 100%;
@@ -323,7 +320,6 @@
         .faq-a li { margin-bottom: 0.5rem; }
         .faq-a strong { color: var(--text); }
 
-        /* Staff table */
         .staff-grid {
             display: grid;
             grid-template-columns: 1fr 1fr;
@@ -346,10 +342,8 @@
         .staff-link:hover { border-color: var(--pink); }
         .staff-none { color: var(--text-muted); font-size: 0.62rem; }
 
-        /* Divider */
         .divider { border: none; border-top: 1px solid var(--border); margin: 3rem 0; }
 
-        /* Footer */
         .footer-note {
             text-align: center; font-size: 0.62rem; color: var(--text-muted);
             letter-spacing: 0.08em; text-transform: uppercase; line-height: 2;
@@ -401,6 +395,7 @@
 
             <div class="join-row">
                 <a class="btn btn-primary" href="https://disboard.org/server/515165427337265162" target="_blank" rel="noopener">Find on Disboard →</a>
+                <a class="btn btn-ghost" href="/the-pink-room/weekly-events/">Weekly Events</a>
                 <a class="btn btn-ghost" href="https://neuralnetsandprettypatterns.com/deep-drop-party/">Deep Drop Party</a>
                 <a class="btn btn-ghost" href="https://www.patreon.com/minderaser" target="_blank" rel="noopener">Patreon</a>
             </div>
@@ -427,12 +422,13 @@
                 <div class="faq-a">
                     <p>The Pink Room is sustained by events. Hosting or running an event is an important sign of community responsibility here. There are four ongoing weekly broadcast events, all in the voice channel:</p>
                     <ul>
-                        <li>Every <strong>Wednesday at 10pm EST</strong> — Neural Nets plays a recent track, free.</li>
-                        <li>Every <strong>Thursday at 10pm EST</strong> — Neural Nets plays an advance episode of the Desire Horror audio drama.</li>
-                        <li>The <a href="https://neuralnetsandprettypatterns.com/deep-drop-party/">Deep Drop Party</a> — a three-hour experience curated by <a href="https://www.imdb.com/name/nm17754818/">Bliss Blank</a> and a rotating cast of cohosts. It has run every week since 2018, making it the longest-running continuous broadcast show on Discord. The format often varies — it has tested and deployed technical innovations like haptic telemetry.</li>
-                        <li><strong>File Friday</strong>, every Friday, hosted by <a href="https://www.imdb.com/name/nm17765752/">Syndi Rella</a> — a curated experience with a tight focus on a particular track. Running continuously, and we are glad to have it on the lineup.</li>
+                        <li>Every <strong>Wednesday at 10pm EST</strong> — <strong>Neuralverse Day</strong>. Neural Nets premieres a standalone track from the Neuralverse, free.</li>
+                        <li>Every <strong>Thursday at 10pm EST</strong> — <strong>Deep Dream Day</strong>. Neural Nets plays an advance episode of the Deep Dream State audio drama, before it goes anywhere else.</li>
+                        <li>Every <strong>Saturday at 9pm EST</strong> — the <a href="https://neuralnetsandprettypatterns.com/deep-drop-party/">Deep Drop Party</a>, a three-hour experience curated by <a href="https://www.imdb.com/name/nm17754818/">Bliss Blank</a> and a rotating cast of cohosts. Running every week since 2018 — the longest-running continuous broadcast show on Discord.</li>
+                        <li>Every <strong>Friday at 11pm EST</strong> — <strong>File Friday</strong>, hosted by <a href="https://www.imdb.com/name/nm17765752/">Syndi Rella</a>. A curated experience with a tight focus on a particular track.</li>
                     </ul>
                     <p>All events occur when at least twenty people show up. That way, shows are always well-attended community events.</p>
+                    <p><a href="/the-pink-room/weekly-events/">See this week's schedule →</a></p>
                 </div>
             </div>
 
@@ -527,7 +523,6 @@
             btn.setAttribute('aria-expanded', !isOpen);
         }
 
-        // Sparkle system
         const canvas = document.getElementById('sparkles');
         const ctx = canvas.getContext('2d');
         let W, H, sparks = [];
@@ -559,7 +554,6 @@
 
         function draw() {
             ctx.clearRect(0, 0, W, H);
-            const t = Date.now() * 0.001;
             sparks.forEach(s => {
                 s.phase += s.speed;
                 const a = s.alpha * (0.4 + 0.6 * Math.abs(Math.sin(s.phase)));
@@ -571,7 +565,6 @@
                 ctx.beginPath();
                 ctx.arc(s.x, s.y, s.r, 0, Math.PI * 2);
                 ctx.fill();
-                // Crosshair sparkle for bigger ones
                 if (s.r > 1.8) {
                     ctx.globalAlpha = a * 0.5;
                     ctx.strokeStyle = s.color;
@@ -584,7 +577,6 @@
                     ctx.stroke();
                 }
                 ctx.restore();
-                // Occasionally reset a sparkle
                 if (Math.random() < 0.001) s.reset();
             });
             requestAnimationFrame(draw);
