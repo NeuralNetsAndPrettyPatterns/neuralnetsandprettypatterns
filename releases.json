@@ -2,7 +2,7 @@
   "meta": {
     "baseline_catalogue_count": 665,
     "baseline_cutoff_date": "2026-05-20",
-    "last_updated": "2026-05-29",
+    "last_updated": "2026-06-03",
     "artist": {
       "name": "Neural Nets and Pretty Patterns",
       "isni": "0000 0005 2877 6254",
@@ -41,6 +41,48 @@
     }
   },
   "new_releases": [
+    {
+      "nnpp_id": "NNPP-BRD",
+      "title": "Brane Day",
+      "series": [
+        "Neuroplex",
+        "Back Office"
+      ],
+      "release_date": "2026-06-03",
+      "genre": [
+        "Audio Drama",
+        "Desire Horror",
+        "EDM",
+        "Club Neuralverse"
+      ],
+      "power_geometry": [
+        "fs",
+        "fs"
+      ],
+      "format": "Pure audio",
+      "length": "22:03",
+      "duration_iso": "PT22M3S",
+      "canonical_url": "https://www.patreon.com/posts/160091309",
+      "same_as": [
+        "https://musicbrainz.org/release/ace27780-b355-4f9c-973c-997271824c69"
+      ],
+      "image": "https://raw.githubusercontent.com/NeuralNetsAndPrettyPatterns/neuralnetsandprettypatterns/main/BraneDay.jpg",
+      "links": [
+        {
+          "label": "Patreon",
+          "url": "https://www.patreon.com/posts/160091309"
+        },
+        {
+          "label": "MusicBrainz",
+          "url": "https://musicbrainz.org/release/ace27780-b355-4f9c-973c-997271824c69"
+        }
+      ],
+      "is_free": false,
+      "description": "Brane Day is a workout track. It's aligned with tracks like Gym Bunny and Treadmill; it's part of the fictional Neuralverse but you really can work out to it.\nIt starts as an audio narrative, but the beat drops with a minute. From there, it's an absolutely surreal dream of fitness training in the Neuroplex.\nTinsel ties the dream together. She's both the trainer and the trained. From the treatmill to the mirror press to the lockit room, she knows every detail of the Neuroplex Fitness Center. After all, she lives there now.",
+      "credits": {
+        "performer": "Tinsel"
+      }
+    },
     {
       "nnpp_id": "NNPP-JMT-H",
       "title": "Just My Type (Haptic)",
