@@ -162,7 +162,30 @@ export default {
       return new Response("Not found", { status: 404 });
     }
 
-    // ── Deep Dream State
+    // ── Deep Dream State — Glossary (served from neuralnetsandprettypatterns repo)
+    if (url.pathname === "/deepdreamstate/glossary" || url.pathname === "/deepdreamstate/glossary/") {
+      const html = await fetch("https://raw.githubusercontent.com/NeuralNetsAndPrettyPatterns/neuralnetsandprettypatterns/main/deepdreamstate/glossary/index.html");
+      return new Response(await html.text(), {
+        status: html.ok ? 200 : 404,
+        headers: {
+          "content-type": "text/html; charset=utf-8",
+          "cache-control": "no-store"
+        }
+      });
+    }
+
+    if (url.pathname === "/deepdreamstate/glossary/glossary.json") {
+      const json = await fetch("https://raw.githubusercontent.com/NeuralNetsAndPrettyPatterns/neuralnetsandprettypatterns/main/deepdreamstate/glossary/glossary.json");
+      return new Response(await json.text(), {
+        status: json.ok ? 200 : 404,
+        headers: {
+          "content-type": "application/json; charset=utf-8",
+          "cache-control": "no-store"
+        }
+      });
+    }
+
+    // ── Deep Dream State — catch-all (served from legacy deepdreamstate repo via GitHub Pages)
     if (url.pathname === "/deepdreamstate") {
       return Response.redirect(`${url.origin}/deepdreamstate/`, 301);
     }
