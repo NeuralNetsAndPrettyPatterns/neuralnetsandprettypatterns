@@ -1,0 +1,124 @@
+[
+  {
+    "term": "Assets",
+    "class": "Game",
+    "definition": "A menacing hunt game. Players are directed toward hunting a target, with capture described as the win condition. Assets diagnoses the objectification built into a lot of game design, and foreshadows future action in the series.",
+    "episodes": [{ "ge": 39, "season": 4, "episode": 12 }],
+    "links": []
+  },
+  {
+    "term": "Cycle",
+    "class": "Metashow",
+    "definition": "A grouped set of episodes inside a Deep Dream State arc or season. Cycle titles and numbers are supplementary information. If you find them confusing, navigate by Season:Episode or Global Episode number instead.",
+    "episodes": [{ "ge": 39, "season": 4, "episode": 12 }],
+    "links": []
+  },
+  {
+    "term": "Desire Horror",
+    "class": "Metashow",
+    "definition": "The genre originated by Deep Dream State. While conventional horror positions you against an outside threat, desire horror implicates you completely in it — the dread emerges from recognition, from understanding why the characters choose to stay, and why surrender ultimately feels like relief. The narrative treats desire as a structural force, built around documented psychological, sociological, and technological phenomena to engineer systems that exploit human wanting.",
+    "episodes": [{ "ge": 39, "season": 4, "episode": 12 }],
+    "links": [{ "text": "Desire Horror on Wikidata", "url": "https://www.wikidata.org/wiki/Q139545448" }]
+  },
+  {
+    "term": "Garden Nest",
+    "class": "Setting",
+    "definition": "Naia Anderson's underground yurt. This is where she plots her takeover of Vale Four and plans the resurgence of Meridian A. The interior is entirely ecological in design — the plants block signals and appear to be an extension of Naia herself.",
+    "episodes": [{ "ge": 39, "season": 4, "episode": 12 }],
+    "links": []
+  },
+  {
+    "term": "Global Episode",
+    "class": "Metashow",
+    "definition": "The total episode count for Deep Dream State across all arcs and seasons. A single number. Simple.",
+    "episodes": [{ "ge": 39, "season": 4, "episode": 12 }],
+    "links": []
+  },
+  {
+    "term": "Holdfast",
+    "class": "Plot Detail",
+    "definition": "Double agents operating inside the Neuroplex structure. They answer to Naia Anderson, the dispossessed company founder. Named after plant life, reflecting Naia's deep connection to botany.",
+    "episodes": [{ "ge": 39, "season": 4, "episode": 12 }],
+    "links": []
+  },
+  {
+    "term": "Incognitoh",
+    "class": "Plot Detail",
+    "definition": "A reality show game explored in Season Two of the Deep Dream State. The game uses surveillance not just to watch but to rewrite, turning visibility itself into the mechanism of control.",
+    "episodes": [{ "ge": 39, "season": 4, "episode": 12 }],
+    "links": []
+  },
+  {
+    "term": "Kamas",
+    "class": "Plot Detail",
+    "definition": "The internal currency used inside the Vale Four facility. Kamas are part of the isolated experiment structure, allowing the designers to rebuild the economy from scratch as another mechanism for engineering desire.",
+    "episodes": [{ "ge": 39, "season": 4, "episode": 12 }],
+    "links": []
+  },
+  {
+    "term": "Midstream",
+    "class": "Plot Detail",
+    "definition": "A sports podcast that sponsors Vale Four. Run by Cael. Completely over the top — it makes Barstool and Rogan look restrained. It frequently interrupts the action, and that's intentional. Deep Dream State doesn't do ads. Midstream is what we think of ads.",
+    "episodes": [{ "ge": 39, "season": 4, "episode": 12 }],
+    "links": []
+  },
+  {
+    "term": "Muppettes",
+    "class": "Plot Detail",
+    "definition": "Hilton and Astoria, who frequently appear in opening scenes. Their names are derived from the feminine counterparts to Waldorf and Statler from The Muppet Show. They came for the Incognitoh game and appear to have stayed trapped in the system. These summaries are not found-footage contrivance — they are a built part of the plot.",
+    "episodes": [{ "ge": 39, "season": 4, "episode": 12 }],
+    "links": []
+  },
+  {
+    "term": "Neuroplex",
+    "class": "Plot Detail",
+    "definition": "The sinister corporate entity at the center of the Neuralverse. Its first imperative is maximizing control and profit. People are a means to an end for Neuroplex, even if that end remains cloaked in mystery.",
+    "episodes": [{ "ge": 39, "season": 4, "episode": 12 }],
+    "links": [
+      { "text": "Kakos Industries", "url": "https://kakosindustries.com/" },
+      { "text": "Good Morning Evildoers", "url": "https://www.goodmorningevildoers.com/" }
+    ]
+  },
+  {
+    "term": "Prismatix",
+    "class": "Product",
+    "definition": "A clothing line described as mesh and light — and as scandalously revealing. Subjects who wear it become mapped data points. Ad messages appear directly on their bodies, turning them into billboards. The system adapts to feedback through mechanisms like the tingle clips.",
+    "episodes": [{ "ge": 39, "season": 4, "episode": 12 }],
+    "links": []
+  },
+  {
+    "term": "Purpose",
+    "class": "Game",
+    "definition": "A service game modelled on task management games. Players must serve an increasingly wide range of patrons. Purpose underlines the way games already trend toward power dynamics.",
+    "episodes": [{ "ge": 39, "season": 4, "episode": 12 }],
+    "links": []
+  },
+  {
+    "term": "Sapient",
+    "class": "Game",
+    "definition": "A turn-based strategy game and Blake's game of choice. Included to make a point: getting smarter, or adding more design, is absolutely not the answer in a desire horror scenario.",
+    "episodes": [{ "ge": 39, "season": 4, "episode": 12 }],
+    "links": []
+  },
+  {
+    "term": "Spotlight",
+    "class": "Game",
+    "definition": "A performance and attention game directly modelled on recurring character Iris Vale. Players compete for notoriety, trying to break out into fame and influence as they vie for the spotlight.",
+    "episodes": [{ "ge": 39, "season": 4, "episode": 12 }],
+    "links": []
+  },
+  {
+    "term": "Valescape",
+    "class": "Setting",
+    "definition": "An arcade inside the Vale Four facility, used to help the research group map consumer choice. The gameplay is deeply addictive. There are rumors of depraved rooms deeper inside.",
+    "episodes": [{ "ge": 39, "season": 4, "episode": 12 }],
+    "links": []
+  },
+  {
+    "term": "Yum Yum Time",
+    "class": "Game",
+    "definition": "A candy game with a suggestive emphasis on eating. It spawned one of the first secret tracks, featuring Pipp. You can explore the game further with the companion track.",
+    "episodes": [{ "ge": 39, "season": 4, "episode": 12 }],
+    "links": [{ "text": "Yum Yum Time (Patreon)", "url": "https://www.patreon.com/posts/yum-yum-time-all-157031167" }]
+  }
+]
