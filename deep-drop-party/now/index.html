@@ -168,11 +168,12 @@
     .show-block.previous { opacity: 0.86; }
     .show-block.previous .live-dot { background: var(--text-muted); animation: none; }
 
-    .poster-wrap { float: right; margin: 0 0 2rem 2.5rem; width: 280px; flex-shrink: 0; }
-    .poster-wrap img { width: 100%; border-radius: 3px; border: 1px solid var(--border-hi); display: block; }
+    .poster-wrap { width: 100%; margin: 0 0 2rem 0; }
+    .poster-wrap img { width: 100%; max-width: 560px; border-radius: 3px; border: 1px solid var(--border-hi); display: block; }
 
     .poster-placeholder {
-      float: right; margin: 0 0 2rem 2.5rem; width: 280px; min-height: 280px;
+      width: 100%; max-width: 560px; min-height: 280px;
+      margin: 0 0 2rem 0;
       border: 1px solid var(--border-hi); border-radius: 3px;
       background: radial-gradient(circle at 30% 20%, var(--pink-glow), transparent 40%),
                   linear-gradient(135deg, var(--surface), var(--surface2));
@@ -247,7 +248,6 @@
 
     @media (max-width: 640px) {
       .header-nav { display: none; }
-      .poster-wrap, .poster-placeholder { float: none; width: 100%; margin: 0 0 2rem 0; }
       .footer-bar { flex-direction: column; }
     }
   </style>
@@ -324,7 +324,7 @@
 
     function renderShowBlock(show, isCurrent) {
       var poster = show.poster
-        ? '<div class="poster-wrap"><img src="' + show.poster + '" alt="' + (show.posterAlt || '') + '" width="280"></div>'
+        ? '<div class="poster-wrap"><img src="' + show.poster + '" alt="' + (show.posterAlt || '') + '" width="560"></div>'
         : '<div class="poster-placeholder" aria-label="' + show.titleText + ' placeholder image">' + show.title + '</div>';
 
       var badges = (show.badges || []).map(function(b) {
@@ -332,7 +332,9 @@
       }).join('');
 
       var hostesses = show.hostesses.map(function(h) {
-        return '<a href="' + h.url + '" target="_blank" rel="noopener">' + h.name + '</a>';
+        return h.url
+          ? '<a href="' + h.url + '" target="_blank" rel="noopener">' + h.name + '</a>'
+          : h.name;
       }).join(', ');
 
       var description = (show.description || []).map(function(p) {
@@ -353,11 +355,11 @@
           + '</div>'
         : '';
 
-      return poster
-        + '<div class="ep-kicker"><span class="live-dot" aria-hidden="true"></span>' + show.kicker + '</div>'
+      return '<div class="ep-kicker"><span class="live-dot" aria-hidden="true"></span>' + show.kicker + '</div>'
         + '<div class="ep-number">Episode ' + show.number + '</div>'
         + '<h1>' + show.title + '</h1>'
         + themeTag
+        + poster
         + '<div class="description">' + description + '</div>'
         + '<div class="badge-row">' + badges + '</div>'
         + '<div class="info-grid">'
