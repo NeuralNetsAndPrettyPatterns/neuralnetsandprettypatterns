@@ -33,7 +33,7 @@ window.DDP = {
         "Drama, yes.  Giggles, yes.  But we have INTRIGUE.",
         "You've heard of SHIELD and SWORD and MKU and VILE.  But have you ever met the agents of B.O.I.N.G. ?",
         "You can tonight.  They're having their convention in the Pink Room, with a sign up booth for you.",
-        "You'll know them by their new anthem, which slips from their company issued headphones.  They call it Brane Day.  [hyperlink <a href=\"https://musicbrainz.org/release/ace27780-b355-4f9c-973c-997271824c69\" target=\"_blank\" rel=\"noopener\">MusicBrainz</a> and <a href=\"https://www.patreon.com/posts/160091309\" target=\"_blank\" rel=\"noopener\">Patreon</a>]",
+        "You'll know them by their new anthem, which slips from their company issued headphones.  They call it <a href=\"https://musicbrainz.org/release/ace27780-b355-4f9c-973c-997271824c69\" target=\"_blank\" rel=\"noopener\">Brane Day</a> (<a href=\"https://www.patreon.com/posts/160091309\" target=\"_blank\" rel=\"noopener\">Patreon</a>).",
         "It's your Brane Day too.",
         "You just have to find your way there.  Pipp and Syndirella and Bliss Blank already have.  They're waiting for you.",
         "9 pm EST, discord.gg/thepinkroom"
