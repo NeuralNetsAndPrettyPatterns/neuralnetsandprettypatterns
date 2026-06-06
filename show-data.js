@@ -18,6 +18,39 @@ window.DDP = {
 
     // ── [0] CURRENT SHOW ─────────────────────────────────────
     {
+      number:      433,
+      title:       "B.O.I.N.G. Convention",
+      titleText:   "B.O.I.N.G. Convention",
+      theme:       "Agents of B.O.I.N.G.",
+      themeLabel:  "Theme",
+      date:        "2026-06-06T21:00:00-04:00",
+      dateLabel:   "Saturday, June 6",
+      kicker:      "Saturday, June 6 · 9 PM Eastern",
+      poster:      "boingagents.gif",
+      posterAlt:   "Official poster for Deep Drop Party 433 - B.O.I.N.G. Convention.",
+      description: [
+        "The Deep Drop Party is more than audio experiments.  It's more than celebrating the longest running active spicy audio drama.",
+        "Drama, yes.  Giggles, yes.  But we have INTRIGUE.",
+        "You've heard of SHIELD and SWORD and MKU and VILE.  But have you ever met the agents of B.O.I.N.G. ?",
+        "You can tonight.  They're having their convention in the Pink Room, with a sign up booth for you.",
+        "You'll know them by their new anthem, which slips from their company issued headphones.  They call it Brane Day.  [hyperlink <a href=\"https://musicbrainz.org/release/ace27780-b355-4f9c-973c-997271824c69\" target=\"_blank\" rel=\"noopener\">MusicBrainz</a> and <a href=\"https://www.patreon.com/posts/160091309\" target=\"_blank\" rel=\"noopener\">Patreon</a>]",
+        "It's your Brane Day too.",
+        "You just have to find your way there.  Pipp and Syndirella and Bliss Blank already have.  They're waiting for you.",
+        "9 pm EST, discord.gg/thepinkroom"
+      ],
+      badges: [
+        { label: "Free", cls: "badge-free" }
+      ],
+      hostesses: [
+        { name: "Bliss Blank",  url: "https://www.tumblr.com/blink-blank-bliss" },
+        { name: "Syndirella",   url: null },
+        { name: "Pipp",         url: null }
+      ],
+      tracks: []
+    },
+
+    // ── [1] PREVIOUS SHOW ────────────────────────────────────
+    {
       number:      432,
       title:       "Puppet Strings",
       titleText:   "Puppet Strings",
@@ -25,7 +58,7 @@ window.DDP = {
       themeLabel:  "Theme",
       date:        "2026-05-30T21:00:00-04:00",
       dateLabel:   "Saturday, May 30",
-      kicker:      "Saturday, May 30 · 9 PM Eastern",
+      kicker:      "Previous Show - Aired Saturday, May 30 · 9 PM Eastern",
       poster:      "https://raw.githubusercontent.com/NeuralNetsAndPrettyPatterns/neuralnetsandprettypatterns/main/puppetstringsdeepdrop.png",
       posterAlt:   "Official poster for Deep Drop Party 432 - Puppet Strings.",
       description: [
@@ -49,18 +82,12 @@ window.DDP = {
       tracks: []
     },
 
-    // ── [1] PREVIOUS SHOW ────────────────────────────────────
+    // ── [2+] ARCHIVE ─────────────────────────────────────────
     {
-      number:      431,
-      title:       "QT&amp;A",
-      titleText:   "QT&A",
-      theme:       "Anonymous AMA",
-      themeLabel:  "Format",
-      date:        "2026-05-23T21:00:00-04:00",
-      dateLabel:   "Saturday, May 23",
-      kicker:      "Previous Show - Aired Saturday, May 23 · 9 PM Eastern",
-      poster:      null,
-      posterAlt:   null,
+      number: 431, title: "QT&amp;A", titleText: "QT&A",
+      theme: "Anonymous AMA", themeLabel: "Format",
+      date: "2026-05-23T21:00:00-04:00", dateLabel: "Saturday, May 23",
+      poster: null, posterAlt: null,
       description: [
         "The AMA is a time honored tradition of our great internet. Like most things, it works a little different in the Neuralverse. This one's for the QTs.",
         "We've set up so you can anonymously ask the hostesses questions before each track, about the track. They choose the question, but they have to answer honestly.",
@@ -88,8 +115,6 @@ window.DDP = {
         { pos: "10", title: "Make it Sparkle",links: [{ label: "Catalogue p.4", url: "https://neuralnetsandprettypatterns.com/neuralpedia/chronology/page-4/", style: "catalogue" }, { label: "Patreon", url: "https://www.patreon.com/posts/make-it-sparkle-32880928" }], badges: [] }
       ]
     },
-
-    // ── [2+] ARCHIVE ─────────────────────────────────────────
     {
       number: 430, title: "DisOrientation", titleText: "DisOrientation",
       theme: "Neuroplex", themeLabel: "Theme",
