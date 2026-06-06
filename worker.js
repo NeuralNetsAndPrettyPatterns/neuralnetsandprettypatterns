@@ -26,21 +26,28 @@ export default {
       });
     }
 
-    // ── Root images
-    if (
-      url.pathname === "/ThePinkRoom.jpg" ||
-      url.pathname === "/JustMyTypeHapticCover.jpg" ||
-      url.pathname === "/JustMyType.jpg" ||
-      url.pathname === "/SparkleService.jpg"
-    ) {
-      const img = await fetch("https://raw.githubusercontent.com/NeuralNetsAndPrettyPatterns/neuralnetsandprettypatterns/main/ThePinkRoom.jpg");
-      return new Response(img.body, {
-        status: img.ok ? 200 : 404,
-        headers: {
-          "content-type": "image/jpeg",
-          "cache-control": "public, max-age=86400"
-        }
-      });
+    // ── Root images (any image/gif at root level, e.g. boingagents.gif)
+    {
+      const ext = url.pathname.slice(url.pathname.lastIndexOf(".")).toLowerCase();
+      const rootImageExts = [".jpg", ".jpeg", ".png", ".gif", ".webp", ".svg"];
+      if (rootImageExts.includes(ext) && !url.pathname.slice(1).includes("/")) {
+        const contentTypes = {
+          ".jpg":  "image/jpeg",
+          ".jpeg": "image/jpeg",
+          ".png":  "image/png",
+          ".gif":  "image/gif",
+          ".webp": "image/webp",
+          ".svg":  "image/svg+xml"
+        };
+        const img = await fetch(`https://raw.githubusercontent.com/NeuralNetsAndPrettyPatterns/neuralnetsandprettypatterns/main${url.pathname}`);
+        return new Response(img.body, {
+          status: img.ok ? 200 : 404,
+          headers: {
+            "content-type": contentTypes[ext] || "application/octet-stream",
+            "cache-control": "public, max-age=86400"
+          }
+        });
+      }
     }
 
     // ── The Pink Room
