@@ -26,7 +26,7 @@ window.DDP = {
       date:        "2026-06-06T21:00:00-04:00",
       dateLabel:   "Saturday, June 6",
       kicker:      "Saturday, June 6 · 9 PM Eastern",
-      poster:      "boingagents.gif",
+      poster:      "https://neuralnetsandprettypatterns.com/boingagents.gif",
       posterAlt:   "Official poster for Deep Drop Party 433 - B.O.I.N.G. Convention.",
       description: [
         "The Deep Drop Party is more than audio experiments.  It's more than celebrating the longest running active spicy audio drama.",
