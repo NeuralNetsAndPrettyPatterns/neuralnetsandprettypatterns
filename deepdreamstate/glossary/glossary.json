@@ -10,10 +10,13 @@
   },
   {
     "term": "Alastair",
-    "class": "Plot Detail",
-    "definition": "The Neuroplex CEO, predatory and gamified in his interest in passengers, speaking of wanting something fresh. He travels on his own vessel and condescends to visit the Chthonic.",
+    "class": "Character",
+    "definition": "The Neuroplex CEO. Predatory and gamified in his interest in the people around him, speaking of wanting something fresh. Travels on his own vessel and condescends to visit the Chthonic.",
+    "performer": "Jericho Caine",
+    "performer_url": "https://deepdreamstate.blubrry.net/jericho-caine/",
     "episodes": [
-      { "ge": 1, "season": 1, "episode": 1, "title": "Maiden Voyage", "url": "https://neuralnetsandprettypatterns.com/deepdreamstate/arcs/chthonic/episode-1-maiden-voyage/" }
+      { "ge": 1, "season": 1, "episode": 1, "title": "Maiden Voyage", "url": "https://neuralnetsandprettypatterns.com/deepdreamstate/arcs/chthonic/episode-1-maiden-voyage/" },
+      { "ge": 2, "season": 1, "episode": 2, "title": "Cringetide", "url": "https://neuralnetsandprettypatterns.com/deepdreamstate/arcs/chthonic/episode-2-cringetide/" }
     ],
     "links": []
   },
@@ -34,6 +37,15 @@
       { "ge": 36, "season": 4, "episode": 9, "title": "Nock", "url": "https://www.imdb.com/title/tt43393347/" }
     ],
     "links": []
+  },
+  {
+    "term": "Captain's Mast",
+    "class": "Plot Detail",
+    "definition": "A real naval disciplinary procedure, borrowed here as the name for the surveillance room where Captain William judges and reassigns crew. In the US Navy, captain's mast is non-judicial punishment administered by a commanding officer, outside the formal court-martial system. The show uses the term precisely: discipline that happens off the books, at the captain's discretion, with no appeal.",
+    "episodes": [
+      { "ge": 2, "season": 1, "episode": 2, "title": "Cringetide", "url": "https://neuralnetsandprettypatterns.com/deepdreamstate/arcs/chthonic/episode-2-cringetide/" }
+    ],
+    "links": [{ "text": "Captain's Mast (Wikipedia)", "url": "https://en.wikipedia.org/wiki/Captain%27s_mast" }]
   },
   {
     "term": "Chthonic, The",
@@ -77,6 +89,18 @@
     "links": [{ "text": "Desire Horror on Wikidata", "url": "https://www.wikidata.org/wiki/Q139545448" }]
   },
   {
+    "term": "Fion",
+    "class": "Character",
+    "definition": "Chief engineer of the Chthonic. Practical, protective of Nikita, and the conscience of the crew quarters. Her relationship with Mairead is the emotional spine of the service deck.",
+    "performer": "Jade Wolf",
+    "performer_url": "https://deepdreamstate.blubrry.net/jade-wolf/",
+    "episodes": [
+      { "ge": 1, "season": 1, "episode": 1, "title": "Maiden Voyage", "url": "https://neuralnetsandprettypatterns.com/deepdreamstate/arcs/chthonic/episode-1-maiden-voyage/" },
+      { "ge": 2, "season": 1, "episode": 2, "title": "Cringetide", "url": "https://neuralnetsandprettypatterns.com/deepdreamstate/arcs/chthonic/episode-2-cringetide/" }
+    ],
+    "links": []
+  },
+  {
     "term": "Garden Nest",
     "class": "Setting",
     "definition": "Naia Anderson's underground yurt. This is where she plots her takeover of Vale Four and plans the resurgence of Meridian A. The interior is entirely ecological in design. The plants block signals and appear to be an extension of Naia herself.",
@@ -98,6 +122,18 @@
     "definition": "Double agents operating inside the Neuroplex structure. They answer to Naia Anderson, the dispossessed company founder. Named after plant life, reflecting Naia's deep connection to botany.",
     "episodes": [
       { "ge": 36, "season": 4, "episode": 9, "title": "Nock", "url": "https://www.imdb.com/title/tt43393347/" }
+    ],
+    "links": []
+  },
+  {
+    "term": "Holly",
+    "class": "Character",
+    "definition": "Alastair's companion aboard the Chthonic. Presents as cheerful and compliant, but passes information in a dissociated state and her loyalty to Alastair is more complicated than it first appears.",
+    "performer": "Dizzy Dollie",
+    "performer_url": "https://deepdreamstate.blubrry.net/dizzy-dollie/",
+    "episodes": [
+      { "ge": 1, "season": 1, "episode": 1, "title": "Maiden Voyage", "url": "https://neuralnetsandprettypatterns.com/deepdreamstate/arcs/chthonic/episode-1-maiden-voyage/" },
+      { "ge": 2, "season": 1, "episode": 2, "title": "Cringetide", "url": "https://neuralnetsandprettypatterns.com/deepdreamstate/arcs/chthonic/episode-2-cringetide/" }
     ],
     "links": []
   },
@@ -125,6 +161,18 @@
     "definition": "A title used in private for Captain William, distinct from his public-facing rank. It signals a hidden authority structure aboard the ship that operates separately from its cruise company cover.",
     "episodes": [
       { "ge": 1, "season": 1, "episode": 1, "title": "Maiden Voyage", "url": "https://neuralnetsandprettypatterns.com/deepdreamstate/arcs/chthonic/episode-1-maiden-voyage/" }
+    ],
+    "links": []
+  },
+  {
+    "term": "Mairead",
+    "class": "Character",
+    "definition": "Spa manager of the Chthonic's wellness center, and the crew member most visibly caught between survival and self-destruction. A skilled poker player with a gambling debt Alastair holds over her. Her assignment to guide the Tunngavik excursion is coercion dressed as opportunity.",
+    "performer": "Bun-li",
+    "performer_url": "https://deepdreamstate.blubrry.net/bun-li/",
+    "episodes": [
+      { "ge": 1, "season": 1, "episode": 1, "title": "Maiden Voyage", "url": "https://neuralnetsandprettypatterns.com/deepdreamstate/arcs/chthonic/episode-1-maiden-voyage/" },
+      { "ge": 2, "season": 1, "episode": 2, "title": "Cringetide", "url": "https://neuralnetsandprettypatterns.com/deepdreamstate/arcs/chthonic/episode-2-cringetide/" }
     ],
     "links": []
   },
@@ -177,6 +225,18 @@
     "links": [{ "text": "Great Old Ones (Lovecraft)", "url": "https://en.wikipedia.org/wiki/Great_Old_Ones" }]
   },
   {
+    "term": "Olivia",
+    "class": "Character",
+    "definition": "Cruise director of the Chthonic. The public face of the operation, managing guests while navigating the ship's hidden power structure. Nearly introduces herself as Olivia Nameless before catching herself.",
+    "performer": "Bliss Blank",
+    "performer_url": "https://deepdreamstate.blubrry.net/blissblank/",
+    "episodes": [
+      { "ge": 1, "season": 1, "episode": 1, "title": "Maiden Voyage", "url": "https://neuralnetsandprettypatterns.com/deepdreamstate/arcs/chthonic/episode-1-maiden-voyage/" },
+      { "ge": 2, "season": 1, "episode": 2, "title": "Cringetide", "url": "https://neuralnetsandprettypatterns.com/deepdreamstate/arcs/chthonic/episode-2-cringetide/" }
+    ],
+    "links": []
+  },
+  {
     "term": "Prismatix",
     "class": "Product",
     "definition": "A clothing line described as mesh and light, and as scandalously revealing. Subjects who wear it become mapped data points. Ad messages appear directly on their bodies, turning them into billboards. The system adapts to feedback through mechanisms like the tingle clips.",
@@ -208,7 +268,8 @@
     "class": "Setting",
     "definition": "In Japanese horror culture, Room 203 carries specific weight. The number originates with Nanami Kamon's 2003 novel, about a woman driven to ruin by an inexplicable curse in her apartment, and expanded through internet folklore into the archetypal haunted room, the one where something went wrong and never stopped. Alastair's cabin aboard the Chthonic. Selene knows immediately where Nikita has been.",
     "episodes": [
-      { "ge": 1, "season": 1, "episode": 1, "title": "Maiden Voyage", "url": "https://neuralnetsandprettypatterns.com/deepdreamstate/arcs/chthonic/episode-1-maiden-voyage/" }
+      { "ge": 1, "season": 1, "episode": 1, "title": "Maiden Voyage", "url": "https://neuralnetsandprettypatterns.com/deepdreamstate/arcs/chthonic/episode-1-maiden-voyage/" },
+      { "ge": 2, "season": 1, "episode": 2, "title": "Cringetide", "url": "https://neuralnetsandprettypatterns.com/deepdreamstate/arcs/chthonic/episode-2-cringetide/" }
     ],
     "links": [{ "text": "Room 203 (Variety)", "url": "https://variety.com/2020/film/asia/akatsuki-wraps-room-203-adaptation-of-japanese-horror-tale-1234845149/" }]
   },
@@ -244,7 +305,8 @@
     "class": "Setting",
     "definition": "A real archaeological site in the Canadian Arctic, used as a shore excursion destination for Chthonic passengers. Olivia describes it as a place of ancient relics and lost knowledge. Its inclusion alongside the Old Ones mythology is not accidental, reaching toward something older than the cruise company's framing of it.",
     "episodes": [
-      { "ge": 1, "season": 1, "episode": 1, "title": "Maiden Voyage", "url": "https://neuralnetsandprettypatterns.com/deepdreamstate/arcs/chthonic/episode-1-maiden-voyage/" }
+      { "ge": 1, "season": 1, "episode": 1, "title": "Maiden Voyage", "url": "https://neuralnetsandprettypatterns.com/deepdreamstate/arcs/chthonic/episode-1-maiden-voyage/" },
+      { "ge": 2, "season": 1, "episode": 2, "title": "Cringetide", "url": "https://neuralnetsandprettypatterns.com/deepdreamstate/arcs/chthonic/episode-2-cringetide/" }
     ],
     "links": [{ "text": "Tunngavik", "url": "https://www.tunngavik.com/" }]
   },
@@ -254,6 +316,15 @@
     "definition": "An arcade inside the Vale Four facility, used to help the research group map consumer choice. The gameplay is deeply addictive. There are rumors of depraved rooms deeper inside.",
     "episodes": [
       { "ge": 36, "season": 4, "episode": 9, "title": "Nock", "url": "https://www.imdb.com/title/tt43393347/" }
+    ],
+    "links": []
+  },
+  {
+    "term": "Wellness Center",
+    "class": "Setting",
+    "definition": "Mairead's official operation aboard the Chthonic. The gap between its name and function is doing a lot of work.",
+    "episodes": [
+      { "ge": 2, "season": 1, "episode": 2, "title": "Cringetide", "url": "https://neuralnetsandprettypatterns.com/deepdreamstate/arcs/chthonic/episode-2-cringetide/" }
     ],
     "links": []
   },
@@ -268,12 +339,24 @@
   },
   {
     "term": "William Dyer",
-    "class": "Plot Detail",
-    "definition": "Captain of the Chthonic, privately titled Magus. The name is a direct reference to the narrator of Lovecraft's At the Mountains of Madness. He states he has been doing it for 144 years, suggesting he is not entirely human.",
+    "class": "Character",
+    "definition": "Captain of the Chthonic, privately titled Magus. The name is a direct reference to the narrator of Lovecraft's At the Mountains of Madness. States he has been doing it for 144 years, suggesting he is not entirely human.",
+    "performer": "Neural Nets",
+    "performer_url": "https://deepdreamstate.blubrry.net/neural-nets-and-pretty-patterns/",
     "episodes": [
-      { "ge": 1, "season": 1, "episode": 1, "title": "Maiden Voyage", "url": "https://neuralnetsandprettypatterns.com/deepdreamstate/arcs/chthonic/episode-1-maiden-voyage/" }
+      { "ge": 1, "season": 1, "episode": 1, "title": "Maiden Voyage", "url": "https://neuralnetsandprettypatterns.com/deepdreamstate/arcs/chthonic/episode-1-maiden-voyage/" },
+      { "ge": 2, "season": 1, "episode": 2, "title": "Cringetide", "url": "https://neuralnetsandprettypatterns.com/deepdreamstate/arcs/chthonic/episode-2-cringetide/" }
     ],
     "links": [{ "text": "At the Mountains of Madness (Lovecraft)", "url": "https://en.wikipedia.org/wiki/At_the_Mountains_of_Madness" }]
+  },
+  {
+    "term": "Yo Ho Hos",
+    "class": "Plot Detail",
+    "definition": "The karaoke act performing at the Chthonic's entertainment night. Their shanty is performed by the bachelorette party guests and serves as cover noise over the ship's actual business.",
+    "episodes": [
+      { "ge": 2, "season": 1, "episode": 2, "title": "Cringetide", "url": "https://neuralnetsandprettypatterns.com/deepdreamstate/arcs/chthonic/episode-2-cringetide/" }
+    ],
+    "links": []
   },
   {
     "term": "Yum Yum Time",
