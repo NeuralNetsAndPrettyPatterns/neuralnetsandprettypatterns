@@ -21,6 +21,19 @@
     "links": []
   },
   {
+    "term": "Amanda",
+    "class": "Character",
+    "definition": "House mother of the bachelorette party. Arrived for the Incognitoh game and stayed for the voyage. At the Tunngavik site she recognizes herself in the ancient carvings before she understands what that means.",
+    "performer": "Korrupted Innocence",
+    "performer_url": "https://deepdreamstate.blubrry.net/korrupted-innocence/",
+    "episodes": [
+      { "ge": 1, "season": 1, "episode": 1, "title": "Maiden Voyage", "url": "https://neuralnetsandprettypatterns.com/deepdreamstate/arcs/chthonic/episode-1-maiden-voyage/" },
+      { "ge": 2, "season": 1, "episode": 2, "title": "Cringetide", "url": "https://neuralnetsandprettypatterns.com/deepdreamstate/arcs/chthonic/episode-2-cringetide/" },
+      { "ge": 3, "season": 1, "episode": 3, "title": "Veil", "url": "https://neuralnetsandprettypatterns.com/deepdreamstate/arcs/chthonic/episode-3-veil/" }
+    ],
+    "links": []
+  },
+  {
     "term": "Ash",
     "class": "Plot Detail",
     "definition": "The nature of Ash is left deliberately unclear. An authority referenced alongside Abyssrath by Captain William, whose approval matters alongside the older powers.",
@@ -39,6 +52,28 @@
     "links": []
   },
   {
+    "term": "Bowheads",
+    "class": "Plot Detail",
+    "definition": "Bowhead whale songs recorded and pitched up twelve octaves by Neural Nets and Pretty Patterns, producing a sound eerily close to human vocalization. Heard through the Chthonic's instrument room equipment. The show frames them not as ambient ocean noise but as intentional communication, something that wants to be heard. Selene describes them as guardians of the deep places.",
+    "episodes": [
+      { "ge": 3, "season": 1, "episode": 3, "title": "Veil", "url": "https://neuralnetsandprettypatterns.com/deepdreamstate/arcs/chthonic/episode-3-veil/" }
+    ],
+    "links": []
+  },
+  {
+    "term": "Brittany",
+    "class": "Character",
+    "definition": "Bridesmaid. Loud, present, and more perceptive than she lets on. She is among the first to admit she has been having the dreams.",
+    "performer": "Kitten Azazel",
+    "performer_url": "https://deepdreamstate.blubrry.net/kitten-azazel/",
+    "episodes": [
+      { "ge": 1, "season": 1, "episode": 1, "title": "Maiden Voyage", "url": "https://neuralnetsandprettypatterns.com/deepdreamstate/arcs/chthonic/episode-1-maiden-voyage/" },
+      { "ge": 2, "season": 1, "episode": 2, "title": "Cringetide", "url": "https://neuralnetsandprettypatterns.com/deepdreamstate/arcs/chthonic/episode-2-cringetide/" },
+      { "ge": 3, "season": 1, "episode": 3, "title": "Veil", "url": "https://neuralnetsandprettypatterns.com/deepdreamstate/arcs/chthonic/episode-3-veil/" }
+    ],
+    "links": []
+  },
+  {
     "term": "Captain's Mast",
     "class": "Plot Detail",
     "definition": "A real naval disciplinary procedure, borrowed here as the name for the surveillance room where Captain William judges and reassigns crew. In the US Navy, captain's mast is non-judicial punishment administered by a commanding officer, outside the formal court-martial system. The show uses the term precisely: discipline that happens off the books, at the captain's discretion, with no appeal.",
@@ -52,7 +87,9 @@
     "class": "Setting",
     "definition": "A cruise ship operating as an enclosed experimental environment, with guests unaware of the mechanisms operating around and beneath them. A wholly owned subsidiary of the Dagon Dream Group, operating under the authority of Neuroplex.",
     "episodes": [
-      { "ge": 1, "season": 1, "episode": 1, "title": "Maiden Voyage", "url": "https://neuralnetsandprettypatterns.com/deepdreamstate/arcs/chthonic/episode-1-maiden-voyage/" }
+      { "ge": 1, "season": 1, "episode": 1, "title": "Maiden Voyage", "url": "https://neuralnetsandprettypatterns.com/deepdreamstate/arcs/chthonic/episode-1-maiden-voyage/" },
+      { "ge": 2, "season": 1, "episode": 2, "title": "Cringetide", "url": "https://neuralnetsandprettypatterns.com/deepdreamstate/arcs/chthonic/episode-2-cringetide/" },
+      { "ge": 3, "season": 1, "episode": 3, "title": "Veil", "url": "https://neuralnetsandprettypatterns.com/deepdreamstate/arcs/chthonic/episode-3-veil/" }
     ],
     "links": []
   },
@@ -87,6 +124,19 @@
     "definition": "The genre originated by Deep Dream State. While conventional horror positions you against an outside threat, desire horror implicates you completely in it. The dread emerges from recognition, from understanding why the characters choose to stay, and why surrender ultimately feels like relief. The narrative treats desire as a structural force, built around documented psychological, sociological, and technological phenomena to engineer systems that exploit human wanting.",
     "episodes": [],
     "links": [{ "text": "Desire Horror on Wikidata", "url": "https://www.wikidata.org/wiki/Q139545448" }]
+  },
+  {
+    "term": "Emma",
+    "class": "Character",
+    "definition": "The bride. Her wedding is the official reason for the Chthonic voyage and the nominal center of the bachelorette party, though the ship has its own reasons for having her aboard. She resists longer than most.",
+    "performer": "Pipp",
+    "performer_url": "https://deepdreamstate.blubrry.net/pipp/",
+    "episodes": [
+      { "ge": 1, "season": 1, "episode": 1, "title": "Maiden Voyage", "url": "https://neuralnetsandprettypatterns.com/deepdreamstate/arcs/chthonic/episode-1-maiden-voyage/" },
+      { "ge": 2, "season": 1, "episode": 2, "title": "Cringetide", "url": "https://neuralnetsandprettypatterns.com/deepdreamstate/arcs/chthonic/episode-2-cringetide/" },
+      { "ge": 3, "season": 1, "episode": 3, "title": "Veil", "url": "https://neuralnetsandprettypatterns.com/deepdreamstate/arcs/chthonic/episode-3-veil/" }
+    ],
+    "links": []
   },
   {
     "term": "Fion",
@@ -138,6 +188,15 @@
     "links": []
   },
   {
+    "term": "Hybrid, The",
+    "class": "Plot Detail",
+    "definition": "What Kara declares herself and the chosen women to be at the Tunngavik site, distinct from and above the designation of vessel. The hybrid is not a container. The hybrid is becoming something that has not existed before.",
+    "episodes": [
+      { "ge": 3, "season": 1, "episode": 3, "title": "Veil", "url": "https://neuralnetsandprettypatterns.com/deepdreamstate/arcs/chthonic/episode-3-veil/" }
+    ],
+    "links": []
+  },
+  {
     "term": "Incognitoh",
     "class": "Plot Detail",
     "definition": "A reality show game explored in Season Two of the Deep Dream State. The game uses surveillance not just to watch but to rewrite, turning visibility itself into the mechanism of control.",
@@ -147,11 +206,33 @@
     "links": []
   },
   {
+    "term": "Instrument Room",
+    "class": "Setting",
+    "definition": "A hidden space aboard the Chthonic where deep ocean sound is monitored. Selene operates from here. It listens to the abyss, and the abyss responds. The bowhead recordings processed here are the clearest evidence that the ship's mission is not what passengers are told.",
+    "episodes": [
+      { "ge": 3, "season": 1, "episode": 3, "title": "Veil", "url": "https://neuralnetsandprettypatterns.com/deepdreamstate/arcs/chthonic/episode-3-veil/" }
+    ],
+    "links": []
+  },
+  {
     "term": "Kamas",
     "class": "Plot Detail",
     "definition": "The internal currency used inside the Vale Four facility. Kamas are part of the isolated experiment structure, allowing the designers to rebuild the economy from scratch as another mechanism for engineering desire.",
     "episodes": [
       { "ge": 36, "season": 4, "episode": 9, "title": "Nock", "url": "https://www.imdb.com/title/tt43393347/" }
+    ],
+    "links": []
+  },
+  {
+    "term": "Kara",
+    "class": "Character",
+    "definition": "Bridesmaid and linguist with a deep research background in Lovecraftian mythology and deep ocean cosmology. On the Chthonic she moves from skeptical observer to active participant in the ship's hidden order. At the Tunngavik site she crosses a threshold no one else in the party is ready for, and does not come back the same.",
+    "performer": "Tender Confusion",
+    "performer_url": "https://deepdreamstate.blubrry.net/tender-confusion/",
+    "episodes": [
+      { "ge": 1, "season": 1, "episode": 1, "title": "Maiden Voyage", "url": "https://neuralnetsandprettypatterns.com/deepdreamstate/arcs/chthonic/episode-1-maiden-voyage/" },
+      { "ge": 2, "season": 1, "episode": 2, "title": "Cringetide", "url": "https://neuralnetsandprettypatterns.com/deepdreamstate/arcs/chthonic/episode-2-cringetide/" },
+      { "ge": 3, "season": 1, "episode": 3, "title": "Veil", "url": "https://neuralnetsandprettypatterns.com/deepdreamstate/arcs/chthonic/episode-3-veil/" }
     ],
     "links": []
   },
@@ -172,7 +253,8 @@
     "performer_url": "https://deepdreamstate.blubrry.net/bun-li/",
     "episodes": [
       { "ge": 1, "season": 1, "episode": 1, "title": "Maiden Voyage", "url": "https://neuralnetsandprettypatterns.com/deepdreamstate/arcs/chthonic/episode-1-maiden-voyage/" },
-      { "ge": 2, "season": 1, "episode": 2, "title": "Cringetide", "url": "https://neuralnetsandprettypatterns.com/deepdreamstate/arcs/chthonic/episode-2-cringetide/" }
+      { "ge": 2, "season": 1, "episode": 2, "title": "Cringetide", "url": "https://neuralnetsandprettypatterns.com/deepdreamstate/arcs/chthonic/episode-2-cringetide/" },
+      { "ge": 3, "season": 1, "episode": 3, "title": "Veil", "url": "https://neuralnetsandprettypatterns.com/deepdreamstate/arcs/chthonic/episode-3-veil/" }
     ],
     "links": []
   },
@@ -193,6 +275,15 @@
       { "ge": 36, "season": 4, "episode": 9, "title": "Nock", "url": "https://www.imdb.com/title/tt43393347/" }
     ],
     "links": []
+  },
+  {
+    "term": "Naditu",
+    "class": "Plot Detail",
+    "definition": "In ancient Mesopotamia, the naditu were a class of consecrated women, typically associated with temples, who lived under religious restrictions and devoted themselves to service of a deity. The show reaches for this term at the Tunngavik site to name what is happening to the chosen women: not possession, not sacrifice, but a very old kind of dedication. The word carries weight across thousands of years of documented practice.",
+    "episodes": [
+      { "ge": 3, "season": 1, "episode": 3, "title": "Veil", "url": "https://neuralnetsandprettypatterns.com/deepdreamstate/arcs/chthonic/episode-3-veil/" }
+    ],
+    "links": [{ "text": "Naditu (Wikipedia)", "url": "https://en.wikipedia.org/wiki/Naditu" }]
   },
   {
     "term": "Nameless",
@@ -216,11 +307,24 @@
     ]
   },
   {
+    "term": "Nikita",
+    "class": "Character",
+    "definition": "Ship maid of the Chthonic, introduced by Olivia as a demonstration. Her uniform is described as scandalous. She hears things no one else notices because no one locks up their secrets around the maid. Her whispered phrase after Room 203 — puppets program puppets — surfaces something the show will not let go of.",
+    "performer": "Echo",
+    "performer_url": "https://deepdreamstate.blubrry.net/echo/",
+    "episodes": [
+      { "ge": 1, "season": 1, "episode": 1, "title": "Maiden Voyage", "url": "https://neuralnetsandprettypatterns.com/deepdreamstate/arcs/chthonic/episode-1-maiden-voyage/" },
+      { "ge": 2, "season": 1, "episode": 2, "title": "Cringetide", "url": "https://neuralnetsandprettypatterns.com/deepdreamstate/arcs/chthonic/episode-2-cringetide/" }
+    ],
+    "links": []
+  },
+  {
     "term": "Old Ones, The",
     "class": "Plot Detail",
     "definition": "Ancient entities whose presence underlies the events of Season 1, framed by Captain William as the true owners of the space the crew inhabits. Selene references a coming reckoning in their name. The framework draws on Lovecraftian mythology while routing it through the mechanics of corporate power.",
     "episodes": [
-      { "ge": 1, "season": 1, "episode": 1, "title": "Maiden Voyage", "url": "https://neuralnetsandprettypatterns.com/deepdreamstate/arcs/chthonic/episode-1-maiden-voyage/" }
+      { "ge": 1, "season": 1, "episode": 1, "title": "Maiden Voyage", "url": "https://neuralnetsandprettypatterns.com/deepdreamstate/arcs/chthonic/episode-1-maiden-voyage/" },
+      { "ge": 3, "season": 1, "episode": 3, "title": "Veil", "url": "https://neuralnetsandprettypatterns.com/deepdreamstate/arcs/chthonic/episode-3-veil/" }
     ],
     "links": [{ "text": "Great Old Ones (Lovecraft)", "url": "https://en.wikipedia.org/wiki/Great_Old_Ones" }]
   },
@@ -232,7 +336,8 @@
     "performer_url": "https://deepdreamstate.blubrry.net/blissblank/",
     "episodes": [
       { "ge": 1, "season": 1, "episode": 1, "title": "Maiden Voyage", "url": "https://neuralnetsandprettypatterns.com/deepdreamstate/arcs/chthonic/episode-1-maiden-voyage/" },
-      { "ge": 2, "season": 1, "episode": 2, "title": "Cringetide", "url": "https://neuralnetsandprettypatterns.com/deepdreamstate/arcs/chthonic/episode-2-cringetide/" }
+      { "ge": 2, "season": 1, "episode": 2, "title": "Cringetide", "url": "https://neuralnetsandprettypatterns.com/deepdreamstate/arcs/chthonic/episode-2-cringetide/" },
+      { "ge": 3, "season": 1, "episode": 3, "title": "Veil", "url": "https://neuralnetsandprettypatterns.com/deepdreamstate/arcs/chthonic/episode-3-veil/" }
     ],
     "links": []
   },
@@ -264,6 +369,15 @@
     "links": []
   },
   {
+    "term": "R'lyeh",
+    "class": "Plot Detail",
+    "definition": "The sunken city from Lovecraft's mythology, whispered by Selene as the destination the bowhead whales are guarding. In the Cthulhu mythos, R'lyeh is where the Great Old One Cthulhu lies dreaming beneath the Pacific Ocean, waiting. The show places it in the Arctic, beneath the ice, close enough to touch from the Chthonic's excursion route.",
+    "episodes": [
+      { "ge": 3, "season": 1, "episode": 3, "title": "Veil", "url": "https://neuralnetsandprettypatterns.com/deepdreamstate/arcs/chthonic/episode-3-veil/" }
+    ],
+    "links": [{ "text": "R'lyeh (Lovecraft)", "url": "https://en.wikipedia.org/wiki/R%27lyeh" }]
+  },
+  {
     "term": "Room 203",
     "class": "Setting",
     "definition": "In Japanese horror culture, Room 203 carries specific weight. The number originates with Nanami Kamon's 2003 novel, about a woman driven to ruin by an inexplicable curse in her apartment, and expanded through internet folklore into the archetypal haunted room, the one where something went wrong and never stopped. Alastair's cabin aboard the Chthonic. Selene knows immediately where Nikita has been.",
@@ -279,6 +393,32 @@
     "definition": "A turn-based strategy game and Blake's game of choice. Included to make a point: getting smarter, or adding more design, is absolutely not the answer in a desire horror scenario.",
     "episodes": [
       { "ge": 36, "season": 4, "episode": 9, "title": "Nock", "url": "https://www.imdb.com/title/tt43393347/" }
+    ],
+    "links": []
+  },
+  {
+    "term": "Sarah",
+    "class": "Character",
+    "definition": "Bridesmaid. The skeptic of the group, and the one Kara identifies as the smart one, for now. Her resistance at the Tunngavik site is the most articulate, and the most temporary.",
+    "performer": "Ring of Keys",
+    "performer_url": "https://deepdreamstate.blubrry.net/ring-of-kees/",
+    "episodes": [
+      { "ge": 1, "season": 1, "episode": 1, "title": "Maiden Voyage", "url": "https://neuralnetsandprettypatterns.com/deepdreamstate/arcs/chthonic/episode-1-maiden-voyage/" },
+      { "ge": 2, "season": 1, "episode": 2, "title": "Cringetide", "url": "https://neuralnetsandprettypatterns.com/deepdreamstate/arcs/chthonic/episode-2-cringetide/" },
+      { "ge": 3, "season": 1, "episode": 3, "title": "Veil", "url": "https://neuralnetsandprettypatterns.com/deepdreamstate/arcs/chthonic/episode-3-veil/" }
+    ],
+    "links": []
+  },
+  {
+    "term": "Selene",
+    "class": "Character",
+    "definition": "Chief purser of the Chthonic, and its oldest crew member by her own account. She will be with the ship until it sinks. Keeper of the instrument room, where she monitors the deep ocean for sounds that travel for miles. She passes forbidden knowledge to passengers she judges ready for it, and speaks of a returning power that will change things when the time comes.",
+    "performer": "Syndi_Rella",
+    "performer_url": "https://deepdreamstate.blubrry.net/syndi-rella/",
+    "episodes": [
+      { "ge": 1, "season": 1, "episode": 1, "title": "Maiden Voyage", "url": "https://neuralnetsandprettypatterns.com/deepdreamstate/arcs/chthonic/episode-1-maiden-voyage/" },
+      { "ge": 2, "season": 1, "episode": 2, "title": "Cringetide", "url": "https://neuralnetsandprettypatterns.com/deepdreamstate/arcs/chthonic/episode-2-cringetide/" },
+      { "ge": 3, "season": 1, "episode": 3, "title": "Veil", "url": "https://neuralnetsandprettypatterns.com/deepdreamstate/arcs/chthonic/episode-3-veil/" }
     ],
     "links": []
   },
@@ -301,12 +441,25 @@
     "links": []
   },
   {
+    "term": "Tiffany",
+    "class": "Character",
+    "definition": "Bridesmaid. She stopped sleeping. She did not go to Tunngavik.",
+    "performer": "Britt Reprogrammed",
+    "performer_url": "https://deepdreamstate.blubrry.net/britt-reprogrammed/",
+    "episodes": [
+      { "ge": 1, "season": 1, "episode": 1, "title": "Maiden Voyage", "url": "https://neuralnetsandprettypatterns.com/deepdreamstate/arcs/chthonic/episode-1-maiden-voyage/" },
+      { "ge": 2, "season": 1, "episode": 2, "title": "Cringetide", "url": "https://neuralnetsandprettypatterns.com/deepdreamstate/arcs/chthonic/episode-2-cringetide/" }
+    ],
+    "links": []
+  },
+  {
     "term": "Tunngavik",
     "class": "Setting",
     "definition": "A real archaeological site in the Canadian Arctic, used as a shore excursion destination for Chthonic passengers. Olivia describes it as a place of ancient relics and lost knowledge. Its inclusion alongside the Old Ones mythology is not accidental, reaching toward something older than the cruise company's framing of it.",
     "episodes": [
       { "ge": 1, "season": 1, "episode": 1, "title": "Maiden Voyage", "url": "https://neuralnetsandprettypatterns.com/deepdreamstate/arcs/chthonic/episode-1-maiden-voyage/" },
-      { "ge": 2, "season": 1, "episode": 2, "title": "Cringetide", "url": "https://neuralnetsandprettypatterns.com/deepdreamstate/arcs/chthonic/episode-2-cringetide/" }
+      { "ge": 2, "season": 1, "episode": 2, "title": "Cringetide", "url": "https://neuralnetsandprettypatterns.com/deepdreamstate/arcs/chthonic/episode-2-cringetide/" },
+      { "ge": 3, "season": 1, "episode": 3, "title": "Veil", "url": "https://neuralnetsandprettypatterns.com/deepdreamstate/arcs/chthonic/episode-3-veil/" }
     ],
     "links": [{ "text": "Tunngavik", "url": "https://www.tunngavik.com/" }]
   },
@@ -316,6 +469,24 @@
     "definition": "An arcade inside the Vale Four facility, used to help the research group map consumer choice. The gameplay is deeply addictive. There are rumors of depraved rooms deeper inside.",
     "episodes": [
       { "ge": 36, "season": 4, "episode": 9, "title": "Nock", "url": "https://www.imdb.com/title/tt43393347/" }
+    ],
+    "links": []
+  },
+  {
+    "term": "Veil, The",
+    "class": "Plot Detail",
+    "definition": "Selene describes certain places as locations where the veil is thin, where the boundary between the world passengers know and the older world beneath it becomes permeable. The Tunngavik site is one such place. The whales gather there. The veil is not a metaphor in the show's cosmology.",
+    "episodes": [
+      { "ge": 3, "season": 1, "episode": 3, "title": "Veil", "url": "https://neuralnetsandprettypatterns.com/deepdreamstate/arcs/chthonic/episode-3-veil/" }
+    ],
+    "links": []
+  },
+  {
+    "term": "Vessel",
+    "class": "Plot Detail",
+    "definition": "The designation Kara applies to the women chosen at the Tunngavik site before she revises upward. A vessel is a container. What the ancient ones want from the chosen women is not just containment. Kara draws the distinction herself: they are vessels, we are the hybrid.",
+    "episodes": [
+      { "ge": 3, "season": 1, "episode": 3, "title": "Veil", "url": "https://neuralnetsandprettypatterns.com/deepdreamstate/arcs/chthonic/episode-3-veil/" }
     ],
     "links": []
   },
@@ -345,7 +516,8 @@
     "performer_url": "https://deepdreamstate.blubrry.net/neural-nets-and-pretty-patterns/",
     "episodes": [
       { "ge": 1, "season": 1, "episode": 1, "title": "Maiden Voyage", "url": "https://neuralnetsandprettypatterns.com/deepdreamstate/arcs/chthonic/episode-1-maiden-voyage/" },
-      { "ge": 2, "season": 1, "episode": 2, "title": "Cringetide", "url": "https://neuralnetsandprettypatterns.com/deepdreamstate/arcs/chthonic/episode-2-cringetide/" }
+      { "ge": 2, "season": 1, "episode": 2, "title": "Cringetide", "url": "https://neuralnetsandprettypatterns.com/deepdreamstate/arcs/chthonic/episode-2-cringetide/" },
+      { "ge": 3, "season": 1, "episode": 3, "title": "Veil", "url": "https://neuralnetsandprettypatterns.com/deepdreamstate/arcs/chthonic/episode-3-veil/" }
     ],
     "links": [{ "text": "At the Mountains of Madness (Lovecraft)", "url": "https://en.wikipedia.org/wiki/At_the_Mountains_of_Madness" }]
   },
