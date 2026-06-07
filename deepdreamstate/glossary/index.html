@@ -183,20 +183,19 @@
     }
 
     dl { display: flex; flex-direction: column; gap: 0; }
-
     .term-entry { padding: 1.25rem 0; border-bottom: 1px solid rgba(232,232,232,0.08); }
-
     dt { display: flex; align-items: baseline; gap: 0.75rem; margin-bottom: 0.4rem; flex-wrap: wrap; }
     .term-name { font-size: 1.2rem; letter-spacing: 0.03em; color: #f0f0f0; }
     .term-class {
       font-size: 0.65rem; letter-spacing: 0.18em; text-transform: uppercase; opacity: 0.5;
       border: 1px solid rgba(232,232,232,0.2); padding: 0.15rem 0.5rem; border-radius: 10px;
     }
-    .term-class.class-game       { color: #9eb8e8; border-color: rgba(158,184,232,0.35); }
-    .term-class.class-setting    { color: #a8d5b5; border-color: rgba(168,213,181,0.35); }
+    .term-class.class-game        { color: #9eb8e8; border-color: rgba(158,184,232,0.35); }
+    .term-class.class-setting     { color: #a8d5b5; border-color: rgba(168,213,181,0.35); }
     .term-class.class-plot-detail { color: #d5b8a8; border-color: rgba(213,184,168,0.35); }
-    .term-class.class-product    { color: #d5a8c8; border-color: rgba(213,168,200,0.35); }
-    .term-class.class-metashow   { color: #c8c8a8; border-color: rgba(200,200,168,0.35); }
+    .term-class.class-product     { color: #d5a8c8; border-color: rgba(213,168,200,0.35); }
+    .term-class.class-metashow    { color: #c8c8a8; border-color: rgba(200,200,168,0.35); }
+    .term-class.class-character   { color: #e8c89e; border-color: rgba(232,200,158,0.35); }
 
     dd { font-size: 0.97rem; line-height: 1.75; opacity: 0.8; max-width: 72ch; }
     dd a { color: #9eb8e8; text-decoration: none; border-bottom: 1px solid rgba(158,184,232,0.3); transition: all 0.2s ease; }
@@ -204,6 +203,8 @@
 
     .term-meta { margin-top: 0.6rem; font-size: 0.7rem; letter-spacing: 0.1em; opacity: 0.35; display: block; }
     .term-meta a { color: inherit; border-bottom: 1px solid rgba(232,232,232,0.2); }
+    .term-performer { margin-top: 0.3rem; font-size: 0.7rem; letter-spacing: 0.1em; opacity: 0.35; display: block; font-style: italic; }
+    .term-performer a { color: inherit; border-bottom: 1px solid rgba(232,232,232,0.2); }
 
     .no-results { text-align: center; padding: 3rem 0; opacity: 0.4; font-style: italic; display: none; }
 
@@ -268,6 +269,7 @@
     <div class="filter-row" role="group" aria-label="Filter by class">
       <span class="filter-label">Filter:</span>
       <button class="filter-btn active" data-class="all">All</button>
+      <button class="filter-btn" data-class="Character">Character</button>
       <button class="filter-btn" data-class="Game">Game</button>
       <button class="filter-btn" data-class="Setting">Setting</button>
       <button class="filter-btn" data-class="Plot Detail">Plot Detail</button>
@@ -287,8 +289,8 @@
         <dd>An observer whose approval must be shown through proper conduct and deference. The name suggests a deep-ocean elder being with a direct stake in the Chthonic's operation. Referenced by Captain William during his dressing-down of Olivia.<span class="term-meta">Appears in: <a href="https://neuralnetsandprettypatterns.com/deepdreamstate/arcs/chthonic/episode-1-maiden-voyage/" target="_blank" rel="noopener">S1:E1 / GE1</a></span></dd>
       </div>
       <div class="term-entry" id="alastair">
-        <dt><span class="term-name">Alastair</span><span class="term-class class-plot-detail">Plot Detail</span></dt>
-        <dd>The Neuroplex CEO, predatory and gamified in his interest in passengers, speaking of wanting something fresh. He travels on his own vessel and condescends to visit the Chthonic.<span class="term-meta">Appears in: <a href="https://neuralnetsandprettypatterns.com/deepdreamstate/arcs/chthonic/episode-1-maiden-voyage/" target="_blank" rel="noopener">S1:E1 / GE1</a></span></dd>
+        <dt><span class="term-name">Alastair</span><span class="term-class class-character">Character</span></dt>
+        <dd>The Neuroplex CEO. Predatory and gamified in his interest in the people around him, speaking of wanting something fresh. Travels on his own vessel and condescends to visit the Chthonic.<span class="term-performer">Played by <a href="https://deepdreamstate.blubrry.net/jericho-caine/" target="_blank" rel="noopener">Jericho Caine</a></span><span class="term-meta">Appears in: <a href="https://neuralnetsandprettypatterns.com/deepdreamstate/arcs/chthonic/episode-1-maiden-voyage/" target="_blank" rel="noopener">S1:E1 / GE1</a>, <a href="https://neuralnetsandprettypatterns.com/deepdreamstate/arcs/chthonic/episode-2-cringetide/" target="_blank" rel="noopener">S1:E2 / GE2</a></span></dd>
       </div>
       <div class="term-entry" id="ash">
         <dt><span class="term-name">Ash</span><span class="term-class class-plot-detail">Plot Detail</span></dt>
@@ -303,6 +305,10 @@
   <section class="alpha-section" id="letter-C">
     <p class="alpha-heading">C</p>
     <dl>
+      <div class="term-entry" id="captains-mast">
+        <dt><span class="term-name">Captain's Mast</span><span class="term-class class-plot-detail">Plot Detail</span></dt>
+        <dd>A real naval disciplinary procedure, borrowed here as the name for the surveillance room where Captain William judges and reassigns crew. In the US Navy, captain's mast is non-judicial punishment administered by a commanding officer, outside the formal court-martial system. The show uses the term precisely: discipline that happens off the books, at the captain's discretion, with no appeal. <a href="https://en.wikipedia.org/wiki/Captain%27s_mast" target="_blank" rel="noopener">Captain's Mast (Wikipedia)</a><span class="term-meta">Appears in: <a href="https://neuralnetsandprettypatterns.com/deepdreamstate/arcs/chthonic/episode-2-cringetide/" target="_blank" rel="noopener">S1:E2 / GE2</a></span></dd>
+      </div>
       <div class="term-entry" id="chthonic-the">
         <dt><span class="term-name">Chthonic, The</span><span class="term-class class-setting">Setting</span></dt>
         <dd>A cruise ship operating as an enclosed experimental environment, with guests unaware of the mechanisms operating around and beneath them. A wholly owned subsidiary of the Dagon Dream Group, operating under the authority of Neuroplex.<span class="term-meta">Appears in: <a href="https://neuralnetsandprettypatterns.com/deepdreamstate/arcs/chthonic/episode-1-maiden-voyage/" target="_blank" rel="noopener">S1:E1 / GE1</a></span></dd>
@@ -330,6 +336,15 @@
       </div>
     </dl>
   </section>
+  <section class="alpha-section" id="letter-F">
+    <p class="alpha-heading">F</p>
+    <dl>
+      <div class="term-entry" id="fion">
+        <dt><span class="term-name">Fion</span><span class="term-class class-character">Character</span></dt>
+        <dd>Chief engineer of the Chthonic. Practical, protective of Nikita, and the conscience of the crew quarters. Her relationship with Mairead is the emotional spine of the service deck.<span class="term-performer">Played by <a href="https://deepdreamstate.blubrry.net/jade-wolf/" target="_blank" rel="noopener">Jade Wolf</a></span><span class="term-meta">Appears in: <a href="https://neuralnetsandprettypatterns.com/deepdreamstate/arcs/chthonic/episode-1-maiden-voyage/" target="_blank" rel="noopener">S1:E1 / GE1</a>, <a href="https://neuralnetsandprettypatterns.com/deepdreamstate/arcs/chthonic/episode-2-cringetide/" target="_blank" rel="noopener">S1:E2 / GE2</a></span></dd>
+      </div>
+    </dl>
+  </section>
   <section class="alpha-section" id="letter-G">
     <p class="alpha-heading">G</p>
     <dl>
@@ -349,6 +364,10 @@
       <div class="term-entry" id="holdfast">
         <dt><span class="term-name">Holdfast</span><span class="term-class class-plot-detail">Plot Detail</span></dt>
         <dd>Double agents operating inside the Neuroplex structure. They answer to Naia Anderson, the dispossessed company founder. Named after plant life, reflecting Naia's deep connection to botany.<span class="term-meta">Appears in: <a href="https://www.imdb.com/title/tt43393347/" target="_blank" rel="noopener">S4:E9 / GE36</a></span></dd>
+      </div>
+      <div class="term-entry" id="holly">
+        <dt><span class="term-name">Holly</span><span class="term-class class-character">Character</span></dt>
+        <dd>Alastair's companion aboard the Chthonic. Presents as cheerful and compliant, but passes information in a dissociated state and her loyalty to Alastair is more complicated than it first appears.<span class="term-performer">Played by <a href="https://deepdreamstate.blubrry.net/dizzy-dollie/" target="_blank" rel="noopener">Dizzy Dollie</a></span><span class="term-meta">Appears in: <a href="https://neuralnetsandprettypatterns.com/deepdreamstate/arcs/chthonic/episode-1-maiden-voyage/" target="_blank" rel="noopener">S1:E1 / GE1</a>, <a href="https://neuralnetsandprettypatterns.com/deepdreamstate/arcs/chthonic/episode-2-cringetide/" target="_blank" rel="noopener">S1:E2 / GE2</a></span></dd>
       </div>
     </dl>
   </section>
@@ -376,6 +395,10 @@
       <div class="term-entry" id="magus">
         <dt><span class="term-name">Magus</span><span class="term-class class-plot-detail">Plot Detail</span></dt>
         <dd>A title used in private for Captain William, distinct from his public-facing rank. It signals a hidden authority structure aboard the ship that operates separately from its cruise company cover.<span class="term-meta">Appears in: <a href="https://neuralnetsandprettypatterns.com/deepdreamstate/arcs/chthonic/episode-1-maiden-voyage/" target="_blank" rel="noopener">S1:E1 / GE1</a></span></dd>
+      </div>
+      <div class="term-entry" id="mairead">
+        <dt><span class="term-name">Mairead</span><span class="term-class class-character">Character</span></dt>
+        <dd>Spa manager of the Chthonic's wellness center, and the crew member most visibly caught between survival and self-destruction. A skilled poker player with a gambling debt Alastair holds over her. Her assignment to guide the Tunngavik excursion is coercion dressed as opportunity.<span class="term-performer">Played by <a href="https://deepdreamstate.blubrry.net/bun-li/" target="_blank" rel="noopener">Bun-li</a></span><span class="term-meta">Appears in: <a href="https://neuralnetsandprettypatterns.com/deepdreamstate/arcs/chthonic/episode-1-maiden-voyage/" target="_blank" rel="noopener">S1:E1 / GE1</a>, <a href="https://neuralnetsandprettypatterns.com/deepdreamstate/arcs/chthonic/episode-2-cringetide/" target="_blank" rel="noopener">S1:E2 / GE2</a></span></dd>
       </div>
       <div class="term-entry" id="midstream">
         <dt><span class="term-name">Midstream</span><span class="term-class class-plot-detail">Plot Detail</span></dt>
@@ -407,6 +430,10 @@
         <dt><span class="term-name">Old Ones, The</span><span class="term-class class-plot-detail">Plot Detail</span></dt>
         <dd>Ancient entities whose presence underlies the events of Season 1, framed by Captain William as the true owners of the space the crew inhabits. Selene references a coming reckoning in their name. The framework draws on Lovecraftian mythology while routing it through the mechanics of corporate power. <a href="https://en.wikipedia.org/wiki/Great_Old_Ones" target="_blank" rel="noopener">Great Old Ones (Lovecraft)</a><span class="term-meta">Appears in: <a href="https://neuralnetsandprettypatterns.com/deepdreamstate/arcs/chthonic/episode-1-maiden-voyage/" target="_blank" rel="noopener">S1:E1 / GE1</a></span></dd>
       </div>
+      <div class="term-entry" id="olivia">
+        <dt><span class="term-name">Olivia</span><span class="term-class class-character">Character</span></dt>
+        <dd>Cruise director of the Chthonic. The public face of the operation, managing guests while navigating the ship's hidden power structure. Nearly introduces herself as Olivia Nameless before catching herself.<span class="term-performer">Played by <a href="https://deepdreamstate.blubrry.net/blissblank/" target="_blank" rel="noopener">Bliss Blank</a></span><span class="term-meta">Appears in: <a href="https://neuralnetsandprettypatterns.com/deepdreamstate/arcs/chthonic/episode-1-maiden-voyage/" target="_blank" rel="noopener">S1:E1 / GE1</a>, <a href="https://neuralnetsandprettypatterns.com/deepdreamstate/arcs/chthonic/episode-2-cringetide/" target="_blank" rel="noopener">S1:E2 / GE2</a></span></dd>
+      </div>
     </dl>
   </section>
   <section class="alpha-section" id="letter-P">
@@ -431,7 +458,7 @@
     <dl>
       <div class="term-entry" id="room-203">
         <dt><span class="term-name">Room 203</span><span class="term-class class-setting">Setting</span></dt>
-        <dd>In Japanese horror culture, Room 203 carries specific weight. The number originates with Nanami Kamon's 2003 novel, about a woman driven to ruin by an inexplicable curse in her apartment, and expanded through internet folklore into the archetypal haunted room, the one where something went wrong and never stopped. Alastair's cabin aboard the Chthonic. Selene knows immediately where Nikita has been. <a href="https://variety.com/2020/film/asia/akatsuki-wraps-room-203-adaptation-of-japanese-horror-tale-1234845149/" target="_blank" rel="noopener">Room 203 (Variety)</a><span class="term-meta">Appears in: <a href="https://neuralnetsandprettypatterns.com/deepdreamstate/arcs/chthonic/episode-1-maiden-voyage/" target="_blank" rel="noopener">S1:E1 / GE1</a></span></dd>
+        <dd>In Japanese horror culture, Room 203 carries specific weight. The number originates with Nanami Kamon's 2003 novel, about a woman driven to ruin by an inexplicable curse in her apartment, and expanded through internet folklore into the archetypal haunted room, the one where something went wrong and never stopped. Alastair's cabin aboard the Chthonic. Selene knows immediately where Nikita has been. <a href="https://variety.com/2020/film/asia/akatsuki-wraps-room-203-adaptation-of-japanese-horror-tale-1234845149/" target="_blank" rel="noopener">Room 203 (Variety)</a><span class="term-meta">Appears in: <a href="https://neuralnetsandprettypatterns.com/deepdreamstate/arcs/chthonic/episode-1-maiden-voyage/" target="_blank" rel="noopener">S1:E1 / GE1</a>, <a href="https://neuralnetsandprettypatterns.com/deepdreamstate/arcs/chthonic/episode-2-cringetide/" target="_blank" rel="noopener">S1:E2 / GE2</a></span></dd>
       </div>
     </dl>
   </section>
@@ -457,7 +484,7 @@
     <dl>
       <div class="term-entry" id="tunngavik">
         <dt><span class="term-name">Tunngavik</span><span class="term-class class-setting">Setting</span></dt>
-        <dd>A real archaeological site in the Canadian Arctic, used as a shore excursion destination for Chthonic passengers. Olivia describes it as a place of ancient relics and lost knowledge. Its inclusion alongside the Old Ones mythology is not accidental, reaching toward something older than the cruise company's framing of it. <a href="https://www.tunngavik.com/" target="_blank" rel="noopener">Tunngavik</a><span class="term-meta">Appears in: <a href="https://neuralnetsandprettypatterns.com/deepdreamstate/arcs/chthonic/episode-1-maiden-voyage/" target="_blank" rel="noopener">S1:E1 / GE1</a></span></dd>
+        <dd>A real archaeological site in the Canadian Arctic, used as a shore excursion destination for Chthonic passengers. Olivia describes it as a place of ancient relics and lost knowledge. Its inclusion alongside the Old Ones mythology is not accidental, reaching toward something older than the cruise company's framing of it. <a href="https://www.tunngavik.com/" target="_blank" rel="noopener">Tunngavik</a><span class="term-meta">Appears in: <a href="https://neuralnetsandprettypatterns.com/deepdreamstate/arcs/chthonic/episode-1-maiden-voyage/" target="_blank" rel="noopener">S1:E1 / GE1</a>, <a href="https://neuralnetsandprettypatterns.com/deepdreamstate/arcs/chthonic/episode-2-cringetide/" target="_blank" rel="noopener">S1:E2 / GE2</a></span></dd>
       </div>
     </dl>
   </section>
@@ -473,19 +500,27 @@
   <section class="alpha-section" id="letter-W">
     <p class="alpha-heading">W</p>
     <dl>
+      <div class="term-entry" id="wellness-center">
+        <dt><span class="term-name">Wellness Center</span><span class="term-class class-setting">Setting</span></dt>
+        <dd>Mairead's official operation aboard the Chthonic. The gap between its name and function is doing a lot of work.<span class="term-meta">Appears in: <a href="https://neuralnetsandprettypatterns.com/deepdreamstate/arcs/chthonic/episode-2-cringetide/" target="_blank" rel="noopener">S1:E2 / GE2</a></span></dd>
+      </div>
       <div class="term-entry" id="wendy-and-the-kraken-crew">
         <dt><span class="term-name">Wendy and the Kraken Crew</span><span class="term-class class-plot-detail">Plot Detail</span></dt>
         <dd>The entertainment act performing aboard the Chthonic. Their shanty references Wendy as a benevolent watcher who rewards passengers with tokens when the tide rises, a cheerful surface over something older.<span class="term-meta">Appears in: <a href="https://neuralnetsandprettypatterns.com/deepdreamstate/arcs/chthonic/episode-1-maiden-voyage/" target="_blank" rel="noopener">S1:E1 / GE1</a></span></dd>
       </div>
       <div class="term-entry" id="william-dyer">
-        <dt><span class="term-name">William Dyer</span><span class="term-class class-plot-detail">Plot Detail</span></dt>
-        <dd>Captain of the Chthonic, privately titled Magus. The name is a direct reference to the narrator of Lovecraft's At the Mountains of Madness. He states he has been doing it for 144 years, suggesting he is not entirely human. <a href="https://en.wikipedia.org/wiki/At_the_Mountains_of_Madness" target="_blank" rel="noopener">At the Mountains of Madness (Lovecraft)</a><span class="term-meta">Appears in: <a href="https://neuralnetsandprettypatterns.com/deepdreamstate/arcs/chthonic/episode-1-maiden-voyage/" target="_blank" rel="noopener">S1:E1 / GE1</a></span></dd>
+        <dt><span class="term-name">William Dyer</span><span class="term-class class-character">Character</span></dt>
+        <dd>Captain of the Chthonic, privately titled Magus. The name is a direct reference to the narrator of Lovecraft's At the Mountains of Madness. States he has been doing it for 144 years, suggesting he is not entirely human. <a href="https://en.wikipedia.org/wiki/At_the_Mountains_of_Madness" target="_blank" rel="noopener">At the Mountains of Madness (Lovecraft)</a><span class="term-performer">Played by <a href="https://deepdreamstate.blubrry.net/neural-nets-and-pretty-patterns/" target="_blank" rel="noopener">Neural Nets</a></span><span class="term-meta">Appears in: <a href="https://neuralnetsandprettypatterns.com/deepdreamstate/arcs/chthonic/episode-1-maiden-voyage/" target="_blank" rel="noopener">S1:E1 / GE1</a>, <a href="https://neuralnetsandprettypatterns.com/deepdreamstate/arcs/chthonic/episode-2-cringetide/" target="_blank" rel="noopener">S1:E2 / GE2</a></span></dd>
       </div>
     </dl>
   </section>
   <section class="alpha-section" id="letter-Y">
     <p class="alpha-heading">Y</p>
     <dl>
+      <div class="term-entry" id="yo-ho-hos">
+        <dt><span class="term-name">Yo Ho Hos</span><span class="term-class class-plot-detail">Plot Detail</span></dt>
+        <dd>The karaoke act performing at the Chthonic's entertainment night. Their shanty is performed by the bachelorette party guests and serves as cover noise over the ship's actual business.<span class="term-meta">Appears in: <a href="https://neuralnetsandprettypatterns.com/deepdreamstate/arcs/chthonic/episode-2-cringetide/" target="_blank" rel="noopener">S1:E2 / GE2</a></span></dd>
+      </div>
       <div class="term-entry" id="yum-yum-time">
         <dt><span class="term-name">Yum Yum Time</span><span class="term-class class-game">Game</span></dt>
         <dd>A candy game with a suggestive emphasis on eating. It spawned one of the first secret tracks, featuring Pipp. You can explore the game further with the companion track. <a href="https://www.patreon.com/posts/yum-yum-time-all-157031167" target="_blank" rel="noopener">Yum Yum Time (Patreon)</a><span class="term-meta">Appears in: <a href="https://www.imdb.com/title/tt43393347/" target="_blank" rel="noopener">S4:E9 / GE36</a></span></dd>
@@ -608,6 +643,10 @@
             }).join(', ') + '</span>'
           : '';
 
+        const performerHtml = (t.performer && t.performer_url)
+          ? `<span class="term-performer">Played by <a href="${escapeHtml(t.performer_url)}" target="_blank" rel="noopener">${escapeHtml(t.performer)}</a></span>`
+          : '';
+
         const escapedDef = escapeHtml(t.definition);
         const linkHtml = (t.links && t.links.length)
           ? ' ' + t.links.map(l =>
@@ -617,7 +656,7 @@
 
         html += `<div class="term-entry" id="${termSlug}">
             <dt><span class="term-name">${escapeHtml(t.term)}</span><span class="term-class class-${classSlug}">${escapeHtml(t.class)}</span></dt>
-            <dd>${escapedDef}${linkHtml}${epMeta}</dd>
+            <dd>${escapedDef}${linkHtml}${performerHtml}${epMeta}</dd>
           </div>`;
       });
 
