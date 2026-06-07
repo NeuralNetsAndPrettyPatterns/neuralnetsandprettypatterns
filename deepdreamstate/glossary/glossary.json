@@ -4,7 +4,7 @@
     "class": "Plot Detail",
     "definition": "An observer whose approval must be shown through proper conduct and deference. The name suggests a deep-ocean elder being with a direct stake in the Chthonic's operation. Referenced by Captain William during his dressing-down of Olivia.",
     "episodes": [
-      { "ge": 1, "season": 1, "episode": 1, "title": "Maiden Voyage", "blubrry": "https://neuralnetsandprettypatterns.com/deepdreamstate/arcs/chthonic/episode-1-maiden-voyage/" }
+      { "ge": 1, "season": 1, "episode": 1, "title": "Maiden Voyage", "url": "https://neuralnetsandprettypatterns.com/deepdreamstate/arcs/chthonic/episode-1-maiden-voyage/" }
     ],
     "links": []
   },
@@ -13,7 +13,7 @@
     "class": "Plot Detail",
     "definition": "The Neuroplex CEO, predatory and gamified in his interest in passengers, speaking of wanting something fresh. He travels on his own vessel and condescends to visit the Chthonic.",
     "episodes": [
-      { "ge": 1, "season": 1, "episode": 1, "title": "Maiden Voyage", "blubrry": "https://neuralnetsandprettypatterns.com/deepdreamstate/arcs/chthonic/episode-1-maiden-voyage/" }
+      { "ge": 1, "season": 1, "episode": 1, "title": "Maiden Voyage", "url": "https://neuralnetsandprettypatterns.com/deepdreamstate/arcs/chthonic/episode-1-maiden-voyage/" }
     ],
     "links": []
   },
@@ -22,7 +22,7 @@
     "class": "Plot Detail",
     "definition": "The nature of Ash is left deliberately unclear. An authority referenced alongside Abyssrath by Captain William, whose approval matters alongside the older powers.",
     "episodes": [
-      { "ge": 1, "season": 1, "episode": 1, "title": "Maiden Voyage", "blubrry": "https://neuralnetsandprettypatterns.com/deepdreamstate/arcs/chthonic/episode-1-maiden-voyage/" }
+      { "ge": 1, "season": 1, "episode": 1, "title": "Maiden Voyage", "url": "https://neuralnetsandprettypatterns.com/deepdreamstate/arcs/chthonic/episode-1-maiden-voyage/" }
     ],
     "links": []
   },
@@ -31,7 +31,7 @@
     "class": "Game",
     "definition": "A menacing hunt game. Players are directed toward hunting a target, with capture described as the win condition. Assets diagnoses the objectification built into a lot of game design, and foreshadows future action in the series.",
     "episodes": [
-      { "ge": 36, "season": 4, "episode": 9, "title": "Nock", "imdb": "https://www.imdb.com/title/tt43393347", "musicbrainz": "https://musicbrainz.org/release/23988d90-4889-4fbd-9fad-312411aa24ba", "blubrry": "https://deepdreamstate.blubrry.net/nock-vale-four-s4e9/" }
+      { "ge": 36, "season": 4, "episode": 9, "title": "Nock", "url": "https://www.imdb.com/title/tt43393347/" }
     ],
     "links": []
   },
@@ -40,7 +40,7 @@
     "class": "Setting",
     "definition": "A cruise ship operating as an enclosed experimental environment, with guests unaware of the mechanisms operating around and beneath them. A wholly owned subsidiary of the Dagon Dream Group, operating under the authority of Neuroplex.",
     "episodes": [
-      { "ge": 1, "season": 1, "episode": 1, "title": "Maiden Voyage", "blubrry": "https://neuralnetsandprettypatterns.com/deepdreamstate/arcs/chthonic/episode-1-maiden-voyage/" }
+      { "ge": 1, "season": 1, "episode": 1, "title": "Maiden Voyage", "url": "https://neuralnetsandprettypatterns.com/deepdreamstate/arcs/chthonic/episode-1-maiden-voyage/" }
     ],
     "links": []
   },
@@ -56,7 +56,7 @@
     "class": "Product",
     "definition": "The passenger-facing app for the Chthonic experience. Guests use it to summon crew via a bell icon, positioning control of the staff as a consumer convenience.",
     "episodes": [
-      { "ge": 1, "season": 1, "episode": 1, "title": "Maiden Voyage", "blubrry": "https://neuralnetsandprettypatterns.com/deepdreamstate/arcs/chthonic/episode-1-maiden-voyage/" }
+      { "ge": 1, "season": 1, "episode": 1, "title": "Maiden Voyage", "url": "https://neuralnetsandprettypatterns.com/deepdreamstate/arcs/chthonic/episode-1-maiden-voyage/" }
     ],
     "links": []
   },
@@ -65,7 +65,7 @@
     "class": "Plot Detail",
     "definition": "The corporate parent of the Chthonic. The name invokes the Lovecraftian sea deity Dagon, linking the cruise operation to the broader mythology of the Old Ones threading through Season 1.",
     "episodes": [
-      { "ge": 1, "season": 1, "episode": 1, "title": "Maiden Voyage", "blubrry": "https://neuralnetsandprettypatterns.com/deepdreamstate/arcs/chthonic/episode-1-maiden-voyage/" }
+      { "ge": 1, "season": 1, "episode": 1, "title": "Maiden Voyage", "url": "https://neuralnetsandprettypatterns.com/deepdreamstate/arcs/chthonic/episode-1-maiden-voyage/" }
     ],
     "links": [{ "text": "Dagon (Lovecraft)", "url": "https://en.wikipedia.org/wiki/Dagon_(short_story)" }]
   },
@@ -81,7 +81,7 @@
     "class": "Setting",
     "definition": "Naia Anderson's underground yurt. This is where she plots her takeover of Vale Four and plans the resurgence of Meridian A. The interior is entirely ecological in design. The plants block signals and appear to be an extension of Naia herself.",
     "episodes": [
-      { "ge": 36, "season": 4, "episode": 9, "title": "Nock", "imdb": "https://www.imdb.com/title/tt43393347", "musicbrainz": "https://musicbrainz.org/release/23988d90-4889-4fbd-9fad-312411aa24ba", "blubrry": "https://deepdreamstate.blubrry.net/nock-vale-four-s4e9/" }
+      { "ge": 36, "season": 4, "episode": 9, "title": "Nock", "url": "https://www.imdb.com/title/tt43393347/" }
     ],
     "links": []
   },
@@ -97,7 +97,7 @@
     "class": "Plot Detail",
     "definition": "Double agents operating inside the Neuroplex structure. They answer to Naia Anderson, the dispossessed company founder. Named after plant life, reflecting Naia's deep connection to botany.",
     "episodes": [
-      { "ge": 36, "season": 4, "episode": 9, "title": "Nock", "imdb": "https://www.imdb.com/title/tt43393347", "musicbrainz": "https://musicbrainz.org/release/23988d90-4889-4fbd-9fad-312411aa24ba", "blubrry": "https://deepdreamstate.blubrry.net/nock-vale-four-s4e9/" }
+      { "ge": 36, "season": 4, "episode": 9, "title": "Nock", "url": "https://www.imdb.com/title/tt43393347/" }
     ],
     "links": []
   },
@@ -106,7 +106,7 @@
     "class": "Plot Detail",
     "definition": "A reality show game explored in Season Two of the Deep Dream State. The game uses surveillance not just to watch but to rewrite, turning visibility itself into the mechanism of control.",
     "episodes": [
-      { "ge": 36, "season": 4, "episode": 9, "title": "Nock", "imdb": "https://www.imdb.com/title/tt43393347", "musicbrainz": "https://musicbrainz.org/release/23988d90-4889-4fbd-9fad-312411aa24ba", "blubrry": "https://deepdreamstate.blubrry.net/nock-vale-four-s4e9/" }
+      { "ge": 36, "season": 4, "episode": 9, "title": "Nock", "url": "https://www.imdb.com/title/tt43393347/" }
     ],
     "links": []
   },
@@ -115,7 +115,7 @@
     "class": "Plot Detail",
     "definition": "The internal currency used inside the Vale Four facility. Kamas are part of the isolated experiment structure, allowing the designers to rebuild the economy from scratch as another mechanism for engineering desire.",
     "episodes": [
-      { "ge": 36, "season": 4, "episode": 9, "title": "Nock", "imdb": "https://www.imdb.com/title/tt43393347", "musicbrainz": "https://musicbrainz.org/release/23988d90-4889-4fbd-9fad-312411aa24ba", "blubrry": "https://deepdreamstate.blubrry.net/nock-vale-four-s4e9/" }
+      { "ge": 36, "season": 4, "episode": 9, "title": "Nock", "url": "https://www.imdb.com/title/tt43393347/" }
     ],
     "links": []
   },
@@ -124,7 +124,7 @@
     "class": "Plot Detail",
     "definition": "A title used in private for Captain William, distinct from his public-facing rank. It signals a hidden authority structure aboard the ship that operates separately from its cruise company cover.",
     "episodes": [
-      { "ge": 1, "season": 1, "episode": 1, "title": "Maiden Voyage", "blubrry": "https://neuralnetsandprettypatterns.com/deepdreamstate/arcs/chthonic/episode-1-maiden-voyage/" }
+      { "ge": 1, "season": 1, "episode": 1, "title": "Maiden Voyage", "url": "https://neuralnetsandprettypatterns.com/deepdreamstate/arcs/chthonic/episode-1-maiden-voyage/" }
     ],
     "links": []
   },
@@ -133,7 +133,7 @@
     "class": "Plot Detail",
     "definition": "A sports podcast that sponsors Vale Four. Run by Cael. Completely over the top. It frequently interrupts the action, and that's intentional. Deep Dream State doesn't do ads. Midstream is what we think of ads.",
     "episodes": [
-      { "ge": 36, "season": 4, "episode": 9, "title": "Nock", "imdb": "https://www.imdb.com/title/tt43393347", "musicbrainz": "https://musicbrainz.org/release/23988d90-4889-4fbd-9fad-312411aa24ba", "blubrry": "https://deepdreamstate.blubrry.net/nock-vale-four-s4e9/" }
+      { "ge": 36, "season": 4, "episode": 9, "title": "Nock", "url": "https://www.imdb.com/title/tt43393347/" }
     ],
     "links": []
   },
@@ -142,7 +142,7 @@
     "class": "Plot Detail",
     "definition": "Hilton and Astoria, who frequently appear in opening scenes. Their names are derived from the feminine counterparts to Waldorf and Statler from The Muppet Show. They came for the Incognitoh game and appear to have stayed trapped in the system. These summaries are not found-footage contrivance. They are a built part of the plot.",
     "episodes": [
-      { "ge": 36, "season": 4, "episode": 9, "title": "Nock", "imdb": "https://www.imdb.com/title/tt43393347", "musicbrainz": "https://musicbrainz.org/release/23988d90-4889-4fbd-9fad-312411aa24ba", "blubrry": "https://deepdreamstate.blubrry.net/nock-vale-four-s4e9/" }
+      { "ge": 36, "season": 4, "episode": 9, "title": "Nock", "url": "https://www.imdb.com/title/tt43393347/" }
     ],
     "links": []
   },
@@ -151,7 +151,7 @@
     "class": "Plot Detail",
     "definition": "A surname Olivia catches herself using before correcting to Naylor. In Lovecraft's fiction, the nameless and the unnameable are structural features of cosmic horror, things too vast or wrong to be designated. Its appearance as a surname, nearly spoken aloud to passengers, suggests Olivia's identity is not entirely her own to give.",
     "episodes": [
-      { "ge": 1, "season": 1, "episode": 1, "title": "Maiden Voyage", "blubrry": "https://neuralnetsandprettypatterns.com/deepdreamstate/arcs/chthonic/episode-1-maiden-voyage/" }
+      { "ge": 1, "season": 1, "episode": 1, "title": "Maiden Voyage", "url": "https://neuralnetsandprettypatterns.com/deepdreamstate/arcs/chthonic/episode-1-maiden-voyage/" }
     ],
     "links": [{ "text": "The Unnamable (Lovecraft)", "url": "https://en.wikipedia.org/wiki/The_Unnamable" }]
   },
@@ -160,7 +160,7 @@
     "class": "Plot Detail",
     "definition": "The sinister corporate entity at the center of the Neuralverse. Its first imperative is maximizing control and profit. People are a means to an end for Neuroplex, even if that end remains cloaked in mystery.",
     "episodes": [
-      { "ge": 36, "season": 4, "episode": 9, "title": "Nock", "imdb": "https://www.imdb.com/title/tt43393347", "musicbrainz": "https://musicbrainz.org/release/23988d90-4889-4fbd-9fad-312411aa24ba", "blubrry": "https://deepdreamstate.blubrry.net/nock-vale-four-s4e9/" }
+      { "ge": 36, "season": 4, "episode": 9, "title": "Nock", "url": "https://www.imdb.com/title/tt43393347/" }
     ],
     "links": [
       { "text": "Kakos Industries", "url": "https://kakosindustries.com/" },
@@ -172,7 +172,7 @@
     "class": "Plot Detail",
     "definition": "Ancient entities whose presence underlies the events of Season 1, framed by Captain William as the true owners of the space the crew inhabits. Selene references a coming reckoning in their name. The framework draws on Lovecraftian mythology while routing it through the mechanics of corporate power.",
     "episodes": [
-      { "ge": 1, "season": 1, "episode": 1, "title": "Maiden Voyage", "blubrry": "https://neuralnetsandprettypatterns.com/deepdreamstate/arcs/chthonic/episode-1-maiden-voyage/" }
+      { "ge": 1, "season": 1, "episode": 1, "title": "Maiden Voyage", "url": "https://neuralnetsandprettypatterns.com/deepdreamstate/arcs/chthonic/episode-1-maiden-voyage/" }
     ],
     "links": [{ "text": "Great Old Ones (Lovecraft)", "url": "https://en.wikipedia.org/wiki/Great_Old_Ones" }]
   },
@@ -181,7 +181,7 @@
     "class": "Product",
     "definition": "A clothing line described as mesh and light, and as scandalously revealing. Subjects who wear it become mapped data points. Ad messages appear directly on their bodies, turning them into billboards. The system adapts to feedback through mechanisms like the tingle clips.",
     "episodes": [
-      { "ge": 36, "season": 4, "episode": 9, "title": "Nock", "imdb": "https://www.imdb.com/title/tt43393347", "musicbrainz": "https://musicbrainz.org/release/23988d90-4889-4fbd-9fad-312411aa24ba", "blubrry": "https://deepdreamstate.blubrry.net/nock-vale-four-s4e9/" }
+      { "ge": 36, "season": 4, "episode": 9, "title": "Nock", "url": "https://www.imdb.com/title/tt43393347/" }
     ],
     "links": []
   },
@@ -190,7 +190,7 @@
     "class": "Plot Detail",
     "definition": "A phrase Nikita whispers in the crew quarters, unprompted, after her experience in Room 203. It surfaces the show's central interest in coercive systems that reproduce themselves through their subjects. Also the title of a Neuralverse companion track.",
     "episodes": [
-      { "ge": 1, "season": 1, "episode": 1, "title": "Maiden Voyage", "blubrry": "https://neuralnetsandprettypatterns.com/deepdreamstate/arcs/chthonic/episode-1-maiden-voyage/" }
+      { "ge": 1, "season": 1, "episode": 1, "title": "Maiden Voyage", "url": "https://neuralnetsandprettypatterns.com/deepdreamstate/arcs/chthonic/episode-1-maiden-voyage/" }
     ],
     "links": [{ "text": "Puppets Program Puppets (Patreon)", "url": "https://www.patreon.com/posts/p3-puppet-audio-119687411" }]
   },
@@ -199,7 +199,7 @@
     "class": "Game",
     "definition": "A service game modelled on task management games. Players must serve an increasingly wide range of patrons. Purpose underlines the way games already trend toward power dynamics.",
     "episodes": [
-      { "ge": 36, "season": 4, "episode": 9, "title": "Nock", "imdb": "https://www.imdb.com/title/tt43393347", "musicbrainz": "https://musicbrainz.org/release/23988d90-4889-4fbd-9fad-312411aa24ba", "blubrry": "https://deepdreamstate.blubrry.net/nock-vale-four-s4e9/" }
+      { "ge": 36, "season": 4, "episode": 9, "title": "Nock", "url": "https://www.imdb.com/title/tt43393347/" }
     ],
     "links": []
   },
@@ -208,7 +208,7 @@
     "class": "Setting",
     "definition": "In Japanese horror culture, Room 203 carries specific weight. The number originates with Nanami Kamon's 2003 novel, about a woman driven to ruin by an inexplicable curse in her apartment, and expanded through internet folklore into the archetypal haunted room, the one where something went wrong and never stopped. Alastair's cabin aboard the Chthonic. Selene knows immediately where Nikita has been.",
     "episodes": [
-      { "ge": 1, "season": 1, "episode": 1, "title": "Maiden Voyage", "blubrry": "https://neuralnetsandprettypatterns.com/deepdreamstate/arcs/chthonic/episode-1-maiden-voyage/" }
+      { "ge": 1, "season": 1, "episode": 1, "title": "Maiden Voyage", "url": "https://neuralnetsandprettypatterns.com/deepdreamstate/arcs/chthonic/episode-1-maiden-voyage/" }
     ],
     "links": [{ "text": "Room 203 (Variety)", "url": "https://variety.com/2020/film/asia/akatsuki-wraps-room-203-adaptation-of-japanese-horror-tale-1234845149/" }]
   },
@@ -217,7 +217,7 @@
     "class": "Game",
     "definition": "A turn-based strategy game and Blake's game of choice. Included to make a point: getting smarter, or adding more design, is absolutely not the answer in a desire horror scenario.",
     "episodes": [
-      { "ge": 36, "season": 4, "episode": 9, "title": "Nock", "imdb": "https://www.imdb.com/title/tt43393347", "musicbrainz": "https://musicbrainz.org/release/23988d90-4889-4fbd-9fad-312411aa24ba", "blubrry": "https://deepdreamstate.blubrry.net/nock-vale-four-s4e9/" }
+      { "ge": 36, "season": 4, "episode": 9, "title": "Nock", "url": "https://www.imdb.com/title/tt43393347/" }
     ],
     "links": []
   },
@@ -226,7 +226,7 @@
     "class": "Game",
     "definition": "A performance and attention game directly modelled on recurring character Iris Vale. Players compete for notoriety, trying to break out into fame and influence as they vie for the spotlight.",
     "episodes": [
-      { "ge": 36, "season": 4, "episode": 9, "title": "Nock", "imdb": "https://www.imdb.com/title/tt43393347", "musicbrainz": "https://musicbrainz.org/release/23988d90-4889-4fbd-9fad-312411aa24ba", "blubrry": "https://deepdreamstate.blubrry.net/nock-vale-four-s4e9/" }
+      { "ge": 36, "season": 4, "episode": 9, "title": "Nock", "url": "https://www.imdb.com/title/tt43393347/" }
     ],
     "links": []
   },
@@ -235,7 +235,7 @@
     "class": "Product",
     "definition": "Automated service units, a fantasy construction of total automation in which human labor is replaced entirely by synthetic workers. Referenced by Fion as what Neuroplex's class of owner uses in place of human staff, making the crew's presence on the Chthonic a deliberate choice rather than a necessity.",
     "episodes": [
-      { "ge": 1, "season": 1, "episode": 1, "title": "Maiden Voyage", "blubrry": "https://neuralnetsandprettypatterns.com/deepdreamstate/arcs/chthonic/episode-1-maiden-voyage/" }
+      { "ge": 1, "season": 1, "episode": 1, "title": "Maiden Voyage", "url": "https://neuralnetsandprettypatterns.com/deepdreamstate/arcs/chthonic/episode-1-maiden-voyage/" }
     ],
     "links": []
   },
@@ -244,7 +244,7 @@
     "class": "Setting",
     "definition": "A real archaeological site in the Canadian Arctic, used as a shore excursion destination for Chthonic passengers. Olivia describes it as a place of ancient relics and lost knowledge. Its inclusion alongside the Old Ones mythology is not accidental, reaching toward something older than the cruise company's framing of it.",
     "episodes": [
-      { "ge": 1, "season": 1, "episode": 1, "title": "Maiden Voyage", "blubrry": "https://neuralnetsandprettypatterns.com/deepdreamstate/arcs/chthonic/episode-1-maiden-voyage/" }
+      { "ge": 1, "season": 1, "episode": 1, "title": "Maiden Voyage", "url": "https://neuralnetsandprettypatterns.com/deepdreamstate/arcs/chthonic/episode-1-maiden-voyage/" }
     ],
     "links": [{ "text": "Tunngavik", "url": "https://www.tunngavik.com/" }]
   },
@@ -253,7 +253,7 @@
     "class": "Setting",
     "definition": "An arcade inside the Vale Four facility, used to help the research group map consumer choice. The gameplay is deeply addictive. There are rumors of depraved rooms deeper inside.",
     "episodes": [
-      { "ge": 36, "season": 4, "episode": 9, "title": "Nock", "imdb": "https://www.imdb.com/title/tt43393347", "musicbrainz": "https://musicbrainz.org/release/23988d90-4889-4fbd-9fad-312411aa24ba", "blubrry": "https://deepdreamstate.blubrry.net/nock-vale-four-s4e9/" }
+      { "ge": 36, "season": 4, "episode": 9, "title": "Nock", "url": "https://www.imdb.com/title/tt43393347/" }
     ],
     "links": []
   },
@@ -262,7 +262,7 @@
     "class": "Plot Detail",
     "definition": "The entertainment act performing aboard the Chthonic. Their shanty references Wendy as a benevolent watcher who rewards passengers with tokens when the tide rises, a cheerful surface over something older.",
     "episodes": [
-      { "ge": 1, "season": 1, "episode": 1, "title": "Maiden Voyage", "blubrry": "https://neuralnetsandprettypatterns.com/deepdreamstate/arcs/chthonic/episode-1-maiden-voyage/" }
+      { "ge": 1, "season": 1, "episode": 1, "title": "Maiden Voyage", "url": "https://neuralnetsandprettypatterns.com/deepdreamstate/arcs/chthonic/episode-1-maiden-voyage/" }
     ],
     "links": []
   },
@@ -271,7 +271,7 @@
     "class": "Plot Detail",
     "definition": "Captain of the Chthonic, privately titled Magus. The name is a direct reference to the narrator of Lovecraft's At the Mountains of Madness. He states he has been doing it for 144 years, suggesting he is not entirely human.",
     "episodes": [
-      { "ge": 1, "season": 1, "episode": 1, "title": "Maiden Voyage", "blubrry": "https://neuralnetsandprettypatterns.com/deepdreamstate/arcs/chthonic/episode-1-maiden-voyage/" }
+      { "ge": 1, "season": 1, "episode": 1, "title": "Maiden Voyage", "url": "https://neuralnetsandprettypatterns.com/deepdreamstate/arcs/chthonic/episode-1-maiden-voyage/" }
     ],
     "links": [{ "text": "At the Mountains of Madness (Lovecraft)", "url": "https://en.wikipedia.org/wiki/At_the_Mountains_of_Madness" }]
   },
@@ -280,7 +280,7 @@
     "class": "Game",
     "definition": "A candy game with a suggestive emphasis on eating. It spawned one of the first secret tracks, featuring Pipp. You can explore the game further with the companion track.",
     "episodes": [
-      { "ge": 36, "season": 4, "episode": 9, "title": "Nock", "imdb": "https://www.imdb.com/title/tt43393347", "musicbrainz": "https://musicbrainz.org/release/23988d90-4889-4fbd-9fad-312411aa24ba", "blubrry": "https://deepdreamstate.blubrry.net/nock-vale-four-s4e9/" }
+      { "ge": 36, "season": 4, "episode": 9, "title": "Nock", "url": "https://www.imdb.com/title/tt43393347/" }
     ],
     "links": [{ "text": "Yum Yum Time (Patreon)", "url": "https://www.patreon.com/posts/yum-yum-time-all-157031167" }]
   }
