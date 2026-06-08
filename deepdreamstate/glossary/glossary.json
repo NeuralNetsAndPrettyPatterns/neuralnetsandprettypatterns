@@ -751,5 +751,50 @@
       { "ge": 36, "season": 4, "episode": 9, "title": "Nock", "url": "https://www.imdb.com/title/tt43393347/" }
     ],
     "links": [{ "text": "Yum Yum Time (Patreon)", "url": "https://www.patreon.com/posts/yum-yum-time-all-157031167" }]
-  }
+  },
+{
+  "term": "I'm not a person. I'm a pet.",
+  "class": "Plot Detail",
+  "definition": "A pet-state phrase from E6, read aloud by Sarah as the book pushes her from personhood into trained obedience. The line marks the moment the episode's conditioning shifts from service into pettification.",
+  "episodes": [
+    { "ge": 6, "season": 1, "episode": 6, "title": "Garter", "url": "https://neuralnetsandprettypatterns.com/deepdreamstate/arcs/chthonic/episode-6-garter/" }
+  ],
+  "links": []
+},
+{
+  "term": "Please Let Me Please",
+  "class": "Plot Detail",
+  "definition": "A phrase from E6 where please becomes both desire and command. Sarah's request to please is turned into a reflexive need for instruction, showing how politeness, longing, and obedience collapse into the same pattern.",
+  "episodes": [
+    { "ge": 6, "season": 1, "episode": 6, "title": "Garter", "url": "https://neuralnetsandprettypatterns.com/deepdreamstate/arcs/chthonic/episode-6-garter/" }
+  ],
+  "links": []
+},
+{
+  "term": "There's Always a Bigger Tentacle",
+  "class": "Plot Detail",
+  "definition": "A law of the deep invoked by Kara in E6. The phrase names the Chthonic power structure in miniature: every trap sits inside a larger trap, and every apparent controller can be answered by something deeper.",
+  "episodes": [
+    { "ge": 6, "season": 1, "episode": 6, "title": "Garter", "url": "https://neuralnetsandprettypatterns.com/deepdreamstate/arcs/chthonic/episode-6-garter/" }
+  ],
+  "links": []
+},
+{
+  "term": "Trixie",
+  "class": "Plot Detail",
+  "definition": "A recurring Neuralverse term for pettification: training humans in an animal fashion through reward, command, repetition, and operant conditioning. In E6, Fion's \"Say haiii, Trixie\" marks Sarah's attempted reduction into a trained pet-state, just before Holly and Selene interrupt the handoff.",
+  "episodes": [
+    { "ge": 6, "season": 1, "episode": 6, "title": "Garter", "url": "https://neuralnetsandprettypatterns.com/deepdreamstate/arcs/chthonic/episode-6-garter/" }
+  ],
+  "links": []
+},
+{
+  "term": "Yes is best",
+  "class": "Plot Detail",
+  "definition": "A conditioning mantra from E6, whispered as part of the book's page-turn sequence. The phrase converts relief from stress into automatic agreement: no stress, just yes.",
+  "episodes": [
+    { "ge": 6, "season": 1, "episode": 6, "title": "Garter", "url": "https://neuralnetsandprettypatterns.com/deepdreamstate/arcs/chthonic/episode-6-garter/" }
+  ],
+  "links": []
+}
 ]
