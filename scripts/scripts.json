@@ -1,0 +1,171 @@
+{
+  "works": [
+    {
+      "id": "vale-four-collected-scripts",
+      "title": "Vale Four: The Collected Scripts",
+      "format": "Book",
+      "structure": "Serial",
+      "status": "Audio Published",
+      "genre": [
+        "Commerce Horror",
+        "Desire Horror",
+        "Speculative Fiction"
+      ],
+      "description": "Corporate dystopia rendered as desire horror. Vale Four tracks a calculated descent into absolute compliance, mapping the systems that weaponize human wanting and sell it back as identity. Predatory neuromarketing. Institutional forces that are invisible until they are not. Commerce horror at the scale of the self.",
+      "year": 2026,
+      "isbn": "9798233771026",
+      "url": "https://books.apple.com/ca/book/vale-four-the-collected-scripts/id6760596239",
+      "schemaType": "Book",
+      "loreTerms": [],
+      "additionalSchemaProps": {
+        "bookFormat": "https://schema.org/EBook",
+        "datePublished": "2026-03-14",
+        "isPartOf": {
+          "@type": "CreativeWorkSeries",
+          "name": "The Neuralverse",
+          "@id": "https://neuralnetsandprettypatterns.com/#neuralverse"
+        },
+        "creativeWorkStatus": "Published",
+        "sameAs": [
+          "https://bookbrainz.org/edition/4fe371d7-d06d-46f0-8030-041aafe212bd"
+        ]
+      }
+    },
+    {
+      "id": "the-chthonic-collected-scripts",
+      "title": "The Chthonic: Collected Scripts",
+      "format": "Book",
+      "structure": "Serial",
+      "status": "Audio Published",
+      "genre": [
+        "Cosmic Horror",
+        "Desire Horror",
+        "Speculative Fiction"
+      ],
+      "description": "Cosmic horror anchored in ice and ritual. The Chthonic follows a surreal passage aboard an ominous cruise ship where ancient arctic forces press up through the hull of the mundane. Dense, atmospheric dialogue that maps the terrifying distance between the surface of things and what lives beneath them.",
+      "year": 2025,
+      "isbn": "9798232820039",
+      "url": "https://books2read.com/b/4EwreE",
+      "schemaType": "Book",
+      "loreTerms": [],
+      "additionalSchemaProps": {
+        "bookFormat": "https://schema.org/EBook",
+        "datePublished": "2025-11-14",
+        "isPartOf": {
+          "@type": "CreativeWorkSeries",
+          "name": "The Neuralverse",
+          "@id": "https://neuralnetsandprettypatterns.com/#neuralverse"
+        },
+        "creativeWorkStatus": "Published",
+        "sameAs": [
+          "https://bookbrainz.org/edition/7129df87-bacd-4a1b-9671-5b478895ee88"
+        ]
+      }
+    },
+    {
+      "id": "incognitoh-collected-scripts",
+      "title": "Incognitoh: Collected Scripts",
+      "format": "Book",
+      "structure": "Serial",
+      "status": "Audio Published",
+      "genre": [
+        "Surveillance Horror",
+        "Desire Horror",
+        "Speculative Fiction"
+      ],
+      "description": "A reality game show where the audience is the subject. Incognitoh builds its horror from observation itself, using psychological tracking and relentless mind games to dissolve the line between performance and reality. The question it keeps asking: what do you do when the camera never stops?",
+      "year": 2025,
+      "isbn": "9798232593896",
+      "url": "https://books2read.com/u/bpLdn6",
+      "schemaType": "Book",
+      "loreTerms": [],
+      "additionalSchemaProps": {
+        "bookFormat": "https://schema.org/EBook",
+        "datePublished": "2025-12-06",
+        "isPartOf": {
+          "@type": "CreativeWorkSeries",
+          "name": "The Neuralverse",
+          "@id": "https://neuralnetsandprettypatterns.com/#neuralverse"
+        },
+        "creativeWorkStatus": "Published",
+        "sameAs": [
+          "https://bookbrainz.org/edition/34d53667-86a4-48f6-8d65-157e01c7fbe8"
+        ]
+      }
+    },
+    {
+      "id": "wavetrained",
+      "title": "Wavetrained",
+      "format": "Book",
+      "structure": "Anthology",
+      "status": "Audio Published",
+      "genre": [
+        "Haptic Narrative",
+        "Mantric Writing",
+        "Speculative Fiction"
+      ],
+      "description": "Rhythmic, hypnotic production texts from across the Neuralverse. Wavetrained collects the mantric poetry and looping linguistic structures engineered to alter state before they become sound. These are the foundational verbal patterns, designed for descent, preserved in print.",
+      "year": 2025,
+      "isbn": "9798232870737",
+      "url": "https://bookbrainz.org/edition/a564f48b-4181-4abc-8e36-85e4157826f2",
+      "schemaType": "Book",
+      "loreTerms": [],
+      "additionalSchemaProps": {
+        "bookFormat": "https://schema.org/EBook",
+        "datePublished": "2025-10-20",
+        "isPartOf": {
+          "@type": "CreativeWorkSeries",
+          "name": "The Neuralverse",
+          "@id": "https://neuralnetsandprettypatterns.com/#neuralverse"
+        },
+        "creativeWorkStatus": "Published",
+        "sameAs": [
+          "https://bookbrainz.org/edition/a564f48b-4181-4abc-8e36-85e4157826f2"
+        ]
+      }
+    },
+    {
+      "id": "take-off",
+      "title": "Take Off",
+      "format": "Script",
+      "structure": "Standalone",
+      "status": "Greenlit",
+      "genre": [
+        "Desire Horror",
+        "Corporate Horror",
+        "Audio Drama"
+      ],
+      "description": "A pre-flight safety briefing that encounters the best kind of turbulence. Take Off follows a stewardess across three modes: professional and precise, hypnotically in control, then celebrating her own willing descent. Part of the Back Office series, where corporate training material takes a serious turn.",
+      "year": null,
+      "isbn": null,
+      "url": "https://ellipsus.com/read/1vEDdGa1caHARt35I9i5I4/Take-Off",
+      "schemaType": "PlayCreativeWork",
+      "loreTerms": [
+        "Alice Air",
+        "203",
+        "Neuroplex",
+        "Service is our purpose",
+        "The Facility",
+        "The Bubble",
+        "Thilly"
+      ],
+      "additionalSchemaProps": {
+        "creativeWorkStatus": "Greenlit for audio production",
+        "isPartOf": {
+          "@type": "CreativeWorkSeries",
+          "name": "Back Office",
+          "isPartOf": {
+            "@type": "CreativeWorkSeries",
+            "name": "The Neuralverse",
+            "@id": "https://neuralnetsandprettypatterns.com/#neuralverse"
+          }
+        },
+        "sameAs": [
+          "https://bookbrainz.org/work/06c07faa-2e86-4002-bcbc-df08e830fa84",
+          "https://bookbrainz.org/edition/aa5b38e7-9775-49c8-9484-ef4e4a9eb01a"
+        ],
+        "additionalType": "Audio Drama Script"
+      }
+    }
+  ]
+}
