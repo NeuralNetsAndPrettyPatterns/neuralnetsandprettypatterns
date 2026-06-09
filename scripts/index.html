@@ -123,7 +123,7 @@
                 "bookFormat": "https://schema.org/EBook",
                 "datePublished": "2025-10-20",
                 "genre": ["Haptic Narrative", "Mantric Writing", "Speculative Fiction"],
-                "description": "Rhythmic production texts from across the Neuralverse. Wavetrained collects the mantric poetry and looping linguistic structures engineered to alter state before they become sound. These are the foundational verbal patterns, designed for descent, preserved in print.",
+                "description": "Rhythmic, hypnotic production texts from across the Neuralverse. Wavetrained collects the mantric poetry and looping linguistic structures engineered to alter state before they become sound. These are the foundational verbal patterns, designed for descent, preserved in print.",
                 "inLanguage": "en",
                 "url": "https://bookbrainz.org/edition/a564f48b-4181-4abc-8e36-85e4157826f2",
                 "sameAs": ["https://bookbrainz.org/edition/a564f48b-4181-4abc-8e36-85e4157826f2"],
@@ -141,7 +141,7 @@
                 "creativeWorkStatus": "Greenlit for audio production",
                 "additionalType": "Audio Drama Script",
                 "genre": ["Desire Horror", "Corporate Horror", "Audio Drama"],
-                "description": "A pre-flight safety briefing that encounters the best kind of turbulence. Take Off follows a stewardess across three modes: professional and precise, mesmerizing and in control, then celebrating her own willing descent. Part of the Back Office series, where corporate training material takes a serious turn.",
+                "description": "A pre-flight safety briefing that encounters the best kind of turbulence. Take Off follows a stewardess across three modes: professional and precise, hypnotically in control, then celebrating her own willing descent. Part of the Back Office series, where corporate training material takes a serious turn.",
                 "inLanguage": "en",
                 "url": "https://ellipsus.com/read/1vEDdGa1caHARt35I9i5I4/Take-Off",
                 "sameAs": ["https://bookbrainz.org/work/06c07faa-2e86-4002-bcbc-df08e830fa84", "https://bookbrainz.org/edition/aa5b38e7-9775-49c8-9484-ef4e4a9eb01a"],
@@ -201,12 +201,12 @@
       --tag-book-border: rgba(126, 184, 201, 0.4);
       --tag-script: rgba(201, 168, 126, 0.15);
       --tag-script-border: rgba(201, 168, 126, 0.4);
-    --tag-recorded: rgba(126, 184, 201, 0.85);
---tag-recorded-border: rgba(126, 184, 201, 1);
+      --tag-recorded: rgba(126, 184, 201, 0.85);
+      --tag-recorded-border: rgba(126, 184, 201, 1);
       --tag-production: rgba(255, 45, 120, 0.12);
       --tag-production-border: rgba(255, 45, 120, 0.35);
-      --tag-greenlit: rgba(201, 168, 126, 0.15);
-      --tag-greenlit-border: rgba(201, 168, 126, 0.5);
+      --tag-greenlit: rgba(100, 200, 120, 0.15);
+      --tag-greenlit-border: rgba(100, 200, 120, 0.5);
     }
 
     *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
@@ -415,8 +415,8 @@
     .filter-btn.active[data-group="format"][data-filter="Book"] { border-color: var(--accent); color: var(--accent); background: var(--tag-book); }
     .filter-btn.active[data-group="format"][data-filter="Script"] { border-color: var(--accent-warm); color: var(--accent-warm); background: var(--tag-script); }
     .filter-btn.active[data-group="structure"] { border-color: var(--accent); color: var(--accent); background: rgba(126,184,201,0.1); }
-    .filter-btn.active[data-group="status"][data-filter="Audio Published"] { border-color: rgba(126,184,201,1); color: #fff; background: rgba(126,184,201,0.85); }
-    .filter-btn.active[data-group="status"][data-filter="Greenlit"] { border-color: rgba(100,200,120,0.8); color: rgb(100,200,120); background: var(--tag-recorded); }
+    .filter-btn.active[data-group="status"][data-filter="Audio Published"] { border-color: rgba(255,45,120,0.7); color: var(--pink); background: var(--tag-production); }
+    .filter-btn.active[data-group="status"][data-filter="Greenlit"] { border-color: rgba(100,200,120,0.8); color: rgb(100,200,120); background: rgba(100,200,120,0.15); }
 
     .filter-divider { width: 1px; height: 18px; background: var(--border); align-self: center; flex-shrink: 0; }
 
@@ -490,7 +490,7 @@
     .tag-structure { background: rgba(240,244,255,0.05); border-color: var(--border); color: var(--text-dim); }
     .tag-status-recorded { background: var(--tag-recorded); border-color: var(--tag-recorded-border); color: #fff; }
     .tag-status-production { background: var(--tag-production); border-color: var(--tag-production-border); color: var(--pink); }
-    .tag-status-greenlit { background: var(--tag-greenlit); border-color: var(--tag-greenlit-border); color: var(--accent-warm); }
+    .tag-status-greenlit { background: var(--tag-greenlit); border-color: var(--tag-greenlit-border); color: rgb(100,200,120); }
 
     .work-card h3 {
       font-family: var(--serif);
@@ -636,7 +636,7 @@
             <div class="work-card-tags">
               <span class="tag tag-format-book">Book</span>
               <span class="tag tag-structure">Serial</span>
-              <span class="tag tag-status-production">Audio Published</span>
+              <span class="tag tag-status-recorded">Audio Published</span>
             </div>
             <h3><a href="https://books.apple.com/ca/book/vale-four-the-collected-scripts/id6760596239" target="_blank" rel="noopener">Vale Four: The Collected Scripts</a></h3>
             <p>Corporate dystopia rendered as desire horror. Vale Four tracks a calculated descent into absolute compliance, mapping the systems that weaponize human wanting and sell it back as identity. Predatory neuromarketing. Institutional forces that are invisible until they are not. Commerce horror at the scale of the self.</p>
@@ -649,7 +649,7 @@
             <div class="work-card-tags">
               <span class="tag tag-format-book">Book</span>
               <span class="tag tag-structure">Serial</span>
-              <span class="tag tag-status-production">Audio Published</span>
+              <span class="tag tag-status-recorded">Audio Published</span>
             </div>
             <h3><a href="https://books2read.com/b/4EwreE" target="_blank" rel="noopener">The Chthonic: Collected Scripts</a></h3>
             <p>Cosmic horror anchored in ice and ritual. The Chthonic follows a surreal passage aboard an ominous cruise ship where ancient arctic forces press up through the hull of the mundane. Dense, atmospheric dialogue that maps the terrifying distance between the surface of things and what lives beneath them.</p>
@@ -662,7 +662,7 @@
             <div class="work-card-tags">
               <span class="tag tag-format-book">Book</span>
               <span class="tag tag-structure">Serial</span>
-              <span class="tag tag-status-production">Audio Published</span>
+              <span class="tag tag-status-recorded">Audio Published</span>
             </div>
             <h3><a href="https://books2read.com/u/bpLdn6" target="_blank" rel="noopener">Incognitoh: Collected Scripts</a></h3>
             <p>A reality game show where the audience is the subject. Incognitoh builds its horror from observation itself, using psychological tracking and relentless mind games to dissolve the line between performance and reality. The question it keeps asking: what do you do when the camera never stops?</p>
@@ -675,10 +675,10 @@
             <div class="work-card-tags">
               <span class="tag tag-format-book">Book</span>
               <span class="tag tag-structure">Anthology</span>
-              <span class="tag tag-status-production">Audio Published</span>
+              <span class="tag tag-status-recorded">Audio Published</span>
             </div>
             <h3><a href="https://bookbrainz.org/edition/a564f48b-4181-4abc-8e36-85e4157826f2" target="_blank" rel="noopener">Wavetrained</a></h3>
-            <p>Rhythmic, mantric production texts from across the Neuralverse. Wavetrained collects the mantric poetry and looping linguistic structures engineered to alter state before they become sound. These are the foundational verbal patterns, designed for descent, preserved in print.</p>
+            <p>Rhythmic, hypnotic production texts from across the Neuralverse. Wavetrained collects the mantric poetry and looping linguistic structures engineered to alter state before they become sound. These are the foundational verbal patterns, designed for descent, preserved in print.</p>
             <div class="work-card-meta">ISBN 9798232870737<span class="meta-sep">&nbsp;·&nbsp;</span>2025<span class="meta-sep">&nbsp;·&nbsp;</span><a href="https://bookbrainz.org/edition/a564f48b-4181-4abc-8e36-85e4157826f2" target="_blank" rel="noopener">READ</a></div>
           </div>
         </article>
@@ -688,10 +688,10 @@
             <div class="work-card-tags">
               <span class="tag tag-format-script">Script</span>
               <span class="tag tag-structure">Standalone</span>
-              <span class="tag tag-status-recorded">Greenlit</span>
+              <span class="tag tag-status-greenlit">Greenlit</span>
             </div>
             <h3><a href="https://ellipsus.com/read/1vEDdGa1caHARt35I9i5I4/Take-Off" target="_blank" rel="noopener">Take Off</a></h3>
-            <p>A pre-flight safety briefing that encounters the best kind of turbulence. Take Off follows a stewardess across three modes: professional and precise, mesmerizing and in control, then celebrating her own willing descent. Part of the Back Office series, where corporate training material takes a serious turn.</p>
+            <p>A pre-flight safety briefing that encounters the best kind of turbulence. Take Off follows a stewardess across three modes: professional and precise, hypnotically in control, then celebrating her own willing descent. Part of the Back Office series, where corporate training material takes a serious turn.</p>
             <div class="work-card-meta"><a href="https://ellipsus.com/read/1vEDdGa1caHARt35I9i5I4/Take-Off" target="_blank" rel="noopener">READ</a></div>
             <div class="lore-terms">
               <span class="lore-term">Alice Air</span>
@@ -771,8 +771,8 @@
     }
 
     function statusTagClass(status) {
-      return status === 'Audio Published' ? 'tag-status-production'
-           : status === 'Greenlit' ? 'tag-status-recorded'
+      return status === 'Audio Published' ? 'tag-status-recorded'
+           : status === 'Greenlit' ? 'tag-status-greenlit'
            : 'tag-structure';
     }
 
