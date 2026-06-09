@@ -112,6 +112,29 @@ export default {
       });
     }
 
+    // ── Scripts
+    if (url.pathname === "/scripts" || url.pathname === "/scripts/") {
+      const html = await fetch("https://raw.githubusercontent.com/NeuralNetsAndPrettyPatterns/neuralnetsandprettypatterns/main/scripts/index.html");
+      return new Response(await html.text(), {
+        status: html.ok ? 200 : 404,
+        headers: {
+          "content-type": "text/html; charset=utf-8",
+          "cache-control": "no-store"
+        }
+      });
+    }
+
+    if (url.pathname === "/scripts/scripts.json") {
+      const json = await fetch("https://raw.githubusercontent.com/NeuralNetsAndPrettyPatterns/neuralnetsandprettypatterns/main/scripts/scripts.json");
+      return new Response(await json.text(), {
+        status: json.ok ? 200 : 404,
+        headers: {
+          "content-type": "application/json; charset=utf-8",
+          "cache-control": "no-store"
+        }
+      });
+    }
+
     // ── Neuralpedia
     if (url.pathname === "/neuralpedia" || url.pathname === "/neuralpedia/") {
       const html = await fetch("https://raw.githubusercontent.com/NeuralNetsAndPrettyPatterns/neuralnetsandprettypatterns/main/neuralpedia/index.html");
