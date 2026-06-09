@@ -201,8 +201,8 @@
       --tag-book-border: rgba(126, 184, 201, 0.4);
       --tag-script: rgba(201, 168, 126, 0.15);
       --tag-script-border: rgba(201, 168, 126, 0.4);
-      --tag-recorded: rgba(100, 200, 120, 0.12);
-      --tag-recorded-border: rgba(100, 200, 120, 0.35);
+    --tag-recorded: rgba(126, 184, 201, 0.85);
+--tag-recorded-border: rgba(126, 184, 201, 1);
       --tag-production: rgba(255, 45, 120, 0.12);
       --tag-production-border: rgba(255, 45, 120, 0.35);
       --tag-greenlit: rgba(201, 168, 126, 0.15);
@@ -415,7 +415,7 @@
     .filter-btn.active[data-group="format"][data-filter="Book"] { border-color: var(--accent); color: var(--accent); background: var(--tag-book); }
     .filter-btn.active[data-group="format"][data-filter="Script"] { border-color: var(--accent-warm); color: var(--accent-warm); background: var(--tag-script); }
     .filter-btn.active[data-group="structure"] { border-color: var(--accent); color: var(--accent); background: rgba(126,184,201,0.1); }
-    .filter-btn.active[data-group="status"][data-filter="Audio Published"] { border-color: rgba(255,45,120,0.7); color: var(--pink); background: var(--tag-production); }
+    .filter-btn.active[data-group="status"][data-filter="Audio Published"] { border-color: rgba(126,184,201,1); color: #fff; background: rgba(126,184,201,0.85); }
     .filter-btn.active[data-group="status"][data-filter="Greenlit"] { border-color: rgba(100,200,120,0.8); color: rgb(100,200,120); background: var(--tag-recorded); }
 
     .filter-divider { width: 1px; height: 18px; background: var(--border); align-self: center; flex-shrink: 0; }
@@ -488,7 +488,7 @@
     .tag-format-book { background: var(--tag-book); border-color: var(--tag-book-border); color: var(--accent); }
     .tag-format-script { background: var(--tag-script); border-color: var(--tag-script-border); color: var(--accent-warm); }
     .tag-structure { background: rgba(240,244,255,0.05); border-color: var(--border); color: var(--text-dim); }
-    .tag-status-recorded { background: var(--tag-recorded); border-color: var(--tag-recorded-border); color: rgb(100,200,120); }
+    .tag-status-recorded { background: var(--tag-recorded); border-color: var(--tag-recorded-border); color: #fff; }
     .tag-status-production { background: var(--tag-production); border-color: var(--tag-production-border); color: var(--pink); }
     .tag-status-greenlit { background: var(--tag-greenlit); border-color: var(--tag-greenlit-border); color: var(--accent-warm); }
 
