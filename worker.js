@@ -215,6 +215,18 @@ export default {
       });
     }
 
+    // ── Deep Dream State — index (served from main repo)
+    if (url.pathname === "/deepdreamstate" || url.pathname === "/deepdreamstate/") {
+      const html = await fetch("https://raw.githubusercontent.com/NeuralNetsAndPrettyPatterns/neuralnetsandprettypatterns/main/deepdreamstate/index.html");
+      return new Response(await html.text(), {
+        status: html.ok ? 200 : 404,
+        headers: {
+          "content-type": "text/html; charset=utf-8",
+          "cache-control": "no-store"
+        }
+      });
+    }
+
     // ── Deep Dream State — catch-all (served from legacy deepdreamstate repo via GitHub Pages)
     if (url.pathname === "/deepdreamstate") {
       return Response.redirect(`${url.origin}/deepdreamstate/`, 301);
