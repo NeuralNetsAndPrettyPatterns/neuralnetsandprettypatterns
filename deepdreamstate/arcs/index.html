@@ -142,7 +142,7 @@
     }
 
     header {
-      padding: 0.9rem 0 0.5rem;
+      padding: 1.8rem 0 1rem;
       text-align: center;
       border-bottom: 1px solid rgba(232,232,232,0.12);
     }
@@ -232,7 +232,7 @@
       justify-content: center;
       align-items: center;
       gap: 0.6rem;
-      padding: 0.4rem 0 0;
+      padding: 0.8rem 0 0;
     }
 
     .nav-button {
@@ -264,7 +264,7 @@
 
     /* SECTIONS */
     .section {
-      padding: 0.65rem 0;
+      padding: 1.3rem 0;
       border-bottom: 1px solid rgba(232,232,232,0.12);
     }
 
@@ -409,7 +409,7 @@
 
     /* FOOTER */
     footer {
-      padding: 0.5rem 0 0.75rem;
+      padding: 1rem 0 1.5rem;
       text-align: center;
       border-top: 1px solid rgba(232,232,232,0.12);
     }
@@ -424,7 +424,7 @@
 
     @media (max-width: 600px) {
       .container { padding: 0 1rem; }
-      header { padding: 0.65rem 0 1.5rem; }
+      header { padding: 1.3rem 0 1.5rem; }
       .section { padding: 2rem 0; }
       .carousel-wrap { max-width: 280px; }
     }
@@ -474,7 +474,7 @@
           <button class="dot" data-index="4" aria-label="Vale Four"></button>
         </div>
 
-        <div class="carousel-subtitle" id="carousel-subtitle">There is a world behind your world.</div>
+        <div class="carousel-subtitle" id="carousel-subtitle-wrap"><span id="carousel-subtitle">There is a world behind your world.</span></div>
       </div>
 
       <div class="nav-buttons">
@@ -528,7 +528,6 @@
       <h2>Chthonic: Arc 1</h2>
       <p>The arctic ice is melting. The social fabric is tearing. The Chthonic is about a cruise ship with a wedding party on the surface; it's really about what lies beneath.</p>
       <p>I've always been fascinated and repelled by Lovecraft. Brilliant mythos, evocative storytelling, terrible politics. If you're going to write Lovecraft, I think you have to account for that, and account for how humans are the worst monsters of all. Lovecraft Country did this well, RIP. I'm following that thread.</p>
-      <p class="arc-byline">There is a world behind your cruise. <a href="https://neuralnetsandprettypatterns.com/deepdreamstate/arcs/chthonic/">The Chthonic.</a></p>
 
       <div class="ep-pipe">
         <a href="https://neuralnetsandprettypatterns.com/deepdreamstate/arcs/chthonic/episode-1-maiden-voyage/">Maiden Voyage</a> · S1E1 <a href="https://www.imdb.com/title/tt38598489/" target="_blank" rel="noopener">GE1</a> |
@@ -554,7 +553,6 @@
       <h2>Incognitoh: Arc 2</h2>
       <p>Reality shows are humiliating. That's baked into the premise. The viewers and contestants all understand the kinky voyeuristic contract at the heart of the genre. Once in a while, it breaks to the surface.</p>
       <p>Incognitoh aims to make that contract very apparent, while staying true to the tone of reality competitions. The result is definitely dizzying; I think it's chaotic in the best way.</p>
-      <p class="arc-byline">There is a world behind your game. <a href="https://neuralnetsandprettypatterns.com/deepdreamstate/arcs/incognitoh/">Incognitoh.</a></p>
 
       <div class="ep-pipe">
         <a href="https://neuralnetsandprettypatterns.com/deepdreamstate/arcs/incognitoh/episode-1-violet.html">Violet</a> · S2E1 GE10 |
@@ -579,7 +577,6 @@
       <p>I don't know. I can say confidently, though, that if there IS a collective unconscious, it's unimaginably messed up and kinky.</p>
       <p>The Sitri Center exists in that imaginal space. Each group of episodes explores a dream phenomenon that's real, but spins it out in fictional ways. Dream interludes punctuate the action. The plot never takes "just a dream" outs.</p>
       <p>This arc also introduces in-universe ads. They're potentially unsettling, often satirical, and might be part of a larger story.</p>
-      <p class="arc-byline">There is a world behind your dreams. <a href="https://neuralnetsandprettypatterns.com/deepdreamstate/arcs/sitri/">Sitri Center.</a></p>
 
       <div class="ep-pipe">
         <a href="https://neuralnetsandprettypatterns.com/deepdreamstate/arcs/sitri/episode-1-drill.html">Drill</a> · S3E1 GE16 |
@@ -607,9 +604,8 @@
     <section class="section">
       <h2>Vale Four: Arc 4 <span style="font-size:0.75em; opacity:0.5;">Ongoing</span></h2>
       <p>Vale Four picks up where Sitri ended. It's about commerce and money and advertising. Beneath that, it's about the dreams and fantasies that animate money.</p>
-      <p>The hidden Christmas arc, Solsticial, often says that there's an older currency. Vale Four asks what that might be. Each "Cycle" dives into a different advertising phenomenon, and looks at what sort of kink in the collective unconscious it might represent.</p>
+      <p>The "hidden" Christmas arc, Solsticial, often says that there's an older currency. Vale Four asks what that might be. Each "Cycle" dives into a different advertising phenomenon, and looks at what sort of kink in the collective unconscious it might represent.</p>
       <p>The plotting is detailed. There's a very continuous throughline. The twists are numerous, but they're earned. If you see where this is going from the outset, you are a true galaxy brain. Even cracking the riddle of the name requires knowing audio drama cliches and demonology. Dig in.</p>
-      <p class="arc-byline">There is a world behind your money. <a href="https://neuralnetsandprettypatterns.com/deepdreamstate/arcs/vale-four/">Vale Four.</a></p>
 
       <div class="ep-pipe">
         <a href="https://neuralnetsandprettypatterns.com/deepdreamstate/arcs/vale-four/episode-1-refrain.html">Refrain</a> · S4E1 GE28 |
@@ -645,13 +641,21 @@
     const subtitle = document.getElementById('carousel-subtitle');
     let current = 0;
 
+    const subtitleWrap = document.getElementById('carousel-subtitle-wrap');
+
     function goTo(index) {
       slides[current].classList.remove('active');
       dots[current].classList.remove('active');
       current = index;
       slides[current].classList.add('active');
       dots[current].classList.add('active');
-      subtitle.textContent = slides[current].dataset.subtitle;
+      const text = slides[current].dataset.subtitle;
+      const href = slides[current].dataset.href;
+      if (href) {
+        subtitleWrap.innerHTML = '<a href="' + href + '" style="color:inherit;text-decoration:underline;text-underline-offset:0.2em;">' + text + '</a>';
+      } else {
+        subtitleWrap.innerHTML = '<span>' + text + '</span>';
+      }
     }
 
     dots.forEach(dot => {
