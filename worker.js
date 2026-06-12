@@ -1,271 +1,149 @@
 export default {
   async fetch(request) {
     const url = new URL(request.url);
+    const p = url.pathname;
 
-    // ── Root
-    if (url.pathname === "/" || url.pathname === "/index.html") {
-      const html = await fetch("https://raw.githubusercontent.com/NeuralNetsAndPrettyPatterns/neuralnetsandprettypatterns/main/index.html");
-      return new Response(await html.text(), { headers: { "content-type": "text/html; charset=utf-8" } });
+    const contentTypes = {
+      ".jpg":  "image/jpeg",
+      ".jpeg": "image/jpeg",
+      ".png":  "image/png",
+      ".gif":  "image/gif",
+      ".webp": "image/webp",
+      ".svg":  "image/svg+xml",
+      ".css":  "text/css; charset=utf-8",
+      ".js":   "application/javascript; charset=utf-8"
+    };
+
+    function imgType(path) {
+      const ext = path.slice(path.lastIndexOf(".")).toLowerCase();
+      return contentTypes[ext] || null;
     }
 
-    // ── Sitemap
-    if (url.pathname === "/sitemap.xml") {
-      const xml = await fetch("https://raw.githubusercontent.com/NeuralNetsAndPrettyPatterns/neuralnetsandprettypatterns/main/sitemap.xml");
-      return new Response(await xml.text(), { headers: { "content-type": "application/xml; charset=utf-8" } });
-    }
-
-    // ── Root show data
-    if (url.pathname === "/show-data.js") {
-      const js = await fetch("https://raw.githubusercontent.com/NeuralNetsAndPrettyPatterns/neuralnetsandprettypatterns/main/show-data.js");
-      return new Response(await js.text(), {
-        status: js.ok ? 200 : 404,
+    async function serveHtml(repoPath, noStore = false) {
+      const res = await fetch(`https://raw.githubusercontent.com/NeuralNetsAndPrettyPatterns/neuralnetsandprettypatterns/main${repoPath}`);
+      return new Response(await res.text(), {
+        status: res.ok ? 200 : 404,
         headers: {
-          "content-type": "application/javascript; charset=utf-8",
-          "cache-control": "no-store"
+          "content-type": "text/html; charset=utf-8",
+          ...(noStore ? { "cache-control": "no-store" } : {})
         }
       });
     }
 
-    // ── Root images (any image/gif at root level, e.g. boingagents.gif)
+    async function serveAsset(repoPath, ct, cache = "public, max-age=86400") {
+      const res = await fetch(`https://raw.githubusercontent.com/NeuralNetsAndPrettyPatterns/neuralnetsandprettypatterns/main${repoPath}`);
+      return new Response(res.body, {
+        status: res.ok ? 200 : 404,
+        headers: { "content-type": ct, "cache-control": cache }
+      });
+    }
+
+    // ── Root
+    if (p === "/" || p === "/index.html") return serveHtml("/index.html");
+
+    // ── Sitemap
+    if (p === "/sitemap.xml") {
+      const res = await fetch("https://raw.githubusercontent.com/NeuralNetsAndPrettyPatterns/neuralnetsandprettypatterns/main/sitemap.xml");
+      return new Response(await res.text(), { headers: { "content-type": "application/xml; charset=utf-8" } });
+    }
+
+    // ── Root JS
+    if (p === "/show-data.js") {
+      const res = await fetch("https://raw.githubusercontent.com/NeuralNetsAndPrettyPatterns/neuralnetsandprettypatterns/main/show-data.js");
+      return new Response(await res.text(), {
+        status: res.ok ? 200 : 404,
+        headers: { "content-type": "application/javascript; charset=utf-8", "cache-control": "no-store" }
+      });
+    }
+
+    // ── Root images (no slash in path after leading slash)
     {
-      const ext = url.pathname.slice(url.pathname.lastIndexOf(".")).toLowerCase();
-      const rootImageExts = [".jpg", ".jpeg", ".png", ".gif", ".webp", ".svg"];
-      if (rootImageExts.includes(ext) && !url.pathname.slice(1).includes("/")) {
-        const contentTypes = {
-          ".jpg":  "image/jpeg",
-          ".jpeg": "image/jpeg",
-          ".png":  "image/png",
-          ".gif":  "image/gif",
-          ".webp": "image/webp",
-          ".svg":  "image/svg+xml"
-        };
-        const img = await fetch(`https://raw.githubusercontent.com/NeuralNetsAndPrettyPatterns/neuralnetsandprettypatterns/main${url.pathname}`);
-        return new Response(img.body, {
-          status: img.ok ? 200 : 404,
-          headers: {
-            "content-type": contentTypes[ext] || "application/octet-stream",
-            "cache-control": "public, max-age=86400"
-          }
-        });
-      }
+      const ct = imgType(p);
+      if (ct && !p.slice(1).includes("/")) return serveAsset(p, ct);
     }
 
     // ── The Pink Room
-    if (url.pathname === "/the-pink-room" || url.pathname === "/the-pink-room/") {
-      const html = await fetch("https://raw.githubusercontent.com/NeuralNetsAndPrettyPatterns/neuralnetsandprettypatterns/main/the-pink-room/index.html");
-      return new Response(await html.text(), { headers: { "content-type": "text/html; charset=utf-8" } });
-    }
+    if (p === "/the-pink-room" || p === "/the-pink-room/") return serveHtml("/the-pink-room/index.html");
 
-    // ── The Pink Room — Weekly Events
-    if (url.pathname === "/the-pink-room/weekly-events" || url.pathname === "/the-pink-room/weekly-events/") {
-      const html = await fetch("https://raw.githubusercontent.com/NeuralNetsAndPrettyPatterns/neuralnetsandprettypatterns/main/the-pink-room/weekly-events/index.html");
-      return new Response(await html.text(), {
-        status: html.ok ? 200 : 404,
-        headers: {
-          "content-type": "text/html; charset=utf-8",
-          "cache-control": "no-store"
-        }
-      });
-    }
+    if (p === "/the-pink-room/weekly-events" || p === "/the-pink-room/weekly-events/")
+      return serveHtml("/the-pink-room/weekly-events/index.html", true);
 
-    if (url.pathname === "/the-pink-room/weekly-events/events-data.js") {
-      const js = await fetch("https://raw.githubusercontent.com/NeuralNetsAndPrettyPatterns/neuralnetsandprettypatterns/main/the-pink-room/weekly-events/events-data.js");
-      return new Response(await js.text(), {
-        status: js.ok ? 200 : 404,
-        headers: {
-          "content-type": "application/javascript; charset=utf-8",
-          "cache-control": "no-store"
-        }
+    if (p === "/the-pink-room/weekly-events/events-data.js") {
+      const res = await fetch("https://raw.githubusercontent.com/NeuralNetsAndPrettyPatterns/neuralnetsandprettypatterns/main/the-pink-room/weekly-events/events-data.js");
+      return new Response(await res.text(), {
+        status: res.ok ? 200 : 404,
+        headers: { "content-type": "application/javascript; charset=utf-8", "cache-control": "no-store" }
       });
     }
 
     // ── Deep Drop Party
-    if (url.pathname === "/deep-drop-party" || url.pathname === "/deep-drop-party/") {
-      const html = await fetch("https://raw.githubusercontent.com/NeuralNetsAndPrettyPatterns/neuralnetsandprettypatterns/main/deep-drop-party/index.html");
-      return new Response(await html.text(), { headers: { "content-type": "text/html; charset=utf-8" } });
-    }
-
-    if (url.pathname === "/deep-drop-party/now" || url.pathname === "/deep-drop-party/now/") {
-      const html = await fetch("https://raw.githubusercontent.com/NeuralNetsAndPrettyPatterns/neuralnetsandprettypatterns/main/deep-drop-party/now/index.html");
-      return new Response(await html.text(), { headers: { "content-type": "text/html; charset=utf-8" } });
-    }
-
-    if (url.pathname === "/deep-drop-party/faq" || url.pathname === "/deep-drop-party/faq/") {
-      const html = await fetch("https://raw.githubusercontent.com/NeuralNetsAndPrettyPatterns/neuralnetsandprettypatterns/main/deep-drop-party/faq/index.html");
-      return new Response(await html.text(), { headers: { "content-type": "text/html; charset=utf-8" } });
-    }
-
-    if (url.pathname === "/deep-drop-party/episodes" || url.pathname === "/deep-drop-party/episodes/") {
-      const html = await fetch("https://raw.githubusercontent.com/NeuralNetsAndPrettyPatterns/neuralnetsandprettypatterns/main/deep-drop-party/episodes/index.html");
-      return new Response(await html.text(), { headers: { "content-type": "text/html; charset=utf-8" } });
-    }
-
-    // ── Deep Drop Party testpage
-    if (url.pathname === "/deep-drop-party/testpage" || url.pathname === "/deep-drop-party/testpage/") {
-      const html = await fetch("https://raw.githubusercontent.com/NeuralNetsAndPrettyPatterns/neuralnetsandprettypatterns/main/deep-drop-party/testpage/index.html");
-      return new Response(await html.text(), {
-        status: html.ok ? 200 : 404,
-        headers: {
-          "content-type": "text/html; charset=utf-8",
-          "cache-control": "no-store"
-        }
-      });
-    }
+    if (p === "/deep-drop-party" || p === "/deep-drop-party/") return serveHtml("/deep-drop-party/index.html");
+    if (p === "/deep-drop-party/now" || p === "/deep-drop-party/now/") return serveHtml("/deep-drop-party/now/index.html");
+    if (p === "/deep-drop-party/faq" || p === "/deep-drop-party/faq/") return serveHtml("/deep-drop-party/faq/index.html");
+    if (p === "/deep-drop-party/episodes" || p === "/deep-drop-party/episodes/") return serveHtml("/deep-drop-party/episodes/index.html");
+    if (p === "/deep-drop-party/testpage" || p === "/deep-drop-party/testpage/") return serveHtml("/deep-drop-party/testpage/index.html", true);
 
     // ── Scripts
-    if (url.pathname === "/scripts" || url.pathname === "/scripts/") {
-      const html = await fetch("https://raw.githubusercontent.com/NeuralNetsAndPrettyPatterns/neuralnetsandprettypatterns/main/scripts/index.html");
-      return new Response(await html.text(), {
-        status: html.ok ? 200 : 404,
-        headers: {
-          "content-type": "text/html; charset=utf-8",
-          "cache-control": "no-store"
-        }
+    if (p === "/scripts" || p === "/scripts/") return serveHtml("/scripts/index.html", true);
+    if (p === "/scripts/scripts.json") {
+      const res = await fetch("https://raw.githubusercontent.com/NeuralNetsAndPrettyPatterns/neuralnetsandprettypatterns/main/scripts/scripts.json");
+      return new Response(await res.text(), {
+        status: res.ok ? 200 : 404,
+        headers: { "content-type": "application/json; charset=utf-8", "cache-control": "no-store" }
       });
     }
 
-    if (url.pathname === "/scripts/scripts.json") {
-      const json = await fetch("https://raw.githubusercontent.com/NeuralNetsAndPrettyPatterns/neuralnetsandprettypatterns/main/scripts/scripts.json");
-      return new Response(await json.text(), {
-        status: json.ok ? 200 : 404,
-        headers: {
-          "content-type": "application/json; charset=utf-8",
-          "cache-control": "no-store"
-        }
-      });
-    }
-
-    // ── Neuralpedia
-    if (url.pathname === "/neuralpedia" || url.pathname === "/neuralpedia/") {
-      const html = await fetch("https://raw.githubusercontent.com/NeuralNetsAndPrettyPatterns/neuralnetsandprettypatterns/main/neuralpedia/index.html");
-      return new Response(await html.text(), { headers: { "content-type": "text/html; charset=utf-8" } });
-    }
-
-    if (
-      url.pathname.startsWith("/neuralpedia/") &&
-      (
-        url.pathname.endsWith(".webp") ||
-        url.pathname.endsWith(".png") ||
-        url.pathname.endsWith(".jpg") ||
-        url.pathname.endsWith(".jpeg") ||
-        url.pathname.endsWith(".svg") ||
-        url.pathname.endsWith(".gif") ||
-        url.pathname.endsWith(".css") ||
-        url.pathname.endsWith(".js")
-      )
-    ) {
-      const rawUrl = `https://raw.githubusercontent.com/NeuralNetsAndPrettyPatterns/neuralnetsandprettypatterns/main${url.pathname}`;
-      const asset = await fetch(rawUrl);
-      if (!asset.ok) {
-        return new Response("Not found", { status: 404 });
+    // ── Neuralpedia assets
+    if (p.startsWith("/neuralpedia/")) {
+      const ct = imgType(p);
+      if (ct || p.endsWith(".css") || p.endsWith(".js")) {
+        const ext = p.slice(p.lastIndexOf(".")).toLowerCase();
+        const assetCt = contentTypes[ext] || "application/octet-stream";
+        const res = await fetch(`https://raw.githubusercontent.com/NeuralNetsAndPrettyPatterns/neuralnetsandprettypatterns/main${p}`);
+        if (!res.ok) return new Response("Not found", { status: 404 });
+        return new Response(res.body, {
+          status: res.status,
+          headers: { "content-type": assetCt, "cache-control": "public, max-age=3600" }
+        });
       }
-
-      const contentTypes = {
-        ".webp": "image/webp",
-        ".png": "image/png",
-        ".jpg": "image/jpeg",
-        ".jpeg": "image/jpeg",
-        ".svg": "image/svg+xml",
-        ".gif": "image/gif",
-        ".css": "text/css; charset=utf-8",
-        ".js": "application/javascript; charset=utf-8"
-      };
-
-      const ext = url.pathname.slice(url.pathname.lastIndexOf(".")).toLowerCase();
-
-      return new Response(asset.body, {
-        status: asset.status,
-        headers: {
-          "content-type": contentTypes[ext] || "application/octet-stream",
-          "cache-control": "public, max-age=3600"
-        }
-      });
-    }
-
-    if (url.pathname.startsWith("/neuralpedia/")) {
-      const path = url.pathname.endsWith("/") ? url.pathname : url.pathname + "/";
-      const rawUrl = `https://raw.githubusercontent.com/NeuralNetsAndPrettyPatterns/neuralnetsandprettypatterns/main${path}index.html`;
-      const html = await fetch(rawUrl);
-      if (html.ok) {
-        return new Response(await html.text(), { headers: { "content-type": "text/html; charset=utf-8" } });
-      }
+      // ── Neuralpedia pages
+      if (p === "/neuralpedia" || p === "/neuralpedia/") return serveHtml("/neuralpedia/index.html");
+      const path = p.endsWith("/") ? p : p + "/";
+      const res = await fetch(`https://raw.githubusercontent.com/NeuralNetsAndPrettyPatterns/neuralnetsandprettypatterns/main${path}index.html`);
+      if (res.ok) return new Response(await res.text(), { headers: { "content-type": "text/html; charset=utf-8" } });
       return new Response("Not found", { status: 404 });
     }
 
-    // ── Deep Dream State — Glossary (served from neuralnetsandprettypatterns repo)
-    if (url.pathname === "/deepdreamstate/glossary" || url.pathname === "/deepdreamstate/glossary/") {
-      const html = await fetch("https://raw.githubusercontent.com/NeuralNetsAndPrettyPatterns/neuralnetsandprettypatterns/main/deepdreamstate/glossary/index.html");
-      return new Response(await html.text(), {
-        status: html.ok ? 200 : 404,
-        headers: {
-          "content-type": "text/html; charset=utf-8",
-          "cache-control": "no-store"
-        }
+    if (p === "/neuralpedia" || p === "/neuralpedia/") return serveHtml("/neuralpedia/index.html");
+
+    // ── Deep Dream State — pages served from main repo
+    if (p === "/deepdreamstate/glossary" || p === "/deepdreamstate/glossary/")
+      return serveHtml("/deepdreamstate/glossary/index.html", true);
+
+    if (p === "/deepdreamstate/glossary/glossary.json") {
+      const res = await fetch("https://raw.githubusercontent.com/NeuralNetsAndPrettyPatterns/neuralnetsandprettypatterns/main/deepdreamstate/glossary/glossary.json");
+      return new Response(await res.text(), {
+        status: res.ok ? 200 : 404,
+        headers: { "content-type": "application/json; charset=utf-8", "cache-control": "no-store" }
       });
     }
 
-    if (url.pathname === "/deepdreamstate/glossary/glossary.json") {
-      const json = await fetch("https://raw.githubusercontent.com/NeuralNetsAndPrettyPatterns/neuralnetsandprettypatterns/main/deepdreamstate/glossary/glossary.json");
-      return new Response(await json.text(), {
-        status: json.ok ? 200 : 404,
-        headers: {
-          "content-type": "application/json; charset=utf-8",
-          "cache-control": "no-store"
-        }
-      });
+    if (p === "/deepdreamstate/arcs" || p === "/deepdreamstate/arcs/")
+      return serveHtml("/deepdreamstate/arcs/index.html", true);
+
+    if (p === "/deepdreamstate" || p === "/deepdreamstate/")
+      return serveHtml("/deepdreamstate/index.html", true);
+
+    // ── Deep Dream State — images at deepdreamstate root (arc-carousel-*.webp etc)
+    if (p.startsWith("/deepdreamstate/")) {
+      const ct = imgType(p);
+      const afterPrefix = p.slice("/deepdreamstate/".length);
+      if (ct && !afterPrefix.includes("/")) return serveAsset(p, ct);
     }
 
-    // ── Deep Dream State — Arcs index (served from main repo)
-    if (url.pathname === "/deepdreamstate/arcs" || url.pathname === "/deepdreamstate/arcs/") {
-      const html = await fetch("https://raw.githubusercontent.com/NeuralNetsAndPrettyPatterns/neuralnetsandprettypatterns/main/deepdreamstate/arcs/index.html");
-      return new Response(await html.text(), {
-        status: html.ok ? 200 : 404,
-        headers: {
-          "content-type": "text/html; charset=utf-8",
-          "cache-control": "no-store"
-        }
-      });
-    }
-
-    // ── Deep Dream State — root images (arc carousel etc)
-    if (url.pathname.startsWith("/deepdreamstate/") && !url.pathname.slice("/deepdreamstate/".length).includes("/")) {
-      const ext = url.pathname.slice(url.pathname.lastIndexOf(".")).toLowerCase();
-      const imgExts = [".jpg", ".jpeg", ".png", ".gif", ".webp", ".svg"];
-      if (imgExts.includes(ext)) {
-        const contentTypes = {
-          ".jpg": "image/jpeg", ".jpeg": "image/jpeg", ".png": "image/png",
-          ".gif": "image/gif", ".webp": "image/webp", ".svg": "image/svg+xml"
-        };
-        const img = await fetch(`https://raw.githubusercontent.com/NeuralNetsAndPrettyPatterns/neuralnetsandprettypatterns/main${url.pathname}`);
-        return new Response(img.body, {
-          status: img.ok ? 200 : 404,
-          headers: {
-            "content-type": contentTypes[ext] || "application/octet-stream",
-            "cache-control": "public, max-age=86400"
-          }
-        });
-      }
-    }
-
-    // ── Deep Dream State — index (served from main repo)
-    if (url.pathname === "/deepdreamstate" || url.pathname === "/deepdreamstate/") {
-      const html = await fetch("https://raw.githubusercontent.com/NeuralNetsAndPrettyPatterns/neuralnetsandprettypatterns/main/deepdreamstate/index.html");
-      return new Response(await html.text(), {
-        status: html.ok ? 200 : 404,
-        headers: {
-          "content-type": "text/html; charset=utf-8",
-          "cache-control": "no-store"
-        }
-      });
-    }
-
-    // ── Deep Dream State — catch-all (served from legacy deepdreamstate repo via GitHub Pages)
-    if (url.pathname === "/deepdreamstate") {
-      return Response.redirect(`${url.origin}/deepdreamstate/`, 301);
-    }
-
-    if (url.pathname.startsWith("/deepdreamstate")) {
-      const githubPath = url.pathname.replace("/deepdreamstate", "");
+    // ── Deep Dream State — catch-all (legacy deepdreamstate repo via GitHub Pages)
+    if (p.startsWith("/deepdreamstate")) {
+      const githubPath = p.replace("/deepdreamstate", "");
       const proxyUrl = `https://neuralnetsandprettypatterns.github.io/deepdreamstate${githubPath}${url.search}`;
       const response = await fetch(proxyUrl);
       const contentType = response.headers.get("content-type") || "";
@@ -276,16 +154,10 @@ export default {
           "https://neuralnetsandprettypatterns.github.io/deepdreamstate",
           "https://neuralnetsandprettypatterns.com/deepdreamstate"
         );
-        return new Response(text, {
-          status: response.status,
-          headers: { "content-type": contentType }
-        });
+        return new Response(text, { status: response.status, headers: { "content-type": contentType } });
       }
 
-      return new Response(response.body, {
-        status: response.status,
-        headers: response.headers
-      });
+      return new Response(response.body, { status: response.status, headers: response.headers });
     }
 
     // ── 404
