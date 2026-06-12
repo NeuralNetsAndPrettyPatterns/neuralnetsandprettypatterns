@@ -513,10 +513,10 @@
     ═══════════════════════════════════════════ -->
     <section class="section">
       <h2>Structure</h2>
-      <p>The organization can seem complicated but the core, it's simple. There are arcs, aka Seasons. That's a full story with a consistent location and throughline. Within the arcs, there are episodes.</p>
+      <p>The organization can seem complicated but at the core, it's simple. There are arcs, aka Seasons. That's a full story with a consistent location and throughline. Within the arcs, there are episodes.</p>
       <p>I attach a GE or "global episode" number to each episode. That tracks the TOTAL count across all seasons.</p>
       <p>I've used Cycles to identify thematic episode batches. It describes the episode but doesn't impact organization. "Cycles" describe what a group's about; they aren't necessary for the taxonomy.</p>
-      <p>To navigate here, you can click on the pictures above to explore an arc. You can also click on an arc or episode title below for a fuller explanation with sourcing.</p>
+      <p>To navigate here, you can click on the pictures above to explore an arc. You can also click on an arc or episode title below for a fuller explanation with sourcing. Links from the GE lead to the IMDb pages.</p>
     </section>
 
     <div class="rule"><span class="rule-symbol">* * *</span></div>
@@ -651,8 +651,9 @@
       dots[current].classList.add('active');
       const text = slides[current].dataset.subtitle;
       const href = slides[current].dataset.href;
+      const arcNames = ['', 'The Chthonic.', 'Incognitoh.', 'Sitri Center.', 'Vale Four.'];
       if (href) {
-        subtitleWrap.innerHTML = '<a href="' + href + '" style="color:inherit;text-decoration:underline;text-underline-offset:0.2em;">' + text + '</a>';
+        subtitleWrap.innerHTML = '<a href="' + href + '" style="color:inherit;text-decoration:underline;text-underline-offset:0.2em;">' + text + '</a> ' + arcNames[index];
       } else {
         subtitleWrap.innerHTML = '<span>' + text + '</span>';
       }
