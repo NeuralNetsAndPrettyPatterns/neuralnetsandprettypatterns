@@ -215,6 +215,38 @@ export default {
       });
     }
 
+    // ── Deep Dream State — Arcs index (served from main repo)
+    if (url.pathname === "/deepdreamstate/arcs" || url.pathname === "/deepdreamstate/arcs/") {
+      const html = await fetch("https://raw.githubusercontent.com/NeuralNetsAndPrettyPatterns/neuralnetsandprettypatterns/main/deepdreamstate/arcs/index.html");
+      return new Response(await html.text(), {
+        status: html.ok ? 200 : 404,
+        headers: {
+          "content-type": "text/html; charset=utf-8",
+          "cache-control": "no-store"
+        }
+      });
+    }
+
+    // ── Deep Dream State — root images (arc carousel etc)
+    if (url.pathname.startsWith("/deepdreamstate/") && !url.pathname.slice("/deepdreamstate/".length).includes("/")) {
+      const ext = url.pathname.slice(url.pathname.lastIndexOf(".")).toLowerCase();
+      const imgExts = [".jpg", ".jpeg", ".png", ".gif", ".webp", ".svg"];
+      if (imgExts.includes(ext)) {
+        const contentTypes = {
+          ".jpg": "image/jpeg", ".jpeg": "image/jpeg", ".png": "image/png",
+          ".gif": "image/gif", ".webp": "image/webp", ".svg": "image/svg+xml"
+        };
+        const img = await fetch(`https://raw.githubusercontent.com/NeuralNetsAndPrettyPatterns/neuralnetsandprettypatterns/main${url.pathname}`);
+        return new Response(img.body, {
+          status: img.ok ? 200 : 404,
+          headers: {
+            "content-type": contentTypes[ext] || "application/octet-stream",
+            "cache-control": "public, max-age=86400"
+          }
+        });
+      }
+    }
+
     // ── Deep Dream State — index (served from main repo)
     if (url.pathname === "/deepdreamstate" || url.pathname === "/deepdreamstate/") {
       const html = await fetch("https://raw.githubusercontent.com/NeuralNetsAndPrettyPatterns/neuralnetsandprettypatterns/main/deepdreamstate/index.html");
