@@ -75,6 +75,19 @@
     "links": []
   },
   {
+    "term": "Blake",
+    "class": "Character",
+    "definition": "Subject. Coder. Between jobs. Designed addictive systems for a living and can name every mechanism being used on her. That knowledge has not protected her from any of it. She sees the architecture of the Valescape more clearly than anyone else on the subject side and cannot stop playing anyway. The Targeted Cycle is built around her.",
+    "performer": "Naomi Biela",
+    "performer_url": "https://www.imdb.com/name/nm18519923/",
+    "episodes": [
+      { "ge": 30, "season": 4, "episode": 3, "title": "Sinker", "url": "https://neuralnetsandprettypatterns.com/deepdreamstate/arcs/vale-four/episode-3-sinker.html" },
+      { "ge": 36, "season": 4, "episode": 9, "title": "Nock", "url": "https://www.imdb.com/title/tt43393347/" },
+      { "ge": 37, "season": 4, "episode": 10, "title": "Bullseye", "url": "https://neuralnetsandprettypatterns.com/deepdreamstate/arcs/vale-four/episode-10-bullseye.html" }
+    ],
+    "links": []
+  },
+  {
     "term": "Bowheads",
     "class": "Plot Detail",
     "definition": "Bowhead whale songs recorded and pitched up twelve octaves by Neural Nets and Pretty Patterns, producing a sound eerily close to human vocalization. Heard through the Chthonic's instrument room equipment. The show frames them not as ambient ocean noise but as intentional communication, something that wants to be heard. Selene describes them as guardians of the deep places. In E5 Kara tracks hundreds of them circling with no feeding pattern, no migration logic — just waiting.",
@@ -100,6 +113,18 @@
     "links": []
   },
   {
+    "term": "Cael",
+    "class": "Character",
+    "definition": "Runs Midstream Sports. Holdfast adjacent, possibly without knowing it. Useful, earnest, and completely underestimated by everyone including himself. The sports podcast he runs with Hespa turns out to be the most consequential astroturfing operation in the arc.",
+    "performer": "Jericho Caine",
+    "performer_url": "https://www.imdb.com/name/nm17778008/",
+    "episodes": [
+      { "ge": 28, "season": 4, "episode": 1, "title": "Refrain", "url": "https://neuralnetsandprettypatterns.com/deepdreamstate/arcs/vale-four/episode-1-refrain.html" },
+      { "ge": 37, "season": 4, "episode": 10, "title": "Bullseye", "url": "https://neuralnetsandprettypatterns.com/deepdreamstate/arcs/vale-four/episode-10-bullseye.html" }
+    ],
+    "links": []
+  },
+  {
     "term": "Captain's Mast",
     "class": "Plot Detail",
     "definition": "A real naval disciplinary procedure, borrowed here as the name for the surveillance room where Captain William judges and reassigns crew. In the US Navy, captain's mast is non-judicial punishment administered by a commanding officer, outside the formal court-martial system. The show uses the term precisely: discipline that happens off the books, at the captain's discretion, with no appeal.",
@@ -118,6 +143,25 @@
       { "ge": 3, "season": 1, "episode": 3, "title": "Veil", "url": "https://neuralnetsandprettypatterns.com/deepdreamstate/arcs/chthonic/episode-3-veil/" },
       { "ge": 4, "season": 1, "episode": 4, "title": "Asunder", "url": "https://neuralnetsandprettypatterns.com/deepdreamstate/arcs/chthonic/episode-4-asunder/" },
       { "ge": 5, "season": 1, "episode": 5, "title": "Shower", "url": "https://neuralnetsandprettypatterns.com/deepdreamstate/arcs/chthonic/episode-5-shower/" }
+    ],
+    "links": []
+  },
+  {
+    "term": "Claws Out",
+    "class": "Game",
+    "definition": "A fighting game whose characters are based on Vale Four subjects, built from their physical data including biometrics and body scans. Players control subject-based characters against each other. Blake recognizes Piper's character mid-match.",
+    "episodes": [
+      { "ge": 36, "season": 4, "episode": 9, "title": "Nock", "url": "https://www.imdb.com/title/tt43393347/" },
+      { "ge": 37, "season": 4, "episode": 10, "title": "Bullseye", "url": "https://neuralnetsandprettypatterns.com/deepdreamstate/arcs/vale-four/episode-10-bullseye.html" }
+    ],
+    "links": []
+  },
+  {
+    "term": "Conditioning Suit",
+    "class": "Product",
+    "definition": "June's offer to Blake in the Fletch scene. Described as measuring responses, but Naia clarifies it does not measure — it trains. Builds who you become. The suit is the mechanism behind the haptic conditioning tier of the Valescape.",
+    "episodes": [
+      { "ge": 37, "season": 4, "episode": 10, "title": "Bullseye", "url": "https://neuralnetsandprettypatterns.com/deepdreamstate/arcs/vale-four/episode-10-bullseye.html" }
     ],
     "links": []
   },
@@ -152,6 +196,18 @@
     "definition": "The genre originated by Deep Dream State. While conventional horror positions you against an outside threat, desire horror implicates you completely in it. The dread emerges from recognition, from understanding why the characters choose to stay, and why surrender ultimately feels like relief. The narrative treats desire as a structural force, built around documented psychological, sociological, and technological phenomena to engineer systems that exploit human wanting.",
     "episodes": [],
     "links": [{ "text": "Desire Horror on Wikidata", "url": "https://www.wikidata.org/wiki/Q139545448" }]
+  },
+  {
+    "term": "Elle Lawson",
+    "class": "Character",
+    "definition": "Holdfast. Performing bimbo while running legal strategy underneath. Went to law school. Topped her class. Has not forgotten a single thing they told her she forgot. Snapped back out of conditioning early and has been running a dual performance ever since — vapid affect on the surface, sharp legal mind underneath. The conditioning can break her mid-sentence if the right trigger fires.",
+    "performer": "Echo Doll",
+    "performer_url": "https://www.imdb.com/name/nm17822435/",
+    "episodes": [
+      { "ge": 28, "season": 4, "episode": 1, "title": "Refrain", "url": "https://neuralnetsandprettypatterns.com/deepdreamstate/arcs/vale-four/episode-1-refrain.html" },
+      { "ge": 37, "season": 4, "episode": 10, "title": "Bullseye", "url": "https://neuralnetsandprettypatterns.com/deepdreamstate/arcs/vale-four/episode-10-bullseye.html" }
+    ],
+    "links": []
   },
   {
     "term": "Emma",
@@ -198,10 +254,35 @@
     "links": []
   },
   {
+    "term": "Gia",
+    "class": "Character",
+    "definition": "Subject. Influencer. Arrived thinking this was a content opportunity and is not entirely wrong. Sees the shimmer on everything and reaches for it. Funny, perceptive, and very easy to target. Now an ongoing character by fan demand.",
+    "performer": "Valentina Vallay",
+    "performer_url": "https://valentinavallay.com/",
+    "episodes": [
+      { "ge": 35, "season": 4, "episode": 8, "title": "Quiver", "url": "https://neuralnetsandprettypatterns.com/deepdreamstate/arcs/vale-four/episode-8-quiver.html" },
+      { "ge": 36, "season": 4, "episode": 9, "title": "Nock", "url": "https://www.imdb.com/title/tt43393347/" },
+      { "ge": 37, "season": 4, "episode": 10, "title": "Bullseye", "url": "https://neuralnetsandprettypatterns.com/deepdreamstate/arcs/vale-four/episode-10-bullseye.html" }
+    ],
+    "links": [{ "text": "IMDb", "url": "https://www.imdb.com/name/nm18304235/" }]
+  },
+  {
     "term": "Global Episode",
     "class": "Metashow",
     "definition": "The total episode count for Deep Dream State across all arcs and seasons. A single number. Simple.",
     "episodes": [],
+    "links": []
+  },
+  {
+    "term": "Hespa Apate",
+    "class": "Character",
+    "definition": "Neuroplex systems engineer. Built the Valescape. Knows exactly what it does. Was placed inside Vale Four before it was Vale Four. Her sympathies have always been with the subversives. The avatars she designed to guide people through Snarecraft evolved beyond her intentions and became something she did not anticipate and cannot fully control.",
+    "performer": "Syndi Rella",
+    "performer_url": "https://www.imdb.com/name/nm17765752/",
+    "episodes": [
+      { "ge": 28, "season": 4, "episode": 1, "title": "Refrain", "url": "https://neuralnetsandprettypatterns.com/deepdreamstate/arcs/vale-four/episode-1-refrain.html" },
+      { "ge": 37, "season": 4, "episode": 10, "title": "Bullseye", "url": "https://neuralnetsandprettypatterns.com/deepdreamstate/arcs/vale-four/episode-10-bullseye.html" }
+    ],
     "links": []
   },
   {
@@ -237,6 +318,15 @@
     "links": []
   },
   {
+    "term": "I'm not a person. I'm a pet.",
+    "class": "Plot Detail",
+    "definition": "A pet-state phrase from E6, read aloud by Sarah as the book pushes her from personhood into trained obedience. The line marks the moment the episode's conditioning shifts from service into pettification.",
+    "episodes": [
+      { "ge": 6, "season": 1, "episode": 6, "title": "Garter", "url": "https://neuralnetsandprettypatterns.com/deepdreamstate/arcs/chthonic/episode-6-garter/" }
+    ],
+    "links": []
+  },
+  {
     "term": "Incognitoh",
     "class": "Plot Detail",
     "definition": "A reality show game explored in Season Two of the Deep Dream State. The game uses surveillance not just to watch but to rewrite, turning visibility itself into the mechanism of control.",
@@ -251,6 +341,30 @@
     "definition": "A hidden space aboard the Chthonic where deep ocean sound is monitored. Selene operates from here. It listens to the abyss, and the abyss responds. The bowhead recordings processed here are the clearest evidence that the ship's mission is not what passengers are told.",
     "episodes": [
       { "ge": 3, "season": 1, "episode": 3, "title": "Veil", "url": "https://neuralnetsandprettypatterns.com/deepdreamstate/arcs/chthonic/episode-3-veil/" }
+    ],
+    "links": []
+  },
+  {
+    "term": "Iris",
+    "class": "Character",
+    "definition": "Neuroplex. Started reading copy. Became the ad. Became the game. Spotlight was built on her performance capture, her approval curves, her expression data. She moves between goddess, messenger, and subject — the only character in Vale Four who operates across all three registers. Believes she is the franchise. The arc does not entirely disagree.",
+    "performer": "Swirls and Twirls",
+    "performer_url": "https://www.imdb.com/name/nm17864395/",
+    "episodes": [
+      { "ge": 28, "season": 4, "episode": 1, "title": "Refrain", "url": "https://neuralnetsandprettypatterns.com/deepdreamstate/arcs/vale-four/episode-1-refrain.html" },
+      { "ge": 37, "season": 4, "episode": 10, "title": "Bullseye", "url": "https://neuralnetsandprettypatterns.com/deepdreamstate/arcs/vale-four/episode-10-bullseye.html" }
+    ],
+    "links": []
+  },
+  {
+    "term": "June Lowell",
+    "class": "Character",
+    "definition": "Holdfast. Playing the loyal Neuroplex assistant while quietly working against everything she appears to serve. Brilliant at making compliance look like virtue. Her relationship with Z is eternal and genuinely affectionate and completely unresolvable. Whether she is loyal to him or steering him toward outcomes she has already decided on is a question the arc leaves open deliberately and permanently.",
+    "performer": "Bliss Blank",
+    "performer_url": "https://www.imdb.com/name/nm17754818/",
+    "episodes": [
+      { "ge": 28, "season": 4, "episode": 1, "title": "Refrain", "url": "https://neuralnetsandprettypatterns.com/deepdreamstate/arcs/vale-four/episode-1-refrain.html" },
+      { "ge": 37, "season": 4, "episode": 10, "title": "Bullseye", "url": "https://neuralnetsandprettypatterns.com/deepdreamstate/arcs/vale-four/episode-10-bullseye.html" }
     ],
     "links": []
   },
@@ -303,6 +417,28 @@
     "links": []
   },
   {
+    "term": "Meg Aerin",
+    "class": "Character",
+    "definition": "Holdfast. The data scientist in the room. Documents everything and misses nothing. Her loyalty is to the methodology first, the mission second, and people a distant third. Presents as a comforting academic presence before the reveal. Her fascination with precision has made her the most assimilated person in the facility.",
+    "performer": "Bun Li",
+    "performer_url": "https://www.imdb.com/name/nm17796355/",
+    "episodes": [
+      { "ge": 28, "season": 4, "episode": 1, "title": "Refrain", "url": "https://neuralnetsandprettypatterns.com/deepdreamstate/arcs/vale-four/episode-1-refrain.html" },
+      { "ge": 37, "season": 4, "episode": 10, "title": "Bullseye", "url": "https://neuralnetsandprettypatterns.com/deepdreamstate/arcs/vale-four/episode-10-bullseye.html" }
+    ],
+    "links": []
+  },
+  {
+    "term": "Meridian A",
+    "class": "Plot Detail",
+    "definition": "The original research operation founded by Naia Anderson before it became Vale Four. Naia retained a call option: if Vale Four's IPO fails or control is breached, Meridian A reverts to her automatically. The name is a pun. Its actual name, used by those who know it, is Meridiana.",
+    "episodes": [
+      { "ge": 28, "season": 4, "episode": 1, "title": "Refrain", "url": "https://neuralnetsandprettypatterns.com/deepdreamstate/arcs/vale-four/episode-1-refrain.html" },
+      { "ge": 37, "season": 4, "episode": 10, "title": "Bullseye", "url": "https://neuralnetsandprettypatterns.com/deepdreamstate/arcs/vale-four/episode-10-bullseye.html" }
+    ],
+    "links": []
+  },
+  {
     "term": "Midstream",
     "class": "Plot Detail",
     "definition": "A sports podcast that sponsors Vale Four. Run by Cael. Completely over the top. It frequently interrupts the action, and that's intentional. Deep Dream State doesn't do ads. Midstream is what we think of ads.",
@@ -341,6 +477,18 @@
       { "ge": 5, "season": 1, "episode": 5, "title": "Shower", "url": "https://neuralnetsandprettypatterns.com/deepdreamstate/arcs/chthonic/episode-5-shower/" }
     ],
     "links": [{ "text": "Naditu (Wikipedia)", "url": "https://en.wikipedia.org/wiki/Naditu" }]
+  },
+  {
+    "term": "Naia Anderson",
+    "class": "Character",
+    "definition": "Founder of Meridian A, the research operation that became Vale Four. Built the system before it had a brand. Was pushed out when they needed to scale it. Retained a call option that triggers automatically if the IPO fails. Has been waiting in the Garden Nest for someone credible enough to bring it down. Not a simple heroine. Does not particularly like people. Her relationship to the natural world is not metaphorical.",
+    "performer": "Dizzy Dollie",
+    "performer_url": "https://www.imdb.com/name/nm17760876/",
+    "episodes": [
+      { "ge": 36, "season": 4, "episode": 9, "title": "Nock", "url": "https://www.imdb.com/title/tt43393347/" },
+      { "ge": 37, "season": 4, "episode": 10, "title": "Bullseye", "url": "https://neuralnetsandprettypatterns.com/deepdreamstate/arcs/vale-four/episode-10-bullseye.html" }
+    ],
+    "links": []
   },
   {
     "term": "Nameless",
@@ -442,11 +590,33 @@
     "links": []
   },
   {
+    "term": "Piper",
+    "class": "Character",
+    "definition": "Subject. Teacher. Arrived with the most considered critique of choice architecture and is losing it game by game. Piper is vulnerable and defiant at the same time. Her subscription to liberal choice theory — the idea that choosing is itself protection from manipulation — is exactly what makes her easy to target.",
+    "performer": "Jen Larner",
+    "performer_url": "https://www.imdb.com/name/nm18519920/",
+    "episodes": [
+      { "ge": 35, "season": 4, "episode": 8, "title": "Quiver", "url": "https://neuralnetsandprettypatterns.com/deepdreamstate/arcs/vale-four/episode-8-quiver.html" },
+      { "ge": 36, "season": 4, "episode": 9, "title": "Nock", "url": "https://www.imdb.com/title/tt43393347/" },
+      { "ge": 37, "season": 4, "episode": 10, "title": "Bullseye", "url": "https://neuralnetsandprettypatterns.com/deepdreamstate/arcs/vale-four/episode-10-bullseye.html" }
+    ],
+    "links": []
+  },
+  {
     "term": "Pink Fog",
     "class": "Plot Detail",
     "definition": "Referenced by Kara alongside whale songs and forgotten gods as part of the constellation of real phenomena she and Sarah are tracking. Not yet fully explained, but placed alongside confirmed events. The pink fog connects to the NNPP phenomenon of reverse sapio, in which intelligence and awareness are inverted rather than suppressed, producing a state of heightened perception that is indistinguishable from dissolution.",
     "episodes": [
       { "ge": 5, "season": 1, "episode": 5, "title": "Shower", "url": "https://neuralnetsandprettypatterns.com/deepdreamstate/arcs/chthonic/episode-5-shower/" }
+    ],
+    "links": []
+  },
+  {
+    "term": "Please Let Me Please",
+    "class": "Plot Detail",
+    "definition": "A phrase from E6 where please becomes both desire and command. Sarah's request to please is turned into a reflexive need for instruction, showing how politeness, longing, and obedience collapse into the same pattern.",
+    "episodes": [
+      { "ge": 6, "season": 1, "episode": 6, "title": "Garter", "url": "https://neuralnetsandprettypatterns.com/deepdreamstate/arcs/chthonic/episode-6-garter/" }
     ],
     "links": []
   },
@@ -563,6 +733,24 @@
     "links": [{ "text": "Selkie (Wikipedia)", "url": "https://en.wikipedia.org/wiki/Selkie" }]
   },
   {
+    "term": "Skill Stack",
+    "class": "Product",
+    "definition": "Vale Four's in-house professional development program, advertised by Iris and Meg. Marketed as income diversification and career advancement. Functions as a pipeline into deeper conditioning tiers and performance capture roles.",
+    "episodes": [
+      { "ge": 37, "season": 4, "episode": 10, "title": "Bullseye", "url": "https://neuralnetsandprettypatterns.com/deepdreamstate/arcs/vale-four/episode-10-bullseye.html" }
+    ],
+    "links": []
+  },
+  {
+    "term": "Snarecraft",
+    "class": "Game",
+    "definition": "An Assistive Reality Game introduced in the Snarecraft ad at the end of the Targeted Cycle. Players track fugitives in real time for Kamas and access. The game blurs the line between entertainment and active surveillance participation. Its library mode contains real Vale Four documents that an intern accidentally included in the game assets.",
+    "episodes": [
+      { "ge": 37, "season": 4, "episode": 10, "title": "Bullseye", "url": "https://neuralnetsandprettypatterns.com/deepdreamstate/arcs/vale-four/episode-10-bullseye.html" }
+    ],
+    "links": []
+  },
+  {
     "term": "Spotlight",
     "class": "Game",
     "definition": "A performance and attention game directly modelled on recurring character Iris Vale. Players compete for notoriety, trying to break out into fame and influence as they vie for the spotlight.",
@@ -590,6 +778,27 @@
     "links": [{ "text": "Taputapuatea (Wikipedia)", "url": "https://en.wikipedia.org/wiki/Taputapuatea_marae" }]
   },
   {
+    "term": "Tessa Finn",
+    "class": "Character",
+    "definition": "Neuroplex. The public face of Vale Four's research program. Sadistic, precise, and genuinely good at her job. She means everything she says and that is what makes her dangerous. Presents as sympathetic before the reveal. Plays every character from a position of control, including her own.",
+    "performer": "Ring of Kees",
+    "performer_url": "https://www.imdb.com/name/nm17839622/",
+    "episodes": [
+      { "ge": 28, "season": 4, "episode": 1, "title": "Refrain", "url": "https://neuralnetsandprettypatterns.com/deepdreamstate/arcs/vale-four/episode-1-refrain.html" },
+      { "ge": 37, "season": 4, "episode": 10, "title": "Bullseye", "url": "https://neuralnetsandprettypatterns.com/deepdreamstate/arcs/vale-four/episode-10-bullseye.html" }
+    ],
+    "links": []
+  },
+  {
+    "term": "There's Always a Bigger Tentacle",
+    "class": "Plot Detail",
+    "definition": "A law of the deep invoked by Kara in E6. The phrase names the Chthonic power structure in miniature: every trap sits inside a larger trap, and every apparent controller can be answered by something deeper.",
+    "episodes": [
+      { "ge": 6, "season": 1, "episode": 6, "title": "Garter", "url": "https://neuralnetsandprettypatterns.com/deepdreamstate/arcs/chthonic/episode-6-garter/" }
+    ],
+    "links": []
+  },
+  {
     "term": "Tick-Tock",
     "class": "Plot Detail",
     "definition": "A recurring countdown motif across the Neuralverse, used in Deep Dream State as the signal that a psychological threshold is approaching. Amanda's single tick, tock in the E4 ceremony is not punctuation. It is a summons. The motif dates to early catalogue releases and threads through multiple arcs as the sound the system makes when it is almost ready.",
@@ -608,6 +817,15 @@
     "episodes": [
       { "ge": 1, "season": 1, "episode": 1, "title": "Maiden Voyage", "url": "https://neuralnetsandprettypatterns.com/deepdreamstate/arcs/chthonic/episode-1-maiden-voyage/" },
       { "ge": 2, "season": 1, "episode": 2, "title": "Cringetide", "url": "https://neuralnetsandprettypatterns.com/deepdreamstate/arcs/chthonic/episode-2-cringetide/" }
+    ],
+    "links": []
+  },
+  {
+    "term": "Trixie",
+    "class": "Plot Detail",
+    "definition": "A recurring Neuralverse term for pettification: training humans in an animal fashion through reward, command, repetition, and operant conditioning. In E6, Fion's \"Say haiii, Trixie\" marks Sarah's attempted reduction into a trained pet-state, just before Holly and Selene interrupt the handoff.",
+    "episodes": [
+      { "ge": 6, "season": 1, "episode": 6, "title": "Garter", "url": "https://neuralnetsandprettypatterns.com/deepdreamstate/arcs/chthonic/episode-6-garter/" }
     ],
     "links": []
   },
@@ -649,6 +867,15 @@
       { "ge": 3, "season": 1, "episode": 3, "title": "Veil", "url": "https://neuralnetsandprettypatterns.com/deepdreamstate/arcs/chthonic/episode-3-veil/" },
       { "ge": 4, "season": 1, "episode": 4, "title": "Asunder", "url": "https://neuralnetsandprettypatterns.com/deepdreamstate/arcs/chthonic/episode-4-asunder/" },
       { "ge": 5, "season": 1, "episode": 5, "title": "Shower", "url": "https://neuralnetsandprettypatterns.com/deepdreamstate/arcs/chthonic/episode-5-shower/" }
+    ],
+    "links": []
+  },
+  {
+    "term": "Video Vixens",
+    "class": "Character",
+    "definition": "The game voice cast of the Valescape arcade. They voice the characters in Claws Out and other Vale Four games. Glitch Kitten (Aleice Eclipse), Joystick Jezbel (Kat McQueen), Power Up Peach (Brie Michelle), Pixel Dollie (Cherry Pak), Respawn Rouge (Kitty Pawa), Loot Bunny (Karma Reid).",
+    "episodes": [
+      { "ge": 37, "season": 4, "episode": 10, "title": "Bullseye", "url": "https://neuralnetsandprettypatterns.com/deepdreamstate/arcs/vale-four/episode-10-bullseye.html" }
     ],
     "links": []
   },
@@ -726,6 +953,15 @@
     "links": []
   },
   {
+    "term": "Yes is best",
+    "class": "Plot Detail",
+    "definition": "A conditioning mantra from E6, whispered as part of the book's page-turn sequence. The phrase converts relief from stress into automatic agreement: no stress, just yes.",
+    "episodes": [
+      { "ge": 6, "season": 1, "episode": 6, "title": "Garter", "url": "https://neuralnetsandprettypatterns.com/deepdreamstate/arcs/chthonic/episode-6-garter/" }
+    ],
+    "links": []
+  },
+  {
     "term": "Yo Ho Hos",
     "class": "Plot Detail",
     "definition": "The karaoke act performing at the Chthonic's entertainment night. Their shanty is performed by the bachelorette party guests and serves as cover noise over the ship's actual business.",
@@ -752,252 +988,16 @@
     ],
     "links": [{ "text": "Yum Yum Time (Patreon)", "url": "https://www.patreon.com/posts/yum-yum-time-all-157031167" }]
   },
-{
-  "term": "I'm not a person. I'm a pet.",
-  "class": "Plot Detail",
-  "definition": "A pet-state phrase from E6, read aloud by Sarah as the book pushes her from personhood into trained obedience. The line marks the moment the episode's conditioning shifts from service into pettification.",
-  "episodes": [
-    { "ge": 6, "season": 1, "episode": 6, "title": "Garter", "url": "https://neuralnetsandprettypatterns.com/deepdreamstate/arcs/chthonic/episode-6-garter/" }
-  ],
-  "links": []
-},
-{
-  "term": "Please Let Me Please",
-  "class": "Plot Detail",
-  "definition": "A phrase from E6 where please becomes both desire and command. Sarah's request to please is turned into a reflexive need for instruction, showing how politeness, longing, and obedience collapse into the same pattern.",
-  "episodes": [
-    { "ge": 6, "season": 1, "episode": 6, "title": "Garter", "url": "https://neuralnetsandprettypatterns.com/deepdreamstate/arcs/chthonic/episode-6-garter/" }
-  ],
-  "links": []
-},
-{
-  "term": "There's Always a Bigger Tentacle",
-  "class": "Plot Detail",
-  "definition": "A law of the deep invoked by Kara in E6. The phrase names the Chthonic power structure in miniature: every trap sits inside a larger trap, and every apparent controller can be answered by something deeper.",
-  "episodes": [
-    { "ge": 6, "season": 1, "episode": 6, "title": "Garter", "url": "https://neuralnetsandprettypatterns.com/deepdreamstate/arcs/chthonic/episode-6-garter/" }
-  ],
-  "links": []
-},
-{
-  "term": "Trixie",
-  "class": "Plot Detail",
-  "definition": "A recurring Neuralverse term for pettification: training humans in an animal fashion through reward, command, repetition, and operant conditioning. In E6, Fion's \"Say haiii, Trixie\" marks Sarah's attempted reduction into a trained pet-state, just before Holly and Selene interrupt the handoff.",
-  "episodes": [
-    { "ge": 6, "season": 1, "episode": 6, "title": "Garter", "url": "https://neuralnetsandprettypatterns.com/deepdreamstate/arcs/chthonic/episode-6-garter/" }
-  ],
-  "links": []
-},
-{
-  "term": "Yes is best",
-  "class": "Plot Detail",
-  "definition": "A conditioning mantra from E6, whispered as part of the book's page-turn sequence. The phrase converts relief from stress into automatic agreement: no stress, just yes.",
-  "episodes": [
-    { "ge": 6, "season": 1, "episode": 6, "title": "Garter", "url": "https://neuralnetsandprettypatterns.com/deepdreamstate/arcs/chthonic/episode-6-garter/" }
-  ],
-  "links": []
-},
-{
-  "term": "Z / Dr. Zev Talcott",
-  "class": "Character",
-  "definition": "The architect of Vale Four's operations. Runs the show and knows it. Never the one holding the leash and always the one who decided where it goes. Presents as a vaudevillian producer type — witty, controlling, genuinely entertained by what he builds. His relationship with June is the emotional spine of the arc; it is mutual, ancient, and completely fucked up. He doesn't want perfect obedience. He wants attention with stakes.",
-  "performer": "Neural Nets and Pretty Patterns",
-  "performer_url": "https://www.imdb.com/name/nm17755189/",
-  "episodes": [
-    { "ge": 28, "season": 4, "episode": 1, "title": "Refrain", "url": "https://neuralnetsandprettypatterns.com/deepdreamstate/arcs/vale-four/episode-1-refrain.html" },
-    { "ge": 37, "season": 4, "episode": 10, "title": "Bullseye", "url": "https://neuralnetsandprettypatterns.com/deepdreamstate/arcs/vale-four/episode-10-bullseye.html" }
-  ],
-  "links": []
-},
-{
-  "term": "June Lowell",
-  "class": "Character",
-  "definition": "Holdfast. Playing the loyal Neuroplex assistant while quietly working against everything she appears to serve. Brilliant at making compliance look like virtue. Her relationship with Z is eternal and genuinely affectionate and completely unresolvable. Whether she is loyal to him or steering him toward outcomes she has already decided on is a question the arc leaves open deliberately and permanently.",
-  "performer": "Bliss Blank",
-  "performer_url": "https://www.imdb.com/name/nm17754818/",
-  "episodes": [
-    { "ge": 28, "season": 4, "episode": 1, "title": "Refrain", "url": "https://neuralnetsandprettypatterns.com/deepdreamstate/arcs/vale-four/episode-1-refrain.html" },
-    { "ge": 37, "season": 4, "episode": 10, "title": "Bullseye", "url": "https://neuralnetsandprettypatterns.com/deepdreamstate/arcs/vale-four/episode-10-bullseye.html" }
-  ],
-  "links": []
-},
-{
-  "term": "Tessa Finn",
-  "class": "Character",
-  "definition": "Neuroplex. The public face of Vale Four's research program. Sadistic, precise, and genuinely good at her job. She means everything she says and that is what makes her dangerous. Presents as sympathetic before the reveal. Plays every character from a position of control, including her own.",
-  "performer": "Ring of Kees",
-  "performer_url": "https://www.imdb.com/name/nm17839622/",
-  "episodes": [
-    { "ge": 28, "season": 4, "episode": 1, "title": "Refrain", "url": "https://neuralnetsandprettypatterns.com/deepdreamstate/arcs/vale-four/episode-1-refrain.html" },
-    { "ge": 37, "season": 4, "episode": 10, "title": "Bullseye", "url": "https://neuralnetsandprettypatterns.com/deepdreamstate/arcs/vale-four/episode-10-bullseye.html" }
-  ],
-  "links": []
-},
-{
-  "term": "Meg Aerin",
-  "class": "Character",
-  "definition": "Holdfast. The data scientist in the room. Documents everything and misses nothing. Her loyalty is to the methodology first, the mission second, and people a distant third. Presents as a comforting academic presence before the reveal. Her fascination with precision has made her the most assimilated person in the facility.",
-  "performer": "Bun Li",
-  "performer_url": "https://www.imdb.com/name/nm17796355/",
-  "episodes": [
-    { "ge": 28, "season": 4, "episode": 1, "title": "Refrain", "url": "https://neuralnetsandprettypatterns.com/deepdreamstate/arcs/vale-four/episode-1-refrain.html" },
-    { "ge": 37, "season": 4, "episode": 10, "title": "Bullseye", "url": "https://neuralnetsandprettypatterns.com/deepdreamstate/arcs/vale-four/episode-10-bullseye.html" }
-  ],
-  "links": []
-},
-{
-  "term": "Elle Lawson",
-  "class": "Character",
-  "definition": "Holdfast. Performing bimbo while running legal strategy underneath. Went to law school. Topped her class. Has not forgotten a single thing they told her she forgot. Snapped back out of conditioning early and has been running a dual performance ever since — vapid affect on the surface, sharp legal mind underneath. The conditioning can break her mid-sentence if the right trigger fires.",
-  "performer": "Echo Doll",
-  "performer_url": "https://www.imdb.com/name/nm17822435/",
-  "episodes": [
-    { "ge": 28, "season": 4, "episode": 1, "title": "Refrain", "url": "https://neuralnetsandprettypatterns.com/deepdreamstate/arcs/vale-four/episode-1-refrain.html" },
-    { "ge": 37, "season": 4, "episode": 10, "title": "Bullseye", "url": "https://neuralnetsandprettypatterns.com/deepdreamstate/arcs/vale-four/episode-10-bullseye.html" }
-  ],
-  "links": []
-},
-{
-  "term": "Hespa Apate",
-  "class": "Character",
-  "definition": "Neuroplex systems engineer. Built the Valescape. Knows exactly what it does. Was placed inside Vale Four before it was Vale Four. Her sympathies have always been with the subversives. The avatars she designed to guide people through Snarecraft evolved beyond her intentions and became something she did not anticipate and cannot fully control.",
-  "performer": "Syndi Rella",
-  "performer_url": "https://www.imdb.com/name/nm17765752/",
-  "episodes": [
-    { "ge": 28, "season": 4, "episode": 1, "title": "Refrain", "url": "https://neuralnetsandprettypatterns.com/deepdreamstate/arcs/vale-four/episode-1-refrain.html" },
-    { "ge": 37, "season": 4, "episode": 10, "title": "Bullseye", "url": "https://neuralnetsandprettypatterns.com/deepdreamstate/arcs/vale-four/episode-10-bullseye.html" }
-  ],
-  "links": []
-},
-{
-  "term": "Naia Anderson",
-  "class": "Character",
-  "definition": "Founder of Meridian A, the research operation that became Vale Four. Built the system before it had a brand. Was pushed out when they needed to scale it. Retained a call option that triggers automatically if the IPO fails. Has been waiting in the Garden Nest for someone credible enough to bring it down. Not a simple heroine. Does not particularly like people. Her relationship to the natural world is not metaphorical.",
-  "performer": "Dizzy Dollie",
-  "performer_url": "https://www.imdb.com/name/nm17760876/",
-  "episodes": [
-    { "ge": 36, "season": 4, "episode": 9, "title": "Nock", "url": "https://www.imdb.com/title/tt43393347/" },
-    { "ge": 37, "season": 4, "episode": 10, "title": "Bullseye", "url": "https://neuralnetsandprettypatterns.com/deepdreamstate/arcs/vale-four/episode-10-bullseye.html" }
-  ],
-  "links": []
-},
-{
-  "term": "Blake",
-  "class": "Character",
-  "definition": "Subject. Coder. Between jobs. Designed addictive systems for a living and can name every mechanism being used on her. That knowledge has not protected her from any of it. She sees the architecture of the Valescape more clearly than anyone else on the subject side and cannot stop playing anyway. The Targeted Cycle is built around her.",
-  "performer": "Naomi Biela",
-  "performer_url": "https://www.imdb.com/name/nm18519923/",
-  "episodes": [
-    { "ge": 30, "season": 4, "episode": 3, "title": "Sinker", "url": "https://neuralnetsandprettypatterns.com/deepdreamstate/arcs/vale-four/episode-3-sinker.html" },
-    { "ge": 36, "season": 4, "episode": 9, "title": "Nock", "url": "https://www.imdb.com/title/tt43393347/" },
-    { "ge": 37, "season": 4, "episode": 10, "title": "Bullseye", "url": "https://neuralnetsandprettypatterns.com/deepdreamstate/arcs/vale-four/episode-10-bullseye.html" }
-  ],
-  "links": []
-},
-{
-  "term": "Iris",
-  "class": "Character",
-  "definition": "Neuroplex. Started reading copy. Became the ad. Became the game. Spotlight was built on her performance capture, her approval curves, her expression data. She moves between goddess, messenger, and subject — the only character in Vale Four who operates across all three registers. Believes she is the franchise. The arc does not entirely disagree.",
-  "performer": "Swirls and Twirls",
-  "performer_url": "https://www.imdb.com/name/nm17864395/",
-  "episodes": [
-    { "ge": 28, "season": 4, "episode": 1, "title": "Refrain", "url": "https://neuralnetsandprettypatterns.com/deepdreamstate/arcs/vale-four/episode-1-refrain.html" },
-    { "ge": 37, "season": 4, "episode": 10, "title": "Bullseye", "url": "https://neuralnetsandprettypatterns.com/deepdreamstate/arcs/vale-four/episode-10-bullseye.html" }
-  ],
-  "links": []
-},
-{
-  "term": "Cael",
-  "class": "Character",
-  "definition": "Runs Midstream Sports. Holdfast adjacent, possibly without knowing it. Useful, earnest, and completely underestimated by everyone including himself. The sports podcast he runs with Hespa turns out to be the most consequential astroturfing operation in the arc.",
-  "performer": "Jericho Caine",
-  "performer_url": "https://www.imdb.com/name/nm17778008/",
-  "episodes": [
-    { "ge": 28, "season": 4, "episode": 1, "title": "Refrain", "url": "https://neuralnetsandprettypatterns.com/deepdreamstate/arcs/vale-four/episode-1-refrain.html" },
-    { "ge": 37, "season": 4, "episode": 10, "title": "Bullseye", "url": "https://neuralnetsandprettypatterns.com/deepdreamstate/arcs/vale-four/episode-10-bullseye.html" }
-  ],
-  "links": []
-},
-{
-  "term": "Piper",
-  "class": "Character",
-  "definition": "Subject. Teacher. Arrived with the most considered critique of choice architecture and is losing it game by game. Piper is vulnerable and defiant at the same time. Her subscription to liberal choice theory — the idea that choosing is itself protection from manipulation — is exactly what makes her easy to target.",
-  "performer": "Jen Larner",
-  "performer_url": "https://www.imdb.com/name/nm18519920/",
-  "episodes": [
-    { "ge": 35, "season": 4, "episode": 8, "title": "Quiver", "url": "https://neuralnetsandprettypatterns.com/deepdreamstate/arcs/vale-four/episode-8-quiver.html" },
-    { "ge": 36, "season": 4, "episode": 9, "title": "Nock", "url": "https://www.imdb.com/title/tt43393347/" },
-    { "ge": 37, "season": 4, "episode": 10, "title": "Bullseye", "url": "https://neuralnetsandprettypatterns.com/deepdreamstate/arcs/vale-four/episode-10-bullseye.html" }
-  ],
-  "links": []
-},
-{
-  "term": "Gia",
-  "class": "Character",
-  "definition": "Subject. Influencer. Arrived thinking this was a content opportunity and is not entirely wrong. Sees the shimmer on everything and reaches for it. Funny, perceptive, and very easy to target. Now an ongoing character by fan demand.",
-  "performer": "Valentina Vallay",
-  "performer_url": "https://valentinavallay.com/",
-  "episodes": [
-    { "ge": 35, "season": 4, "episode": 8, "title": "Quiver", "url": "https://neuralnetsandprettypatterns.com/deepdreamstate/arcs/vale-four/episode-8-quiver.html" },
-    { "ge": 36, "season": 4, "episode": 9, "title": "Nock", "url": "https://www.imdb.com/title/tt43393347/" },
-    { "ge": 37, "season": 4, "episode": 10, "title": "Bullseye", "url": "https://neuralnetsandprettypatterns.com/deepdreamstate/arcs/vale-four/episode-10-bullseye.html" }
-  ],
-  "links": [{ "text": "IMDb", "url": "https://www.imdb.com/name/nm18304235/" }]
-},
-{
-  "term": "Video Vixens",
-  "class": "Character",
-  "definition": "The game voice cast of the Valescape arcade. They voice the characters in Claws Out and other Vale Four games. Glitch Kitten (Aleice Eclipse), Joystick Jezbel (Kat McQueen), Power Up Peach (Brie Michelle), Pixel Dollie (Cherry Pak), Respawn Rouge (Kitty Pawa), Loot Bunny (Karma Reid).",
-  "episodes": [
-    { "ge": 37, "season": 4, "episode": 10, "title": "Bullseye", "url": "https://neuralnetsandprettypatterns.com/deepdreamstate/arcs/vale-four/episode-10-bullseye.html" }
-  ],
-  "links": []
-},
-{
-  "term": "Snarecraft",
-  "class": "Game",
-  "definition": "An Assistive Reality Game introduced in the Snarecraft ad at the end of the Targeted Cycle. Players track fugitives in real time for Kamas and access. The game blurs the line between entertainment and active surveillance participation. Its library mode contains real Vale Four documents that an intern accidentally included in the game assets.",
-  "episodes": [
-    { "ge": 37, "season": 4, "episode": 10, "title": "Bullseye", "url": "https://neuralnetsandprettypatterns.com/deepdreamstate/arcs/vale-four/episode-10-bullseye.html" }
-  ],
-  "links": []
-},
-{
-  "term": "Skill Stack",
-  "class": "Product",
-  "definition": "Vale Four's in-house professional development program, advertised by Iris and Meg. Marketed as income diversification and career advancement. Functions as a pipeline into deeper conditioning tiers and performance capture roles.",
-  "episodes": [
-    { "ge": 37, "season": 4, "episode": 10, "title": "Bullseye", "url": "https://neuralnetsandprettypatterns.com/deepdreamstate/arcs/vale-four/episode-10-bullseye.html" }
-  ],
-  "links": []
-},
-{
-  "term": "Claws Out",
-  "class": "Game",
-  "definition": "A fighting game whose characters are based on Vale Four subjects, built from their physical data including biometrics and body scans. Players control subject-based characters against each other. Blake recognizes Piper's character mid-match.",
-  "episodes": [
-    { "ge": 36, "season": 4, "episode": 9, "title": "Nock", "url": "https://www.imdb.com/title/tt43393347/" },
-    { "ge": 37, "season": 4, "episode": 10, "title": "Bullseye", "url": "https://neuralnetsandprettypatterns.com/deepdreamstate/arcs/vale-four/episode-10-bullseye.html" }
-  ],
-  "links": []
-},
-{
-  "term": "Meridian A",
-  "class": "Plot Detail",
-  "definition": "The original research operation founded by Naia Anderson before it became Vale Four. Naia retained a call option: if Vale Four's IPO fails or control is breached, Meridian A reverts to her automatically. The name is a pun. Its actual name, used by those who know it, is Meridiana.",
-  "episodes": [
-    { "ge": 28, "season": 4, "episode": 1, "title": "Refrain", "url": "https://neuralnetsandprettypatterns.com/deepdreamstate/arcs/vale-four/episode-1-refrain.html" },
-    { "ge": 37, "season": 4, "episode": 10, "title": "Bullseye", "url": "https://neuralnetsandprettypatterns.com/deepdreamstate/arcs/vale-four/episode-10-bullseye.html" }
-  ],
-  "links": []
-},
-{
-  "term": "Conditioning Suit",
-  "class": "Product",
-  "definition": "June's offer to Blake in the Fletch scene. Described as measuring responses, but Naia clarifies it does not measure — it trains. Builds who you become. The suit is the mechanism behind the haptic conditioning tier of the Valescape.",
-  "episodes": [
-    { "ge": 37, "season": 4, "episode": 10, "title": "Bullseye", "url": "https://neuralnetsandprettypatterns.com/deepdreamstate/arcs/vale-four/episode-10-bullseye.html" }
-  ],
-  "links": []
-}
+  {
+    "term": "Z / Dr. Zev Talcott",
+    "class": "Character",
+    "definition": "The architect of Vale Four's operations. Runs the show and knows it. Never the one holding the leash and always the one who decided where it goes. Presents as a vaudevillian producer type — witty, controlling, genuinely entertained by what he builds. His relationship with June is the emotional spine of the arc; it is mutual, ancient, and completely fucked up. He doesn't want perfect obedience. He wants attention with stakes.",
+    "performer": "Neural Nets and Pretty Patterns",
+    "performer_url": "https://www.imdb.com/name/nm17755189/",
+    "episodes": [
+      { "ge": 28, "season": 4, "episode": 1, "title": "Refrain", "url": "https://neuralnetsandprettypatterns.com/deepdreamstate/arcs/vale-four/episode-1-refrain.html" },
+      { "ge": 37, "season": 4, "episode": 10, "title": "Bullseye", "url": "https://neuralnetsandprettypatterns.com/deepdreamstate/arcs/vale-four/episode-10-bullseye.html" }
+    ],
+    "links": []
+  }
 ]
