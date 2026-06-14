@@ -693,10 +693,31 @@
       .replace(/&/g, 'and').replace(/[^a-z0-9]+/g, '-').replace(/^-+|-+$/g, '');
   }
 
-  fetch('/deepdreamstate/glossary/glossary.json')
-    .then(r => { if (!r.ok) throw new Error('Glossary JSON failed: ' + r.status); return r.json(); })
-    .then(data => {
-      allTerms = data.sort((a, b) => a.term.localeCompare(b.term));
+function buildTermEpisodeMap(appearancesData) {
+    const map = {};
+    (appearancesData || []).forEach(ep => {
+      const epInfo = { ge: ep.ge, season: ep.season, episode: ep.episode, title: ep.title, url: ep.url };
+      (ep.terms || []).forEach(term => {
+        if (!map[term]) map[term] = [];
+        map[term].push(epInfo);
+      });
+    });
+    Object.values(map).forEach(arr => arr.sort((a, b) => a.ge - b.ge));
+    return map;
+  }
+
+  Promise.all([
+    fetch('/deepdreamstate/glossary/glossary.json')
+      .then(r => { if (!r.ok) throw new Error('Glossary JSON failed: ' + r.status); return r.json(); }),
+    fetch('/deepdreamstate/glossary/appearances.json')
+      .then(r => { if (!r.ok) throw new Error('Appearances JSON failed: ' + r.status); return r.json(); })
+      .catch(err => { console.error(err); return []; })
+  ])
+    .then(([glossaryData, appearancesData]) => {
+      const termEpisodeMap = buildTermEpisodeMap(appearancesData);
+      allTerms = glossaryData
+        .map(t => ({ ...t, episodes: termEpisodeMap[t.term] || [] }))
+        .sort((a, b) => a.term.localeCompare(b.term));
       buildAlphaNav();
       render();
     })
@@ -707,7 +728,7 @@
       warning.textContent = 'Search and filters could not load, but the glossary is still available below.';
       document.getElementById('glossary-body').before(warning);
     });
-
+  
   function buildAlphaNav() {
     const nav = document.getElementById('alpha-nav');
     const usedLetters = new Set(allTerms.filter(t => t.term).map(t => t.term[0].toUpperCase()));
