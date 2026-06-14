@@ -27,7 +27,8 @@
       { "ge": 1, "season": 1, "episode": 1, "title": "Maiden Voyage", "url": "https://neuralnetsandprettypatterns.com/deepdreamstate/arcs/chthonic/episode-1-maiden-voyage/" },
       { "ge": 2, "season": 1, "episode": 2, "title": "Cringetide", "url": "https://neuralnetsandprettypatterns.com/deepdreamstate/arcs/chthonic/episode-2-cringetide/" },
       { "ge": 4, "season": 1, "episode": 4, "title": "Asunder", "url": "https://neuralnetsandprettypatterns.com/deepdreamstate/arcs/chthonic/episode-4-asunder/" },
-      { "ge": 5, "season": 1, "episode": 5, "title": "Shower", "url": "https://neuralnetsandprettypatterns.com/deepdreamstate/arcs/chthonic/episode-5-shower/" }
+      { "ge": 5, "season": 1, "episode": 5, "title": "Shower", "url": "https://neuralnetsandprettypatterns.com/deepdreamstate/arcs/chthonic/episode-5-shower/" },
+      { "ge": 7, "season": 1, "episode": 7, "title": "Tessellated", "url": "https://neuralnetsandprettypatterns.com/deepdreamstate/arcs/chthonic/episode-7-tessellated/" }
     ],
     "links": []
   },
@@ -70,7 +71,8 @@
     "class": "Plot Detail",
     "definition": "A text Sarah finds in the Chthonic library, referencing a bride, a vessel, and an entity called the Old Groom. The passage she reads aloud describes a union that causes land to sink and seas to rise. It is the clearest statement in the arc of what the ceremony is actually for.",
     "episodes": [
-      { "ge": 5, "season": 1, "episode": 5, "title": "Shower", "url": "https://neuralnetsandprettypatterns.com/deepdreamstate/arcs/chthonic/episode-5-shower/" }
+      { "ge": 5, "season": 1, "episode": 5, "title": "Shower", "url": "https://neuralnetsandprettypatterns.com/deepdreamstate/arcs/chthonic/episode-5-shower/" },
+      { "ge": 7, "season": 1, "episode": 7, "title": "Tessellated", "url": "https://neuralnetsandprettypatterns.com/deepdreamstate/arcs/chthonic/episode-7-tessellated/" }
     ],
     "links": []
   },
@@ -93,7 +95,8 @@
     "definition": "Bowhead whale songs recorded and pitched up twelve octaves by Neural Nets and Pretty Patterns, producing a sound eerily close to human vocalization. Heard through the Chthonic's instrument room equipment. The show frames them not as ambient ocean noise but as intentional communication, something that wants to be heard. Selene describes them as guardians of the deep places. In E5 Kara tracks hundreds of them circling with no feeding pattern, no migration logic — just waiting.",
     "episodes": [
       { "ge": 3, "season": 1, "episode": 3, "title": "Veil", "url": "https://neuralnetsandprettypatterns.com/deepdreamstate/arcs/chthonic/episode-3-veil/" },
-      { "ge": 5, "season": 1, "episode": 5, "title": "Shower", "url": "https://neuralnetsandprettypatterns.com/deepdreamstate/arcs/chthonic/episode-5-shower/" }
+      { "ge": 5, "season": 1, "episode": 5, "title": "Shower", "url": "https://neuralnetsandprettypatterns.com/deepdreamstate/arcs/chthonic/episode-5-shower/" },
+      { "ge": 7, "season": 1, "episode": 7, "title": "Tessellated", "url": "https://neuralnetsandprettypatterns.com/deepdreamstate/arcs/chthonic/episode-7-tessellated/" }
     ],
     "links": []
   },
@@ -108,7 +111,8 @@
       { "ge": 2, "season": 1, "episode": 2, "title": "Cringetide", "url": "https://neuralnetsandprettypatterns.com/deepdreamstate/arcs/chthonic/episode-2-cringetide/" },
       { "ge": 3, "season": 1, "episode": 3, "title": "Veil", "url": "https://neuralnetsandprettypatterns.com/deepdreamstate/arcs/chthonic/episode-3-veil/" },
       { "ge": 4, "season": 1, "episode": 4, "title": "Asunder", "url": "https://neuralnetsandprettypatterns.com/deepdreamstate/arcs/chthonic/episode-4-asunder/" },
-      { "ge": 5, "season": 1, "episode": 5, "title": "Shower", "url": "https://neuralnetsandprettypatterns.com/deepdreamstate/arcs/chthonic/episode-5-shower/" }
+      { "ge": 5, "season": 1, "episode": 5, "title": "Shower", "url": "https://neuralnetsandprettypatterns.com/deepdreamstate/arcs/chthonic/episode-5-shower/" },
+      { "ge": 7, "season": 1, "episode": 7, "title": "Tessellated", "url": "https://neuralnetsandprettypatterns.com/deepdreamstate/arcs/chthonic/episode-7-tessellated/" }
     ],
     "links": []
   },
@@ -153,6 +157,15 @@
     "episodes": [
       { "ge": 36, "season": 4, "episode": 9, "title": "Nock", "url": "https://www.imdb.com/title/tt43393347/" },
       { "ge": 37, "season": 4, "episode": 10, "title": "Bullseye", "url": "https://neuralnetsandprettypatterns.com/deepdreamstate/arcs/vale-four/episode-10-bullseye.html" }
+    ],
+    "links": []
+  },
+  {
+    "term": "Cognitolol",
+    "class": "Plot Detail",
+    "definition": "A substance Alastair administers to Holly as part of her conditioning regimen. He counts feeding it to her among the steps that should have ensured compliance. Despite the dose, Holly's resistance held when it mattered, a failure Olivia mocks him for.",
+    "episodes": [
+      { "ge": 7, "season": 1, "episode": 7, "title": "Tessellated", "url": "https://neuralnetsandprettypatterns.com/deepdreamstate/arcs/chthonic/episode-7-tessellated/" }
     ],
     "links": []
   },
@@ -274,6 +287,15 @@
     "links": []
   },
   {
+    "term": "Gold Stars",
+    "class": "Plot Detail",
+    "definition": "The reward system at the center of Nikki's conditioning. Stars are earned through obedience and worn as embroidered marks of status, reframing total compliance as achievement. Nikki describes them as the only thing that matters, and recalls crying the first time she was given one.",
+    "episodes": [
+      { "ge": 7, "season": 1, "episode": 7, "title": "Tessellated", "url": "https://neuralnetsandprettypatterns.com/deepdreamstate/arcs/chthonic/episode-7-tessellated/" }
+    ],
+    "links": []
+  },
+  {
     "term": "Hespa Apate",
     "class": "Character",
     "definition": "Neuroplex systems engineer. Built the Valescape. Knows exactly what it does. Was placed inside Vale Four before it was Vale Four. Her sympathies have always been with the subversives. The avatars she designed to guide people through Snarecraft evolved beyond her intentions and became something she did not anticipate and cannot fully control.",
@@ -297,14 +319,24 @@
   {
     "term": "Holly",
     "class": "Character",
-    "definition": "Alastair's companion aboard the Chthonic. Presents as cheerful and compliant, but passes information in a dissociated state and her loyalty to Alastair is more complicated than it first appears. By E4 she participates in the ceremony and is loaned to Captain Dyer as a reward. In E5 she is the one who identifies Kara and Sarah as ideal vessels, noting their curiosity and obsessive need to understand as what makes them perfect prey.",
+    "definition": "Alastair's companion aboard the Chthonic. Presents as cheerful and compliant, but passes information in a dissociated state and her loyalty to Alastair is more complicated than it first appears. By E4 she participates in the ceremony and is loaned to Captain Dyer as a reward. In E5 she is the one who identifies Kara and Sarah as ideal vessels, noting their curiosity and obsessive need to understand as what makes them perfect prey. In E7 she leads Sarah and Mairead through a confession ritual in the ship's archive, framing surrender as revelation even as Selene intervenes.",
     "performer": "Dizzy Dollie",
     "performer_url": "https://deepdreamstate.blubrry.net/dizzy-dollie/",
     "episodes": [
       { "ge": 1, "season": 1, "episode": 1, "title": "Maiden Voyage", "url": "https://neuralnetsandprettypatterns.com/deepdreamstate/arcs/chthonic/episode-1-maiden-voyage/" },
       { "ge": 2, "season": 1, "episode": 2, "title": "Cringetide", "url": "https://neuralnetsandprettypatterns.com/deepdreamstate/arcs/chthonic/episode-2-cringetide/" },
       { "ge": 4, "season": 1, "episode": 4, "title": "Asunder", "url": "https://neuralnetsandprettypatterns.com/deepdreamstate/arcs/chthonic/episode-4-asunder/" },
-      { "ge": 5, "season": 1, "episode": 5, "title": "Shower", "url": "https://neuralnetsandprettypatterns.com/deepdreamstate/arcs/chthonic/episode-5-shower/" }
+      { "ge": 5, "season": 1, "episode": 5, "title": "Shower", "url": "https://neuralnetsandprettypatterns.com/deepdreamstate/arcs/chthonic/episode-5-shower/" },
+      { "ge": 7, "season": 1, "episode": 7, "title": "Tessellated", "url": "https://neuralnetsandprettypatterns.com/deepdreamstate/arcs/chthonic/episode-7-tessellated/" }
+    ],
+    "links": []
+  },
+  {
+    "term": "Hupakoē",
+    "class": "Plot Detail",
+    "definition": "A university and affiliated podcast, the Hupakoē Herald, where Holly studied goddess myths and naditu lore before the Chthonic. Captain Dyer and Olivia reveal it as a long-running pipeline, a decade of funded lectures and symposia designed to plant the beliefs Holly now holds and believes she chose herself. The name is Greek for obedience.",
+    "episodes": [
+      { "ge": 7, "season": 1, "episode": 7, "title": "Tessellated", "url": "https://neuralnetsandprettypatterns.com/deepdreamstate/arcs/chthonic/episode-7-tessellated/" }
     ],
     "links": []
   },
@@ -323,6 +355,15 @@
     "definition": "A pet-state phrase from E6, read aloud by Sarah as the book pushes her from personhood into trained obedience. The line marks the moment the episode's conditioning shifts from service into pettification.",
     "episodes": [
       { "ge": 6, "season": 1, "episode": 6, "title": "Garter", "url": "https://neuralnetsandprettypatterns.com/deepdreamstate/arcs/chthonic/episode-6-garter/" }
+    ],
+    "links": []
+  },
+  {
+    "term": "Inanna",
+    "class": "Plot Detail",
+    "definition": "The Mesopotamian goddess invoked in the confession ritual Holly leads in the ship's archive. Holly tells Mairead that Inanna absolves, framing the confession of guilt as the entry point into surrender.",
+    "episodes": [
+      { "ge": 7, "season": 1, "episode": 7, "title": "Tessellated", "url": "https://neuralnetsandprettypatterns.com/deepdreamstate/arcs/chthonic/episode-7-tessellated/" }
     ],
     "links": []
   },
@@ -393,6 +434,15 @@
     "links": []
   },
   {
+    "term": "Leviathan Brides",
+    "class": "Plot Detail",
+    "definition": "A ritual text sequence in the Chthonic's archive, found alongside the Hymn of R'lyeh and the Binding of Waters. Part of the seeded research Holly is led to discover, designed to escalate her sense of spiritual revelation and guide her toward the naditu cleanse.",
+    "episodes": [
+      { "ge": 7, "season": 1, "episode": 7, "title": "Tessellated", "url": "https://neuralnetsandprettypatterns.com/deepdreamstate/arcs/chthonic/episode-7-tessellated/" }
+    ],
+    "links": []
+  },
+  {
     "term": "Magus",
     "class": "Plot Detail",
     "definition": "A title used in private for Captain William, distinct from his public-facing rank. It signals a hidden authority structure aboard the ship that operates separately from its cruise company cover. In E4 both Holly and Olivia address him directly as Magus during the ceremony.",
@@ -406,13 +456,14 @@
   {
     "term": "Mairead",
     "class": "Character",
-    "definition": "Spa manager of the Chthonic's wellness center, and the crew member most visibly caught between survival and self-destruction. A skilled poker player with a gambling debt Alastair holds over her. Her assignment to guide the Tunngavik excursion is coercion dressed as opportunity.",
+    "definition": "Spa manager of the Chthonic's wellness center, and the crew member most visibly caught between survival and self-destruction. A skilled poker player with a gambling debt Alastair holds over her. Her assignment to guide the Tunngavik excursion is coercion dressed as opportunity. In E7 her guilt over what she has watched and participated in nearly pulls her into Holly's confession ritual before Selene calls a halt.",
     "performer": "Bun-li",
     "performer_url": "https://deepdreamstate.blubrry.net/bun-li/",
     "episodes": [
       { "ge": 1, "season": 1, "episode": 1, "title": "Maiden Voyage", "url": "https://neuralnetsandprettypatterns.com/deepdreamstate/arcs/chthonic/episode-1-maiden-voyage/" },
       { "ge": 2, "season": 1, "episode": 2, "title": "Cringetide", "url": "https://neuralnetsandprettypatterns.com/deepdreamstate/arcs/chthonic/episode-2-cringetide/" },
-      { "ge": 3, "season": 1, "episode": 3, "title": "Veil", "url": "https://neuralnetsandprettypatterns.com/deepdreamstate/arcs/chthonic/episode-3-veil/" }
+      { "ge": 3, "season": 1, "episode": 3, "title": "Veil", "url": "https://neuralnetsandprettypatterns.com/deepdreamstate/arcs/chthonic/episode-3-veil/" },
+      { "ge": 7, "season": 1, "episode": 7, "title": "Tessellated", "url": "https://neuralnetsandprettypatterns.com/deepdreamstate/arcs/chthonic/episode-7-tessellated/" }
     ],
     "links": []
   },
@@ -471,10 +522,11 @@
   {
     "term": "Naditu",
     "class": "Plot Detail",
-    "definition": "In ancient Mesopotamia, the naditu were a class of consecrated women, typically associated with temples, who lived under religious restrictions and devoted themselves to service of a deity. The show reaches for this term at the Tunngavik site to name what is happening to the chosen women: not possession, not sacrifice, but a very old kind of dedication. The word carries weight across thousands of years of documented practice. In E5 the ritual logic surfaces again in the library texts Kara and Sarah read: through the cleansing waters, the vessel is stripped of memory, washed of self.",
+    "definition": "In ancient Mesopotamia, the naditu were a class of consecrated women, typically associated with temples, who lived under religious restrictions and devoted themselves to service of a deity. The show reaches for this term at the Tunngavik site to name what is happening to the chosen women: not possession, not sacrifice, but a very old kind of dedication. The word carries weight across thousands of years of documented practice. In E5 the ritual logic surfaces again in the library texts Kara and Sarah read: through the cleansing waters, the vessel is stripped of memory, washed of self. In E7 Captain Dyer and Olivia reveal the term was seeded into Holly's education at Hupakoē long before the voyage, and Holly leads Sarah through a naditu cleanse chant in the ship's archive.",
     "episodes": [
       { "ge": 3, "season": 1, "episode": 3, "title": "Veil", "url": "https://neuralnetsandprettypatterns.com/deepdreamstate/arcs/chthonic/episode-3-veil/" },
-      { "ge": 5, "season": 1, "episode": 5, "title": "Shower", "url": "https://neuralnetsandprettypatterns.com/deepdreamstate/arcs/chthonic/episode-5-shower/" }
+      { "ge": 5, "season": 1, "episode": 5, "title": "Shower", "url": "https://neuralnetsandprettypatterns.com/deepdreamstate/arcs/chthonic/episode-5-shower/" },
+      { "ge": 7, "season": 1, "episode": 7, "title": "Tessellated", "url": "https://neuralnetsandprettypatterns.com/deepdreamstate/arcs/chthonic/episode-7-tessellated/" }
     ],
     "links": [{ "text": "Naditu (Wikipedia)", "url": "https://en.wikipedia.org/wiki/Naditu" }]
   },
@@ -526,12 +578,13 @@
   {
     "term": "Nikita",
     "class": "Character",
-    "definition": "Ship maid of the Chthonic, introduced by Olivia as a demonstration. Her uniform is described as scandalous. She hears things no one else notices because no one locks up their secrets around the maid. Her whispered phrase after Room 203 — puppets program puppets — surfaces something the show will not let go of.",
+    "definition": "Ship maid of the Chthonic, introduced by Olivia as a demonstration. Her uniform is described as scandalous. She hears things no one else notices because no one locks up their secrets around the maid. Her whispered phrase after Room 203 — puppets program puppets — surfaces something the show will not let go of. In E7 she appears in surveillance playback as Nikki, fully conditioned, reporting on Holly's movements and reciting the gold star creed for Captain Dyer and Olivia.",
     "performer": "Echo",
     "performer_url": "https://deepdreamstate.blubrry.net/echo/",
     "episodes": [
       { "ge": 1, "season": 1, "episode": 1, "title": "Maiden Voyage", "url": "https://neuralnetsandprettypatterns.com/deepdreamstate/arcs/chthonic/episode-1-maiden-voyage/" },
-      { "ge": 2, "season": 1, "episode": 2, "title": "Cringetide", "url": "https://neuralnetsandprettypatterns.com/deepdreamstate/arcs/chthonic/episode-2-cringetide/" }
+      { "ge": 2, "season": 1, "episode": 2, "title": "Cringetide", "url": "https://neuralnetsandprettypatterns.com/deepdreamstate/arcs/chthonic/episode-2-cringetide/" },
+      { "ge": 7, "season": 1, "episode": 7, "title": "Tessellated", "url": "https://neuralnetsandprettypatterns.com/deepdreamstate/arcs/chthonic/episode-7-tessellated/" }
     ],
     "links": []
   },
@@ -556,28 +609,30 @@
   {
     "term": "Old Groom, The",
     "class": "Plot Detail",
-    "definition": "The entity named in The Binding of Waters. The passage reads: the Old Groom shall claim his bride, through her the land shall sink, the seas rise, washed anew for the New Order. The name positions the cosmic horror not as a destroyer but as a bridegroom, and the ceremony not as sacrifice but as a wedding.",
+    "definition": "The entity named in The Binding of Waters. The passage reads: the Old Groom shall claim his bride, through her the land shall sink, the seas rise, washed anew for the New Order. The name positions the cosmic horror not as a destroyer but as a bridegroom, and the ceremony not as sacrifice but as a wedding. In E7 Captain Dyer confirms that when the Groom calls again, Emma will open and answer, regardless of how much she remembers.",
     "episodes": [
-      { "ge": 5, "season": 1, "episode": 5, "title": "Shower", "url": "https://neuralnetsandprettypatterns.com/deepdreamstate/arcs/chthonic/episode-5-shower/" }
+      { "ge": 5, "season": 1, "episode": 5, "title": "Shower", "url": "https://neuralnetsandprettypatterns.com/deepdreamstate/arcs/chthonic/episode-5-shower/" },
+      { "ge": 7, "season": 1, "episode": 7, "title": "Tessellated", "url": "https://neuralnetsandprettypatterns.com/deepdreamstate/arcs/chthonic/episode-7-tessellated/" }
     ],
     "links": []
   },
   {
     "term": "Old Ones, The",
     "class": "Plot Detail",
-    "definition": "Ancient entities whose presence underlies the events of Season 1, framed by Captain William as the true owners of the space the crew inhabits. Selene references a coming reckoning in their name. The framework draws on Lovecraftian mythology while routing it through the mechanics of corporate power.",
+    "definition": "Ancient entities whose presence underlies the events of Season 1, framed by Captain William as the true owners of the space the crew inhabits. Selene references a coming reckoning in their name. The framework draws on Lovecraftian mythology while routing it through the mechanics of corporate power. In E7 Selene tells Sarah and the others that the Old Ones don't want to harm them, framing what's coming as deliverance rather than doom.",
     "episodes": [
       { "ge": 1, "season": 1, "episode": 1, "title": "Maiden Voyage", "url": "https://neuralnetsandprettypatterns.com/deepdreamstate/arcs/chthonic/episode-1-maiden-voyage/" },
       { "ge": 3, "season": 1, "episode": 3, "title": "Veil", "url": "https://neuralnetsandprettypatterns.com/deepdreamstate/arcs/chthonic/episode-3-veil/" },
       { "ge": 4, "season": 1, "episode": 4, "title": "Asunder", "url": "https://neuralnetsandprettypatterns.com/deepdreamstate/arcs/chthonic/episode-4-asunder/" },
-      { "ge": 5, "season": 1, "episode": 5, "title": "Shower", "url": "https://neuralnetsandprettypatterns.com/deepdreamstate/arcs/chthonic/episode-5-shower/" }
+      { "ge": 5, "season": 1, "episode": 5, "title": "Shower", "url": "https://neuralnetsandprettypatterns.com/deepdreamstate/arcs/chthonic/episode-5-shower/" },
+      { "ge": 7, "season": 1, "episode": 7, "title": "Tessellated", "url": "https://neuralnetsandprettypatterns.com/deepdreamstate/arcs/chthonic/episode-7-tessellated/" }
     ],
     "links": [{ "text": "Great Old Ones (Lovecraft)", "url": "https://en.wikipedia.org/wiki/Great_Old_Ones" }]
   },
   {
     "term": "Olivia",
     "class": "Character",
-    "definition": "Cruise director of the Chthonic. The public face of the operation, managing guests while navigating the ship's hidden power structure. Nearly introduces herself as Olivia Nameless before catching herself. In E4 she co-officiates the ceremony and delivers the show's central creed without breaking stride. In E5 she agrees with Holly's assessment that Kara and Sarah's obsessive curiosity makes them perfect prey.",
+    "definition": "Cruise director of the Chthonic. The public face of the operation, managing guests while navigating the ship's hidden power structure. Nearly introduces herself as Olivia Nameless before catching herself. In E4 she co-officiates the ceremony and delivers the show's central creed without breaking stride. In E5 she agrees with Holly's assessment that Kara and Sarah's obsessive curiosity makes them perfect prey. In E7 she reviews surveillance playback with Captain Dyer, dresses down Alastair for the previous episode's failure, and oversees Nikki's conditioning report.",
     "performer": "Bliss Blank",
     "performer_url": "https://deepdreamstate.blubrry.net/blissblank/",
     "episodes": [
@@ -585,7 +640,8 @@
       { "ge": 2, "season": 1, "episode": 2, "title": "Cringetide", "url": "https://neuralnetsandprettypatterns.com/deepdreamstate/arcs/chthonic/episode-2-cringetide/" },
       { "ge": 3, "season": 1, "episode": 3, "title": "Veil", "url": "https://neuralnetsandprettypatterns.com/deepdreamstate/arcs/chthonic/episode-3-veil/" },
       { "ge": 4, "season": 1, "episode": 4, "title": "Asunder", "url": "https://neuralnetsandprettypatterns.com/deepdreamstate/arcs/chthonic/episode-4-asunder/" },
-      { "ge": 5, "season": 1, "episode": 5, "title": "Shower", "url": "https://neuralnetsandprettypatterns.com/deepdreamstate/arcs/chthonic/episode-5-shower/" }
+      { "ge": 5, "season": 1, "episode": 5, "title": "Shower", "url": "https://neuralnetsandprettypatterns.com/deepdreamstate/arcs/chthonic/episode-5-shower/" },
+      { "ge": 7, "season": 1, "episode": 7, "title": "Tessellated", "url": "https://neuralnetsandprettypatterns.com/deepdreamstate/arcs/chthonic/episode-7-tessellated/" }
     ],
     "links": []
   },
@@ -669,20 +725,22 @@
   {
     "term": "R'lyeh",
     "class": "Plot Detail",
-    "definition": "The sunken city from Lovecraft's mythology, whispered by Selene as the destination the bowhead whales are guarding. In the Cthulhu mythos, R'lyeh is where the Great Old One Cthulhu lies dreaming beneath the Pacific Ocean, waiting. The show places it in the Arctic, beneath the ice, close enough to touch from the Chthonic's excursion route. In E5 Kara's entire library research is oriented around it, tracking the signs of its awakening in real ocean data.",
+    "definition": "The sunken city from Lovecraft's mythology, whispered by Selene as the destination the bowhead whales are guarding. In the Cthulhu mythos, R'lyeh is where the Great Old One Cthulhu lies dreaming beneath the Pacific Ocean, waiting. The show places it in the Arctic, beneath the ice, close enough to touch from the Chthonic's excursion route. In E5 Kara's entire library research is oriented around it, tracking the signs of its awakening in real ocean data. In E7 a Hymn of R'lyeh appears among the seeded ritual texts Holly finds in the archive.",
     "episodes": [
       { "ge": 3, "season": 1, "episode": 3, "title": "Veil", "url": "https://neuralnetsandprettypatterns.com/deepdreamstate/arcs/chthonic/episode-3-veil/" },
-      { "ge": 5, "season": 1, "episode": 5, "title": "Shower", "url": "https://neuralnetsandprettypatterns.com/deepdreamstate/arcs/chthonic/episode-5-shower/" }
+      { "ge": 5, "season": 1, "episode": 5, "title": "Shower", "url": "https://neuralnetsandprettypatterns.com/deepdreamstate/arcs/chthonic/episode-5-shower/" },
+      { "ge": 7, "season": 1, "episode": 7, "title": "Tessellated", "url": "https://neuralnetsandprettypatterns.com/deepdreamstate/arcs/chthonic/episode-7-tessellated/" }
     ],
     "links": [{ "text": "R'lyeh (Lovecraft)", "url": "https://en.wikipedia.org/wiki/R%27lyeh" }]
   },
   {
     "term": "Room 203",
     "class": "Setting",
-    "definition": "In Japanese horror culture, Room 203 carries specific weight. The number originates with Nanami Kamon's 2003 novel, about a woman driven to ruin by an inexplicable curse in her apartment, and expanded through internet folklore into the archetypal haunted room, the one where something went wrong and never stopped. Alastair's cabin aboard the Chthonic. Selene knows immediately where Nikita has been.",
+    "definition": "In Japanese horror culture, Room 203 carries specific weight. The number originates with Nanami Kamon's 2003 novel, about a woman driven to ruin by an inexplicable curse in her apartment, and expanded through internet folklore into the archetypal haunted room, the one where something went wrong and never stopped. Alastair's cabin aboard the Chthonic. Selene knows immediately where Nikita has been. In E7 Captain Dyer threatens to put another bed in Room 203 as a warning to Olivia.",
     "episodes": [
       { "ge": 1, "season": 1, "episode": 1, "title": "Maiden Voyage", "url": "https://neuralnetsandprettypatterns.com/deepdreamstate/arcs/chthonic/episode-1-maiden-voyage/" },
-      { "ge": 2, "season": 1, "episode": 2, "title": "Cringetide", "url": "https://neuralnetsandprettypatterns.com/deepdreamstate/arcs/chthonic/episode-2-cringetide/" }
+      { "ge": 2, "season": 1, "episode": 2, "title": "Cringetide", "url": "https://neuralnetsandprettypatterns.com/deepdreamstate/arcs/chthonic/episode-2-cringetide/" },
+      { "ge": 7, "season": 1, "episode": 7, "title": "Tessellated", "url": "https://neuralnetsandprettypatterns.com/deepdreamstate/arcs/chthonic/episode-7-tessellated/" }
     ],
     "links": [{ "text": "Room 203 (Variety)", "url": "https://variety.com/2020/film/asia/akatsuki-wraps-room-203-adaptation-of-japanese-horror-tale-1234845149/" }]
   },
@@ -698,7 +756,7 @@
   {
     "term": "Sarah",
     "class": "Character",
-    "definition": "Bridesmaid. The skeptic of the group, and the one Kara identifies as the smart one, for now. Her resistance at the Tunngavik site is the most articulate, and the most temporary. By E4 she speaks in the ceremony's register. In E5 she is in the library with Kara, cross-referencing ancient texts, and she is the one who follows the secret note alone.",
+    "definition": "Bridesmaid. The skeptic of the group, and the one Kara identifies as the smart one, for now. Her resistance at the Tunngavik site is the most articulate, and the most temporary. By E4 she speaks in the ceremony's register. In E5 she is in the library with Kara, cross-referencing ancient texts, and she is the one who follows the secret note alone. In E7 that note leads her, Holly, and the others through the ship's corridors into the archive, where Holly begins walking her through a naditu cleanse before Selene pulls her back.",
     "performer": "Ring of Keys",
     "performer_url": "https://deepdreamstate.blubrry.net/ring-of-kees/",
     "episodes": [
@@ -706,20 +764,22 @@
       { "ge": 2, "season": 1, "episode": 2, "title": "Cringetide", "url": "https://neuralnetsandprettypatterns.com/deepdreamstate/arcs/chthonic/episode-2-cringetide/" },
       { "ge": 3, "season": 1, "episode": 3, "title": "Veil", "url": "https://neuralnetsandprettypatterns.com/deepdreamstate/arcs/chthonic/episode-3-veil/" },
       { "ge": 4, "season": 1, "episode": 4, "title": "Asunder", "url": "https://neuralnetsandprettypatterns.com/deepdreamstate/arcs/chthonic/episode-4-asunder/" },
-      { "ge": 5, "season": 1, "episode": 5, "title": "Shower", "url": "https://neuralnetsandprettypatterns.com/deepdreamstate/arcs/chthonic/episode-5-shower/" }
+      { "ge": 5, "season": 1, "episode": 5, "title": "Shower", "url": "https://neuralnetsandprettypatterns.com/deepdreamstate/arcs/chthonic/episode-5-shower/" },
+      { "ge": 7, "season": 1, "episode": 7, "title": "Tessellated", "url": "https://neuralnetsandprettypatterns.com/deepdreamstate/arcs/chthonic/episode-7-tessellated/" }
     ],
     "links": []
   },
   {
     "term": "Selene",
     "class": "Character",
-    "definition": "Chief purser of the Chthonic, and its oldest crew member by her own account. She will be with the ship until it sinks. Keeper of the instrument room, where she monitors the deep ocean for sounds that travel for miles. She passes forbidden knowledge to passengers she judges ready for it, and speaks of a returning power that will change things when the time comes.",
+    "definition": "Chief purser of the Chthonic, and its oldest crew member by her own account. She will be with the ship until it sinks. Keeper of the instrument room, where she monitors the deep ocean for sounds that travel for miles. She passes forbidden knowledge to passengers she judges ready for it, and speaks of a returning power that will change things when the time comes. In E7 she leads Sarah, Mairead, and Holly through the ship's corridors, confirms the bowheads are still circling, and intervenes when Holly's confession ritual pushes too far on Sarah.",
     "performer": "Syndi_Rella",
     "performer_url": "https://deepdreamstate.blubrry.net/syndi-rella/",
     "episodes": [
       { "ge": 1, "season": 1, "episode": 1, "title": "Maiden Voyage", "url": "https://neuralnetsandprettypatterns.com/deepdreamstate/arcs/chthonic/episode-1-maiden-voyage/" },
       { "ge": 2, "season": 1, "episode": 2, "title": "Cringetide", "url": "https://neuralnetsandprettypatterns.com/deepdreamstate/arcs/chthonic/episode-2-cringetide/" },
-      { "ge": 3, "season": 1, "episode": 3, "title": "Veil", "url": "https://neuralnetsandprettypatterns.com/deepdreamstate/arcs/chthonic/episode-3-veil/" }
+      { "ge": 3, "season": 1, "episode": 3, "title": "Veil", "url": "https://neuralnetsandprettypatterns.com/deepdreamstate/arcs/chthonic/episode-3-veil/" },
+      { "ge": 7, "season": 1, "episode": 7, "title": "Tessellated", "url": "https://neuralnetsandprettypatterns.com/deepdreamstate/arcs/chthonic/episode-7-tessellated/" }
     ],
     "links": []
   },
@@ -792,9 +852,10 @@
   {
     "term": "There's Always a Bigger Tentacle",
     "class": "Plot Detail",
-    "definition": "A law of the deep invoked by Kara in E6. The phrase names the Chthonic power structure in miniature: every trap sits inside a larger trap, and every apparent controller can be answered by something deeper.",
+    "definition": "A law of the deep invoked by Kara in E6. The phrase names the Chthonic power structure in miniature: every trap sits inside a larger trap, and every apparent controller can be answered by something deeper. In E7 surveillance playback opens with this line from Kara, echoing and distorted, before Olivia jokes that she thought she was the bigger tentacle.",
     "episodes": [
-      { "ge": 6, "season": 1, "episode": 6, "title": "Garter", "url": "https://neuralnetsandprettypatterns.com/deepdreamstate/arcs/chthonic/episode-6-garter/" }
+      { "ge": 6, "season": 1, "episode": 6, "title": "Garter", "url": "https://neuralnetsandprettypatterns.com/deepdreamstate/arcs/chthonic/episode-6-garter/" },
+      { "ge": 7, "season": 1, "episode": 7, "title": "Tessellated", "url": "https://neuralnetsandprettypatterns.com/deepdreamstate/arcs/chthonic/episode-7-tessellated/" }
     ],
     "links": []
   },
@@ -811,12 +872,22 @@
   {
     "term": "Tiffany",
     "class": "Character",
-    "definition": "Bridesmaid. She stopped sleeping. She did not go to Tunngavik.",
+    "definition": "Bridesmaid. She stopped sleeping. She did not go to Tunngavik. In E7 her voice surfaces in surveillance playback, dreamy and barely conscious, echoing phrases like good girl and they're coming.",
     "performer": "Britt Reprogrammed",
     "performer_url": "https://deepdreamstate.blubrry.net/britt-reprogrammed/",
     "episodes": [
       { "ge": 1, "season": 1, "episode": 1, "title": "Maiden Voyage", "url": "https://neuralnetsandprettypatterns.com/deepdreamstate/arcs/chthonic/episode-1-maiden-voyage/" },
-      { "ge": 2, "season": 1, "episode": 2, "title": "Cringetide", "url": "https://neuralnetsandprettypatterns.com/deepdreamstate/arcs/chthonic/episode-2-cringetide/" }
+      { "ge": 2, "season": 1, "episode": 2, "title": "Cringetide", "url": "https://neuralnetsandprettypatterns.com/deepdreamstate/arcs/chthonic/episode-2-cringetide/" },
+      { "ge": 7, "season": 1, "episode": 7, "title": "Tessellated", "url": "https://neuralnetsandprettypatterns.com/deepdreamstate/arcs/chthonic/episode-7-tessellated/" }
+    ],
+    "links": []
+  },
+  {
+    "term": "Treatstick",
+    "class": "Product",
+    "definition": "A reward item Nikki requests by name from Olivia, part of the same conditioning economy as the gold stars. Olivia defers the request, promising to share later.",
+    "episodes": [
+      { "ge": 7, "season": 1, "episode": 7, "title": "Tessellated", "url": "https://neuralnetsandprettypatterns.com/deepdreamstate/arcs/chthonic/episode-7-tessellated/" }
     ],
     "links": []
   },
@@ -931,7 +1002,7 @@
   {
     "term": "William Dyer",
     "class": "Character",
-    "definition": "Captain of the Chthonic, privately titled Magus. The name is a direct reference to the narrator of Lovecraft's At the Mountains of Madness. States he has been doing it for 144 years, suggesting he is not entirely human. In E4 he officiates the ceremony and sets the terms of Emma's transformation. In E5 Holly notes that the Dreamer may have a different dream in mind than Alastair's, signaling a divergence of interest within the ship's own power structure.",
+    "definition": "Captain of the Chthonic, privately titled Magus. The name is a direct reference to the narrator of Lovecraft's At the Mountains of Madness. States he has been doing it for 144 years, suggesting he is not entirely human. In E4 he officiates the ceremony and sets the terms of Emma's transformation. In E5 Holly notes that the Dreamer may have a different dream in mind than Alastair's, signaling a divergence of interest within the ship's own power structure. In E7 he reviews surveillance with Olivia, disciplines Alastair over the previous episode's failure, and confirms that Emma will answer when the Groom calls again.",
     "performer": "Neural Nets",
     "performer_url": "https://deepdreamstate.blubrry.net/neural-nets-and-pretty-patterns/",
     "episodes": [
@@ -939,7 +1010,8 @@
       { "ge": 2, "season": 1, "episode": 2, "title": "Cringetide", "url": "https://neuralnetsandprettypatterns.com/deepdreamstate/arcs/chthonic/episode-2-cringetide/" },
       { "ge": 3, "season": 1, "episode": 3, "title": "Veil", "url": "https://neuralnetsandprettypatterns.com/deepdreamstate/arcs/chthonic/episode-3-veil/" },
       { "ge": 4, "season": 1, "episode": 4, "title": "Asunder", "url": "https://neuralnetsandprettypatterns.com/deepdreamstate/arcs/chthonic/episode-4-asunder/" },
-      { "ge": 5, "season": 1, "episode": 5, "title": "Shower", "url": "https://neuralnetsandprettypatterns.com/deepdreamstate/arcs/chthonic/episode-5-shower/" }
+      { "ge": 5, "season": 1, "episode": 5, "title": "Shower", "url": "https://neuralnetsandprettypatterns.com/deepdreamstate/arcs/chthonic/episode-5-shower/" },
+      { "ge": 7, "season": 1, "episode": 7, "title": "Tessellated", "url": "https://neuralnetsandprettypatterns.com/deepdreamstate/arcs/chthonic/episode-7-tessellated/" }
     ],
     "links": [{ "text": "At the Mountains of Madness (Lovecraft)", "url": "https://en.wikipedia.org/wiki/At_the_Mountains_of_Madness" }]
   },
