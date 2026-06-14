@@ -2,7 +2,7 @@
   "meta": {
     "baseline_catalogue_count": 665,
     "baseline_cutoff_date": "2026-05-20",
-    "last_updated": "2026-06-03",
+    "last_updated": "2026-06-14",
     "artist": {
       "name": "Neural Nets and Pretty Patterns",
       "isni": "0000 0005 2877 6254",
@@ -41,6 +41,37 @@
     }
   },
   "new_releases": [
+    {
+      "nnpp_id": "NNPP-SEALED",
+      "title": "Sealed",
+      "series": [
+        "Deep Dream State",
+        "Vale Four"
+      ],
+      "release_date": "2026-06-14",
+      "genre": [
+        "Audio Drama",
+        "Desire Horror"
+      ],
+      "power_geometry": [],
+      "format": "Pure audio",
+      "length": "24:26",
+      "duration_iso": "PT24M26S",
+      "canonical_url": "https://www.patreon.com/minderaser/posts/sealed-audio-161093871",
+      "same_as": [],
+      "image": "",
+      "links": [
+        {
+          "label": "Patreon",
+          "url": "https://www.patreon.com/minderaser/posts/sealed-audio-161093871"
+        }
+      ],
+      "is_free": false,
+      "description": "Sealed is a Deep Dream State audio release in the Vale Four arc. It continues the Neuralverse's desire horror focus on systems, identity, performance, and control. Released on Patreon as a 24:26 pure audio work.",
+      "credits": {
+        "creator": "Neural Nets and Pretty Patterns"
+      }
+    },
     {
       "nnpp_id": "NNPP-BRD",
       "title": "Brane Day",
@@ -124,7 +155,7 @@
         }
       ],
       "is_free": false,
-      "description": "Just My Type (Haptic) brings haptic storytelling to the Back Office training scenario. Haptic narrative was developed by Neural Nets and Pretty Patterns in conjunction with QDot and XToys, which still actively maintains the interface. The training scenarios are perfect for haptics \u2014 corporate-seeming at first, with a darker story running beneath. The typing noises produce something very special. All haptics sound unusual on regular players but work well on XToys. Full content warnings and descriptions available on the main audio track.",
+      "description": "Just My Type (Haptic) brings haptic storytelling to the Back Office training scenario. Haptic narrative was developed by Neural Nets and Pretty Patterns in conjunction with QDot and XToys, which still actively maintains the interface. The training scenarios are perfect for haptics, corporate-seeming at first, with a darker story running beneath. The typing noises produce something very special. All haptics sound unusual on regular players but work well on XToys. Full content warnings and descriptions available on the main audio track.",
       "credits": {
         "performer": "Panda Moanium",
         "performer_imdb": "https://www.imdb.com/name/nm18291392/"
