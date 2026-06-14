@@ -847,12 +847,102 @@
       }
     ]
   },
-  {
+    {
     "term": "Z / Dr. Zev Talcott",
     "class": "Character",
-    "definition": "The architect of Vale Four's operations. Runs the show and knows it. Never the one holding the leash and always the one who decided where it goes. Presents as a vaudevillian producer type — witty, controlling, genuinely entertained by what he builds. His relationship with June is the emotional spine of the arc; it is mutual, ancient, and completely fucked up. He doesn't want perfect obedience. He wants attention with stakes.",
+    "definition": "The architect of Vale Four's operations. Runs the show and knows it. Never the one holding the leash, and always the one who decided where it goes. Presents as a vaudevillian producer type: witty, controlling, and genuinely entertained by what he builds.",
     "performer": "Neural Nets and Pretty Patterns",
     "performer_url": "https://www.imdb.com/name/nm17755189/",
+    "links": []
+  },
+  {
+    "term": "Violet Verdier",
+    "class": "Character",
+    "definition": "The central subject of Violet. She enters therapy in a state of severe anxiety, haunted by memories of the Pink Room and convinced that her past is visible to everyone around her. Her panic, grounding exercises, showroom flashbacks, and ritual integration make her the first major subject of the Incognitoh arc. Violet's fear is not simply treated by the system; it becomes the material the system uses.",
+    "links": []
+  },
+  {
+    "term": "Lilly Ekimmu",
+    "class": "Character",
+    "definition": "Violet's therapist at Deep Dream Wellness. She presents her work through clinical progress notes, diagnosis language, grounding exercises, and reassuring therapeutic control. As the episode unfolds, Lilly's role shifts from treatment provider to ritual participant. Her office practice reveals itself as part of the same apparatus Violet fears.",
+    "links": []
+  },
+  {
+    "term": "Bella",
+    "class": "Character",
+    "definition": "A ritual guide and antagonist figure in Violet's grounding sequence. Bella mocks Violet's anxiety, reframes the Pink Room as fantasy, and insists that the ritual landscape is real. She calls Violet Chloe, turning a name into a category of weakness and performance. Her function is to convert therapy language into humiliation, control, and instruction.",
+    "links": []
+  },
+  {
+    "term": "Candi",
+    "class": "Character",
+    "definition": "A chorus figure in the Violet ritual sequence. Candi leads and echoes the threefold chant, reinforcing the movement from therapeutic counting into collective ritual. Her stage-whispered responses make the ritual feel coordinated, rehearsed, and already underway before Violet understands it.",
+    "links": []
+  },
+  {
+    "term": "Deep Dream Wellness",
+    "class": "Setting",
+    "definition": "The apparent therapy office where Violet receives treatment from Lilly Ekimmu. The space presents itself through clinical notes, diagnosis codes, grounding exercises, and anxiety management. Its calm surface is part of the trap. The episode reveals the office as a therapeutic front for deeper conditioning.",
+    "links": []
+  },
+  {
+    "term": "Pink Room, The",
+    "class": "Setting",
+    "definition": "The room Violet remembers as the source of her fear, shame, and showroom bleedthrough. It is associated with the dream machine, lotus clothes, tokens, cameras, collar marks, and Ash. Violet experiences it as something that follows her into public life. Ordinary spaces become extensions of the Pink Room once she believes everyone can see what happened there.",
+    "links": []
+  },
+  {
+    "term": "Showroom, The",
+    "class": "Setting",
+    "definition": "The watched space Violet keeps returning to in memory and panic. She hears locks, cameras, tokens, whispers, and laughter. She believes the people around her can see what happened there. The showroom turns exposure into the mechanism, making fear itself part of the performance.",
+    "links": []
+  },
+  {
+    "term": "3-3-3",
+    "class": "Plot Detail",
+    "definition": "A grounding exercise used on Violet. The pattern asks for three things seen, three things heard, and three body sensations. In Violet, the technique begins as anxiety management and mutates into a ritual structure. It carries the episode from therapy office to stones to whorship to final integration.",
+    "links": []
+  },
+  {
+    "term": "Grounded",
+    "class": "Plot Detail",
+    "definition": "A therapeutic word that changes meaning over the course of Violet. At first, being grounded means staying calm and oriented in reality. By the ritual sequence, it means being placed in the body, placed on the grass, and placed inside the circle. The safety technique becomes a way to make Violet participate in her own containment.",
+    "links": []
+  },
+  {
+    "term": "Offering, The",
+    "class": "Plot Detail",
+    "definition": "The ritual designation for Ash's chosen girls in Violet. Bella describes the women on the stones as lucky, best, and offered. Lilly later repeats the logic herself, making the offering not just an image Violet sees, but a status the episode is moving her toward.",
+    "links": []
+  },
+  {
+    "term": "Whorship",
+    "class": "Plot Detail",
+    "definition": "Bella's name for the ritual in Violet. The term collapses worship, exposure, bodily performance, shame, and devotion into one word. It marks the point where Violet's grounding exercise fully becomes a collective rite.",
+    "links": []
+  },
+  {
+    "term": "Dream Machine",
+    "class": "Product",
+    "definition": "A device associated with the Pink Room and Violet's altered memories. Violet hears its waves during grounding and later recalls being strapped to it. The machine functions as both clinical object and dream apparatus, blurring treatment, programming, and fantasy.",
+    "links": []
+  },
+  {
+    "term": "Deeper Dream State",
+    "class": "Plot Detail",
+    "definition": "The escalation named in Lilly's final progress note for Violet. It reframes the episode's therapy, ritual, and integration as archive material inside a deeper institutional layer. The phrase suggests that Deep Dream State is not only the show's title, but also an in-world status or process.",
+    "links": []
+  },
+  {
+    "term": "Chloe",
+    "class": "Plot Detail",
+    "definition": "Bella's dismissive category for Violet during the ritual sequence. Chloe is not treated as a name so much as a type: anxious, self-conscious, eager to narrate her suffering, and easy to redirect. The term turns Violet's identity into a role she can be mocked into occupying.",
+    "links": []
+  },
+  {
+    "term": "Violet, Velvet, Vixen",
+    "class": "Plot Detail",
+    "definition": "A threefold naming sequence chanted during Violet's ritual. The phrase turns Violet's name into a progression of identities, moving from person to texture to performed creature. It mirrors the episode's larger pattern of therapeutic counting becoming ritual transformation.",
     "links": []
   }
 ]
