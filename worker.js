@@ -128,6 +128,14 @@ export default {
       });
     }
 
+    if (p === "/deepdreamstate/glossary/appearances.json") {
+      const res = await fetch("https://raw.githubusercontent.com/NeuralNetsAndPrettyPatterns/neuralnetsandprettypatterns/main/deepdreamstate/glossary/appearances.json");
+      return new Response(await res.text(), {
+        status: res.ok ? 200 : 404,
+        headers: { "content-type": "application/json; charset=utf-8", "cache-control": "no-store" }
+      });
+    }
+
     if (p === "/deepdreamstate/arcs" || p === "/deepdreamstate/arcs/")
       return serveHtml("/deepdreamstate/arcs/index.html", true);
 
