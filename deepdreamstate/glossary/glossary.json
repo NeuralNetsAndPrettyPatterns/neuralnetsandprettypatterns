@@ -939,10 +939,64 @@
     "definition": "Bella's dismissive category for Violet during the ritual sequence. Chloe is not treated as a name so much as a type: anxious, self-conscious, eager to narrate her suffering, and easy to redirect. The term turns Violet's identity into a role she can be mocked into occupying.",
     "links": []
   },
-  {
+    {
     "term": "Violet, Velvet, Vixen",
     "class": "Plot Detail",
     "definition": "A threefold naming sequence chanted during Violet's ritual. The phrase turns Violet's name into a progression of identities, moving from person to texture to performed creature. It mirrors the episode's larger pattern of therapeutic counting becoming ritual transformation.",
+    "links": []
+  },
+  {
+    "term": "Glass House",
+    "class": "Setting",
+    "definition": "The transparent competition space in Glass Houses. The Glass House makes privacy conditional, visible, and gamified: contestants can control who sees them, but using privacy too often becomes suspicious. Its architecture turns the ordinary act of living together into surveillance, strategy, and performance.",
+    "links": []
+  },
+  {
+    "term": "Secret Icon",
+    "class": "Game",
+    "definition": "A contestant's hidden Incognitoh identity. Each player chooses an icon and must keep it secret while trying to identify everyone else's. The secret icon turns personality, preference, and self-presentation into clues the other contestants can use against them.",
+    "links": []
+  },
+  {
+    "term": "Synthservs",
+    "class": "Product",
+    "definition": "Synthetic service entities used by Neuroplex and its associated systems. In Glass Houses, April identifies herself as a house synthserv: an automated helper built directly into the Glass House, managing comfort, rules, visibility, and game flow while presenting control as service.",
+    "links": []
+  },
+  {
+    "term": "Sleepy Circle",
+    "class": "Setting",
+    "definition": "The radial room arrangement inside the Glass House, described by Kitty as the sleepy circle. Its dollhouse structure makes private life part of the game architecture, with each contestant's room functioning as both personal space and surveilled performance cell.",
+    "links": []
+  },
+  {
+    "term": "Wine Mom",
+    "class": "Plot Detail",
+    "definition": "Kimberley's self-conscious social label in Glass Houses, tied to age, femininity, embarrassment, and the way the other contestants read her. Her attempt to play into the joke by choosing the bottle icon makes her easier to identify, turning a stereotype into a game liability.",
+    "links": []
+  },
+  {
+    "term": "Obedienta",
+    "class": "Plot Detail",
+    "definition": "A diminutive label used by the Council while observing the Glass House. The word frames obedience as identity, performance, and visible status, turning compliance into something watched, judged, and praised.",
+    "links": []
+  },
+  {
+    "term": "Immunity Challenge",
+    "class": "Game",
+    "definition": "A Glass House competition in which contestants try to earn protection from exposure and elimination. In Glass Houses, the immunity challenge requires players to perform privately while remaining identifiable only to themselves, making silence, recognition, and embarrassment part of the game mechanics.",
+    "links": []
+  },
+  {
+    "term": "Immunity Token",
+    "class": "Game",
+    "definition": "A reward that protects a player from exposure by allowing a reshuffle. If a contestant's old icon is identified, the immunity token can erase the disadvantage by changing the game state, making it both a prize and a temporary escape hatch.",
+    "links": []
+  },
+  {
+    "term": "Exposed",
+    "class": "Game",
+    "definition": "The state of being correctly identified in Incognitoh. A contestant is exposed when the other players connect their name to their secret icon, or when a player correctly stops an immunity challenge performance. Exposure turns secrecy into public loss and makes visibility the game's central punishment.",
     "links": []
   }
 ]
