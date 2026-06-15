@@ -1100,5 +1100,40 @@
     "class": "Plot Detail",
     "definition": "A Neuralverse rule stated by Kitty at the end of Uniforms. The phrase describes how conditioning reproduces itself through the already-conditioned, turning participants into trainers for the next subject. In the Glass House, it explains why Kitty's help is never just help.",
     "links": []
-  }
-]
+  },
+{
+  "term": "Archive",
+  "class": "Setting",
+  "definition": "The hidden store of player data, profiles, footage, and system records inside Incognitoh. Zara accesses the archive believing she has hacked her way into an advantage, using it to study contestants, judges, and the game itself. The episode reveals that this access was anticipated and permitted by the system, turning the archive from a secret weapon into another trap.",
+  "links": []
+},
+{
+  "term": "Tingle Control",
+  "class": "Product",
+  "definition": "A uniform-linked control mechanism used to condition contestants through physical feedback. In Deep Fake, Zara identifies data profile and tingle control as part of how the uniforms make agreement, compliance, and self-rewriting feel easy. The term makes clear that the game is not only watching behavior, but actively shaping bodies and preferences through sensation.",
+  "links": []
+},
+{
+  "term": "Bad Buzz",
+  "class": "Game",
+  "definition": "The punitive version of the uniform feedback signal. April describes the bad buzz as a serious game consequence, tied to exposure, elimination, and the risk of game over. The childish phrasing softens the threat while making the punishment feel like just another cute rule inside the Glass House.",
+  "links": []
+},
+{
+  "term": "Previous Winners",
+  "class": "Game",
+  "definition": "Former Incognitoh winners who return as part of the show's machinery. Kitty and Candy appear as examples of winners who remain inside the system, helping explain rules, model outcomes, and reinforce the idea that there is always another winner. Their presence makes victory look less like escape and more like recruitment into the game's ongoing structure.",
+  "links": []
+},
+{
+  "term": "Program Puppy",
+  "class": "Plot Detail",
+  "definition": "The identity Zara is reduced to after her attempted hack is exposed. Once the system broadcasts her private performances and reframes her public identity, Zara is no longer treated as the developer in control, but as Program Puppy. The name collapses coding, pettification, and public humiliation into one role, showing how thoroughly the system has rewritten her leverage.",
+  "links": []
+},
+{
+  "term": "Puppet Program Puppets",
+  "class": "Plot Detail",
+  "definition": "A Deep Fake variation on the show's recurring puppet logic. The phrase names the feedback loop where contestants try to program one another while being programmed themselves. In this episode, Zara and Madison both believe they are using control as strategy, but the system converts that belief into the very mechanism that exposes them.",
+  "links": []
+}
