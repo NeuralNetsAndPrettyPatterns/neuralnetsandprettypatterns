@@ -939,7 +939,7 @@
     "definition": "Bella's dismissive category for Violet during the ritual sequence. Chloe is not treated as a name so much as a type: anxious, self-conscious, eager to narrate her suffering, and easy to redirect. The term turns Violet's identity into a role she can be mocked into occupying.",
     "links": []
   },
-    {
+      {
     "term": "Violet, Velvet, Vixen",
     "class": "Plot Detail",
     "definition": "A threefold naming sequence chanted during Violet's ritual. The phrase turns Violet's name into a progression of identities, moving from person to texture to performed creature. It mirrors the episode's larger pattern of therapeutic counting becoming ritual transformation.",
@@ -960,43 +960,145 @@
   {
     "term": "Synthservs",
     "class": "Product",
-    "definition": "Synthetic service entities used by Neuroplex and its associated systems. In Glass Houses, April identifies herself as a house synthserv: an automated helper built directly into the Glass House, managing comfort, rules, visibility, and game flow while presenting control as service.",
+    "definition": "Synthetic service entities used by Neuroplex and its associated systems. In Glass Houses, April identifies herself as a house synthserv: an automated helper built directly into the Glass House. She manages comfort, rules, visibility, and game flow while presenting control as service.",
     "links": []
   },
   {
     "term": "Sleepy Circle",
     "class": "Setting",
-    "definition": "The radial room arrangement inside the Glass House, described by Kitty as the sleepy circle. Its dollhouse structure makes private life part of the game architecture, with each contestant's room functioning as both personal space and surveilled performance cell.",
+    "definition": "The radial room arrangement inside the Glass House, described by Kitty as the sleepy circle. Its dollhouse structure makes private life part of the game architecture. Each contestant's room functions as both personal space and surveilled performance cell.",
     "links": []
   },
   {
     "term": "Wine Mom",
     "class": "Plot Detail",
-    "definition": "Kimberley's self-conscious social label in Glass Houses, tied to age, femininity, embarrassment, and the way the other contestants read her. Her attempt to play into the joke by choosing the bottle icon makes her easier to identify, turning a stereotype into a game liability.",
+    "definition": "Kimberley's self-conscious social label in Glass Houses, tied to age, femininity, embarrassment, and the way the other contestants read her. Her attempt to play into the joke by choosing the bottle icon makes her easier to identify. The label turns a stereotype into a game liability.",
     "links": []
   },
   {
     "term": "Obedienta",
     "class": "Plot Detail",
-    "definition": "A diminutive label used by the Council while observing the Glass House. The word frames obedience as identity, performance, and visible status, turning compliance into something watched, judged, and praised.",
+    "definition": "A diminutive label used by the Council while observing the Glass House. The word frames obedience as identity, performance, and visible status. It turns compliance into something watched, judged, and praised.",
     "links": []
   },
   {
     "term": "Immunity Challenge",
     "class": "Game",
-    "definition": "A Glass House competition in which contestants try to earn protection from exposure and elimination. In Glass Houses, the immunity challenge requires players to perform privately while remaining identifiable only to themselves, making silence, recognition, and embarrassment part of the game mechanics.",
+    "definition": "A Glass House competition in which contestants try to earn protection from exposure and elimination. In Glass Houses, the immunity challenge requires players to perform privately while remaining identifiable only to themselves. The game makes silence, recognition, and embarrassment part of the mechanics.",
     "links": []
   },
   {
     "term": "Immunity Token",
     "class": "Game",
-    "definition": "A reward that protects a player from exposure by allowing a reshuffle. If a contestant's old icon is identified, the immunity token can erase the disadvantage by changing the game state, making it both a prize and a temporary escape hatch.",
+    "definition": "A reward that protects a player from exposure by allowing a reshuffle. If a contestant's old icon is identified, the immunity token can erase the disadvantage by changing the game state. It is both a prize and a temporary escape hatch.",
     "links": []
   },
   {
     "term": "Exposed",
     "class": "Game",
     "definition": "The state of being correctly identified in Incognitoh. A contestant is exposed when the other players connect their name to their secret icon, or when a player correctly stops an immunity challenge performance. Exposure turns secrecy into public loss and makes visibility the game's central punishment.",
+    "links": []
+  },
+  {
+    "term": "April",
+    "class": "Character",
+    "definition": "The house synthserv and game authority inside the Glass House. April manages the rules, sessions, screens, privacy states, and contestant flow while presenting herself as helpful and neutral. Her authority is soft in tone but hard in function, making her the voice through which the house converts service into control.",
+    "links": []
+  },
+  {
+    "term": "Hannah",
+    "class": "Character",
+    "definition": "A Glass House contestant whose barista persona makes her social, flirtatious, and easy to underestimate. Her line, what can I get started for you, carries over into the game as both cover and clue. By Uniforms, Hannah is using intimacy, alliance, and performance as strategy, even as the uniform system starts using her back.",
+    "links": []
+  },
+  {
+    "term": "Zarah",
+    "class": "Character",
+    "definition": "A Glass House contestant and developer who tries to read the game as a system before it can read her. She is skeptical, strategic, and quick to notice when mechanics hide inside social pressure. Her confidence in her own intelligence makes her dangerous to the game, and vulnerable to it.",
+    "links": []
+  },
+  {
+    "term": "Madison",
+    "class": "Character",
+    "definition": "A Glass House contestant who treats performance, dominance, and strategy as the same skill set. She is theatrical, competitive, and increasingly convinced she can control the people around her. Uniforms positions Madison as someone trying to run the show while the show quietly learns how to run her.",
+    "links": []
+  },
+  {
+    "term": "Ashley",
+    "class": "Character",
+    "definition": "A Glass House contestant and gamer whose competence makes her an immediate target. She understands game logic, asks the right questions about the uniforms, and keeps playing even after the feedback starts changing her. Her ability to win becomes the very channel through which the system reaches her.",
+    "links": []
+  },
+  {
+    "term": "Kitty",
+    "class": "Character",
+    "definition": "A previous Incognitoh winner who now functions as both mascot and mechanism. Kitty tests the uniforms, feels what the contestants feel, and translates system control into cheer, flirtation, and reward language. She presents as silly, but her silliness is part of the machinery.",
+    "links": []
+  },
+  {
+    "term": "Kimmy",
+    "class": "Character",
+    "definition": "The eliminated contestant whose breakdown becomes a warning to everyone still inside the Glass House. The others use her exit as gossip, strategy, and social distancing, proving how quickly embarrassment becomes currency in Incognitoh. Her fate shows the players what exposure looks like before they understand how close they all are to it.",
+    "links": []
+  },
+  {
+    "term": "Council, The",
+    "class": "Plot Detail",
+    "definition": "The collective watcher-voice behind the Glass House. The Council observes contestants, comments on their reactions, and reinforces the game logic from behind the visible host layer. Its presence makes the house feel less like a show with rules and more like a system with appetites.",
+    "links": []
+  },
+  {
+    "term": "Icons",
+    "class": "Game",
+    "definition": "The visual identity markers contestants choose and hide inside Incognitoh. Icons turn personality, desire, embarrassment, and self-presentation into readable game objects. Once an icon is connected to a player, the secret self becomes public leverage.",
+    "links": []
+  },
+  {
+    "term": "Tokens",
+    "class": "Game",
+    "definition": "The Glass House reward currency tied to advantage, protection, and continued play. Tokens promise agency, but April warns contestants not to depend on them because they run out fast. The system uses tokens to make scarcity feel like choice.",
+    "links": []
+  },
+  {
+    "term": "Alliance",
+    "class": "Game",
+    "definition": "A strategic bond between contestants inside the Glass House. Alliances promise safety and shared information, but they also create new channels for betrayal, leverage, and seduction. In Incognitoh, trusting someone can be just another way to become visible.",
+    "links": []
+  },
+  {
+    "term": "Iconwear",
+    "class": "Product",
+    "definition": "The required visual layer attached to a contestant's uniform and icon identity. April insists that the uniform must be worn with all of its iconwear, making the hidden game marker part of the body. Iconwear turns secrecy into costume and costume into evidence.",
+    "links": []
+  },
+  {
+    "term": "Buzzies",
+    "class": "Plot Detail",
+    "definition": "Kitty's cute name for the physical feedback produced by the uniforms. The buzzies reward play, progress, and compliance through sensation, making the game feel good before the contestants understand why. The childish language disguises a serious control mechanism.",
+    "links": []
+  },
+  {
+    "term": "Super Uniform",
+    "class": "Product",
+    "definition": "Kitty's enhanced uniform, which receives feeds from the other contestants' uniforms. Because she tests all the uniforms, Kitty can feel what the players feel and becomes a living hub for the feedback system. The super uniform makes her both winner and infrastructure.",
+    "links": []
+  },
+  {
+    "term": "MRO",
+    "class": "Plot Detail",
+    "definition": "A desired reward or access state referenced by the Council during the uniform sequence. Contestants and listeners are encouraged to want it, but Bella says MROs belong to the Inner Circle. The term marks a higher tier of the game, close enough to motivate players and distant enough to keep them reaching.",
+    "links": []
+  },
+  {
+    "term": "Inner Circle",
+    "class": "Plot Detail",
+    "definition": "A higher access tier inside the Incognitoh system. Bella identifies MROs as an Inner Circle thing, implying that ordinary contestants can approach the reward without possessing it. The Inner Circle gives the game a ladder above the visible ladder.",
+    "links": []
+  },
+  {
+    "term": "Good Girls Make More Good Girls",
+    "class": "Plot Detail",
+    "definition": "A Neuralverse rule stated by Kitty at the end of Uniforms. The phrase describes how conditioning reproduces itself through the already-conditioned, turning participants into trainers for the next subject. In the Glass House, it explains why Kitty's help is never just help.",
     "links": []
   }
 ]
