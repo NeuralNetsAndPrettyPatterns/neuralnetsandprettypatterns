@@ -1208,5 +1208,120 @@
   "class": "Product",
   "definition": "A Neuroplex-linked investigative service advertised in the closing sequence of The Chain. The ad presents Neuro Discovery as a detective operation for missing persons, corporate investigations, and hidden truths. Its promise of state-of-the-art technology and old-fashioned intuition sounds reassuring, but in the context of Incognitoh it reads as another surveillance product. The slogan, your mystery is our mission, turns discovery itself into a corporate service.",
   "links": []
+},
+  ,
+{
+  "term": "Sitri Center",
+  "class": "Setting",
+  "definition": "The research institution at the center of the Sitri arc. Sitri presents itself as a dream-therapy and lucid-dream research facility, but its work quickly moves from observation into behavioral architecture. The Center is not just a place where dreams are studied; it is a system that learns how to use dreams as structure, leverage, and control.",
+  "links": []
+},
+{
+  "term": "Applied Dream Engineering",
+  "class": "Plot Detail",
+  "definition": "Tessa Finn's Sitri research discipline. Applied Dream Engineering treats dreams as systems that can be analyzed, altered, and rewritten rather than simply interpreted. Its therapeutic language makes the work sound clinical and constructive, but the episode immediately shows how easily engineering a dream becomes engineering the dreamer.",
+  "links": []
+},
+{
+  "term": "Dream Chamber",
+  "class": "Setting",
+  "definition": "The room where Sitri subjects sleep, dream, and become readable to the research team. Its soundscape is defined by controlled hum, medical stillness, and binaural atmosphere. The chamber appears passive at first, but it functions as the physical interface between subject, dream, and institutional control.",
+  "links": []
+},
+{
+  "term": "Construct 37",
+  "class": "Plot Detail",
+  "definition": "Tessa's mastery prototype for Phoebe Bosworth's first intervention trial. Construct 37 is designed to disrupt recursive shame loops and guide Phoebe toward an altered response pattern. The construct begins as therapy, but its failure to control the dream reveals the central danger of Sitri: the dream is not only being rewritten, it is starting to write back.",
+  "links": []
+},
+{
+  "term": "Threat-Simulation Theory",
+  "class": "Plot Detail",
+  "definition": "The clinical framework Tessa uses to explain Phoebe's embarrassment dreams. In her reading, the dream rehearses fear so the mind can master it. Meg challenges that optimism, arguing that Phoebe's subconscious is not rehearsing resilience but repeating a reward loop. The disagreement names the episode's first major fault line: therapy versus appetite, diagnosis versus desire.",
+  "links": []
+},
+{
+  "term": "Fifi",
+  "class": "Plot Detail",
+  "definition": "The name imposed on Phoebe inside the classroom dream. Cael uses it while directing her to the blackboard, reducing Phoebe's adult identity into a smaller and more performable role. The name marks the dream's shift from anxiety scenario into behavioral script. Fifi is not simply a nickname; it is an early sign that the dream can rename the subject.",
+  "links": []
+},
+{
+  "term": "Better Self",
+  "class": "Product",
+  "definition": "A sponsored mindfulness app advertised before the first Sitri session. Better Self promises calm, habit reshaping, sleep focus, and evidence-based audio support. Its language mirrors Sitri's clinical optimism while quietly introducing the arc's core idea: self-improvement becomes most dangerous when the self is treated as editable software.",
+  "links": []
+},
+{
+  "term": "Please Space",
+  "class": "Product",
+  "definition": "A meditation product advertised in the middle of Rehearsal. Please Space promises to guide the listener away from noise and into the silence they crave. Its language moves from wellness into command, especially through the phrase reset, rewire, rewrite. Like Better Self, it presents surrender to structure as relief.",
+  "links": []
+},
+{
+  "term": "Reset. Rewire. Rewrite.",
+  "class": "Plot Detail",
+  "definition": "The Please Space slogan and one of the Sitri arc's cleanest statements of method. Each verb sounds therapeutic in isolation, but together they describe escalating control over the mind. Reset removes the current state, rewire changes the underlying pathways, and rewrite replaces the script. The phrase turns wellness branding into a procedural outline for transformation.",
+  "links": []
+},
+{
+  "term": "Gold Star Girl",
+  "class": "Plot Detail",
+  "definition": "Zev's teasing name for Tessa in Rehearsal. The phrase connects Tessa's competence, ambition, and susceptibility to reward into one compact label. It also echoes the broader Neuralverse reward economy, where praise and achievement often become mechanisms of control. In the Sitri context, gold star girl is affectionate on the surface and diagnostic underneath.",
+  "links": []
+},
+{
+  "term": "Cael (Sitri)",
+  "class": "Character",
+  "definition": "Cael's Sitri presentation appears inside the dream as a teacherly and ritualized presence. They speak with calm authority, turning classroom structure into instruction and humiliation into procedure. This version of Cael is less a conventional guide than a sign that the dream has begun generating institutional figures of its own. Their voice marks a crossing deeper into the system.",
+  "links": []
+},
+{
+  "term": "Hespa Apate (Sitri)",
+  "class": "Character",
+  "definition": "Hespa's Sitri presentation functions as a clinical handoff voice inside the dream. They deliver information, correction, and reinforcement with almost no emotional disturbance. In Rehearsal, Hespa helps convert Phoebe's fear into a staged lesson, making the dream feel administered rather than accidental. This version of Hespa belongs to the machinery of transition and compliance.",
+  "links": []
+},
+{
+  "term": "Iris Vale (Sitri)",
+  "class": "Character",
+  "definition": "Iris Vale's Sitri presentation begins as the sponsored voice of wellness. She delivers Better Self and Please Space copy with warmth, smoothness, and a cadence that feels too intimate to be merely commercial. In this arc, Iris seems to operate from behind the veil of the institution, half advertisement and half protocol. Whether she is person, brand, ghost, or system remains deliberately unstable.",
+  "links": []
+},
+{
+  "term": "June Lowell (Sitri)",
+  "class": "Character",
+  "definition": "June Lowell's Sitri presentation is the disciplinary intelligence of the research team. She is precise, controlled, and openly impatient with optimism that outruns methodology. June does not need to raise her voice to dominate the room; her authority comes from certainty and institutional alignment. In Rehearsal, she frames the experiment as a matter of rigor, validation, and outcome control.",
+  "links": []
+},
+{
+  "term": "Meg Aerin (Sitri)",
+  "class": "Character",
+  "definition": "Meg Aerin's Sitri presentation is rational, combative, and intensely guarded. She challenges Tessa's therapeutic optimism by arguing that Phoebe's dreams are not maladaptive rehearsals but escalating reward loops. Meg's skepticism makes her seem protected, but the episode also shows how easily her pride, rivalry, and appetite can become part of the experiment. She enters as the critic of the system and already sounds like one of its instruments.",
+  "links": []
+},
+{
+  "term": "Tessa Finn (Sitri)",
+  "class": "Character",
+  "definition": "Tessa Finn's Sitri presentation is an applied dream engineer and true believer in therapeutic intervention. She wants to reshape fear into mastery and insists that Phoebe's dreams can be guided toward control. Her confidence is sincere, but the episode immediately places that confidence under pressure from Meg, June, Zev, and the dream itself. Sitri Tessa is not Vale Four Tessa; this version still believes the machine can heal because she has not yet understood what else it wants.",
+  "links": []
+},
+{
+  "term": "Z / Dr. Zev Talcott (Sitri)",
+  "class": "Character",
+  "definition": "Zev Talcott's Sitri presentation is a corporate operator wrapped in fake-casual charm. He downplays titles, softens conflict, and makes control feel like personal attention. His presence reveals that Sitri is not just a research project but part of a larger infrastructure of performance, funding, and behavioral leverage. Zev rarely needs to issue a direct order because the room is already shaped around what he wants.",
+  "links": []
+},
+{
+  "term": "Nyra",
+  "class": "Character",
+  "definition": "A dream figure whose identity appears unstable and may shift names across the Sitri arc. Nyra speaks in soothing, insistent affirmations that blend meditation, programming, and praise. She does not feel like a single person so much as a recurring voice pattern, an echo of a deeper institutional presence inside the dream. When Nyra speaks, the system sounds as if it has learned how to comfort and command at the same time.",
+  "links": []
+},
+{
+  "term": "Phoebe Bosworth",
+  "class": "Character",
+  "definition": "Sitri's first active subject in Rehearsal. Phoebe's dreams center on visibility, embarrassment, and the fear that everyone can see what she is trying to hide. Tessa reads her case as a chance for therapeutic mastery, while Meg sees an escalating reward loop the intervention is unlikely to control. Phoebe becomes the first proof that the dream is not simply a symptom to be treated; it is a structure that can answer back.",
+  "links": []
 }
 ]
