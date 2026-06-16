@@ -181,6 +181,76 @@
     }
     .footer-credit a { color: inherit; text-decoration: none; }
     .footer-credit a:hover { opacity: 1; }
+
+    .index-view-card {
+      margin: 0 0 2.5rem;
+      padding: 1.25rem;
+      border: 1px solid rgba(232,232,232,0.18);
+      border-radius: 8px;
+      background: rgba(255,255,255,0.06);
+    }
+    .index-view-card h2 {
+      font-size: 1.35rem;
+      font-weight: normal;
+      letter-spacing: 0.08em;
+      margin-bottom: 0.5rem;
+    }
+    .index-view-card p {
+      font-size: 0.9rem;
+      line-height: 1.6;
+      opacity: 0.75;
+      margin-bottom: 1rem;
+    }
+    .index-view-stats {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 0.75rem;
+      margin-bottom: 1rem;
+    }
+    .index-view-stat {
+      border: 1px solid rgba(232,232,232,0.18);
+      border-radius: 6px;
+      padding: 0.45rem 0.7rem;
+      background: rgba(0,0,0,0.14);
+      font-size: 0.8rem;
+      letter-spacing: 0.05em;
+      opacity: 0.8;
+    }
+    .index-view-actions {
+      display: flex;
+      gap: 0.5rem;
+      flex-wrap: wrap;
+      margin-bottom: 1rem;
+    }
+    .index-view-copy {
+      padding: 0.35rem 0.85rem;
+      border: 1px solid rgba(232,232,232,0.35);
+      border-radius: 20px;
+      background: transparent;
+      color: #e8e8e8;
+      font-family: 'IM Fell DW Pica', serif;
+      font-size: 0.85rem;
+      cursor: pointer;
+      transition: all 0.2s ease;
+    }
+    .index-view-copy:hover {
+      background: rgba(232,232,232,0.15);
+      border-color: rgba(232,232,232,0.7);
+    }
+    .index-view-output {
+      width: 100%;
+      min-height: 430px;
+      padding: 0.75rem;
+      border: 1px solid rgba(232,232,232,0.2);
+      border-radius: 6px;
+      background: rgba(0,0,0,0.22);
+      color: #e8e8e8;
+      font-family: ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, "Liberation Mono", monospace;
+      font-size: 0.78rem;
+      line-height: 1.45;
+      resize: vertical;
+      white-space: pre;
+    }
     @media (max-width: 600px) {
       main { padding: 2rem 1rem; }
       .page-header h1 { font-size: 1.8rem; }
@@ -238,6 +308,7 @@
       <button class="filter-btn" data-class="Plot Detail">Plot Detail</button>
       <button class="filter-btn" data-class="Product">Product</button>
       <button class="filter-btn" data-class="Metashow">Metashow</button>
+      <button class="filter-btn" data-class="Index View">Index View</button>
     </div>
   </div>
 
@@ -681,6 +752,7 @@
   const CLASS_SLUG = c => c.toLowerCase().replace(/\s+/g, '-');
 
   let allTerms = [];
+  let appearancesIndex = [];
   let activeClass = 'all';
   let searchQuery = '';
 
@@ -714,7 +786,8 @@ function buildTermEpisodeMap(appearancesData) {
       .catch(err => { console.error(err); return []; })
   ])
     .then(([glossaryData, appearancesData]) => {
-      const termEpisodeMap = buildTermEpisodeMap(appearancesData);
+      appearancesIndex = appearancesData || [];
+      const termEpisodeMap = buildTermEpisodeMap(appearancesIndex);
       allTerms = glossaryData
         .map(t => ({ ...t, episodes: termEpisodeMap[t.term] || [] }))
         .sort((a, b) => a.term.localeCompare(b.term));
@@ -743,7 +816,94 @@ function buildTermEpisodeMap(appearancesData) {
     return /^(https?:)?\/\//i.test(url) || url.startsWith('/') ? url : '#';
   }
 
+
+  function buildIndexPayload() {
+    const existingTerms = allTerms
+      .map(t => t.term)
+      .filter(Boolean)
+      .sort((a, b) => a.localeCompare(b));
+
+    const glossaryTerms = new Set(existingTerms);
+    const appearanceTerms = new Set();
+    const termToEpisodes = {};
+    const termsByClass = {};
+
+    allTerms.forEach(t => {
+      if (!termsByClass[t.class]) termsByClass[t.class] = [];
+      termsByClass[t.class].push(t.term);
+    });
+
+    Object.keys(termsByClass).forEach(className => {
+      termsByClass[className] = termsByClass[className].sort((a, b) => a.localeCompare(b));
+    });
+
+    appearancesIndex.forEach(ep => {
+      (ep.terms || []).forEach(term => {
+        appearanceTerms.add(term);
+        if (!termToEpisodes[term]) termToEpisodes[term] = [];
+        termToEpisodes[term].push(ep.ge);
+      });
+    });
+
+    Object.keys(termToEpisodes).forEach(term => {
+      termToEpisodes[term] = [...new Set(termToEpisodes[term])].sort((a, b) => a - b);
+    });
+
+    return {
+      existing_terms: existingTerms,
+      terms_by_class: termsByClass,
+      term_to_episodes: Object.fromEntries(
+        Object.entries(termToEpisodes).sort((a, b) => a[0].localeCompare(b[0]))
+      ),
+      in_appearances_not_glossary: [...appearanceTerms]
+        .filter(term => !glossaryTerms.has(term))
+        .sort((a, b) => a.localeCompare(b)),
+      in_glossary_not_appearances: [...glossaryTerms]
+        .filter(term => !appearanceTerms.has(term))
+        .sort((a, b) => a.localeCompare(b)),
+      aliases: {
+        "Candy": "Candi",
+        "Zara": "Zarah",
+        "Puppets Program Puppets": "Puppet Program Puppets"
+      }
+    };
+  }
+
+  function renderIndexView() {
+    const body = document.getElementById('glossary-body');
+    const noResults = document.getElementById('no-results');
+    const payload = buildIndexPayload();
+    const termCount = payload.existing_terms.length;
+    const appearanceCount = appearancesIndex.length;
+    const missingCount = payload.in_appearances_not_glossary.length;
+    const unusedCount = payload.in_glossary_not_appearances.length;
+    const output = JSON.stringify(payload, null, 2);
+
+    body.innerHTML = `<section class="index-view-card" aria-label="Index View">
+      <h2>Index View</h2>
+      <p>Generated maintenance output for glossary coverage, appearance tracking, repeat detection, and new-script term passes.</p>
+      <div class="index-view-stats">
+        <span class="index-view-stat">${termCount} glossary terms</span>
+        <span class="index-view-stat">${appearanceCount} appearance entries</span>
+        <span class="index-view-stat">${missingCount} appearance-only terms</span>
+        <span class="index-view-stat">${unusedCount} glossary-only terms</span>
+      </div>
+      <div class="index-view-actions">
+        <button type="button" class="index-view-copy" id="copy-index-view">Copy Index View</button>
+      </div>
+      <textarea class="index-view-output" id="index-view-output" readonly>${escapeHtml(output)}</textarea>
+    </section>`;
+
+    noResults.style.display = 'none';
+    injectDefinedTermSchema(allTerms);
+  }
+
   function render() {
+    if (activeClass === 'Index View') {
+      renderIndexView();
+      return;
+    }
+
     const body = document.getElementById('glossary-body');
     const noResults = document.getElementById('no-results');
     const q = searchQuery.toLowerCase();
@@ -830,6 +990,23 @@ function buildTermEpisodeMap(appearancesData) {
       activeClass = btn.dataset.class;
       render();
     });
+  });
+
+  document.addEventListener('click', e => {
+    if (e.target && e.target.id === 'copy-index-view') {
+      const output = document.getElementById('index-view-output');
+      if (!output) return;
+      output.select();
+      output.setSelectionRange(0, output.value.length);
+      navigator.clipboard.writeText(output.value).then(() => {
+        e.target.textContent = 'Copied';
+        setTimeout(() => { e.target.textContent = 'Copy Index View'; }, 1200);
+      }).catch(() => {
+        document.execCommand('copy');
+        e.target.textContent = 'Copied';
+        setTimeout(() => { e.target.textContent = 'Copy Index View'; }, 1200);
+      });
+    }
   });
 </script>
 
