@@ -251,6 +251,109 @@
       resize: vertical;
       white-space: pre;
     }
+
+    .index-view-hidden-output {
+      position: absolute;
+      left: -9999px;
+      width: 1px;
+      height: 1px;
+      min-height: 1px;
+      opacity: 0;
+      pointer-events: none;
+    }
+    .index-checks {
+      margin: 1rem 0 1.25rem;
+      padding: 0.75rem 0;
+      border-top: 1px solid rgba(232,232,232,0.12);
+      border-bottom: 1px solid rgba(232,232,232,0.12);
+    }
+    .index-checks summary {
+      cursor: pointer;
+      letter-spacing: 0.08em;
+      opacity: 0.8;
+    }
+    .index-check-group {
+      margin-top: 0.85rem;
+    }
+    .index-check-group h3 {
+      font-size: 0.8rem;
+      font-weight: normal;
+      letter-spacing: 0.12em;
+      text-transform: uppercase;
+      opacity: 0.55;
+      margin-bottom: 0.5rem;
+    }
+    .index-chip-wrap {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 0.35rem;
+    }
+    .index-alert-chip,
+    .index-muted {
+      display: inline-flex;
+      align-items: center;
+      border: 1px solid rgba(232,232,232,0.2);
+      border-radius: 999px;
+      padding: 0.22rem 0.55rem;
+      font-size: 0.78rem;
+      opacity: 0.75;
+      background: rgba(0,0,0,0.12);
+    }
+    .index-muted {
+      opacity: 0.45;
+      font-style: italic;
+    }
+    .index-term-list {
+      display: flex;
+      flex-direction: column;
+      gap: 0.4rem;
+    }
+    .index-term-row {
+      display: grid;
+      grid-template-columns: minmax(150px, 0.9fr) minmax(0, 2fr);
+      gap: 0.75rem;
+      align-items: start;
+      padding: 0.55rem 0;
+      border-bottom: 1px solid rgba(232,232,232,0.08);
+    }
+    .index-term-title {
+      font-size: 0.95rem;
+      letter-spacing: 0.04em;
+      color: #f0f0f0;
+    }
+    .index-term-episodes {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 0.3rem;
+    }
+    .index-episode-chip {
+      display: inline-flex;
+      align-items: center;
+      border: 1px solid rgba(158,184,232,0.25);
+      border-radius: 999px;
+      padding: 0.18rem 0.5rem;
+      color: #cbd8f0;
+      text-decoration: none;
+      font-size: 0.74rem;
+      line-height: 1.3;
+      opacity: 0.78;
+      background: rgba(158,184,232,0.08);
+    }
+    .index-episode-chip:hover {
+      opacity: 1;
+      border-color: rgba(232,232,232,0.5);
+    }
+    .index-episode-chip.index-empty {
+      color: #e8e8e8;
+      opacity: 0.35;
+      border-color: rgba(232,232,232,0.16);
+      background: rgba(0,0,0,0.08);
+    }
+    @media (max-width: 700px) {
+      .index-term-row {
+        grid-template-columns: 1fr;
+      }
+    }
     @media (max-width: 600px) {
       main { padding: 2rem 1rem; }
       .page-header h1 { font-size: 1.8rem; }
@@ -879,9 +982,44 @@ function buildTermEpisodeMap(appearancesData) {
     const unusedCount = payload.in_glossary_not_appearances.length;
     const output = JSON.stringify(payload, null, 2);
 
+    const episodeLookup = {};
+    appearancesIndex.forEach(ep => {
+      episodeLookup[ep.ge] = ep;
+    });
+
+    const formatEpisodeChip = ge => {
+      const ep = episodeLookup[ge];
+      if (!ep) return `<span class="index-episode-chip">GE${ge}</span>`;
+      const label = `S${ep.season}:E${ep.episode} / GE${ep.ge}`;
+      const title = escapeHtml(ep.title || '');
+      const content = title ? `${label} · ${title}` : label;
+      return ep.url
+        ? `<a class="index-episode-chip" href="${escapeHtml(ep.url)}" target="_blank" rel="noopener">${content}</a>`
+        : `<span class="index-episode-chip">${content}</span>`;
+    };
+
+    const termRows = payload.existing_terms.map(term => {
+      const episodes = payload.term_to_episodes[term] || [];
+      const episodeHtml = episodes.length
+        ? episodes.map(formatEpisodeChip).join('')
+        : '<span class="index-episode-chip index-empty">No appearance entry</span>';
+      return `<div class="index-term-row">
+        <div class="index-term-title">${escapeHtml(term)}</div>
+        <div class="index-term-episodes">${episodeHtml}</div>
+      </div>`;
+    }).join('');
+
+    const appearanceOnlyHtml = payload.in_appearances_not_glossary.length
+      ? payload.in_appearances_not_glossary.map(term => `<span class="index-alert-chip">${escapeHtml(term)}</span>`).join('')
+      : '<span class="index-muted">None</span>';
+
+    const glossaryOnlyHtml = payload.in_glossary_not_appearances.length
+      ? payload.in_glossary_not_appearances.map(term => `<span class="index-alert-chip">${escapeHtml(term)}</span>`).join('')
+      : '<span class="index-muted">None</span>';
+
     body.innerHTML = `<section class="index-view-card" aria-label="Index View">
       <h2>Index View</h2>
-      <p>Generated maintenance output for glossary coverage, appearance tracking, repeat detection, and new-script term passes.</p>
+      <p>Readable maintenance index for glossary terms, episode appearances, and repeat checks. Use the copy button when you want the compact helper output for the next script pass.</p>
       <div class="index-view-stats">
         <span class="index-view-stat">${termCount} glossary terms</span>
         <span class="index-view-stat">${appearanceCount} appearance entries</span>
@@ -889,14 +1027,31 @@ function buildTermEpisodeMap(appearancesData) {
         <span class="index-view-stat">${unusedCount} glossary-only terms</span>
       </div>
       <div class="index-view-actions">
-        <button type="button" class="index-view-copy" id="copy-index-view">Copy Index View</button>
+        <button type="button" class="index-view-copy" id="copy-index-view">Copy Compact Index</button>
       </div>
-      <textarea class="index-view-output" id="index-view-output" readonly>${escapeHtml(output)}</textarea>
+      <textarea class="index-view-output index-view-hidden-output" id="index-view-output" readonly>${escapeHtml(output)}</textarea>
+
+      <details class="index-checks">
+        <summary>Coverage checks</summary>
+        <div class="index-check-group">
+          <h3>In appearances, not glossary</h3>
+          <div class="index-chip-wrap">${appearanceOnlyHtml}</div>
+        </div>
+        <div class="index-check-group">
+          <h3>In glossary, not appearances</h3>
+          <div class="index-chip-wrap">${glossaryOnlyHtml}</div>
+        </div>
+      </details>
+
+      <div class="index-term-list">
+        ${termRows}
+      </div>
     </section>`;
 
     noResults.style.display = 'none';
     injectDefinedTermSchema(allTerms);
   }
+
 
   function render() {
     if (activeClass === 'Index View') {
@@ -1000,11 +1155,11 @@ function buildTermEpisodeMap(appearancesData) {
       output.setSelectionRange(0, output.value.length);
       navigator.clipboard.writeText(output.value).then(() => {
         e.target.textContent = 'Copied';
-        setTimeout(() => { e.target.textContent = 'Copy Index View'; }, 1200);
+        setTimeout(() => { e.target.textContent = 'Copy Compact Index'; }, 1200);
       }).catch(() => {
         document.execCommand('copy');
         e.target.textContent = 'Copied';
-        setTimeout(() => { e.target.textContent = 'Copy Index View'; }, 1200);
+        setTimeout(() => { e.target.textContent = 'Copy Compact Index'; }, 1200);
       });
     }
   });
