@@ -1136,5 +1136,53 @@
   "class": "Plot Detail",
   "definition": "A Deep Fake variation on the show's recurring puppet logic. The phrase names the feedback loop where contestants try to program one another while being programmed themselves. In this episode, Zara and Madison both believe they are using control as strategy, but the system converts that belief into the very mechanism that exposes them.",
   "links": []
+},
+{
+  "term": "Lolly Game",
+  "class": "Game",
+  "definition": "The final-round challenge in Winner Winner. Contestants must move lollipops into their bowls while the room prevents ordinary upright movement. The game turns crawling, humiliation, speed, and alliance strategy into the same mechanic. Its apparent simplicity hides the fact that the contestants are competing inside rules designed to make control feel impossible.",
+  "links": []
+},
+{
+  "term": "Hashley",
+  "class": "Plot Detail",
+  "definition": "The Hannah and Ashley pairing inside the late Incognitoh game. Hashley is both an alliance and a romanticized strategy, giving Ashley a reason to trust Hannah against Madison. Hannah uses that trust to consolidate power while still framing the move as shared survival. The name makes the relationship feel playful even as the game turns it into leverage.",
+  "links": []
+},
+{
+  "term": "Mimi",
+  "class": "Plot Detail",
+  "definition": "Madison's imposed identity during the final Incognitoh phase. Hannah names Madison Mimi and presents the collar as if the role has already been printed into the game. The name reduces Madison's dominant strategy into a pet-state assignment she has to compete within. Mimi mirrors Trixie, turning rivalry into a contest over who can submit better.",
+  "links": []
+},
+{
+  "term": "Bimbucks",
+  "class": "Product",
+  "definition": "A Neuroplex-linked coffee brand surfaced through Hannah's reset uniform. April describes Bimbucks as a distinct legal entity, suggesting the brand belongs to the same corporate ecosystem as the Glass House. Hannah's old barista coding becomes literal wardrobe, making her employment history into a public game object. The brand ties service work, scripted friendliness, and compliance into one pink commercial surface.",
+  "links": []
+},
+{
+  "term": "Psychographic Formula",
+  "class": "Plot Detail",
+  "definition": "The reset mechanism that assigns Madison's new uniform after she cashes in her immunity tokens. Instead of letting her choose a new icon, the game uses psychographic profiling to decide what role fits her. The formula turns personality data into costume, making the contestant's hidden history more powerful than her stated preference. It marks the shift from player choice to predictive control.",
+  "links": []
+},
+{
+  "term": "Moo Moo",
+  "class": "Plot Detail",
+  "definition": "Ashley's final-phase identity in Winner Winner. After the reset, her uniform adds horns, a tail, a collar, and a bell, with the unlocking mechanism requiring a specific sound prompt. Ashley names the result herself: time to be a moo moo. The phrase turns the secret icon into an embodied role, making the final phase less about hiding and more about becoming visible.",
+  "links": []
+},
+{
+  "term": "The Masks Are Coming Off",
+  "class": "Plot Detail",
+  "definition": "April's name for the final phase of the Incognitoh game. Earlier rounds depend on secret icons and strategic concealment, but Winner Winner shifts toward forced revelation. Ashley repeats the phrase as she realizes her icon is no longer hidden. The line marks the moment when the game stops rewarding secrecy and starts rewarding exposure.",
+  "links": []
+},
+{
+  "term": "What Can I Get Started For You",
+  "class": "Plot Detail",
+  "definition": "Hannah's service phrase and identity anchor. Bella demands that Hannah say the line during her Bimbucks reset, turning the phrase from customer-service habit into a triggered performance. It connects Hannah's barista persona to the broader Neuralverse logic of service, compliance, and scripted desire. The line works because it sounds ordinary until the system makes ordinary speech into instruction.",
+  "links": []
 }
 ]
