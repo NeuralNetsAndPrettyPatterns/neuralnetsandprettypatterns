@@ -1186,14 +1186,14 @@
   "links": []
 },
 {
-  "term": "Chain, The",
-  "class": ["Game", "Plot Detail"]
+  "term": "The Chain",
+  "class": "Game",
   "definition": "The final challenge of Incognitoh. Each remaining contestant is linked to another through an interconnected system of stimulation and reward, so one player's reaction becomes another player's clue. The challenge forces contestants to watch one another with total intensity, turning expression, voice, posture, and involuntary response into game data. It is the endpoint of the Glass House logic: privacy is gone, the masks are coming off, and even sensation has become communal.",
   "links": []
 },
 {
   "term": "Niku City",
-  "class": ["Setting", "Game"]
+  "class": "Setting",
   "definition": "A new advertised setting introduced during Madison's post-victory exposure sequence. The ad frames it as a place with a new boss, a new gang, and a new wave, escalating Incognitoh's logic into a broader urban game world. Its language suggests both competition and infiltration, asking whether the viewer can beat it, get inside it, and get Liquid Praise. Niku City reads as another Neuroplex entertainment surface where game, body, and reward system collapse together.",
   "links": []
 },
