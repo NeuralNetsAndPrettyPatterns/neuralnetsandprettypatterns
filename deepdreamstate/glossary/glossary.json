@@ -1322,5 +1322,29 @@
   "class": "Character",
   "definition": "Sitri's first active subject in Rehearsal. Phoebe's dreams center on visibility, embarrassment, and the fear that everyone can see what she is trying to hide. Tessa reads her case as a chance for therapeutic mastery, while Meg sees an escalating reward loop the intervention is unlikely to control. Phoebe becomes the first proof that the dream is not simply a symptom to be treated; it is a structure that can answer back.",
   "links": []
+},
+{
+  "term": "Observation Chamber",
+  "class": "Setting",
+  "definition": "The Sitri room where researchers watch, argue over, and interpret subject response in real time. Unlike the Dream Chamber, which holds the subject's sleeping body, the Observation Chamber is where institutional judgment takes shape. In GE17, the room becomes the site where Phoebe's dream data turns into professional accusation, political leverage, and proof of Tessa's failure.",
+  "links": []
+},
+{
+  "term": "Phase-Two Dream Synthesis",
+  "class": "Plot Detail",
+  "definition": "The leadership role and research phase Tessa loses after the Construct 37 trial. The title suggests Sitri's work is meant to move beyond intervention into active synthesis, creating dream structures rather than merely responding to them. Tessa's confession frames the position as the thing she wanted before the experiment exposed what she wanted even more.",
+  "links": []
+},
+{
+  "term": "Imprinting",
+  "class": "Plot Detail",
+  "definition": "June's term for what begins happening to Phoebe once the Construct 37 intervention fails. The subject is no longer simply reacting to fear, shame, or exposure; she is bonding to the pattern itself. Imprinting marks the shift from dream content into behavioral installation, the point where a repeated response becomes part of the subject's structure.",
+  "links": []
+},
+{
+  "term": "Lab Rat",
+  "class": "Plot Detail",
+  "definition": "A dream-state role imposed on Phoebe during the GE17 escalation. The phrase reduces her from subject to experimental animal, turning sensors, observation, and compliance into part of the dream's identity script. In Sitri logic, lab rat is both insult and diagnosis: the subject has become the thing the institution was already treating her as.",
+  "links": []
 }
 ]
