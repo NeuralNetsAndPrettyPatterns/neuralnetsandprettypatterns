@@ -1538,5 +1538,103 @@
   "class": "Plot Detail",
   "definition": "Tessa's phrase for the blank part of Lyra's emotional map, the place where fear and wanting become difficult to separate. The expression evokes old maps marking unknown territory as dangerous or monstrous. In Cusp, the danger is not that the map is empty, but that Sitri is beginning to fill it in. The phrase frames Lyra's liminal dreams as exploration of territory the researchers already know is unsafe.",
   "links": []
+},
+  ,
+{
+  "term": "Echo Lives",
+  "class": "Plot Detail",
+  "definition": "Cael's term for the roles a subject has played before, resurfacing through the station system. In GE21, each station is described as an echo to a prior role rather than a simple dream location. The phrase suggests that Sitri is not only mapping the present subject, but contacting layers of identity, memory, and ritual function that predate the current experiment. Echo lives make the dream feel less invented than remembered.",
+  "links": []
+},
+{
+  "term": "Eanna",
+  "class": "Setting",
+  "definition": "One of Lyra's recurring stations. In the dream logic of GE21, Eanna is associated with measuring, ledgers, writing, and marks placed on bodies as records of training. The station feels temple-coded and archival, a place where experience becomes inscription. Eanna makes the station map feel ritual and administrative at the same time.",
+  "links": []
+},
+{
+  "term": "Sippar",
+  "class": "Setting",
+  "definition": "One of Lyra's recurring stations and the first station Tessa and Meg identify physically inside the Institute. Sippar is hidden in the maintenance label IDF CLOSET 51P-PAR, making it the first hard bridge between Lyra's dream map and Sitri's service corridors. In GE21, Sippar is associated with plows, yokes, livestock roles, and the first stop in Tessa and Meg's descent. It confirms that the station system is not just symbolic.",
+  "links": []
+},
+{
+  "term": "Kutha",
+  "class": "Setting",
+  "definition": "One of Lyra's recurring stations. In GE21, Kutha is associated with containment under glass, bubbles, tapping, pet roles, and the word spawntime. It is one of the clearest examples of the station map turning dream imagery into a managed habitat. Kutha suggests that some stations do not only move subjects through space; they keep them in controlled conditions.",
+  "links": []
+},
+{
+  "term": "Ereshkigal",
+  "class": "Setting",
+  "definition": "One of Lyra's recurring stations, named for the underworld queen and tied to the wheel. In GE21, Meg remembers Ereshkigal as a ziggurat space where she and her temple sister were bound into the same ritual pattern. The station is associated with depth, recurrence, oath, and punishment. Ereshkigal is where the map's mythic layer becomes personal for Meg and Tessa.",
+  "links": []
+},
+{
+  "term": "Ur",
+  "class": "Setting",
+  "definition": "The missing central station in Lyra's map. Lyra can name Ur but repeatedly wakes or loses clarity before fully describing it. Tessa identifies Ur as the center, and she and Meg decide they must find it themselves. In GE21, Ur functions as the withheld destination: terrible, wonderful, and hidden behind a soundproofed door.",
+  "links": []
+},
+{
+  "term": "ĝidru",
+  "class": "Plot Detail",
+  "definition": "A word Lyra recalls while describing Sippar. She asks for it as if it is both object and reward, something the station's role makes her want but does not immediately grant. The term is left untranslated in the episode, which makes it feel older than the Institute's official vocabulary. In Sitri logic, ĝidru is a recovered word from the station layer, not a term the researchers invented.",
+  "links": []
+},
+{
+  "term": "Spawntime",
+  "class": "Plot Detail",
+  "definition": "A Kutha-associated term from Lyra's station recall. The word appears in a containment context, linked to glass, bubbles, tapping, and trained animal response. Spawntime sounds playful until the surrounding imagery makes it institutional and biological. It turns Kutha into a managed cycle rather than a simple place.",
+  "links": []
+},
+{
+  "term": "Edge Loop",
+  "class": "Plot Detail",
+  "definition": "Tessa and Meg's name for the repeating threshold state that traps Lyra. The edge loop keeps her near completion, recognition, or transition without allowing resolution. They explain that she cannot think her way out of it because thought is part of the loop. The solution they offer is not reasoning but surrender to a simpler response.",
+  "links": []
+},
+{
+  "term": "You Yes Out of It",
+  "class": "Plot Detail",
+  "definition": "Tessa's phrase for escaping Lyra's edge loop. The line means the subject cannot analyze her way through the threshold; she has to pass through by saying yes. It reframes consent-language, compliance-language, and dream-navigation as the same act. In GE21, yes becomes a route through the map.",
+  "links": []
+},
+{
+  "term": "Machine Dreams",
+  "class": "Plot Detail",
+  "definition": "Meg's phrase when she recognizes the wheel station inside the corridor descent. Machine dreams names the moment where ancient station imagery and institutional infrastructure collapse into one another. The phrase suggests that the machine is not merely recording the dream; it may be dreaming too. It also turns the station map into something engineered, repetitive, and hungry for use.",
+  "links": []
+},
+{
+  "term": "Tunnels Beneath the Tunnels",
+  "class": "Setting",
+  "definition": "Cael's phrase for the deeper layer beneath Lyra's transit imagery. The tunnels beneath the tunnels are where history floats up and the real stations begin to move subjects backward, not just around. The phrase extends the show's recurring world-beneath-world logic into Sitri's physical layout. It tells the listener that every corridor may have an older corridor underneath it.",
+  "links": []
+},
+{
+  "term": "Human Terrariums",
+  "class": "Setting",
+  "definition": "Lyra's phrase for Kutha's containment imagery. The term turns a dream space into a managed habitat, suggesting observation, enclosure, and environmental control. It fits Sitri's broader tendency to make subjects into readable organisms inside designed conditions. Human terrariums make the pet, laboratory, and station metaphors converge.",
+  "links": []
+},
+{
+  "term": "Nintwin",
+  "class": "Plot Detail",
+  "definition": "A word fragment Lyra recalls while describing Ereshkigal. It appears near images of cord, oath, the wheel, and paired ritual identity. The term suggests twinship, binding, and a repeated role shared between subjects or echo lives. In GE21, nintwin points toward Meg and Tessa's implied station-past without fully explaining it.",
+  "links": []
+},
+{
+  "term": "Suckmills",
+  "class": "Setting",
+  "definition": "A place or station-feature Lyra recalls when prompted to remember Eanna. The word appears alongside Tick-Tock and suggests a mechanized ritual environment where repetition, labor, and timing matter. Its exact function is left unclear, but it belongs to the station vocabulary rather than ordinary dream noise. Suckmills makes Eanna feel less like a temple and more like a production system.",
+  "links": []
+},
+{
+  "term": "Tock Tick",
+  "class": "Plot Detail",
+  "definition": "Meg's inversion of Tick-Tock during the corridor descent. The reversed phrase marks movement backward through the station map rather than forward through an ordinary countdown. In GE21, Tock Tick carries the same urgency as Tick-Tock but points the characters toward descent, retrieval, and return. It is countdown logic turned inside out.",
+  "links": []
 }
 ]
+
