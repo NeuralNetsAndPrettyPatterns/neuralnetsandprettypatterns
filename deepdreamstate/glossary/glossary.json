@@ -1472,5 +1472,71 @@
   "class": "Plot Detail",
   "definition": "The institutional failure category Meg names in her GE19 confession. A cascade failure is not one mistake but a chain reaction: subject escalation, researcher involvement, compromised logs, and collapsing boundaries. By applying the term to Dream Cohort 3-Beta, Meg admits that the problem spread through the system rather than remaining inside a single subject. The phrase gives Sitri's breakdown a technical name while confirming that the failure has become structural.",
   "links": []
+},
+{
+  "term": "Lyra Crosswell",
+  "class": "Character",
+  "definition": "A Sitri subject whose dreams organize themselves around liminal spaces, corridors, thresholds, transfer tunnels, and in-between places. Lyra enters the episode as an urban photographer whose aesthetic fixation has become dream architecture. Her case reveals that Sitri's dream maps are not merely symbolic. Some of Lyra's stations appear to correspond to real physical features inside the Institute.",
+  "links": []
+},
+{
+  "term": "Cusp",
+  "class": "Plot Detail",
+  "definition": "The title concept of GE20 and the governing metaphor of Lyra's case. A cusp is a threshold state, neither fully one thing nor the next. In the episode, Z frames the cusp as the space between episodes, between knowledge states, and between what a subject knows and what the system is teaching them. Lyra's dream pathology literalizes the idea by trapping her at points of almost-arrival.",
+  "links": []
+},
+{
+  "term": "Lead Transitional Officer",
+  "class": "Plot Detail",
+  "definition": "Elle's new role title inside the Sitri Institute after her alignment. She misstates it as Lead Transformer and Lead Transnational Officer, which makes the promotion feel both official and degraded. The title positions Elle as a guide through transition while also revealing how much of her previous intelligence has been repurposed. Her authority is real enough to bother Meg, but unstable enough to amuse everyone else.",
+  "links": []
+},
+{
+  "term": "Party Row",
+  "class": "Setting",
+  "definition": "A defined marker in Lyra's threshold dream sequence. Party Row appears as a charged in-between space, part street, part stage, part checkpoint. The name sounds casual, but Meg and Tessa treat it as a measurable dream location with predictable physiological effects. It is one of the first signs that Lyra's recurring spaces may be less imaginary than they look.",
+  "links": []
+},
+{
+  "term": "Crossroads",
+  "class": "Setting",
+  "definition": "The dream setting where Lyra encounters Nyra, Hespa, Elle, June, and Cael in Cusp. Crossroads functions as a truck stop, threshold, and ritual exchange point, where roles matter more than ordinary law. Nyra says this is Crossroads as if the place has its own rules and everyone who matters already knows them. The setting turns liminality into a social system.",
+  "links": []
+},
+{
+  "term": "Service Corridors",
+  "class": "Setting",
+  "definition": "The untracked corridors inside the Sitri Institute where Tessa and Meg can speak more freely. Tessa says the service corridors are not monitored like the chambers, which makes them rare spaces outside the main data apparatus. Their name echoes Sitri's service-language while also marking a literal backchannel through the Institute. In Cusp, the corridors become the place where the dream map and the building map begin to overlap.",
+  "links": []
+},
+{
+  "term": "The Stations",
+  "class": "Plot Detail",
+  "definition": "The recurring station names in Lyra's dreams: Sippar, Kutha, Eanna, Ereshkigal, and Ur. Some are ancient Mesopotamian place names, while others are more ritual, mythic, or temple-coded. Tessa recognizes the sequence as meaningful, and the corridor label IDF CLOSET 51P-PAR reveals Sippar hidden in the physical Institute. The Stations suggest that Lyra's dream transit system is mapping onto a deeper architecture.",
+  "links": []
+},
+{
+  "term": "Betwixt and Between",
+  "class": "Plot Detail",
+  "definition": "Meg's phrase for Lyra's psychological and spatial condition. It names the in-between state where social rules loosen and transformation becomes possible. In Cusp, betwixt and between is not just poetic language; it is a working theory of liminal susceptibility. Lyra's case shows Sitri that the most important changes may happen at the threshold, not at the destination.",
+  "links": []
+},
+{
+  "term": "Experience Enhancement Assistant",
+  "class": "Plot Detail",
+  "definition": "Meg's diminished institutional role after her loss of status. June uses the title to remind Meg that she has been demoted while still retaining enough knowledge to be useful. The phrase is corporate, cheerful, and humiliating in precisely the Sitri way. It makes punishment sound like customer service.",
+  "links": []
+},
+{
+  "term": "Hospitality Unit",
+  "class": "Setting",
+  "definition": "A dream-world designation used when Elle and June inspect the vehicle in Lyra's Crossroads sequence. The term turns the dream setting into something quasi-official, as if the vehicle is registered inside a service economy with its own rules. Hospitality Unit sounds bureaucratic, but the scene makes clear that hospitality at Crossroads is not neutral. It is another way the dream converts openness into obligation.",
+  "links": []
+},
+{
+  "term": "Here Be Dragons",
+  "class": "Plot Detail",
+  "definition": "Tessa's phrase for the blank part of Lyra's emotional map, the place where fear and wanting become difficult to separate. The expression evokes old maps marking unknown territory as dangerous or monstrous. In Cusp, the danger is not that the map is empty, but that Sitri is beginning to fill it in. The phrase frames Lyra's liminal dreams as exploration of territory the researchers already know is unsafe.",
+  "links": []
 }
 ]
