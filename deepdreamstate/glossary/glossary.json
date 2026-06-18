@@ -1346,5 +1346,71 @@
   "class": "Plot Detail",
   "definition": "A dream-state role imposed on Phoebe during the GE17 escalation. The phrase reduces her from subject to experimental animal, turning sensors, observation, and compliance into part of the dream's identity script. In Sitri logic, lab rat is both insult and diagnosis: the subject has become the thing the institution was already treating her as.",
   "links": []
+},
+{
+  "term": "Elle Lawson (Sitri)",
+  "class": "Character",
+  "definition": "Elle Lawson's Sitri presentation is Subject L-Zero-Two, a sleep-paralysis subject whose dreams are unusually receptive to the Center's protocols. Unlike her Vale Four presentation, this version of Elle is still inside the dream architecture rather than strategically operating around it. Her paralysis, dream recall, and responsiveness make her valuable to Meg's research, but also make her vulnerable to being treated as evidence before she is treated as a person. Sitri Elle is not merely observed by the system; she begins to synchronize with it.",
+  "links": []
+},
+{
+  "term": "Subject L-Zero-Two",
+  "class": "Plot Detail",
+  "definition": "Elle Lawson's subject designation inside the Sitri Center. The label places her within the Center's clinical indexing system, reducing her name and history to a research marker. In Incubator, the designation frames her persistent REM paralysis as a case study rather than a crisis. It also signals that Elle is part of a broader subject cluster, not an isolated anomaly.",
+  "links": []
+},
+{
+  "term": "Forty-Four Cluster",
+  "class": "Plot Detail",
+  "definition": "The subject grouping Meg uses to contextualize Elle's case. The cluster appears to involve invasive dream presence, early-stage conflict, and confusion after waking. By placing Elle inside the Forty-Four cluster, Meg treats mythic sleep-paralysis imagery as repeatable research data. The term matters because it turns folklore, fear, and bodily response into a classification system.",
+  "links": []
+},
+{
+  "term": "Sleep-Lock",
+  "class": "Plot Detail",
+  "definition": "Meg's term for Elle's full REM paralysis state. Sleep-lock describes a body that cannot move while the dream remains active, receptive, and measurable. In Sitri logic, immobility is not only a symptom but an experimental condition. The more locked the subject becomes, the more the dream can be studied, shaped, and used.",
+  "links": []
+},
+{
+  "term": "Devotion Loop",
+  "class": "Plot Detail",
+  "definition": "Meg's name for the accelerating pattern inside Elle's dream response. The loop turns fear, recognition, repetition, and attachment into a self-reinforcing structure. What begins as a threatening dream presence starts to behave like a ritualized return. The phrase is important because it shows Sitri moving from therapy language into worship language while pretending the distinction still holds.",
+  "links": []
+},
+{
+  "term": "Residual Suggestion",
+  "class": "Plot Detail",
+  "definition": "The Sitri term for dream influence that carries through into waking speech or behavior. Meg uses it when Elle wakes after speaking just before surfacing. Residual suggestion implies that the dream is not sealed off when the subject opens her eyes. Something lingers, and the Center is interested in measuring exactly how much.",
+  "links": []
+},
+{
+  "term": "VILD",
+  "class": "Plot Detail",
+  "definition": "Visual Induction of Lucid Dreams, introduced by Meg as part of Elle's training. VILD asks the subject to build the dream deliberately through repeated imagined scenes, objects, rooms, voices, and scripts. Meg presents it as a method for control, but the episode makes that claim unstable. Once the subject builds the script, the performance may continue without asking permission.",
+  "links": []
+},
+{
+  "term": "MILD",
+  "class": "Plot Detail",
+  "definition": "Mnemonic Induction of Lucid Dreams, introduced by Meg as the phrase-based half of Elle's training. MILD uses repetition to install a memory cue before sleep, so the subject can recognize the dream while inside it. Meg describes it almost like a prayer, turning clinical induction into ritual practice. The method fits Sitri's larger pattern: language repeats until it becomes architecture.",
+  "links": []
+},
+{
+  "term": "Dream Journal",
+  "class": "Product",
+  "definition": "The writing practice Meg assigns Elle after introducing VILD and MILD. Elle is told to record every dream immediately after waking, even if the entry is fragmentary or strange. The journal is framed as recall training, but it also teaches the subject to treat the dream as important, repeatable, and institutionally legible. In Sitri, even private memory becomes paperwork.",
+  "links": []
+},
+{
+  "term": "Puppet Dream",
+  "class": "Plot Detail",
+  "definition": "Elle's recurring name for one of her sleep-paralysis dreams. The dream involves silver strings and the sense that her movements are being controlled by something outside herself. Meg treats the dream as useful data because it gives Sitri a clear grammar of surrender, agency, and response. The puppet dream connects Elle's case to the wider Neuralverse pattern of systems that make control feel like self-discovery.",
+  "links": []
+},
+{
+  "term": "Namaah",
+  "class": "Plot Detail",
+  "definition": "A word introduced in the Please Space ad during Incubator. It appears inside the ad's soothing rhythm, positioned near the promise of silence, sleep, and surrender to guided stillness. The term evokes mythic and ritual language without fully explaining itself, which makes it feel less like a product feature than a signal. In Sitri, even the ad copy may be part of the dream layer.",
+  "links": []
 }
 ]
