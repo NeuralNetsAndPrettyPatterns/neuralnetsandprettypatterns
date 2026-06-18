@@ -1412,5 +1412,65 @@
   "class": "Plot Detail",
   "definition": "A word introduced in the Please Space ad during Incubator. It appears inside the ad's soothing rhythm, positioned near the promise of silence, sleep, and surrender to guided stillness. The term evokes mythic and ritual language without fully explaining itself, which makes it feel less like a product feature than a signal. In Sitri, even the ad copy may be part of the dream layer.",
   "links": []
+},
+{
+  "term": "Teehee",
+  "class": "Plot Detail",
+  "definition": "A dream-name applied to Tessa during Elle's GE19 dream sequence. Nyra calls her over with the name, and Tessa responds instantly, making the label feel less like teasing and more like a role she already knows how to occupy. Teehee marks Tessa's shift from failed researcher into dream-function, helper, trainer, and example. The name is childish on the surface, but in Sitri logic it signals successful reduction into a usable script.",
+  "links": []
+},
+{
+  "term": "Kinetic Spill",
+  "class": "Plot Detail",
+  "definition": "Tessa's explanation for Elle physically reenacting dream movement in the Dream Chamber. The phrase makes a serious boundary failure sound like a routine technical artifact. By labeling the event kinetic spill, Tessa protects Elle from scrutiny while also normalizing the dream's leakage into the body. It is one of Sitri's cleanest examples of institutional language making loss of control sound manageable.",
+  "links": []
+},
+{
+  "term": "I'm Ready to Forget",
+  "class": "Plot Detail",
+  "definition": "Tessa's private dream phrase in GE19. She repeats it before the mirror until her voice no longer feels like her own. The line reframes forgetting as preparation rather than damage, making erasure sound chosen, practiced, and even professional. In Sitri, the phrase functions as both induction and confession.",
+  "links": []
+},
+{
+  "term": "Dreamlocked",
+  "class": "Plot Detail",
+  "definition": "A Sitri condition in which a subject is deeply under and past ordinary REM thresholds. Tessa uses it to describe Meg's state after drop-in, making clear that Meg is not simply asleep but sealed into the dream process. Dreamlocked is related to sleep-lock, but it carries a stronger sense of containment inside an active dream environment. The term marks the moment when the chamber is no longer observing a subject from outside the dream; the subject is trapped inside the operating layer.",
+  "links": []
+},
+{
+  "term": "Dream Cohort 3-Beta",
+  "class": "Plot Detail",
+  "definition": "The failed research grouping named in Meg's GE19 confession. The phrase gives Sitri's collapse a formal institutional label, turning the events around Elle, Meg, and Tessa into an internal review category. Dream Cohort 3-Beta suggests the Center is running multiple dream-subject groupings with numbered phases, benchmarks, and failure states. It also makes the personal disaster sound like a managed research incident.",
+  "links": []
+},
+{
+  "term": "Phase-One Lucid Conditioning",
+  "class": "Plot Detail",
+  "definition": "The Sitri program Meg says she led before her demotion. The phrase names an early formal layer of the Center's work, focused on lucid dreaming, inducement, and behavioral conditioning. Meg presents herself as its former Lead Coordinator, which makes her fall especially pointed: she is consumed by the system she was supposed to manage. Phase-One Lucid Conditioning establishes that Sitri's dream work is organized as a staged institutional pipeline.",
+  "links": []
+},
+{
+  "term": "Induced Overlap",
+  "class": "Plot Detail",
+  "definition": "A research marker Meg admits to falsifying in her confession. The term suggests dream-state crossover, where one subject's material, response, or imagery appears to bleed into another's. In GE19, induced overlap becomes part of Meg's attempt to regain control by manipulating records and making Tessa look unstable. It is both a technical Sitri concept and evidence that the institution's data can be rewritten by the people trapped inside it.",
+  "links": []
+},
+{
+  "term": "Alignment",
+  "class": "Plot Detail",
+  "definition": "Z's preferred framing for Meg's punishment and demotion. He treats alignment as a positive indicator, implying that a subject or researcher is becoming consistent with the dream protocol's desired outcome. The word is softer than coercion, cleaner than obedience, and more useful in a report. In Sitri language, alignment turns surrender into a metric.",
+  "links": []
+},
+{
+  "term": "Dream Compliance",
+  "class": "Plot Detail",
+  "definition": "The outcome measure Z invokes when defending Tessa's curated readings of Meg's journals. Dream compliance describes the point where dream content, waking behavior, and institutional interpretation begin to agree. It is not simply whether a subject obeys in the dream, but whether the dream produces usable evidence of obedience. The term crystallizes Sitri's central horror: compliance becomes real once the system can document it.",
+  "links": []
+},
+{
+  "term": "Cascade Failure",
+  "class": "Plot Detail",
+  "definition": "The institutional failure category Meg names in her GE19 confession. A cascade failure is not one mistake but a chain reaction: subject escalation, researcher involvement, compromised logs, and collapsing boundaries. By applying the term to Dream Cohort 3-Beta, Meg admits that the problem spread through the system rather than remaining inside a single subject. The phrase gives Sitri's breakdown a technical name while confirming that the failure has become structural.",
+  "links": []
 }
 ]
