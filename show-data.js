@@ -28,9 +28,9 @@ window.DDP = {
       kicker:      "Saturday, June 20 · 9 PM Eastern",
       poster:      "https://neuralnetsandprettypatterns.com/deep-drop-party/now/AwooNeuralNetsAndPrettyPatternsDDP435.png",
       posterAlt:   "Official poster for Deep Drop Party 435 - Awooo.",
-      description: [
+     description: [
         "Everyone loves the Party Pack!  We're the best at feral moonlit rituals, and as long as we have guests, we always have snacks.",
-        "Come to <a href=\"https://discord.gg/thepinkroom\" target=\"_blank\" rel=\"noopener\">The Pink Room</a> at 9 pm EST.  <a href=\"https://www.imdb.com/name/nm17760876/\" target=\"_blank\" rel=\"noopener\">Dizzy Dollie</a> and <a href=\"https://www.imdb.com/name/nm17754818/\" target=\"_blank\" rel=\"noopener\">Bliss Blank</a> will be leading the pack.  Inside you there are two wolves, but only if you're very very lucky."
+        "Come to <a href=\"https://discord.gg/thepinkroom\" target=\"_blank\" rel=\"noopener\">The Pink Room</a> at 9 pm EST.  <a href=\"https://www.imdb.com/name/nm17774343/\" target=\"_blank\" rel=\"noopener\">Kitten Azazel</a> and <a href=\"https://www.imdb.com/name/nm17754818/\" target=\"_blank\" rel=\"noopener\">Bliss Blank</a> will be leading the pack.  Inside you there are two wolves, but only if you're very very lucky."
       ],
       badges: [
         { label: "World Premiere", cls: "badge-premiere" },
