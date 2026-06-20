@@ -16,8 +16,6 @@ window.DDP = {
 
   shows: [
 
-    shows: [
-
     // ── [0] CURRENT SHOW ─────────────────────────────────────
     {
       number:      435,
