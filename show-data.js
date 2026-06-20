@@ -37,7 +37,7 @@ window.DDP = {
         { label: "Comfrey",        cls: "badge-premiere" }
       ],
       hostesses: [
-        { name: "Dizzy Dollie", url: "https://www.imdb.com/name/nm17760876/" },
+        { name: "Kitten Azazel", url: "https://www.imdb.com/name/nm17774343/" },
         { name: "Bliss Blank",  url: "https://www.imdb.com/name/nm17754818/" }
       ],
       tracks: []
