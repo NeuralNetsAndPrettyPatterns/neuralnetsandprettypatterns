@@ -16,7 +16,36 @@ window.DDP = {
 
   shows: [
 
+    shows: [
+
     // ── [0] CURRENT SHOW ─────────────────────────────────────
+    {
+      number:      435,
+      title:       "Awooo",
+      titleText:   "Awooo",
+      theme:       "Feral Moonlit Rituals",
+      themeLabel:  "Theme",
+      date:        "2026-06-20T21:00:00-04:00",
+      dateLabel:   "Saturday, June 20",
+      kicker:      "Saturday, June 20 · 9 PM Eastern",
+      poster:      "https://neuralnetsandprettypatterns.com/deep-drop-party/now/AwooNeuralNetsAndPrettyPatternsDDP435.png",
+      posterAlt:   "Official poster for Deep Drop Party 435 - Awooo.",
+      description: [
+        "Everyone loves the Party Pack!  We're the best at feral moonlit rituals, and as long as we have guests, we always have snacks.",
+        "Come to <a href=\"https://discord.gg/thepinkroom\" target=\"_blank\" rel=\"noopener\">thepinkroom</a> at 9 pm EST.  <a href=\"https://www.imdb.com/name/nm17760876/\" target=\"_blank\" rel=\"noopener\">Dizzy Dollie</a> and <a href=\"https://www.imdb.com/name/nm17754818/\" target=\"_blank\" rel=\"noopener\">Bliss Blank</a> will be leading the pack.  Inside you there are two wolves, but only if you're very very lucky."
+      ],
+      badges: [
+        { label: "World Premiere", cls: "badge-premiere" },
+        { label: "Comfrey",        cls: "badge-premiere" }
+      ],
+      hostesses: [
+        { name: "Dizzy Dollie", url: "https://www.imdb.com/name/nm17760876/" },
+        { name: "Bliss Blank",  url: "https://www.imdb.com/name/nm17754818/" }
+      ],
+      tracks: []
+    },
+
+    // ── [1] PREVIOUS SHOW ────────────────────────────────────
     {
       number:      433,
       title:       "B.O.I.N.G. Convention",
@@ -25,7 +54,7 @@ window.DDP = {
       themeLabel:  "Theme",
       date:        "2026-06-06T21:00:00-04:00",
       dateLabel:   "Saturday, June 6",
-      kicker:      "Saturday, June 6 · 9 PM Eastern",
+      kicker:      "Previous Show - Aired Saturday, June 6 · 9 PM Eastern",
       poster:      "https://neuralnetsandprettypatterns.com/boingagents.gif",
       posterAlt:   "Official poster for Deep Drop Party 433 - B.O.I.N.G. Convention.",
       description: [
@@ -49,7 +78,7 @@ window.DDP = {
       tracks: []
     },
 
-    // ── [1] PREVIOUS SHOW ────────────────────────────────────
+    // ── [2+] ARCHIVE ─────────────────────────────────────────
     {
       number:      432,
       title:       "Puppet Strings",
@@ -58,7 +87,6 @@ window.DDP = {
       themeLabel:  "Theme",
       date:        "2026-05-30T21:00:00-04:00",
       dateLabel:   "Saturday, May 30",
-      kicker:      "Previous Show - Aired Saturday, May 30 · 9 PM Eastern",
       poster:      "https://raw.githubusercontent.com/NeuralNetsAndPrettyPatterns/neuralnetsandprettypatterns/main/puppetstringsdeepdrop.png",
       posterAlt:   "Official poster for Deep Drop Party 432 - Puppet Strings.",
       description: [
@@ -81,8 +109,6 @@ window.DDP = {
       ],
       tracks: []
     },
-
-    // ── [2+] ARCHIVE ─────────────────────────────────────────
     {
       number: 431, title: "QT&amp;A", titleText: "QT&A",
       theme: "Anonymous AMA", themeLabel: "Format",
