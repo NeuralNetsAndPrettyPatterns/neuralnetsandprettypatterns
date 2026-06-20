@@ -56,10 +56,12 @@ export default {
       });
     }
 
-    // ── Root images (no slash in path after leading slash)
+    // ── Images anywhere in the site (root, deep-drop-party/now, deepdreamstate, etc.)
+    // Was previously restricted to root-level-only paths, which silently 404'd any
+    // poster image placed in a subfolder like /deep-drop-party/now/.
     {
       const ct = imgType(p);
-      if (ct && !p.slice(1).includes("/")) return serveAsset(p, ct);
+      if (ct) return serveAsset(p, ct);
     }
 
     // ── The Pink Room
@@ -141,13 +143,6 @@ export default {
 
     if (p === "/deepdreamstate" || p === "/deepdreamstate/")
       return serveHtml("/deepdreamstate/index.html", true);
-
-    // ── Deep Dream State — images at deepdreamstate root (arc-carousel-*.webp etc)
-    if (p.startsWith("/deepdreamstate/")) {
-      const ct = imgType(p);
-      const afterPrefix = p.slice("/deepdreamstate/".length);
-      if (ct && !afterPrefix.includes("/")) return serveAsset(p, ct);
-    }
 
     // ── Deep Dream State — catch-all (legacy deepdreamstate repo via GitHub Pages)
     if (p.startsWith("/deepdreamstate")) {
