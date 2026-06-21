@@ -498,8 +498,18 @@
   </div>
 
   <script>
-    document.getElementById('background-container').style.backgroundImage =
-      'url(https://neuralnetsandprettypatterns.com/deepdreamstate/assets/images/episodes/dds-cth-background.webp)';
+    (function() {
+      var bgUrl = 'https://neuralnetsandprettypatterns.com/deepdreamstate/assets/images/episodes/dds-cth-background.webp';
+      var container = document.getElementById('background-container');
+      var img = new Image();
+      img.onload = function() {
+        container.style.backgroundImage = 'url(' + bgUrl + ')';
+      };
+      img.onerror = function() {
+        console.warn('Background image failed to load, using gradient fallback:', bgUrl);
+      };
+      img.src = bgUrl;
+    })();
   </script>
 
 </body>
