@@ -1634,6 +1634,59 @@
   "class": "Plot Detail",
   "definition": "Meg's inversion of Tick-Tock during the corridor descent. The reversed phrase marks movement backward through the station map rather than forward through an ordinary countdown. In GE21, Tock Tick carries the same urgency as Tick-Tock but points the characters toward descent, retrieval, and return. It is countdown logic turned inside out.",
   "links": []
+},
+{
+  "term": "Tether",
+  "class": "Episode Title",
+  "definition": "Title of S3:E7 / GE22. The thread that connects pursuers to the pursued, the dreamer to the waking world, and the maze to its exit — or ensures there is none.",
+  "links": []
+},
+{
+  "term": "Oona Reyes",
+  "class": "Character",
+  "definition": "Subject S4-Epsilon. Thirty-two years old, former TempleBridge facilitator. Her trajectory — pole dancer to fitness influencer to TikTok wellness guru to cult leader — is documented in file S4-Epsilon-L. Reyes achieved full dream linking across eight participants by night five of her retreats. She is under observation at Sitri in GE22.",
+  "links": []
+},
+{
+  "term": "TempleBridge",
+  "class": "Organization",
+  "definition": "A shared-dream wellness program with an outer and inner face. To the public it runs the Bridge Program — a private community format promising connection and release, advertised through figures like Iris Vale. Internally it pursues ritual realignment and dream linking. Oona Reyes was a TempleBridge facilitator before breaking off to run her own circle. June Lowell references it in GE22 as 'our' program before catching herself.",
+  "links": []
+},
+{
+  "term": "Bridge Program",
+  "class": "Program",
+  "definition": "The public-facing intake format of TempleBridge. Marketed as a private wellness circle — no lectures, no slides — it uses synchronized heartbeat cues and community immersion to condition participants toward release. See: TempleBridge.",
+  "links": []
+},
+{
+  "term": "giduggas",
+  "class": "Object / Lore",
+  "definition": "Mat-embedded devices used in Oona Reyes's dream-linking retreats, referred to in her circle as treatsticks. The term is Mesopotamian in origin, consistent with the Neuralverse's deeper mythological substrate. In GE22 the word surfaces in a Sitri debrief as the source name for the technology.",
+  "links": []
+},
+{
+  "term": "Mindsync headbands",
+  "class": "Technology",
+  "definition": "Wearable devices used in TempleBridge and Oona Reyes's retreat circles to facilitate dream linking. Referenced alongside giduggas as core hardware for the shared-trance protocol documented in file S4-Epsilon-L.",
+  "links": []
+},
+{
+  "term": "Dream linking",
+  "class": "Phenomenon / Technique",
+  "definition": "A state of synchronized shared dreaming in which multiple participants converge on identical dream narratives, confirmed by matching post-session reports. Oona Reyes's circle achieved full dream linking by night five. Meg compares it to Ongee shared-vision circles. At Sitri the phenomenon is studied as a substrate for deeper conditioning.",
+  "links": []
+},
+{
+  "term": "Ritual realignment",
+  "class": "Practice",
+  "definition": "The term used internally for the weeks-long retreat protocol practiced in Oona Reyes's circle. Involves tantric breathwork at dawn, kneeling circles, ritual chants, and dream linking. The phrase surfaces in GE22 spoken in unison by Meg and Tessa.",
+  "links": []
+},
+{
+  "term": "Ariadne",
+  "class": "Alias / Plot Detail",
+  "definition": "The name Z considers giving Tessa Finn after leading her and Meg into the maze of the Sitri corridors. Z invokes the myth deliberately — Ariadne gave Theseus the thread to escape — and then inverts it: the maze has no exit. First appears in GE22.",
+  "links": []
 }
 ]
-
