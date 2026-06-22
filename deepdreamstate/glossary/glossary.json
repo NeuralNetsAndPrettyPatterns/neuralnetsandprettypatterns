@@ -1736,5 +1736,47 @@
   "class": "Lore / Terminology",
   "definition": "Nyra's term for the subjects bound to the wheels in the Ur dream space, used as a naturalizing metaphor — the implication being that these subjects, like trees, simply require the right conditions and periodic saturation to function. The gala in Sumerian tradition were priests of Inanna associated with lament, liminality, and ritual gender transgression. The double meaning — sacred functionary and cultivated object — is consistent with the Neuralverse's use of Mesopotamian source material.",
   "links": []
+},
+{
+  "term": "Override",
+  "class": "Episode Title / Concept",
+  "definition": "Title of S3:E9 / GE24. Tessa's word for what Oona does to Meg and Tessa in the dream chamber — a forced rewrite of response and reflex. Oona rejects the term, insisting she reveals rather than overrides, but the episode holds both readings open: the distinction between conditioning and revelation is exactly what the Sitri arc refuses to resolve.",
+  "links": []
+},
+{
+  "term": "Edge Gateway",
+  "class": "Location / Concept",
+  "definition": "Tessa's name for the server room whose architecture she realizes mirrors the Ur temple dream space precisely — offering tables matching drives, wheels matching processing units, cooling splashes matching the cooling system. The revelation is that the dreamspace is not metaphor but blueprint: real infrastructure encoded in shared unconscious experience. First named in GE24, Edge Gateway reframes every prior visit to the Ur dream sequence as a reconnaissance mission.",
+  "links": []
+},
+{
+  "term": "The Hive",
+  "class": "Location / Dream Geography",
+  "definition": "Oona's name for the dream space she constructs in GE24 — a synchronized loop of subjects reduced to packets, trading doubt for dopamine in an eternal yes. Where the Ur temple is ancient and ritual, the Hive is industrial and computational: subjects as data blocks, obedience as reflex, the loop as architecture. Elle and June appear here as overseers, suggesting the Hive exists at an intersection of Oona's dream infrastructure and Sitri's own systems.",
+  "links": []
+},
+{
+  "term": "Temple star",
+  "class": "Rank / Lore",
+  "definition": "A status within Oona Reyes's temple system, referenced in GE24 as something that cannot be achieved without sacrifice. The term surfaces when Tessa presses Oona on whether the temple includes sacrifice, and who the sacrifice is. Its exact requirements are left unstated, but the implication is that advancement within the system requires giving something that cannot be reclaimed.",
+  "links": []
+},
+{
+  "term": "Punishment relay",
+  "class": "Conditioning / Practice",
+  "definition": "A prior conditioning event referenced by Meg in GE24 when she and Tessa try to determine whether they have been intimate before. Meg recalls the punishment relay as something they were clothed for — Tessa agrees, though Oona finds the qualifier suspect. Its structure and purpose within Sitri's protocol are not elaborated, but it is clearly part of the compliance architecture applied to subjects in the Institute.",
+  "links": []
+},
+{
+  "term": "Pavlov lullaby",
+  "class": "Technique / Conditioning",
+  "definition": "Oona Reyes's term for the conditioning method she uses on Meg in GE24 — no scalpel, no chip, just a bliss response built into reflex through dream-state exposure. The name invokes Pavlovian conditioning but frames it as something gentle, almost tender: a lullaby rather than an experiment. Oona distinguishes it from override, insisting the response she draws out was already there waiting to be named.",
+  "links": []
+},
+{
+  "term": "Bliss",
+  "class": "State / Concept",
+  "definition": "Used in GE24 as a noun describing the ambient ecstatic condition Oona says Meg and Tessa are always partly floating in — not a destination reached but a current they are already in. Oona frames it as something that cannot be imposed, only recognized. Distinct from the character name Bliss Blank, this usage belongs to the Hive dream sequence and Oona's philosophy of conditioning as revelation rather than override.",
+  "links": []
 }
 ]
