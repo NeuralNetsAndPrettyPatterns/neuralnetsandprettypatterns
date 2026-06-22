@@ -1688,5 +1688,53 @@
   "class": "Alias / Plot Detail",
   "definition": "The name Z considers giving Tessa Finn after leading her and Meg into the maze of the Sitri corridors. Z invokes the myth deliberately — Ariadne gave Theseus the thread to escape — and then inverts it: the maze has no exit. First appears in GE22.",
   "links": []
+},
+{
+  "term": "Artifact",
+  "class": "Episode Title",
+  "definition": "Title of S3:E8 / GE23. An artifact is something made — a thing that carries the mark of its maker long after it leaves their hands. In this episode, the word points toward the dream technology being engineered inside Sitri, toward Oona Reyes herself as a made thing, and toward what Meg and Tessa are becoming.",
+  "links": []
+},
+{
+  "term": "Pulse pattern",
+  "class": "Technology / Conditioning",
+  "definition": "A conditioning stimulus referenced alongside the suckmill and the lotus as part of the ongoing sensory protocol applied to subjects at Sitri. Tessa names it in GE23 as one of the mechanisms making it harder to hold herself together. Its specific delivery method is not described, but its pairing with other haptic and dream-state tools places it within the Institute's physical compliance architecture.",
+  "links": []
+},
+{
+  "term": "Dreamlock",
+  "class": "Phenomenon / Technique",
+  "definition": "Oona Reyes's term for the moment when her shared-dream synchronization fully captures a new subject — the point at which their dreamscape merges irreversibly with hers. She uses it in GE23 to describe what she expects to achieve with Meg and Tessa, framing it as both an inevitability and an invitation. Dreamlock is the terminal state of dream linking, the threshold past which individual dream boundaries collapse.",
+  "links": []
+},
+{
+  "term": "Freudian nightmare parlor",
+  "class": "Location / Dream Geography",
+  "definition": "A named waypoint on the interior path to Ur, cited by Oona Reyes in GE23 as one of the landmarks she has already navigated in dreams before Meg and Tessa have charted it. Its name suggests a chamber organized around psychoanalytic dread — the things the mind buries that the Institute has learned to excavate. It appears in sequence with Sippar and the threshold chambers as part of the descent topology.",
+  "links": []
+},
+{
+  "term": "nin-dur",
+  "class": "Object / Ritual Technology",
+  "definition": "A face-to-face binding apparatus engineered in the Ur dream space, presented by Nyra as the finest creation of the ritual wheel complex. Subjects are bound with limbs interwoven through gaps, positioned so that each spin draws them closer together — designed so that holding still is the only way to stop the motion. The name is Sumerian; nin means lady or sister, and dur carries connotations of seat, bond, and enclosure.",
+  "links": []
+},
+{
+  "term": "Ka-ma",
+  "class": "Ritual / Lore",
+  "definition": "A chant or recitation form used in the Ur dream sequence, demanded by Nyra as proof of knowledge before a foreigner may share in the rites. Oona recognizes it immediately, framing her familiarity as instinctive — game recognizing game. In the context of the Neuralverse's Mesopotamian substrate, Ka-ma functions as a ritual password, a demonstration of alignment with the logic of the space.",
+  "links": []
+},
+{
+  "term": "Irkalla",
+  "class": "Lore / Location",
+  "definition": "The name spoken in invocation as Meg, Tessa, and Oona enter the shared dream space in GE23, voiced in unison with what the script describes as orgasmic intensity. In Mesopotamian mythology, Irkalla is the realm of the dead and the domain of Ereshkigal — the world beneath the world. Its appearance here anchors the Ur dream sequence to the same mythological substrate running through the Neuralverse's deepest lore layer.",
+  "links": []
+},
+{
+  "term": "gala trees",
+  "class": "Lore / Terminology",
+  "definition": "Nyra's term for the subjects bound to the wheels in the Ur dream space, used as a naturalizing metaphor — the implication being that these subjects, like trees, simply require the right conditions and periodic saturation to function. The gala in Sumerian tradition were priests of Inanna associated with lament, liminality, and ritual gender transgression. The double meaning — sacred functionary and cultivated object — is consistent with the Neuralverse's use of Mesopotamian source material.",
+  "links": []
 }
 ]
