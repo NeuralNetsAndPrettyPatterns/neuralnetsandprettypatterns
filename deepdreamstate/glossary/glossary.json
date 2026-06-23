@@ -1778,5 +1778,17 @@
   "class": "Plot Detail",
   "definition": "Used in GE24 as a noun describing the ambient ecstatic condition Oona says Meg and Tessa are always partly floating in — not a destination reached but a current they are already in. Oona frames it as something that cannot be imposed, only recognized. Distinct from the character name Bliss Blank, this usage belongs to the Hive dream sequence and Oona's philosophy of conditioning as revelation rather than override.",
   "links": []
+},
+{
+  "term": "Dream clock",
+  "class": "Plot Detail",
+  "definition": "A timekeeping device constructed from dream material, used by Nyra in GE25 as a reality-check tool for Meg and Tessa. Nyra draws a precise distinction: it is made from dreams but is not an in-dream clock, and it works correctly — meaning the standard lucid dream test of checking a clock for instability returns a stable result. Its existence implies that Sitri's dream infrastructure has produced objects that persist outside the dreamstate.",
+  "links": []
+},
+{
+  "term": "Bad button",
+  "class": "Plot Detail",
+  "definition": "Oona's punishment device, referenced in GE25 as the alternative to compliance. She offers it as a choice — cooperate or get the bad button — without describing its mechanism. Meg and Tessa's immediate whining response suggests prior exposure. It functions as the aversive counterpart to Oona's reward-based conditioning, the negative pole of the Pavlov lullaby system.",
+  "links": []
 }
 ]
