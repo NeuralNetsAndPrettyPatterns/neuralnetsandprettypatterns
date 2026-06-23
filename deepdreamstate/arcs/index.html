@@ -70,8 +70,7 @@
           { "@type": "ListItem", "position": 2, "name": "Deep Dream State", "item": "https://neuralnetsandprettypatterns.com/deepdreamstate/" },
           { "@type": "ListItem", "position": 3, "name": "Arcs", "item": "https://neuralnetsandprettypatterns.com/deepdreamstate/arcs/" }
         ]
-      }
-      ,
+      },
       {
         "@type": "PodcastSeries",
         "@id": "https://neuralnetsandprettypatterns.com/deepdreamstate/#series",
@@ -496,9 +495,6 @@
       </div>
     </header>
 
-    <!-- ═══════════════════════════════════════════
-         OVERVIEW — grasp for copy
-    ═══════════════════════════════════════════ -->
     <section class="section">
       <h2>Show</h2>
       <p>The Deep Dream State's the first desire horror audio drama. We look at the horror of what we run towards, instead of what we run away from.</p>
@@ -508,9 +504,6 @@
 
     <div class="rule"><span class="rule-symbol">* * *</span></div>
 
-    <!-- ═══════════════════════════════════════════
-         STRUCTURE — grasp for copy
-    ═══════════════════════════════════════════ -->
     <section class="section">
       <h2>Structure</h2>
       <p>The organization can seem complicated but at the core, it's simple. There are arcs, aka Seasons. That's a full story with a consistent location and throughline. Within the arcs, there are episodes.</p>
@@ -521,9 +514,6 @@
 
     <div class="rule"><span class="rule-symbol">* * *</span></div>
 
-    <!-- ═══════════════════════════════════════════
-         ARC 1 — grasp for copy
-    ═══════════════════════════════════════════ -->
     <section class="section">
       <h2>Chthonic: Arc 1</h2>
       <p>The arctic ice is melting. The social fabric is tearing. The Chthonic is about a cruise ship with a wedding party on the surface; it's really about what lies beneath.</p>
@@ -540,15 +530,10 @@
         <a href="https://neuralnetsandprettypatterns.com/deepdreamstate/arcs/chthonic/episode-8-undergloom/">Undergloom</a> · S1E8 <a href="https://www.imdb.com/title/tt38631407/" target="_blank" rel="noopener">GE8</a> |
         <a href="https://neuralnetsandprettypatterns.com/deepdreamstate/arcs/chthonic/episode-9-spiralstorm/">Spiralstorm</a> · S1E9 <a href="https://www.imdb.com/title/tt38694092/" target="_blank" rel="noopener">GE9</a>
       </div>
-
-
     </section>
 
     <div class="rule"><span class="rule-symbol">* * *</span></div>
 
-    <!-- ═══════════════════════════════════════════
-         ARC 2 — grasp for copy
-    ═══════════════════════════════════════════ -->
     <section class="section">
       <h2>Incognitoh: Arc 2</h2>
       <p>Reality shows are humiliating. That's baked into the premise. The viewers and contestants all understand the kinky voyeuristic contract at the heart of the genre. Once in a while, it breaks to the surface.</p>
@@ -562,15 +547,10 @@
         <a href="https://neuralnetsandprettypatterns.com/deepdreamstate/arcs/incognitoh/episode-5-winner-winner.html">Winner Winner</a> · S2E5 GE14 |
         <a href="https://neuralnetsandprettypatterns.com/deepdreamstate/arcs/incognitoh/episode-6-the-chain.html">The Chain</a> · S2E6 GE15
       </div>
-
-
     </section>
 
     <div class="rule"><span class="rule-symbol">* * *</span></div>
 
-    <!-- ═══════════════════════════════════════════
-         ARC 3 — grasp for copy
-    ═══════════════════════════════════════════ -->
     <section class="section">
       <h2>Sitri Center: Arc 3</h2>
       <p>Is there a collective unconscious? Is there a structure to dreams that runs deeper than history or specific cultural moments?</p>
@@ -592,15 +572,10 @@
         <a href="https://neuralnetsandprettypatterns.com/deepdreamstate/arcs/sitri/episode-11-sync.html">Sync</a> · S3E11 GE26 |
         <a href="https://neuralnetsandprettypatterns.com/deepdreamstate/arcs/sitri/episode-12-arouse.html">Arouse</a> · S3E12 GE27
       </div>
-
-
     </section>
 
     <div class="rule"><span class="rule-symbol">* * *</span></div>
 
-    <!-- ═══════════════════════════════════════════
-         ARC 4 — grasp for copy
-    ═══════════════════════════════════════════ -->
     <section class="section">
       <h2>Vale Four: Arc 4 <span style="font-size:0.75em; opacity:0.5;">Ongoing</span></h2>
       <p>Vale Four picks up where Sitri ended. It's about commerce and money and advertising. Beneath that, it's about the dreams and fantasies that animate money.</p>
@@ -618,8 +593,6 @@
         <a href="https://neuralnetsandprettypatterns.com/deepdreamstate/arcs/vale-four/episode-8-quiver.html">Quiver</a> · S4E8 GE35 |
         <a href="https://neuralnetsandprettypatterns.com/deepdreamstate/arcs/vale-four/episode-9-nock.html">Nock</a> · S4E9 GE36
       </div>
-
-
     </section>
 
     <footer>
@@ -632,7 +605,7 @@
 
   </div>
 
- <script>
+  <script>
     (function() {
       var bgUrl = 'https://neuralnetsandprettypatterns.com/deepdreamstate/assets/images/episodes/dds-cth-background.webp';
       var container = document.getElementById('background-container');
@@ -645,7 +618,32 @@
       };
       img.src = bgUrl;
     })();
-</script>
+
+    const slides = document.querySelectorAll('.carousel-slide');
+    const dots = document.querySelectorAll('.dot');
+    let current = 0;
+    const subtitleWrap = document.getElementById('carousel-subtitle-wrap');
+
+    function goTo(index) {
+      slides[current].classList.remove('active');
+      dots[current].classList.remove('active');
+      current = index;
+      slides[current].classList.add('active');
+      dots[current].classList.add('active');
+      const text = slides[current].dataset.subtitle;
+      const href = slides[current].dataset.href;
+      const arcNames = ['', 'The Chthonic.', 'Incognitoh.', 'Sitri Center.', 'Vale Four.'];
+      if (href) {
+        subtitleWrap.innerHTML = '<a href="' + href + '" style="color:inherit;text-decoration:underline;text-underline-offset:0.2em;">' + text + '</a> ' + arcNames[index];
+      } else {
+        subtitleWrap.innerHTML = '<span>' + text + '</span>';
+      }
+    }
+
+    dots.forEach(dot => {
+      dot.addEventListener('click', () => goTo(parseInt(dot.dataset.index)));
+    });
+  </script>
 
 </body>
 </html>
