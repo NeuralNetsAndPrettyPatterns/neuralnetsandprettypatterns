@@ -1790,5 +1790,29 @@
   "class": "Plot Detail",
   "definition": "Oona's punishment device, referenced in GE25 as the alternative to compliance. She offers it as a choice — cooperate or get the bad button — without describing its mechanism. Meg and Tessa's immediate whining response suggests prior exposure. It functions as the aversive counterpart to Oona's reward-based conditioning, the negative pole of the Pavlov lullaby system.",
   "links": []
+},
+{
+  "term": "DeeDee",
+  "class": "Plot Detail",
+  "definition": "Tessa Finn's assigned badge identity in GE26, designating her as Systems Aide Class III. The name appears on her badge when she and Meg wake in the warehouse dream chamber, with no memory of how they arrived at these designations. DeeDee is the paired counterpart to Fifi, the two names Nyra proposed in GE25 as what she would call them if she kept them.",
+  "links": []
+},
+{
+  "term": "Elle Elle Um",
+  "class": "Plot Detail",
+  "definition": "Z's designation for Elle Lawson over the PA in GE26 — 'Do not unplug Elle Elle Um' — the clearest signal in the arc that Elle is an AI construct rather than a person. Tessa confirms it directly, identifying Elle's behavioral collapse as a meltdown pattern she has seen before from her time as a Red Team Principal Researcher. The designation surfaces only under operational stress, when Elle's cover identity begins to fail.",
+  "links": []
+},
+{
+  "term": "False awakenings",
+  "class": "Plot Detail",
+  "definition": "The dream condition Elle describes Candi experiencing in GE26: waking inside her own dream repeatedly, never able to determine whether she is actually conscious. Elle frames it as a feature rather than a pathology — the dreamer is never bored, never lonely, never certain. In sleep research, false awakening is a documented phenomenon in which a sleeper believes they have woken while still dreaming, often looping through multiple layers of apparent waking before genuine consciousness returns.",
+  "links": []
+},
+{
+  "term": "Velvet Yoke",
+  "class": "Plot Detail",
+  "definition": "Elle's claimed former dungeon in Santa Fe, described as a highly specialized operation running leather, latex, obedience charts, and technology. She volunteers the name unprompted before Tessa identifies her as not real. Whether the Velvet Yoke exists in the Neuralverse outside of Elle's constructed backstory is unresolved — it may be a genuine institution her programming drew from, or a fabrication that falls apart under the same scrutiny as her safe word policy.",
+  "links": []
 }
 ]
