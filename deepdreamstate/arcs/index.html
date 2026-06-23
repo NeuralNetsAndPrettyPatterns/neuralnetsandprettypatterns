@@ -159,12 +159,12 @@
     /* CAROUSEL */
     .carousel-wrap {
       margin: 0.4rem auto 0;
-      max-width: 340px;
+      max-width: 460px;
     }
 
     .carousel-track {
       position: relative;
-      width: 100%;
+      flex: 1;
       aspect-ratio: 1;
     }
 
@@ -190,36 +190,35 @@
       box-shadow: 0 8px 32px rgba(0,0,0,0.6);
     }
 
+    .carousel-row {
+      display: flex;
+      align-items: center;
+      gap: 0.75rem;
+    }
+
     .carousel-arrow {
-      position: absolute;
-      top: 50%;
-      transform: translateY(-50%);
-      z-index: 10;
-      width: 44px;
-      height: 44px;
+      width: 48px;
+      height: 48px;
       border: 2px solid rgba(232,232,232,0.8);
       border-radius: 50%;
-      background: rgba(0,0,0,0.5);
+      background: rgba(0,0,0,0.4);
       color: #e8e8e8;
       cursor: pointer;
       display: flex;
       justify-content: center;
       align-items: center;
+      flex-shrink: 0;
       transition: all 0.2s ease;
-      font-size: 1.3rem;
+      font-size: 1.4rem;
       line-height: 1;
       padding: 0;
-      backdrop-filter: blur(4px);
     }
 
     .carousel-arrow:hover {
-      background: rgba(0,0,0,0.75);
+      background: rgba(232,232,232,0.2);
       border-color: #e8e8e8;
-      transform: translateY(-50%) scale(1.1);
+      transform: scale(1.1);
     }
-
-    #carousel-prev { left: 10px; }
-    #carousel-next { right: 10px; }
 
     .carousel-dots {
       display: flex;
@@ -471,31 +470,33 @@
       <h1>Deep Dream State</h1>
 
       <div class="carousel-wrap">
-        <div class="carousel-track">
-          <div class="carousel-slide active" data-subtitle="There is a world behind your world.">
-            <img src="https://neuralnetsandprettypatterns.com/deepdreamstate/arc-carousel-overview.webp" alt="Deep Dream State Overview">
-          </div>
-          <div class="carousel-slide" data-subtitle="There is a world behind your cruise." data-href="https://neuralnetsandprettypatterns.com/deepdreamstate/arcs/chthonic/">
-            <a href="https://neuralnetsandprettypatterns.com/deepdreamstate/arcs/chthonic/">
-              <img src="https://neuralnetsandprettypatterns.com/deepdreamstate/arc-carousel-chthonic.webp" alt="Arc 1: Chthonic">
-            </a>
-          </div>
-          <div class="carousel-slide" data-subtitle="There is a world behind your game." data-href="https://neuralnetsandprettypatterns.com/deepdreamstate/arcs/incognitoh/">
-            <a href="https://neuralnetsandprettypatterns.com/deepdreamstate/arcs/incognitoh/">
-              <img src="https://neuralnetsandprettypatterns.com/deepdreamstate/arc-carousel-incognitoh.webp" alt="Arc 2: Incognitoh">
-            </a>
-          </div>
-          <div class="carousel-slide" data-subtitle="There is a world behind your dreams." data-href="https://neuralnetsandprettypatterns.com/deepdreamstate/arcs/sitri/">
-            <a href="https://neuralnetsandprettypatterns.com/deepdreamstate/arcs/sitri/">
-              <img src="https://neuralnetsandprettypatterns.com/deepdreamstate/arc-carousel-sitri.webp" alt="Arc 3: Sitri Center">
-            </a>
-          </div>
-          <div class="carousel-slide" data-subtitle="There is a world behind your money." data-href="https://neuralnetsandprettypatterns.com/deepdreamstate/arcs/vale-four/">
-            <a href="https://neuralnetsandprettypatterns.com/deepdreamstate/arcs/vale-four/">
-              <img src="https://neuralnetsandprettypatterns.com/deepdreamstate/arc-carousel-vale-four.webp" alt="Arc 4: Vale Four">
-            </a>
-          </div>
+        <div class="carousel-row">
           <button class="carousel-arrow" id="carousel-prev" aria-label="Previous arc">&#8592;</button>
+          <div class="carousel-track">
+            <div class="carousel-slide active" data-subtitle="There is a world behind your world.">
+              <img src="https://neuralnetsandprettypatterns.com/deepdreamstate/arc-carousel-overview.webp" alt="Deep Dream State Overview">
+            </div>
+            <div class="carousel-slide" data-subtitle="There is a world behind your cruise." data-href="https://neuralnetsandprettypatterns.com/deepdreamstate/arcs/chthonic/">
+              <a href="https://neuralnetsandprettypatterns.com/deepdreamstate/arcs/chthonic/">
+                <img src="https://neuralnetsandprettypatterns.com/deepdreamstate/arc-carousel-chthonic.webp" alt="Arc 1: Chthonic">
+              </a>
+            </div>
+            <div class="carousel-slide" data-subtitle="There is a world behind your game." data-href="https://neuralnetsandprettypatterns.com/deepdreamstate/arcs/incognitoh/">
+              <a href="https://neuralnetsandprettypatterns.com/deepdreamstate/arcs/incognitoh/">
+                <img src="https://neuralnetsandprettypatterns.com/deepdreamstate/arc-carousel-incognitoh.webp" alt="Arc 2: Incognitoh">
+              </a>
+            </div>
+            <div class="carousel-slide" data-subtitle="There is a world behind your dreams." data-href="https://neuralnetsandprettypatterns.com/deepdreamstate/arcs/sitri/">
+              <a href="https://neuralnetsandprettypatterns.com/deepdreamstate/arcs/sitri/">
+                <img src="https://neuralnetsandprettypatterns.com/deepdreamstate/arc-carousel-sitri.webp" alt="Arc 3: Sitri Center">
+              </a>
+            </div>
+            <div class="carousel-slide" data-subtitle="There is a world behind your money." data-href="https://neuralnetsandprettypatterns.com/deepdreamstate/arcs/vale-four/">
+              <a href="https://neuralnetsandprettypatterns.com/deepdreamstate/arcs/vale-four/">
+                <img src="https://neuralnetsandprettypatterns.com/deepdreamstate/arc-carousel-vale-four.webp" alt="Arc 4: Vale Four">
+              </a>
+            </div>
+          </div>
           <button class="carousel-arrow" id="carousel-next" aria-label="Next arc">&#8594;</button>
         </div>
 
