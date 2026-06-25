@@ -1964,5 +1964,35 @@
   "class": "Plot Detail",
   "definition": "June's term in GE31 for the gap in FaceTrace's coverage that she and Elle are working to identify and exploit. Their self-administered testing sessions in the monitor room are designed to map their own tell patterns so they can neutralize them before being run through official sessions with Tessa watching. Finding the blind spot is the precondition for the holdfast network surviving FaceTrace's deployment.",
   "links": []
+},
+  {
+  "term": "Evil Eye",
+  "class": "Setting",
+  "definition": "The control room where Tessa, Z, Meg, Hespa, and Iris convene in GE32, named in scene headers as their standard operations space. It is presumed to be under continuous camera surveillance — a condition the occupants are aware of and operate within. Functionally the villain lair of Vale Four: the room where behavioral data is reviewed, strategies are set, and decisions about individual subjects are made without those subjects present.",
+  "links": []
+},
+{
+  "term": "Neuromodulation",
+  "class": "Plot Detail",
+  "definition": "The compliance process Meg references having pulled from June in GE32 — the mechanism for flattening subjects into automatic obedience, eliminating resistance and independent processing. Described as what everyone else at Vale Four wanted to do to June; Meg intervened to keep her conscious. Its removal is framed as both a professional concession and a strategic trap, giving June the illusion of autonomy while the system watches what she does with it.",
+  "links": []
+},
+{
+  "term": "Yesloops",
+  "class": "Plot Detail",
+  "definition": "Meg's term in GE32 for the end state of full neuromodulation — subjects reduced to automatic compliance with no remaining resistance, independent processing, or useful behavioral data. Used as a contrast to June's value as a conscious, thinking subject: a blank slate doesn't teach you anything. The word implies both the circular structure of the conditioned response and its total capture of the subject's volition.",
+  "links": []
+},
+{
+  "term": "Hubris",
+  "class": "Plot Detail",
+  "definition": "Tessa's term in GE32 for the strategic pattern of allowing a subject to believe they are directing events until that belief causes them to expose themselves and anyone they are protecting. Iris confirms it as the standard play for subjects who need to feel they are choosing — predictable under perceived autonomy, Z calls it. June's arc at Vale Four is explicitly identified as a hubris arc: she is being given access, autonomy, and the sensation of winning precisely because that is when she tells them everything.",
+  "links": []
+},
+{
+  "term": "Somatic signature",
+  "class": "Plot Detail",
+  "definition": "The AI's term in GE32 for Ava's body language and physical response data, paired with FaceTrace to build a complete behavioral profile beyond facial telemetry. In the Solitaire scene the AI uses somatic signature as the justification for a full body scan — correlating Ava's physical responses with her FaceTrace data to confirm her compliance value. It represents the extension of Vale Four's measurement apparatus from the face to the entire body.",
+  "links": []
 }
 ]
