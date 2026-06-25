@@ -1892,5 +1892,23 @@
   "class": "Plot Detail",
   "definition": "Naia's verb in GE28 for what Vale Four's conditioning does to a person — used specifically when describing Elle Lawson's prior state before her snap-back. The word is chosen carefully: it implies surface transformation, glamour, and a kind of enforced shine rather than destruction. It positions conditioning not as erasure but as coating, which is why Elle's lucid return is significant — whatever was underneath survived.",
   "links": []
+},
+  {
+  "term": "Vale Four Charter",
+  "class": "Plot Detail",
+  "definition": "The original Meridian A to Vale Four foundational transfer document, discovered by Elle and Cael in a hidden backroom in GE29. Retained as a paper-only document with no digital backup and permanent retention status — deliberately removed from the facility floor plan to ensure it would not be found. The charter contains the automatic reversion clause: if Vale Four fails to go public on time or its value crashes, control returns to the original owner without litigation or negotiation. Its existence is the legal foundation of Naia's entire strategy.",
+  "links": []
+},
+{
+  "term": "Haptic Room",
+  "class": "Setting",
+  "definition": "The next conditioning level beyond the standard Vale Four subject experience, referenced by Elle in GE29 when directing Celeste and Vera toward it. Elle describes it as where Vale Four takes subjects once the hooks are confirmed working — the point at which observation becomes active shaping. She frames seeing it firsthand as both dangerous and valuable, telling them they won't believe what happens there without witnessing it directly.",
+  "links": []
+},
+{
+  "term": "Gardeners",
+  "class": "Plot Detail",
+  "definition": "Naia's term in GE29 for the role she asks June to occupy — not witness, not operative, but someone who creates conditions for change without direct action or visible fingerprints. She frames both Vale Four and herself as gardeners in the same sense: dropping seeds and watching them grow, controlling outcomes through patience and positioning rather than force. The word is chosen deliberately against operator, which Naia rejects as too blunt.",
+  "links": []
 }
 ]
