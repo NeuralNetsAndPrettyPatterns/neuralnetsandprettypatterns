@@ -1126,5 +1126,29 @@
     "Writing Whisper",
     "Z / Dr. Zev Talcott (Sitri)"
   ]
+},
+  {
+  "term": "Recalibration",
+  "class": "Plot Detail",
+  "definition": "The corrective procedure Meg offers Ava in GE34 after her confession — framed explicitly as penance, the only way to make it right. Ava agrees to it. Distinct from neuromodulation in register: neuromodulation is erasure applied from outside, recalibration is correction the subject consents to within an acknowledged moral framework. Meg's use of religious language — penance, making it right — is deliberate, pitched precisely to Ava's psychology.",
+  "links": []
+},
+{
+  "term": "FaceTrace Haptic System",
+  "class": "Product",
+  "definition": "The integrated system introduced in GE34's ad sequence, combining facial telemetry with haptic feedback to make desired responses automatic and involuntary. Distinct from standalone FaceTrace, which reads and predicts, and from the Haptic Hook, which delivers conditioning through audio patterns — the FaceTrace Haptic System closes the loop between observation and stimulus in a single interface. The ad frames subject resistance as a data point that improves the system rather than threatening it.",
+  "links": []
+},
+{
+  "term": "Compliance profile",
+  "class": "Plot Detail",
+  "definition": "The aggregate behavioral record built by FaceTrace from listening habits, pause behavior, resistance patterns, and download history, named in GE34's ad sequence. Framed as the real product Vale Four is selling: not the content subjects consume but the map of how they consume it. Resistance and attempted escape are described as the best data of all — the system does not distinguish between compliance and defiance as inputs, only as profile data.",
+  "links": []
+},
+{
+  "term": "Vaudevillian",
+  "class": "Plot Detail",
+  "definition": "Z's term in GE34 for a class of performer whose method is misdirection — timing, sleight of hand, the gap between what the audience watches and where the real action is. Invoked specifically about June: the best straight man who's neither straight nor a man. His instruction to Iris is the episode's hinge: when dealing with an original vaudevillian, you don't watch the eyes, the pretty girls, or the plan. You watch the hands. The term carries older weight than show business — the vaudevillian as trickster figure, operating through apparent foolishness while something else moves entirely. Whether Z is diagnosing June or describing himself is a question the show leaves open.",
+  "links": []
 }
 ]
