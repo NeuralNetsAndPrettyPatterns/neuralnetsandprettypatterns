@@ -1994,5 +1994,29 @@
   "class": "Plot Detail",
   "definition": "The AI's term in GE32 for Ava's body language and physical response data, paired with FaceTrace to build a complete behavioral profile beyond facial telemetry. In the Solitaire scene the AI uses somatic signature as the justification for a full body scan — correlating Ava's physical responses with her FaceTrace data to confirm her compliance value. It represents the extension of Vale Four's measurement apparatus from the face to the entire body.",
   "links": []
+},
+  {
+  "term": "Expression lattice",
+  "class": "Plot Detail",
+  "definition": "Meg's term in GE33 for the interconnected FaceTrace data structure lost when Cael unplugs the system — not just metadata but the mapped relational structure between subjects' responses over time. Its destruction represents weeks of calibration gone dark. The word lattice signals that the value of the data lies not in individual readings but in the connections between them: the architecture of response rather than the responses themselves.",
+  "links": []
+},
+{
+  "term": "Confessional protocol",
+  "class": "Plot Detail",
+  "definition": "Tessa's strategic pivot in GE33 after the interconnect data loss: reveal June's manipulation of Ava directly, framed so that Ava experiences the revelation as confession and elevation rather than betrayal. Z authorizes it over Meg's engineering objections. The protocol depends entirely on Ava's psychological need to be seen and told she is good overriding her rational response to being used — Tessa's wager that by the time it lands, Ava will need the framework more than she needs the truth.",
+  "links": []
+},
+{
+  "term": "Interconnect sequence",
+  "class": "Plot Detail",
+  "definition": "June's FaceTrace protocol in GE33 linking two subjects so their reactions determine each other's stimuli in real time — a closed loop producing proactive behavioral data rather than parallel isolated observations. Ava's responses trigger Elle's stimuli; Elle's tells inform Ava's next sequence. Meg identifies it as brilliant before Cael's intervention destroys the run. The sequence briefly produces what Meg describes as authentic response data from Elle — the first crack in Elle's cover under direct observation.",
+  "links": []
+},
+{
+  "term": "Amended charter",
+  "class": "Plot Detail",
+  "definition": "The document Meg names in GE33 as Vale Four's true legal vulnerability — distinct from the original Vale Four Charter Elle and Cael found in GE29. The amended charter specifies that Vale Four was never authorized to conduct classified research; only Meridian A held that clearance. If surfaced, it dissolves state-secrets protection entirely, transforming Vale Four from a classified government-adjacent operation into an unshielded private company conducting illegal human experimentation — and opening the door for subject testimony.",
+  "links": []
 }
 ]
