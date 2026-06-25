@@ -2042,5 +2042,17 @@
   "class": "Plot Detail",
   "definition": "Z's term in GE34 for a class of performer whose method is misdirection — timing, sleight of hand, the gap between what the audience watches and where the real action is. Invoked specifically about June: the best straight man who's neither straight nor a man. His instruction to Iris is the episode's hinge: when dealing with an original vaudevillian, you don't watch the eyes, the pretty girls, or the plan. You watch the hands. The term carries older weight than show business — the vaudevillian as trickster figure, operating through apparent foolishness while something else moves entirely. Whether Z is diagnosing June or describing himself is a question the show leaves open.",
   "links": []
+},
+  {
+  "term": "Gluckgluck",
+  "class": "Game",
+  "definition": "An oral-themed arcade game in Valescape, introduced in GE35. Distinct from Yum Yum Time as a standalone product with its own ad voice, escalating mechanics, and Kama-earning reward loop. Features combo multipliers — Triple Cumbo being the peak reward state — and an accelerating pace engineered to produce dopamine responses that subjects attribute to gameplay skill rather than conditioning. June uses co-op mode to draw Gia in; Elle narrates the play to maximize Gia's absorption. Hespa clocks them three hours in before anyone notices.",
+  "links": []
+},
+{
+  "term": "Need graph",
+  "class": "Plot Detail",
+  "definition": "Hespa's term in GE35 for the behavioral profile produced by forcing subjects to make real choices under Kama scarcity — a map of what a subject prioritizes when resources are constrained. The entire Kama economy is designed to generate need graphs: flat-rate payment produces no useful data, but currency subjects can only spend on-site forces genuine prioritization. Blake identifies the architecture immediately; most subjects experience it as simply having fun.",
+  "links": []
 }
 ]
