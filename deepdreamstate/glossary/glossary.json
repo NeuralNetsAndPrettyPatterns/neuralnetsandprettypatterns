@@ -1910,5 +1910,29 @@
   "class": "Plot Detail",
   "definition": "Naia's term in GE29 for the role she asks June to occupy — not witness, not operative, but someone who creates conditions for change without direct action or visible fingerprints. She frames both Vale Four and herself as gardeners in the same sense: dropping seeds and watching them grow, controlling outcomes through patience and positioning rather than force. The word is chosen deliberately against operator, which Naia rejects as too blunt.",
   "links": []
+},
+  {
+  "term": "Haptic Hook",
+  "class": "Product",
+  "definition": "Vale Four's conditioning system introduced in GE30, pitched by Z and Iris in an in-universe ad. It pairs involuntary musical imagery with calibrated haptic pulse patterns delivered at neurologically optimal intervals, reinforcing desired responses without conscious effort. Its key feature is portability: once a hook is installed, it activates on any instance of the pattern regardless of source — workout mixes, video games, ambient audio. The system does not require a dedicated environment because it has already colonized the subject's auditory processing.",
+  "links": []
+},
+{
+  "term": "Entertrainment",
+  "class": "Plot Detail",
+  "definition": "Vera's coined term in GE30 for the Vale Four system — entertainment that is simultaneously training. She uses it to name what she and Celeste have been subjected to: the arcade, the shower privileges, Channel 68, and the hook all functioning as a single conditioning apparatus disguised as recreational reward. The word arrives as a moment of clarity before the scene tips back toward compliance.",
+  "links": []
+},
+{
+  "term": "Channel 68",
+  "class": "Plot Detail",
+  "definition": "A sub-program unlocked for Celeste and Vera by Z in GE30 as an administrative privilege, framed as premium content not available to all subjects. Vera later identifies it alongside the arcade and shower access as part of the same entertrainment system — rewards that are also conditioning vectors. Its number echoes Subproject 68, the NDA mechanism Naia named in GE28.",
+  "links": []
+},
+{
+  "term": "Yes girls",
+  "class": "Plot Detail",
+  "definition": "Tessa's term in GE30 for Celeste and Vera at the point of their absorption into the production side of Vale Four. Delivered as both a descriptor and a fait accompli — you're our yes girls now — it names the end state of the conditioning arc the two subjects have been on since GE28. Vera protests it directly; Tessa responds by offering the door, knowing neither will leave.",
+  "links": []
 }
 ]
