@@ -2054,5 +2054,29 @@
   "class": "Plot Detail",
   "definition": "Hespa's term in GE35 for the behavioral profile produced by forcing subjects to make real choices under Kama scarcity — a map of what a subject prioritizes when resources are constrained. The entire Kama economy is designed to generate need graphs: flat-rate payment produces no useful data, but currency subjects can only spend on-site forces genuine prioritization. Blake identifies the architecture immediately; most subjects experience it as simply having fun.",
   "links": []
+}, 
+  {
+  "term": "Buzzgraph",
+  "class": "Plot Detail",
+  "definition": "Meg's term in GE36 for the individual haptic response profile that Prismatix calibrates to in real time — the personal map of what produces a buzz reaction in a specific subject. Distinct from the compliance profile, which tracks behavioral choices over time; the buzzgraph is physiological and immediate, the system's read of what the body responds to before the mind processes it. Prismatix uses it to adjust fit, tension, and haptic output to the wearer's specific response curve.",
+  "links": []
+},
+{
+  "term": "Buzz belt",
+  "class": "Product",
+  "definition": "A named Prismatix wearable component referenced in GE36's ad sequence alongside tingle clips. Part of the modular Prismatix system, calibrated to the wearer's buzzgraph. Named and worn on camera by Piper during the professionally produced ad shoot.",
+  "links": []
+},
+{
+  "term": "Choice velocity",
+  "class": "Plot Detail",
+  "definition": "Hespa's metric in GE36 for how quickly subjects make spending decisions under Kama scarcity — one of Vale Four's three standard engagement measures alongside time spent and behavioral responses. High choice velocity indicates a subject whose need graph is sufficiently developed that resource constraints produce fast, instinctive decisions rather than deliberation. Blake identifies it immediately as a data extraction mechanism; Hespa describes it as standard stuff.",
+  "links": []
+},
+{
+  "term": "Learn to earn",
+  "class": "Plot Detail",
+  "definition": "Vale Four's internal slogan for the Kama labor system, introduced in GE36 by Hespa as official facility language and repeated as ad copy. By the end of GE36 it has migrated into conditioned subject speech — Elle, Piper, and others echo it in conversation without apparent awareness that they are repeating advertising. Its trajectory from corporate slogan to involuntary mantra is the arc of the Kama system in miniature.",
+  "links": []
 }
 ]
