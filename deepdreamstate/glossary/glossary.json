@@ -1838,5 +1838,59 @@
   "class": "Plot Detail",
   "definition": "Iris Vale's term for Meg and Tessa in GE27, and by extension for the listeners: subjects who enter the temple looking for a game and find themselves inside a system designed to determine what they become. The metaphor frames the wheel and the factory not as punishment but as a payout mechanism — one spin at a time, the result decided by forces already in the room. Iris addresses the listener directly when she says you decide exactly what they're gonna be.",
   "links": []
+},
+{
+  "term": "Celeste",
+  "class": "Character",
+  "definition": "A Vale Four research subject who arrives at the island facility in GE28 alongside Vera. She is observant and anxious by nature, the first to voice unease about the study's conditions and the one whose sleep behavior — moving in time with the Better Self hook without remembering it — signals earliest exposure. Her prior work at the Cheesecake Factory is referenced as the economic pressure keeping her from leaving.",
+  "links": []
+},
+{
+  "term": "Vera",
+  "class": "Character",
+  "definition": "A Vale Four research subject and Celeste's companion at the island facility, introduced in GE28. Pragmatic and financially motivated, she functions as the counterweight to Celeste's anxiety — repeatedly framing participation as the economically rational choice over returning to prior work. She is the one who notices Celeste moving in her sleep to the hook before Celeste is aware of it herself.",
+  "links": []
+},
+{
+  "term": "Calibrex",
+  "class": "Setting",
+  "definition": "Vale Four's neurological testing room, introduced in GE28 as part of the facility orientation. Designed to eliminate the visual and acoustic cues associated with medical imaging — no MRI tube, no perceptible noise — it presents as an ordinary room while conducting invasive neurological measurement. The name is Vale Four's branding for a process the orientation script is careful to describe as minimally invasive.",
+  "links": []
+},
+{
+  "term": "Subproject 68",
+  "class": "Plot Detail",
+  "definition": "The NDA and redaction mechanism that Naia identifies in GE28 as the legal instrument preventing Vale Four staff from testifying about what they witnessed. Described as a hell of a cover, it classifies researcher knowledge the moment it is described, making staff testimony legally untenable. It is the primary reason Naia's strategy requires civilian subjects rather than credentialed employees as witnesses.",
+  "links": []
+},
+{
+  "term": "Protocol 37",
+  "class": "Plot Detail",
+  "definition": "Named by Naia in GE28 alongside Sitri and New Milford as one of the prior research touchstones they will use to discredit her — framing her as someone cycling through old obsessions rather than reporting facts. Its specific content is not described in this episode. The name's proximity to Construct 37 suggests a relationship between the two, though the nature of that connection has not been confirmed.",
+  "links": []
+},
+{
+  "term": "New Milford",
+  "class": "Plot Detail",
+  "definition": "A location referenced by Naia in GE28 as part of her documented research history, named alongside Sitri and Protocol 37 as things her detractors will cite as evidence of obsession. No further detail is given in this episode. Its inclusion in a list with a named research facility and a named protocol suggests it is a prior site or incident rather than incidental geography.",
+  "links": []
+},
+{
+  "term": "The Balancing",
+  "class": "Plot Detail",
+  "definition": "Named by Naia in GE28 as one of her prior preoccupations — something she expects her opponents to use against her as evidence of instability or repetition. She lists it deliberately in her recorded statement, acknowledging it will be weaponized while refusing to treat it as a symptom. Its meaning is not elaborated in this episode, but its placement alongside Sitri, New Milford, and Protocol 37 marks it as load-bearing lore.",
+  "links": []
+},
+{
+  "term": "Hook",
+  "class": "Plot Detail",
+  "definition": "Vale Four's internal term for engineered Involuntary Musical Imagery — short musical patterns designed to embed in working memory without conscious effort, resurface when attention drops, and loop. Distinguished from MILD, which refers to the broader sleep-state conditioning methodology, the hook is the specific sonic unit: deliberately engineered with machine learning to optimize tempo, interval spacing, and repetition thresholds across waking and sleeping states. Tessa introduces the term in GE28 as the study's official framing for what subjects will experience.",
+  "links": []
+},
+{
+  "term": "Sparkled",
+  "class": "Plot Detail",
+  "definition": "Naia's verb in GE28 for what Vale Four's conditioning does to a person — used specifically when describing Elle Lawson's prior state before her snap-back. The word is chosen carefully: it implies surface transformation, glamour, and a kind of enforced shine rather than destruction. It positions conditioning not as erasure but as coating, which is why Elle's lucid return is significant — whatever was underneath survived.",
+  "links": []
 }
 ]
