@@ -1934,5 +1934,36 @@
   "class": "Plot Detail",
   "definition": "Tessa's term in GE30 for Celeste and Vera at the point of their absorption into the production side of Vale Four. Delivered as both a descriptor and a fait accompli — you're our yes girls now — it names the end state of the conditioning arc the two subjects have been on since GE28. Vera protests it directly; Tessa responds by offering the door, knowing neither will leave.",
   "links": []
+},
+  {
+  "term": "FaceTrace",
+  "class": "Product",
+  "definition": "Vale Four's microexpression and dwell-time analysis system, introduced in GE31. It reads blink duration, eye fixation, and stimulus-response latency to map desire and resistance before subjects are consciously aware of their own responses. Unlike Calibrex, which depends on subject cooperation, FaceTrace runs continuously and without consent — framed commercially as contextual metadata, operationally as a tell reader. Naia identifies it as an existential threat to the holdfast network because it can detect resistance before it surfaces as behavior.",
+  "links": []
+},
+{
+  "term": "Seymour",
+  "class": "Plot Detail",
+  "definition": "June's office plant in GE31 — a signal-dense root system that disrupts RF propagation across multiple frequencies, functioning as organic counter-surveillance. Named by Elle, who finds it alarming. Tessa interprets June's plant-filled office as a sign of demotion; June understands it as exactly the cover she needs. Its use is the practical application of Naia's ecological cognition framework: influence through biology rather than technology.",
+  "links": []
+},
+{
+  "term": "Ava",
+  "class": "Character",
+  "definition": "A Vale Four research subject introduced in GE31 who works with catechumens. She is the first subject in the FaceTrace orientation to name what the system resembles — confession — and does so without apparent hostility, framing it as a question of religious appropriateness rather than protest. Tessa handles her carefully. Her presence introduces a theological register to the Vale Four subject pool that has not appeared in prior arcs.",
+  "links": []
+},
+{
+  "term": "Writing Whisper",
+  "class": "Metashow",
+  "definition": "The production device used in the FaceTrace testing scenes in GE31: stage whispers stripped of reverb and set apart from the main audio mix to communicate written notes between June and Elle. It is the show's solution to representing text-based communication in a purely audio medium — a formal convention announced in the script and executed as a distinct sonic texture. It functions simultaneously as a narrative device and a meta-acknowledgment of the medium's constraints.",
+  "links": []
+},
+{
+  "term": "Blind spot",
+  "class": "Plot Detail",
+  "definition": "June's term in GE31 for the gap in FaceTrace's coverage that she and Elle are working to identify and exploit. Their self-administered testing sessions in the monitor room are designed to map their own tell patterns so they can neutralize them before being run through official sessions with Tessa watching. Finding the blind spot is the precondition for the holdfast network surviving FaceTrace's deployment.",
+  "links": []
 }
+]
 ]
