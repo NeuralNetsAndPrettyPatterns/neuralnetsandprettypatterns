@@ -947,5 +947,66 @@
     "Tessa Finn (Sitri)",
     "Whorship"
   ]
+},
+  {
+  "ge": 28,
+  "season": 4,
+  "episode": 1,
+  "title": "Refrain",
+  "url": "https://neuralnetsandprettypatterns.com/deepdreamstate/arcs/vale-four/episode-1-refrain.html",
+  "terms": [
+    "Better Self",
+    "Cael",
+    "Calibrex",
+    "Celeste",
+    "Elle Lawson",
+    "Garden Nest",
+    "Hespa Apate",
+    "Hook",
+    "Iris",
+    "June Lowell",
+    "Kamas",
+    "Meg Aerin",
+    "Meridian A",
+    "Naia Anderson",
+    "New Milford",
+    "Protocol 37",
+    "Sitri Center",
+    "Sparkled",
+    "Subproject 68",
+    "Tessa Finn",
+    "The Balancing",
+    "Tick-Tock",
+    "Vera",
+    "Yum Yum Time",
+    "Z / Dr. Zev Talcott"
+  ]
+},
+  {
+  "ge": 29,
+  "season": 4,
+  "episode": 2,
+  "title": "Hook Line",
+  "url": "https://www.imdb.com/title/tt40650987/",
+  "terms": [
+    "Better Self",
+    "Cael",
+    "Calibrex",
+    "Celeste",
+    "Elle Lawson",
+    "Garden Nest",
+    "Gardeners",
+    "Haptic Room",
+    "Hook",
+    "June Lowell",
+    "Kamas",
+    "Meridian A",
+    "Naia Anderson",
+    "Subproject 68",
+    "Tessa Finn",
+    "Vale Four Charter",
+    "Vera",
+    "Yum Yum Time"
+  ]
 }
 ]
