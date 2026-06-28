@@ -252,16 +252,9 @@
   <link href="https://fonts.googleapis.com/css2?family=IM+Fell+DW+Pica:ital@0;1&display=swap" rel="stylesheet">
 
   <style>
-    *, *::before, *::after {
-      box-sizing: border-box;
-      margin: 0;
-      padding: 0;
-    }
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
 
-    html {
-      font-size: 16px;
-      scroll-behavior: smooth;
-    }
+    html { font-size: 16px; scroll-behavior: smooth; }
 
     body {
       width: 100%;
@@ -275,10 +268,8 @@
 
     #background-container {
       position: fixed;
-      top: 0;
-      left: 0;
-      width: 100%;
-      height: 100%;
+      top: 0; left: 0;
+      width: 100%; height: 100%;
       z-index: 0;
       background-image:
         linear-gradient(135deg, rgba(26,10,46,0.86) 0%, rgba(22,33,62,0.86) 48%, rgba(15,52,96,0.88) 100%),
@@ -330,9 +321,16 @@
       line-height: 1.75;
     }
 
-    p:last-child {
-      margin-bottom: 0;
+    p:last-child { margin-bottom: 0; }
+
+    a {
+      color: rgba(232,232,232,0.78);
+      text-decoration: underline;
+      text-underline-offset: 0.2em;
+      transition: color 0.2s ease;
     }
+
+    a:hover { color: #f0f4ff; }
 
     .nav-buttons {
       display: flex;
@@ -368,11 +366,7 @@
       transform: scale(1.1);
     }
 
-    .nav-button svg {
-      width: 20px;
-      height: 20px;
-      fill: currentColor;
-    }
+    .nav-button svg { width: 20px; height: 20px; fill: currentColor; }
 
     .rule {
       display: flex;
@@ -396,9 +390,7 @@
       letter-spacing: 0.2em;
     }
 
-    .nav-rule {
-      margin: 0 auto 1.3rem;
-    }
+    .nav-rule { margin: 0 auto 1.3rem; }
 
     .episode-hero {
       max-width: 780px;
@@ -442,8 +434,8 @@
     }
 
     .episode-card {
-      max-width: 460px;
-      margin: 0.4rem auto 1rem;
+      max-width: 400px;
+      margin: 2rem auto 1.2rem;
     }
 
     .episode-card img {
@@ -451,8 +443,8 @@
       width: 100%;
       aspect-ratio: 1;
       object-fit: cover;
-      border-radius: 8px;
-      box-shadow: 0 8px 32px rgba(0,0,0,0.6);
+      border-radius: 12px;
+      box-shadow: 0 10px 40px rgba(0,0,0,0.6);
     }
 
     .episode-nav {
@@ -464,22 +456,7 @@
       margin: 1rem auto 0;
     }
 
-    .episode-nav a,
-    .listen-links a {
-      color: rgba(232,232,232,0.78);
-      text-decoration: underline;
-      text-underline-offset: 0.2em;
-      transition: color 0.2s ease;
-    }
-
-    .episode-nav a:hover,
-    .listen-links a:hover {
-      color: #f0f4ff;
-    }
-
-    .episode-nav-separator {
-      color: rgba(232,232,232,0.28);
-    }
+    .episode-nav-separator { color: rgba(232,232,232,0.28); }
 
     .listen-links {
       font-size: 0.82rem;
@@ -494,18 +471,78 @@
       border-bottom: 1px solid rgba(232,232,232,0.12);
     }
 
-    .section:last-of-type {
-      border-bottom: none;
-    }
+    .section:last-of-type { border-bottom: none; }
 
-    .episode-copy {
+    .content-block,
+    .episode-copy,
+    .details-block,
+    .arc-context {
       max-width: 85ch;
       margin: 0 auto;
       text-align: left;
     }
 
-    .episode-copy h2 {
+    .content-block h2,
+    .episode-copy h2,
+    .details-block h2,
+    .arc-context h2 {
       text-align: center;
+    }
+
+    .details-grid {
+      display: grid;
+      grid-template-columns: minmax(130px, 0.35fr) 1fr;
+      gap: 0.45rem 1rem;
+      margin-top: 1rem;
+      font-size: 0.95rem;
+    }
+
+    .details-grid dt {
+      color: rgba(232,232,232,0.52);
+      letter-spacing: 0.05em;
+      text-transform: uppercase;
+      font-size: 0.78rem;
+    }
+
+    .details-grid dd {
+      color: rgba(232,232,232,0.86);
+    }
+
+    .episode-list {
+      max-width: 85ch;
+      margin: 0 auto;
+      text-align: left;
+    }
+
+    .episode-list h2 { text-align: center; }
+
+    .episode-row {
+      padding: 0.85rem 0;
+      border-bottom: 1px solid rgba(232,232,232,0.08);
+    }
+
+    .episode-row:last-child { border-bottom: none; }
+
+    .episode-row-title {
+      display: block;
+      color: #f0f4ff;
+      font-size: 1rem;
+      margin-bottom: 0.2rem;
+    }
+
+    .episode-row-links {
+      font-size: 0.78rem;
+      letter-spacing: 0.06em;
+      text-transform: uppercase;
+      color: rgba(232,232,232,0.48);
+    }
+
+    .ep-pipe {
+      font-size: 0.9rem;
+      color: rgba(232,232,232,0.65);
+      line-height: 2;
+      max-width: 85ch;
+      margin: 1rem auto 0;
     }
 
     footer {
@@ -520,41 +557,22 @@
       color: rgba(232,232,232,0.3);
     }
 
-    .isni a {
-      color: inherit;
-      text-decoration: none;
-    }
+    .isni a { color: inherit; text-decoration: none; }
 
     @media (max-width: 600px) {
-      .container {
-        padding: 0 1rem;
-      }
+      .container { padding: 0 1rem; }
+      header { padding: 1.3rem 0 1.5rem; }
+      .section { padding: 2rem 0; }
+      .episode-card { max-width: 320px; }
+      .nav-buttons { gap: 0.45rem; }
+      .nav-button { width: 42px; height: 42px; }
+      .episode-nav { gap: 0.5rem; font-size: 0.94rem; }
+      .details-grid { grid-template-columns: 1fr; gap: 0.15rem 0; }
+      .details-grid dd { margin-bottom: 0.5rem; }
+    }
 
-      header {
-        padding: 1.3rem 0 1.5rem;
-      }
-
-      .section {
-        padding: 2rem 0;
-      }
-
-      .episode-card {
-        max-width: 280px;
-      }
-
-      .nav-buttons {
-        gap: 0.45rem;
-      }
-
-      .nav-button {
-        width: 42px;
-        height: 42px;
-      }
-
-      .episode-nav {
-        gap: 0.5rem;
-        font-size: 0.94rem;
-      }
+    @media (max-width: 420px) {
+      .episode-card { max-width: 280px; }
     }
   </style>
 </head>
@@ -632,7 +650,7 @@
     <main>
       <section class="section">
         <div class="episode-copy">
-          <h2>First Night</h2>
+          <h2>Ding, Dong, Dagon.</h2>
 
           <p>The Chthonic sets sail, promising luxury, immersion, and a good time. It'll keep one of those promises.</p>
 
@@ -649,11 +667,171 @@
           <p>By the end of the first night, someone has been identified. The machinery has a target, and the voyage has its first real purpose.</p>
         </div>
       </section>
+
+      <div class="rule"><span class="rule-symbol">* * *</span></div>
+
+      <section class="section">
+        <div class="details-block">
+          <h2>Episode Details</h2>
+
+          <dl class="details-grid">
+            <dt>Arc</dt>
+            <dd><a href="/deepdreamstate/arcs/chthonic/">The Chthonic</a></dd>
+
+            <dt>Arc Episode</dt>
+            <dd>A1 E1</dd>
+
+            <dt>Global Episode</dt>
+            <dd><a href="https://www.imdb.com/title/tt38598489/" rel="noopener noreferrer" target="_blank">GE1</a></dd>
+
+            <dt>Title</dt>
+            <dd>Maiden Voyage</dd>
+
+            <dt>Logline</dt>
+            <dd>Some ice should stay unbroken.</dd>
+
+            <dt>Listen</dt>
+            <dd>
+              <a href="https://open.spotify.com/episode/1fi4cOLeLMWAdrvevXUys5" rel="noopener noreferrer" target="_blank">Spotify</a> |
+              <a href="https://podcasts.apple.com/us/podcast/maiden-voyage/id1822405042?i=1000725924606" rel="noopener noreferrer" target="_blank">Apple</a> |
+              <a href="https://deepdreamstate.blubrry.net/deep-dream-state-arc-1-episode-1-maiden-voyage/" rel="noopener noreferrer" target="_blank">Blubrry</a>
+            </dd>
+
+            <dt>Catalog</dt>
+            <dd>
+              <a href="https://www.imdb.com/title/tt38598489/" rel="noopener noreferrer" target="_blank">IMDb</a>
+            </dd>
+          </dl>
+        </div>
+      </section>
+
+      <div class="rule"><span class="rule-symbol">* * *</span></div>
+
+      <section class="section">
+        <div class="episode-list">
+          <h2>The Chthonic Episodes</h2>
+
+          <div class="episode-row">
+            <a class="episode-row-title" href="/deepdreamstate/arcs/chthonic/episode-1-maiden-voyage/">A1 E1: Maiden Voyage (GE1)</a>
+            <div class="episode-row-links">
+              <a href="https://open.spotify.com/episode/1fi4cOLeLMWAdrvevXUys5" rel="noopener noreferrer" target="_blank">Spotify</a> |
+              <a href="https://podcasts.apple.com/us/podcast/maiden-voyage/id1822405042?i=1000725924606" rel="noopener noreferrer" target="_blank">Apple</a> |
+              <a href="https://www.imdb.com/title/tt38598489/" rel="noopener noreferrer" target="_blank">IMDb</a> |
+              <a href="https://deepdreamstate.blubrry.net/deep-dream-state-arc-1-episode-1-maiden-voyage/" rel="noopener noreferrer" target="_blank">Blubrry</a>
+            </div>
+          </div>
+
+          <div class="episode-row">
+            <a class="episode-row-title" href="/deepdreamstate/arcs/chthonic/episode-2-cringetide/">A1 E2: Cringetide (GE2)</a>
+            <div class="episode-row-links">
+              <a href="https://open.spotify.com/episode/50is4XbzCNKyrmRafXooxi" rel="noopener noreferrer" target="_blank">Spotify</a> |
+              <a href="https://www.imdb.com/title/tt38604945/" rel="noopener noreferrer" target="_blank">IMDb</a> |
+              <a href="https://deepdreamstate.blubrry.net/deep-dream-state-arc-1-episode-2-cringetide/" rel="noopener noreferrer" target="_blank">Blubrry</a>
+            </div>
+          </div>
+
+          <div class="episode-row">
+            <a class="episode-row-title" href="/deepdreamstate/arcs/chthonic/episode-3-veil/">A1 E3: Veil (GE3)</a>
+            <div class="episode-row-links">
+              <a href="https://open.spotify.com/episode/0VEkbmpijLkYF91KWauk04" rel="noopener noreferrer" target="_blank">Spotify</a> |
+              <a href="https://podcasts.apple.com/us/podcast/veil/id1822405042?i=1000725924412" rel="noopener noreferrer" target="_blank">Apple</a> |
+              <a href="https://www.imdb.com/title/tt38605605/" rel="noopener noreferrer" target="_blank">IMDb</a> |
+              <a href="https://deepdreamstate.blubrry.net/deep-dream-state-arc-1-episode-3-veil/" rel="noopener noreferrer" target="_blank">Blubrry</a>
+            </div>
+          </div>
+
+          <div class="episode-row">
+            <a class="episode-row-title" href="/deepdreamstate/arcs/chthonic/episode-4-asunder/">A1 E4: Asunder (GE4)</a>
+            <div class="episode-row-links">
+              <a href="https://open.spotify.com/episode/40kKhlW7DSNDEiX0IyuxR4" rel="noopener noreferrer" target="_blank">Spotify</a> |
+              <a href="https://podcasts.apple.com/us/podcast/asunder/id1822405042?i=1000714259522" rel="noopener noreferrer" target="_blank">Apple</a> |
+              <a href="https://www.imdb.com/title/tt38605864/" rel="noopener noreferrer" target="_blank">IMDb</a> |
+              <a href="https://deepdreamstate.blubrry.net/deep-dream-state-arc-1-episode-4-asunder/" rel="noopener noreferrer" target="_blank">Blubrry</a>
+            </div>
+          </div>
+
+          <div class="episode-row">
+            <a class="episode-row-title" href="/deepdreamstate/arcs/chthonic/episode-5-shower/">A1 E5: Shower (GE5)</a>
+            <div class="episode-row-links">
+              <a href="https://open.spotify.com/episode/4bmUyijVeRMt989HSV5yf2" rel="noopener noreferrer" target="_blank">Spotify</a> |
+              <a href="https://podcasts.apple.com/us/podcast/shower/id1822405042?i=1000726560760" rel="noopener noreferrer" target="_blank">Apple</a> |
+              <a href="https://www.imdb.com/title/tt38624334/" rel="noopener noreferrer" target="_blank">IMDb</a> |
+              <a href="https://deepdreamstate.blubrry.net/arc-1-the-chthonic-episode-5-shower/" rel="noopener noreferrer" target="_blank">Blubrry</a>
+            </div>
+          </div>
+
+          <div class="episode-row">
+            <a class="episode-row-title" href="/deepdreamstate/arcs/chthonic/episode-6-garter/">A1 E6: Garter (GE6)</a>
+            <div class="episode-row-links">
+              <a href="https://open.spotify.com/episode/3YwHqsNg1BUUXL9q4kPtcN" rel="noopener noreferrer" target="_blank">Spotify</a> |
+              <a href="https://podcasts.apple.com/us/podcast/garter/id1822405042?i=1000714259555" rel="noopener noreferrer" target="_blank">Apple</a> |
+              <a href="https://www.imdb.com/title/tt38626940/" rel="noopener noreferrer" target="_blank">IMDb</a> |
+              <a href="https://deepdreamstate.blubrry.net/deep-dream-state-arc-1-episode-6-garter/" rel="noopener noreferrer" target="_blank">Blubrry</a>
+            </div>
+          </div>
+
+          <div class="episode-row">
+            <a class="episode-row-title" href="/deepdreamstate/arcs/chthonic/episode-7-tessellated/">A1 E7: Tessellated (GE7)</a>
+            <div class="episode-row-links">
+              <a href="https://open.spotify.com/episode/48kMhf2YF0TkXxmX6zpZKc" rel="noopener noreferrer" target="_blank">Spotify</a> |
+              <a href="https://podcasts.apple.com/us/podcast/tessellated/id1822405042?i=1000714259389" rel="noopener noreferrer" target="_blank">Apple</a> |
+              <a href="https://www.imdb.com/title/tt38630256/" rel="noopener noreferrer" target="_blank">IMDb</a> |
+              <a href="https://deepdreamstate.blubrry.net/deep-dream-state-arc-1-episode-7-tessellated/" rel="noopener noreferrer" target="_blank">Blubrry</a>
+            </div>
+          </div>
+
+          <div class="episode-row">
+            <a class="episode-row-title" href="/deepdreamstate/arcs/chthonic/episode-8-undergloom/">A1 E8: Undergloom (GE8)</a>
+            <div class="episode-row-links">
+              <a href="https://open.spotify.com/episode/6wQFMkeRFYSO9k0vqkqe06" rel="noopener noreferrer" target="_blank">Spotify</a> |
+              <a href="https://podcasts.apple.com/us/podcast/undergloom/id1822405042?i=1000714259464" rel="noopener noreferrer" target="_blank">Apple</a> |
+              <a href="https://www.imdb.com/title/tt38631407/" rel="noopener noreferrer" target="_blank">IMDb</a> |
+              <a href="https://deepdreamstate.blubrry.net/deep-dream-state-arc-1-episode-8-undergloom/" rel="noopener noreferrer" target="_blank">Blubrry</a>
+            </div>
+          </div>
+
+          <div class="episode-row">
+            <a class="episode-row-title" href="/deepdreamstate/arcs/chthonic/episode-9-spiralstorm/">A1 E9: Spiralstorm (GE9)</a>
+            <div class="episode-row-links">
+              <a href="https://open.spotify.com/episode/1iyqbMNasEf3yIa0XOd1fj" rel="noopener noreferrer" target="_blank">Spotify</a> |
+              <a href="https://podcasts.apple.com/us/podcast/spiralstorm/id1822405042?i=1000714259521" rel="noopener noreferrer" target="_blank">Apple</a> |
+              <a href="https://www.imdb.com/title/tt38694092/" rel="noopener noreferrer" target="_blank">IMDb</a> |
+              <a href="https://deepdreamstate.blubrry.net/deep-dream-state-arc-1-episode-9-spiralstorm/" rel="noopener noreferrer" target="_blank">Blubrry</a>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <div class="rule"><span class="rule-symbol">* * *</span></div>
+
+      <section class="section">
+        <div class="arc-context">
+          <h2>Arc Context</h2>
+
+          <p>The arctic ice is melting. The social fabric is tearing. The Chthonic is about a cruise ship with a wedding party on the surface; it's really about what lies beneath.</p>
+
+          <p>I've always been fascinated and repelled by Lovecraft. Brilliant mythos, evocative storytelling, terrible politics. If you're going to write Lovecraft, I think you have to account for that, and account for how humans are the worst monsters of all. Lovecraft Country did this well, RIP. I'm following that thread.</p>
+
+          <div class="ep-pipe">
+            <a href="/deepdreamstate/arcs/chthonic/episode-1-maiden-voyage/">Maiden Voyage</a> · A1 E1 <a href="https://www.imdb.com/title/tt38598489/" target="_blank" rel="noopener">GE1</a> |
+            <a href="/deepdreamstate/arcs/chthonic/episode-2-cringetide/">Cringetide</a> · A1 E2 <a href="https://www.imdb.com/title/tt38604945/" target="_blank" rel="noopener">GE2</a> |
+            <a href="/deepdreamstate/arcs/chthonic/episode-3-veil/">Veil</a> · A1 E3 <a href="https://www.imdb.com/title/tt38605605/" target="_blank" rel="noopener">GE3</a> |
+            <a href="/deepdreamstate/arcs/chthonic/episode-4-asunder/">Asunder</a> · A1 E4 <a href="https://www.imdb.com/title/tt38605864/" target="_blank" rel="noopener">GE4</a> |
+            <a href="/deepdreamstate/arcs/chthonic/episode-5-shower/">Shower</a> · A1 E5 <a href="https://www.imdb.com/title/tt38624334/" target="_blank" rel="noopener">GE5</a> |
+            <a href="/deepdreamstate/arcs/chthonic/episode-6-garter/">Garter</a> · A1 E6 <a href="https://www.imdb.com/title/tt38626940/" target="_blank" rel="noopener">GE6</a> |
+            <a href="/deepdreamstate/arcs/chthonic/episode-7-tessellated/">Tessellated</a> · A1 E7 <a href="https://www.imdb.com/title/tt38630256/" target="_blank" rel="noopener">GE7</a> |
+            <a href="/deepdreamstate/arcs/chthonic/episode-8-undergloom/">Undergloom</a> · A1 E8 <a href="https://www.imdb.com/title/tt38631407/" target="_blank" rel="noopener">GE8</a> |
+            <a href="/deepdreamstate/arcs/chthonic/episode-9-spiralstorm/">Spiralstorm</a> · A1 E9 <a href="https://www.imdb.com/title/tt38694092/" target="_blank" rel="noopener">GE9</a>
+          </div>
+        </div>
+      </section>
     </main>
 
     <footer>
       <div class="isni">
-        <a href="https://isni.org/isni/0000000528776254" rel="noopener noreferrer" target="_blank">ISNI 0000 0005 2877 6254</a>
+        Deep Dream State &nbsp;·&nbsp; <a href="https://www.wikidata.org/wiki/Q139568834">Wikidata Q139568834</a>
+        &nbsp;·&nbsp; by <a href="https://neuralnetsandprettypatterns.com/">Neural Nets and Pretty Patterns</a>
+        &nbsp;·&nbsp; Creator ISNI: <a href="https://isni.org/isni/0000000528776254">0000 0005 2877 6254</a>
       </div>
     </footer>
   </div>
