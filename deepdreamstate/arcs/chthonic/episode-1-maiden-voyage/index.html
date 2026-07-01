@@ -405,6 +405,15 @@
     }
     .nav-button:hover { background: #e8e8e8; color: #1a0a2e; transform: scale(1.1); }
     .nav-button svg { width: 20px; height: 20px; fill: currentColor; }
+
+    .text-nav-button {
+      font-size: 0.58rem;
+      line-height: 1.05;
+      text-align: center;
+      white-space: normal;
+      padding: 0.25rem;
+    }
+
     .rule { display: flex; align-items: center; gap: 1rem; margin: 0; }
     .rule::before, .rule::after { content: ''; flex: 1; height: 1px; background: linear-gradient(to right, transparent, rgba(232,232,232,0.2), transparent); }
     .rule-symbol { font-family: 'IM Fell DW Pica', serif; font-size: 0.7rem; color: rgba(232,232,232,0.25); letter-spacing: 0.2em; }
@@ -544,13 +553,13 @@
     <header>
       <h1>Deep Dream State</h1>
       <nav class="nav-buttons" aria-label="Site navigation">
-        <a class="nav-button" href="https://neuralnetsandprettypatterns.com/" aria-label="Neural Nets and Pretty Patterns">NNPP</a>
-        <a class="nav-button" href="https://neuralnetsandprettypatterns.com/deepdreamstate/" aria-label="Deep Dream State">DDS</a>
-        <a class="nav-button" href="https://neuralnetsandprettypatterns.com/deepdreamstate/arcs/" aria-label="Arcs"><svg viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="M8 22h1v-6.995c.006-.502.177-3.005 3-3.005s2.994 2.503 3 3v7h7v-2h-1V4h1V2H2v2h1v16H2v2h6zM19 4v2H5V4h14zM5 8h14v12h-2v-5c0-1.729-1.045-5-5-5s-5 3.271-5 5v5H5V8z"/></svg></a>
-        <a class="nav-button" href="https://neuralnetsandprettypatterns.com/deepdreamstate/glossary/" aria-label="Glossary"><svg viewBox="0 0 24 24" fill="none"><path d="M12 10.4V20M12 10.4C12 8.15979 12 7.03969 11.564 6.18404C11.1805 5.43139 10.5686 4.81947 9.81596 4.43597C8.96031 4 7.84021 4 5.6 4H4.6C4.03995 4 3.75992 4 3.54601 4.10899C3.35785 4.20487 3.20487 4.35785 3.10899 4.54601C3 4.75992 3 5.03995 3 5.6V16.4C3 16.9601 3 17.2401 3.10899 17.454C3.20487 17.6422 3.35785 17.7951 3.54601 17.891C3.75992 18 4.03995 18 4.6 18H7.54668C8.08687 18 8.35696 18 8.61814 18.0466C8.84995 18.0879 9.0761 18.1563 9.29191 18.2506C9.53504 18.3567 9.75977 18.5065 10.2092 18.8062L12 20M12 10.4C12 8.15979 12 7.03969 12.436 6.18404C12.8195 5.43139 13.4314 4.81947 14.184 4.43597C15.0397 4 16.1598 4 18.4 4H19.4C19.9601 4 20.2401 4 20.454 4.10899C20.6422 4.20487 20.7951 4.35785 20.891 4.54601C21 4.75992 21 5.03995 21 5.6V16.4C21 16.9601 21 17.2401 20.891 17.454C20.7951 17.6422 20.6422 17.7951 20.454 17.891C20.2401 18 19.9601 18 19.4 18H16.4533C15.9131 18 15.643 18 15.3819 18.0466C15.15 18.0879 14.9239 18.1563 14.7081 18.2506C14.465 18.3567 14.2402 18.5065 13.7908 18.8062L12 20" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg></a>
-        <a class="nav-button" href="https://neuralnetsandprettypatterns.com/deepdreamstate/cast/" aria-label="Cast and Crew"><svg viewBox="0 0 299.196 299.196" fill="currentColor"><path d="M101.833,91.468c-4.882-4.882-4.882-12.796,0-17.678c3.915-3.915,9.781-4.682,14.469-2.316c4.495-7.917,11.674-13.995,20.423-17.098c4.113-1.459,8.411-2.199,12.774-2.199c7.024,0,13.906,1.934,19.902,5.593c1.78,1.086,3.645,2.177,5.584,3.27V27.843c0-5.351-2.384-10.359-6.539-13.738c-4.164-3.386-9.556-4.705-14.789-3.607c-18.029,3.77-41.526,5.845-66.164,5.845s-48.135-2.075-66.164-5.845c-1.214-0.254-2.437-0.379-3.65-0.379c-4.024,0-7.948,1.375-11.142,3.974C2.382,17.47,0,22.482,0,27.843v92.63c0,44.46,33.335,81.281,76.323,86.782c-0.817-14.212,1.207-28.581,6.123-42.396l3.408-9.578c-6.281,0.383-12.452,2.963-17.241,7.752c-4.881,4.881-12.797,4.881-17.678,0c-4.882-4.882-4.882-12.796,0-17.678c11.885-11.885,28.163-16.756,43.655-14.626l12.438-34.957C105.186,94.514,103.445,93.08,101.833,91.468z M71.95,91.468c-6.775,6.775-15.784,10.507-25.366,10.507c-9.583,0-18.592-3.731-25.367-10.507c-4.882-4.882-4.882-12.796,0-17.678c4.881-4.881,12.797-4.881,17.678,0c4.241,4.241,11.139,4.239,15.378,0c4.881-4.881,12.797-4.881,17.678,0C76.832,78.672,76.832,86.587,71.95,91.468z"/><path d="M296.544,127.725c-2.847-4.684-7.654-7.85-13.084-8.592c-17.524-2.393-40.144-8.091-64.195-16.649c-24.051-8.558-45.186-18.428-60.283-27.642c-2.89-1.764-6.176-2.665-9.483-2.665c-2.05,0-4.109,0.346-6.087,1.048c-5.169,1.834-9.233,5.901-11.071,11.068l-31.052,87.27c-16.291,45.785,7.619,96.108,53.404,112.398c9.75,3.469,19.706,5.115,29.495,5.115c36.179,0,70.081-22.484,82.903-58.519l31.052-87.27C299.98,138.124,299.391,132.408,296.544,127.725z"/></svg></a>
-        <a class="nav-button" href="https://neuralnetsandprettypatterns.com/deepdreamstate/art/" aria-label="Art"><svg viewBox="0 0 100 100" xmlns="http://www.w3.org/2000/svg" fill="currentColor"><path d="M63.336,43.333H53.334V16.667c0-3.682-2.986-6.667-6.667-6.667C42.988,10,40,12.985,40,16.667v26.67H30c-3.682,0-6.666,2.981-6.666,6.663v6.667H70V50C70,46.318,67.018,43.333,63.336,43.333z"/><path d="M23.333,90h53.333C72.221,85.554,70,79.727,70,73.899V61.667H23.333V90z"/></svg></a>
-        <a class="nav-button" href="https://neuralnetsandprettypatterns.com/deepdreamstate/new/" aria-label="New">NEW</a>
+        <a class="nav-button text-nav-button" href="https://neuralnetsandprettypatterns.com/" aria-label="Neural Nets and Pretty Patterns">NNPP</a>
+        <a class="nav-button text-nav-button" href="https://neuralnetsandprettypatterns.com/deepdreamstate/" aria-label="Deep Dream State">DDS</a>
+        <a class="nav-button text-nav-button" href="https://neuralnetsandprettypatterns.com/deepdreamstate/arcs/" aria-label="Episode List">EP LIST</a>
+        <a class="nav-button text-nav-button" href="https://neuralnetsandprettypatterns.com/deepdreamstate/glossary/" aria-label="Lore">LORE</a>
+        <a class="nav-button text-nav-button" href="https://neuralnetsandprettypatterns.com/deepdreamstate/cast/" aria-label="Cast">CAST</a>
+        <a class="nav-button text-nav-button" href="https://neuralnetsandprettypatterns.com/deepdreamstate/more" aria-label="More">MORE</a>
+        <a class="nav-button text-nav-button" href="https://neuralnetsandprettypatterns.com/deepdreamstate/new/" aria-label="New">NEW</a>
       </nav>
       <div class="rule nav-rule"><span class="rule-symbol">* * *</span></div>
       <div class="episode-hero">
@@ -579,7 +588,7 @@
       </div>
     </header>
     <main>
-      <section class="section">
+<section class="section">
         <div class="episode-copy">
           <h2>Ding, Dong, Dagon.</h2>
           <p>The Chthonic sets sail, promising luxury, immersion, and a good time. It'll keep one of those promises.</p>
@@ -592,19 +601,66 @@
         </div>
       </section>
       <div class="rule"><span class="rule-symbol">* * *</span></div>
-      <section class="section">
-        <div class="content-block">
-          <h2>Arc 1: Chthonic</h2>
-          <p>A luxury cruise wedding party sails into an ancient ritual. The ceremony was beneath the ice. Now it's free. Every celebration aboard conceals something older and wetter. By the end of the voyage, there might not be a way out.</p>
-          <p>Chthonic begins with a ship full of passengers expecting curated pleasure. They discover more than a hidden cult beneath the waves and the ice. The parties, the ceremonies, the games, the flirtations, the humiliations people try to laugh away. All of it fits together.</p>
-          <p>Each episode strips away another layer of ordinary social performance. Guests who boarded the ship trying to manage appearances slowly find themselves participating in something older than embarrassment. Some resist and some lean in. Most drift toward it piece by piece until the distinction between terror and desire stops feeling stable.</p>
-          <p>By Spiralstorm, the voyage transformed into liturgy. The passengers stop asking if the ritual is real and start asking if they were ever living outside it in the first place.</p>
+<section class="section">
+          <div class="fan-material">
+            <h2>Meet The Cast</h2>
+            <table class="cast-table">
+              <thead>
+                <tr>
+                  <th>Character</th>
+                  <th>Performer</th>
+                  <th>Role</th>
+                  <th>Show Page</th>
+                  <th>IMDb</th>
+                </tr>
+              </thead>
+              <tbody>
+                <tr><td>Alistair</td><td><a href="https://deepdreamstate.blubrry.net/jericho-caine/" target="_blank" rel="noopener noreferrer">Jericho Caine</a></td><td>CEO of Neuroplex</td><td><a href="https://deepdreamstate.blubrry.net/jericho-caine/" target="_blank" rel="noopener noreferrer">Show Page</a></td><td><a href="https://www.imdb.com/name/nm17778008/" target="_blank" rel="noopener noreferrer">IMDb</a></td></tr>
+                <tr><td>Brittany</td><td><a href="https://deepdreamstate.blubrry.net/kitten-azazel/" target="_blank" rel="noopener noreferrer">Kitten Azazel</a></td><td>Bridesmaid</td><td><a href="https://deepdreamstate.blubrry.net/kitten-azazel/" target="_blank" rel="noopener noreferrer">Show Page</a></td><td><a href="https://www.imdb.com/name/nm17774343/" target="_blank" rel="noopener noreferrer">IMDb</a></td></tr>
+                <tr><td>Emma</td><td>Pipp</td><td>The Bride-to-Be</td><td>-</td><td>-</td></tr>
+                <tr><td>Fion</td><td><a href="https://deepdreamstate.blubrry.net/jade-wolf/" target="_blank" rel="noopener noreferrer">Jade Wolf</a></td><td>Chief Engineer</td><td><a href="https://deepdreamstate.blubrry.net/jade-wolf/" target="_blank" rel="noopener noreferrer">Show Page</a></td><td><a href="https://www.imdb.com/name/nm17764360/" target="_blank" rel="noopener noreferrer">IMDb</a></td></tr>
+                <tr><td>Holly</td><td><a href="https://deepdreamstate.blubrry.net/dizzy-dollie/" target="_blank" rel="noopener noreferrer">Dizzy Dollie</a></td><td>His Girlfriend</td><td><a href="https://deepdreamstate.blubrry.net/dizzy-dollie/" target="_blank" rel="noopener noreferrer">Show Page</a></td><td><a href="https://www.imdb.com/name/nm17760876/" target="_blank" rel="noopener noreferrer">IMDb</a></td></tr>
+                <tr><td>Kara</td><td><a href="https://deepdreamstate.blubrry.net/tender-confusion/" target="_blank" rel="noopener noreferrer">Tender Confusion</a></td><td>Bridesmaid</td><td>-</td><td>-</td></tr>
+                <tr><td>Mairead</td><td><a href="https://deepdreamstate.blubrry.net/bun-li/" target="_blank" rel="noopener noreferrer">Bun Li</a></td><td>Spa Manager</td><td><a href="https://deepdreamstate.blubrry.net/bun-li/" target="_blank" rel="noopener noreferrer">Show Page</a></td><td><a href="https://www.imdb.com/name/nm17796355/" target="_blank" rel="noopener noreferrer">IMDb</a></td></tr>
+                <tr><td>Nika</td><td><a href="https://deepdreamstate.blubrry.net/echo/" target="_blank" rel="noopener noreferrer">Echo</a></td><td>Ship Maid</td><td><a href="https://deepdreamstate.blubrry.net/echo/" target="_blank" rel="noopener noreferrer">Show Page</a></td><td><a href="https://www.imdb.com/name/nm17822435/" target="_blank" rel="noopener noreferrer">IMDb</a></td></tr>
+                <tr><td>Olivia</td><td><a href="https://deepdreamstate.blubrry.net/blissblank/" target="_blank" rel="noopener noreferrer">Bliss Blank</a></td><td>Cruise Director</td><td><a href="https://deepdreamstate.blubrry.net/blissblank/" target="_blank" rel="noopener noreferrer">Show Page</a></td><td><a href="https://www.imdb.com/name/nm17754818/" target="_blank" rel="noopener noreferrer">IMDb</a></td></tr>
+                <tr><td>Sarah</td><td><a href="https://deepdreamstate.blubrry.net/ring-of-kees/" target="_blank" rel="noopener noreferrer">Ring of Kees</a></td><td>Bridesmaid</td><td><a href="https://deepdreamstate.blubrry.net/ring-of-kees/" target="_blank" rel="noopener noreferrer">Show Page</a></td><td><a href="https://www.imdb.com/name/nm17839622/" target="_blank" rel="noopener noreferrer">IMDb</a></td></tr>
+                <tr><td>Selene</td><td><a href="https://deepdreamstate.blubrry.net/syndi-rella/" target="_blank" rel="noopener noreferrer">Syndi Rella</a></td><td>Chief Purser</td><td><a href="https://deepdreamstate.blubrry.net/syndi-rella/" target="_blank" rel="noopener noreferrer">Show Page</a></td><td><a href="https://www.imdb.com/name/nm17765752/" target="_blank" rel="noopener noreferrer">IMDb</a></td></tr>
+                <tr><td>Tiffany</td><td>Britt Reprogrammed</td><td>Bridesmaid</td><td>-</td><td>-</td></tr>
+                <tr><td>William</td><td><a href="https://deepdreamstate.blubrry.net/neural-nets-and-pretty-patterns/" target="_blank" rel="noopener noreferrer">Neural Nets</a></td><td>Ship Captain</td><td><a href="https://deepdreamstate.blubrry.net/neural-nets-and-pretty-patterns/" target="_blank" rel="noopener noreferrer">Show Page</a></td><td><a href="https://www.imdb.com/name/nm17755189/" target="_blank" rel="noopener noreferrer">IMDb</a></td></tr>
+              </tbody>
+            </table>
+          </div>
+        </section>
+      <div class="rule"><span class="rule-symbol">* * *</span></div>
+<section class="section">
+          <div class="fan-material">
+            <h2>Chapters</h2>
+            <div class="chapters-list">
+              00:00:00 - Ring This Bell<br>
+              00:06:39 - Wedding Party Too Hard<br>
+              00:11:02 - The Command Center<br>
+              00:19:41 - When In Rome<br>
+              00:25:10 - We Help Ourselves<br>
+              00:28:48 - Chthasino<br>
+              00:29:43 - Command Calamari
+            </div>
+          </div>
+        </section>
+      <div class="rule"><span class="rule-symbol">* * *</span></div>
+<section class="section">
+        <div class="fan-material">
+          <h2>More Info</h2>
+          <p class="fan-link-line"><strong>Listen:</strong> <a href="https://deepdreamstate.blubrry.net/deep-dream-state-arc-1-episode-1-maiden-voyage/" target="_blank" rel="noopener noreferrer">Blubrry</a> | <a href="https://open.spotify.com/episode/1fi4cOLeLMWAdrvevXUys5" target="_blank" rel="noopener noreferrer">Spotify</a> | <a href="https://podcasts.apple.com/us/podcast/maiden-voyage/id1822405042?i=1000725924606" target="_blank" rel="noopener noreferrer">Apple Podcasts</a> | <a href="https://podcast.show/3796123/maiden-voyage-premiere-the-chthonic/" target="_blank" rel="noopener noreferrer">Podcast Show</a> | <a href="https://www.imdb.com/title/tt38598489/" target="_blank" rel="noopener noreferrer">IMDb</a> | <a href="https://listennotes.com/podcasts/deep-dream-state/arc-1-the-chthonic-episode-1-E2zrDlqRySe/" target="_blank" rel="noopener noreferrer">Listen Notes</a></p>
+          <p class="fan-link-line"><strong>Support the Show:</strong> <a href="https://www.patreon.com/minderaser" target="_blank" rel="noopener noreferrer">Patreon</a></p>
+          <p class="fan-link-line"><strong>Read The Scripts:</strong> <a href="https://www.smashwords.com/books/view/1902802" target="_blank" rel="noopener noreferrer">Smashwords</a> | <a href="https://bookbrainz.org/edition/7129df87-bacd-4a1b-9671-5b478895ee88" target="_blank" rel="noopener noreferrer">BookBrainz</a> | <a href="https://openlibrary.org/books/OL60638705M/The_Chthonic" target="_blank" rel="noopener noreferrer">OpenLibrary</a></p>
+          <p class="fan-link-line"><strong>Directory Listings:</strong> <a href="https://www.theend.fyi/shows/deep-dream-state" target="_blank" rel="noopener noreferrer">The End</a> | <a href="https://audiodrama.directory/deep-dream-state/" target="_blank" rel="noopener noreferrer">Audio Drama Directory</a></p>
         </div>
       </section>
       <div class="rule"><span class="rule-symbol">* * *</span></div>
-      <section class="section">
+<section class="section">
         <div class="episode-list">
-          <h2>Episodes</h2>
+          <h2>All Chthonic Episodes</h2>
           <div class="episode-row">
             <div class="episode-title">E1: Maiden Voyage</div>
             <div class="episode-links">
@@ -668,166 +724,36 @@
             </div>
           </div>
         </div>
-
-        <div class="rule"><span class="rule-symbol">* * *</span></div>
-
-        <section class="section">
-          <div class="fan-material">
-            <h2>Support the Show</h2>
-            <p><a href="https://www.patreon.com/minderaser" target="_blank" rel="noopener noreferrer">Join us on Patreon for exclusive content and early access.</a></p>
-          </div>
-        </section>
-
-        <div class="rule"><span class="rule-symbol">* * *</span></div>
-
-        <section class="section">
-          <div class="fan-material">
-            <h2>Listen</h2>
-            <div class="fan-link-line">
-              <a href="https://deepdreamstate.blubrry.net/deep-dream-state-arc-1-episode-1-maiden-voyage/" target="_blank" rel="noopener noreferrer">Blubrry</a> |
-              <a href="https://open.spotify.com/episode/1fi4cOLeLMWAdrvevXUys5" target="_blank" rel="noopener noreferrer">Spotify</a> |
-              <a href="https://podcasts.apple.com/us/podcast/maiden-voyage/id1822405042?i=1000725924606" target="_blank" rel="noopener noreferrer">Apple Podcasts</a> |
-              <a href="https://podcast.show/3796123/maiden-voyage-premiere-the-chthonic/" target="_blank" rel="noopener noreferrer">Podcast Show</a> |
-              <a href="https://www.imdb.com/title/tt38598489/" target="_blank" rel="noopener noreferrer">IMDb</a> |
-              <a href="https://listennotes.com/podcasts/deep-dream-state/arc-1-the-chthonic-episode-1-E2zrDlqRySe/" target="_blank" rel="noopener noreferrer">Listen Notes</a>
-            </div>
-          </div>
-        </section>
-
-        <div class="rule"><span class="rule-symbol">* * *</span></div>
-
-        <section class="section">
-          <div class="fan-material">
-            <h2>Meet The Cast</h2>
-            <table class="cast-table">
-              <thead>
-                <tr>
-                  <th>Character</th>
-                  <th>Performer</th>
-                  <th>Role</th>
-                  <th>Show Page</th>
-                  <th>IMDb</th>
-                </tr>
-              </thead>
-              <tbody>
-                <tr><td>Alistair</td><td><a href="https://deepdreamstate.blubrry.net/jericho-caine/" target="_blank" rel="noopener noreferrer">Jericho Caine</a></td><td>CEO of Neuroplex</td><td><a href="https://deepdreamstate.blubrry.net/jericho-caine/" target="_blank" rel="noopener noreferrer">Show Page</a></td><td><a href="https://www.imdb.com/name/nm17778008/" target="_blank" rel="noopener noreferrer">IMDb</a></td></tr>
-                <tr><td>Brittany</td><td><a href="https://deepdreamstate.blubrry.net/kitten-azazel/" target="_blank" rel="noopener noreferrer">Kitten Azazel</a></td><td>Bridesmaid</td><td><a href="https://deepdreamstate.blubrry.net/kitten-azazel/" target="_blank" rel="noopener noreferrer">Show Page</a></td><td><a href="https://www.imdb.com/name/nm17774343/" target="_blank" rel="noopener noreferrer">IMDb</a></td></tr>
-                <tr><td>Emma</td><td>Pipp</td><td>The Bride-to-Be</td><td>-</td><td>-</td></tr>
-                <tr><td>Fion</td><td><a href="https://deepdreamstate.blubrry.net/jade-wolf/" target="_blank" rel="noopener noreferrer">Jade Wolf</a></td><td>Chief Engineer</td><td><a href="https://deepdreamstate.blubrry.net/jade-wolf/" target="_blank" rel="noopener noreferrer">Show Page</a></td><td><a href="https://www.imdb.com/name/nm17764360/" target="_blank" rel="noopener noreferrer">IMDb</a></td></tr>
-                <tr><td>Holly</td><td><a href="https://deepdreamstate.blubrry.net/dizzy-dollie/" target="_blank" rel="noopener noreferrer">Dizzy Dollie</a></td><td>His Girlfriend</td><td><a href="https://deepdreamstate.blubrry.net/dizzy-dollie/" target="_blank" rel="noopener noreferrer">Show Page</a></td><td><a href="https://www.imdb.com/name/nm17760876/" target="_blank" rel="noopener noreferrer">IMDb</a></td></tr>
-                <tr><td>Kara</td><td><a href="https://deepdreamstate.blubrry.net/tender-confusion/" target="_blank" rel="noopener noreferrer">Tender Confusion</a></td><td>Bridesmaid</td><td>-</td><td>-</td></tr>
-                <tr><td>Mairead</td><td><a href="https://deepdreamstate.blubrry.net/bun-li/" target="_blank" rel="noopener noreferrer">Bun Li</a></td><td>Spa Manager</td><td><a href="https://deepdreamstate.blubrry.net/bun-li/" target="_blank" rel="noopener noreferrer">Show Page</a></td><td><a href="https://www.imdb.com/name/nm17796355/" target="_blank" rel="noopener noreferrer">IMDb</a></td></tr>
-                <tr><td>Nika</td><td><a href="https://deepdreamstate.blubrry.net/echo/" target="_blank" rel="noopener noreferrer">Echo</a></td><td>Ship Maid</td><td><a href="https://deepdreamstate.blubrry.net/echo/" target="_blank" rel="noopener noreferrer">Show Page</a></td><td><a href="https://www.imdb.com/name/nm17822435/" target="_blank" rel="noopener noreferrer">IMDb</a></td></tr>
-                <tr><td>Olivia</td><td><a href="https://deepdreamstate.blubrry.net/blissblank/" target="_blank" rel="noopener noreferrer">Bliss Blank</a></td><td>Cruise Director</td><td><a href="https://deepdreamstate.blubrry.net/blissblank/" target="_blank" rel="noopener noreferrer">Show Page</a></td><td><a href="https://www.imdb.com/name/nm17754818/" target="_blank" rel="noopener noreferrer">IMDb</a></td></tr>
-                <tr><td>Sarah</td><td><a href="https://deepdreamstate.blubrry.net/ring-of-kees/" target="_blank" rel="noopener noreferrer">Ring of Kees</a></td><td>Bridesmaid</td><td><a href="https://deepdreamstate.blubrry.net/ring-of-kees/" target="_blank" rel="noopener noreferrer">Show Page</a></td><td><a href="https://www.imdb.com/name/nm17839622/" target="_blank" rel="noopener noreferrer">IMDb</a></td></tr>
-                <tr><td>Selene</td><td><a href="https://deepdreamstate.blubrry.net/syndi-rella/" target="_blank" rel="noopener noreferrer">Syndi Rella</a></td><td>Chief Purser</td><td><a href="https://deepdreamstate.blubrry.net/syndi-rella/" target="_blank" rel="noopener noreferrer">Show Page</a></td><td><a href="https://www.imdb.com/name/nm17765752/" target="_blank" rel="noopener noreferrer">IMDb</a></td></tr>
-                <tr><td>Tiffany</td><td>Britt Reprogrammed</td><td>Bridesmaid</td><td>-</td><td>-</td></tr>
-                <tr><td>William</td><td><a href="https://deepdreamstate.blubrry.net/neural-nets-and-pretty-patterns/" target="_blank" rel="noopener noreferrer">Neural Nets</a></td><td>Ship Captain</td><td><a href="https://deepdreamstate.blubrry.net/neural-nets-and-pretty-patterns/" target="_blank" rel="noopener noreferrer">Show Page</a></td><td><a href="https://www.imdb.com/name/nm17755189/" target="_blank" rel="noopener noreferrer">IMDb</a></td></tr>
-              </tbody>
-            </table>
-          </div>
-        </section>
-
-        <div class="rule"><span class="rule-symbol">* * *</span></div>
-
-        <section class="section">
-          <div class="fan-material">
-            <h2>Consent Declaration</h2>
-            <p>Deep Dream State is a desire horror audio drama written and produced by Neural Nets and Pretty Patterns. It explores psychological fiction at the boundaries of control, identity, and complicity. All performances are works of fiction and take place within a consensual creative context.</p>
-            <p>Maiden Voyage contains cosmic horror, ritual content, surveillance themes, and adult themes.</p>
-          </div>
-        </section>
-
-        <div class="rule"><span class="rule-symbol">* * *</span></div>
-
-        <section class="section">
-          <div class="fan-material">
-            <h2>Read The Scripts</h2>
-            <div class="fan-link-line">
-              <a href="https://www.smashwords.com/books/view/1902802" target="_blank" rel="noopener noreferrer">Smashwords</a> |
-              <a href="https://bookbrainz.org/edition/7129df87-bacd-4a1b-9671-5b478895ee88" target="_blank" rel="noopener noreferrer">BookBrainz</a> |
-              <a href="https://openlibrary.org/books/OL60638705M/The_Chthonic" target="_blank" rel="noopener noreferrer">OpenLibrary</a>
-            </div>
-          </div>
-        </section>
-
-        <div class="rule"><span class="rule-symbol">* * *</span></div>
-
-        <section class="section">
-          <div class="fan-material">
-            <h2>Find Out More</h2>
-            <div class="fan-link-line">
-              <a href="https://www.theend.fyi/shows/deep-dream-state" target="_blank" rel="noopener noreferrer">The End</a> |
-              <a href="https://audiodrama.directory/deep-dream-state/" target="_blank" rel="noopener noreferrer">Audio Drama Directory</a>
-            </div>
-          </div>
-        </section>
-
-        <div class="rule"><span class="rule-symbol">* * *</span></div>
-
-        <section class="section">
+      </section>
+      <div class="rule"><span class="rule-symbol">* * *</span></div>
+<section class="section">
           <div class="fan-material">
             <h2>Human Made Art</h2>
             <p>Series artwork for this arc was created by <a href="https://www.imdb.com/name/nm17822435/" target="_blank" rel="noopener noreferrer">Echo Doll</a> in collaboration with Neural Nets and Pretty Patterns. Deep Dream State uses human art at every stage of the creative supply chain.</p>
           </div>
         </section>
-
-        <div class="rule"><span class="rule-symbol">* * *</span></div>
-
-        <section class="section">
+      <div class="rule"><span class="rule-symbol">* * *</span></div>
+<section class="section">
           <div class="fan-material">
-            <h2>Content Warnings</h2>
-            <p>Cosmic horror, eldritch entities, ritual, surveillance, adult themes, dream manipulation.</p>
+            <h2>Consent Declaration</h2>
+            <p>Deep Dream State is a desire horror audio drama written and produced by Neural Nets and Pretty Patterns. It explores psychological fiction at the boundaries of control, identity, and complicity. All performances are works of fiction and take place within a consensual creative context.</p>
           </div>
         </section>
-
-        <div class="rule"><span class="rule-symbol">* * *</span></div>
-
-        <section class="section">
-          <div class="fan-material">
-            <h2>Chapters</h2>
-            <div class="chapters-list">
-              00:00:00 - Ring This Bell<br>
-              00:06:39 - Wedding Party Too Hard<br>
-              00:11:02 - The Command Center<br>
-              00:19:41 - When In Rome<br>
-              00:25:10 - We Help Ourselves<br>
-              00:28:48 - Chthasino<br>
-              00:29:43 - Command Calamari
-            </div>
-          </div>
-        </section>
-
-        <div class="rule"><span class="rule-symbol">* * *</span></div>
-
-        <section class="section">
+      <div class="rule"><span class="rule-symbol">* * *</span></div>
+<section class="section">
           <div class="fan-material">
             <h2>Navigation</h2>
             <nav class="nav-buttons bottom-nav-buttons" aria-label="Footer navigation">
-              <a class="nav-button" href="https://neuralnetsandprettypatterns.com/" aria-label="Neural Nets and Pretty Patterns">NNPP</a>
-              <a class="nav-button" href="https://neuralnetsandprettypatterns.com/deepdreamstate/" aria-label="Deep Dream State">DDS</a>
-              <a class="nav-button" href="https://neuralnetsandprettypatterns.com/deepdreamstate/arcs/" aria-label="Arcs">
-                <svg viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="M8 22h1v-6.995c.006-.502.177-3.005 3-3.005s2.994 2.503 3 3v7h7v-2h-1V4h1V2H2v2h1v16H2v2h6zM19 4v2H5V4h14zM5 8h14v12h-2v-5c0-1.729-1.045-5-5-5s-5 3.271-5 5v5H5V8z"/></svg>
-              </a>
-              <a class="nav-button" href="https://neuralnetsandprettypatterns.com/deepdreamstate/glossary/" aria-label="Glossary">
-                <svg viewBox="0 0 24 24" fill="none"><path d="M12 10.4V20M12 10.4C12 8.15979 12 7.03969 11.564 6.18404C11.1805 5.43139 10.5686 4.81947 9.81596 4.43597C8.96031 4 7.84021 4 5.6 4H4.6C4.03995 4 3.75992 4 3.54601 4.10899C3.35785 4.20487 3.20487 4.35785 3.10899 4.54601C3 4.75992 3 5.03995 3 5.6V16.4C3 16.9601 3 17.2401 3.10899 17.454C3.20487 17.6422 3.35785 17.7951 3.54601 17.891C3.75992 18 4.03995 18 4.6 18H7.54668C8.08687 18 8.35696 18 8.61814 18.0466C8.84995 18.0879 9.0761 18.1563 9.29191 18.2506C9.53504 18.3567 9.75977 18.5065 10.2092 18.8062L12 20M12 10.4C12 8.15979 12 7.03969 12.436 6.18404C12.8195 5.43139 13.4314 4.81947 14.184 4.43597C15.0397 4 16.1598 4 18.4 4H19.4C19.9601 4 20.2401 4 20.454 4.10899C20.6422 4.20487 20.7951 4.35785 20.891 4.54601C21 4.75992 21 5.03995 21 5.6V16.4C21 16.9601 21 17.2401 20.891 17.454C20.7951 17.6422 20.6422 17.7951 20.454 17.891C20.2401 18 19.9601 18 19.4 18H16.4533C15.9131 18 15.643 18 15.3819 18.0466C15.15 18.0879 14.9239 18.1563 14.7081 18.2506C14.465 18.3567 14.2402 18.5065 13.7908 18.8062L12 20" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg>
-              </a>
-              <a class="nav-button" href="https://neuralnetsandprettypatterns.com/deepdreamstate/cast/" aria-label="Cast and Crew">
-                <svg viewBox="0 0 299.196 299.196" fill="currentColor"><path d="M101.833,91.468c-4.882-4.882-4.882-12.796,0-17.678c3.915-3.915,9.781-4.682,14.469-2.316c4.495-7.917,11.674-13.995,20.423-17.098c4.113-1.459,8.411-2.199,12.774-2.199c7.024,0,13.906,1.934,19.902,5.593c1.78,1.086,3.645,2.177,5.584,3.27V27.843c0-5.351-2.384-10.359-6.539-13.738c-4.164-3.386-9.556-4.705-14.789-3.607c-18.029,3.77-41.526,5.845-66.164,5.845s-48.135-2.075-66.164-5.845c-1.214-0.254-2.437-0.379-3.65-0.379c-4.024,0-7.948,1.375-11.142,3.974C2.382,17.47,0,22.482,0,27.843v92.63c0,44.46,33.335,81.281,76.323,86.782c-0.817-14.212,1.207-28.581,6.123-42.396l3.408-9.578c-6.281,0.383-12.452,2.963-17.241,7.752c-4.881,4.881-12.797,4.881-17.678,0c-4.882-4.882-4.882-12.796,0-17.678c11.885-11.885,28.163-16.756,43.655-14.626l12.438-34.957C105.186,94.514,103.445,93.08,101.833,91.468z M71.95,91.468c-6.775,6.775-15.784,10.507-25.366,10.507c-9.583,0-18.592-3.731-25.367-10.507c-4.882-4.882-4.882-12.796,0-17.678c4.881-4.881,12.797-4.881,17.678,0c4.241,4.241,11.139,4.239,15.378,0c4.881-4.881,12.797-4.881,17.678,0C76.832,78.672,76.832,86.587,71.95,91.468z"/><path d="M296.544,127.725c-2.847-4.684-7.654-7.85-13.084-8.592c-17.524-2.393-40.144-8.091-64.195-16.649c-24.051-8.558-45.186-18.428-60.283-27.642c-2.89-1.764-6.176-2.665-9.483-2.665c-2.05,0-4.109,0.346-6.087,1.048c-5.169,1.834-9.233,5.901-11.071,11.068l-31.052,87.27c-16.291,45.785,7.619,96.108,53.404,112.398c9.75,3.469,19.706,5.115,29.495,5.115c36.179,0,70.081-22.484,82.903-58.519l31.052-87.27C299.98,138.124,299.391,132.408,296.544,127.725z"/></svg>
-              </a>
-              <a class="nav-button" href="https://neuralnetsandprettypatterns.com/deepdreamstate/art/" aria-label="Art">
-                <svg viewBox="0 0 100 100" xmlns="http://www.w3.org/2000/svg" fill="currentColor"><path d="M63.336,43.333H53.334V16.667c0-3.682-2.986-6.667-6.667-6.667C42.988,10,40,12.985,40,16.667v26.67H30c-3.682,0-6.666,2.981-6.666,6.663v6.667H70V50C70,46.318,67.018,43.333,63.336,43.333z"/><path d="M23.333,90h53.333C72.221,85.554,70,79.727,70,73.899V61.667H23.333V90z"/></svg>
-              </a>
-              <a class="nav-button" href="https://neuralnetsandprettypatterns.com/deepdreamstate/new/" aria-label="New">NEW</a>
+              <a class="nav-button text-nav-button" href="https://neuralnetsandprettypatterns.com/" aria-label="Neural Nets and Pretty Patterns">NNPP</a>
+              <a class="nav-button text-nav-button" href="https://neuralnetsandprettypatterns.com/deepdreamstate/" aria-label="Deep Dream State">DDS</a>
+              <a class="nav-button text-nav-button" href="https://neuralnetsandprettypatterns.com/deepdreamstate/arcs/" aria-label="Episode List">EP LIST</a>
+              <a class="nav-button text-nav-button" href="https://neuralnetsandprettypatterns.com/deepdreamstate/glossary/" aria-label="Lore">LORE</a>
+              <a class="nav-button text-nav-button" href="https://neuralnetsandprettypatterns.com/deepdreamstate/cast/" aria-label="Cast">CAST</a>
+              <a class="nav-button text-nav-button" href="https://neuralnetsandprettypatterns.com/deepdreamstate/more" aria-label="More">MORE</a>
+              <a class="nav-button text-nav-button" href="https://neuralnetsandprettypatterns.com/deepdreamstate/new/" aria-label="New">NEW</a>
             </nav>
           </div>
         </section>
-
-        <div class="footer-credit">
-          Deep Dream State is a full-cast desire horror audio drama by <a href="https://neuralnetsandprettypatterns.com/">Neural Nets and Pretty Patterns</a>.
-          &nbsp;·&nbsp; ISNI: <a href="https://isni.org/isni/0000000528776254">0000 0005 2877 6254</a>
-        </div>
-      </section>
     </main>
   </div>
   <script>
