@@ -1,7 +1,11 @@
 export default {
-  async fetch(request) {
+  async fetch(request, env) {
     const url = new URL(request.url);
     const p = url.pathname;
+
+    if (p === "/api/contact") {
+      return handleContactPost(request, env);
+    }
 
     const MAIN_REPO_BASE =
       "https://raw.githubusercontent.com/NeuralNetsAndPrettyPatterns/neuralnetsandprettypatterns/main";
@@ -136,6 +140,11 @@ export default {
     // Root
     if (p === "/" || p === "/index.html") {
       return serveHtml("/index.html");
+    }
+
+    // Contact
+    if (p === "/contact" || p === "/contact/" || p === "/contact/index.html") {
+      return serveHtml("/contact/index.html", true);
     }
 
     // Sitemap
@@ -330,3 +339,358 @@ export default {
     return new Response("Not found", { status: 404 });
   }
 };
+
+const CONTACT_CATEGORY_LABELS = {
+  "voice-auditions": "Voice auditions",
+  "collabs-active-creators": "Collabs (active creators)",
+  "patreon-questions": "Patreon questions",
+  "press-inquiries": "Press inquiries",
+  "project-inquiries": "Project inquiries",
+  "other": "Other"
+};
+
+async function handleContactPost(request, env) {
+  if (request.method !== "POST") {
+    return contactResponse(
+      request,
+      { ok: false, error: "Method not allowed." },
+      405,
+      { Allow: "POST" }
+    );
+  }
+
+  if (!env || !env.RESEND_API_KEY) {
+    return contactResponse(request, { ok: false, error: "Contact form is not configured." }, 500);
+  }
+
+  if (!env.CONTACT_TO) {
+    return contactResponse(request, { ok: false, error: "Contact form is not configured." }, 500);
+  }
+
+  if (!env.CONTACT_FROM) {
+    return contactResponse(request, { ok: false, error: "Contact form is not configured." }, 500);
+  }
+
+  let fields;
+  try {
+    fields = await readContactFields(request);
+  } catch (err) {
+    return contactResponse(request, { ok: false, error: "Could not read form submission." }, 400);
+  }
+
+  const validationError = validateContactFields(fields);
+  if (validationError) {
+    return contactResponse(request, { ok: false, error: validationError }, 400);
+  }
+
+  const categoryLabel = CONTACT_CATEGORY_LABELS[fields.category];
+  const subject = `[NNPP Contact] ${categoryLabel}`;
+  const textBody = buildContactTextBody(fields, categoryLabel, request);
+  const htmlBody = buildContactHtmlBody(fields, categoryLabel, request);
+
+  const resendPayload = {
+    from: env.CONTACT_FROM,
+    to: [env.CONTACT_TO],
+    reply_to: fields.email,
+    subject,
+    text: textBody,
+    html: htmlBody
+  };
+
+  const resendResponse = await fetch("https://api.resend.com/emails", {
+    method: "POST",
+    headers: {
+      "Authorization": `Bearer ${env.RESEND_API_KEY}`,
+      "Content-Type": "application/json"
+    },
+    body: JSON.stringify(resendPayload)
+  });
+
+  if (!resendResponse.ok) {
+    let detail = "";
+    try {
+      detail = JSON.stringify(await resendResponse.json());
+    } catch (err) {
+      detail = await resendResponse.text();
+    }
+
+    console.error("Resend contact email failed:", resendResponse.status, detail);
+    return contactResponse(request, { ok: false, error: "Message could not be sent." }, 502);
+  }
+
+  return contactResponse(request, { ok: true, message: "Message sent." }, 200);
+}
+
+async function readContactFields(request) {
+  const contentType = request.headers.get("content-type") || "";
+  const fields = {};
+
+  if (contentType.includes("application/json")) {
+    const json = await request.json();
+    Object.entries(json || {}).forEach(([key, value]) => {
+      fields[key] = normalizeField(value);
+    });
+    return fields;
+  }
+
+  if (
+    contentType.includes("application/x-www-form-urlencoded") ||
+    contentType.includes("multipart/form-data")
+  ) {
+    const formData = await request.formData();
+    for (const [key, value] of formData.entries()) {
+      fields[key] = normalizeField(value);
+    }
+    return fields;
+  }
+
+  throw new Error("Unsupported content type");
+}
+
+function normalizeField(value) {
+  if (typeof value !== "string") return "";
+  return value.replace(/\r\n/g, "\n").replace(/\r/g, "\n").trim();
+}
+
+function validateContactFields(fields) {
+  if (fields.company_url) return "Message could not be sent.";
+
+  if (fields.form_name && fields.form_name !== "deep-dream-state-contact") {
+    return "Invalid form submission.";
+  }
+
+  if (!hasLength(fields.name, 2, 120)) {
+    return "Please enter your name.";
+  }
+
+  if (!isValidEmail(fields.email)) {
+    return "Please enter a valid reply email.";
+  }
+
+  if (!CONTACT_CATEGORY_LABELS[fields.category]) {
+    return "Please choose a subject category.";
+  }
+
+  if (!hasLength(fields.message, 10, 4000)) {
+    return "Please enter a message between 10 and 4000 characters.";
+  }
+
+  const maxLengths = {
+    performer_name: 140,
+    demo_link: 500,
+    voice_notes: 300,
+    audition_links: 500,
+    creator_name: 160,
+    creator_platform: 500,
+    collab_idea: 1500,
+    patreon_name: 160,
+    patreon_topic: 120,
+    outlet: 180,
+    press_deadline: 120,
+    press_request: 1500,
+    project: 120,
+    project_link: 500,
+    other_subject: 180
+  };
+
+  for (const [key, max] of Object.entries(maxLengths)) {
+    if ((fields[key] || "").length > max) {
+      return "One of the form fields is too long.";
+    }
+  }
+
+  for (const urlKey of ["demo_link", "project_link"]) {
+    const value = fields[urlKey];
+    if (value && !isProbablyUrl(value)) {
+      return "Please enter valid URLs where URLs are requested.";
+    }
+  }
+
+  return "";
+}
+
+function hasLength(value, min, max) {
+  const text = String(value || "").trim();
+  return text.length >= min && text.length <= max;
+}
+
+function isValidEmail(value) {
+  const email = String(value || "").trim();
+  if (email.length > 254) return false;
+  return /^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(email);
+}
+
+function isProbablyUrl(value) {
+  try {
+    const url = new URL(value);
+    return url.protocol === "http:" || url.protocol === "https:";
+  } catch (err) {
+    return false;
+  }
+}
+
+function buildContactTextBody(fields, categoryLabel, request) {
+  const lines = [
+    "New Neural Nets and Pretty Patterns contact form submission",
+    "",
+    `Category: ${categoryLabel}`,
+    `Name: ${fields.name}`,
+    `Reply Email: ${fields.email}`,
+    "",
+    "Category Details:",
+    ...categoryDetailLines(fields),
+    "",
+    "Message:",
+    fields.message,
+    "",
+    "Technical:",
+    `Submitted from: ${request.headers.get("referer") || "unknown"}`,
+    `User agent: ${request.headers.get("user-agent") || "unknown"}`
+  ];
+
+  return lines.filter(line => line !== null && line !== undefined).join("\n");
+}
+
+function buildContactHtmlBody(fields, categoryLabel, request) {
+  const details = categoryDetailLines(fields)
+    .filter(Boolean)
+    .map(line => {
+      const index = line.indexOf(":");
+      if (index === -1) return `<p>${escapeHtml(line)}</p>`;
+      const label = line.slice(0, index);
+      const value = line.slice(index + 1).trim();
+      return `<p><strong>${escapeHtml(label)}:</strong> ${linkifyIfUrl(value)}</p>`;
+    })
+    .join("");
+
+  return `<!doctype html>
+<html>
+<body style="font-family: Georgia, serif; line-height: 1.5; color: #111;">
+  <h2>New Neural Nets and Pretty Patterns contact form submission</h2>
+  <p><strong>Category:</strong> ${escapeHtml(categoryLabel)}</p>
+  <p><strong>Name:</strong> ${escapeHtml(fields.name)}</p>
+  <p><strong>Reply Email:</strong> ${escapeHtml(fields.email)}</p>
+
+  <h3>Category Details</h3>
+  ${details || "<p>No extra category details supplied.</p>"}
+
+  <h3>Message</h3>
+  <div style="white-space: pre-wrap; padding: 12px; border-left: 3px solid #999; background: #f7f7f7;">${escapeHtml(fields.message)}</div>
+
+  <h3>Technical</h3>
+  <p><strong>Submitted from:</strong> ${escapeHtml(request.headers.get("referer") || "unknown")}</p>
+  <p><strong>User agent:</strong> ${escapeHtml(request.headers.get("user-agent") || "unknown")}</p>
+</body>
+</html>`;
+}
+
+function categoryDetailLines(fields) {
+  switch (fields.category) {
+    case "voice-auditions":
+      return compactLines([
+        fieldLine("Performer name", fields.performer_name),
+        fieldLine("Demo link", fields.demo_link),
+        fieldLine("Voice / range notes", fields.voice_notes),
+        fieldLine("Relevant links", fields.audition_links)
+      ]);
+
+    case "collabs-active-creators":
+      return compactLines([
+        fieldLine("Creator / project name", fields.creator_name),
+        fieldLine("Platform / links", fields.creator_platform),
+        fieldLine("Collab idea", fields.collab_idea)
+      ]);
+
+    case "patreon-questions":
+      return compactLines([
+        fieldLine("Patreon username", fields.patreon_name),
+        fieldLine("Patreon topic", fields.patreon_topic)
+      ]);
+
+    case "press-inquiries":
+      return compactLines([
+        fieldLine("Outlet / publication", fields.outlet),
+        fieldLine("Deadline", fields.press_deadline),
+        fieldLine("Press request", fields.press_request)
+      ]);
+
+    case "project-inquiries":
+      return compactLines([
+        fieldLine("Project", fields.project),
+        fieldLine("Relevant link", fields.project_link)
+      ]);
+
+    case "other":
+      return compactLines([
+        fieldLine("Short subject", fields.other_subject)
+      ]);
+
+    default:
+      return [];
+  }
+}
+
+function fieldLine(label, value) {
+  const text = String(value || "").trim();
+  return text ? `${label}: ${text}` : "";
+}
+
+function compactLines(lines) {
+  return lines.filter(Boolean);
+}
+
+function linkifyIfUrl(value) {
+  const safe = escapeHtml(value);
+  if (!isProbablyUrl(value)) return safe;
+  return `<a href="${safe}">${safe}</a>`;
+}
+
+function escapeHtml(value) {
+  return String(value || "").replace(/[&<>"']/g, ch => ({
+    "&": "&amp;",
+    "<": "&lt;",
+    ">": "&gt;",
+    '"': "&quot;",
+    "'": "&#39;"
+  }[ch]));
+}
+
+function contactResponse(request, body, status = 200, extraHeaders = {}) {
+  const accept = request.headers.get("accept") || "";
+
+  if (accept.includes("application/json")) {
+    return new Response(JSON.stringify(body), {
+      status,
+      headers: {
+        "Content-Type": "application/json; charset=utf-8",
+        ...extraHeaders
+      }
+    });
+  }
+
+  const title = body.ok ? "Message sent" : "Message not sent";
+  const message = body.ok ? "Message sent. Thank you." : (body.error || "Message could not be sent.");
+
+  return new Response(`<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <title>${escapeHtml(title)}</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+</head>
+<body>
+  <main>
+    <h1>${escapeHtml(title)}</h1>
+    <p>${escapeHtml(message)}</p>
+    <p><a href="/contact/">Back to contact</a></p>
+  </main>
+</body>
+</html>`, {
+    status,
+    headers: {
+      "Content-Type": "text/html; charset=utf-8",
+      ...extraHeaders
+    }
+  });
+}
+
