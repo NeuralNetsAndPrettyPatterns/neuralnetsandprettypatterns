@@ -356,7 +356,7 @@
 <main>
   <header class="page-header">
     <h1>Contact</h1>
-    <p>For voice auditions, creator collaborations, Patreon questions, press inquiries, project inquiries, and everything else.</p>
+    <p>Reach out about auditions, collaborations, Patreon, press, projects, or anything else.</p>
   </header>
 
   <nav class="nav-buttons" aria-label="Site navigation">
@@ -385,24 +385,24 @@
 
   <section class="contact-card" aria-labelledby="contact-heading">
     <h2 id="contact-heading" style="font-size:1.35rem;font-weight:normal;letter-spacing:0.08em;margin-bottom:0.75rem;">Send a message</h2>
-    <p class="contact-intro">Pick a category first. The page will open the relevant subfields, then send your message through the site without exposing the destination address in the page source.</p>
+    <p class="contact-intro">Pick a category, add whatever details are useful, and send the message.</p>
 
     <form id="contact-form" action="/api/contact" method="POST" novalidate>
       <div class="form-grid">
         <div class="form-row">
           <label for="name">Name</label>
-          <input id="name" name="name" type="text" autocomplete="name" required maxlength="120" placeholder="Your name">
+          <input id="name" name="name" type="text" autocomplete="name" maxlength="120" placeholder="Your name">
         </div>
 
         <div class="form-row">
-          <label for="email">Reply email</label>
-          <input id="email" name="email" type="email" autocomplete="email" required maxlength="254" placeholder="you@example.com">
+          <label for="email">Email</label>
+          <input id="email" name="email" type="email" autocomplete="email" maxlength="254" placeholder="you@example.com">
         </div>
 
         <div class="form-row full">
           <label for="category">Subject category</label>
-          <select id="category" name="category" required>
-            <option value="">Choose one</option>
+          <select id="category" name="category">
+            <option value="">Pick a category</option>
             <option value="voice-auditions">Voice auditions</option>
             <option value="collabs-active-creators">Collabs (active creators)</option>
             <option value="patreon-questions">Patreon questions</option>
@@ -513,8 +513,8 @@
 
         <div class="form-row full">
           <label for="message">Message</label>
-          <textarea id="message" name="message" required maxlength="4000" placeholder="Tell me what this is about."></textarea>
-          <span class="field-note">Please include links where useful. Max 4000 characters.</span>
+          <textarea id="message" name="message" maxlength="4000" placeholder="What should I know?"></textarea>
+          <span class="field-note">Links are welcome if useful.</span>
         </div>
 
         <div class="screen-reader-trap" aria-hidden="true">
@@ -531,7 +531,7 @@
       </div>
     </form>
 
-    <p class="privacy-note">Your reply email is used so the response can go back to you. The receiving address is handled by the server-side Worker and is not printed on this page.</p>
+    
   </section>
 
   <nav class="nav-buttons bottom-nav" aria-label="Site navigation footer">
@@ -612,7 +612,7 @@
 
       form.reset();
       updateCategoryPanel();
-      setStatus('Message sent. Thank you.', 'success');
+      setStatus('Sent.', 'success');
     } catch (err) {
       setStatus(err.message || 'Message could not be sent.', 'error');
     } finally {
