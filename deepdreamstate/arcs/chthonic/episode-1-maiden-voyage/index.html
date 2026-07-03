@@ -15,7 +15,7 @@
   <meta name="author" content="Neural Nets and Pretty Patterns">
   <meta property="og:title" content="A1 E1: Maiden Voyage (GE1) - Deep Dream State">
   <meta property="og:description" content="Some ice should stay unbroken. Ding, Dong, Dagon.">
-  <meta property="og:image" content="https://neuralnetsandprettypatterns.com/deepdreamstate/arc-carousel-chthonic.webp">
+  <meta property="og:image" content="https://neuralnetsandprettypatterns.com/deepdreamstate/chthonic-e01-maiden-voyage.webp">
   <meta property="og:url" content="https://neuralnetsandprettypatterns.com/deepdreamstate/arcs/chthonic/episode-1-maiden-voyage/">
   <meta property="og:type" content="article">
   <meta property="og:site_name" content="Deep Dream State">
@@ -24,11 +24,12 @@
   <meta name="twitter:card" content="summary_large_image">
   <meta name="twitter:title" content="A1 E1: Maiden Voyage (GE1) - Deep Dream State">
   <meta name="twitter:description" content="Some ice should stay unbroken.">
-  <meta name="twitter:image" content="https://neuralnetsandprettypatterns.com/deepdreamstate/arc-carousel-chthonic.webp">
+  <meta name="twitter:image" content="https://neuralnetsandprettypatterns.com/deepdreamstate/chthonic-e01-maiden-voyage.webp">
   <meta name="twitter:image:alt" content="The Chthonic arc artwork - Deep Dream State">
   <meta name="twitter:creator" content="@MCNeuralNets">
   <meta name="twitter:site" content="@MCNeuralNets">
   <script type="application/ld+json">
+
 {
   "@context": "https://schema.org",
   "@graph": [
@@ -89,7 +90,7 @@
         "https://www.reddit.com/user/prettypattern",
         "https://soundgasm.net/u/NeuralNets",
         "https://deepdreamstate.blubrry.net/neural-nets-and-pretty-patterns/",
-        "https://neuralnetsandprettypatterns.github.io/deepdreamstate/",
+        "https://neuralnetsandprettypatterns.neuralnetsandprettypatterns.com/deepdreamstate/",
         "https://www.theend.fyi/creative/neural-nets-and-pretty-patterns",
         "https://tvtropes.org/pmwiki/pmwiki.php/Podcast/DeepDreamState"
       ],
@@ -316,8 +317,8 @@
       },
       "primaryImageOfPage": {
         "@type": "ImageObject",
-        "url": "https://neuralnetsandprettypatterns.com/deepdreamstate/arc-carousel-chthonic.webp",
-        "caption": "The Chthonic arc artwork - Deep Dream State by Neural Nets and Pretty Patterns"
+        "url": "https://neuralnetsandprettypatterns.com/deepdreamstate/chthonic-e01-maiden-voyage.webp",
+        "caption": "A1 E1: Maiden Voyage (GE1) artwork for Deep Dream State by Neural Nets and Pretty Patterns"
       }
     },
     {
@@ -328,7 +329,7 @@
       "url": "https://neuralnetsandprettypatterns.com/deepdreamstate/arcs/chthonic/episode-1-maiden-voyage/",
       "episodeNumber": 1,
       "description": "Some ice should stay unbroken. The Chthonic sets sail, promising luxury, immersion, and a good time.",
-      "image": "https://neuralnetsandprettypatterns.com/deepdreamstate/arc-carousel-chthonic.webp",
+      "image": "https://neuralnetsandprettypatterns.com/deepdreamstate/chthonic-e01-maiden-voyage.webp",
       "partOfSeries": {
         "@id": "https://neuralnetsandprettypatterns.com/deepdreamstate/#series"
       },
@@ -347,6 +348,7 @@
     }
   ]
 }
+  
   </script>
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -423,9 +425,40 @@
     .arc-kicker:hover { color: #f0f4ff; text-decoration: underline; text-underline-offset: 0.25em; }
     .episode-heading { font-size: clamp(1.9rem, 5vw, 3.1rem); font-weight: normal; line-height: 1.1; color: #f0f4ff; letter-spacing: 0.05em; margin-bottom: 0.55rem; }
     .episode-logline { font-size: clamp(1rem, 2.6vw, 1.22rem); color: rgba(232,232,232,0.74); font-style: italic; letter-spacing: 0.04em; margin: 0 auto 1.5rem; text-align: center; }
-    .hero-image-wrap { margin: 0.4rem auto 0; max-width: 460px; }
+    .hero-image-stage {
+      display: grid;
+      grid-template-columns: 52px minmax(0, 460px) 52px;
+      justify-content: center;
+      align-items: center;
+      gap: 0.8rem;
+      margin: 0.4rem auto 0;
+      max-width: 620px;
+    }
+    .hero-image-wrap { margin: 0 auto; max-width: 460px; width: 100%; }
     .hero-image { width: 100%; aspect-ratio: 1; display: block; object-fit: cover; border-radius: 8px; box-shadow: 0 8px 32px rgba(0,0,0,0.6); }
-    .episode-nav { display: flex; justify-content: center; align-items: center; gap: 0.75rem; flex-wrap: wrap; margin: 1rem auto 0; font-size: 0.92rem; }
+    .hero-side-nav {
+      width: 48px;
+      height: 48px;
+      border: 1.5px solid rgba(232,232,232,0.72);
+      border-radius: 50%;
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      color: #e8e8e8;
+      text-decoration: none;
+      font-size: 2rem;
+      line-height: 1;
+      background: rgba(0,0,0,0.18);
+      transition: all 0.25s ease;
+    }
+    .hero-side-nav:hover,
+    .hero-side-nav:focus {
+      background: #e8e8e8;
+      color: #1a0a2e;
+      transform: scale(1.08);
+      outline: none;
+    }
+    .episode-nav { display: none; }
     .episode-nav-separator { color: rgba(232,232,232,0.28); }
     .listen-links { font-size: 0.82rem; letter-spacing: 0.06em; text-transform: uppercase; color: rgba(232,232,232,0.48); margin-top: 0.95rem; }
     .section { padding: 1.3rem 0; border-bottom: 1px solid rgba(232,232,232,0.12); }
@@ -540,7 +573,9 @@
       .container { padding: 0 1rem; }
       header { padding: 1.3rem 0 1.5rem; }
       .section { padding: 2rem 0; }
+      .hero-image-stage { grid-template-columns: 42px minmax(0, 280px) 42px; gap: 0.45rem; }
       .hero-image-wrap { max-width: 280px; }
+      .hero-side-nav { width: 40px; height: 40px; font-size: 1.7rem; }
       .nav-buttons { gap: 0.45rem; }
       .nav-button { width: 42px; height: 42px; }
       .episode-nav { gap: 0.5rem; }
@@ -566,14 +601,13 @@
         <a class="arc-kicker" href="/deepdreamstate/arcs/chthonic/">The Chthonic</a>
         <h2 class="episode-heading">A1 E1: Maiden Voyage (GE1)</h2>
         <p class="episode-logline">Some ice should stay unbroken.</p>
-        <div class="hero-image-wrap">
-          <img class="hero-image" src="https://neuralnetsandprettypatterns.com/deepdreamstate/arc-carousel-chthonic.webp" alt="A1 E1: Maiden Voyage (GE1) - The Chthonic - Deep Dream State">
+        <div class="hero-image-stage" aria-label="Episode navigation">
+          <a class="hero-side-nav" href="/deepdreamstate/arcs/chthonic/episode-9-spiralstorm/" aria-label="Previous episode: A1 E9: Spiralstorm (GE9)">&#8249;</a>
+          <div class="hero-image-wrap">
+            <img class="hero-image" src="https://neuralnetsandprettypatterns.com/deepdreamstate/chthonic-e01-maiden-voyage.webp" alt="A1 E1: Maiden Voyage (GE1) - The Chthonic - Deep Dream State">
+          </div>
+          <a class="hero-side-nav" href="/deepdreamstate/arcs/chthonic/episode-2-cringetide/" aria-label="Next episode: A1 E2: Cringetide (GE2)">&#8250;</a>
         </div>
-        <nav class="episode-nav" aria-label="Episode navigation">
-          <a href="/deepdreamstate/arcs/chthonic/">&#8592; The Chthonic</a>
-          <span class="episode-nav-separator">|</span>
-          <a href="/deepdreamstate/arcs/chthonic/episode-2-cringetide/">A1 E2: Cringetide (GE2) &#8594;</a>
-        </nav>
         <div class="listen-links" aria-label="Listen links">
           <a href="https://open.spotify.com/episode/1fi4cOLeLMWAdrvevXUys5" rel="noopener noreferrer" target="_blank">Spotify</a>
           <span aria-hidden="true"> | </span>
@@ -590,13 +624,13 @@
     <main>
 <section class="section">
         <div class="episode-copy">
-          <h2>Ding, Dong, Dagon.</h2>
-          <p>The Chthonic sets sail, promising luxury, immersion, and a good time. It'll keep one of those promises.</p>
-          <p>Cruise Director Olivia runs the welcome with practiced warmth. The captain stays mostly out of sight, and the app knows where everyone is.</p>
+          <h2>Ding, Dong, <a href="/deepdreamstate/glossary/#dagon-dream-group">Dagon</a>.</h2>
+          <p><a href="/deepdreamstate/glossary/#chthonic-the">The Chthonic</a> sets sail, promising luxury, immersion, and a good time. It'll keep one of those promises.</p>
+          <p>Cruise Director <a href="/deepdreamstate/glossary/#olivia">Olivia</a> runs the welcome with practiced warmth. The <a href="/deepdreamstate/glossary/#william-dyer">captain</a> stays mostly out of sight, and the app knows where everyone is.</p>
           <p>The bell rings every day to declare "everything is fine!"</p>
-          <p>Below decks, the crew knows better. Spa manager Mairead is broke and increasingly desperate. Engineer Fion watches and says nothing useful. Purser Selene has worked ships like this before, and she is not surprised by anything she sees. When Nikki comes back from Room 203, nobody in management wants to hear about it.</p>
+          <p>Below decks, the crew knows better. Spa manager <a href="/deepdreamstate/glossary/#mairead">Mairead</a> is broke and increasingly desperate. Engineer <a href="/deepdreamstate/glossary/#fion">Fion</a> watches and says nothing useful. Purser <a href="/deepdreamstate/glossary/#selene">Selene</a> has worked ships like this before, and she is not surprised by anything she sees. When <a href="/deepdreamstate/glossary/#nikita">Nikki</a> comes back from <a href="/deepdreamstate/glossary/#room-203">Room 203</a>, nobody in management wants to hear about it.</p>
           <p>Up top, a bachelorette party is having the time of many lives. They know something's amiss, though. They can't drink away the strange sounds through the walls, or the much-too-specific dreams. The ship seems to be noticing them back, and that no longer feels like a dream anyone can write off.</p>
-          <p>Emma feels the uncanny, but her friends are already ordering another round.</p>
+          <p><a href="/deepdreamstate/glossary/#emma">Emma</a> feels the uncanny, but her friends are already ordering another round.</p>
           <p>By the end of the first night, someone has been identified. The machinery has a target, and the voyage has its first real purpose.</p>
         </div>
       </section>
@@ -610,24 +644,88 @@
                   <th>Character</th>
                   <th>Performer</th>
                   <th>Role</th>
-                  <th>Show Page</th>
                   <th>IMDb</th>
                 </tr>
               </thead>
               <tbody>
-                <tr><td>Alistair</td><td><a href="https://deepdreamstate.blubrry.net/jericho-caine/" target="_blank" rel="noopener noreferrer">Jericho Caine</a></td><td>CEO of Neuroplex</td><td><a href="https://deepdreamstate.blubrry.net/jericho-caine/" target="_blank" rel="noopener noreferrer">Show Page</a></td><td><a href="https://www.imdb.com/name/nm17778008/" target="_blank" rel="noopener noreferrer">IMDb</a></td></tr>
-                <tr><td>Brittany</td><td><a href="https://deepdreamstate.blubrry.net/kitten-azazel/" target="_blank" rel="noopener noreferrer">Kitten Azazel</a></td><td>Bridesmaid</td><td><a href="https://deepdreamstate.blubrry.net/kitten-azazel/" target="_blank" rel="noopener noreferrer">Show Page</a></td><td><a href="https://www.imdb.com/name/nm17774343/" target="_blank" rel="noopener noreferrer">IMDb</a></td></tr>
-                <tr><td>Emma</td><td>Pipp</td><td>The Bride-to-Be</td><td>-</td><td>-</td></tr>
-                <tr><td>Fion</td><td><a href="https://deepdreamstate.blubrry.net/jade-wolf/" target="_blank" rel="noopener noreferrer">Jade Wolf</a></td><td>Chief Engineer</td><td><a href="https://deepdreamstate.blubrry.net/jade-wolf/" target="_blank" rel="noopener noreferrer">Show Page</a></td><td><a href="https://www.imdb.com/name/nm17764360/" target="_blank" rel="noopener noreferrer">IMDb</a></td></tr>
-                <tr><td>Holly</td><td><a href="https://deepdreamstate.blubrry.net/dizzy-dollie/" target="_blank" rel="noopener noreferrer">Dizzy Dollie</a></td><td>His Girlfriend</td><td><a href="https://deepdreamstate.blubrry.net/dizzy-dollie/" target="_blank" rel="noopener noreferrer">Show Page</a></td><td><a href="https://www.imdb.com/name/nm17760876/" target="_blank" rel="noopener noreferrer">IMDb</a></td></tr>
-                <tr><td>Kara</td><td><a href="https://deepdreamstate.blubrry.net/tender-confusion/" target="_blank" rel="noopener noreferrer">Tender Confusion</a></td><td>Bridesmaid</td><td>-</td><td>-</td></tr>
-                <tr><td>Mairead</td><td><a href="https://deepdreamstate.blubrry.net/bun-li/" target="_blank" rel="noopener noreferrer">Bun Li</a></td><td>Spa Manager</td><td><a href="https://deepdreamstate.blubrry.net/bun-li/" target="_blank" rel="noopener noreferrer">Show Page</a></td><td><a href="https://www.imdb.com/name/nm17796355/" target="_blank" rel="noopener noreferrer">IMDb</a></td></tr>
-                <tr><td>Nika</td><td><a href="https://deepdreamstate.blubrry.net/echo/" target="_blank" rel="noopener noreferrer">Echo</a></td><td>Ship Maid</td><td><a href="https://deepdreamstate.blubrry.net/echo/" target="_blank" rel="noopener noreferrer">Show Page</a></td><td><a href="https://www.imdb.com/name/nm17822435/" target="_blank" rel="noopener noreferrer">IMDb</a></td></tr>
-                <tr><td>Olivia</td><td><a href="https://deepdreamstate.blubrry.net/blissblank/" target="_blank" rel="noopener noreferrer">Bliss Blank</a></td><td>Cruise Director</td><td><a href="https://deepdreamstate.blubrry.net/blissblank/" target="_blank" rel="noopener noreferrer">Show Page</a></td><td><a href="https://www.imdb.com/name/nm17754818/" target="_blank" rel="noopener noreferrer">IMDb</a></td></tr>
-                <tr><td>Sarah</td><td><a href="https://deepdreamstate.blubrry.net/ring-of-kees/" target="_blank" rel="noopener noreferrer">Ring of Kees</a></td><td>Bridesmaid</td><td><a href="https://deepdreamstate.blubrry.net/ring-of-kees/" target="_blank" rel="noopener noreferrer">Show Page</a></td><td><a href="https://www.imdb.com/name/nm17839622/" target="_blank" rel="noopener noreferrer">IMDb</a></td></tr>
-                <tr><td>Selene</td><td><a href="https://deepdreamstate.blubrry.net/syndi-rella/" target="_blank" rel="noopener noreferrer">Syndi Rella</a></td><td>Chief Purser</td><td><a href="https://deepdreamstate.blubrry.net/syndi-rella/" target="_blank" rel="noopener noreferrer">Show Page</a></td><td><a href="https://www.imdb.com/name/nm17765752/" target="_blank" rel="noopener noreferrer">IMDb</a></td></tr>
-                <tr><td>Tiffany</td><td>Britt Reprogrammed</td><td>Bridesmaid</td><td>-</td><td>-</td></tr>
-                <tr><td>William</td><td><a href="https://deepdreamstate.blubrry.net/neural-nets-and-pretty-patterns/" target="_blank" rel="noopener noreferrer">Neural Nets</a></td><td>Ship Captain</td><td><a href="https://deepdreamstate.blubrry.net/neural-nets-and-pretty-patterns/" target="_blank" rel="noopener noreferrer">Show Page</a></td><td><a href="https://www.imdb.com/name/nm17755189/" target="_blank" rel="noopener noreferrer">IMDb</a></td></tr>
+                <tr>
+                <td><a href="/deepdreamstate/glossary/#alastair">Alistair</a></td>
+                <td><a href="https://deepdreamstate.blubrry.net/jericho-caine/" target="_blank" rel="noopener noreferrer">Jericho Caine</a></td>
+                <td>CEO of Neuroplex</td>
+                <td><a href="https://www.imdb.com/name/nm17778008/" target="_blank" rel="noopener noreferrer">IMDb</a></td>
+            </tr>
+                <tr>
+                <td><a href="/deepdreamstate/glossary/#brittany">Brittany</a></td>
+                <td><a href="https://deepdreamstate.blubrry.net/kitten-azazel/" target="_blank" rel="noopener noreferrer">Kitten Azazel</a></td>
+                <td>Bridesmaid</td>
+                <td><a href="https://www.imdb.com/name/nm17774343/" target="_blank" rel="noopener noreferrer">IMDb</a></td>
+            </tr>
+                <tr>
+                <td><a href="/deepdreamstate/glossary/#emma">Emma</a></td>
+                <td>Pipp</td>
+                <td>The Bride-to-Be</td>
+                <td>-</td>
+            </tr>
+                <tr>
+                <td><a href="/deepdreamstate/glossary/#fion">Fion</a></td>
+                <td><a href="https://deepdreamstate.blubrry.net/jade-wolf/" target="_blank" rel="noopener noreferrer">Jade Wolf</a></td>
+                <td>Chief Engineer</td>
+                <td><a href="https://www.imdb.com/name/nm17764360/" target="_blank" rel="noopener noreferrer">IMDb</a></td>
+            </tr>
+                <tr>
+                <td><a href="/deepdreamstate/glossary/#holly">Holly</a></td>
+                <td><a href="https://deepdreamstate.blubrry.net/dizzy-dollie/" target="_blank" rel="noopener noreferrer">Dizzy Dollie</a></td>
+                <td>His Girlfriend</td>
+                <td><a href="https://www.imdb.com/name/nm17760876/" target="_blank" rel="noopener noreferrer">IMDb</a></td>
+            </tr>
+                <tr>
+                <td><a href="/deepdreamstate/glossary/#kara">Kara</a></td>
+                <td><a href="https://deepdreamstate.blubrry.net/tender-confusion/" target="_blank" rel="noopener noreferrer">Tender Confusion</a></td>
+                <td>Bridesmaid</td>
+                <td>-</td>
+            </tr>
+                <tr>
+                <td><a href="/deepdreamstate/glossary/#mairead">Mairead</a></td>
+                <td><a href="https://deepdreamstate.blubrry.net/bun-li/" target="_blank" rel="noopener noreferrer">Bun Li</a></td>
+                <td>Spa Manager</td>
+                <td><a href="https://www.imdb.com/name/nm17796355/" target="_blank" rel="noopener noreferrer">IMDb</a></td>
+            </tr>
+                <tr>
+                <td><a href="/deepdreamstate/glossary/#nikita">Nika</a></td>
+                <td><a href="https://deepdreamstate.blubrry.net/echo/" target="_blank" rel="noopener noreferrer">Echo</a></td>
+                <td>Ship Maid</td>
+                <td><a href="https://www.imdb.com/name/nm17822435/" target="_blank" rel="noopener noreferrer">IMDb</a></td>
+            </tr>
+                <tr>
+                <td><a href="/deepdreamstate/glossary/#olivia">Olivia</a></td>
+                <td><a href="https://deepdreamstate.blubrry.net/blissblank/" target="_blank" rel="noopener noreferrer">Bliss Blank</a></td>
+                <td>Cruise Director</td>
+                <td><a href="https://www.imdb.com/name/nm17754818/" target="_blank" rel="noopener noreferrer">IMDb</a></td>
+            </tr>
+                <tr>
+                <td><a href="/deepdreamstate/glossary/#sarah">Sarah</a></td>
+                <td><a href="https://deepdreamstate.blubrry.net/ring-of-kees/" target="_blank" rel="noopener noreferrer">Ring of Kees</a></td>
+                <td>Bridesmaid</td>
+                <td><a href="https://www.imdb.com/name/nm17839622/" target="_blank" rel="noopener noreferrer">IMDb</a></td>
+            </tr>
+                <tr>
+                <td><a href="/deepdreamstate/glossary/#selene">Selene</a></td>
+                <td><a href="https://deepdreamstate.blubrry.net/syndi-rella/" target="_blank" rel="noopener noreferrer">Syndi Rella</a></td>
+                <td>Chief Purser</td>
+                <td><a href="https://www.imdb.com/name/nm17765752/" target="_blank" rel="noopener noreferrer">IMDb</a></td>
+            </tr>
+                <tr>
+                <td><a href="/deepdreamstate/glossary/#tiffany">Tiffany</a></td>
+                <td>Britt Reprogrammed</td>
+                <td>Bridesmaid</td>
+                <td>-</td>
+            </tr>
+                <tr>
+                <td><a href="/deepdreamstate/glossary/#william-dyer">William</a></td>
+                <td><a href="https://deepdreamstate.blubrry.net/neural-nets-and-pretty-patterns/" target="_blank" rel="noopener noreferrer">Neural Nets</a></td>
+                <td>Ship Captain</td>
+                <td><a href="https://www.imdb.com/name/nm17755189/" target="_blank" rel="noopener noreferrer">IMDb</a></td>
+            </tr>
               </tbody>
             </table>
           </div>
