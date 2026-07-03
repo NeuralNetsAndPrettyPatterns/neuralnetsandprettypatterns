@@ -518,6 +518,38 @@
       padding-bottom: 0;
     }
 
+    .spoiler-text {
+      display: inline-block;
+      background: #111;
+      color: transparent !important;
+      border-radius: 3px;
+      padding: 0 0.25em;
+      cursor: help;
+      text-shadow: none !important;
+      user-select: none;
+      transition: color 0.15s ease, background 0.15s ease;
+    }
+
+    .spoiler-text::selection {
+      background: #111;
+      color: transparent;
+    }
+
+    .spoiler-text:hover,
+    .spoiler-text:focus,
+    .spoiler-text:active {
+      color: #e8e8e8 !important;
+      background: rgba(17, 17, 17, 0.25);
+      outline: 1px solid rgba(232, 232, 232, 0.5);
+      user-select: text;
+    }
+
+    .spoiler-text:hover::selection,
+    .spoiler-text:focus::selection {
+      background: rgba(232, 232, 232, 0.25);
+      color: #e8e8e8;
+    }
+
     @media (max-width: 760px) {
       .cast-table,
       .cast-table thead,
@@ -606,7 +638,7 @@
 
           <p>It starts off with Holly in the Lotus. Everyone's invited to imagine exactly what the Lotus is, but Holly's way past imagining. Inside the trap, Holly exposes herself then the larger plan. The conspirators plan to weaponize the ritual experiences, packaging them as luxury services. Holly herself is being redesigned as a marketed product, with a demeaning collar name and a schedule for public exhibition. Fion begins to succumb to the same conditioning.</p>
 
-          <p>Meanwhile, Sarah, Mairead, and Emma experience a transcendent ritual moment orchestrated by Selene and Kara. It's a counterpoint to the exploitative rituals: authentic intimacy and power-sharing rather than domination and consumption. It's genuine transcendence. You can likely guess what the Dagon Dream Group intends to do with that. <span class="spoiler-text" tabindex="0">It definitely involves a T shirt gun.</span></p>
+          <p>Meanwhile, Sarah, Mairead, and Emma experience a transcendent ritual moment orchestrated by Selene and Kara. It's a counterpoint to the exploitative rituals: authentic intimacy and power-sharing rather than domination and consumption. It's genuine transcendence. You can likely guess what the Dagon Dream Group intends to do with that. <span class="spoiler-text" tabindex="0" role="button" aria-label="Spoiler: It definitely involves a T shirt gun.">It definitely involves a T shirt gun.</span></p>
         </div>
       </section>
 
