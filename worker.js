@@ -340,6 +340,11 @@ export default {
   }
 };
 
+// Recipient fallback is in the Worker, not in contact/index.html.
+// Override either value with Worker environment variables if needed.
+const CONTACT_TO_FALLBACK = "deepdreamstates@gmail.com";
+const CONTACT_FROM_FALLBACK = "Deep Dream State Contact <contact@neuralnetsandprettypatterns.com>";
+
 const CONTACT_CATEGORY_LABELS = {
   "voice-auditions": "Voice auditions",
   "collabs-active-creators": "Collabs (active creators)",
@@ -350,6 +355,13 @@ const CONTACT_CATEGORY_LABELS = {
 };
 
 async function handleContactPost(request, env) {
+  if (request.method === "OPTIONS") {
+    return new Response(null, {
+      status: 204,
+      headers: contactCorsHeaders(request)
+    });
+  }
+
   if (request.method !== "POST") {
     return contactResponse(
       request,
@@ -360,16 +372,11 @@ async function handleContactPost(request, env) {
   }
 
   if (!env || !env.RESEND_API_KEY) {
-    return contactResponse(request, { ok: false, error: "Contact form is not configured." }, 500);
+    return contactResponse(request, { ok: false, error: "Contact form is not configured: RESEND_API_KEY is missing." }, 500);
   }
 
-  if (!env.CONTACT_TO) {
-    return contactResponse(request, { ok: false, error: "Contact form is not configured." }, 500);
-  }
-
-  if (!env.CONTACT_FROM) {
-    return contactResponse(request, { ok: false, error: "Contact form is not configured." }, 500);
-  }
+  const contactTo = env.CONTACT_TO || CONTACT_TO_FALLBACK;
+  const contactFrom = env.CONTACT_FROM || CONTACT_FROM_FALLBACK;
 
   let fields;
   try {
@@ -389,8 +396,8 @@ async function handleContactPost(request, env) {
   const htmlBody = buildContactHtmlBody(fields, categoryLabel, request);
 
   const resendPayload = {
-    from: env.CONTACT_FROM,
-    to: [env.CONTACT_TO],
+    from: contactFrom,
+    to: [contactTo],
     reply_to: fields.email,
     subject,
     text: textBody,
@@ -655,6 +662,27 @@ function escapeHtml(value) {
   }[ch]));
 }
 
+
+function contactCorsHeaders(request) {
+  const origin = request.headers.get("origin") || "";
+  const allowedOrigins = new Set([
+    "https://neuralnetsandprettypatterns.com",
+    "https://www.neuralnetsandprettypatterns.com"
+  ]);
+
+  const headers = {
+    "Access-Control-Allow-Methods": "POST, OPTIONS",
+    "Access-Control-Allow-Headers": "Content-Type, Accept",
+    "Vary": "Origin"
+  };
+
+  if (allowedOrigins.has(origin)) {
+    headers["Access-Control-Allow-Origin"] = origin;
+  }
+
+  return headers;
+}
+
 function contactResponse(request, body, status = 200, extraHeaders = {}) {
   const accept = request.headers.get("accept") || "";
 
@@ -663,6 +691,7 @@ function contactResponse(request, body, status = 200, extraHeaders = {}) {
       status,
       headers: {
         "Content-Type": "application/json; charset=utf-8",
+        ...contactCorsHeaders(request),
         ...extraHeaders
       }
     });
@@ -689,8 +718,8 @@ function contactResponse(request, body, status = 200, extraHeaders = {}) {
     status,
     headers: {
       "Content-Type": "text/html; charset=utf-8",
+      ...contactCorsHeaders(request),
       ...extraHeaders
     }
   });
 }
-
