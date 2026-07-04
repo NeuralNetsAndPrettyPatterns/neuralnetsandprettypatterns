@@ -313,13 +313,14 @@ export default {
       return serveHtml("/deepdreamstate/arcs/index.html", true);
     }
 
-    // Deep Dream State Arc One: The Chthonic
-    // Temporary migration bridge.
+    // Deep Dream State migrated arc pages
     // New main repo page wins when present.
     // Missing main repo page falls back to the legacy Deep Dream State site.
     if (
       p === "/deepdreamstate/arcs/chthonic" ||
-      p.startsWith("/deepdreamstate/arcs/chthonic/")
+      p.startsWith("/deepdreamstate/arcs/chthonic/") ||
+      p === "/deepdreamstate/arcs/incognitoh" ||
+      p.startsWith("/deepdreamstate/arcs/incognitoh/")
     ) {
       return serveMigratedDeepDreamStatePathWithFallback(p, url);
     }
@@ -661,7 +662,6 @@ function escapeHtml(value) {
     "'": "&#39;"
   }[ch]));
 }
-
 
 function contactCorsHeaders(request) {
   const origin = request.headers.get("origin") || "";
