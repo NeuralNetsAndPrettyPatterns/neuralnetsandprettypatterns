@@ -6,7 +6,7 @@
 <meta content="3mW7gKapSaYcaT7Ntv29E_XO0f8ucff_wXNQ7A-b8qI" name="google-site-verification"/>
 <meta content="width=device-width, initial-scale=1.0" name="viewport"/>
 <meta content="index,follow,max-image-preview:large,max-snippet:-1,max-video-preview:-1" name="robots"/>
-<meta content="index,follow,max-image-preview:large,max-snippet:-1" name="googlebot">
+<meta content="index,follow,max-image-preview:large,max-snippet:-1" name="googlebot"/>
 <title>Deep Fake | Deep Dream State</title>
 <link href="https://neuralnetsandprettypatterns.com/deepdreamstate/arcs/incognitoh/episode-4-deep-fake/" rel="canonical"/>
 <link href="https://deepdreamstate.blubrry.net/feed/podcast/" rel="alternate" title="Deep Dream State Podcast Feed" type="application/rss+xml"/>
@@ -15,7 +15,7 @@
 <link href="https://neuralnetsandprettypatterns.com/deepdreamstate/arcs/incognitoh/episode-5-winner-winner/" rel="next"/>
 <link href="https://neuralnetsandprettypatterns.github.io/neuralnetsandprettypatterns/favicon-transparent.png" rel="icon" sizes="512x512" type="image/png"/>
 <link href="https://neuralnetsandprettypatterns.github.io/neuralnetsandprettypatterns/favicon-transparent.png" rel="apple-touch-icon" sizes="512x512"/>
-<meta content="Deep Dream State: Deep Fake. Zara hacks the system and discovers the system built the hack into its choreography." name="description"/>
+<meta content="Deep Dream State: Deep Fake. Zara hacks the system and discovers the system built the hack into its choreography." name="description">
 <meta content="#1a0a2e" name="theme-color"/>
 <meta content="Neural Nets and Pretty Patterns" name="author"/>
 <meta content="Deep Fake | Deep Dream State" property="og:title"/>
@@ -34,7 +34,6 @@
 <meta content="@MCNeuralNets" name="twitter:creator"/>
 <meta content="@MCNeuralNets" name="twitter:site"/>
 <link href="https://fonts.googleapis.com/css2?family=IM+Fell+DW+Pica&amp;display=swap" rel="stylesheet"/>
-
 <script type="application/ld+json">
 {
     "@context": "https://schema.org",
@@ -127,8 +126,7 @@
     ]
 }
 </script>
-
-    <style>
+<style>
 * { margin: 0; padding: 0; box-sizing: border-box; }
 
 html, body {
@@ -244,39 +242,37 @@ h2 { font-size: 1.6rem; margin: 2.5rem 0 1.5rem; text-align: center; letter-spac
     .nav-buttons { gap: 0.3rem; }
     .nav-button { width: 38px; height: 38px; }
 }
-    
-        .spoiler-block {
-            margin: 2rem 0;
-            border: 1px solid rgba(232,232,232,0.28);
-            border-radius: 12px;
-            background: rgba(0,0,0,0.24);
-            overflow: hidden;
-            text-align: left;
+
+        .spoiler-text {
+            display: inline-block;
+            background: #111;
+            color: transparent !important;
+            border-radius: 3px;
+            padding: 0 0.25em;
+            cursor: help;
+            text-shadow: none !important;
+            user-select: none;
+            transition: color 0.15s ease, background 0.15s ease;
         }
-        .spoiler-block summary {
-            cursor: pointer;
-            padding: 1rem 1.2rem;
-            text-align: center;
-            letter-spacing: 0.08em;
-            text-transform: uppercase;
-            border-bottom: 1px solid rgba(232,232,232,0.18);
-            background: rgba(0,0,0,0.35);
-            list-style: none;
+
+        .spoiler-text::selection {
+            background: #111;
+            color: transparent;
         }
-        .spoiler-block summary::-webkit-details-marker {
-            display: none;
+
+        .spoiler-text:hover,
+        .spoiler-text:focus,
+        .spoiler-text:active {
+            color: #e8e8e8 !important;
+            background: rgba(17, 17, 17, 0.25);
+            outline: 1px solid rgba(232, 232, 232, 0.5);
+            user-select: text;
         }
-        .spoiler-block summary::before,
-        .spoiler-block summary::after {
-            content: " █████ ";
-            letter-spacing: 0.02em;
-            opacity: 0.75;
-        }
-        .spoiler-block .spoiler-content {
-            padding: 1.5rem 1.2rem 0.2rem;
-        }
-        .spoiler-block[open] summary {
-            border-bottom-color: rgba(232,232,232,0.28);
+
+        .spoiler-text:hover::selection,
+        .spoiler-text:focus::selection {
+            background: rgba(232, 232, 232, 0.25);
+            color: #e8e8e8;
         }
 </style>
 </meta></head>
@@ -285,14 +281,14 @@ h2 { font-size: 1.6rem; margin: 2.5rem 0 1.5rem; text-align: center; letter-spac
 <main>
 <div class="series-header">Deep Dream State</div>
 <div aria-label="Site navigation" class="nav-buttons">
-            <a aria-label="Neural Nets and Pretty Patterns" class="nav-button text-btn" href="/">NNPP</a>
-            <a aria-label="Deep Dream State" class="nav-button text-btn" href="/deepdreamstate/">DDS</a>
-            <a aria-label="Episode List" class="nav-button text-btn" href="/deepdreamstate/arcs/">EP LIST</a>
-            <a aria-label="Lore Glossary" class="nav-button text-btn" href="/deepdreamstate/glossary/">LORE</a>
-            <a aria-label="Cast" class="nav-button text-btn" href="/deepdreamstate/cast/">CAST</a>
-            <a aria-label="More" class="nav-button text-btn" href="/deepdreamstate/more/">MORE</a>
-            <a aria-label="New Releases" class="nav-button text-btn" href="/neuralpedia/new-releases/">NEW</a>
-        </div>
+<a aria-label="Neural Nets and Pretty Patterns" class="nav-button text-btn" href="/">NNPP</a>
+<a aria-label="Deep Dream State" class="nav-button text-btn" href="/deepdreamstate/">DDS</a>
+<a aria-label="Episode List" class="nav-button text-btn" href="/deepdreamstate/arcs/">EP LIST</a>
+<a aria-label="Lore Glossary" class="nav-button text-btn" href="/deepdreamstate/glossary/">LORE</a>
+<a aria-label="Cast" class="nav-button text-btn" href="/deepdreamstate/cast/">CAST</a>
+<a aria-label="More" class="nav-button text-btn" href="/deepdreamstate/more/">MORE</a>
+<a aria-label="New Releases" class="nav-button text-btn" href="/neuralpedia/new-releases/">NEW</a>
+</div>
 <div class="section-divider"></div>
 <h1 class="page-title">Deep Fake</h1>
 <p class="episode-number">S2 E4 GE13</p>
@@ -319,14 +315,10 @@ h2 { font-size: 1.6rem; margin: 2.5rem 0 1.5rem; text-align: center; letter-spac
 <div class="content-section">
 <p><a href="/deepdreamstate/glossary/#zarah">Zara</a> has been planning her move since day one. While the other contestants have been fragmenting under the pressure, she’s been watching and learning. She’s the programmer in a whole system of programmers.</p>
 <p>She begins her infiltration carefully, threading through the house's network, moving like water through the architecture of code. It feels possible. It feels like she is winning.</p>
-<details class="spoiler-block">
-<summary>Spoilers</summary>
-<div class="spoiler-content">
-<p>But the deeper she goes, the more she realizes something is wrong. The files are too accessible. The security is sophisticated but not in ways that would stop someone with her skill. It is almost as if the system is inviting her in. As the horrifying realization dawns, she understands: the architects knew she would try to hack. The architects expected it. The architects built the trap specifically for someone like her. Her access to the archive is not a breach. It is part of the design. She was never fighting the system. She was dancing the system's choreography.</p>
-<p>By the time the episode ends, Zara’s shattered into a compliant pet and everyone else is cowed.</p>
-<p>If Zara could not escape, then escape and resistance aren’t possible. It’s just another form of performance. The message is encoded without words: there’s no way out but down.</p>
-</div>
-</details>
+<p><span aria-label="Spoiler: But the deeper she goes, the more she realizes something is wrong. The files are too accessible. The security is sophisticated but not in ways that would stop someone with her skill. It is almost as if the system is inviting her in. As the horrifying realization dawns, she understands: the architects knew she would try to hack. The architects expected it. The architects built the trap specifically for someone like her. Her access to the archive is not a breach. It is part of the design. She was never fighting the system. She was dancing the system's choreography." class="spoiler-text" role="button" tabindex="0">But the deeper she goes, the more she realizes something is wrong. The files are too accessible. The security is sophisticated but not in ways that would stop someone with her skill. It is almost as if the system is inviting her in. As the horrifying realization dawns, she understands: the architects knew she would try to hack. The architects expected it. The architects built the trap specifically for someone like her. Her access to the archive is not a breach. It is part of the design. She was never fighting the system. She was dancing the system's choreography.</span></p>
+<p><span aria-label="Spoiler: By the time the episode ends, Zara’s shattered into a compliant pet and everyone else is cowed." class="spoiler-text" role="button" tabindex="0">By the time the episode ends, Zara’s shattered into a compliant pet and everyone else is cowed.</span></p>
+<p><span aria-label="Spoiler: If Zara could not escape, then escape and resistance aren’t possible. It’s just another form of performance. The message is encoded without words: there’s no way out but down." class="spoiler-text" role="button" tabindex="0">If Zara could not escape, then escape and resistance aren’t possible. It’s just another form of performance. The message is encoded without words: there’s no way out but down.</span></p>
+
 </div>
 <div class="section-divider"></div>
 <h2>Meet The Cast</h2>
@@ -407,14 +399,14 @@ h2 { font-size: 1.6rem; margin: 2.5rem 0 1.5rem; text-align: center; letter-spac
 </div>
 <nav aria-label="Plain episode navigation" class="plain-episode-nav"><a href="/deepdreamstate/">Deep Dream State</a> | <a href="/deepdreamstate/arcs/incognitoh/episode-3-uniforms/">Previous Episode: Uniforms</a> | <a href="/deepdreamstate/arcs/incognitoh/episode-5-winner-winner/">Next Episode: Winner Winner</a> | <a href="/deepdreamstate/glossary/">Lore Glossary</a></nav>
 <div aria-label="Footer navigation" class="footer-nav">
-            <a aria-label="Neural Nets and Pretty Patterns" class="nav-button text-btn" href="/">NNPP</a>
-            <a aria-label="Deep Dream State" class="nav-button text-btn" href="/deepdreamstate/">DDS</a>
-            <a aria-label="Episode List" class="nav-button text-btn" href="/deepdreamstate/arcs/">EP LIST</a>
-            <a aria-label="Lore Glossary" class="nav-button text-btn" href="/deepdreamstate/glossary/">LORE</a>
-            <a aria-label="Cast" class="nav-button text-btn" href="/deepdreamstate/cast/">CAST</a>
-            <a aria-label="More" class="nav-button text-btn" href="/deepdreamstate/more/">MORE</a>
-            <a aria-label="New Releases" class="nav-button text-btn" href="/neuralpedia/new-releases/">NEW</a>
-        </div>
+<a aria-label="Neural Nets and Pretty Patterns" class="nav-button text-btn" href="/">NNPP</a>
+<a aria-label="Deep Dream State" class="nav-button text-btn" href="/deepdreamstate/">DDS</a>
+<a aria-label="Episode List" class="nav-button text-btn" href="/deepdreamstate/arcs/">EP LIST</a>
+<a aria-label="Lore Glossary" class="nav-button text-btn" href="/deepdreamstate/glossary/">LORE</a>
+<a aria-label="Cast" class="nav-button text-btn" href="/deepdreamstate/cast/">CAST</a>
+<a aria-label="More" class="nav-button text-btn" href="/deepdreamstate/more/">MORE</a>
+<a aria-label="New Releases" class="nav-button text-btn" href="/neuralpedia/new-releases/">NEW</a>
+</div>
 <div class="footer-credit">
             Deep Dream State is a full-cast desire horror audio drama by <a href="/">Neural Nets and Pretty Patterns</a>.
              ·  ISNI: <a href="https://isni.org/isni/0000000528776254">0000 0005 2877 6254</a>
