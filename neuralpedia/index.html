@@ -5,21 +5,21 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <meta name="robots" content="index,follow,max-image-preview:large">
   <meta name="googlebot" content="index,follow,max-image-preview:large">
-  <title>Neuralpedia — The Neuralverse Catalogue — Neural Nets and Pretty Patterns</title>
+  <title>Neuralpedia. The Neuralverse Catalogue. Neural Nets and Pretty Patterns</title>
   <link rel="icon" type="image/svg+xml" href="https://neuralnetsandprettypatterns.github.io/deepdreamstate/assets/images/deepdreamstateicon.svg">
   <link rel="canonical" href="https://neuralnetsandprettypatterns.com/neuralpedia/">
-  <meta name="description" content="Neuralpedia: the official catalogue of the Neuralverse. 655 original audio works by Neural Nets and Pretty Patterns spanning immersive audio, music, audio drama, and haptic narrative. Browse by series.">
+  <meta name="description" content="Neuralpedia: the official catalogue of the Neuralverse. Over 700 original audio works by Neural Nets and Pretty Patterns spanning immersive audio, music, audio drama, and haptic narrative. Browse by series.">
   <meta name="author" content="Neural Nets and Pretty Patterns">
 
-  <meta property="og:title" content="Neuralpedia — The Neuralverse Catalogue">
-  <meta property="og:description" content="655 original audio works by Neural Nets and Pretty Patterns. Immersive audio, music, audio drama, haptic narrative. The official Neuralverse discography.">
+  <meta property="og:title" content="Neuralpedia. The Neuralverse Catalogue">
+  <meta property="og:description" content="Over 700 original audio works by Neural Nets and Pretty Patterns. Immersive audio, music, audio drama, haptic narrative. The official Neuralverse discography.">
   <meta property="og:url" content="https://neuralnetsandprettypatterns.com/neuralpedia/">
   <meta property="og:type" content="website">
   <meta property="og:site_name" content="Neural Nets and Pretty Patterns">
   <meta property="og:locale" content="en_US">
   <meta name="twitter:card" content="summary_large_image">
-  <meta name="twitter:title" content="Neuralpedia — The Neuralverse Catalogue">
-  <meta name="twitter:description" content="655 original audio works by Neural Nets and Pretty Patterns.">
+  <meta name="twitter:title" content="Neuralpedia. The Neuralverse Catalogue">
+  <meta name="twitter:description" content="Over 700 original audio works by Neural Nets and Pretty Patterns.">
   <meta name="twitter:creator" content="@MCNeuralNets">
   <meta name="twitter:site" content="@MCNeuralNets">
 
@@ -51,7 +51,7 @@
     "@id": "https://neuralnetsandprettypatterns.com/#neuralverse",
     "name": "The Neuralverse",
     "alternateName": "Neuralpedia",
-    "description": "An interconnected body of 655 original audio productions by Neural Nets and Pretty Patterns spanning immersive audio, electronic music, audio drama, experimental writing, and haptic integration.",
+    "description": "An interconnected body of over 700 original audio productions by Neural Nets and Pretty Patterns spanning immersive audio, electronic music, audio drama, experimental writing, and haptic integration.",
     "genre": ["Immersive Audio", "Music", "Audio Drama", "Desire Horror", "Speculative Fiction", "Haptic Narrative"],
     "url": "https://neuralnetsandprettypatterns.com/neuralpedia/",
     "creator": {
@@ -139,13 +139,26 @@
   <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;1,300;1,400&family=Inconsolata:wght@300;400&display=swap" rel="stylesheet">
 
   <style>
+    :root {
+      --border: rgba(240, 244, 255, 0.15);
+      --text-dim: #6b7c99;
+      --text: #c8d4f0;
+      --text-bright: #f0f4ff;
+      --accent: #7eb8c9;
+      --accent-warm: #c9a87e;
+      --violet-deep: #1a0a2e;
+      --pink: #ff2d78;
+      --serif: 'Cormorant Garamond', Georgia, serif;
+      --mono: 'Inconsolata', monospace;
+    }
+
     * { margin: 0; padding: 0; box-sizing: border-box; }
 
     html, body {
       width: 100%;
-      font-family: 'Cormorant Garamond', Georgia, serif;
+      font-family: var(--serif);
       background: linear-gradient(135deg, #1a0a2e 0%, #16213e 50%, #0f3460 100%);
-      color: #f0f4ff;
+      color: var(--text-bright);
       overflow-x: hidden;
     }
 
@@ -186,16 +199,16 @@
       margin-bottom: 0.5rem;
       letter-spacing: 0.1em;
       font-weight: normal;
-      color: #f0f4ff;
+      color: var(--text-bright);
     }
 
     .page-subtitle {
       font-size: 0.75rem;
-      font-family: 'Inconsolata', monospace;
+      font-family: var(--mono);
       text-align: center;
       letter-spacing: 0.25em;
       text-transform: uppercase;
-      color: #7eb8c9;
+      color: var(--accent);
       opacity: 0.8;
       margin-bottom: 3rem;
     }
@@ -205,6 +218,7 @@
       justify-content: center;
       align-items: center;
       gap: 0.6rem;
+      flex-wrap: wrap;
       margin: 0 0 3rem 0;
     }
 
@@ -214,55 +228,57 @@
     }
 
     .nav-button {
-      width: 45px;
+      min-width: 45px;
       height: 45px;
-      border: 2px solid #f0f4ff;
-      border-radius: 50%;
+      padding: 0 1.2rem;
+      border: 2px solid var(--text-bright);
+      border-radius: 999px;
       background: transparent;
-      color: #f0f4ff;
-      font-size: 1.35rem;
+      color: var(--text-bright);
+      font-size: 0.65rem;
+      letter-spacing: 0.1em;
       cursor: pointer;
       display: inline-flex;
       justify-content: center;
       align-items: center;
       transition: all 0.3s ease;
-      font-family: 'Cormorant Garamond', serif;
+      font-family: var(--mono);
       flex-shrink: 0;
       text-decoration: none;
+      white-space: nowrap;
       line-height: 1;
     }
 
-    .nav-button:hover {
-      background: #f0f4ff;
-      color: #1a0a2e;
-      transform: scale(1.1);
+    .nav-button:hover,
+    .nav-button:focus-visible {
+      background: var(--text-bright);
+      color: var(--violet-deep);
+      transform: scale(1.06);
+      outline: none;
     }
 
-    .inline-clock {
-      width: 31px;
-      height: 31px;
-      border-width: 1.5px;
-      font-size: 1rem;
-      vertical-align: middle;
-      margin: 0 0.4rem;
-      transform: translateY(-0.08rem);
+    .nav-button.pink-room {
+      color: var(--pink);
+      border-color: var(--pink);
     }
 
-    .inline-clock:hover {
-      transform: translateY(-0.08rem) scale(1.08);
+    .nav-button.pink-room:hover,
+    .nav-button.pink-room:focus-visible {
+      background: var(--pink);
+      color: #fff;
     }
 
     .section {
-      border-top: 1px solid rgba(240, 244, 255, 0.15);
+      border-top: 1px solid var(--border);
       padding: 2.5rem 0;
     }
 
     .section-label {
-      font-family: 'Inconsolata', monospace;
+      font-family: var(--mono);
       font-size: 0.6rem;
       letter-spacing: 0.3em;
       text-transform: uppercase;
-      color: #7eb8c9;
+      color: var(--accent);
       opacity: 0.7;
       margin-bottom: 1.2rem;
     }
@@ -270,14 +286,14 @@
     .section h2 {
       font-size: 1.6rem;
       font-weight: 300;
-      color: #f0f4ff;
+      color: var(--text-bright);
       margin-bottom: 1.2rem;
       letter-spacing: 0.02em;
     }
 
     .section p {
       font-size: 1.05rem;
-      color: #c8d4f0;
+      color: var(--text);
       line-height: 1.8;
       max-width: 65ch;
       margin-bottom: 1rem;
@@ -285,49 +301,143 @@
 
     .section p:last-child { margin-bottom: 0; }
 
-    .section ol {
+    /* FAQ accordion */
+    .faq-group {
+      border-top: 1px solid var(--border);
+      margin-top: 1rem;
+    }
+
+    .faq {
+      border-bottom: 1px solid var(--border);
+    }
+
+    .faq summary {
+      cursor: pointer;
+      list-style: none;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      gap: 1rem;
+      padding: 1.5rem 0;
+      font-family: var(--mono);
+      font-size: 0.85rem;
+      letter-spacing: 0.14em;
+      text-transform: uppercase;
+      color: var(--text-bright);
+    }
+
+    .faq summary::-webkit-details-marker { display: none; }
+
+    .faq summary::after {
+      content: '+';
+      font-family: var(--mono);
+      font-size: 1.3rem;
+      color: var(--accent);
+      flex-shrink: 0;
+      transition: transform 0.2s ease;
+    }
+
+    .faq[open] summary::after {
+      content: '\2212';
+    }
+
+    .faq-content {
+      padding: 0 0 1.8rem 0;
+    }
+
+    .faq-content p {
+      font-size: 1.05rem;
+      color: var(--text);
+      line-height: 1.8;
+      max-width: 65ch;
+      margin-bottom: 1rem;
+    }
+
+    .faq-content p:last-child { margin-bottom: 0; }
+
+    .faq-content ol {
       padding-left: 1.5rem;
-      color: #c8d4f0;
+      color: var(--text);
       font-size: 1.05rem;
       line-height: 1.8;
       max-width: 65ch;
       margin-bottom: 1rem;
     }
 
-    .section ol li {
-      margin-bottom: 0.5rem;
-      padding-left: 0.15rem;
+    .faq-content ol li { margin-bottom: 0.5rem; }
+
+    /* Search box */
+    .search-box {
+      display: flex;
+      align-items: center;
+      gap: 0.6rem;
+      border: 1px solid var(--border);
+      border-radius: 999px;
+      padding: 0.5rem 0.5rem 0.5rem 1.1rem;
+      background: rgba(0,0,0,0.2);
     }
 
-    .archive-list-item {
-      line-height: 2.2;
+    .search-box svg {
+      flex-shrink: 0;
+      color: var(--accent);
+      opacity: 0.8;
     }
 
-   .section a.catalogue-link {
-  color: #f0f4ff;
-  text-decoration: none;
-  font-weight: 700;
-  -webkit-text-stroke: 0;
-  text-shadow: none;
-}
+    .search-box input {
+      flex: 1;
+      border: none;
+      background: transparent;
+      color: var(--text-bright);
+      font-family: var(--serif);
+      font-size: 1.1rem;
+      outline: none;
+      padding: 0.5rem 0;
+    }
 
-.section a.catalogue-link:hover {
-  color: #05010a;
-  -webkit-text-stroke: 0.55px #f0f4ff;
-  text-shadow: none;
-}
+    .search-box input::placeholder {
+      color: rgba(240,244,255,0.4);
+    }
 
-.section h2 a.catalogue-link {
-  color: #f0f4ff;
-  -webkit-text-stroke: 0;
-  text-shadow: none;
-}
+    .search-status {
+      font-family: var(--mono);
+      font-size: 0.7rem;
+      letter-spacing: 0.1em;
+      color: var(--text-dim);
+      margin-top: 0.9rem;
+    }
 
-.section h2 a.catalogue-link:hover {
-  color: #05010a;
-  -webkit-text-stroke: 0.7px #f0f4ff;
-  text-shadow: none;
-}
+    .search-results {
+      margin-top: 1rem;
+    }
+
+    .search-result {
+      border-top: 1px solid var(--border);
+      padding: 0.9rem 0;
+      display: flex;
+      justify-content: space-between;
+      align-items: baseline;
+      gap: 1rem;
+    }
+
+    .search-result-title {
+      font-size: 1.05rem;
+      color: var(--text-bright);
+    }
+
+    .search-result-title a {
+      color: inherit;
+      text-decoration: none;
+    }
+
+    .search-result-title a:hover { color: var(--accent); }
+
+    .search-result-meta {
+      font-family: var(--mono);
+      font-size: 0.6rem;
+      letter-spacing: 0.1em;
+      color: var(--text-dim);
+      white-space: nowrap;
+    }
 
     /* Series grid */
     .series-grid {
@@ -338,10 +448,10 @@
     }
 
     .series-link {
-      font-family: 'Inconsolata', monospace;
+      font-family: var(--mono);
       font-size: 0.75rem;
       letter-spacing: 0.1em;
-      color: #7eb8c9;
+      color: var(--accent);
       text-decoration: none;
       border: 1px solid rgba(126, 184, 201, 0.3);
       padding: 0.35rem 0.75rem;
@@ -350,14 +460,11 @@
 
     .series-link:hover {
       background: rgba(126, 184, 201, 0.1);
-      border-color: #7eb8c9;
-      color: #f0f4ff;
+      border-color: var(--accent);
+      color: var(--text-bright);
     }
 
-    .series-count {
-      opacity: 0.5;
-      margin-left: 0.25rem;
-    }
+    .series-count { opacity: 0.5; margin-left: 0.25rem; }
 
     /* Facets */
     .facet-list {
@@ -368,123 +475,31 @@
     }
 
     .facet-tag {
-      font-family: 'Inconsolata', monospace;
+      font-family: var(--mono);
       font-size: 0.7rem;
       letter-spacing: 0.15em;
-      color: #c9a87e;
+      color: var(--accent-warm);
       border: 1px solid rgba(201, 168, 126, 0.3);
       padding: 0.3rem 0.7rem;
       text-transform: uppercase;
     }
 
-    /* Track list */
-    .track-list {
-      margin-top: 1.5rem;
-    }
-
-    .track-entry {
-      border-top: 1px solid rgba(240, 244, 255, 0.08);
-      padding: 1.2rem 0;
-      display: grid;
-      grid-template-columns: 2rem 1fr auto;
-      gap: 1rem;
-      align-items: start;
-    }
-
-    .track-number {
-      font-family: 'Inconsolata', monospace;
-      font-size: 0.65rem;
-      color: #7eb8c9;
-      opacity: 0.5;
-      padding-top: 0.2rem;
-      letter-spacing: 0.1em;
-    }
-
-    .track-info {}
-
-    .track-title {
-      font-size: 1.15rem;
-      font-weight: 400;
-      color: #f0f4ff;
-      margin-bottom: 0.3rem;
-    }
-
-    .track-meta {
-      font-family: 'Inconsolata', monospace;
-      font-size: 0.6rem;
-      letter-spacing: 0.15em;
-      color: #7eb8c9;
-      opacity: 0.6;
-      margin-bottom: 0.4rem;
-    }
-
-    .track-series {
-      display: flex;
-      flex-wrap: wrap;
-      gap: 0.3rem;
-      margin-top: 0.4rem;
-    }
-
-    .track-series-tag {
-      font-family: 'Inconsolata', monospace;
-      font-size: 0.58rem;
-      letter-spacing: 0.1em;
-      color: #c8d4f0;
-      border: 1px solid rgba(200, 212, 240, 0.2);
-      padding: 0.15rem 0.4rem;
-      text-decoration: none;
-      transition: all 0.2s ease;
-    }
-
-    .track-series-tag:hover {
-      border-color: rgba(200, 212, 240, 0.5);
-      color: #f0f4ff;
-    }
-
-    .track-links {
-      display: flex;
-      flex-direction: column;
-      align-items: flex-end;
-      gap: 0.3rem;
-    }
-
-    .track-link {
-      font-family: 'Inconsolata', monospace;
-      font-size: 0.58rem;
-      letter-spacing: 0.1em;
-      text-transform: uppercase;
-      color: #7eb8c9;
-      text-decoration: none;
-      opacity: 0.7;
-      transition: opacity 0.2s;
-    }
-
-    .track-link:hover { opacity: 1; }
-
-    .nnppid {
-      font-family: 'Inconsolata', monospace;
-      font-size: 0.55rem;
-      letter-spacing: 0.15em;
-      color: #4a5568;
-      margin-top: 0.5rem;
-    }
-
     .pagination {
       text-align: center;
       padding: 2rem 0;
-      font-family: 'Inconsolata', monospace;
+      font-family: var(--mono);
       font-size: 0.65rem;
       letter-spacing: 0.2em;
-      color: #7eb8c9;
+      color: var(--accent);
       opacity: 0.7;
     }
 
     .footer-credit {
-      border-top: 1px solid rgba(240, 244, 255, 0.1);
+      border-top: 1px solid var(--border);
       padding: 2rem 0;
       text-align: center;
       font-size: 0.9rem;
-      color: #6b7c99;
+      color: var(--text-dim);
       font-style: italic;
     }
 
@@ -493,8 +508,6 @@
     @media (max-width: 600px) {
       main { padding: 2rem 1rem; }
       .page-title { font-size: 1.8rem; }
-      .track-entry { grid-template-columns: 1.5rem 1fr; }
-      .track-links { display: none; }
     }
   </style>
 </head>
@@ -503,154 +516,188 @@
 
   <p class="page-subtitle">neuralnetsandprettypatterns.com</p>
   <h1 class="page-title">Neuralpedia</h1>
-  <p class="page-subtitle">The Neuralverse — Official Catalogue</p>
+  <p class="page-subtitle">The Neuralverse. Official Catalogue</p>
 
   <div class="nav-buttons">
     <a class="nav-button" href="https://neuralnetsandprettypatterns.com/neuralpedia/new-releases/" aria-label="New Releases">NEW</a>
-    <a class="nav-button home" href="https://neuralnetsandprettypatterns.com/" aria-label="Home">⌂</a>
-    <a class="nav-button clock" href="https://neuralnetsandprettypatterns.com/neuralpedia/chronology/page-1/" aria-label="Chronological Archive">◷</a>
+    <a class="nav-button" href="https://neuralnetsandprettypatterns.com/neuralpedia/" aria-label="Neuralpedia">NP</a>
+    <a class="nav-button" href="https://neuralnetsandprettypatterns.com/neuralpedia/chronology/page-1/" aria-label="Chronological Archive">CHRON</a>
+    <a class="nav-button" href="https://neuralnetsandprettypatterns.com/deepdreamstate/" aria-label="Deep Dream State">DDS</a>
+    <a class="nav-button" href="https://neuralnetsandprettypatterns.com/deep-drop-party/" aria-label="Deep Drop Party">DDP</a>
+    <a class="nav-button" href="https://neuralnetsandprettypatterns.com/scripts/" aria-label="Scripts">SCRIPTS</a>
+    <a class="nav-button pink-room" href="https://neuralnetsandprettypatterns.com/the-pink-room/" aria-label="The Pink Room">TPR</a>
+    <a class="nav-button" href="https://neuralnetsandprettypatterns.com/" aria-label="Home">
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" width="18" height="18" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+        <path d="M3 11.5 12 4l9 7.5" />
+        <path d="M5.5 10v9a1 1 0 0 0 1 1H9a1 1 0 0 0 1-1v-4a1 1 0 0 1 1-1h2a1 1 0 0 1 1 1v4a1 1 0 0 0 1 1h2.5a1 1 0 0 0 1-1v-9" />
+      </svg>
+    </a>
+  </div>
+
+  <div class="faq-group">
+
+    <details class="faq" open>
+      <summary>Search</summary>
+      <div class="faq-content">
+        <div class="search-box">
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" width="18" height="18" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+            <circle cx="11" cy="11" r="7" />
+            <path d="M21 21l-4.3-4.3" />
+          </svg>
+          <input type="text" id="neuralpedia-search" placeholder="Search over 700 tracks by title, series, or tag..." autocomplete="off">
+        </div>
+        <div class="search-status" id="search-status"></div>
+        <div class="search-results" id="search-results"></div>
+      </div>
+    </details>
+
+    <details class="faq">
+      <summary>What is this?</summary>
+      <div class="faq-content">
+        <p>The Neuralverse is the complete body of work by Neural Nets and Pretty Patterns: over 700 original pieces of audio drama, music, and immersive sound, built over years and all quietly wired together. Deep Dream State is just the visible tip.</p>
+        <p>Every entry carries a permanent NNPPID, so nothing in the catalogue ever gets lost or renamed out from under you.</p>
+      </div>
+    </details>
+
+    <details class="faq">
+      <summary>How do I navigate this?</summary>
+      <div class="faq-content">
+        <p>Three ways in:</p>
+        <ol>
+          <li>By series, below. Some are linear stories, others share a setting or a recurring element. Each links to its own page.</li>
+          <li>By facet, below. These describe properties of a track (voice, format, haptic integration) rather than a narrative grouping.</li>
+          <li>Chronologically, via the complete track list in release order. Use search above for the fastest way to find something specific.</li>
+        </ol>
+      </div>
+    </details>
+
+    <details class="faq">
+      <summary>Is this ethical? Is this a cult?</summary>
+      <div class="faq-content">
+        <p>No. Neural Nets and Pretty Patterns is deeply committed to ethical practice. All audio content is created and performed by consenting adults within a carefully articulated ethical framework, for audiences who actively choose to engage. Enthusiastic, informed consent is foundational to every project.</p>
+        <p>Fictional depiction is not endorsement. These audio experiences are imaginative explorations. All scenarios occur between consenting participants within fantasy frames.</p>
+      </div>
+    </details>
+
+    <details class="faq">
+      <summary>What are the series?</summary>
+      <div class="faq-content">
+        <p>Series are the narrative and thematic groupings inside the Neuralverse. Some are ongoing storylines, others are a shared setting or recurring device revisited across many tracks. There are 70 in total, ranging from long-running flagship series to one-off experiments.</p>
+        <div class="series-grid">
+          <a class="series-link" href="https://neuralnetsandprettypatterns.com/neuralpedia/mind-pop/">Mind Pop <span class="series-count">(140)</span></a>
+          <a class="series-link" href="https://neuralnetsandprettypatterns.com/neuralpedia/mouth-time/">Mouth Time <span class="series-count">(80)</span></a>
+          <a class="series-link" href="https://neuralnetsandprettypatterns.com/neuralpedia/mythic/">Mythic <span class="series-count">(75)</span></a>
+          <a class="series-link" href="https://neuralnetsandprettypatterns.com/neuralpedia/classic/">Classic <span class="series-count">(58)</span></a>
+          <a class="series-link" href="https://neuralnetsandprettypatterns.com/neuralpedia/facility/">Facility <span class="series-count">(52)</span></a>
+          <a class="series-link" href="https://neuralnetsandprettypatterns.com/neuralpedia/deep-dream-state/">Deep Dream State <span class="series-count">(51)</span></a>
+          <a class="series-link" href="https://neuralnetsandprettypatterns.com/neuralpedia/xxboxx/">Xxboxx <span class="series-count">(51)</span></a>
+          <a class="series-link" href="https://neuralnetsandprettypatterns.com/neuralpedia/mantra-sync/">Mantra Sync <span class="series-count">(48)</span></a>
+          <a class="series-link" href="https://neuralnetsandprettypatterns.com/neuralpedia/unlearn-university/">Unlearn University <span class="series-count">(42)</span></a>
+          <a class="series-link" href="https://neuralnetsandprettypatterns.com/neuralpedia/treatstick/">Treatstick <span class="series-count">(38)</span></a>
+          <a class="series-link" href="https://neuralnetsandprettypatterns.com/neuralpedia/ministry-of-halloween/">Ministry Of Halloween <span class="series-count">(30)</span></a>
+          <a class="series-link" href="https://neuralnetsandprettypatterns.com/neuralpedia/wavetrained/">Wavetrained <span class="series-count">(30)</span></a>
+          <a class="series-link" href="https://neuralnetsandprettypatterns.com/neuralpedia/apron/">Apron <span class="series-count">(25)</span></a>
+          <a class="series-link" href="https://neuralnetsandprettypatterns.com/neuralpedia/swarm/">Swarm <span class="series-count">(24)</span></a>
+          <a class="series-link" href="https://neuralnetsandprettypatterns.com/neuralpedia/speech-control/">Speech Control <span class="series-count">(21)</span></a>
+          <a class="series-link" href="https://neuralnetsandprettypatterns.com/neuralpedia/star-stuff/">Star Stuff <span class="series-count">(21)</span></a>
+          <a class="series-link" href="https://neuralnetsandprettypatterns.com/neuralpedia/holidays/">HoLidays <span class="series-count">(20)</span></a>
+          <a class="series-link" href="https://neuralnetsandprettypatterns.com/neuralpedia/incognitoh/">Incognitoh <span class="series-count">(19)</span></a>
+          <a class="series-link" href="https://neuralnetsandprettypatterns.com/neuralpedia/mind-milking-machine/">Mind Milking Machine <span class="series-count">(18)</span></a>
+          <a class="series-link" href="https://neuralnetsandprettypatterns.com/neuralpedia/shelf/">Shelf <span class="series-count">(17)</span></a>
+          <a class="series-link" href="https://neuralnetsandprettypatterns.com/neuralpedia/sitri/">Sitri <span class="series-count">(17)</span></a>
+          <a class="series-link" href="https://neuralnetsandprettypatterns.com/neuralpedia/dpi/">DPI <span class="series-count">(14)</span></a>
+          <a class="series-link" href="https://neuralnetsandprettypatterns.com/neuralpedia/tongue-tied/">Tongue Tied <span class="series-count">(14)</span></a>
+          <a class="series-link" href="https://neuralnetsandprettypatterns.com/neuralpedia/pink-dream/">Pink Dream <span class="series-count">(13)</span></a>
+          <a class="series-link" href="https://neuralnetsandprettypatterns.com/neuralpedia/fairy/">Fairy <span class="series-count">(13)</span></a>
+          <a class="series-link" href="https://neuralnetsandprettypatterns.com/neuralpedia/neuroplex/">Neuroplex <span class="series-count">(12)</span></a>
+          <a class="series-link" href="https://neuralnetsandprettypatterns.com/neuralpedia/xmass/">XMass <span class="series-count">(12)</span></a>
+          <a class="series-link" href="https://neuralnetsandprettypatterns.com/neuralpedia/1-2-3-4/">1 2 3 4 <span class="series-count">(10)</span></a>
+          <a class="series-link" href="https://neuralnetsandprettypatterns.com/neuralpedia/dumb-bell/">Dumb Bell <span class="series-count">(10)</span></a>
+          <a class="series-link" href="https://neuralnetsandprettypatterns.com/neuralpedia/cult-classic/">Cult Classic <span class="series-count">(10)</span></a>
+          <a class="series-link" href="https://neuralnetsandprettypatterns.com/neuralpedia/incognitoh/">Incognitoh <span class="series-count">(10)</span></a>
+          <a class="series-link" href="https://neuralnetsandprettypatterns.com/neuralpedia/coxygen/">Coxygen <span class="series-count">(9)</span></a>
+          <a class="series-link" href="https://neuralnetsandprettypatterns.com/neuralpedia/brain-buzz/">Brain Buzz <span class="series-count">(9)</span></a>
+          <a class="series-link" href="https://neuralnetsandprettypatterns.com/neuralpedia/bunny-club/">Bunny Club <span class="series-count">(9)</span></a>
+          <a class="series-link" href="https://neuralnetsandprettypatterns.com/neuralpedia/mootopia/">Mootopia <span class="series-count">(9)</span></a>
+          <a class="series-link" href="https://neuralnetsandprettypatterns.com/neuralpedia/chthonic/">Chthonic <span class="series-count">(9)</span></a>
+          <a class="series-link" href="https://neuralnetsandprettypatterns.com/neuralpedia/psyche-project/">Psyche Project <span class="series-count">(8)</span></a>
+          <a class="series-link" href="https://neuralnetsandprettypatterns.com/neuralpedia/forgive-me-father/">Forgive Me Father <span class="series-count">(8)</span></a>
+          <a class="series-link" href="https://neuralnetsandprettypatterns.com/neuralpedia/one-word/">One Word <span class="series-count">(8)</span></a>
+          <a class="series-link" href="https://neuralnetsandprettypatterns.com/neuralpedia/dream-house/">Dream House <span class="series-count">(8)</span></a>
+          <a class="series-link" href="https://neuralnetsandprettypatterns.com/neuralpedia/mirror-stage/">Mirror Stage <span class="series-count">(8)</span></a>
+          <a class="series-link" href="https://neuralnetsandprettypatterns.com/neuralpedia/bouquet/">Bouquet <span class="series-count">(8)</span></a>
+          <a class="series-link" href="https://neuralnetsandprettypatterns.com/neuralpedia/directed-session/">Directed Session <span class="series-count">(8)</span></a>
+          <a class="series-link" href="https://neuralnetsandprettypatterns.com/neuralpedia/flesh-festival/">Flesh Festival <span class="series-count">(7)</span></a>
+          <a class="series-link" href="https://neuralnetsandprettypatterns.com/neuralpedia/naditu/">Naditu <span class="series-count">(7)</span></a>
+          <a class="series-link" href="https://neuralnetsandprettypatterns.com/neuralpedia/metasloot/">Metasloot <span class="series-count">(7)</span></a>
+          <a class="series-link" href="https://neuralnetsandprettypatterns.com/neuralpedia/kandi/">Kandi <span class="series-count">(7)</span></a>
+          <a class="series-link" href="https://neuralnetsandprettypatterns.com/neuralpedia/display-loop/">Display Loop <span class="series-count">(6)</span></a>
+          <a class="series-link" href="https://neuralnetsandprettypatterns.com/neuralpedia/mermaids/">Mermaids <span class="series-count">(6)</span></a>
+          <a class="series-link" href="https://neuralnetsandprettypatterns.com/neuralpedia/apphead/">Apphead <span class="series-count">(6)</span></a>
+          <a class="series-link" href="https://neuralnetsandprettypatterns.com/neuralpedia/msi/">MSI <span class="series-count">(6)</span></a>
+          <a class="series-link" href="https://neuralnetsandprettypatterns.com/neuralpedia/entwine-engine/">Entwine Engine <span class="series-count">(5)</span></a>
+          <a class="series-link" href="https://neuralnetsandprettypatterns.com/neuralpedia/boing-boing/">Boing Boing <span class="series-count">(5)</span></a>
+          <a class="series-link" href="https://neuralnetsandprettypatterns.com/neuralpedia/vampi/">Vampi <span class="series-count">(5)</span></a>
+          <a class="series-link" href="https://neuralnetsandprettypatterns.com/neuralpedia/liquid-praise/">Liquid Praise <span class="series-count">(5)</span></a>
+          <a class="series-link" href="https://neuralnetsandprettypatterns.com/neuralpedia/translation/">Translation <span class="series-count">(4)</span></a>
+          <a class="series-link" href="https://neuralnetsandprettypatterns.com/neuralpedia/jackpot/">Jackpot <span class="series-count">(4)</span></a>
+          <a class="series-link" href="https://neuralnetsandprettypatterns.com/neuralpedia/web/">Web <span class="series-count">(4)</span></a>
+          <a class="series-link" href="https://neuralnetsandprettypatterns.com/neuralpedia/palimpsest/">Palimpsest <span class="series-count">(4)</span></a>
+          <a class="series-link" href="https://neuralnetsandprettypatterns.com/neuralpedia/garden/">Garden <span class="series-count">(3)</span></a>
+          <a class="series-link" href="https://neuralnetsandprettypatterns.com/neuralpedia/gym-bunny/">Gym Bunny <span class="series-count">(3)</span></a>
+          <a class="series-link" href="https://neuralnetsandprettypatterns.com/neuralpedia/pando/">Pando <span class="series-count">(3)</span></a>
+          <a class="series-link" href="https://neuralnetsandprettypatterns.com/neuralpedia/gesserit/">Gesserit <span class="series-count">(3)</span></a>
+          <a class="series-link" href="https://neuralnetsandprettypatterns.com/neuralpedia/i-hop/">I-HOP <span class="series-count">(3)</span></a>
+          <a class="series-link" href="https://neuralnetsandprettypatterns.com/neuralpedia/spelling-b/">Spelling B <span class="series-count">(2)</span></a>
+          <a class="series-link" href="https://neuralnetsandprettypatterns.com/neuralpedia/airhead/">AIRhead <span class="series-count">(2)</span></a>
+          <a class="series-link" href="https://neuralnetsandprettypatterns.com/neuralpedia/fidget/">Fidget <span class="series-count">(2)</span></a>
+          <a class="series-link" href="https://neuralnetsandprettypatterns.com/neuralpedia/bucks/">Bucks <span class="series-count">(2)</span></a>
+          <a class="series-link" href="https://neuralnetsandprettypatterns.com/neuralpedia/unrivalled/">Unrivalled <span class="series-count">(2)</span></a>
+          <a class="series-link" href="https://neuralnetsandprettypatterns.com/neuralpedia/sororihos/">Sororihos <span class="series-count">(1)</span></a>
+          <a class="series-link" href="https://neuralnetsandprettypatterns.com/neuralpedia/once-upon/">Once Upon <span class="series-count">(1)</span></a>
+        </div>
+      </div>
+    </details>
+
+    <details class="faq">
+      <summary>What are the facets?</summary>
+      <div class="faq-content">
+        <p>Facets describe what a track actually is: its format and delivery, rather than which story it belongs to. Use them alongside series to narrow things down. A facet plus a series gets you close to exactly what you're after.</p>
+        <div class="facet-list">
+          <span class="facet-tag">Free (58)</span>
+          <span class="facet-tag">Haptic (93)</span>
+          <span class="facet-tag">Trainers (9)</span>
+          <span class="facet-tag">FD (222)</span>
+          <span class="facet-tag">FS (518)</span>
+          <span class="facet-tag">MD (98)</span>
+          <span class="facet-tag">MS (4)</span>
+          <span class="facet-tag">Music (101)</span>
+        </div>
+      </div>
+    </details>
+
   </div>
 
   <div class="section">
-    <div class="section-label">The Archive</div>
-    <h2>Welcome to the Neuralverse</h2>
-    <p>Neural Nets and Pretty Patterns has created an enormous collection of interconnected audio content. This catalogue presents over 655 original works spanning audio drama, music, narrative audio, and groundbreaking experiments with haptic technology.</p>
-    <p>The Neuralverse is unique. It is an interconnected series of productions developed over years of imaginal work. This catalogue maps many of those connections, but there will always be more to find and experience. The Deep Dream State audio drama is one part of this universe — the tip of a much larger iceberg.</p>
-    <p>This page serves as the official artist approved discography. Each entry is identified by a distinct NNPPID — a permanent identifier unique to this catalogue system.</p>
-  </div>
-
-  <div class="section">
-    <div class="section-label">Navigation</div>
-    <h2>The Map</h2>
-    <p>This catalogue is organized in three ways:</p>
-    <ol>
-      <li>A list of series below. Tracks are grouped by theme or setting. Some series are linear narratives. Others share a setting or a recurring element. Each series links to its own page.</li>
-      <li>A set of facets. These describe properties of individual tracks — voice, format, haptic integration — rather than narrative groupings.</li>
-      <li class="archive-list-item">
-        <a class="nav-button inline-clock" href="https://neuralnetsandprettypatterns.com/neuralpedia/chronology/page-1/" aria-label="Chronological Archive">◷</a>
-        <a class="catalogue-link" href="https://neuralnetsandprettypatterns.com/neuralpedia/chronology/page-1/">A chronological archive</a>. The complete track list runs in order of release, 50 tracks per page.
-        <a class="nav-button inline-clock" href="https://neuralnetsandprettypatterns.com/neuralpedia/chronology/page-1/" aria-label="Chronological Archive">◷</a>
-      </li>
-    </ol>
-  </div>
-
-  <div class="section">
-    <div class="section-label">Consent &amp; Content Notice</div>
-    <h2>Audience Notice</h2>
-    <p>Neural Nets and Pretty Patterns is deeply committed to ethical practice. All audio content is created and performed by consenting adults within a carefully articulated ethical framework. This catalogue is designed for audiences who actively choose to engage. Enthusiastic, informed consent is foundational to every project.</p>
-    <p>Fictional depiction is not endorsement. These audio experiences are imaginative explorations. All scenarios occur between consenting participants within fantasy frames.</p>
-  </div>
-
-  <div class="section">
-    <div class="section-label">Series — 70 total</div>
-    <h2>Browse by Series</h2>
-    <div class="series-grid">
-      <a class="series-link" href="https://neuralnetsandprettypatterns.com/neuralpedia/mind-pop/">Mind Pop <span class="series-count">(140)</span></a>
-      <a class="series-link" href="https://neuralnetsandprettypatterns.com/neuralpedia/mouth-time/">Mouth Time <span class="series-count">(80)</span></a>
-      <a class="series-link" href="https://neuralnetsandprettypatterns.com/neuralpedia/mythic/">Mythic <span class="series-count">(75)</span></a>
-      <a class="series-link" href="https://neuralnetsandprettypatterns.com/neuralpedia/classic/">Classic <span class="series-count">(58)</span></a>
-      <a class="series-link" href="https://neuralnetsandprettypatterns.com/neuralpedia/facility/">Facility <span class="series-count">(52)</span></a>
-      <a class="series-link" href="https://neuralnetsandprettypatterns.com/neuralpedia/deep-dream-state/">Deep Dream State <span class="series-count">(51)</span></a>
-      <a class="series-link" href="https://neuralnetsandprettypatterns.com/neuralpedia/xxboxx/">Xxboxx <span class="series-count">(51)</span></a>
-      <a class="series-link" href="https://neuralnetsandprettypatterns.com/neuralpedia/mantra-sync/">Mantra Sync <span class="series-count">(48)</span></a>
-      <a class="series-link" href="https://neuralnetsandprettypatterns.com/neuralpedia/unlearn-university/">Unlearn University <span class="series-count">(42)</span></a>
-      <a class="series-link" href="https://neuralnetsandprettypatterns.com/neuralpedia/treatstick/">Treatstick <span class="series-count">(38)</span></a>
-      <a class="series-link" href="https://neuralnetsandprettypatterns.com/neuralpedia/ministry-of-halloween/">Ministry Of Halloween <span class="series-count">(30)</span></a>
-      <a class="series-link" href="https://neuralnetsandprettypatterns.com/neuralpedia/wavetrained/">Wavetrained <span class="series-count">(30)</span></a>
-      <a class="series-link" href="https://neuralnetsandprettypatterns.com/neuralpedia/apron/">Apron <span class="series-count">(25)</span></a>
-      <a class="series-link" href="https://neuralnetsandprettypatterns.com/neuralpedia/swarm/">Swarm <span class="series-count">(24)</span></a>
-      <a class="series-link" href="https://neuralnetsandprettypatterns.com/neuralpedia/speech-control/">Speech Control <span class="series-count">(21)</span></a>
-      <a class="series-link" href="https://neuralnetsandprettypatterns.com/neuralpedia/star-stuff/">Star Stuff <span class="series-count">(21)</span></a>
-      <a class="series-link" href="https://neuralnetsandprettypatterns.com/neuralpedia/holidays/">HoLidays <span class="series-count">(20)</span></a>
-      <a class="series-link" href="https://neuralnetsandprettypatterns.com/neuralpedia/incognitoh/">Incognitoh <span class="series-count">(19)</span></a>
-      <a class="series-link" href="https://neuralnetsandprettypatterns.com/neuralpedia/mind-milking-machine/">Mind Milking Machine <span class="series-count">(18)</span></a>
-      <a class="series-link" href="https://neuralnetsandprettypatterns.com/neuralpedia/shelf/">Shelf <span class="series-count">(17)</span></a>
-      <a class="series-link" href="https://neuralnetsandprettypatterns.com/neuralpedia/sitri/">Sitri <span class="series-count">(17)</span></a>
-      <a class="series-link" href="https://neuralnetsandprettypatterns.com/neuralpedia/dpi/">DPI <span class="series-count">(14)</span></a>
-      <a class="series-link" href="https://neuralnetsandprettypatterns.com/neuralpedia/tongue-tied/">Tongue Tied <span class="series-count">(14)</span></a>
-      <a class="series-link" href="https://neuralnetsandprettypatterns.com/neuralpedia/pink-dream/">Pink Dream <span class="series-count">(13)</span></a>
-      <a class="series-link" href="https://neuralnetsandprettypatterns.com/neuralpedia/fairy/">Fairy <span class="series-count">(13)</span></a>
-      <a class="series-link" href="https://neuralnetsandprettypatterns.com/neuralpedia/neuroplex/">Neuroplex <span class="series-count">(12)</span></a>
-      <a class="series-link" href="https://neuralnetsandprettypatterns.com/neuralpedia/xmass/">XMass <span class="series-count">(12)</span></a>
-      <a class="series-link" href="https://neuralnetsandprettypatterns.com/neuralpedia/1-2-3-4/">1 2 3 4 <span class="series-count">(10)</span></a>
-      <a class="series-link" href="https://neuralnetsandprettypatterns.com/neuralpedia/dumb-bell/">Dumb Bell <span class="series-count">(10)</span></a>
-      <a class="series-link" href="https://neuralnetsandprettypatterns.com/neuralpedia/cult-classic/">Cult Classic <span class="series-count">(10)</span></a>
-      <a class="series-link" href="https://neuralnetsandprettypatterns.com/neuralpedia/incognitoh/">Incognitoh <span class="series-count">(10)</span></a>
-      <a class="series-link" href="https://neuralnetsandprettypatterns.com/neuralpedia/coxygen/">Coxygen <span class="series-count">(9)</span></a>
-      <a class="series-link" href="https://neuralnetsandprettypatterns.com/neuralpedia/brain-buzz/">Brain Buzz <span class="series-count">(9)</span></a>
-      <a class="series-link" href="https://neuralnetsandprettypatterns.com/neuralpedia/bunny-club/">Bunny Club <span class="series-count">(9)</span></a>
-      <a class="series-link" href="https://neuralnetsandprettypatterns.com/neuralpedia/mootopia/">Mootopia <span class="series-count">(9)</span></a>
-      <a class="series-link" href="https://neuralnetsandprettypatterns.com/neuralpedia/chthonic/">Chthonic <span class="series-count">(9)</span></a>
-      <a class="series-link" href="https://neuralnetsandprettypatterns.com/neuralpedia/psyche-project/">Psyche Project <span class="series-count">(8)</span></a>
-      <a class="series-link" href="https://neuralnetsandprettypatterns.com/neuralpedia/forgive-me-father/">Forgive Me Father <span class="series-count">(8)</span></a>
-      <a class="series-link" href="https://neuralnetsandprettypatterns.com/neuralpedia/one-word/">One Word <span class="series-count">(8)</span></a>
-      <a class="series-link" href="https://neuralnetsandprettypatterns.com/neuralpedia/dream-house/">Dream House <span class="series-count">(8)</span></a>
-      <a class="series-link" href="https://neuralnetsandprettypatterns.com/neuralpedia/mirror-stage/">Mirror Stage <span class="series-count">(8)</span></a>
-      <a class="series-link" href="https://neuralnetsandprettypatterns.com/neuralpedia/bouquet/">Bouquet <span class="series-count">(8)</span></a>
-      <a class="series-link" href="https://neuralnetsandprettypatterns.com/neuralpedia/directed-session/">Directed Session <span class="series-count">(8)</span></a>
-      <a class="series-link" href="https://neuralnetsandprettypatterns.com/neuralpedia/flesh-festival/">Flesh Festival <span class="series-count">(7)</span></a>
-      <a class="series-link" href="https://neuralnetsandprettypatterns.com/neuralpedia/naditu/">Naditu <span class="series-count">(7)</span></a>
-      <a class="series-link" href="https://neuralnetsandprettypatterns.com/neuralpedia/metasloot/">Metasloot <span class="series-count">(7)</span></a>
-      <a class="series-link" href="https://neuralnetsandprettypatterns.com/neuralpedia/kandi/">Kandi <span class="series-count">(7)</span></a>
-      <a class="series-link" href="https://neuralnetsandprettypatterns.com/neuralpedia/display-loop/">Display Loop <span class="series-count">(6)</span></a>
-      <a class="series-link" href="https://neuralnetsandprettypatterns.com/neuralpedia/mermaids/">Mermaids <span class="series-count">(6)</span></a>
-      <a class="series-link" href="https://neuralnetsandprettypatterns.com/neuralpedia/apphead/">Apphead <span class="series-count">(6)</span></a>
-      <a class="series-link" href="https://neuralnetsandprettypatterns.com/neuralpedia/msi/">MSI <span class="series-count">(6)</span></a>
-      <a class="series-link" href="https://neuralnetsandprettypatterns.com/neuralpedia/entwine-engine/">Entwine Engine <span class="series-count">(5)</span></a>
-      <a class="series-link" href="https://neuralnetsandprettypatterns.com/neuralpedia/boing-boing/">Boing Boing <span class="series-count">(5)</span></a>
-      <a class="series-link" href="https://neuralnetsandprettypatterns.com/neuralpedia/vampi/">Vampi <span class="series-count">(5)</span></a>
-      <a class="series-link" href="https://neuralnetsandprettypatterns.com/neuralpedia/liquid-praise/">Liquid Praise <span class="series-count">(5)</span></a>
-      <a class="series-link" href="https://neuralnetsandprettypatterns.com/neuralpedia/translation/">Translation <span class="series-count">(4)</span></a>
-      <a class="series-link" href="https://neuralnetsandprettypatterns.com/neuralpedia/jackpot/">Jackpot <span class="series-count">(4)</span></a>
-      <a class="series-link" href="https://neuralnetsandprettypatterns.com/neuralpedia/web/">Web <span class="series-count">(4)</span></a>
-      <a class="series-link" href="https://neuralnetsandprettypatterns.com/neuralpedia/palimpsest/">Palimpsest <span class="series-count">(4)</span></a>
-      <a class="series-link" href="https://neuralnetsandprettypatterns.com/neuralpedia/garden/">Garden <span class="series-count">(3)</span></a>
-      <a class="series-link" href="https://neuralnetsandprettypatterns.com/neuralpedia/gym-bunny/">Gym Bunny <span class="series-count">(3)</span></a>
-      <a class="series-link" href="https://neuralnetsandprettypatterns.com/neuralpedia/pando/">Pando <span class="series-count">(3)</span></a>
-      <a class="series-link" href="https://neuralnetsandprettypatterns.com/neuralpedia/gesserit/">Gesserit <span class="series-count">(3)</span></a>
-      <a class="series-link" href="https://neuralnetsandprettypatterns.com/neuralpedia/i-hop/">I-HOP <span class="series-count">(3)</span></a>
-      <a class="series-link" href="https://neuralnetsandprettypatterns.com/neuralpedia/spelling-b/">Spelling B <span class="series-count">(2)</span></a>
-      <a class="series-link" href="https://neuralnetsandprettypatterns.com/neuralpedia/airhead/">AIRhead <span class="series-count">(2)</span></a>
-      <a class="series-link" href="https://neuralnetsandprettypatterns.com/neuralpedia/fidget/">Fidget <span class="series-count">(2)</span></a>
-      <a class="series-link" href="https://neuralnetsandprettypatterns.com/neuralpedia/bucks/">Bucks <span class="series-count">(2)</span></a>
-      <a class="series-link" href="https://neuralnetsandprettypatterns.com/neuralpedia/unrivalled/">Unrivalled <span class="series-count">(2)</span></a>
-      <a class="series-link" href="https://neuralnetsandprettypatterns.com/neuralpedia/sororihos/">Sororihos <span class="series-count">(1)</span></a>
-      <a class="series-link" href="https://neuralnetsandprettypatterns.com/neuralpedia/once-upon/">Once Upon <span class="series-count">(1)</span></a>
-    </div>
-  </div>
-
-  <div class="section">
-    <div class="section-label">Facets</div>
-    <h2>Browse by Facet</h2>
-    <div class="facet-list">
-      <span class="facet-tag">Free (58)</span>
-      <span class="facet-tag">Haptic (93)</span>
-      <span class="facet-tag">Trainers (9)</span>
-      <span class="facet-tag">FD (222)</span>
-      <span class="facet-tag">FS (518)</span>
-      <span class="facet-tag">MD (98)</span>
-      <span class="facet-tag">MS (4)</span>
-      <span class="facet-tag">Music (101)</span>
-    </div>
-  </div>
-
-  <div class="section">
-    <div class="section-label">Complete Archive </div>
-    <h2><a class="catalogue-link" href="https://neuralnetsandprettypatterns.com/neuralpedia/chronology/page-1/">Chronological Archive</a></h2>
-
-    <p>
-      Browse the complete Neuralpedia discography in chronological order across 655 original audio works by Neural Nets and Pretty Patterns.
-    </p>
-
-    <div class="pagination">
-      <a href="https://neuralnetsandprettypatterns.com/neuralpedia/chronology/page-1/" style="color: #7eb8c9;">Start with Page 1 of 14: Tracks 1–50 →</a>
-    </div>
+    <div class="section-label">Complete Archive</div>
+    <h2><a class="series-link" style="font-size:1.05rem;padding:0.5rem 1rem;" href="https://neuralnetsandprettypatterns.com/neuralpedia/chronology/page-1/">Chronological Archive →</a></h2>
+    <p>Browse the complete Neuralpedia discography in chronological order across over 700 original audio works.</p>
   </div>
 
   <div class="nav-buttons bottom-nav">
     <a class="nav-button" href="https://neuralnetsandprettypatterns.com/neuralpedia/new-releases/" aria-label="New Releases">NEW</a>
-    <a class="nav-button home" href="https://neuralnetsandprettypatterns.com/" aria-label="Home">⌂</a>
-    <a class="nav-button clock" href="https://neuralnetsandprettypatterns.com/neuralpedia/chronology/page-1/" aria-label="Chronological Archive">◷</a>
+    <a class="nav-button" href="https://neuralnetsandprettypatterns.com/neuralpedia/" aria-label="Neuralpedia">NP</a>
+    <a class="nav-button" href="https://neuralnetsandprettypatterns.com/neuralpedia/chronology/page-1/" aria-label="Chronological Archive">CHRON</a>
+    <a class="nav-button" href="https://neuralnetsandprettypatterns.com/deepdreamstate/" aria-label="Deep Dream State">DDS</a>
+    <a class="nav-button" href="https://neuralnetsandprettypatterns.com/deep-drop-party/" aria-label="Deep Drop Party">DDP</a>
+    <a class="nav-button" href="https://neuralnetsandprettypatterns.com/scripts/" aria-label="Scripts">SCRIPTS</a>
+    <a class="nav-button pink-room" href="https://neuralnetsandprettypatterns.com/the-pink-room/" aria-label="The Pink Room">TPR</a>
+    <a class="nav-button" href="https://neuralnetsandprettypatterns.com/" aria-label="Home">
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" width="18" height="18" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+        <path d="M3 11.5 12 4l9 7.5" />
+        <path d="M5.5 10v9a1 1 0 0 0 1 1H9a1 1 0 0 0 1-1v-4a1 1 0 0 1 1-1h2a1 1 0 0 1 1 1v4a1 1 0 0 0 1 1h2.5a1 1 0 0 0 1-1v-9" />
+      </svg>
+    </a>
   </div>
 
   <div class="footer-credit">
@@ -659,5 +706,87 @@
   </div>
 
 </main>
+
+<script>
+  const searchInput = document.getElementById('neuralpedia-search');
+  const statusEl = document.getElementById('search-status');
+  const resultsEl = document.getElementById('search-results');
+
+  let allTracks = null;
+  let loadError = false;
+
+  async function loadData() {
+    if (allTracks || loadError) return;
+    try {
+      const res = await fetch('https://neuralnetsandprettypatterns.com/neuralpedia/chronology/chronology.json', { cache: 'no-store' });
+      if (!res.ok) throw new Error('not ok');
+      allTracks = await res.json();
+    } catch (err) {
+      loadError = true;
+      statusEl.textContent = 'Search index is still being built. Check back soon.';
+    }
+  }
+
+  function renderResults(query) {
+    resultsEl.innerHTML = '';
+
+    if (!query) {
+      statusEl.textContent = allTracks ? `${allTracks.length} tracks indexed.` : '';
+      return;
+    }
+
+    if (!allTracks) {
+      return;
+    }
+
+    const q = query.toLowerCase();
+
+    const matches = allTracks.filter(track => {
+      const haystack = [
+        track.title,
+        track.series,
+        track.date,
+        Array.isArray(track.tags) ? track.tags.join(' ') : track.tags
+      ].filter(Boolean).join(' ').toLowerCase();
+      return haystack.includes(q);
+    }).slice(0, 40);
+
+    statusEl.textContent = `${matches.length} match${matches.length === 1 ? '' : 'es'}${matches.length === 40 ? ' (showing first 40)' : ''}`;
+
+    matches.forEach(track => {
+      const row = document.createElement('div');
+      row.className = 'search-result';
+
+      const titleWrap = document.createElement('div');
+      titleWrap.className = 'search-result-title';
+
+      const link = track.url || track.link || (track.links && (track.links.patreon || track.links.spotify));
+      if (link) {
+        const a = document.createElement('a');
+        a.href = link;
+        a.textContent = track.title || 'Untitled';
+        a.target = '_blank';
+        a.rel = 'noopener';
+        titleWrap.appendChild(a);
+      } else {
+        titleWrap.textContent = track.title || 'Untitled';
+      }
+
+      const meta = document.createElement('div');
+      meta.className = 'search-result-meta';
+      meta.textContent = [track.series, track.date].filter(Boolean).join(' · ');
+
+      row.appendChild(titleWrap);
+      row.appendChild(meta);
+      resultsEl.appendChild(row);
+    });
+  }
+
+  searchInput.addEventListener('focus', loadData);
+  searchInput.addEventListener('input', event => {
+    loadData().then(() => renderResults(event.target.value.trim()));
+  });
+</script>
+
 </body>
 </html>
