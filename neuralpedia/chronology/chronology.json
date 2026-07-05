@@ -5531,5 +5531,950 @@
       "patreon": "https://www.patreon.com/posts/lollipopped-52298872",
       "musicbrainz": "https://musicbrainz.org/recording/d32b6527-20ee-48c3-8ac9-6e482b95f3f3"
     }
+  },
+  {
+    "type": "track",
+    "id": "7Y7WF5P",
+    "title": "Brain Breaker Game: Korrupted",
+    "date": "2021-06-16",
+    "duration": null,
+    "series": [
+      "Mind Pop",
+      "Xxboxx"
+    ],
+    "tags": [
+      "Game"
+    ],
+    "url": "https://www.patreon.com/posts/brain-breaker-52598698",
+    "links": {
+      "patreon": "https://www.patreon.com/posts/brain-breaker-52598698"
+    }
+  },
+  {
+    "type": "track",
+    "id": "C7QQO6G",
+    "title": "Brain Breaker Game: Dolly",
+    "date": "2021-06-17",
+    "duration": null,
+    "series": [
+      "Mind Pop",
+      "Xxboxx"
+    ],
+    "tags": [
+      "Game"
+    ],
+    "url": "https://www.patreon.com/posts/new-brain-dolly-52627104",
+    "links": {
+      "patreon": "https://www.patreon.com/posts/new-brain-dolly-52627104"
+    }
+  },
+  {
+    "type": "track",
+    "id": "63QRIPJ",
+    "title": "Translate: German",
+    "date": "2021-06-19",
+    "duration": "16:22",
+    "series": [
+      "Mouth Time",
+      "Translation"
+    ],
+    "tags": [
+      "Music",
+      "Mantric"
+    ],
+    "url": "https://www.patreon.com/posts/translate-german-52696699",
+    "links": {
+      "patreon": "https://www.patreon.com/posts/translate-german-52696699"
+    }
+  },
+  {
+    "type": "track",
+    "id": "HTV6DZ1",
+    "title": "Translate: German Extended",
+    "date": "2021-06-19",
+    "duration": "30:19",
+    "series": [
+      "Mouth Time",
+      "Translation"
+    ],
+    "tags": [
+      "Music",
+      "Mantric"
+    ],
+    "url": "https://www.patreon.com/posts/translate-ep-52696797",
+    "links": {
+      "patreon": "https://www.patreon.com/posts/translate-ep-52696797"
+    }
+  },
+  {
+    "type": "track",
+    "id": "1MJ16UX",
+    "title": "Stepford Dream",
+    "date": "2021-06-21",
+    "duration": "06:37",
+    "series": [
+      "Apron",
+      "Classic"
+    ],
+    "tags": [
+      "Mantric",
+      "Music"
+    ],
+    "url": "https://www.patreon.com/posts/stepford-dream-52780838",
+    "links": {
+      "patreon": "https://www.patreon.com/posts/stepford-dream-52780838"
+    }
+  },
+  {
+    "type": "track",
+    "id": "DECPCDE",
+    "title": "Stepford Dream Haptics",
+    "date": "2021-06-21",
+    "duration": "06:36",
+    "series": [
+      "Apron",
+      "Classic"
+    ],
+    "tags": [
+      "Mantric",
+      "Music",
+      "haptic"
+    ],
+    "url": "https://www.patreon.com/posts/stepford-dream-52779766",
+    "links": {
+      "patreon": "https://www.patreon.com/posts/stepford-dream-52779766"
+    }
+  },
+  {
+    "type": "track",
+    "id": "785YESJ",
+    "title": "Brain Breaker Game: Magenta",
+    "date": "2021-06-26",
+    "duration": null,
+    "series": [
+      "Mind Pop",
+      "Xxboxx"
+    ],
+    "tags": [
+      "Game"
+    ],
+    "url": "https://www.patreon.com/posts/break-magentas-52967455",
+    "links": {
+      "patreon": "https://www.patreon.com/posts/break-magentas-52967455"
+    }
+  },
+  {
+    "type": "track",
+    "id": "BKEJLJU",
+    "title": "Hole Call",
+    "date": "2021-07-01",
+    "duration": "20:06",
+    "series": [
+      "Facility",
+      "Treatstick"
+    ],
+    "tags": [
+      "Narrative",
+      "Mantric"
+    ],
+    "url": "https://www.patreon.com/posts/hole-call-53158311",
+    "links": {
+      "patreon": "https://www.patreon.com/posts/hole-call-53158311"
+    }
+  },
+  {
+    "type": "track",
+    "id": "LFHHLCM",
+    "title": "Hole Call Haptics",
+    "date": "2021-07-01",
+    "duration": "20:06",
+    "series": [
+      "Facility",
+      "Treatstick"
+    ],
+    "tags": [
+      "Narrative",
+      "Mantric",
+      "haptic"
+    ],
+    "url": "https://www.patreon.com/posts/hole-call-53158582",
+    "links": {
+      "patreon": "https://www.patreon.com/posts/hole-call-53158582"
+    }
+  },
+  {
+    "type": "track",
+    "id": "QKZBDSF",
+    "title": "Brain Breaker Game: Kat",
+    "date": "2021-07-02",
+    "duration": null,
+    "series": [
+      "Mind Pop",
+      "Xxboxx"
+    ],
+    "tags": [
+      "Game"
+    ],
+    "url": "https://www.patreon.com/posts/break-kats-brain-53242101",
+    "links": {
+      "patreon": "https://www.patreon.com/posts/break-kats-brain-53242101"
+    }
+  },
+  {
+    "type": "track",
+    "id": "CRA9YNV",
+    "title": "Damage Haptics",
+    "date": "2021-07-02",
+    "duration": "20:20",
+    "series": [
+      "Xxboxx"
+    ],
+    "tags": [
+      "Music",
+      "Mantric",
+      "haptic"
+    ],
+    "url": "https://www.patreon.com/posts/damage-53244712",
+    "links": {
+      "patreon": "https://www.patreon.com/posts/damage-53244712",
+      "spotify": "https://open.spotify.com/track/0eK7lhPv866QJ4XGaAeikJ"
+    }
+  },
+  {
+    "type": "track",
+    "id": "ED1I9QW",
+    "title": "Brain Breaker Game: Kat Mac",
+    "date": "2021-07-03",
+    "duration": null,
+    "series": [
+      "Mind Pop",
+      "Xxboxx"
+    ],
+    "tags": [
+      "Game"
+    ],
+    "url": "https://www.patreon.com/posts/kats-brain-mac-53256275",
+    "links": {
+      "patreon": "https://www.patreon.com/posts/kats-brain-mac-53256275"
+    }
+  },
+  {
+    "type": "track",
+    "id": "1PCN7BD",
+    "title": "BJ Vending Machine Kat Haptics",
+    "date": "2021-07-06",
+    "duration": "12:21",
+    "series": [
+      "Mouth Time",
+      "Facility"
+    ],
+    "tags": [
+      "Narrative",
+      "Audio Drama",
+      "haptic"
+    ],
+    "url": "https://www.patreon.com/posts/kats-blowjob-53353232",
+    "links": {
+      "patreon": "https://www.patreon.com/posts/kats-blowjob-53353232"
+    }
+  },
+  {
+    "type": "track",
+    "id": "V588CC3",
+    "title": "BJ Vending Machine Korrupted Haptics",
+    "date": "2021-07-06",
+    "duration": "12:21",
+    "series": [
+      "Mouth Time",
+      "Facility"
+    ],
+    "tags": [
+      "Narrative",
+      "Audio Drama",
+      "haptic"
+    ],
+    "url": "https://www.patreon.com/posts/korrupteds-xtoys-53389638",
+    "links": {
+      "patreon": "https://www.patreon.com/posts/korrupteds-xtoys-53389638"
+    }
+  },
+  {
+    "type": "track",
+    "id": "KLCO22M",
+    "title": "Clicker Bliss Haptics",
+    "date": "2021-07-08",
+    "duration": "14:37",
+    "series": [
+      "Facility",
+      "Treatstick"
+    ],
+    "tags": [
+      "Narrative",
+      "Mantric",
+      "haptic"
+    ],
+    "url": "https://www.patreon.com/posts/bliss-clicker-53470341",
+    "links": {
+      "patreon": "https://www.patreon.com/posts/bliss-clicker-53470341"
+    }
+  },
+  {
+    "type": "track",
+    "id": "DNBZVZG",
+    "title": "Mind Milking Machine: Stroke Haptics",
+    "date": "2021-07-09",
+    "duration": "34:25",
+    "series": [
+      "Mind Milking Machine",
+      "Treatstick"
+    ],
+    "tags": [
+      "Narrative",
+      "Mantric",
+      "haptic"
+    ],
+    "url": "https://www.patreon.com/posts/mind-milking-53515782",
+    "links": {
+      "patreon": "https://www.patreon.com/posts/mind-milking-53515782"
+    }
+  },
+  {
+    "type": "track",
+    "id": "SOVQ5KY",
+    "title": "Mind Popper Trainer",
+    "date": "2021-07-12",
+    "duration": "05:01",
+    "series": [
+      "Classic",
+      "Mind Pop"
+    ],
+    "tags": [
+      "Mantric",
+      "trainer"
+    ],
+    "url": "https://www.patreon.com/posts/mind-popper-53618332",
+    "links": {
+      "patreon": "https://www.patreon.com/posts/mind-popper-53618332"
+    }
+  },
+  {
+    "type": "track",
+    "id": "9NK6E6Y",
+    "title": "Brain Breaker Game: Aurora",
+    "date": "2021-07-13",
+    "duration": null,
+    "series": [
+      "Mind Pop",
+      "Xxboxx"
+    ],
+    "tags": [
+      "Game"
+    ],
+    "url": "https://www.patreon.com/posts/aurora-brain-53644241",
+    "links": {
+      "patreon": "https://www.patreon.com/posts/aurora-brain-53644241"
+    }
+  },
+  {
+    "type": "track",
+    "id": "WA9IPOS",
+    "title": "Brain Breaker Game: Aurora Mac",
+    "date": "2021-07-15",
+    "duration": null,
+    "series": [
+      "Mind Pop",
+      "Xxboxx"
+    ],
+    "tags": [
+      "Game"
+    ],
+    "url": "https://www.patreon.com/posts/aurora-brain-mac-53711818",
+    "links": {
+      "patreon": "https://www.patreon.com/posts/aurora-brain-mac-53711818"
+    }
+  },
+  {
+    "type": "track",
+    "id": "EVJEEC3",
+    "title": "Moonbeam Mind Pop",
+    "date": "2021-07-17",
+    "duration": null,
+    "series": [
+      "Facility",
+      "Mind Pop"
+    ],
+    "tags": [
+      "Mantric",
+      "video"
+    ],
+    "url": "https://www.patreon.com/posts/moonbeam-mind-53807876",
+    "links": {
+      "patreon": "https://www.patreon.com/posts/moonbeam-mind-53807876"
+    }
+  },
+  {
+    "type": "track",
+    "id": "4MNDNDX",
+    "title": "Translate: German Haptics",
+    "date": "2021-07-17",
+    "duration": "30:19",
+    "series": [
+      "Mouth Time",
+      "Translation"
+    ],
+    "tags": [
+      "Music",
+      "Mantric",
+      "haptic"
+    ],
+    "url": "https://www.patreon.com/posts/translate-53809289",
+    "links": {
+      "patreon": "https://www.patreon.com/posts/translate-53809289"
+    }
+  },
+  {
+    "type": "track",
+    "id": "ICAQN2P",
+    "title": "One Word: Please MD",
+    "date": "2021-07-25",
+    "duration": "35:01",
+    "series": [
+      "Mantra Sync",
+      "Mouth Time",
+      "One Word"
+    ],
+    "tags": [
+      "Mantric"
+    ],
+    "url": "https://www.patreon.com/posts/one-word-please-54105042",
+    "links": {
+      "patreon": "https://www.patreon.com/posts/one-word-please-54105042"
+    }
+  },
+  {
+    "type": "track",
+    "id": "VBI6X4E",
+    "title": "One Word: Please MD Rubmix",
+    "date": "2021-07-25",
+    "duration": "35:01",
+    "series": [
+      "Mantra Sync",
+      "Mouth Time",
+      "One Word"
+    ],
+    "tags": [
+      "Mantric"
+    ],
+    "url": "https://www.patreon.com/posts/one-word-please-54089191",
+    "links": {
+      "patreon": "https://www.patreon.com/posts/one-word-please-54089191"
+    }
+  },
+  {
+    "type": "track",
+    "id": "G7W3V3E",
+    "title": "One Word: Please MD Strokemix",
+    "date": "2021-07-26",
+    "duration": "35:01",
+    "series": [
+      "Mantra Sync",
+      "Mouth Time",
+      "One Word"
+    ],
+    "tags": [
+      "Mantric"
+    ],
+    "url": "https://www.patreon.com/posts/one-word-please-54155088",
+    "links": {
+      "patreon": "https://www.patreon.com/posts/one-word-please-54155088"
+    }
+  },
+  {
+    "type": "track",
+    "id": "T0VO2CD",
+    "title": "Princess",
+    "date": "2021-07-27",
+    "duration": "22:42",
+    "series": [
+      "Shelf",
+      "Treatstick"
+    ],
+    "tags": [
+      "Narrative",
+      "Mantric"
+    ],
+    "url": "https://www.patreon.com/posts/princess-series-54200956",
+    "links": {
+      "patreon": "https://www.patreon.com/posts/princess-series-54200956"
+    }
+  },
+  {
+    "type": "track",
+    "id": "KFHYYPK",
+    "title": "Moonbeam Mind Pop 2",
+    "date": "2021-07-28",
+    "duration": null,
+    "series": [
+      "Facility",
+      "Mind Pop"
+    ],
+    "tags": [
+      "Mantric",
+      "video"
+    ],
+    "url": "https://www.patreon.com/posts/moonbeam-mind-2-54232868",
+    "links": {
+      "patreon": "https://www.patreon.com/posts/moonbeam-mind-2-54232868"
+    }
+  },
+  {
+    "type": "track",
+    "id": "H7IXMLN",
+    "title": "Vapid Valley Remastered",
+    "date": "2021-07-30",
+    "duration": "40:17",
+    "series": [
+      "Mind Milking Machine",
+      "Treatstick"
+    ],
+    "tags": [
+      "Narrative"
+    ],
+    "url": "https://www.patreon.com/posts/vapid-valley-54322275",
+    "links": {
+      "patreon": "https://www.patreon.com/posts/vapid-valley-54322275"
+    }
+  },
+  {
+    "type": "track",
+    "id": "NH94INL",
+    "title": "One Word: Pink",
+    "date": "2021-08-07",
+    "duration": "24:37",
+    "series": [
+      "Mantra Sync",
+      "Mouth Time",
+      "One Word"
+    ],
+    "tags": [
+      "Mantric",
+      "Music"
+    ],
+    "url": "https://www.patreon.com/posts/pink-one-word-54639590",
+    "links": {
+      "patreon": "https://www.patreon.com/posts/pink-one-word-54639590"
+    }
+  },
+  {
+    "type": "track",
+    "id": "RFG36UD",
+    "title": "Trixie",
+    "date": "2021-08-26",
+    "duration": "35:01",
+    "series": [
+      "Treatstick"
+    ],
+    "tags": [
+      "Narrative",
+      "Audio Drama",
+      "Mantric"
+    ],
+    "url": "https://www.patreon.com/posts/trixie-55396758",
+    "links": {
+      "patreon": "https://www.patreon.com/posts/trixie-55396758"
+    }
+  },
+  {
+    "type": "track",
+    "id": "9NQ94PT",
+    "title": "Trixie: Controlled Haptics",
+    "date": "2021-08-27",
+    "duration": "35:02",
+    "series": [
+      "Treatstick"
+    ],
+    "tags": [
+      "Narrative",
+      "Audio Drama",
+      "Mantric",
+      "haptic"
+    ],
+    "url": "https://www.patreon.com/posts/trixie-sub-55432241",
+    "links": {
+      "patreon": "https://www.patreon.com/posts/trixie-sub-55432241"
+    }
+  },
+  {
+    "type": "track",
+    "id": "CXVXAIY",
+    "title": "Trixie: Controller Haptics",
+    "date": "2021-08-27",
+    "duration": "35:01",
+    "series": [
+      "Treatstick"
+    ],
+    "tags": [
+      "Narrative",
+      "Audio Drama",
+      "Mantric",
+      "haptic"
+    ],
+    "url": "https://www.patreon.com/posts/trixie-dom-55434425",
+    "links": {
+      "patreon": "https://www.patreon.com/posts/trixie-dom-55434425"
+    }
+  },
+  {
+    "type": "track",
+    "id": "Q0FN2BQ",
+    "title": "Empty",
+    "date": "2021-08-29",
+    "duration": "20:01",
+    "series": [
+      "Classic",
+      "Mind Pop"
+    ],
+    "tags": [
+      "Mantric"
+    ],
+    "url": "https://www.patreon.com/posts/empty-55511875",
+    "links": {
+      "patreon": "https://www.patreon.com/posts/empty-55511875"
+    }
+  },
+  {
+    "type": "track",
+    "id": "3QQTFAK",
+    "title": "Strokewave",
+    "date": "2021-09-10",
+    "duration": "1:03:57",
+    "series": [
+      "Wavetrained"
+    ],
+    "tags": [
+      "Narrative",
+      "Mantric"
+    ],
+    "url": "https://www.patreon.com/posts/strokewave-56024770",
+    "links": {
+      "patreon": "https://www.patreon.com/posts/strokewave-56024770"
+    }
+  },
+  {
+    "type": "track",
+    "id": "7VI2WAF",
+    "title": "Rubwave",
+    "date": "2021-09-15",
+    "duration": "1:00:01",
+    "series": [
+      "Wavetrained"
+    ],
+    "tags": [
+      "Mantric"
+    ],
+    "url": "https://www.patreon.com/posts/rubwave-56219865",
+    "links": {
+      "patreon": "https://www.patreon.com/posts/rubwave-56219865"
+    }
+  },
+  {
+    "type": "track",
+    "id": "4X7CVI6",
+    "title": "Rubwave Haptics",
+    "date": "2021-09-17",
+    "duration": "1:00:01",
+    "series": [
+      "Wavetrained"
+    ],
+    "tags": [
+      "Mantric",
+      "haptic"
+    ],
+    "url": "https://www.patreon.com/posts/rubwave-haptics-56281062",
+    "links": {
+      "patreon": "https://www.patreon.com/posts/rubwave-haptics-56281062"
+    }
+  },
+  {
+    "type": "track",
+    "id": "9SF0JAD",
+    "title": "Servitude",
+    "date": "2021-09-27",
+    "duration": "14:17",
+    "series": [
+      "Translation",
+      "Mind Pop"
+    ],
+    "tags": [
+      "Music",
+      "Mantric"
+    ],
+    "url": "https://www.patreon.com/posts/servitude-56693846",
+    "links": {
+      "patreon": "https://www.patreon.com/posts/servitude-56693846"
+    }
+  },
+  {
+    "type": "track",
+    "id": "O3Z75F6",
+    "title": "Sacristry",
+    "date": "2021-10-08",
+    "duration": "24:34",
+    "series": [
+      "Forgive Me Father"
+    ],
+    "tags": [
+      "Narrative",
+      "Audio Drama"
+    ],
+    "url": "https://www.patreon.com/posts/sacristy-57184572",
+    "links": {
+      "patreon": "https://www.patreon.com/posts/sacristy-57184572"
+    }
+  },
+  {
+    "type": "track",
+    "id": "8L8FOHU",
+    "title": "Diligence",
+    "date": "2021-10-11",
+    "duration": "29:26",
+    "series": [
+      "Forgive Me Father"
+    ],
+    "tags": [
+      "Narrative",
+      "Audio Drama"
+    ],
+    "url": "https://www.patreon.com/posts/diligence-sorry-57293972",
+    "links": {
+      "patreon": "https://www.patreon.com/posts/diligence-sorry-57293972"
+    }
+  },
+  {
+    "type": "track",
+    "id": "FAT0UZQ",
+    "title": "One Word: Dumb",
+    "date": "2021-10-13",
+    "duration": "22:24",
+    "series": [
+      "Mantra Sync",
+      "Mind Pop",
+      "One Word"
+    ],
+    "tags": [
+      "Mantric"
+    ],
+    "url": "https://www.patreon.com/posts/one-word-dumb-57383264",
+    "links": {
+      "patreon": "https://www.patreon.com/posts/one-word-dumb-57383264"
+    }
+  },
+  {
+    "type": "track",
+    "id": "O012VZ7",
+    "title": "Worship",
+    "date": "2021-10-17",
+    "duration": "1:00:01",
+    "series": [
+      "Forgive Me Father",
+      "Mouth Time"
+    ],
+    "tags": [
+      "Mantric"
+    ],
+    "url": "https://www.patreon.com/posts/worship-57500954",
+    "links": {
+      "patreon": "https://www.patreon.com/posts/worship-57500954"
+    }
+  },
+  {
+    "type": "track",
+    "id": "S2Z2L2K",
+    "title": "Soulsucker",
+    "date": "2021-10-20",
+    "duration": "27:44",
+    "series": [
+      "Ministry Of Halloween",
+      "Mouth Time"
+    ],
+    "tags": [
+      "Narrative",
+      "Audio Drama"
+    ],
+    "url": "https://www.patreon.com/posts/soulsucker-57668863",
+    "links": {
+      "patreon": "https://www.patreon.com/posts/soulsucker-57668863"
+    }
+  },
+  {
+    "type": "track",
+    "id": "UOIU9KD",
+    "title": "One Word: Moo",
+    "date": "2021-10-24",
+    "duration": "32:04",
+    "series": [
+      "Mantra Sync",
+      "Mind Milking Machine",
+      "One Word"
+    ],
+    "tags": [
+      "Mantric"
+    ],
+    "url": "https://www.patreon.com/posts/one-word-moo-mix-57819600",
+    "links": {
+      "patreon": "https://www.patreon.com/posts/one-word-moo-mix-57819600"
+    }
+  },
+  {
+    "type": "track",
+    "id": "2BKJA23",
+    "title": "One Word: Moo Sapphic",
+    "date": "2021-10-25",
+    "duration": "32:10",
+    "series": [
+      "Mantra Sync",
+      "Mind Milking Machine",
+      "One Word"
+    ],
+    "tags": [
+      "Mantric"
+    ],
+    "url": "https://www.patreon.com/posts/moomaids-moo-57869878",
+    "links": {
+      "patreon": "https://www.patreon.com/posts/moomaids-moo-57869878"
+    }
+  },
+  {
+    "type": "track",
+    "id": "69I65OY",
+    "title": "One Word: Moo Haptics",
+    "date": "2021-10-26",
+    "duration": "32:04",
+    "series": [
+      "Mantra Sync",
+      "Mind Milking Machine",
+      "One Word"
+    ],
+    "tags": [
+      "Mantric",
+      "haptic"
+    ],
+    "url": "https://www.patreon.com/posts/moo-xt-cock-57875265",
+    "links": {
+      "patreon": "https://www.patreon.com/posts/moo-xt-cock-57875265"
+    }
+  },
+  {
+    "type": "track",
+    "id": "L1OE70P",
+    "title": "Trigger Vending Machine",
+    "date": "2021-10-28",
+    "duration": "10:01",
+    "series": [
+      "Facility",
+      "Mouth Time"
+    ],
+    "tags": [
+      "Narrative",
+      "Mantric"
+    ],
+    "url": "https://www.patreon.com/posts/trigger-vending-57994772",
+    "links": {
+      "patreon": "https://www.patreon.com/posts/trigger-vending-57994772"
+    }
+  },
+  {
+    "type": "track",
+    "id": "UT0RF7E",
+    "title": "Trigger Vending Machine Haptics",
+    "date": "2021-10-28",
+    "duration": "10:01",
+    "series": [
+      "Facility",
+      "Mouth Time"
+    ],
+    "tags": [
+      "Narrative",
+      "Mantric",
+      "haptic"
+    ],
+    "url": "https://www.patreon.com/posts/trigger-vending-57998123",
+    "links": {
+      "patreon": "https://www.patreon.com/posts/trigger-vending-57998123"
+    }
+  },
+  {
+    "type": "track",
+    "id": "2TE3GYH",
+    "title": "Nevermore: 2 versions",
+    "date": "2021-10-31",
+    "duration": "10:37",
+    "series": [
+      "Ministry Of Halloween"
+    ],
+    "tags": [
+      "Poetry"
+    ],
+    "url": "https://www.patreon.com/posts/nevermore-2-58129845",
+    "links": {
+      "patreon": "https://www.patreon.com/posts/nevermore-2-58129845"
+    }
+  },
+  {
+    "type": "track",
+    "id": "AQ78U8I",
+    "title": "Puppet Show Strokemix Rubmix",
+    "date": "2021-11-11",
+    "duration": "1:01:19",
+    "series": [
+      "Mythic",
+      "Fairy"
+    ],
+    "tags": [
+      "Narrative",
+      "Mantric"
+    ],
+    "url": "https://www.patreon.com/posts/puppet-show-cock-58594836",
+    "links": {
+      "patreon": "https://www.patreon.com/posts/puppet-show-cock-58594836"
+    }
+  },
+  {
+    "type": "track",
+    "id": "YEZFKHR",
+    "title": "Puppet Show Strokemix",
+    "date": "2021-11-14",
+    "duration": "1:01:19",
+    "series": [
+      "Mythic",
+      "Fairy"
+    ],
+    "tags": [
+      "Narrative",
+      "Mantric"
+    ],
+    "url": "https://www.patreon.com/posts/puppet-show-cock-58706522",
+    "links": {
+      "patreon": "https://www.patreon.com/posts/puppet-show-cock-58706522"
+    }
+  },
+  {
+    "type": "track",
+    "id": "X97HSBA",
+    "title": "Puppet Show Rubmix",
+    "date": "2021-11-16",
+    "duration": "1:01:19",
+    "series": [
+      "Mythic",
+      "Fairy"
+    ],
+    "tags": [
+      "Narrative",
+      "Mantric"
+    ],
+    "url": "https://www.patreon.com/posts/puppet-show-mix-58784931",
+    "links": {
+      "patreon": "https://www.patreon.com/posts/puppet-show-mix-58784931"
+    }
   }
 ]
