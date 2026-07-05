@@ -320,7 +320,9 @@ export default {
       p === "/deepdreamstate/arcs/chthonic" ||
       p.startsWith("/deepdreamstate/arcs/chthonic/") ||
       p === "/deepdreamstate/arcs/incognitoh" ||
-      p.startsWith("/deepdreamstate/arcs/incognitoh/")
+      p.startsWith("/deepdreamstate/arcs/incognitoh/") ||
+      p === "/deepdreamstate/arcs/sitri" ||
+      p.startsWith("/deepdreamstate/arcs/sitri/")
     ) {
       return serveMigratedDeepDreamStatePathWithFallback(p, url);
     }
