@@ -937,7 +937,6 @@
       "patreon": "https://www.patreon.com/posts/puppet-time-19308484"
     }
   },
-[
   {
     "type": "track",
     "id": "V3NHUUE",
@@ -962,10 +961,18 @@
     "title": "Interrogate",
     "date": "2018-06-21",
     "duration": "26:00",
-    "series": ["Classic"],
-    "tags": ["Narrative", "Audio Drama"],
+    "series": [
+      "Classic"
+    ],
+    "tags": [
+      "Narrative",
+      "Audio Drama"
+    ],
     "url": "https://www.patreon.com/posts/interrogation-19589803",
-    "links": {"patreon": "https://www.patreon.com/posts/interrogation-19589803", "soundgasm": "https://soundgasm.net/u/NeuralNets/Interrogation-1"}
+    "links": {
+      "patreon": "https://www.patreon.com/posts/interrogation-19589803",
+      "soundgasm": "https://soundgasm.net/u/NeuralNets/Interrogation-1"
+    }
   },
   {
     "type": "track",
@@ -973,10 +980,18 @@
     "title": "Lipstuck",
     "date": "2018-06-29",
     "duration": "10:14",
-    "series": ["Coxygen", "Mouth Time"],
-    "tags": ["Narrative", "Mantric"],
+    "series": [
+      "Coxygen",
+      "Mouth Time"
+    ],
+    "tags": [
+      "Narrative",
+      "Mantric"
+    ],
     "url": "https://www.patreon.com/posts/lipstuck-19755798",
-    "links": {"patreon": "https://www.patreon.com/posts/lipstuck-19755798"}
+    "links": {
+      "patreon": "https://www.patreon.com/posts/lipstuck-19755798"
+    }
   },
   {
     "type": "track",
@@ -984,10 +999,18 @@
     "title": "Uhmerica",
     "date": "2018-07-04",
     "duration": "07:47",
-    "series": ["HoLidays", "Mind Pop"],
-    "tags": ["Narrative", "Mantric"],
+    "series": [
+      "HoLidays",
+      "Mind Pop"
+    ],
+    "tags": [
+      "Narrative",
+      "Mantric"
+    ],
     "url": "https://www.patreon.com/posts/uhmerica-19872925",
-    "links": {"patreon": "https://www.patreon.com/posts/uhmerica-19872925"}
+    "links": {
+      "patreon": "https://www.patreon.com/posts/uhmerica-19872925"
+    }
   },
   {
     "type": "track",
@@ -995,10 +1018,17 @@
     "title": "Number Dumber",
     "date": "2018-08-12",
     "duration": "36:51",
-    "series": ["Classic", "Unlearn University"],
-    "tags": ["Mantric"],
+    "series": [
+      "Classic",
+      "Unlearn University"
+    ],
+    "tags": [
+      "Mantric"
+    ],
     "url": "https://www.patreon.com/posts/number-dumber-20709324",
-    "links": {"patreon": "https://www.patreon.com/posts/number-dumber-20709324"}
+    "links": {
+      "patreon": "https://www.patreon.com/posts/number-dumber-20709324"
+    }
   },
   {
     "type": "track",
@@ -1006,10 +1036,19 @@
     "title": "iMoan",
     "date": "2018-08-21",
     "duration": "19:25",
-    "series": ["Apphead", "Facility"],
-    "tags": ["Narrative", "Mantric"],
+    "series": [
+      "Apphead",
+      "Facility"
+    ],
+    "tags": [
+      "Narrative",
+      "Mantric"
+    ],
     "url": "https://www.patreon.com/posts/imoan-20906271",
-    "links": {"patreon": "https://www.patreon.com/posts/imoan-20906271", "soundgasm": "https://soundgasm.net/u/NeuralNets/iMoan"}
+    "links": {
+      "patreon": "https://www.patreon.com/posts/imoan-20906271",
+      "soundgasm": "https://soundgasm.net/u/NeuralNets/iMoan"
+    }
   },
   {
     "type": "track",
@@ -1017,10 +1056,17 @@
     "title": "Rider",
     "date": "2018-08-24",
     "duration": "03:36",
-    "series": ["Classic"],
-    "tags": ["Music"],
+    "series": [
+      "Classic"
+    ],
+    "tags": [
+      "Music"
+    ],
     "url": "https://www.patreon.com/posts/rider-20966566",
-    "links": {"patreon": "https://www.patreon.com/posts/rider-20966566", "soundgasm": "https://soundgasm.net/u/NeuralNets/Rider"}
+    "links": {
+      "patreon": "https://www.patreon.com/posts/rider-20966566",
+      "soundgasm": "https://soundgasm.net/u/NeuralNets/Rider"
+    }
   },
   {
     "type": "track",
@@ -1028,10 +1074,16 @@
     "title": "Translate: Spanish",
     "date": "2018-08-27",
     "duration": "07:42",
-    "series": ["Translation"],
-    "tags": ["Music"],
+    "series": [
+      "Translation"
+    ],
+    "tags": [
+      "Music"
+    ],
     "url": "https://www.patreon.com/posts/translate-21010481",
-    "links": {"patreon": "https://www.patreon.com/posts/translate-21010481"}
+    "links": {
+      "patreon": "https://www.patreon.com/posts/translate-21010481"
+    }
   },
   {
     "type": "track",
@@ -1039,10 +1091,19 @@
     "title": "Wave",
     "date": "2018-08-31",
     "duration": "17:34",
-    "series": ["Mantra Sync", "Mythic", "Dumb Bell"],
-    "tags": ["Mantric"],
+    "series": [
+      "Mantra Sync",
+      "Mythic",
+      "Dumb Bell"
+    ],
+    "tags": [
+      "Mantric"
+    ],
     "url": "https://www.patreon.com/posts/wave-dumb-bell-5-21114081",
-    "links": {"patreon": "https://www.patreon.com/posts/wave-dumb-bell-5-21114081", "spotify": "https://open.spotify.com/track/4Su2mDuKdP5aSdumyuYNX2"}
+    "links": {
+      "patreon": "https://www.patreon.com/posts/wave-dumb-bell-5-21114081",
+      "spotify": "https://open.spotify.com/track/4Su2mDuKdP5aSdumyuYNX2"
+    }
   },
   {
     "type": "track",
@@ -1050,10 +1111,17 @@
     "title": "Tranquilize",
     "date": "2018-09-04",
     "duration": "36:39",
-    "series": ["Mind Pop", "Classic"],
-    "tags": ["Narrative"],
+    "series": [
+      "Mind Pop",
+      "Classic"
+    ],
+    "tags": [
+      "Narrative"
+    ],
     "url": "https://www.patreon.com/posts/tranquilize-21211555",
-    "links": {"patreon": "https://www.patreon.com/posts/tranquilize-21211555"}
+    "links": {
+      "patreon": "https://www.patreon.com/posts/tranquilize-21211555"
+    }
   },
   {
     "type": "track",
@@ -1061,10 +1129,19 @@
     "title": "Garden",
     "date": "2018-09-16",
     "duration": "20:01",
-    "series": ["Garden", "Mythic"],
-    "tags": ["Narrative", "Music"],
+    "series": [
+      "Garden",
+      "Mythic"
+    ],
+    "tags": [
+      "Narrative",
+      "Music"
+    ],
     "url": "https://www.patreon.com/posts/garden-21455051",
-    "links": {"patreon": "https://www.patreon.com/posts/garden-21455051", "soundgasm": "https://soundgasm.net/u/NeuralNets/Garden"}
+    "links": {
+      "patreon": "https://www.patreon.com/posts/garden-21455051",
+      "soundgasm": "https://soundgasm.net/u/NeuralNets/Garden"
+    }
   },
   {
     "type": "track",
@@ -1072,10 +1149,19 @@
     "title": "Clockwork",
     "date": "2018-09-20",
     "duration": "16:57",
-    "series": ["Classic", "Facility", "Mind Pop"],
-    "tags": ["Narrative", "Mantric"],
+    "series": [
+      "Classic",
+      "Facility",
+      "Mind Pop"
+    ],
+    "tags": [
+      "Narrative",
+      "Mantric"
+    ],
     "url": "https://www.patreon.com/posts/clockwork-cock-21545720",
-    "links": {"patreon": "https://www.patreon.com/posts/clockwork-cock-21545720"}
+    "links": {
+      "patreon": "https://www.patreon.com/posts/clockwork-cock-21545720"
+    }
   },
   {
     "type": "track",
@@ -1083,10 +1169,18 @@
     "title": "Clockwork FS",
     "date": "2018-09-24",
     "duration": "16:58",
-    "series": ["Facility", "Mind Pop"],
-    "tags": ["Narrative", "Mantric"],
+    "series": [
+      "Facility",
+      "Mind Pop"
+    ],
+    "tags": [
+      "Narrative",
+      "Mantric"
+    ],
     "url": "https://www.patreon.com/posts/clockwork-female-21626024",
-    "links": {"patreon": "https://www.patreon.com/posts/clockwork-female-21626024"}
+    "links": {
+      "patreon": "https://www.patreon.com/posts/clockwork-female-21626024"
+    }
   },
   {
     "type": "track",
@@ -1094,10 +1188,21 @@
     "title": "Glitch",
     "date": "2018-09-29",
     "duration": "12:23",
-    "series": ["Facility", "Mind Pop"],
-    "tags": ["Music", "Mantric"],
+    "series": [
+      "Facility",
+      "Mind Pop"
+    ],
+    "tags": [
+      "Music",
+      "Mantric"
+    ],
     "url": "https://www.patreon.com/posts/glitch-21733070",
-    "links": {"patreon": "https://www.patreon.com/posts/glitch-21733070", "soundgasm": "https://soundgasm.net/u/NeuralNets/Glitch", "spotify": "https://open.spotify.com/track/5PkzpvbRyRdmXIZM5o61iu", "musicbrainz": "https://musicbrainz.org/recording/28c0f55d-f072-442e-a19b-a73d63b19a32"}
+    "links": {
+      "patreon": "https://www.patreon.com/posts/glitch-21733070",
+      "soundgasm": "https://soundgasm.net/u/NeuralNets/Glitch",
+      "spotify": "https://open.spotify.com/track/5PkzpvbRyRdmXIZM5o61iu",
+      "musicbrainz": "https://musicbrainz.org/recording/28c0f55d-f072-442e-a19b-a73d63b19a32"
+    }
   },
   {
     "type": "track",
@@ -1105,10 +1210,19 @@
     "title": "Pump",
     "date": "2018-10-03",
     "duration": "22:42",
-    "series": ["Facility", "Mind Pop"],
-    "tags": ["Narrative", "Mantric"],
+    "series": [
+      "Facility",
+      "Mind Pop"
+    ],
+    "tags": [
+      "Narrative",
+      "Mantric"
+    ],
     "url": "https://www.patreon.com/posts/pump-21836514",
-    "links": {"patreon": "https://www.patreon.com/posts/pump-21836514", "soundgasm": "https://soundgasm.net/u/NeuralNets/Pump-1"}
+    "links": {
+      "patreon": "https://www.patreon.com/posts/pump-21836514",
+      "soundgasm": "https://soundgasm.net/u/NeuralNets/Pump-1"
+    }
   },
   {
     "type": "track",
@@ -1116,10 +1230,16 @@
     "title": "D Program",
     "date": "2018-10-17",
     "duration": "1:23:02",
-    "series": ["DPI"],
-    "tags": ["Narrative"],
+    "series": [
+      "DPI"
+    ],
+    "tags": [
+      "Narrative"
+    ],
     "url": "https://www.patreon.com/posts/d-program-22118862",
-    "links": {"patreon": "https://www.patreon.com/posts/d-program-22118862"}
+    "links": {
+      "patreon": "https://www.patreon.com/posts/d-program-22118862"
+    }
   },
   {
     "type": "track",
@@ -1127,10 +1247,17 @@
     "title": "Tick Tock Walk",
     "date": "2018-10-23",
     "duration": "21:33",
-    "series": ["Classic"],
-    "tags": ["Narrative", "Mantric"],
+    "series": [
+      "Classic"
+    ],
+    "tags": [
+      "Narrative",
+      "Mantric"
+    ],
     "url": "https://www.patreon.com/posts/tick-tock-walk-22241381",
-    "links": {"patreon": "https://www.patreon.com/posts/tick-tock-walk-22241381"}
+    "links": {
+      "patreon": "https://www.patreon.com/posts/tick-tock-walk-22241381"
+    }
   },
   {
     "type": "track",
@@ -1138,10 +1265,18 @@
     "title": "Seance",
     "date": "2018-10-31",
     "duration": "29:12",
-    "series": ["Mythic", "Ministry Of Halloween"],
-    "tags": ["Narrative"],
+    "series": [
+      "Mythic",
+      "Ministry Of Halloween"
+    ],
+    "tags": [
+      "Narrative"
+    ],
     "url": "https://www.patreon.com/posts/seance-22427921",
-    "links": {"patreon": "https://www.patreon.com/posts/seance-22427921", "soundgasm": "https://soundgasm.net/u/NeuralNets/Seance"}
+    "links": {
+      "patreon": "https://www.patreon.com/posts/seance-22427921",
+      "soundgasm": "https://soundgasm.net/u/NeuralNets/Seance"
+    }
   },
   {
     "type": "track",
@@ -1149,10 +1284,18 @@
     "title": "Masquerade",
     "date": "2018-11-15",
     "duration": "54:02",
-    "series": ["Ministry Of Halloween"],
-    "tags": ["Narrative", "Mantric"],
+    "series": [
+      "Ministry Of Halloween"
+    ],
+    "tags": [
+      "Narrative",
+      "Mantric"
+    ],
     "url": "https://www.patreon.com/posts/masquerade-22726397",
-    "links": {"patreon": "https://www.patreon.com/posts/masquerade-22726397", "soundgasm": "https://soundgasm.net/u/NeuralNets/Masquerade"}
+    "links": {
+      "patreon": "https://www.patreon.com/posts/masquerade-22726397",
+      "soundgasm": "https://soundgasm.net/u/NeuralNets/Masquerade"
+    }
   },
   {
     "type": "track",
@@ -1160,10 +1303,19 @@
     "title": "Gratitude",
     "date": "2018-11-22",
     "duration": "25:47",
-    "series": ["HoLidays", "Mind Pop"],
-    "tags": ["Narrative", "Mantric"],
+    "series": [
+      "HoLidays",
+      "Mind Pop"
+    ],
+    "tags": [
+      "Narrative",
+      "Mantric"
+    ],
     "url": "https://www.patreon.com/posts/gratitude-22876951",
-    "links": {"patreon": "https://www.patreon.com/posts/gratitude-22876951", "soundgasm": "https://soundgasm.net/u/NeuralNets/Gratitude"}
+    "links": {
+      "patreon": "https://www.patreon.com/posts/gratitude-22876951",
+      "soundgasm": "https://soundgasm.net/u/NeuralNets/Gratitude"
+    }
   },
   {
     "type": "track",
@@ -1171,10 +1323,18 @@
     "title": "Slumber Party",
     "date": "2018-11-22",
     "duration": "14:25",
-    "series": ["Mantra Sync", "Mind Pop", "Dumb Bell"],
-    "tags": ["Mantric"],
+    "series": [
+      "Mantra Sync",
+      "Mind Pop",
+      "Dumb Bell"
+    ],
+    "tags": [
+      "Mantric"
+    ],
     "url": "https://www.patreon.com/posts/slumber-party-6-22863527",
-    "links": {"patreon": "https://www.patreon.com/posts/slumber-party-6-22863527"}
+    "links": {
+      "patreon": "https://www.patreon.com/posts/slumber-party-6-22863527"
+    }
   },
   {
     "type": "track",
@@ -1182,10 +1342,18 @@
     "title": "Number Dumber Club Mix",
     "date": "2018-11-24",
     "duration": "23:37",
-    "series": ["Classic", "Unlearn University"],
-    "tags": ["Music", "Mantric"],
+    "series": [
+      "Classic",
+      "Unlearn University"
+    ],
+    "tags": [
+      "Music",
+      "Mantric"
+    ],
     "url": "https://www.patreon.com/posts/number-dumber-22904355",
-    "links": {"patreon": "https://www.patreon.com/posts/number-dumber-22904355"}
+    "links": {
+      "patreon": "https://www.patreon.com/posts/number-dumber-22904355"
+    }
   },
   {
     "type": "track",
@@ -1193,10 +1361,18 @@
     "title": "Bimbim Eyes",
     "date": "2018-11-27",
     "duration": "35:33",
-    "series": ["Classic"],
-    "tags": ["Narrative", "Mantric"],
+    "series": [
+      "Classic"
+    ],
+    "tags": [
+      "Narrative",
+      "Mantric"
+    ],
     "url": "https://www.patreon.com/posts/bimbo-eyes-22970391",
-    "links": {"patreon": "https://www.patreon.com/posts/bimbo-eyes-22970391", "musicbrainz": "https://musicbrainz.org/recording/2ca70d63-ccea-4f99-ac25-18a5ad93ed61"}
+    "links": {
+      "patreon": "https://www.patreon.com/posts/bimbo-eyes-22970391",
+      "musicbrainz": "https://musicbrainz.org/recording/2ca70d63-ccea-4f99-ac25-18a5ad93ed61"
+    }
   },
   {
     "type": "track",
@@ -1204,10 +1380,17 @@
     "title": "Interrogate Sparkle Squad",
     "date": "2018-11-29",
     "duration": "25:27",
-    "series": ["Classic"],
-    "tags": ["Narrative", "Audio Drama"],
+    "series": [
+      "Classic"
+    ],
+    "tags": [
+      "Narrative",
+      "Audio Drama"
+    ],
     "url": "https://www.patreon.com/posts/interrogate-23003144",
-    "links": {"patreon": "https://www.patreon.com/posts/interrogate-23003144"}
+    "links": {
+      "patreon": "https://www.patreon.com/posts/interrogate-23003144"
+    }
   },
   {
     "type": "track",
@@ -1215,10 +1398,16 @@
     "title": "Kaarisma",
     "date": "2018-12-04",
     "duration": "11:44",
-    "series": ["Classic"],
-    "tags": ["Narrative"],
+    "series": [
+      "Classic"
+    ],
+    "tags": [
+      "Narrative"
+    ],
     "url": "https://www.patreon.com/posts/kaarisma-23113595",
-    "links": {"patreon": "https://www.patreon.com/posts/kaarisma-23113595"}
+    "links": {
+      "patreon": "https://www.patreon.com/posts/kaarisma-23113595"
+    }
   },
   {
     "type": "track",
@@ -1226,10 +1415,18 @@
     "title": "Addiction Remix",
     "date": "2018-12-07",
     "duration": "08:54",
-    "series": ["Classic", "Mind Pop"],
-    "tags": ["Mantric"],
+    "series": [
+      "Classic",
+      "Mind Pop"
+    ],
+    "tags": [
+      "Mantric"
+    ],
     "url": "https://www.patreon.com/posts/addiction-2018-23181499",
-    "links": {"patreon": "https://www.patreon.com/posts/addiction-2018-23181499", "musicbrainz": "https://musicbrainz.org/recording/effd5d40-6a6e-4091-8bad-d97ec5ee5e75"}
+    "links": {
+      "patreon": "https://www.patreon.com/posts/addiction-2018-23181499",
+      "musicbrainz": "https://musicbrainz.org/recording/effd5d40-6a6e-4091-8bad-d97ec5ee5e75"
+    }
   },
   {
     "type": "track",
@@ -1237,10 +1434,17 @@
     "title": "Ms. Kaarisma AllFem",
     "date": "2018-12-13",
     "duration": "16:22",
-    "series": ["Classic"],
-    "tags": ["Narrative", "Musical Theater"],
+    "series": [
+      "Classic"
+    ],
+    "tags": [
+      "Narrative",
+      "Musical Theater"
+    ],
     "url": "https://www.patreon.com/posts/ms-kaarisma-all-23306196",
-    "links": {"patreon": "https://www.patreon.com/posts/ms-kaarisma-all-23306196"}
+    "links": {
+      "patreon": "https://www.patreon.com/posts/ms-kaarisma-all-23306196"
+    }
   },
   {
     "type": "track",
@@ -1248,10 +1452,18 @@
     "title": "Succubuzz: Module 1",
     "date": "2018-12-29",
     "duration": "32:20",
-    "series": ["Ministry Of Halloween"],
-    "tags": ["Mantric", "Narrative"],
+    "series": [
+      "Ministry Of Halloween"
+    ],
+    "tags": [
+      "Mantric",
+      "Narrative"
+    ],
     "url": "https://www.patreon.com/posts/succubuzz-module-23623966",
-    "links": {"patreon": "https://www.patreon.com/posts/succubuzz-module-23623966", "soundgasm": "https://soundgasm.net/u/NeuralNets/Succubuzz-Cum-To-Evelynn"}
+    "links": {
+      "patreon": "https://www.patreon.com/posts/succubuzz-module-23623966",
+      "soundgasm": "https://soundgasm.net/u/NeuralNets/Succubuzz-Cum-To-Evelynn"
+    }
   },
   {
     "type": "track",
@@ -1259,10 +1471,17 @@
     "title": "New You",
     "date": "2019-01-02",
     "duration": "35:10",
-    "series": ["Classic", "HoLidays"],
-    "tags": ["Narrative"],
+    "series": [
+      "Classic",
+      "HoLidays"
+    ],
+    "tags": [
+      "Narrative"
+    ],
     "url": "https://www.patreon.com/posts/new-you-32968000",
-    "links": {"patreon": "https://www.patreon.com/posts/new-you-32968000"}
+    "links": {
+      "patreon": "https://www.patreon.com/posts/new-you-32968000"
+    }
   },
   {
     "type": "track",
@@ -1270,10 +1489,18 @@
     "title": "Noise",
     "date": "2019-01-18",
     "duration": "42:01",
-    "series": ["Apron", "Mind Pop"],
-    "tags": ["Narrative", "Mantric"],
+    "series": [
+      "Apron",
+      "Mind Pop"
+    ],
+    "tags": [
+      "Narrative",
+      "Mantric"
+    ],
     "url": "https://www.patreon.com/posts/noise-neutral-24011054",
-    "links": {"patreon": "https://www.patreon.com/posts/noise-neutral-24011054"}
+    "links": {
+      "patreon": "https://www.patreon.com/posts/noise-neutral-24011054"
+    }
   },
   {
     "type": "track",
@@ -1281,10 +1508,18 @@
     "title": "Club New You",
     "date": "2019-01-22",
     "duration": "12:46",
-    "series": ["HoLidays", "Mind Pop"],
-    "tags": ["Music", "Mantric"],
+    "series": [
+      "HoLidays",
+      "Mind Pop"
+    ],
+    "tags": [
+      "Music",
+      "Mantric"
+    ],
     "url": "https://www.patreon.com/posts/club-new-you-33355025",
-    "links": {"patreon": "https://www.patreon.com/posts/club-new-you-33355025"}
+    "links": {
+      "patreon": "https://www.patreon.com/posts/club-new-you-33355025"
+    }
   },
   {
     "type": "track",
@@ -1292,10 +1527,17 @@
     "title": "Noise BAFB",
     "date": "2019-01-25",
     "duration": "41:59",
-    "series": ["Mind Pop"],
-    "tags": ["Narrative", "Mantric"],
+    "series": [
+      "Mind Pop"
+    ],
+    "tags": [
+      "Narrative",
+      "Mantric"
+    ],
     "url": "https://www.patreon.com/posts/noise-brains-are-24229973",
-    "links": {"patreon": "https://www.patreon.com/posts/noise-brains-are-24229973"}
+    "links": {
+      "patreon": "https://www.patreon.com/posts/noise-brains-are-24229973"
+    }
   },
   {
     "type": "track",
@@ -1303,10 +1545,18 @@
     "title": "Session",
     "date": "2019-01-29",
     "duration": "42:04",
-    "series": ["Pink Dream", "Mind Pop"],
-    "tags": ["Narrative"],
+    "series": [
+      "Pink Dream",
+      "Mind Pop"
+    ],
+    "tags": [
+      "Narrative"
+    ],
     "url": "https://www.patreon.com/posts/session-24322962",
-    "links": {"patreon": "https://www.patreon.com/posts/session-24322962", "soundgasm": "https://soundgasm.net/u/NeuralNets/Session"}
+    "links": {
+      "patreon": "https://www.patreon.com/posts/session-24322962",
+      "soundgasm": "https://soundgasm.net/u/NeuralNets/Session"
+    }
   },
   {
     "type": "track",
@@ -1314,10 +1564,18 @@
     "title": "Succubuzz HFO Strokemix",
     "date": "2019-01-31",
     "duration": "32:09",
-    "series": ["Ministry Of Halloween"],
-    "tags": ["Mantric", "Narrative"],
+    "series": [
+      "Ministry Of Halloween"
+    ],
+    "tags": [
+      "Mantric",
+      "Narrative"
+    ],
     "url": "https://www.patreon.com/posts/succubuzz-module-24366124",
-    "links": {"patreon": "https://www.patreon.com/posts/succubuzz-module-24366124", "soundgasm": "https://soundgasm.net/u/NeuralNets/Succubuzz-Cum-To-Evelynn"}
+    "links": {
+      "patreon": "https://www.patreon.com/posts/succubuzz-module-24366124",
+      "soundgasm": "https://soundgasm.net/u/NeuralNets/Succubuzz-Cum-To-Evelynn"
+    }
   },
   {
     "type": "track",
@@ -1325,10 +1583,18 @@
     "title": "Godhead",
     "date": "2019-02-03",
     "duration": "37:10",
-    "series": ["Mouth Time", "Mythic"],
-    "tags": ["Music", "Mantric"],
+    "series": [
+      "Mouth Time",
+      "Mythic"
+    ],
+    "tags": [
+      "Music",
+      "Mantric"
+    ],
     "url": "https://www.patreon.com/posts/god-head-24449798",
-    "links": {"patreon": "https://www.patreon.com/posts/god-head-24449798"}
+    "links": {
+      "patreon": "https://www.patreon.com/posts/god-head-24449798"
+    }
   },
   {
     "type": "track",
@@ -1337,9 +1603,14 @@
     "date": "2019-02-05",
     "duration": "24:41",
     "series": [],
-    "tags": ["Narrative", "Mantric"],
+    "tags": [
+      "Narrative",
+      "Mantric"
+    ],
     "url": "https://www.patreon.com/posts/sub-text-part-24502045",
-    "links": {"patreon": "https://www.patreon.com/posts/sub-text-part-24502045"}
+    "links": {
+      "patreon": "https://www.patreon.com/posts/sub-text-part-24502045"
+    }
   },
   {
     "type": "track",
@@ -1347,10 +1618,20 @@
     "title": "Gym Bunny",
     "date": "2019-02-09",
     "duration": "22:50",
-    "series": ["Gym Bunny"],
-    "tags": ["Music", "Mantric"],
+    "series": [
+      "Gym Bunny"
+    ],
+    "tags": [
+      "Music",
+      "Mantric"
+    ],
     "url": "https://www.patreon.com/posts/gym-bunny-24581769",
-    "links": {"patreon": "https://www.patreon.com/posts/gym-bunny-24581769", "soundgasm": "https://soundgasm.net/u/NeuralNets/Gym-Bunny", "spotify": "https://open.spotify.com/track/4op0iXtrqqnJbmWF3lhB1R", "musicbrainz": "https://musicbrainz.org/recording/27742933-ab32-4a42-bcd9-fa68bc8a7967"}
+    "links": {
+      "patreon": "https://www.patreon.com/posts/gym-bunny-24581769",
+      "soundgasm": "https://soundgasm.net/u/NeuralNets/Gym-Bunny",
+      "spotify": "https://open.spotify.com/track/4op0iXtrqqnJbmWF3lhB1R",
+      "musicbrainz": "https://musicbrainz.org/recording/27742933-ab32-4a42-bcd9-fa68bc8a7967"
+    }
   },
   {
     "type": "track",
@@ -1358,10 +1639,20 @@
     "title": "Succubuzz HFO Rubmix",
     "date": "2019-02-13",
     "duration": "32:01",
-    "series": ["Mythic", "Ministry Of Halloween", "Xxboxx"],
-    "tags": ["Mantric", "Narrative"],
+    "series": [
+      "Mythic",
+      "Ministry Of Halloween",
+      "Xxboxx"
+    ],
+    "tags": [
+      "Mantric",
+      "Narrative"
+    ],
     "url": "https://www.patreon.com/posts/succubuzz-female-24680412",
-    "links": {"patreon": "https://www.patreon.com/posts/succubuzz-female-24680412", "soundgasm": "https://soundgasm.net/u/NeuralNets/Succubuzz-Cum-To-Evelynn"}
+    "links": {
+      "patreon": "https://www.patreon.com/posts/succubuzz-female-24680412",
+      "soundgasm": "https://soundgasm.net/u/NeuralNets/Succubuzz-Cum-To-Evelynn"
+    }
   },
   {
     "type": "track",
@@ -1369,10 +1660,17 @@
     "title": "Godhead: Mythos",
     "date": "2019-02-17",
     "duration": "18:18",
-    "series": ["Mouth Time", "Mythic"],
-    "tags": ["Narrative"],
+    "series": [
+      "Mouth Time",
+      "Mythic"
+    ],
+    "tags": [
+      "Narrative"
+    ],
     "url": "https://www.patreon.com/posts/god-head-mythos-24773205",
-    "links": {"patreon": "https://www.patreon.com/posts/god-head-mythos-24773205"}
+    "links": {
+      "patreon": "https://www.patreon.com/posts/god-head-mythos-24773205"
+    }
   },
   {
     "type": "track",
@@ -1380,10 +1678,18 @@
     "title": "Machine Mind",
     "date": "2019-02-20",
     "duration": "15:27",
-    "series": ["Mantra Sync", "Swarm", "Dumb Bell"],
-    "tags": ["Mantric"],
+    "series": [
+      "Mantra Sync",
+      "Swarm",
+      "Dumb Bell"
+    ],
+    "tags": [
+      "Mantric"
+    ],
     "url": "https://www.patreon.com/posts/dumb-bell-8-mind-24844086",
-    "links": {"patreon": "https://www.patreon.com/posts/dumb-bell-8-mind-24844086"}
+    "links": {
+      "patreon": "https://www.patreon.com/posts/dumb-bell-8-mind-24844086"
+    }
   },
   {
     "type": "track",
@@ -1391,10 +1697,17 @@
     "title": "KumiHo",
     "date": "2019-02-24",
     "duration": "35:48",
-    "series": ["Mythic", "Xxboxx"],
-    "tags": ["Narrative"],
+    "series": [
+      "Mythic",
+      "Xxboxx"
+    ],
+    "tags": [
+      "Narrative"
+    ],
     "url": "https://www.patreon.com/posts/kumiho-24940865",
-    "links": {"patreon": "https://www.patreon.com/posts/kumiho-24940865"}
+    "links": {
+      "patreon": "https://www.patreon.com/posts/kumiho-24940865"
+    }
   },
   {
     "type": "track",
@@ -1402,10 +1715,18 @@
     "title": "Five Dollar Slots",
     "date": "2019-02-27",
     "duration": "08:22",
-    "series": ["Jackpot", "Mantra Sync", "Dumb Bell"],
-    "tags": ["Mantric"],
+    "series": [
+      "Jackpot",
+      "Mantra Sync",
+      "Dumb Bell"
+    ],
+    "tags": [
+      "Mantric"
+    ],
     "url": "https://www.patreon.com/posts/dumb-bell-7-five-25010090",
-    "links": {"patreon": "https://www.patreon.com/posts/dumb-bell-7-five-25010090"}
+    "links": {
+      "patreon": "https://www.patreon.com/posts/dumb-bell-7-five-25010090"
+    }
   },
   {
     "type": "track",
@@ -1413,10 +1734,17 @@
     "title": "KumiHo Dreamy Remix",
     "date": "2019-02-28",
     "duration": "35:58",
-    "series": ["Mythic", "Xxboxx"],
-    "tags": ["Narrative"],
+    "series": [
+      "Mythic",
+      "Xxboxx"
+    ],
+    "tags": [
+      "Narrative"
+    ],
     "url": "https://www.patreon.com/posts/kumi-ho-dreamy-25041731",
-    "links": {"patreon": "https://www.patreon.com/posts/kumi-ho-dreamy-25041731"}
+    "links": {
+      "patreon": "https://www.patreon.com/posts/kumi-ho-dreamy-25041731"
+    }
   },
   {
     "type": "track",
@@ -1424,10 +1752,19 @@
     "title": "Covert",
     "date": "2019-03-08",
     "duration": "58:28",
-    "series": ["Classic", "Mind Pop"],
-    "tags": ["Narrative", "Mantric"],
+    "series": [
+      "Classic",
+      "Mind Pop"
+    ],
+    "tags": [
+      "Narrative",
+      "Mantric"
+    ],
     "url": "https://www.patreon.com/posts/covert-25242875",
-    "links": {"patreon": "https://www.patreon.com/posts/covert-25242875", "soundgasm": "https://soundgasm.net/u/NeuralNets/Covert-1"}
+    "links": {
+      "patreon": "https://www.patreon.com/posts/covert-25242875",
+      "soundgasm": "https://soundgasm.net/u/NeuralNets/Covert-1"
+    }
   },
   {
     "type": "track",
@@ -1435,10 +1772,20 @@
     "title": "Damage",
     "date": "2019-03-19",
     "duration": "20:17",
-    "series": ["Xxboxx"],
-    "tags": ["Music", "Mantric"],
+    "series": [
+      "Xxboxx"
+    ],
+    "tags": [
+      "Music",
+      "Mantric"
+    ],
     "url": "https://www.patreon.com/posts/damage-25472671",
-    "links": {"patreon": "https://www.patreon.com/posts/damage-25472671", "soundgasm": "https://soundgasm.net/u/NeuralNets/Damage", "spotify": "https://open.spotify.com/track/0eK7lhPv866QJ4XGaAeikJ", "musicbrainz": "https://musicbrainz.org/recording/c3e3b61b-0244-4009-9dc4-ba7c513fee09"}
+    "links": {
+      "patreon": "https://www.patreon.com/posts/damage-25472671",
+      "soundgasm": "https://soundgasm.net/u/NeuralNets/Damage",
+      "spotify": "https://open.spotify.com/track/0eK7lhPv866QJ4XGaAeikJ",
+      "musicbrainz": "https://musicbrainz.org/recording/c3e3b61b-0244-4009-9dc4-ba7c513fee09"
+    }
   },
   {
     "type": "track",
@@ -1446,10 +1793,17 @@
     "title": "Circle",
     "date": "2019-04-17",
     "duration": "52:42",
-    "series": ["Cult Classic", "Mind Pop"],
-    "tags": ["Mantric"],
+    "series": [
+      "Cult Classic",
+      "Mind Pop"
+    ],
+    "tags": [
+      "Mantric"
+    ],
     "url": "https://www.patreon.com/posts/circle-26185788",
-    "links": {"patreon": "https://www.patreon.com/posts/circle-26185788"}
+    "links": {
+      "patreon": "https://www.patreon.com/posts/circle-26185788"
+    }
   },
   {
     "type": "track",
@@ -1457,10 +1811,18 @@
     "title": "Typing Pool",
     "date": "2019-04-22",
     "duration": "35:41",
-    "series": ["Neuroplex", "Unlearn University"],
-    "tags": ["Narrative", "Mantric"],
+    "series": [
+      "Neuroplex",
+      "Unlearn University"
+    ],
+    "tags": [
+      "Narrative",
+      "Mantric"
+    ],
     "url": "https://www.patreon.com/posts/typing-pool-26288935",
-    "links": {"patreon": "https://www.patreon.com/posts/typing-pool-26288935"}
+    "links": {
+      "patreon": "https://www.patreon.com/posts/typing-pool-26288935"
+    }
   },
   {
     "type": "track",
@@ -1468,10 +1830,18 @@
     "title": "(d)um(b) game",
     "date": "2019-04-29",
     "duration": "49:44",
-    "series": ["Speech Control", "Unlearn University"],
-    "tags": ["Narrative", "Mantric"],
+    "series": [
+      "Speech Control",
+      "Unlearn University"
+    ],
+    "tags": [
+      "Narrative",
+      "Mantric"
+    ],
     "url": "https://www.patreon.com/posts/d-um-b-game-26456189",
-    "links": {"patreon": "https://www.patreon.com/posts/d-um-b-game-26456189"}
+    "links": {
+      "patreon": "https://www.patreon.com/posts/d-um-b-game-26456189"
+    }
   },
   {
     "type": "track",
@@ -1479,10 +1849,18 @@
     "title": "Mind Maze",
     "date": "2019-05-02",
     "duration": "10:40",
-    "series": ["Mantra Sync", "Mind Pop", "Dumb Bell"],
-    "tags": ["Mantric"],
+    "series": [
+      "Mantra Sync",
+      "Mind Pop",
+      "Dumb Bell"
+    ],
+    "tags": [
+      "Mantric"
+    ],
     "url": "https://www.patreon.com/posts/dumb-bell-9-mind-26555299",
-    "links": {"patreon": "https://www.patreon.com/posts/dumb-bell-9-mind-26555299"}
+    "links": {
+      "patreon": "https://www.patreon.com/posts/dumb-bell-9-mind-26555299"
+    }
   },
   {
     "type": "track",
@@ -1490,10 +1868,19 @@
     "title": "Repeat",
     "date": "2019-05-11",
     "duration": "15:49",
-    "series": ["Mantra Sync", "Mind Pop", "Dumb Bell"],
-    "tags": ["Mantric", "Narrative"],
+    "series": [
+      "Mantra Sync",
+      "Mind Pop",
+      "Dumb Bell"
+    ],
+    "tags": [
+      "Mantric",
+      "Narrative"
+    ],
     "url": "https://www.patreon.com/posts/repeat-dumb-bell-26789940",
-    "links": {"patreon": "https://www.patreon.com/posts/repeat-dumb-bell-26789940"}
+    "links": {
+      "patreon": "https://www.patreon.com/posts/repeat-dumb-bell-26789940"
+    }
   },
   {
     "type": "track",
@@ -1501,9 +1888,18 @@
     "title": "Web: Chapter Two Silken Strands",
     "date": "2019-05-21",
     "duration": "14:09",
-    "series": ["Mythic", "Xxboxx", "Ministry Of Halloween"],
-    "tags": ["Narrative", "Audio Drama"],
+    "series": [
+      "Mythic",
+      "Xxboxx",
+      "Ministry Of Halloween"
+    ],
+    "tags": [
+      "Narrative",
+      "Audio Drama"
+    ],
     "url": "https://www.patreon.com/posts/web-chapter-two-27122719",
-    "links": {"patreon": "https://www.patreon.com/posts/web-chapter-two-27122719"}
+    "links": {
+      "patreon": "https://www.patreon.com/posts/web-chapter-two-27122719"
+    }
   }
 ]
