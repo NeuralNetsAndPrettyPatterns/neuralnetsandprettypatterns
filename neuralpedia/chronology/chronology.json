@@ -6458,7 +6458,7 @@
       "patreon": "https://www.patreon.com/posts/puppet-show-cock-58706522"
     }
   },
-  {
+ {
     "type": "track",
     "id": "X97HSBA",
     "title": "Puppet Show Rubmix",
@@ -6475,6 +6475,950 @@
     "url": "https://www.patreon.com/posts/puppet-show-mix-58784931",
     "links": {
       "patreon": "https://www.patreon.com/posts/puppet-show-mix-58784931"
+    }
+  },
+  {
+    "type": "track",
+    "id": "DC2GZN3",
+    "title": "Babbling Brainless Barbie Voices",
+    "date": "2021-11-18",
+    "duration": "30:01",
+    "series": [
+      "Flesh Festival",
+      "Mind Pop"
+    ],
+    "tags": [
+      "Music",
+      "Mantric"
+    ],
+    "url": "https://www.patreon.com/posts/babbling-barbie-58880197",
+    "links": {
+      "patreon": "https://www.patreon.com/posts/babbling-barbie-58880197",
+      "spotify": "https://open.spotify.com/track/5j50jCr28hYXvCflYkmNrx",
+      "musicbrainz": "https://musicbrainz.org/recording/c3873ad9-a03a-45e1-bf86-6f8ee1c77a4b"
+    }
+  },
+  {
+    "type": "track",
+    "id": "RA79PMP",
+    "title": "Babbling Brainless Barbie Voices Haptics",
+    "date": "2021-11-19",
+    "duration": "30:01",
+    "series": [
+      "Flesh Festival",
+      "Mind Pop"
+    ],
+    "tags": [
+      "Music",
+      "Mantric",
+      "haptic"
+    ],
+    "url": "https://www.patreon.com/posts/barbie-voices-xt-58909480",
+    "links": {
+      "patreon": "https://www.patreon.com/posts/barbie-voices-xt-58909480",
+      "spotify": "https://open.spotify.com/track/5j50jCr28hYXvCflYkmNrx"
+    }
+  },
+  {
+    "type": "track",
+    "id": "LVMH5FP",
+    "title": "Fairies on Acid Rubmix",
+    "date": "2021-11-20",
+    "duration": "46:13",
+    "series": [
+      "Mythic",
+      "Fairy"
+    ],
+    "tags": [
+      "Narrative",
+      "Mantric"
+    ],
+    "url": "https://www.patreon.com/posts/fairy-on-acid-58950582",
+    "links": {
+      "patreon": "https://www.patreon.com/posts/fairy-on-acid-58950582"
+    }
+  },
+  {
+    "type": "track",
+    "id": "QCBP9VB",
+    "title": "Fairies on Acid Rubmix Haptics",
+    "date": "2021-11-20",
+    "duration": "46:13",
+    "series": [
+      "Mythic",
+      "Fairy"
+    ],
+    "tags": [
+      "Narrative",
+      "Mantric",
+      "haptic"
+    ],
+    "url": "https://www.patreon.com/posts/fairy-on-acid-xt-58956188",
+    "links": {
+      "patreon": "https://www.patreon.com/posts/fairy-on-acid-xt-58956188"
+    }
+  },
+  {
+    "type": "track",
+    "id": "T2GM9R8",
+    "title": "Fairies on Acid Strokemix",
+    "date": "2021-11-20",
+    "duration": "46:13",
+    "series": [
+      "Mythic",
+      "Fairy"
+    ],
+    "tags": [
+      "Narrative",
+      "Mantric"
+    ],
+    "url": "https://www.patreon.com/posts/fairies-on-acid-58950329",
+    "links": {
+      "patreon": "https://www.patreon.com/posts/fairies-on-acid-58950329"
+    }
+  },
+  {
+    "type": "track",
+    "id": "E9LRCE6",
+    "title": "Fairies on Acid Strokemix Haptics",
+    "date": "2021-11-20",
+    "duration": "46:13",
+    "series": [
+      "Mythic",
+      "Fairy"
+    ],
+    "tags": [
+      "Narrative",
+      "Mantric",
+      "haptic"
+    ],
+    "url": "https://www.patreon.com/posts/fairy-on-acid-xt-58956239",
+    "links": {
+      "patreon": "https://www.patreon.com/posts/fairy-on-acid-xt-58956239"
+    }
+  },
+  {
+    "type": "track",
+    "id": "R1TAAIC",
+    "title": "Homecoming",
+    "date": "2021-11-24",
+    "duration": "30:01",
+    "series": [
+      "Psyche Project"
+    ],
+    "tags": [
+      "Narrative",
+      "Mantric"
+    ],
+    "url": "https://www.patreon.com/posts/homecoming-59094793",
+    "links": {
+      "patreon": "https://www.patreon.com/posts/homecoming-59094793"
+    }
+  },
+  {
+    "type": "track",
+    "id": "K20HCDV",
+    "title": "Train My Brain",
+    "date": "2021-12-03",
+    "duration": "06:13",
+    "series": [
+      "Mind Pop"
+    ],
+    "tags": [
+      "Mantric"
+    ],
+    "url": "https://www.patreon.com/posts/train-my-brain-59477169",
+    "links": {
+      "patreon": "https://www.patreon.com/posts/train-my-brain-59477169",
+      "musicbrainz": "https://musicbrainz.org/recording/54996179-82d2-436b-84b6-ff125ec7b9e1"
+    }
+  },
+  {
+    "type": "track",
+    "id": "1CL7JYX",
+    "title": "Brain Tattoo",
+    "date": "2021-12-04",
+    "duration": "06:53",
+    "series": [
+      "Classic",
+      "Mind Pop"
+    ],
+    "tags": [
+      "Music",
+      "Mantric"
+    ],
+    "url": "https://www.patreon.com/posts/brain-tattoo-59531209",
+    "links": {
+      "patreon": "https://www.patreon.com/posts/brain-tattoo-59531209"
+    }
+  },
+  {
+    "type": "track",
+    "id": "5OC1PZ9",
+    "title": "Homecoming AllFem",
+    "date": "2021-12-07",
+    "duration": "27:48",
+    "series": [
+      "Mantra Sync",
+      "Psyche Project"
+    ],
+    "tags": [
+      "Narrative",
+      "Mantric"
+    ],
+    "url": "https://www.patreon.com/posts/homecoming-fem-59653025",
+    "links": {
+      "patreon": "https://www.patreon.com/posts/homecoming-fem-59653025"
+    }
+  },
+  {
+    "type": "track",
+    "id": "EWBNDWA",
+    "title": "Train My Brain Voicetrainer",
+    "date": "2021-12-10",
+    "duration": "14:28",
+    "series": [
+      "Mind Pop"
+    ],
+    "tags": [
+      "Mantric",
+      "trainer"
+    ],
+    "url": "https://www.patreon.com/posts/brain-trainer-59779973",
+    "links": {
+      "patreon": "https://www.patreon.com/posts/brain-trainer-59779973"
+    }
+  },
+  {
+    "type": "track",
+    "id": "RHHQRED",
+    "title": "Moonrise Rubmix",
+    "date": "2021-12-16",
+    "duration": "25:01",
+    "series": [
+      "Mantra Sync",
+      "Psyche Project"
+    ],
+    "tags": [
+      "Mantric"
+    ],
+    "url": "https://www.patreon.com/posts/moonrise-fem-mix-60007368",
+    "links": {
+      "patreon": "https://www.patreon.com/posts/moonrise-fem-mix-60007368"
+    }
+  },
+  {
+    "type": "track",
+    "id": "SZXH2Z2",
+    "title": "Dumb For Christmas",
+    "date": "2021-12-28",
+    "duration": "05:13",
+    "series": [
+      "HoLidays",
+      "XMass",
+      "Mind Pop"
+    ],
+    "tags": [
+      "Music"
+    ],
+    "url": "https://www.patreon.com/posts/dumb-for-60430640",
+    "links": {
+      "patreon": "https://www.patreon.com/posts/dumb-for-60430640"
+    }
+  },
+  {
+    "type": "track",
+    "id": "W1INBFE",
+    "title": "Tryout",
+    "date": "2021-12-31",
+    "duration": "30:01",
+    "series": [
+      "1 2 3 4"
+    ],
+    "tags": [
+      "Mantric"
+    ],
+    "url": "https://www.patreon.com/posts/tryout-60568795",
+    "links": {
+      "patreon": "https://www.patreon.com/posts/tryout-60568795"
+    }
+  },
+  {
+    "type": "track",
+    "id": "F9GW21B",
+    "title": "Tryout Trainer Haptics",
+    "date": "2022-01-01",
+    "duration": "30:03",
+    "series": [
+      "1 2 3 4"
+    ],
+    "tags": [
+      "Mantric",
+      "haptic"
+    ],
+    "url": "https://www.patreon.com/posts/tryout-trainer-60599796",
+    "links": {
+      "patreon": "https://www.patreon.com/posts/tryout-trainer-60599796"
+    }
+  },
+  {
+    "type": "track",
+    "id": "UCHXVDI",
+    "title": "Tryout: Just Mocha mix",
+    "date": "2022-01-02",
+    "duration": "30:01",
+    "series": [
+      "1 2 3 4"
+    ],
+    "tags": [
+      "Mantric"
+    ],
+    "url": "https://www.patreon.com/posts/tryout-just-mix-60657625",
+    "links": {
+      "patreon": "https://www.patreon.com/posts/tryout-just-mix-60657625"
+    }
+  },
+  {
+    "type": "track",
+    "id": "V63UY05",
+    "title": "Milk U Trigger: video",
+    "date": "2022-01-03",
+    "duration": "19:30",
+    "series": [
+      "Facility",
+      "Mind Pop"
+    ],
+    "tags": [
+      "Narrative",
+      "Mantric",
+      "video"
+    ],
+    "url": "https://www.patreon.com/posts/milk-u-bimbo-60698888",
+    "links": {
+      "patreon": "https://www.patreon.com/posts/milk-u-bimbo-60698888"
+    }
+  },
+  {
+    "type": "track",
+    "id": "7I6KD25",
+    "title": "Dum Enuf",
+    "date": "2022-01-05",
+    "duration": "19:30",
+    "series": [
+      "Flesh Festival",
+      "Mind Pop"
+    ],
+    "tags": [
+      "Music",
+      "Mantric"
+    ],
+    "url": "https://www.patreon.com/posts/dum-enuf-60787015",
+    "links": {
+      "patreon": "https://www.patreon.com/posts/dum-enuf-60787015",
+      "spotify": "https://open.spotify.com/track/0DzYKHOVQLwZio4QahP5sk",
+      "musicbrainz": "https://musicbrainz.org/recording/23e2df70-0143-4226-ad8a-58825ac3736e"
+    }
+  },
+  {
+    "type": "track",
+    "id": "LE177JB",
+    "title": "Dum Enuf Haptics",
+    "date": "2022-01-05",
+    "duration": "19:30",
+    "series": [
+      "Flesh Festival",
+      "Mind Pop"
+    ],
+    "tags": [
+      "Music",
+      "Mantric",
+      "haptic"
+    ],
+    "url": "https://www.patreon.com/posts/dum-enuf-xt-mix-60789797",
+    "links": {
+      "patreon": "https://www.patreon.com/posts/dum-enuf-xt-mix-60789797",
+      "spotify": "https://open.spotify.com/track/0DzYKHOVQLwZio4QahP5sk"
+    }
+  },
+  {
+    "type": "track",
+    "id": "M4O48IY",
+    "title": "Complex",
+    "date": "2022-01-21",
+    "duration": "34:40",
+    "series": [
+      "Mind Pop",
+      "Mouth Time"
+    ],
+    "tags": [
+      "Mantric"
+    ],
+    "url": "https://www.patreon.com/posts/complex-61480282",
+    "links": {
+      "patreon": "https://www.patreon.com/posts/complex-61480282"
+    }
+  },
+  {
+    "type": "track",
+    "id": "U2LDMZT",
+    "title": "Momo Rubmix",
+    "date": "2022-01-27",
+    "duration": "23:24",
+    "series": [
+      "Treatstick"
+    ],
+    "tags": [
+      "Narrative"
+    ],
+    "url": "https://www.patreon.com/posts/momo-mix-for-61710926",
+    "links": {
+      "patreon": "https://www.patreon.com/posts/momo-mix-for-61710926"
+    }
+  },
+  {
+    "type": "track",
+    "id": "71NA56X",
+    "title": "Momo Strokemix",
+    "date": "2022-01-27",
+    "duration": "23:24",
+    "series": [
+      "Treatstick"
+    ],
+    "tags": [
+      "Narrative"
+    ],
+    "url": "https://www.patreon.com/posts/momo-mix-for-men-61710970",
+    "links": {
+      "patreon": "https://www.patreon.com/posts/momo-mix-for-men-61710970"
+    }
+  },
+  {
+    "type": "track",
+    "id": "DUL86FT",
+    "title": "Proper Place",
+    "date": "2022-02-02",
+    "duration": "24:07",
+    "series": [
+      "Mouth Time",
+      "Treatstick"
+    ],
+    "tags": [
+      "Narrative",
+      "Mantric"
+    ],
+    "url": "https://www.patreon.com/posts/proper-place-62040468",
+    "links": {
+      "patreon": "https://www.patreon.com/posts/proper-place-62040468"
+    }
+  },
+  {
+    "type": "track",
+    "id": "O457AUO",
+    "title": "Proper Place Haptics",
+    "date": "2022-02-02",
+    "duration": "24:08",
+    "series": [
+      "Mouth Time",
+      "Treatstick"
+    ],
+    "tags": [
+      "Narrative",
+      "Mantric",
+      "haptic"
+    ],
+    "url": "https://www.patreon.com/posts/proper-place-xt-62040743",
+    "links": {
+      "patreon": "https://www.patreon.com/posts/proper-place-xt-62040743"
+    }
+  },
+  {
+    "type": "track",
+    "id": "WCV0XBP",
+    "title": "Purify: Mister",
+    "date": "2022-02-16",
+    "duration": "32:03",
+    "series": [
+      "Psyche Project"
+    ],
+    "tags": [
+      "Narrative",
+      "Mantric"
+    ],
+    "url": "https://www.patreon.com/posts/purify-masc-mix-62672037",
+    "links": {
+      "patreon": "https://www.patreon.com/posts/purify-masc-mix-62672037"
+    }
+  },
+  {
+    "type": "track",
+    "id": "1KBQIQE",
+    "title": "Brain Buzzed: Gimbo",
+    "date": "2022-03-15",
+    "duration": "18:51",
+    "series": [
+      "Brain Buzz",
+      "Ministry Of Halloween"
+    ],
+    "tags": [
+      "Mantric",
+      "Narrative"
+    ],
+    "url": "https://www.patreon.com/posts/brainbuzzed-63817145",
+    "links": {
+      "patreon": "https://www.patreon.com/posts/brainbuzzed-63817145"
+    }
+  },
+  {
+    "type": "track",
+    "id": "Y121EQF",
+    "title": "Fixator Voicetrainer",
+    "date": "2022-03-16",
+    "duration": null,
+    "series": [
+      "Mantra Sync",
+      "Mouth Time"
+    ],
+    "tags": [
+      "Mantric",
+      "trainer"
+    ],
+    "url": "https://www.patreon.com/posts/fixator-new-tech-63847898",
+    "links": {
+      "patreon": "https://www.patreon.com/posts/fixator-new-tech-63847898"
+    }
+  },
+  {
+    "type": "track",
+    "id": "VOQYPMW",
+    "title": "Brain Buzzed: Stepford",
+    "date": "2022-03-17",
+    "duration": "24:30",
+    "series": [
+      "Apron",
+      "Brain Buzz"
+    ],
+    "tags": [
+      "Mantric",
+      "Narrative"
+    ],
+    "url": "https://www.patreon.com/posts/brain-buzzed-63893354",
+    "links": {
+      "patreon": "https://www.patreon.com/posts/brain-buzzed-63893354"
+    }
+  },
+  {
+    "type": "track",
+    "id": "NW72GEM",
+    "title": "Babbling Hooer",
+    "date": "2022-03-18",
+    "duration": "25:00",
+    "series": [
+      "Treatstick",
+      "Mind Pop"
+    ],
+    "tags": [
+      "Music",
+      "Mantric",
+      "trainer"
+    ],
+    "url": "https://www.patreon.com/posts/babbling-whore-63981331",
+    "links": {
+      "patreon": "https://www.patreon.com/posts/babbling-whore-63981331"
+    }
+  },
+  {
+    "type": "track",
+    "id": "99IY3AH",
+    "title": "Purify: Miz",
+    "date": "2022-03-23",
+    "duration": "23:08",
+    "series": [
+      "Psyche Project"
+    ],
+    "tags": [
+      "Narrative",
+      "Mantric"
+    ],
+    "url": "https://www.patreon.com/posts/purify-fem-mix-64191416",
+    "links": {
+      "patreon": "https://www.patreon.com/posts/purify-fem-mix-64191416"
+    }
+  },
+  {
+    "type": "track",
+    "id": "53R8HFD",
+    "title": "Bimbology 101",
+    "date": "2022-03-25",
+    "duration": "30:43",
+    "series": [
+      "Deep Dream State",
+      "Metasloot"
+    ],
+    "tags": [
+      "Talk"
+    ],
+    "url": "https://www.patreon.com/posts/metaslut-talk-1-64246303",
+    "links": {
+      "patreon": "https://www.patreon.com/posts/metaslut-talk-1-64246303"
+    }
+  },
+  {
+    "type": "track",
+    "id": "UZOXJWG",
+    "title": "Warped: Ring of Kees",
+    "date": "2022-03-30",
+    "duration": "21:09",
+    "series": [
+      "Mythic"
+    ],
+    "tags": [
+      "Narrative"
+    ],
+    "url": "https://www.patreon.com/posts/warped-kees-mix-64498750",
+    "links": {
+      "patreon": "https://www.patreon.com/posts/warped-kees-mix-64498750"
+    }
+  },
+  {
+    "type": "track",
+    "id": "IS2FAAW",
+    "title": "Rabbit Hole For Him",
+    "date": "2022-04-07",
+    "duration": "20:25",
+    "series": [
+      "Mouth Time",
+      "Bunny Club"
+    ],
+    "tags": [
+      "Narrative",
+      "Mantric"
+    ],
+    "url": "https://www.patreon.com/posts/rabbit-hole-for-64818003",
+    "links": {
+      "patreon": "https://www.patreon.com/posts/rabbit-hole-for-64818003"
+    }
+  },
+  {
+    "type": "track",
+    "id": "UTHHRWH",
+    "title": "Rabbit Hole",
+    "date": "2022-04-08",
+    "duration": "20:26",
+    "series": [
+      "Mouth Time",
+      "Bunny Club"
+    ],
+    "tags": [
+      "Narrative",
+      "Mantric"
+    ],
+    "url": "https://www.patreon.com/posts/rabbit-hole-mix-64897546",
+    "links": {
+      "patreon": "https://www.patreon.com/posts/rabbit-hole-mix-64897546"
+    }
+  },
+  {
+    "type": "track",
+    "id": "PNHVYM9",
+    "title": "Rabbit Hole Haptics",
+    "date": "2022-04-08",
+    "duration": "20:26",
+    "series": [
+      "Mouth Time",
+      "Bunny Club"
+    ],
+    "tags": [
+      "Narrative",
+      "Mantric",
+      "haptic"
+    ],
+    "url": "https://www.patreon.com/posts/rabbit-hole-mix-64897812",
+    "links": {
+      "patreon": "https://www.patreon.com/posts/rabbit-hole-mix-64897812"
+    }
+  },
+  {
+    "type": "track",
+    "id": "386_haptic",
+    "title": "Deepest Hole Haptics",
+    "date": "2022-04-13",
+    "duration": "20:11",
+    "series": [
+      "Mind Pop",
+      "Bunny Club"
+    ],
+    "tags": [
+      "Music",
+      "Mantric",
+      "haptic"
+    ],
+    "url": "https://www.patreon.com/posts/deepest-hole-ep-65110369",
+    "links": {
+      "patreon": "https://www.patreon.com/posts/deepest-hole-ep-65110369"
+    }
+  },
+  {
+    "type": "track",
+    "id": "E0DP4MG",
+    "title": "Deepest Hole: Rabbit Hole Dance Mix",
+    "date": "2022-04-13",
+    "duration": "20:11",
+    "series": [
+      "Mind Pop",
+      "Bunny Club"
+    ],
+    "tags": [
+      "Music",
+      "Mantric"
+    ],
+    "url": "https://www.patreon.com/posts/deepest-hole-65110299",
+    "links": {
+      "patreon": "https://www.patreon.com/posts/deepest-hole-65110299"
+    }
+  },
+  {
+    "type": "track",
+    "id": "3OB9P3Q",
+    "title": "Maidenful",
+    "date": "2022-04-17",
+    "duration": "23:32",
+    "series": [
+      "Ministry Of Halloween",
+      "Xxboxx"
+    ],
+    "tags": [
+      "Narrative"
+    ],
+    "url": "https://www.patreon.com/posts/maidenful-65273068",
+    "links": {
+      "patreon": "https://www.patreon.com/posts/maidenful-65273068"
+    }
+  },
+  {
+    "type": "track",
+    "id": "XUH2JZO",
+    "title": "Drone Wave",
+    "date": "2022-04-28",
+    "duration": "22:31",
+    "series": [
+      "Wavetrained",
+      "Swarm"
+    ],
+    "tags": [
+      "Mantric",
+      "Narrative"
+    ],
+    "url": "https://www.patreon.com/posts/drone-wave-65696954",
+    "links": {
+      "patreon": "https://www.patreon.com/posts/drone-wave-65696954"
+    }
+  },
+  {
+    "type": "track",
+    "id": "9JOLLIH",
+    "title": "Drone Wave Haptics",
+    "date": "2022-04-28",
+    "duration": "22:32",
+    "series": [
+      "Wavetrained",
+      "Swarm"
+    ],
+    "tags": [
+      "Mantric",
+      "Narrative",
+      "haptic"
+    ],
+    "url": "https://www.patreon.com/posts/dronewave-haptic-65748151",
+    "links": {
+      "patreon": "https://www.patreon.com/posts/dronewave-haptic-65748151"
+    }
+  },
+  {
+    "type": "track",
+    "id": "PINIH9Y",
+    "title": "Drone Tank",
+    "date": "2022-05-03",
+    "duration": "30:01",
+    "series": [
+      "Wavetrained",
+      "Swarm"
+    ],
+    "tags": [
+      "Mantric"
+    ],
+    "url": "https://www.patreon.com/posts/drone-tank-65984754",
+    "links": {
+      "patreon": "https://www.patreon.com/posts/drone-tank-65984754",
+      "musicbrainz": "https://musicbrainz.org/recording/c7737923-3b0a-45c5-836c-74eb79bd937f"
+    }
+  },
+  {
+    "type": "track",
+    "id": "4ZSB0FK",
+    "title": "Drone Tank Haptics",
+    "date": "2022-05-05",
+    "duration": "30:01",
+    "series": [
+      "Wavetrained",
+      "Swarm"
+    ],
+    "tags": [
+      "Mantric",
+      "haptic"
+    ],
+    "url": "https://www.patreon.com/posts/drone-tank-66032935",
+    "links": {
+      "patreon": "https://www.patreon.com/posts/drone-tank-66032935"
+    }
+  },
+  {
+    "type": "track",
+    "id": "46LQZWB",
+    "title": "Only Fun",
+    "date": "2022-05-13",
+    "duration": "15:59",
+    "series": [
+      "Display Loop",
+      "Apron"
+    ],
+    "tags": [
+      "Narrative"
+    ],
+    "url": "https://www.patreon.com/posts/only-fans-66403633",
+    "links": {
+      "patreon": "https://www.patreon.com/posts/only-fans-66403633"
+    }
+  },
+  {
+    "type": "track",
+    "id": "5EQKZ1C",
+    "title": "Hump Wave",
+    "date": "2022-06-03",
+    "duration": "32:35",
+    "series": [
+      "Wavetrained"
+    ],
+    "tags": [
+      "Mantric",
+      "Narrative"
+    ],
+    "url": "https://www.patreon.com/posts/hump-wave-67323319",
+    "links": {
+      "patreon": "https://www.patreon.com/posts/hump-wave-67323319"
+    }
+  },
+  {
+    "type": "track",
+    "id": "X90LNM2",
+    "title": "Umlearn",
+    "date": "2022-06-13",
+    "duration": "23:11",
+    "series": [
+      "Speech Control",
+      "Unlearn University"
+    ],
+    "tags": [
+      "Narrative",
+      "Mantric"
+    ],
+    "url": "https://www.patreon.com/posts/umlearn-67709614",
+    "links": {
+      "patreon": "https://www.patreon.com/posts/umlearn-67709614"
+    }
+  },
+  {
+    "type": "track",
+    "id": "R8CO5FZ",
+    "title": "Umlearn Haptics",
+    "date": "2022-06-15",
+    "duration": "23:11",
+    "series": [
+      "Speech Control",
+      "Unlearn University"
+    ],
+    "tags": [
+      "Narrative",
+      "Mantric",
+      "haptic"
+    ],
+    "url": "https://www.patreon.com/posts/umlearn-haptics-67801899",
+    "links": {
+      "patreon": "https://www.patreon.com/posts/umlearn-haptics-67801899"
+    }
+  },
+  {
+    "type": "track",
+    "id": "FTAT0RR",
+    "title": "Umlearn AllFem",
+    "date": "2022-06-21",
+    "duration": "22:20",
+    "series": [
+      "Speech Control",
+      "Unlearn University"
+    ],
+    "tags": [
+      "Narrative",
+      "Mantric"
+    ],
+    "url": "https://www.patreon.com/posts/umlearn-all-fem-68079998",
+    "links": {
+      "patreon": "https://www.patreon.com/posts/umlearn-all-fem-68079998"
+    }
+  },
+  {
+    "type": "track",
+    "id": "PM8EH7S",
+    "title": "Cumplicate",
+    "date": "2022-06-22",
+    "duration": "48:49",
+    "series": [
+      "Mind Pop",
+      "Mouth Time"
+    ],
+    "tags": [
+      "Mantric"
+    ],
+    "url": "https://www.patreon.com/posts/cumplicate-68129831",
+    "links": {
+      "patreon": "https://www.patreon.com/posts/cumplicate-68129831"
+    }
+  },
+  {
+    "type": "track",
+    "id": "DE6FEF8",
+    "title": "Cumplicate Haptics",
+    "date": "2022-06-22",
+    "duration": "48:48",
+    "series": [
+      "Mind Pop",
+      "Mouth Time"
+    ],
+    "tags": [
+      "Mantric",
+      "haptic"
+    ],
+    "url": "https://www.patreon.com/posts/cumplicate-68134507",
+    "links": {
+      "patreon": "https://www.patreon.com/posts/cumplicate-68134507"
+    }
+  },
+  {
+    "type": "track",
+    "id": "ST9LT97",
+    "title": "Influence",
+    "date": "2022-06-30",
+    "duration": "40:05",
+    "series": [
+      "Deep Dream State",
+      "Display Loop"
+    ],
+    "tags": [
+      "Narrative",
+      "Audio Drama"
+    ],
+    "url": "https://www.patreon.com/posts/influence-68494690",
+    "links": {
+      "patreon": "https://www.patreon.com/posts/influence-68494690"
     }
   }
 ]
