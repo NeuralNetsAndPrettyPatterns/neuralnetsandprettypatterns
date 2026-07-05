@@ -172,7 +172,22 @@ export default {
       });
     }
 
-    // Images anywhere in the site
+    // Deep Dream State migrated arc pages and assets
+    // New main repo file wins when present.
+    // Missing main repo file falls back to the legacy Deep Dream State site.
+    // This must run before the generic image handler so migrated arc images can use fallback too.
+    if (
+      p === "/deepdreamstate/arcs/chthonic" ||
+      p.startsWith("/deepdreamstate/arcs/chthonic/") ||
+      p === "/deepdreamstate/arcs/incognitoh" ||
+      p.startsWith("/deepdreamstate/arcs/incognitoh/") ||
+      p === "/deepdreamstate/arcs/sitri" ||
+      p.startsWith("/deepdreamstate/arcs/sitri/")
+    ) {
+      return serveMigratedDeepDreamStatePathWithFallback(p, url);
+    }
+
+    // Images anywhere else in the site
     {
       const ct = imgType(p);
       if (ct) return serveAsset(p, ct);
@@ -311,20 +326,6 @@ export default {
     // Deep Dream State arcs index
     if (p === "/deepdreamstate/arcs" || p === "/deepdreamstate/arcs/") {
       return serveHtml("/deepdreamstate/arcs/index.html", true);
-    }
-
-    // Deep Dream State migrated arc pages
-    // New main repo page wins when present.
-    // Missing main repo page falls back to the legacy Deep Dream State site.
-    if (
-      p === "/deepdreamstate/arcs/chthonic" ||
-      p.startsWith("/deepdreamstate/arcs/chthonic/") ||
-      p === "/deepdreamstate/arcs/incognitoh" ||
-      p.startsWith("/deepdreamstate/arcs/incognitoh/") ||
-      p === "/deepdreamstate/arcs/sitri" ||
-      p.startsWith("/deepdreamstate/arcs/sitri/")
-    ) {
-      return serveMigratedDeepDreamStatePathWithFallback(p, url);
     }
 
     // Deep Dream State home
