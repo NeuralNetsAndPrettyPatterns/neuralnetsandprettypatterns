@@ -1,0 +1,116 @@
+{
+  "arc": "Vale Four",
+  "path": "/deepdreamstate/arcs/vale-four/",
+  "episodes": [
+    {
+      "seasonEpisode": "S4E1",
+      "globalEpisode": "GE28",
+      "title": "Refrain",
+      "topic": "Earworm",
+      "cycle": "Hooks Cycle",
+      "path": "/deepdreamstate/arcs/vale-four/episode-1-refrain/",
+      "blubrry": "https://deepdreamstate.blubrry.net/arc-4-vale-four-episode-1-refrain/",
+      "musicBrainz": "https://musicbrainz.org/release/fe7c4e39-92e2-4877-bb9a-d83680900537",
+      "imdb": "https://www.imdb.com/title/tt40549238/"
+    },
+    {
+      "seasonEpisode": "S4E2",
+      "globalEpisode": "GE29",
+      "title": "Hook Line",
+      "topic": "Neuromarketing",
+      "cycle": "Hooks Cycle",
+      "path": "/deepdreamstate/arcs/vale-four/episode-2-hook-line/",
+      "blubrry": "https://deepdreamstate.blubrry.net/arc-4-vale-four-episode-2-hook-line/",
+      "musicBrainz": "https://musicbrainz.org/release/8743ee6f-7cbd-4ede-b49f-1e239148151c",
+      "imdb": "https://www.imdb.com/title/tt40650987/"
+    },
+    {
+      "seasonEpisode": "S4E3",
+      "globalEpisode": "GE30",
+      "title": "Sinker",
+      "topic": "Involuntary Musical Imagery",
+      "cycle": "Hooks Cycle",
+      "path": "/deepdreamstate/arcs/vale-four/episode-3-sinker/",
+      "blubrry": "https://deepdreamstate.blubrry.net/arc-4-vale-four-episode-3-sinker/",
+      "musicBrainz": "https://musicbrainz.org/release/97fc9044-9d4a-44c8-b808-2a08a99030f4",
+      "imdb": "https://www.imdb.com/title/tt41157291/"
+    },
+    {
+      "seasonEpisode": "S4E4",
+      "globalEpisode": "GE31",
+      "title": "Slowplay",
+      "topic": "Behavioral Economics",
+      "cycle": "Tell Cycle",
+      "path": "/deepdreamstate/arcs/vale-four/episode-4-slowplay/",
+      "blubrry": "https://deepdreamstate.blubrry.net/arc-4-vale-four-episode-4-slowplay/",
+      "musicBrainz": "https://musicbrainz.org/release/ae9df685-3e3f-46e7-ad5e-d12a8f2bb3c9",
+      "imdb": "https://www.imdb.com/title/tt41411348/"
+    },
+    {
+      "seasonEpisode": "S4E5",
+      "globalEpisode": "GE32",
+      "title": "Raise",
+      "topic": "Microexpression Detection",
+      "cycle": "Tell Cycle",
+      "path": "/deepdreamstate/arcs/vale-four/episode-5-raise/",
+      "blubrry": "https://deepdreamstate.blubrry.net/arc-4-vale-four-cycle-two-tell-episode-5-raise/",
+      "musicBrainz": "https://musicbrainz.org/release/592676a7-2635-4d78-b22f-f1193adf4fe5",
+      "imdb": "https://www.imdb.com/title/tt41635189/"
+    },
+    {
+      "seasonEpisode": "S4E6",
+      "globalEpisode": "GE33",
+      "title": "Pot Limit",
+      "topic": "Behavioral Telemetry",
+      "cycle": "Tell Cycle",
+      "path": "/deepdreamstate/arcs/vale-four/episode-6-pot-limit/",
+      "blubrry": "https://deepdreamstate.blubrry.net/pot-limit-vale-four-tell-cycle/",
+      "musicBrainz": "https://musicbrainz.org/release/08650d18-3db6-4708-a87b-cf3b2d3934e4",
+      "imdb": "https://www.imdb.com/title/tt41841536/"
+    },
+    {
+      "seasonEpisode": "S4E7",
+      "globalEpisode": "GE34",
+      "title": "The River",
+      "topic": "Recalibration",
+      "cycle": "Tell Cycle",
+      "path": "/deepdreamstate/arcs/vale-four/episode-7-the-river/",
+      "blubrry": "https://deepdreamstate.blubrry.net/the-river-vale-four-tell-cycle/",
+      "musicBrainz": "https://musicbrainz.org/release/c46b925a-217c-463b-b326-f481a198d5ea",
+      "imdb": "https://www.imdb.com/title/tt42203143/"
+    },
+    {
+      "seasonEpisode": "S4E8",
+      "globalEpisode": "GE35",
+      "title": "Quiver",
+      "topic": "Microtargeting",
+      "cycle": "Targeted Cycle",
+      "path": "/deepdreamstate/arcs/vale-four/episode-8-quiver/",
+      "blubrry": "https://deepdreamstate.blubrry.net/quiver-vale-four-targeted-cycle/",
+      "musicBrainz": "https://musicbrainz.org/release/fcd2f5ae-e38f-42a9-a483-1930cb86b1e5",
+      "imdb": "https://www.imdb.com/title/tt42812117/"
+    },
+    {
+      "seasonEpisode": "S4E9",
+      "globalEpisode": "GE36",
+      "title": "Nock",
+      "topic": "Microtargeting",
+      "cycle": "Targeted Cycle",
+      "path": "/deepdreamstate/arcs/vale-four/episode-9-nock/",
+      "blubrry": "https://deepdreamstate.blubrry.net/nock-vale-four-s4e9/",
+      "musicBrainz": "https://musicbrainz.org/release/23988d90-4889-4fbd-9fad-312411aa24ba",
+      "imdb": "https://www.imdb.com/title/tt43393347/"
+    },
+    {
+      "seasonEpisode": "S4E10",
+      "globalEpisode": "GE37",
+      "title": "Bullseye",
+      "topic": "Microtargeting",
+      "cycle": "Targeted Cycle",
+      "path": "/deepdreamstate/arcs/vale-four/episode-10-bullseye/",
+      "blubrry": "https://deepdreamstate.blubrry.net/bullseye-vale-four-s4e10-ge37/",
+      "musicBrainz": "https://musicbrainz.org/release/23988d90-4889-4fbd-9fad-312411aa24ba",
+      "imdb": "https://www.imdb.com/title/tt43525295/"
+    }
+  ]
+}
