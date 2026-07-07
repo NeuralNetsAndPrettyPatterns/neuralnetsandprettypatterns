@@ -672,19 +672,8 @@ h2 {
 
         <div class="section-divider"></div>
 
-        <h2>All Vale Four Episodes</h2>
-        <div class="content-section">
-            <p>GE28 / S4E1: <a href="/deepdreamstate/arcs/vale-four/episode-1-refrain/">Refrain</a></p>
-            <p>GE29 / S4E2: <a href="/deepdreamstate/arcs/vale-four/episode-2-hook-line/">Hook Line</a></p>
-            <p>GE30 / S4E3: <a href="/deepdreamstate/arcs/vale-four/episode-3-sinker/">Sinker</a></p>
-            <p>GE31 / S4E4: <a href="/deepdreamstate/arcs/vale-four/episode-4-slowplay/">Slowplay</a></p>
-            <p>GE32 / S4E5: <a href="/deepdreamstate/arcs/vale-four/episode-5-raise/">Raise</a></p>
-            <p>GE33 / S4E6: <a href="/deepdreamstate/arcs/vale-four/episode-6-pot-limit/">Pot Limit</a></p>
-            <p>GE34 / S4E7: <a href="/deepdreamstate/arcs/vale-four/episode-7-the-river/">The River</a></p>
-            <p>GE35 / S4E8: <a href="/deepdreamstate/arcs/vale-four/episode-8-quiver/">Quiver</a></p>
-            <p>GE36 / S4E9: <a href="/deepdreamstate/arcs/vale-four/episode-9-nock/">Nock</a></p>
-            <p>GE37 / S4E10: <a href="/deepdreamstate/arcs/vale-four/episode-10-bullseye/">Bullseye</a></p>
-        </div>
+        <h2>Vale Four Episodes</h2>
+        <div id="vale-four-episode-list" class="content-section" aria-live="polite"></div>
 
         <div class="section-divider"></div>
 
@@ -724,6 +713,51 @@ h2 {
     </main>
 
     <script>
+        const episodeList = document.getElementById('vale-four-episode-list');
+
+        function escapeHtml(value) {
+            return String(value).replace(/[&<>"']/g, character => ({
+                '&': '&amp;',
+                '<': '&lt;',
+                '>': '&gt;',
+                '"': '&quot;',
+                "'": '&#39;'
+            }[character]));
+        }
+
+        function externalLink(url, label) {
+            if (!url) return '';
+            return `<a href="${escapeHtml(url)}" target="_blank" rel="noopener">${label}</a>`;
+        }
+
+        fetch('/deepdreamstate/arcs/vale-four/episodes.json')
+            .then(response => {
+                if (!response.ok) throw new Error('Episode manifest could not load.');
+                return response.json();
+            })
+            .then(data => {
+                episodeList.innerHTML = data.episodes.map(ep => {
+                    const links = [
+                        externalLink(ep.blubrry, 'Blubrry'),
+                        externalLink(ep.musicBrainz, 'MusicBrainz'),
+                        externalLink(ep.imdb, 'IMDb')
+                    ].filter(Boolean).join(' | ');
+
+                    const topicLine = [ep.topic, ep.cycle].filter(Boolean).map(escapeHtml).join(', ');
+
+                    return `
+                        <p>
+                            ${escapeHtml(ep.globalEpisode)} / ${escapeHtml(ep.seasonEpisode)}: <a href="${escapeHtml(ep.path)}">${escapeHtml(ep.title)}</a>
+                            ${topicLine ? `<br><em>${topicLine}</em>` : ''}
+                            ${links ? `<br>${links}` : ''}
+                        </p>
+                    `;
+                }).join('');
+            })
+            .catch(() => {
+                episodeList.innerHTML = '<p><a href="/deepdreamstate/arcs/vale-four/">Vale Four Arc Hub</a></p>';
+            });
+
         const bgContainer = document.getElementById('background-container');
         bgContainer.style.backgroundImage = 'url(/deepdreamstate/arcs/vale-four/dds-vale-four-episode-01-refrain.webp)';
     </script>
