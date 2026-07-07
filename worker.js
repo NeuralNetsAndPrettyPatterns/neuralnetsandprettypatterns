@@ -182,7 +182,9 @@ export default {
       p === "/deepdreamstate/arcs/incognitoh" ||
       p.startsWith("/deepdreamstate/arcs/incognitoh/") ||
       p === "/deepdreamstate/arcs/sitri" ||
-      p.startsWith("/deepdreamstate/arcs/sitri/")
+      p.startsWith("/deepdreamstate/arcs/sitri/") ||
+      p === "/deepdreamstate/arcs/vale-four" ||
+      p.startsWith("/deepdreamstate/arcs/vale-four/")
     ) {
       return serveMigratedDeepDreamStatePathWithFallback(p, url);
     }
