@@ -156,9 +156,9 @@
     }
     .page-header p {
       font-size: 1.05rem;
-      opacity: 0.75;
+      opacity: 1;
       font-style: italic;
-      color: var(--text-dim);
+      color: var(--text-bright);
       line-height: 1.6;
     }
     .nav-buttons {
@@ -228,7 +228,7 @@
       margin-bottom: 1.4rem;
       font-size: 1rem;
       line-height: 1.75;
-      color: var(--text-dim);
+      color: var(--text-bright);
     }
     .form-grid {
       display: grid;
@@ -249,12 +249,12 @@
       font-size: 0.7rem;
       letter-spacing: 0.14em;
       text-transform: uppercase;
-      color: var(--text-dim);
+      color: var(--text-bright);
     }
     label .optional-note {
       text-transform: none;
       letter-spacing: normal;
-      opacity: 0.75;
+      opacity: 1;
     }
     input,
     select,
@@ -283,6 +283,10 @@
     select {
       appearance: auto;
     }
+    select option {
+      color: #000;
+      background: #fff;
+    }
     textarea {
       min-height: 180px;
       resize: vertical;
@@ -304,7 +308,7 @@
     }
     .category-panel p {
       grid-column: 1 / -1;
-      color: var(--text-dim);
+      color: var(--text-bright);
       line-height: 1.6;
       font-size: 0.92rem;
     }
@@ -312,8 +316,8 @@
       font-family: var(--serif);
       font-size: 0.85rem;
       line-height: 1.45;
-      color: var(--text-dim);
-      opacity: 0.85;
+      color: var(--text-bright);
+      opacity: 1;
     }
 
     fieldset {
@@ -358,7 +362,7 @@
       letter-spacing: normal;
       line-height: 1.45;
       text-transform: none;
-      color: var(--text);
+      color: var(--text-bright);
     }
     .choice input {
       width: auto;
@@ -424,7 +428,7 @@
       min-height: 1.4rem;
       font-size: 0.85rem;
       line-height: 1.5;
-      color: var(--text-dim);
+      color: var(--text-bright);
     }
     .form-status.success {
       color: #a8d5b5;
@@ -438,7 +442,7 @@
       border-top: 1px solid var(--border);
       font-size: 0.85rem;
       line-height: 1.6;
-      color: var(--text-dim);
+      color: var(--text-bright);
     }
     .footer-credit {
       display: flex;
@@ -532,18 +536,18 @@
     <form id="contact-form" action="/api/contact" method="POST" novalidate>
       <div class="form-grid">
         <div class="form-row">
-          <label id="name-label" for="name">Name <span class="optional-note">(optional)</span></label>
+          <label id="name-label" for="name">What should we call you?</label>
           <input id="name" name="name" type="text" autocomplete="name" maxlength="120" placeholder="Your name">
           <span class="field-note" id="name-note" hidden>Please indicate your preferred stage name. Should you audition successfully, this is the name that will be used for official credits, including IMDb credits. Be sure that it accurately reflects your preferences.</span>
         </div>
 
         <div class="form-row">
-          <label for="email">Email</label>
+          <label for="email">What email should we use?</label>
           <input id="email" name="email" type="email" autocomplete="email" maxlength="254" placeholder="you@example.com">
         </div>
 
         <div class="form-row full">
-          <label for="category">Subject category</label>
+          <label id="category-label" for="category">What is this about?</label>
           <select id="category" name="category">
             <option value="">Pick a category</option>
             <option value="voice-auditions">Voice auditions</option>
@@ -559,7 +563,7 @@
           <p class="audition-intro">We strongly believe in informed consent and protecting voice actors. These forms are detailed. That’s partially administrative, but it’s primarily to ensure informed consent.</p>
 
           <div class="form-row">
-            <label for="demo-link">Demo link <span class="optional-note">(optional)</span></label>
+            <label for="demo-link">Demo link</label>
             <input id="demo-link" name="demo_link" type="url" maxlength="500" placeholder="https://...">
             <span class="field-note">Link to audio, reel, profile, or sample work.</span>
           </div>
@@ -570,7 +574,7 @@
           </div>
 
           <div class="form-row full">
-            <label for="public-links">Public links <span class="optional-note">(optional)</span></label>
+            <label for="public-links">Public links</label>
             <input id="public-links" name="public_links" type="text" maxlength="700" placeholder="Website, social, credits, link hub">
             <span class="field-note">Please fill this in with your public links. Should you audition successfully, these are the links that will be publicly listed with your credit. Make sure that these entries accurately reflect your preferences.</span>
           </div>
@@ -638,8 +642,8 @@
               <label>I am auditioning for the following.</label>
               <div class="choice-list" id="audition-target-group">
                 <label class="choice" for="audition-target-any">
-                  <input id="audition-target-any" name="audition_target" type="checkbox" value="Any and all" data-audition-target>
-                  <span>Any and all.</span>
+                  <input id="audition-target-any" name="audition_target" type="checkbox" value="All" data-audition-target>
+                  <span>All</span>
                 </label>
                 <label class="choice" for="audition-target-dds">
                   <input id="audition-target-dds" name="audition_target" type="checkbox" value="Deep Dream State audio drama" data-audition-target>
@@ -650,7 +654,7 @@
                   <span>Neuralverse Productions.</span>
                 </label>
               </div>
-              <span class="field-note">Choosing “Any and all” will open the acknowledgements for both project types.</span>
+              <span class="field-note">Choosing “All” will open the acknowledgements for both project types.</span>
             </div>
 
             <div class="conditional-block is-hidden" data-conditional="target-dds">
@@ -675,8 +679,8 @@
               <label>Please indicate the types of performance you want to engage.</label>
               <div class="choice-list">
                 <label class="choice" for="performance-any">
-                  <input id="performance-any" name="performance_type" type="radio" value="Any and all" data-audition-required>
-                  <span>Any and all.</span>
+                  <input id="performance-any" name="performance_type" type="radio" value="All" data-audition-required>
+                  <span>All</span>
                 </label>
                 <label class="choice" for="performance-dominant">
                   <input id="performance-dominant" name="performance_type" type="radio" value="Dominant partner only" data-audition-required>
@@ -705,7 +709,7 @@
             </div>
 
             <div class="form-row full">
-              <label for="limits-preferences-squicks">Limits, preferences, and squicks <span class="optional-note">(optional)</span></label>
+              <label for="limits-preferences-squicks">Limits, preferences, and squicks</label>
               <textarea id="limits-preferences-squicks" name="limits_preferences_squicks" maxlength="1800" placeholder="Use this space for limits, preferences, topics you love, topics you avoid, or anything important for casting."></textarea>
               <span class="field-note">You are always free to enforce your own limits. They are fundamental. If you have particular preferences or squicks, note them here. Please understand that casting calls aren’t always individualized; you’re always empowered to turn down scripts that aren’t your jam.</span>
             </div>
@@ -717,6 +721,10 @@
             <div class="form-row full">
               <label>Please indicate your preference for emails.</label>
               <div class="choice-list">
+                <label class="choice" for="email-pref-all">
+                  <input id="email-pref-all" name="email_preference" type="radio" value="All" data-audition-required>
+                  <span>All</span>
+                </label>
                 <label class="choice" for="email-pref-dds">
                   <input id="email-pref-dds" name="email_preference" type="radio" value="Deep Dream State casting emails" data-audition-required>
                   <span>I want to receive emails related to Deep Dream State casting.</span>
@@ -724,10 +732,6 @@
                 <label class="choice" for="email-pref-neuralverse">
                   <input id="email-pref-neuralverse" name="email_preference" type="radio" value="Neuralverse Productions casting scripts" data-audition-required>
                   <span>I want to receive scripts related to Neuralverse Productions casting.</span>
-                </label>
-                <label class="choice" for="email-pref-all">
-                  <input id="email-pref-all" name="email_preference" type="radio" value="All of the above" data-audition-required>
-                  <span>All of the above.</span>
                 </label>
                 <label class="choice" for="email-pref-none">
                   <input id="email-pref-none" name="email_preference" type="radio" value="None of the above" data-audition-required>
@@ -761,7 +765,7 @@
 
             <div class="conditional-block is-hidden" data-conditional="discord-handle">
               <div class="form-row full">
-                <label for="discord-handle">Discord handle <span class="optional-note">(optional)</span></label>
+                <label for="discord-handle">Discord handle</label>
                 <input id="discord-handle" name="discord_handle" type="text" maxlength="180" placeholder="Your Discord handle">
               </div>
             </div>
@@ -786,7 +790,7 @@
 
             <div class="conditional-block is-hidden" data-conditional="reddit-id">
               <div class="form-row full">
-                <label for="reddit-id">Reddit ID <span class="optional-note">(optional)</span></label>
+                <label for="reddit-id">Reddit ID</label>
                 <input id="reddit-id" name="reddit_id" type="text" maxlength="180" placeholder="u/username">
               </div>
             </div>
@@ -932,6 +936,7 @@
   const nameInput = document.getElementById('name');
   const emailInput = document.getElementById('email');
   const nameLabel = document.getElementById('name-label');
+  const categoryLabel = document.getElementById('category-label');
   const nameNote = document.getElementById('name-note');
 
   function isAuditionSelected() {
@@ -966,13 +971,15 @@
   function updateSharedIdentity() {
     const audition = isAuditionSelected();
     if (audition) {
-      nameLabel.innerHTML = 'Stage name';
+      nameLabel.textContent = 'Stage name';
+      if (categoryLabel) categoryLabel.textContent = 'Audition form';
       nameInput.placeholder = 'Preferred stage name';
       nameNote.hidden = false;
       setRequired(nameInput, true);
       setRequired(emailInput, true);
     } else {
-      nameLabel.innerHTML = 'Name <span class="optional-note">(optional)</span>';
+      nameLabel.textContent = 'What should we call you?';
+      if (categoryLabel) categoryLabel.textContent = 'What is this about?';
       nameInput.placeholder = 'Your name';
       nameNote.hidden = true;
       setRequired(nameInput, false);
