@@ -306,6 +306,12 @@
       grid-template-columns: 1fr 1fr;
       gap: 1rem;
     }
+
+    #category-row[hidden],
+    #message-row[hidden],
+    .form-row[hidden] {
+      display: none !important;
+    }
     .category-panel p {
       grid-column: 1 / -1;
       color: var(--text-bright);
@@ -975,8 +981,12 @@
     if (audition) {
       nameLabel.textContent = 'Stage name';
       if (categoryRow) categoryRow.hidden = true;
-      if (messageRow) messageRow.hidden = true;
-      if (messageField) messageField.disabled = true;
+      if (messageRow) {
+        messageRow.hidden = true;
+        messageRow.querySelectorAll('input, select, textarea').forEach(field => {
+          field.disabled = true;
+        });
+      }
       nameInput.placeholder = 'Preferred stage name';
       nameNote.hidden = false;
       setRequired(nameInput, true);
@@ -985,8 +995,12 @@
       nameLabel.textContent = 'What should we call you?';
       if (categoryRow) categoryRow.hidden = false;
       if (categoryLabel) categoryLabel.textContent = 'What is this about?';
-      if (messageRow) messageRow.hidden = false;
-      if (messageField) messageField.disabled = false;
+      if (messageRow) {
+        messageRow.hidden = false;
+        messageRow.querySelectorAll('input, select, textarea').forEach(field => {
+          field.disabled = false;
+        });
+      }
       nameInput.placeholder = 'Your name';
       nameNote.hidden = true;
       setRequired(nameInput, false);
