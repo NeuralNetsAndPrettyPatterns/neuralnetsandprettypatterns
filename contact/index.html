@@ -315,6 +315,69 @@
       color: var(--text-dim);
       opacity: 0.85;
     }
+
+    fieldset {
+      min-width: 0;
+    }
+    .audition-panel.active {
+      grid-template-columns: 1fr 1fr;
+    }
+    .audition-intro {
+      grid-column: 1 / -1;
+      padding-bottom: 0.2rem;
+    }
+    .audition-section {
+      grid-column: 1 / -1;
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 1rem;
+      padding: 1rem;
+      border: 1px solid var(--border);
+      border-radius: 6px;
+      background: rgba(255,255,255,0.035);
+    }
+    .audition-section legend {
+      padding: 0 0.4rem;
+    }
+    .audition-section p {
+      grid-column: 1 / -1;
+      margin-bottom: 0.1rem;
+    }
+    .choice-list {
+      grid-column: 1 / -1;
+      display: flex;
+      flex-direction: column;
+      gap: 0.65rem;
+    }
+    .choice {
+      display: flex;
+      align-items: flex-start;
+      gap: 0.55rem;
+      font-family: var(--serif);
+      font-size: 0.98rem;
+      letter-spacing: normal;
+      line-height: 1.45;
+      text-transform: none;
+      color: var(--text);
+    }
+    .choice input {
+      width: auto;
+      margin-top: 0.28rem;
+      flex-shrink: 0;
+    }
+    .choice span {
+      display: block;
+    }
+    .conditional-block {
+      grid-column: 1 / -1;
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 1rem;
+      padding-top: 0.2rem;
+    }
+    .conditional-block.is-hidden {
+      display: none;
+    }
     .screen-reader-trap {
       position: absolute;
       left: -9999px;
@@ -399,10 +462,16 @@
     }
     @media (max-width: 700px) {
       .form-grid,
-      .category-panel.active {
+      .category-panel.active,
+      .audition-panel.active,
+      .audition-section,
+      .conditional-block {
         grid-template-columns: 1fr;
       }
       .category-panel p,
+      .audition-section,
+      .audition-section p,
+      .conditional-block,
       .form-row.full,
       .submit-row {
         grid-column: auto;
@@ -463,8 +532,9 @@
     <form id="contact-form" action="/api/contact" method="POST" novalidate>
       <div class="form-grid">
         <div class="form-row">
-          <label for="name">Name <span class="optional-note">(optional)</span></label>
+          <label id="name-label" for="name">Name <span class="optional-note">(optional)</span></label>
           <input id="name" name="name" type="text" autocomplete="name" maxlength="120" placeholder="Your name">
+          <span class="field-note" id="name-note" hidden>Please indicate your preferred stage name. Should you audition successfully, this is the name that will be used for official credits, including IMDb credits. Be sure that it accurately reflects your preferences.</span>
         </div>
 
         <div class="form-row">
@@ -485,25 +555,242 @@
           </select>
         </div>
 
-        <section class="category-panel" data-panel="voice-auditions" aria-label="Voice audition details">
-          <p>For performers interested in appearing in Deep Dream State or related Neural Nets and Pretty Patterns projects.</p>
+        <section class="category-panel audition-panel" data-panel="voice-auditions" aria-label="Voice audition details">
+          <p class="audition-intro">We strongly believe in informed consent and protecting voice actors. These forms are detailed. That’s partially administrative, but it’s primarily to ensure informed consent.</p>
+
           <div class="form-row">
-            <label for="performer-name">Performer name</label>
-            <input id="performer-name" name="performer_name" type="text" maxlength="140" placeholder="Stage or performer name">
-          </div>
-          <div class="form-row">
-            <label for="demo-link">Demo link</label>
+            <label for="demo-link">Demo link <span class="optional-note">(optional)</span></label>
             <input id="demo-link" name="demo_link" type="url" maxlength="500" placeholder="https://...">
             <span class="field-note">Link to audio, reel, profile, or sample work.</span>
           </div>
+
           <div class="form-row">
-            <label for="voice-notes">Voice / range notes</label>
+            <label for="voice-notes">Voice / range notes <span class="optional-note">(optional)</span></label>
             <input id="voice-notes" name="voice_notes" type="text" maxlength="300" placeholder="Tone, accent, range, comfort zone">
           </div>
-          <div class="form-row">
-            <label for="audition-links">Relevant links</label>
-            <input id="audition-links" name="audition_links" type="text" maxlength="500" placeholder="Website, social, credits, link hub">
+
+          <div class="form-row full">
+            <label for="public-links">Public links <span class="optional-note">(optional)</span></label>
+            <input id="public-links" name="public_links" type="text" maxlength="700" placeholder="Website, social, credits, link hub">
+            <span class="field-note">Please fill this in with your public links. Should you audition successfully, these are the links that will be publicly listed with your credit. Make sure that these entries accurately reflect your preferences.</span>
           </div>
+
+          <fieldset class="audition-section">
+            <legend>Age</legend>
+            <p>Productions via the Neuralverse are adult. It’s crucial that you fill out all these boxes for your audition to be considered, for both legal and ethical reasons.</p>
+            <div class="choice-list">
+              <label class="choice" for="affirm-over-18">
+                <input id="affirm-over-18" name="affirm_over_18" type="checkbox" value="Yes" data-audition-required>
+                <span>I affirm that I am over the age of 18.</span>
+              </label>
+              <label class="choice" for="affirm-legal-jurisdiction">
+                <input id="affirm-legal-jurisdiction" name="affirm_legal_adult_voice_performance" type="checkbox" value="Yes" data-audition-required>
+                <span>I affirm that I am legally permitted to participate in adult voice performance in my jurisdiction.</span>
+              </label>
+            </div>
+          </fieldset>
+
+          <fieldset class="audition-section">
+            <legend>Nature of work</legend>
+            <p>It’s important to fill out these boxes; we are committed to clarity and informed consent.</p>
+            <div class="choice-list">
+              <label class="choice" for="ack-adult-material">
+                <input id="ack-adult-material" name="ack_adult_material" type="checkbox" value="Yes" data-audition-required>
+                <span>I understand that this is adult material, and I am comfortable with that.</span>
+              </label>
+              <label class="choice" for="ack-independent-no-compensation">
+                <input id="ack-independent-no-compensation" name="ack_independent_credit_no_compensation" type="checkbox" value="Yes" data-audition-required>
+                <span>I understand that this is an independent operation. I will receive credit, links, and recommendation. Monetary compensation is not offered at this time.</span>
+              </label>
+              <label class="choice" for="ack-email-contact">
+                <input id="ack-email-contact" name="ack_email_contact" type="checkbox" value="Yes" data-audition-required>
+                <span>I am comfortable receiving email at the provided email address related to these operations.</span>
+              </label>
+            </div>
+
+            <div class="form-row full">
+              <label>Have you heard a full episode of Deep Dream State?</label>
+              <div class="choice-list">
+                <label class="choice" for="heard-episode-yes">
+                  <input id="heard-episode-yes" name="heard_full_dds_episode" type="radio" value="Yes" data-audition-required>
+                  <span>Yes.</span>
+                </label>
+                <label class="choice" for="heard-episode-no">
+                  <input id="heard-episode-no" name="heard_full_dds_episode" type="radio" value="No" data-audition-required>
+                  <span>No.</span>
+                </label>
+              </div>
+            </div>
+
+            <div class="conditional-block is-hidden" data-conditional="heard-episode-yes">
+              <div class="form-row full">
+                <label for="dds-episode-heard">Which one?</label>
+                <input id="dds-episode-heard" name="dds_episode_heard" type="text" maxlength="220" placeholder="Episode title, number, or description" data-required-when-visible>
+              </div>
+            </div>
+          </fieldset>
+
+          <fieldset class="audition-section">
+            <legend>Personal preferences</legend>
+            <p>You should fill out these boxes. They are not mission critical, but they’re important to determining what you receive.</p>
+
+            <div class="form-row full">
+              <label>I am auditioning for the following.</label>
+              <div class="choice-list" id="audition-target-group">
+                <label class="choice" for="audition-target-any">
+                  <input id="audition-target-any" name="audition_target" type="checkbox" value="Any and all" data-audition-target>
+                  <span>Any and all.</span>
+                </label>
+                <label class="choice" for="audition-target-dds">
+                  <input id="audition-target-dds" name="audition_target" type="checkbox" value="Deep Dream State audio drama" data-audition-target>
+                  <span>Deep Dream State audio drama.</span>
+                </label>
+                <label class="choice" for="audition-target-neuralverse">
+                  <input id="audition-target-neuralverse" name="audition_target" type="checkbox" value="Neuralverse Productions" data-audition-target>
+                  <span>Neuralverse Productions.</span>
+                </label>
+              </div>
+              <span class="field-note">Choosing “Any and all” will open the acknowledgements for both project types.</span>
+            </div>
+
+            <div class="conditional-block is-hidden" data-conditional="target-dds">
+              <div class="choice-list">
+                <label class="choice" for="ack-dds-rss">
+                  <input id="ack-dds-rss" name="ack_dds_open_web_rss" type="checkbox" value="Yes" data-required-when-visible>
+                  <span>I understand that Deep Dream State is a podcast on the open web that will appear on RSS feeds.</span>
+                </label>
+              </div>
+            </div>
+
+            <div class="conditional-block is-hidden" data-conditional="target-neuralverse">
+              <div class="choice-list">
+                <label class="choice" for="ack-neuralverse-patreon">
+                  <input id="ack-neuralverse-patreon" name="ack_neuralverse_patreon_public_credit" type="checkbox" value="Yes" data-required-when-visible>
+                  <span>I understand that Neuralverse Productions appear on the creator’s Patreon feed. My stage name will be credited publicly in releases.</span>
+                </label>
+              </div>
+            </div>
+
+            <div class="form-row full">
+              <label>Please indicate the types of performance you want to engage.</label>
+              <div class="choice-list">
+                <label class="choice" for="performance-any">
+                  <input id="performance-any" name="performance_type" type="radio" value="Any and all" data-audition-required>
+                  <span>Any and all.</span>
+                </label>
+                <label class="choice" for="performance-dominant">
+                  <input id="performance-dominant" name="performance_type" type="radio" value="Dominant partner only" data-audition-required>
+                  <span>I only want performances in which I’m the dominant partner.</span>
+                </label>
+                <label class="choice" for="performance-submissive">
+                  <input id="performance-submissive" name="performance_type" type="radio" value="Submissive partner only" data-audition-required>
+                  <span>I only want performances in which I’m a submissive partner.</span>
+                </label>
+                <label class="choice" for="performance-sfw">
+                  <input id="performance-sfw" name="performance_type" type="radio" value="SFW role only" data-audition-required>
+                  <span>I only want performances in which I have a SFW role, but I understand the larger context of the projects.</span>
+                </label>
+                <label class="choice" for="performance-other">
+                  <input id="performance-other" name="performance_type" type="radio" value="Other" data-audition-required>
+                  <span>Other.</span>
+                </label>
+              </div>
+            </div>
+
+            <div class="conditional-block is-hidden" data-conditional="performance-other">
+              <div class="form-row full">
+                <label for="performance-other-detail">Please specify</label>
+                <input id="performance-other-detail" name="performance_type_other" type="text" maxlength="300" placeholder="Describe your preference" data-required-when-visible>
+              </div>
+            </div>
+
+            <div class="form-row full">
+              <label for="limits-preferences-squicks">Limits, preferences, and squicks <span class="optional-note">(optional)</span></label>
+              <textarea id="limits-preferences-squicks" name="limits_preferences_squicks" maxlength="1800" placeholder="Use this space for limits, preferences, topics you love, topics you avoid, or anything important for casting."></textarea>
+              <span class="field-note">You are always free to enforce your own limits. They are fundamental. If you have particular preferences or squicks, note them here. Please understand that casting calls aren’t always individualized; you’re always empowered to turn down scripts that aren’t your jam.</span>
+            </div>
+          </fieldset>
+
+          <fieldset class="audition-section">
+            <legend>Communication and collaboration</legend>
+
+            <div class="form-row full">
+              <label>Please indicate your preference for emails.</label>
+              <div class="choice-list">
+                <label class="choice" for="email-pref-dds">
+                  <input id="email-pref-dds" name="email_preference" type="radio" value="Deep Dream State casting emails" data-audition-required>
+                  <span>I want to receive emails related to Deep Dream State casting.</span>
+                </label>
+                <label class="choice" for="email-pref-neuralverse">
+                  <input id="email-pref-neuralverse" name="email_preference" type="radio" value="Neuralverse Productions casting scripts" data-audition-required>
+                  <span>I want to receive scripts related to Neuralverse Productions casting.</span>
+                </label>
+                <label class="choice" for="email-pref-all">
+                  <input id="email-pref-all" name="email_preference" type="radio" value="All of the above" data-audition-required>
+                  <span>All of the above.</span>
+                </label>
+                <label class="choice" for="email-pref-none">
+                  <input id="email-pref-none" name="email_preference" type="radio" value="None of the above" data-audition-required>
+                  <span>None of the above.</span>
+                </label>
+              </div>
+              <span class="field-note">The required email consent above only covers replies to this audition. This preference controls future casting emails and scripts.</span>
+            </div>
+
+            <div class="form-row full">
+              <label>Please indicate your preference for Discord.</label>
+              <div class="choice-list">
+                <label class="choice" for="discord-none">
+                  <input id="discord-none" name="discord_preference" type="radio" value="I do not have Discord" data-audition-required>
+                  <span>I don’t have that.</span>
+                </label>
+                <label class="choice" for="discord-rarely">
+                  <input id="discord-rarely" name="discord_preference" type="radio" value="I have Discord but may not check it" data-audition-required>
+                  <span>I have that, but who knows if I’ll check it.</span>
+                </label>
+                <label class="choice" for="discord-frequent">
+                  <input id="discord-frequent" name="discord_preference" type="radio" value="I have Discord and use it frequently" data-audition-required>
+                  <span>I have it and use it frequently.</span>
+                </label>
+                <label class="choice" for="discord-cast-server">
+                  <input id="discord-cast-server" name="discord_preference" type="radio" value="I have Discord and am comfortable joining an all-cast server" data-audition-required>
+                  <span>I have it and I’m comfortable joining an all-cast server.</span>
+                </label>
+              </div>
+            </div>
+
+            <div class="conditional-block is-hidden" data-conditional="discord-handle">
+              <div class="form-row full">
+                <label for="discord-handle">Discord handle <span class="optional-note">(optional)</span></label>
+                <input id="discord-handle" name="discord_handle" type="text" maxlength="180" placeholder="Your Discord handle">
+              </div>
+            </div>
+
+            <div class="form-row full">
+              <label>Please indicate your preference for Reddit communications.</label>
+              <div class="choice-list">
+                <label class="choice" for="reddit-none">
+                  <input id="reddit-none" name="reddit_preference" type="radio" value="I do not have Reddit" data-audition-required>
+                  <span>I don’t have that.</span>
+                </label>
+                <label class="choice" for="reddit-rarely">
+                  <input id="reddit-rarely" name="reddit_preference" type="radio" value="I have Reddit but do not check it much" data-audition-required>
+                  <span>I have it but don’t check it really.</span>
+                </label>
+                <label class="choice" for="reddit-use">
+                  <input id="reddit-use" name="reddit_preference" type="radio" value="I have Reddit and use it" data-audition-required>
+                  <span>I have it and use it.</span>
+                </label>
+              </div>
+            </div>
+
+            <div class="conditional-block is-hidden" data-conditional="reddit-id">
+              <div class="form-row full">
+                <label for="reddit-id">Reddit ID <span class="optional-note">(optional)</span></label>
+                <input id="reddit-id" name="reddit_id" type="text" maxlength="180" placeholder="u/username">
+              </div>
+            </div>
+          </fieldset>
         </section>
 
         <section class="category-panel" data-panel="collabs-active-creators" aria-label="Collaboration details">
@@ -642,9 +929,104 @@
   const form = document.getElementById('contact-form');
   const statusEl = document.getElementById('form-status');
   const submitButton = document.getElementById('submit-button');
+  const nameInput = document.getElementById('name');
+  const emailInput = document.getElementById('email');
+  const nameLabel = document.getElementById('name-label');
+  const nameNote = document.getElementById('name-note');
+
+  function isAuditionSelected() {
+    return categorySelect.value === 'voice-auditions';
+  }
+
+  function setRequired(field, required) {
+    if (!field) return;
+    if (required) {
+      field.setAttribute('required', 'required');
+    } else {
+      field.removeAttribute('required');
+      field.setCustomValidity('');
+    }
+  }
+
+  function setConditionalBlock(name, active) {
+    const block = document.querySelector(`[data-conditional="${name}"]`);
+    if (!block) return;
+    block.classList.toggle('is-hidden', !active);
+    block.querySelectorAll('input, select, textarea').forEach(field => {
+      field.disabled = !active;
+      setRequired(field, active && field.hasAttribute('data-required-when-visible'));
+    });
+  }
+
+  function getCheckedValue(name) {
+    const checked = form.querySelector(`input[name="${name}"]:checked`);
+    return checked ? checked.value : '';
+  }
+
+  function updateSharedIdentity() {
+    const audition = isAuditionSelected();
+    if (audition) {
+      nameLabel.innerHTML = 'Stage name';
+      nameInput.placeholder = 'Preferred stage name';
+      nameNote.hidden = false;
+      setRequired(nameInput, true);
+      setRequired(emailInput, true);
+    } else {
+      nameLabel.innerHTML = 'Name <span class="optional-note">(optional)</span>';
+      nameInput.placeholder = 'Your name';
+      nameNote.hidden = true;
+      setRequired(nameInput, false);
+      setRequired(emailInput, false);
+    }
+  }
+
+  function updateConditionalFields() {
+    const audition = isAuditionSelected();
+
+    const heardEpisode = getCheckedValue('heard_full_dds_episode') === 'Yes';
+    setConditionalBlock('heard-episode-yes', audition && heardEpisode);
+
+    const targetAny = document.getElementById('audition-target-any')?.checked;
+    const targetDds = document.getElementById('audition-target-dds')?.checked;
+    const targetNeuralverse = document.getElementById('audition-target-neuralverse')?.checked;
+    setConditionalBlock('target-dds', audition && (targetAny || targetDds));
+    setConditionalBlock('target-neuralverse', audition && (targetAny || targetNeuralverse));
+
+    const performanceOther = getCheckedValue('performance_type') === 'Other';
+    setConditionalBlock('performance-other', audition && performanceOther);
+
+    const discordPreference = getCheckedValue('discord_preference');
+    setConditionalBlock('discord-handle', audition && discordPreference && discordPreference !== 'I do not have Discord');
+
+    const redditPreference = getCheckedValue('reddit_preference');
+    setConditionalBlock('reddit-id', audition && redditPreference === 'I have Reddit and use it');
+  }
+
+  function updateAuditionRequirements() {
+    const audition = isAuditionSelected();
+    form.querySelectorAll('[data-audition-required]').forEach(field => {
+      setRequired(field, audition);
+    });
+    updateCustomValidity();
+  }
+
+  function updateCustomValidity() {
+    const audition = isAuditionSelected();
+    const targetFields = Array.from(form.querySelectorAll('[data-audition-target]'));
+
+    targetFields.forEach(field => field.setCustomValidity(''));
+
+    if (audition && targetFields.length) {
+      const hasTarget = targetFields.some(field => field.checked);
+      if (!hasTarget) {
+        targetFields[0].setCustomValidity('Please choose what you are auditioning for.');
+      }
+    }
+  }
 
   function updateCategoryPanel() {
     const selected = categorySelect.value;
+
     panels.forEach(panel => {
       const isActive = panel.dataset.panel === selected;
       panel.classList.toggle('active', isActive);
@@ -652,6 +1034,10 @@
         field.disabled = !isActive;
       });
     });
+
+    updateSharedIdentity();
+    updateConditionalFields();
+    updateAuditionRequirements();
   }
 
   function setStatus(message, type) {
@@ -660,11 +1046,24 @@
   }
 
   categorySelect.addEventListener('change', updateCategoryPanel);
+
+  form.addEventListener('change', () => {
+    updateConditionalFields();
+    updateAuditionRequirements();
+  });
+
+  form.addEventListener('input', () => {
+    updateCustomValidity();
+  });
+
   updateCategoryPanel();
 
   form.addEventListener('submit', async event => {
     event.preventDefault();
     setStatus('', '');
+
+    updateCategoryPanel();
+    updateCustomValidity();
 
     if (!form.reportValidity()) return;
 
