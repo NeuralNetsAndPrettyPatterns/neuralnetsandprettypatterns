@@ -546,7 +546,7 @@
           <input id="email" name="email" type="email" autocomplete="email" maxlength="254" placeholder="you@example.com">
         </div>
 
-        <div class="form-row full">
+        <div class="form-row full" id="category-row">
           <label id="category-label" for="category">What is this about?</label>
           <select id="category" name="category">
             <option value="">Pick a category</option>
@@ -560,7 +560,7 @@
         </div>
 
         <section class="category-panel audition-panel" data-panel="voice-auditions" aria-label="Voice audition details">
-          <p class="audition-intro">We strongly believe in informed consent and protecting voice actors. These forms are detailed. That’s partially administrative, but it’s primarily to ensure informed consent.</p>
+          <p class="audition-intro">We strongly believe in informed consent and protecting voice actors, so these forms are detailed.</p>
 
           <div class="form-row">
             <label for="demo-link">Demo link</label>
@@ -576,12 +576,12 @@
           <div class="form-row full">
             <label for="public-links">Public links</label>
             <input id="public-links" name="public_links" type="text" maxlength="700" placeholder="Website, social, credits, link hub">
-            <span class="field-note">Please fill this in with your public links. Should you audition successfully, these are the links that will be publicly listed with your credit. Make sure that these entries accurately reflect your preferences.</span>
+            <span class="field-note">Please fill this in with your public links. Should you audition successfully, these are the links that will be publicly listed with your credit.</span>
           </div>
 
           <fieldset class="audition-section">
             <legend>Age</legend>
-            <p>Productions via the Neuralverse are adult. It’s crucial that you fill out all these boxes for your audition to be considered, for both legal and ethical reasons.</p>
+            <p>Productions via the Neuralverse are adult. It’s crucial that you fill out all these boxes for your audition to be considered.</p>
             <div class="choice-list">
               <label class="choice" for="affirm-over-18">
                 <input id="affirm-over-18" name="affirm_over_18" type="checkbox" value="Yes" data-audition-required>
@@ -596,7 +596,6 @@
 
           <fieldset class="audition-section">
             <legend>Nature of work</legend>
-            <p>It’s important to fill out these boxes; we are committed to clarity and informed consent.</p>
             <div class="choice-list">
               <label class="choice" for="ack-adult-material">
                 <input id="ack-adult-material" name="ack_adult_material" type="checkbox" value="Yes" data-audition-required>
@@ -875,7 +874,7 @@
           </div>
         </section>
 
-        <div class="form-row full">
+        <div class="form-row full" id="message-row">
           <label for="message">Message</label>
           <textarea id="message" name="message" maxlength="4000" placeholder="What should I know?"></textarea>
           <span class="field-note">Links are welcome if useful.</span>
@@ -937,6 +936,9 @@
   const emailInput = document.getElementById('email');
   const nameLabel = document.getElementById('name-label');
   const categoryLabel = document.getElementById('category-label');
+  const categoryRow = document.getElementById('category-row');
+  const messageRow = document.getElementById('message-row');
+  const messageField = document.getElementById('message');
   const nameNote = document.getElementById('name-note');
 
   function isAuditionSelected() {
@@ -972,14 +974,19 @@
     const audition = isAuditionSelected();
     if (audition) {
       nameLabel.textContent = 'Stage name';
-      if (categoryLabel) categoryLabel.textContent = 'Audition form';
+      if (categoryRow) categoryRow.hidden = true;
+      if (messageRow) messageRow.hidden = true;
+      if (messageField) messageField.disabled = true;
       nameInput.placeholder = 'Preferred stage name';
       nameNote.hidden = false;
       setRequired(nameInput, true);
       setRequired(emailInput, true);
     } else {
       nameLabel.textContent = 'What should we call you?';
+      if (categoryRow) categoryRow.hidden = false;
       if (categoryLabel) categoryLabel.textContent = 'What is this about?';
+      if (messageRow) messageRow.hidden = false;
+      if (messageField) messageField.disabled = false;
       nameInput.placeholder = 'Your name';
       nameNote.hidden = true;
       setRequired(nameInput, false);
