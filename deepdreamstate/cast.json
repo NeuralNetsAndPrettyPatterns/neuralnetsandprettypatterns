@@ -1174,10 +1174,792 @@
           "stageName": "Dizzy Dollie",
           "character": "Bella"
         },
-        {
+                {
           "performerId": "bliss-blank",
           "stageName": "Bliss Blank",
           "character": "Kimmy"
+        }
+      ]
+    },
+    {
+      "type": "episode",
+      "ge": 16,
+      "season": 3,
+      "episode": 1,
+      "title": "Drill",
+      "url": "/deepdreamstate/arcs/sitri/episode-1-drill/",
+      "cast": [
+        {
+          "performerId": "neural-nets-and-pretty-patterns",
+          "stageName": "Neural Nets and Pretty Patterns",
+          "character": "Z / Dr. Zev Talcott",
+          "characterUrl": "/deepdreamstate/glossary/#z-dr-zev-talcott-sitri"
+        },
+        {
+          "performerId": "bliss-blank",
+          "stageName": "Bliss Blank",
+          "character": "June Lowell",
+          "characterUrl": "/deepdreamstate/glossary/#june-lowell-sitri"
+        },
+        {
+          "performerId": "ring-of-kees",
+          "stageName": "Ring of Kees",
+          "character": "Tessa Finn",
+          "characterUrl": "/deepdreamstate/glossary/#tessa-finn-sitri"
+        },
+        {
+          "performerId": "bun-li",
+          "stageName": "Bun Li",
+          "character": "Meg Aerin",
+          "characterUrl": "/deepdreamstate/glossary/#meg-aerin-sitri"
+        },
+        {
+          "performerId": "sofi-starship",
+          "stageName": "Sofi Starship",
+          "character": "Phoebe Bosworth",
+          "characterUrl": "/deepdreamstate/glossary/#phoebe-bosworth"
+        },
+        {
+          "performerId": "dizzy-dollie",
+          "stageName": "Dizzy Dollie",
+          "character": "Nyra",
+          "characterUrl": "/deepdreamstate/glossary/#nyra"
+        },
+        {
+          "performerId": "jericho-caine",
+          "stageName": "Jericho Caine",
+          "character": "Cael",
+          "characterUrl": "/deepdreamstate/glossary/#cael-sitri"
+        },
+        {
+          "performerId": "syndi-rella",
+          "stageName": "Syndi Rella",
+          "character": "Hespa Apate",
+          "characterUrl": "/deepdreamstate/glossary/#hespa-apate-sitri"
+        },
+        {
+          "performerId": "swirls-and-twirls",
+          "stageName": "Swirls and Twirls",
+          "character": "Iris Vale",
+          "characterUrl": "/deepdreamstate/glossary/#iris-vale-sitri"
+        },
+        {
+          "performerId": "jade",
+          "stageName": "Jade",
+          "character": "Oona Reyes",
+          "characterUrl": "/deepdreamstate/glossary/#oona-reyes"
+        },
+        {
+          "performerId": "britt-reprogrammed",
+          "stageName": "Britt Reprogrammed",
+          "character": "Reverie"
+        }
+      ]
+    },
+    {
+      "type": "episode",
+      "ge": 17,
+      "season": 3,
+      "episode": 2,
+      "title": "Adapt",
+      "url": "/deepdreamstate/arcs/sitri/episode-2-adapt/",
+      "cast": [
+        {
+          "performerId": "neural-nets-and-pretty-patterns",
+          "stageName": "Neural Nets and Pretty Patterns",
+          "character": "Z / Dr. Zev Talcott"
+        },
+        {
+          "performerId": "bliss-blank",
+          "stageName": "Bliss Blank",
+          "character": "June Lowell"
+        },
+        {
+          "performerId": "ring-of-kees",
+          "stageName": "Ring of Kees",
+          "character": "Tessa Finn"
+        },
+        {
+          "performerId": "bun-li",
+          "stageName": "Bun Li",
+          "character": "Meg Aerin"
+        },
+        {
+          "performerId": "dizzy-dollie",
+          "stageName": "Dizzy Dollie",
+          "character": "Nyra"
+        },
+        {
+          "performerId": "jade",
+          "stageName": "Jade",
+          "character": "Oona Reyes"
+        },
+        {
+          "performerId": "jericho-caine",
+          "stageName": "Jericho Caine",
+          "character": "Cael"
+        },
+        {
+          "performerId": "syndi-rella",
+          "stageName": "Syndi Rella",
+          "character": "Hespa Apate"
+        },
+        {
+          "performerId": "swirls-and-twirls",
+          "stageName": "Swirls and Twirls",
+          "character": "Iris Vale"
+        },
+        {
+          "performerId": "britt-reprogrammed",
+          "stageName": "Britt Reprogrammed",
+          "character": "Reverie"
+        }
+      ]
+    },
+    {
+      "type": "episode",
+      "ge": 18,
+      "season": 3,
+      "episode": 3,
+      "title": "Incubator",
+      "url": "/deepdreamstate/arcs/sitri/episode-3-incubator/",
+      "cast": [
+        {
+          "performerId": "neural-nets-and-pretty-patterns",
+          "stageName": "Neural Nets and Pretty Patterns",
+          "character": "Z / Dr. Zev Talcott"
+        },
+        {
+          "performerId": "bliss-blank",
+          "stageName": "Bliss Blank",
+          "character": "June Lowell"
+        },
+        {
+          "performerId": "ring-of-kees",
+          "stageName": "Ring of Kees",
+          "character": "Tessa Finn"
+        },
+        {
+          "performerId": "bun-li",
+          "stageName": "Bun Li",
+          "character": "Meg Aerin"
+        },
+        {
+          "performerId": "echo-doll",
+          "stageName": "Echo Doll",
+          "character": "Elle Lawson",
+          "characterUrl": "/deepdreamstate/glossary/#elle-lawson-sitri"
+        },
+        {
+          "performerId": "dizzy-dollie",
+          "stageName": "Dizzy Dollie",
+          "character": "Nyra"
+        },
+        {
+          "performerId": "jericho-caine",
+          "stageName": "Jericho Caine",
+          "character": "Cael"
+        },
+        {
+          "performerId": "syndi-rella",
+          "stageName": "Syndi Rella",
+          "character": "Hespa Apate"
+        },
+        {
+          "performerId": "swirls-and-twirls",
+          "stageName": "Swirls and Twirls",
+          "character": "Iris Vale"
+        },
+        {
+          "performerId": "flux-lynniegal",
+          "stageName": "Flux Lynniegal",
+          "character": "Lyra Crosswell",
+          "characterUrl": "/deepdreamstate/glossary/#lyra-crosswell"
+        },
+        {
+          "performerId": "sofi-starship",
+          "stageName": "Sofi Starship",
+          "character": "Phoebe Bosworth"
+        },
+        {
+          "performerId": "jade",
+          "stageName": "Jade",
+          "character": "Oona Reyes"
+        },
+        {
+          "performerId": "korrupted-innocence",
+          "stageName": "Korrupted Innocence",
+          "character": "Substitute Teacher"
+        },
+        {
+          "performerId": "britt-reprogrammed",
+          "stageName": "Britt Reprogrammed",
+          "character": "Reverie"
+        }
+      ]
+    },
+    {
+      "type": "episode",
+      "ge": 19,
+      "season": 3,
+      "episode": 4,
+      "title": "Gazes Back",
+      "url": "/deepdreamstate/arcs/sitri/episode-4-gazes-back/",
+      "cast": [
+        {
+          "performerId": "neural-nets-and-pretty-patterns",
+          "stageName": "Neural Nets and Pretty Patterns",
+          "character": "Z / Dr. Zev Talcott"
+        },
+        {
+          "performerId": "bliss-blank",
+          "stageName": "Bliss Blank",
+          "character": "June Lowell"
+        },
+        {
+          "performerId": "ring-of-kees",
+          "stageName": "Ring of Kees",
+          "character": "Tessa Finn"
+        },
+        {
+          "performerId": "bun-li",
+          "stageName": "Bun Li",
+          "character": "Meg Aerin"
+        },
+        {
+          "performerId": "echo-doll",
+          "stageName": "Echo Doll",
+          "character": "Elle Lawson"
+        },
+        {
+          "performerId": "dizzy-dollie",
+          "stageName": "Dizzy Dollie",
+          "character": "Nyra"
+        },
+        {
+          "performerId": "jericho-caine",
+          "stageName": "Jericho Caine",
+          "character": "Cael"
+        },
+        {
+          "performerId": "syndi-rella",
+          "stageName": "Syndi Rella",
+          "character": "Hespa Apate"
+        }
+      ]
+    },
+    {
+      "type": "episode",
+      "ge": 20,
+      "season": 3,
+      "episode": 5,
+      "title": "Cusp",
+      "url": "/deepdreamstate/arcs/sitri/episode-5-cusp/",
+      "cast": [
+        {
+          "performerId": "neural-nets-and-pretty-patterns",
+          "stageName": "Neural Nets and Pretty Patterns",
+          "character": "Z / Dr. Zev Talcott"
+        },
+        {
+          "performerId": "swirls-and-twirls",
+          "stageName": "Swirls and Twirls",
+          "character": "Iris Vale"
+        },
+        {
+          "performerId": "echo-doll",
+          "stageName": "Echo Doll",
+          "character": "Elle Lawson"
+        },
+        {
+          "performerId": "bun-li",
+          "stageName": "Bun Li",
+          "character": "Meg Aerin"
+        },
+        {
+          "performerId": "ring-of-kees",
+          "stageName": "Ring of Kees",
+          "character": "Tessa Finn"
+        },
+        {
+          "performerId": "flux-lynniegal",
+          "stageName": "Flux Lynniegal",
+          "character": "Lyra Crosswell"
+        },
+        {
+          "performerId": "bliss-blank",
+          "stageName": "Bliss Blank",
+          "character": "June Lowell"
+        },
+        {
+          "performerId": "dizzy-dollie",
+          "stageName": "Dizzy Dollie",
+          "character": "Nyra"
+        },
+        {
+          "performerId": "syndi-rella",
+          "stageName": "Syndi Rella",
+          "character": "Hespa Apate"
+        },
+        {
+          "performerId": "jericho-caine",
+          "stageName": "Jericho Caine",
+          "character": "Cael"
+        }
+      ]
+    },
+    {
+      "type": "episode",
+      "ge": 21,
+      "season": 3,
+      "episode": 6,
+      "title": "Descendent",
+      "url": "/deepdreamstate/arcs/sitri/episode-6-descendent/",
+      "cast": [
+        {
+          "performerId": "neural-nets-and-pretty-patterns",
+          "stageName": "Neural Nets and Pretty Patterns",
+          "character": "Z / Dr. Zev Talcott"
+        },
+        {
+          "performerId": "swirls-and-twirls",
+          "stageName": "Swirls and Twirls",
+          "character": "Iris Vale"
+        },
+        {
+          "performerId": "ring-of-kees",
+          "stageName": "Ring of Kees",
+          "character": "Tessa Finn"
+        },
+        {
+          "performerId": "bun-li",
+          "stageName": "Bun Li",
+          "character": "Meg Aerin"
+        },
+        {
+          "performerId": "bliss-blank",
+          "stageName": "Bliss Blank",
+          "character": "June Lowell"
+        },
+        {
+          "performerId": "echo-doll",
+          "stageName": "Echo Doll",
+          "character": "Elle Lawson"
+        },
+        {
+          "performerId": "flux-lynniegal",
+          "stageName": "Flux Lynniegal",
+          "character": "Lyra Crosswell"
+        },
+        {
+          "performerId": "dizzy-dollie",
+          "stageName": "Dizzy Dollie",
+          "character": "Nyra"
+        },
+        {
+          "performerId": "syndi-rella",
+          "stageName": "Syndi Rella",
+          "character": "Hespa Apate"
+        }
+      ]
+    },
+    {
+      "type": "episode",
+      "ge": 22,
+      "season": 3,
+      "episode": 7,
+      "title": "Tether",
+      "url": "/deepdreamstate/arcs/sitri/episode-7-tether/",
+      "cast": [
+        {
+          "performerId": "bliss-blank",
+          "stageName": "Bliss Blank",
+          "character": "June Lowell"
+        },
+        {
+          "performerId": "ring-of-kees",
+          "stageName": "Ring of Kees",
+          "character": "Tessa Finn"
+        },
+        {
+          "performerId": "bun-li",
+          "stageName": "Bun Li",
+          "character": "Meg Aerin"
+        },
+        {
+          "performerId": "echo-doll",
+          "stageName": "Echo Doll",
+          "character": "Elle Lawson"
+        },
+        {
+          "performerId": "swirls-and-twirls",
+          "stageName": "Swirls and Twirls",
+          "character": "Iris Vale"
+        },
+        {
+          "performerId": "neural-nets-and-pretty-patterns",
+          "stageName": "Neural Nets and Pretty Patterns",
+          "character": "Z / Dr. Zev Talcott"
+        },
+        {
+          "performerId": "flux-lynniegal",
+          "stageName": "Flux Lynniegal",
+          "character": "Lyra Crosswell"
+        },
+        {
+          "performerId": "jade",
+          "stageName": "Jade",
+          "character": "Oona Reyes"
+        },
+        {
+          "performerId": "sofi-starship",
+          "stageName": "Sofi Starship",
+          "character": "Phoebe Bosworth"
+        }
+      ]
+    },
+    {
+      "type": "episode",
+      "ge": 23,
+      "season": 3,
+      "episode": 8,
+      "title": "Artifact",
+      "url": "/deepdreamstate/arcs/sitri/episode-8-artifact/",
+      "cast": [
+        {
+          "performerId": "neural-nets-and-pretty-patterns",
+          "stageName": "Neural Nets and Pretty Patterns",
+          "character": "Z / Dr. Zev Talcott"
+        },
+        {
+          "performerId": "swirls-and-twirls",
+          "stageName": "Swirls and Twirls",
+          "character": "Iris Vale"
+        },
+        {
+          "performerId": "ring-of-kees",
+          "stageName": "Ring of Kees",
+          "character": "Tessa Finn"
+        },
+        {
+          "performerId": "bun-li",
+          "stageName": "Bun Li",
+          "character": "Meg Aerin"
+        },
+        {
+          "performerId": "bliss-blank",
+          "stageName": "Bliss Blank",
+          "character": "June Lowell"
+        },
+        {
+          "performerId": "echo-doll",
+          "stageName": "Echo Doll",
+          "character": "Elle Lawson"
+        },
+        {
+          "performerId": "jade",
+          "stageName": "Jade",
+          "character": "Oona Reyes"
+        },
+        {
+          "performerId": "dizzy-dollie",
+          "stageName": "Dizzy Dollie",
+          "character": "Nyra"
+        },
+        {
+          "performerId": "syndi-rella",
+          "stageName": "Syndi Rella",
+          "character": "Hespa Apate"
+        },
+        {
+          "performerId": "jericho-caine",
+          "stageName": "Jericho Caine",
+          "character": "Cael"
+        }
+      ]
+    },
+    {
+      "type": "episode",
+      "ge": 24,
+      "season": 3,
+      "episode": 9,
+      "title": "Override",
+      "url": "/deepdreamstate/arcs/sitri/episode-9-override/",
+      "cast": [
+        {
+          "performerId": "neural-nets-and-pretty-patterns",
+          "stageName": "Neural Nets and Pretty Patterns",
+          "character": "Z / Dr. Zev Talcott"
+        },
+        {
+          "performerId": "swirls-and-twirls",
+          "stageName": "Swirls and Twirls",
+          "character": "Iris Vale"
+        },
+        {
+          "performerId": "ring-of-kees",
+          "stageName": "Ring of Kees",
+          "character": "Tessa Finn"
+        },
+        {
+          "performerId": "bun-li",
+          "stageName": "Bun Li",
+          "character": "Meg Aerin"
+        },
+        {
+          "performerId": "bliss-blank",
+          "stageName": "Bliss Blank",
+          "character": "June Lowell"
+        },
+        {
+          "performerId": "echo-doll",
+          "stageName": "Echo Doll",
+          "character": "Elle Lawson"
+        },
+        {
+          "performerId": "jade",
+          "stageName": "Jade",
+          "character": "Oona Reyes"
+        },
+        {
+          "performerId": "dizzy-dollie",
+          "stageName": "Dizzy Dollie",
+          "character": "Nyra"
+        },
+        {
+          "performerId": "syndi-rella",
+          "stageName": "Syndi Rella",
+          "character": "Hespa Apate"
+        },
+        {
+          "performerId": "jericho-caine",
+          "stageName": "Jericho Caine",
+          "character": "Cael"
+        }
+      ]
+    },
+    {
+      "type": "episode",
+      "ge": 25,
+      "season": 3,
+      "episode": 10,
+      "title": "Center",
+      "url": "/deepdreamstate/arcs/sitri/episode-10-center/",
+      "cast": [
+        {
+          "performerId": "neural-nets-and-pretty-patterns",
+          "stageName": "Neural Nets and Pretty Patterns",
+          "character": "Z / Dr. Zev Talcott"
+        },
+        {
+          "performerId": "bliss-blank",
+          "stageName": "Bliss Blank",
+          "character": "June Lowell"
+        },
+        {
+          "performerId": "ring-of-kees",
+          "stageName": "Ring of Kees",
+          "character": "Tessa Finn"
+        },
+        {
+          "performerId": "bun-li",
+          "stageName": "Bun Li",
+          "character": "Meg Aerin"
+        },
+        {
+          "performerId": "echo-doll",
+          "stageName": "Echo Doll",
+          "character": "Elle Lawson"
+        },
+        {
+          "performerId": "swirls-and-twirls",
+          "stageName": "Swirls and Twirls",
+          "character": "Iris Vale"
+        },
+        {
+          "performerId": "jericho-caine",
+          "stageName": "Jericho Caine",
+          "character": "Cael"
+        },
+        {
+          "performerId": "dizzy-dollie",
+          "stageName": "Dizzy Dollie",
+          "character": "Nyra"
+        },
+        {
+          "performerId": "syndi-rella",
+          "stageName": "Syndi Rella",
+          "character": "Hespa Apate"
+        },
+        {
+          "performerId": "britt-reprogrammed",
+          "stageName": "Britt Reprogrammed",
+          "character": "Reverie"
+        },
+        {
+          "performerId": "jade",
+          "stageName": "Jade",
+          "character": "Oona Reyes"
+        },
+        {
+          "performerId": "sofi-starship",
+          "stageName": "Sofi Starship",
+          "character": "Phoebe Bosworth"
+        },
+        {
+          "performerId": "flux-lynniegal",
+          "stageName": "Flux Lynniegal",
+          "character": "Lyra Crosswell"
+        }
+      ]
+    },
+    {
+      "type": "episode",
+      "ge": 26,
+      "season": 3,
+      "episode": 11,
+      "title": "Sync",
+      "url": "/deepdreamstate/arcs/sitri/episode-11-sync/",
+      "cast": [
+        {
+          "performerId": "neural-nets-and-pretty-patterns",
+          "stageName": "Neural Nets and Pretty Patterns",
+          "character": "Z / Dr. Zev Talcott"
+        },
+        {
+          "performerId": "bliss-blank",
+          "stageName": "Bliss Blank",
+          "character": "June Lowell"
+        },
+        {
+          "performerId": "ring-of-kees",
+          "stageName": "Ring of Kees",
+          "character": "Tessa Finn"
+        },
+        {
+          "performerId": "bun-li",
+          "stageName": "Bun Li",
+          "character": "Meg Aerin"
+        },
+        {
+          "performerId": "echo-doll",
+          "stageName": "Echo Doll",
+          "character": "Elle Lawson"
+        },
+        {
+          "performerId": "swirls-and-twirls",
+          "stageName": "Swirls and Twirls",
+          "character": "Iris Vale"
+        },
+        {
+          "performerId": "jericho-caine",
+          "stageName": "Jericho Caine",
+          "character": "Cael"
+        },
+        {
+          "performerId": "dizzy-dollie",
+          "stageName": "Dizzy Dollie",
+          "character": "Nyra"
+        },
+        {
+          "performerId": "syndi-rella",
+          "stageName": "Syndi Rella",
+          "character": "Hespa Apate"
+        },
+        {
+          "performerId": "britt-reprogrammed",
+          "stageName": "Britt Reprogrammed",
+          "character": "Reverie"
+        },
+        {
+          "performerId": "jade",
+          "stageName": "Jade",
+          "character": "Oona Reyes"
+        },
+        {
+          "performerId": "sofi-starship",
+          "stageName": "Sofi Starship",
+          "character": "Phoebe Bosworth"
+        },
+        {
+          "performerId": "flux-lynniegal",
+          "stageName": "Flux Lynniegal",
+          "character": "Lyra Crosswell"
+        }
+      ]
+    },
+    {
+      "type": "episode",
+      "ge": 27,
+      "season": 3,
+      "episode": 12,
+      "title": "Arouse",
+      "url": "/deepdreamstate/arcs/sitri/episode-12-arouse/",
+      "cast": [
+        {
+          "performerId": "neural-nets-and-pretty-patterns",
+          "stageName": "Neural Nets and Pretty Patterns",
+          "character": "Z / Dr. Zev Talcott"
+        },
+        {
+          "performerId": "bliss-blank",
+          "stageName": "Bliss Blank",
+          "character": "June Lowell"
+        },
+        {
+          "performerId": "ring-of-kees",
+          "stageName": "Ring of Kees",
+          "character": "Tessa Finn"
+        },
+        {
+          "performerId": "bun-li",
+          "stageName": "Bun Li",
+          "character": "Meg Aerin"
+        },
+        {
+          "performerId": "echo-doll",
+          "stageName": "Echo Doll",
+          "character": "Elle Lawson"
+        },
+        {
+          "performerId": "swirls-and-twirls",
+          "stageName": "Swirls and Twirls",
+          "character": "Iris Vale"
+        },
+        {
+          "performerId": "jericho-caine",
+          "stageName": "Jericho Caine",
+          "character": "Cael"
+        },
+        {
+          "performerId": "dizzy-dollie",
+          "stageName": "Dizzy Dollie",
+          "character": "Nyra"
+        },
+        {
+          "performerId": "syndi-rella",
+          "stageName": "Syndi Rella",
+          "character": "Hespa Apate"
+        },
+        {
+          "performerId": "britt-reprogrammed",
+          "stageName": "Britt Reprogrammed",
+          "character": "Reverie"
+        },
+        {
+          "performerId": "jade",
+          "stageName": "Jade",
+          "character": "Oona Reyes"
+        },
+        {
+          "performerId": "sofi-starship",
+          "stageName": "Sofi Starship",
+          "character": "Phoebe Bosworth"
+        },
+        {
+          "performerId": "flux-lynniegal",
+          "stageName": "Flux Lynniegal",
+          "character": "Lyra Crosswell"
         }
       ]
     }
