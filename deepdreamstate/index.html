@@ -149,6 +149,14 @@
       background-repeat: no-repeat;
     }
 
+    #background-container::after {
+      content: "";
+      position: absolute;
+      inset: 0;
+      background: rgba(0, 0, 0, 0.82);
+      pointer-events: none;
+    }
+
     .container {
       position: relative;
       z-index: 1;
