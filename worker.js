@@ -296,6 +296,23 @@ export default {
       return serveHtml("/neuralpedia/index.html");
     }
 
+    // Shared Deep Dream State navigation
+    if (p === "/deepdreamstate/navigation.json") {
+      return serveAsset(
+        "/deepdreamstate/navigation.json",
+        "application/json; charset=utf-8",
+        "no-store"
+      );
+    }
+
+    if (p === "/deepdreamstate/navigation.js") {
+      return serveAsset(
+        "/deepdreamstate/navigation.js",
+        "application/javascript; charset=utf-8",
+        "no-store"
+      );
+    }
+
     // Deep Dream State glossary
     if (p === "/deepdreamstate/glossary" || p === "/deepdreamstate/glossary/") {
       return serveHtml("/deepdreamstate/glossary/index.html", true);
@@ -421,6 +438,7 @@ async function handleContactPost(request, env) {
 
   if (!resendResponse.ok) {
     let detail = "";
+
     try {
       detail = JSON.stringify(await resendResponse.json());
     } catch (err) {
@@ -428,10 +446,19 @@ async function handleContactPost(request, env) {
     }
 
     console.error("Resend contact email failed:", resendResponse.status, detail);
-    return contactResponse(request, { ok: false, error: "Message could not be sent." }, 502);
+
+    return contactResponse(
+      request,
+      { ok: false, error: "Message could not be sent." },
+      502
+    );
   }
 
-  return contactResponse(request, { ok: true, message: "Message sent." }, 200);
+  return contactResponse(
+    request,
+    { ok: true, message: "Message sent." },
+    200
+  );
 }
 
 async function readContactFields(request) {
@@ -440,9 +467,11 @@ async function readContactFields(request) {
 
   if (contentType.includes("application/json")) {
     const json = await request.json();
+
     Object.entries(json || {}).forEach(([key, value]) => {
       fields[key] = normalizeField(value);
     });
+
     return fields;
   }
 
@@ -451,9 +480,11 @@ async function readContactFields(request) {
     contentType.includes("multipart/form-data")
   ) {
     const formData = await request.formData();
+
     for (const [key, value] of formData.entries()) {
       fields[key] = normalizeField(value);
     }
+
     return fields;
   }
 
@@ -462,11 +493,17 @@ async function readContactFields(request) {
 
 function normalizeField(value) {
   if (typeof value !== "string") return "";
-  return value.replace(/\r\n/g, "\n").replace(/\r/g, "\n").trim();
+
+  return value
+    .replace(/\r\n/g, "\n")
+    .replace(/\r/g, "\n")
+    .trim();
 }
 
 function validateContactFields(fields) {
-  if (fields.company_url) return "Message could not be sent.";
+  if (fields.company_url) {
+    return "Message could not be sent.";
+  }
 
   if (fields.form_name && fields.form_name !== "deep-dream-state-contact") {
     return "Invalid form submission.";
@@ -514,6 +551,7 @@ function validateContactFields(fields) {
 
   for (const urlKey of ["demo_link", "project_link"]) {
     const value = fields[urlKey];
+
     if (value && !isProbablyUrl(value)) {
       return "Please enter valid URLs where URLs are requested.";
     }
@@ -529,7 +567,11 @@ function hasLength(value, min, max) {
 
 function isValidEmail(value) {
   const email = String(value || "").trim();
-  if (email.length > 254) return false;
+
+  if (email.length > 254) {
+    return false;
+  }
+
   return /^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(email);
 }
 
@@ -561,7 +603,9 @@ function buildContactTextBody(fields, categoryLabel, request) {
     `User agent: ${request.headers.get("user-agent") || "unknown"}`
   ];
 
-  return lines.filter(line => line !== null && line !== undefined).join("\n");
+  return lines
+    .filter(line => line !== null && line !== undefined)
+    .join("\n");
 }
 
 function buildContactHtmlBody(fields, categoryLabel, request) {
@@ -569,9 +613,14 @@ function buildContactHtmlBody(fields, categoryLabel, request) {
     .filter(Boolean)
     .map(line => {
       const index = line.indexOf(":");
-      if (index === -1) return `<p>${escapeHtml(line)}</p>`;
+
+      if (index === -1) {
+        return `<p>${escapeHtml(line)}</p>`;
+      }
+
       const label = line.slice(0, index);
       const value = line.slice(index + 1).trim();
+
       return `<p><strong>${escapeHtml(label)}:</strong> ${linkifyIfUrl(value)}</p>`;
     })
     .join("");
@@ -654,7 +703,11 @@ function compactLines(lines) {
 
 function linkifyIfUrl(value) {
   const safe = escapeHtml(value);
-  if (!isProbablyUrl(value)) return safe;
+
+  if (!isProbablyUrl(value)) {
+    return safe;
+  }
+
   return `<a href="${safe}">${safe}</a>`;
 }
 
@@ -670,6 +723,7 @@ function escapeHtml(value) {
 
 function contactCorsHeaders(request) {
   const origin = request.headers.get("origin") || "";
+
   const allowedOrigins = new Set([
     "https://neuralnetsandprettypatterns.com",
     "https://www.neuralnetsandprettypatterns.com"
@@ -703,7 +757,10 @@ function contactResponse(request, body, status = 200, extraHeaders = {}) {
   }
 
   const title = body.ok ? "Message sent" : "Message not sent";
-  const message = body.ok ? "Message sent. Thank you." : (body.error || "Message could not be sent.");
+
+  const message = body.ok
+    ? "Message sent. Thank you."
+    : (body.error || "Message could not be sent.");
 
   return new Response(`<!doctype html>
 <html lang="en">
