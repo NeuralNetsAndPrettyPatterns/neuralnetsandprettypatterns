@@ -140,8 +140,10 @@
 
     #background-container {
       position: fixed;
-      top: 0; left: 0;
-      width: 100%; height: 100%;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
       z-index: 0;
       background-color: #020204;
       background-image: linear-gradient(135deg, #08030f 0%, #060812 50%, #03070d 100%);
@@ -204,7 +206,9 @@
       padding: 1.5rem 0;
     }
 
-    .nav-buttons.bottom-nav { padding: 1.5rem 0 0; }
+    .nav-buttons.bottom-nav {
+      padding: 1.5rem 0 0;
+    }
 
     .nav-button {
       width: 45px;
@@ -231,7 +235,6 @@
       transform: scale(1.1);
     }
 
-
     .nav-button.text-btn {
       font-size: 0.55rem;
       letter-spacing: 0.04em;
@@ -252,7 +255,9 @@
       border-bottom: 1px solid rgba(232,232,232,0.12);
     }
 
-    .section:last-of-type { border-bottom: none; }
+    .section:last-of-type {
+      border-bottom: none;
+    }
 
     h2 {
       font-family: 'IM Fell DW Pica', serif;
@@ -272,7 +277,9 @@
       line-height: 1.75;
     }
 
-    p:last-child { margin-bottom: 0; }
+    p:last-child {
+      margin-bottom: 0;
+    }
 
     p.question {
       font-style: italic;
@@ -289,8 +296,9 @@
       margin: 0;
     }
 
-    .rule::before, .rule::after {
-      content: '';
+    .rule::before,
+    .rule::after {
+      content: "";
       flex: 1;
       height: 1px;
       background: linear-gradient(to right, transparent, rgba(232,232,232,0.2), transparent);
@@ -324,7 +332,9 @@
       white-space: nowrap;
     }
 
-    .nav-key-item:hover { color: #f0f4ff; }
+    .nav-key-item:hover {
+      color: #f0f4ff;
+    }
 
     .nav-key-btn {
       width: 34px;
@@ -342,7 +352,11 @@
       letter-spacing: 0.08em;
     }
 
-    .nav-key-btn svg { width: 16px; height: 16px; fill: currentColor; }
+    .nav-key-btn svg {
+      width: 16px;
+      height: 16px;
+      fill: currentColor;
+    }
 
     .pipe {
       color: rgba(232,232,232,0.25);
@@ -367,9 +381,13 @@
       transition: color 0.2s ease;
     }
 
-    .listen-links a:hover { color: #fff; }
+    .listen-links a:hover {
+      color: #fff;
+    }
 
-    .listen-links .pipe { padding: 0 0.75rem; }
+    .listen-links .pipe {
+      padding: 0 0.75rem;
+    }
 
     /* FOOTER */
     footer {
@@ -385,12 +403,23 @@
       margin-top: 0.5rem;
     }
 
-    .isni a { color: inherit; text-decoration: none; }
+    .isni a {
+      color: inherit;
+      text-decoration: none;
+    }
 
     @media (max-width: 600px) {
-      .container { padding: 0 1rem; }
-      header { padding: 2.5rem 0 1.5rem; }
-      .section { padding: 2rem 0; }
+      .container {
+        padding: 0 1rem;
+      }
+
+      header {
+        padding: 2.5rem 0 1.5rem;
+      }
+
+      .section {
+        padding: 2rem 0;
+      }
     }
   </style>
 </head>
@@ -404,14 +433,8 @@
       <h1>Deep Dream State</h1>
       <span class="logline">There is a world behind this world.</span>
 
-      <div class="nav-buttons">
-        <a class="nav-button text-btn" href="https://neuralnetsandprettypatterns.com/" aria-label="Neural Nets and Pretty Patterns">NNPP</a>
-        <a class="nav-button text-btn" href="https://neuralnetsandprettypatterns.com/deepdreamstate/" aria-label="Deep Dream State">DDS</a>
-        <a class="nav-button text-btn" href="https://neuralnetsandprettypatterns.com/deepdreamstate/arcs/" aria-label="Episode List">EP LIST</a>
-        <a class="nav-button text-btn" href="https://neuralnetsandprettypatterns.com/deepdreamstate/glossary/" aria-label="Lore Glossary">LORE</a>
-        <a class="nav-button text-btn" href="https://neuralnetsandprettypatterns.com/deepdreamstate/cast/" aria-label="Cast">CAST</a>
-        <a class="nav-button text-btn" href="https://neuralnetsandprettypatterns.com/deepdreamstate/more/" aria-label="More">MORE</a>
-        <a class="nav-button text-btn" href="https://neuralnetsandprettypatterns.com/neuralpedia/new-releases/" aria-label="New Releases">NEW</a>
+      <div class="nav-buttons dynamic-dds-nav" role="navigation" aria-label="Site navigation">
+        <script src="https://neuralnetsandprettypatterns.com/deepdreamstate/navigation.js"></script>
       </div>
     </header>
 
@@ -448,6 +471,7 @@
 
     <section class="section">
       <h2>Where to Listen</h2>
+
       <div class="listen-links">
         <a href="https://podcasts.apple.com/us/podcast/deep-dream-state/id1822405042" target="_blank" rel="noopener">Apple</a>
         <span class="pipe">|</span>
@@ -458,10 +482,12 @@
         <a href="https://deepdreamstate.blubrry.net/" target="_blank" rel="noopener">Blubrry</a>
       </div>
     </section>
-<div class="rule"><span class="rule-symbol">* * *</span></div>
+
+    <div class="rule"><span class="rule-symbol">* * *</span></div>
 
     <section class="section">
       <h2>Creator</h2>
+
       <p>Deep Dream State is created by Neural Nets and Pretty Patterns, a writer, performer, and audio producer working at the intersection of speculative fiction, immersive sound, and desire horror.</p>
     </section>
 
@@ -478,22 +504,33 @@
   <script>
     (function() {
       var backgrounds = [
-        'https://neuralnetsandprettypatterns.com/deepdreamstate/arc-carousel-chthonic.webp',
-        'https://neuralnetsandprettypatterns.com/deepdreamstate/arc-carousel-incognitoh.webp',
-        'https://neuralnetsandprettypatterns.com/deepdreamstate/arc-carousel-overview.webp',
-        'https://neuralnetsandprettypatterns.com/deepdreamstate/arc-carousel-sitri.webp',
-        'https://neuralnetsandprettypatterns.com/deepdreamstate/arc-carousel-vale-four.webp'
+        "https://neuralnetsandprettypatterns.com/deepdreamstate/arc-carousel-chthonic.webp",
+        "https://neuralnetsandprettypatterns.com/deepdreamstate/arc-carousel-incognitoh.webp",
+        "https://neuralnetsandprettypatterns.com/deepdreamstate/arc-carousel-overview.webp",
+        "https://neuralnetsandprettypatterns.com/deepdreamstate/arc-carousel-sitri.webp",
+        "https://neuralnetsandprettypatterns.com/deepdreamstate/arc-carousel-vale-four.webp"
       ];
+
       var bgUrl = backgrounds[Math.floor(Math.random() * backgrounds.length)];
-      var container = document.getElementById('background-container');
-      if (!container) return;
+      var container = document.getElementById("background-container");
+
+      if (!container) {
+        return;
+      }
+
       var img = new Image();
+
       img.onload = function() {
-        container.style.backgroundImage = 'url(' + bgUrl + ')';
+        container.style.backgroundImage = "url(" + bgUrl + ")";
       };
+
       img.onerror = function() {
-        console.warn('Background image failed to load, using gradient fallback:', bgUrl);
+        console.warn(
+          "Background image failed to load, using gradient fallback:",
+          bgUrl
+        );
       };
+
       img.src = bgUrl;
     })();
   </script>
