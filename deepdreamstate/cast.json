@@ -1,0 +1,778 @@
+{
+  "records": [
+    {
+      "type": "episode",
+      "ge": 1,
+      "season": 1,
+      "episode": 1,
+      "title": "Maiden Voyage",
+      "url": "/deepdreamstate/arcs/chthonic/episode-1-maiden-voyage/",
+      "cast": [
+        {
+          "performerId": "bliss-blank",
+          "stageName": "Bliss Blank",
+          "character": "Olivia",
+          "characterUrl": "/deepdreamstate/glossary/#olivia",
+          "imdbLinks": [
+            {
+              "label": "IMDb",
+              "url": "https://www.imdb.com/name/nm17754818/"
+            }
+          ],
+          "otherLinks": [
+            {
+              "label": "Blubrry",
+              "url": "https://deepdreamstate.blubrry.net/blissblank/"
+            }
+          ]
+        },
+        {
+          "performerId": "britt-reprogrammed",
+          "stageName": "Britt Reprogrammed",
+          "character": "Tiffany",
+          "characterUrl": "/deepdreamstate/glossary/#tiffany"
+        },
+        {
+          "performerId": "bun-li",
+          "stageName": "Bun Li",
+          "character": "Mairead",
+          "characterUrl": "/deepdreamstate/glossary/#mairead"
+        },
+        {
+          "performerId": "dizzy-dollie",
+          "stageName": "Dizzy Dollie",
+          "character": "Holly",
+          "characterUrl": "/deepdreamstate/glossary/#holly",
+          "imdbLinks": [
+            {
+              "label": "IMDb",
+              "url": "https://www.imdb.com/name/nm17760876/"
+            }
+          ],
+          "otherLinks": [
+            {
+              "label": "Blubrry",
+              "url": "https://deepdreamstate.blubrry.net/dizzy-dollie/"
+            }
+          ]
+        },
+        {
+          "performerId": "echo-doll",
+          "stageName": "Echo Doll",
+          "character": "Nikita",
+          "characterUrl": "/deepdreamstate/glossary/#nikita"
+        },
+        {
+          "performerId": "jade",
+          "stageName": "Jade",
+          "character": "Fion",
+          "characterUrl": "/deepdreamstate/glossary/#fion",
+          "imdbLinks": [
+            {
+              "label": "IMDb",
+              "url": "https://www.imdb.com/name/nm17764360/"
+            }
+          ],
+          "otherLinks": [
+            {
+              "label": "Blubrry",
+              "url": "https://deepdreamstate.blubrry.net/jade-wolf/"
+            }
+          ]
+        },
+        {
+          "performerId": "jericho-caine",
+          "stageName": "Jericho Caine",
+          "character": "Alastair",
+          "characterUrl": "/deepdreamstate/glossary/#alastair"
+        },
+        {
+          "performerId": "kitten-azazel",
+          "stageName": "Kitten Azazel",
+          "character": "Brittany",
+          "characterUrl": "/deepdreamstate/glossary/#brittany",
+          "imdbLinks": [
+            {
+              "label": "IMDb",
+              "url": "https://www.imdb.com/name/nm17774343/"
+            }
+          ]
+        },
+        {
+          "performerId": "neural-nets-and-pretty-patterns",
+          "stageName": "Neural Nets and Pretty Patterns",
+          "character": "William Dyer",
+          "characterUrl": "/deepdreamstate/glossary/#william-dyer",
+          "imdbLinks": [
+            {
+              "label": "IMDb",
+              "url": "https://www.imdb.com/name/nm17755189/"
+            }
+          ],
+          "socialLinks": [
+            {
+              "label": "Twitter",
+              "url": "https://x.com/MCNeuralNets"
+            }
+          ],
+          "otherLinks": [
+            {
+              "label": "NNPP",
+              "url": "/"
+            }
+          ]
+        },
+        {
+          "performerId": "pipp",
+          "stageName": "Pipp",
+          "character": "Emma",
+          "characterUrl": "/deepdreamstate/glossary/#emma"
+        },
+        {
+          "performerId": "ring-of-kees",
+          "stageName": "Ring of Kees",
+          "character": "Sarah",
+          "characterUrl": "/deepdreamstate/glossary/#sarah"
+        },
+        {
+          "performerId": "syndi-rella",
+          "stageName": "Syndi Rella",
+          "character": "Selene",
+          "characterUrl": "/deepdreamstate/glossary/#selene"
+        },
+        {
+          "performerId": "tender-confusion",
+          "stageName": "Tender Confusion",
+          "character": "Kara",
+          "characterUrl": "/deepdreamstate/glossary/#kara"
+        }
+      ]
+    },
+    {
+      "type": "episode",
+      "ge": 2,
+      "season": 1,
+      "episode": 2,
+      "title": "Cringetide",
+      "url": "/deepdreamstate/arcs/chthonic/episode-2-cringetide/",
+      "cast": [
+        {
+          "performerId": "bliss-blank",
+          "stageName": "Bliss Blank",
+          "character": "Olivia"
+        },
+        {
+          "performerId": "bun-li",
+          "stageName": "Bun Li",
+          "character": "Mairead"
+        },
+        {
+          "performerId": "dizzy-dollie",
+          "stageName": "Dizzy Dollie",
+          "character": "Holly"
+        },
+        {
+          "performerId": "echo-doll",
+          "stageName": "Echo Doll",
+          "character": "Nikita"
+        },
+        {
+          "performerId": "jade",
+          "stageName": "Jade",
+          "character": "Fion"
+        },
+        {
+          "performerId": "jericho-caine",
+          "stageName": "Jericho Caine",
+          "character": "Alastair"
+        },
+        {
+          "performerId": "kitten-azazel",
+          "stageName": "Kitten Azazel",
+          "character": "Brittany"
+        },
+        {
+          "performerId": "korrupted-innocence",
+          "stageName": "Korrupted Innocence",
+          "character": "Amanda",
+          "characterUrl": "/deepdreamstate/glossary/#amanda"
+        },
+        {
+          "performerId": "neural-nets-and-pretty-patterns",
+          "stageName": "Neural Nets and Pretty Patterns",
+          "character": "William Dyer"
+        },
+        {
+          "performerId": "pipp",
+          "stageName": "Pipp",
+          "character": "Emma"
+        },
+        {
+          "performerId": "ring-of-kees",
+          "stageName": "Ring of Kees",
+          "character": "Sarah"
+        },
+        {
+          "performerId": "syndi-rella",
+          "stageName": "Syndi Rella",
+          "character": "Selene"
+        },
+        {
+          "performerId": "tender-confusion",
+          "stageName": "Tender Confusion",
+          "character": "Kara"
+        }
+      ]
+    },
+    {
+      "type": "episode",
+      "ge": 3,
+      "season": 1,
+      "episode": 3,
+      "title": "Veil",
+      "url": "/deepdreamstate/arcs/chthonic/episode-3-veil/",
+      "cast": [
+        {
+          "performerId": "bliss-blank",
+          "stageName": "Bliss Blank",
+          "character": "Olivia"
+        },
+        {
+          "performerId": "britt-reprogrammed",
+          "stageName": "Britt Reprogrammed",
+          "character": "Tiffany"
+        },
+        {
+          "performerId": "bun-li",
+          "stageName": "Bun Li",
+          "character": "Mairead"
+        },
+        {
+          "performerId": "dizzy-dollie",
+          "stageName": "Dizzy Dollie",
+          "character": "Holly"
+        },
+        {
+          "performerId": "echo-doll",
+          "stageName": "Echo Doll",
+          "character": "Nikita"
+        },
+        {
+          "performerId": "jade",
+          "stageName": "Jade",
+          "character": "Fion"
+        },
+        {
+          "performerId": "jericho-caine",
+          "stageName": "Jericho Caine",
+          "character": "Alastair"
+        },
+        {
+          "performerId": "kitten-azazel",
+          "stageName": "Kitten Azazel",
+          "character": "Brittany"
+        },
+        {
+          "performerId": "korrupted-innocence",
+          "stageName": "Korrupted Innocence",
+          "character": "Amanda"
+        },
+        {
+          "performerId": "neural-nets-and-pretty-patterns",
+          "stageName": "Neural Nets and Pretty Patterns",
+          "character": "William Dyer"
+        },
+        {
+          "performerId": "pipp",
+          "stageName": "Pipp",
+          "character": "Emma"
+        },
+        {
+          "performerId": "ring-of-kees",
+          "stageName": "Ring of Kees",
+          "character": "Sarah"
+        },
+        {
+          "performerId": "syndi-rella",
+          "stageName": "Syndi Rella",
+          "character": "Selene"
+        },
+        {
+          "performerId": "tender-confusion",
+          "stageName": "Tender Confusion",
+          "character": "Kara"
+        }
+      ]
+    },
+    {
+      "type": "episode",
+      "ge": 4,
+      "season": 1,
+      "episode": 4,
+      "title": "Asunder",
+      "url": "/deepdreamstate/arcs/chthonic/episode-4-asunder/",
+      "cast": [
+        {
+          "performerId": "bliss-blank",
+          "stageName": "Bliss Blank",
+          "character": "Olivia"
+        },
+        {
+          "performerId": "britt-reprogrammed",
+          "stageName": "Britt Reprogrammed",
+          "character": "Tiffany"
+        },
+        {
+          "performerId": "bun-li",
+          "stageName": "Bun Li",
+          "character": "Mairead"
+        },
+        {
+          "performerId": "dizzy-dollie",
+          "stageName": "Dizzy Dollie",
+          "character": "Holly"
+        },
+        {
+          "performerId": "echo-doll",
+          "stageName": "Echo Doll",
+          "character": "Nikita"
+        },
+        {
+          "performerId": "jade",
+          "stageName": "Jade",
+          "character": "Fion"
+        },
+        {
+          "performerId": "jericho-caine",
+          "stageName": "Jericho Caine",
+          "character": "Alastair"
+        },
+        {
+          "performerId": "kitten-azazel",
+          "stageName": "Kitten Azazel",
+          "character": "Brittany"
+        },
+        {
+          "performerId": "korrupted-innocence",
+          "stageName": "Korrupted Innocence",
+          "character": "Amanda"
+        },
+        {
+          "performerId": "neural-nets-and-pretty-patterns",
+          "stageName": "Neural Nets and Pretty Patterns",
+          "character": "William Dyer"
+        },
+        {
+          "performerId": "pipp",
+          "stageName": "Pipp",
+          "character": "Emma"
+        },
+        {
+          "performerId": "ring-of-kees",
+          "stageName": "Ring of Kees",
+          "character": "Sarah"
+        },
+        {
+          "performerId": "syndi-rella",
+          "stageName": "Syndi Rella",
+          "character": "Selene"
+        },
+        {
+          "performerId": "tender-confusion",
+          "stageName": "Tender Confusion",
+          "character": "Kara"
+        }
+      ]
+    },
+    {
+      "type": "episode",
+      "ge": 5,
+      "season": 1,
+      "episode": 5,
+      "title": "Shower",
+      "url": "/deepdreamstate/arcs/chthonic/episode-5-shower/",
+      "cast": [
+        {
+          "performerId": "bliss-blank",
+          "stageName": "Bliss Blank",
+          "character": "Olivia"
+        },
+        {
+          "performerId": "bun-li",
+          "stageName": "Bun Li",
+          "character": "Mairead"
+        },
+        {
+          "performerId": "dizzy-dollie",
+          "stageName": "Dizzy Dollie",
+          "character": "Holly"
+        },
+        {
+          "performerId": "echo-doll",
+          "stageName": "Echo Doll",
+          "character": "Nikita"
+        },
+        {
+          "performerId": "jade",
+          "stageName": "Jade",
+          "character": "Fion"
+        },
+        {
+          "performerId": "jericho-caine",
+          "stageName": "Jericho Caine",
+          "character": "Alastair"
+        },
+        {
+          "performerId": "kitten-azazel",
+          "stageName": "Kitten Azazel",
+          "character": "Brittany"
+        },
+        {
+          "performerId": "korrupted-innocence",
+          "stageName": "Korrupted Innocence",
+          "character": "Amanda"
+        },
+        {
+          "performerId": "neural-nets-and-pretty-patterns",
+          "stageName": "Neural Nets and Pretty Patterns",
+          "character": "William Dyer"
+        },
+        {
+          "performerId": "ring-of-kees",
+          "stageName": "Ring of Kees",
+          "character": "Sarah"
+        },
+        {
+          "performerId": "syndi-rella",
+          "stageName": "Syndi Rella",
+          "character": "Selene"
+        },
+        {
+          "performerId": "tender-confusion",
+          "stageName": "Tender Confusion",
+          "character": "Kara"
+        }
+      ]
+    },
+    {
+      "type": "episode",
+      "ge": 6,
+      "season": 1,
+      "episode": 6,
+      "title": "Garter",
+      "url": "/deepdreamstate/arcs/chthonic/episode-6-garter/",
+      "cast": [
+        {
+          "performerId": "bliss-blank",
+          "stageName": "Bliss Blank",
+          "character": "Olivia"
+        },
+        {
+          "performerId": "britt-reprogrammed",
+          "stageName": "Britt Reprogrammed",
+          "character": "Tiffany"
+        },
+        {
+          "performerId": "bun-li",
+          "stageName": "Bun Li",
+          "character": "Mairead"
+        },
+        {
+          "performerId": "dizzy-dollie",
+          "stageName": "Dizzy Dollie",
+          "character": "Holly"
+        },
+        {
+          "performerId": "echo-doll",
+          "stageName": "Echo Doll",
+          "character": "Nikita"
+        },
+        {
+          "performerId": "jade",
+          "stageName": "Jade",
+          "character": "Fion"
+        },
+        {
+          "performerId": "jericho-caine",
+          "stageName": "Jericho Caine",
+          "character": "Alastair"
+        },
+        {
+          "performerId": "kitten-azazel",
+          "stageName": "Kitten Azazel",
+          "character": "Brittany"
+        },
+        {
+          "performerId": "korrupted-innocence",
+          "stageName": "Korrupted Innocence",
+          "character": "Amanda"
+        },
+        {
+          "performerId": "neural-nets-and-pretty-patterns",
+          "stageName": "Neural Nets and Pretty Patterns",
+          "character": "William Dyer"
+        },
+        {
+          "performerId": "pipp",
+          "stageName": "Pipp",
+          "character": "Emma"
+        },
+        {
+          "performerId": "ring-of-kees",
+          "stageName": "Ring of Kees",
+          "character": "Sarah"
+        },
+        {
+          "performerId": "syndi-rella",
+          "stageName": "Syndi Rella",
+          "character": "Selene"
+        },
+        {
+          "performerId": "tender-confusion",
+          "stageName": "Tender Confusion",
+          "character": "Kara"
+        }
+      ]
+    },
+    {
+      "type": "episode",
+      "ge": 7,
+      "season": 1,
+      "episode": 7,
+      "title": "Tessellated",
+      "url": "/deepdreamstate/arcs/chthonic/episode-7-tessellated/",
+      "cast": [
+        {
+          "performerId": "bliss-blank",
+          "stageName": "Bliss Blank",
+          "character": "Olivia"
+        },
+        {
+          "performerId": "britt-reprogrammed",
+          "stageName": "Britt Reprogrammed",
+          "character": "Tiffany"
+        },
+        {
+          "performerId": "bun-li",
+          "stageName": "Bun Li",
+          "character": "Mairead"
+        },
+        {
+          "performerId": "dizzy-dollie",
+          "stageName": "Dizzy Dollie",
+          "character": "Holly"
+        },
+        {
+          "performerId": "echo-doll",
+          "stageName": "Echo Doll",
+          "character": "Nikita"
+        },
+        {
+          "performerId": "jade",
+          "stageName": "Jade",
+          "character": "Fion"
+        },
+        {
+          "performerId": "jericho-caine",
+          "stageName": "Jericho Caine",
+          "character": "Alastair"
+        },
+        {
+          "performerId": "kitten-azazel",
+          "stageName": "Kitten Azazel",
+          "character": "Brittany"
+        },
+        {
+          "performerId": "korrupted-innocence",
+          "stageName": "Korrupted Innocence",
+          "character": "Amanda"
+        },
+        {
+          "performerId": "neural-nets-and-pretty-patterns",
+          "stageName": "Neural Nets and Pretty Patterns",
+          "character": "William Dyer"
+        },
+        {
+          "performerId": "pipp",
+          "stageName": "Pipp",
+          "character": "Emma"
+        },
+        {
+          "performerId": "ring-of-kees",
+          "stageName": "Ring of Kees",
+          "character": "Sarah"
+        },
+        {
+          "performerId": "syndi-rella",
+          "stageName": "Syndi Rella",
+          "character": "Selene"
+        },
+        {
+          "performerId": "tender-confusion",
+          "stageName": "Tender Confusion",
+          "character": "Kara"
+        }
+      ]
+    },
+    {
+      "type": "episode",
+      "ge": 8,
+      "season": 1,
+      "episode": 8,
+      "title": "Undergloom",
+      "url": "/deepdreamstate/arcs/chthonic/episode-8-undergloom/",
+      "cast": [
+        {
+          "performerId": "bliss-blank",
+          "stageName": "Bliss Blank",
+          "character": "Olivia"
+        },
+        {
+          "performerId": "britt-reprogrammed",
+          "stageName": "Britt Reprogrammed",
+          "character": "Tiffany"
+        },
+        {
+          "performerId": "bun-li",
+          "stageName": "Bun Li",
+          "character": "Mairead"
+        },
+        {
+          "performerId": "dizzy-dollie",
+          "stageName": "Dizzy Dollie",
+          "character": "Holly"
+        },
+        {
+          "performerId": "echo-doll",
+          "stageName": "Echo Doll",
+          "character": "Nikita"
+        },
+        {
+          "performerId": "jade",
+          "stageName": "Jade",
+          "character": "Fion"
+        },
+        {
+          "performerId": "jericho-caine",
+          "stageName": "Jericho Caine",
+          "character": "Alastair"
+        },
+        {
+          "performerId": "kitten-azazel",
+          "stageName": "Kitten Azazel",
+          "character": "Brittany"
+        },
+        {
+          "performerId": "korrupted-innocence",
+          "stageName": "Korrupted Innocence",
+          "character": "Amanda"
+        },
+        {
+          "performerId": "neural-nets-and-pretty-patterns",
+          "stageName": "Neural Nets and Pretty Patterns",
+          "character": "William Dyer"
+        },
+        {
+          "performerId": "pipp",
+          "stageName": "Pipp",
+          "character": "Emma"
+        },
+        {
+          "performerId": "ring-of-kees",
+          "stageName": "Ring of Kees",
+          "character": "Sarah"
+        },
+        {
+          "performerId": "syndi-rella",
+          "stageName": "Syndi Rella",
+          "character": "Selene"
+        },
+        {
+          "performerId": "tender-confusion",
+          "stageName": "Tender Confusion",
+          "character": "Kara"
+        }
+      ]
+    },
+    {
+      "type": "episode",
+      "ge": 9,
+      "season": 1,
+      "episode": 9,
+      "title": "Spiralstorm",
+      "url": "/deepdreamstate/arcs/chthonic/episode-9-spiralstorm/",
+      "cast": [
+        {
+          "performerId": "bliss-blank",
+          "stageName": "Bliss Blank",
+          "character": "Olivia"
+        },
+        {
+          "performerId": "britt-reprogrammed",
+          "stageName": "Britt Reprogrammed",
+          "character": "Tiffany"
+        },
+        {
+          "performerId": "bun-li",
+          "stageName": "Bun Li",
+          "character": "Mairead"
+        },
+        {
+          "performerId": "dizzy-dollie",
+          "stageName": "Dizzy Dollie",
+          "character": "Holly"
+        },
+        {
+          "performerId": "echo-doll",
+          "stageName": "Echo Doll",
+          "character": "Nikita"
+        },
+        {
+          "performerId": "jade",
+          "stageName": "Jade",
+          "character": "Fion"
+        },
+        {
+          "performerId": "jericho-caine",
+          "stageName": "Jericho Caine",
+          "character": "Alastair"
+        },
+        {
+          "performerId": "kitten-azazel",
+          "stageName": "Kitten Azazel",
+          "character": "Brittany"
+        },
+        {
+          "performerId": "korrupted-innocence",
+          "stageName": "Korrupted Innocence",
+          "character": "Amanda"
+        },
+        {
+          "performerId": "neural-nets-and-pretty-patterns",
+          "stageName": "Neural Nets and Pretty Patterns",
+          "character": "William Dyer"
+        },
+        {
+          "performerId": "pipp",
+          "stageName": "Pipp",
+          "character": "Emma"
+        },
+        {
+          "performerId": "ring-of-kees",
+          "stageName": "Ring of Kees",
+          "character": "Sarah"
+        },
+        {
+          "performerId": "syndi-rella",
+          "stageName": "Syndi Rella",
+          "character": "Selene"
+        },
+        {
+          "performerId": "tender-confusion",
+          "stageName": "Tender Confusion",
+          "character": "Kara"
+        }
+      ]
+    }
+  ]
+}
