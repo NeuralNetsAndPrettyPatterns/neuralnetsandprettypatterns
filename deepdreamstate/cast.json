@@ -767,10 +767,417 @@
           "stageName": "Syndi Rella",
           "character": "Selene"
         },
-        {
+               {
           "performerId": "tender-confusion",
           "stageName": "Tender Confusion",
           "character": "Kara"
+        }
+      ]
+    },
+    {
+      "type": "episode",
+      "ge": 10,
+      "season": 2,
+      "episode": 1,
+      "title": "Violet",
+      "url": "/deepdreamstate/arcs/incognitoh/episode-1-violet/",
+      "cast": [
+        {
+          "performerId": "flux-lynniegal",
+          "stageName": "Flux Lynniegal",
+          "character": "Violet Verdier",
+          "characterUrl": "/deepdreamstate/glossary/#violet-verdier"
+        },
+        {
+          "performerId": "bliss-blank",
+          "stageName": "Bliss Blank",
+          "character": "Lilly Ekimmu",
+          "characterUrl": "/deepdreamstate/glossary/#lilly-ekimmu"
+        },
+        {
+          "performerId": "dizzy-dollie",
+          "stageName": "Dizzy Dollie",
+          "character": "Bella",
+          "characterUrl": "/deepdreamstate/glossary/#bella"
+        },
+        {
+          "performerId": "the-lady-aurora",
+          "stageName": "The Lady Aurora",
+          "character": "The Coven"
+        },
+        {
+          "performerId": "bun-li",
+          "stageName": "Bun Li",
+          "character": "The Coven"
+        },
+        {
+          "performerId": "cupcake",
+          "stageName": "Cupcake",
+          "character": "The Coven"
+        },
+        {
+          "performerId": "princess-ella",
+          "stageName": "Princess Ella",
+          "character": "The Coven"
+        },
+        {
+          "performerId": "geek-x",
+          "stageName": "Geek X",
+          "character": "The Coven"
+        },
+        {
+          "performerId": "jade",
+          "stageName": "Jade",
+          "character": "The Coven"
+        },
+        {
+          "performerId": "kitten-azazel",
+          "stageName": "Kitten Azazel",
+          "character": "The Coven"
+        },
+        {
+          "performerId": "vampy-mcvampface",
+          "stageName": "Vampy McVampface",
+          "character": "The Coven"
+        },
+        {
+          "performerId": "steampunk-sarah",
+          "stageName": "Steampunk Sarah",
+          "character": "The Coven"
+        },
+        {
+          "performerId": "tinsel",
+          "stageName": "Tinsel",
+          "character": "The Coven"
+        }
+      ]
+    },
+    {
+      "type": "episode",
+      "ge": 11,
+      "season": 2,
+      "episode": 2,
+      "title": "Glass Houses",
+      "url": "/deepdreamstate/arcs/incognitoh/episode-2-glass-houses/",
+      "cast": [
+        {
+          "performerId": "pipp",
+          "stageName": "Pipp",
+          "character": "Madison",
+          "characterUrl": "/deepdreamstate/glossary/#madison"
+        },
+        {
+          "performerId": "jade",
+          "stageName": "Jade",
+          "character": "Ashley",
+          "characterUrl": "/deepdreamstate/glossary/#ashley"
+        },
+        {
+          "performerId": "echo-doll",
+          "stageName": "Echo Doll",
+          "character": "Hannah",
+          "characterUrl": "/deepdreamstate/glossary/#hannah"
+        },
+        {
+          "performerId": "bun-li",
+          "stageName": "Bun Li",
+          "character": "Zarah",
+          "characterUrl": "/deepdreamstate/glossary/#zarah"
+        },
+        {
+          "performerId": "bliss-blank",
+          "stageName": "Bliss Blank",
+          "character": "Kimmy",
+          "characterUrl": "/deepdreamstate/glossary/#kimmy"
+        },
+        {
+          "performerId": "bliss-blank",
+          "stageName": "Bliss Blank",
+          "character": "April",
+          "characterUrl": "/deepdreamstate/glossary/#april"
+        },
+        {
+          "performerId": "flux-lynniegal",
+          "stageName": "Flux Lynniegal",
+          "character": "Kitty",
+          "characterUrl": "/deepdreamstate/glossary/#kitty"
+        },
+        {
+          "performerId": "dizzy-dollie",
+          "stageName": "Dizzy Dollie",
+          "character": "Bella",
+          "characterUrl": "/deepdreamstate/glossary/#bella"
+        },
+        {
+          "performerId": "cupcake",
+          "stageName": "Cupcake",
+          "character": "The Council",
+          "characterUrl": "/deepdreamstate/glossary/#council-the"
+        },
+        {
+          "performerId": "geek",
+          "stageName": "Geek",
+          "character": "The Council",
+          "characterUrl": "/deepdreamstate/glossary/#council-the"
+        },
+        {
+          "performerId": "jae",
+          "stageName": "Jae",
+          "character": "The Council",
+          "characterUrl": "/deepdreamstate/glossary/#council-the"
+        },
+        {
+          "performerId": "shiney",
+          "stageName": "Shiney",
+          "character": "The Council",
+          "characterUrl": "/deepdreamstate/glossary/#council-the"
+        },
+        {
+          "performerId": "syndi-rella",
+          "stageName": "Syndi Rella",
+          "character": "The Council",
+          "characterUrl": "/deepdreamstate/glossary/#council-the"
+        },
+        {
+          "performerId": "princess-ella",
+          "stageName": "Princess Ella",
+          "character": "The Council",
+          "characterUrl": "/deepdreamstate/glossary/#council-the"
+        },
+        {
+          "performerId": "kitten-azazel",
+          "stageName": "Kitten Azazel",
+          "character": "The Council",
+          "characterUrl": "/deepdreamstate/glossary/#council-the"
+        }
+      ]
+    },
+    {
+      "type": "episode",
+      "ge": 12,
+      "season": 2,
+      "episode": 3,
+      "title": "Uniforms",
+      "url": "/deepdreamstate/arcs/incognitoh/episode-3-uniforms/",
+      "cast": [
+        {
+          "performerId": "pipp",
+          "stageName": "Pipp",
+          "character": "Madison"
+        },
+        {
+          "performerId": "jade",
+          "stageName": "Jade",
+          "character": "Ashley"
+        },
+        {
+          "performerId": "echo-doll",
+          "stageName": "Echo Doll",
+          "character": "Hannah"
+        },
+        {
+          "performerId": "bun-li",
+          "stageName": "Bun Li",
+          "character": "Zarah"
+        },
+        {
+          "performerId": "bliss-blank",
+          "stageName": "Bliss Blank",
+          "character": "April"
+        },
+        {
+          "performerId": "flux-lynniegal",
+          "stageName": "Flux Lynniegal",
+          "character": "Kitty"
+        },
+        {
+          "performerId": "dizzy-dollie",
+          "stageName": "Dizzy Dollie",
+          "character": "Bella"
+        },
+        {
+          "performerId": "princess-ella",
+          "stageName": "Princess Ella",
+          "character": "The Council",
+          "characterUrl": "/deepdreamstate/glossary/#council-the"
+        },
+        {
+          "performerId": "syndi-rella",
+          "stageName": "Syndi Rella",
+          "character": "The Council",
+          "characterUrl": "/deepdreamstate/glossary/#council-the"
+        }
+      ]
+    },
+    {
+      "type": "episode",
+      "ge": 13,
+      "season": 2,
+      "episode": 4,
+      "title": "Deep Fake",
+      "url": "/deepdreamstate/arcs/incognitoh/episode-4-deep-fake/",
+      "cast": [
+        {
+          "performerId": "pipp",
+          "stageName": "Pipp",
+          "character": "Madison"
+        },
+        {
+          "performerId": "jade",
+          "stageName": "Jade",
+          "character": "Ashley"
+        },
+        {
+          "performerId": "echo-doll",
+          "stageName": "Echo Doll",
+          "character": "Hannah"
+        },
+        {
+          "performerId": "bun-li",
+          "stageName": "Bun Li",
+          "character": "Zarah"
+        },
+        {
+          "performerId": "bliss-blank",
+          "stageName": "Bliss Blank",
+          "character": "April"
+        },
+        {
+          "performerId": "flux-lynniegal",
+          "stageName": "Flux Lynniegal",
+          "character": "Kitty"
+        },
+        {
+          "performerId": "princess-ella",
+          "stageName": "Princess Ella",
+          "character": "Candi",
+          "characterUrl": "/deepdreamstate/glossary/#candi"
+        },
+        {
+          "performerId": "dizzy-dollie",
+          "stageName": "Dizzy Dollie",
+          "character": "Bella"
+        },
+        {
+          "performerId": "syndi-rella",
+          "stageName": "Syndi Rella",
+          "character": "DeeDee"
+        }
+      ]
+    },
+    {
+      "type": "episode",
+      "ge": 14,
+      "season": 2,
+      "episode": 5,
+      "title": "Winner Winner",
+      "url": "/deepdreamstate/arcs/incognitoh/episode-5-winner-winner/",
+      "cast": [
+        {
+          "performerId": "pipp",
+          "stageName": "Pipp",
+          "character": "Madison"
+        },
+        {
+          "performerId": "jade",
+          "stageName": "Jade",
+          "character": "Ashley"
+        },
+        {
+          "performerId": "echo-doll",
+          "stageName": "Echo Doll",
+          "character": "Hannah"
+        },
+        {
+          "performerId": "bun-li",
+          "stageName": "Bun Li",
+          "character": "Zarah"
+        },
+        {
+          "performerId": "bliss-blank",
+          "stageName": "Bliss Blank",
+          "character": "April"
+        },
+        {
+          "performerId": "flux-lynniegal",
+          "stageName": "Flux Lynniegal",
+          "character": "Kitty"
+        },
+        {
+          "performerId": "princess-ella",
+          "stageName": "Princess Ella",
+          "character": "Candi"
+        },
+        {
+          "performerId": "dizzy-dollie",
+          "stageName": "Dizzy Dollie",
+          "character": "Bella"
+        },
+        {
+          "performerId": "syndi-rella",
+          "stageName": "Syndi Rella",
+          "character": "DeeDee"
+        },
+        {
+          "performerId": "kitten-azazel",
+          "stageName": "Kitten Azazel",
+          "character": "The Council",
+          "characterUrl": "/deepdreamstate/glossary/#council-the"
+        }
+      ]
+    },
+    {
+      "type": "episode",
+      "ge": 15,
+      "season": 2,
+      "episode": 6,
+      "title": "The Chain",
+      "url": "/deepdreamstate/arcs/incognitoh/episode-6-the-chain/",
+      "cast": [
+        {
+          "performerId": "pipp",
+          "stageName": "Pipp",
+          "character": "Madison"
+        },
+        {
+          "performerId": "jade",
+          "stageName": "Jade",
+          "character": "Ashley"
+        },
+        {
+          "performerId": "echo-doll",
+          "stageName": "Echo Doll",
+          "character": "Hannah"
+        },
+        {
+          "performerId": "bun-li",
+          "stageName": "Bun Li",
+          "character": "Zarah"
+        },
+        {
+          "performerId": "bliss-blank",
+          "stageName": "Bliss Blank",
+          "character": "April"
+        },
+        {
+          "performerId": "flux-lynniegal",
+          "stageName": "Flux Lynniegal",
+          "character": "Kitty"
+        },
+        {
+          "performerId": "princess-ella",
+          "stageName": "Princess Ella",
+          "character": "Candi"
+        },
+        {
+          "performerId": "dizzy-dollie",
+          "stageName": "Dizzy Dollie",
+          "character": "Bella"
+        },
+        {
+          "performerId": "bliss-blank",
+          "stageName": "Bliss Blank",
+          "character": "Kimmy"
         }
       ]
     }
