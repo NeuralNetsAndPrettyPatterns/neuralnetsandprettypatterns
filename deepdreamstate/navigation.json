@@ -1,0 +1,29 @@
+{
+  "buttons": [
+    {
+      "label": "NNPP",
+      "url": "https://neuralnetsandprettypatterns.com/",
+      "ariaLabel": "Neural Nets and Pretty Patterns"
+    },
+    {
+      "label": "DDS",
+      "url": "https://neuralnetsandprettypatterns.com/deepdreamstate/",
+      "ariaLabel": "Deep Dream State"
+    },
+    {
+      "label": "EP LIST",
+      "url": "https://neuralnetsandprettypatterns.com/deepdreamstate/arcs/",
+      "ariaLabel": "Episode List"
+    },
+    {
+      "label": "LORE",
+      "url": "https://neuralnetsandprettypatterns.com/deepdreamstate/glossary/",
+      "ariaLabel": "Lore Glossary"
+    },
+    {
+      "label": "CAST",
+      "url": "https://neuralnetsandprettypatterns.com/deepdreamstate/cast/",
+      "ariaLabel": "Cast"
+    }
+  ]
+}
