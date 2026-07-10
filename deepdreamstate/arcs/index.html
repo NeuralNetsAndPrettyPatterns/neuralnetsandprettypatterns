@@ -96,7 +96,7 @@
         "@id": "https://neuralnetsandprettypatterns.com/deepdreamstate/arcs/#episode-list",
         "name": "Deep Dream State episode list",
         "itemListOrder": "https://schema.org/ItemListOrderAscending",
-        "numberOfItems": 36,
+        "numberOfItems": 37,
         "isPartOf": { "@id": "https://neuralnetsandprettypatterns.com/deepdreamstate/arcs/#page" },
         "about": { "@id": "https://neuralnetsandprettypatterns.com/deepdreamstate/#series" }
       }
@@ -263,13 +263,15 @@
       align-items: center;
       gap: 0.6rem;
       padding: 1.5rem 0;
+      flex-wrap: wrap;
     }
 
     .nav-button {
-      width: 45px;
+      min-width: 45px;
       height: 45px;
+      padding: 0 0.72rem;
       border: 1.5px solid #e8e8e8;
-      border-radius: 50%;
+      border-radius: 999px;
       background: transparent;
       color: #e8e8e8;
       cursor: pointer;
@@ -280,8 +282,10 @@
       flex-shrink: 0;
       text-decoration: none;
       font-family: 'IM Fell DW Pica', serif;
-      font-size: 0.65rem;
-      letter-spacing: 0.1em;
+      font-size: 0.62rem;
+      letter-spacing: 0.08em;
+      white-space: nowrap;
+      line-height: 1;
     }
 
     .nav-button:hover {
@@ -469,23 +473,15 @@
     <header>
       <h1>Deep Dream State</h1>
 
-      <div class="nav-buttons">
+      <nav class="nav-buttons" aria-label="Site navigation">
         <a class="nav-button" href="https://neuralnetsandprettypatterns.com/" aria-label="Neural Nets and Pretty Patterns">NNPP</a>
         <a class="nav-button" href="https://neuralnetsandprettypatterns.com/deepdreamstate/" aria-label="Deep Dream State">DDS</a>
-        <a class="nav-button" href="https://neuralnetsandprettypatterns.com/deepdreamstate/arcs/" aria-label="Arcs">
-          <svg viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="M8 22h1v-6.995c.006-.502.177-3.005 3-3.005s2.994 2.503 3 3v7h7v-2h-1V4h1V2H2v2h1v16H2v2h6zM19 4v2H5V4h14zM5 8h14v12h-2v-5c0-1.729-1.045-5-5-5s-5 3.271-5 5v5H5V8z"/></svg>
-        </a>
-        <a class="nav-button" href="https://neuralnetsandprettypatterns.com/deepdreamstate/glossary/" aria-label="Glossary">
-          <svg viewBox="0 0 24 24" fill="none"><path d="M12 10.4V20M12 10.4C12 8.15979 12 7.03969 11.564 6.18404C11.1805 5.43139 10.5686 4.81947 9.81596 4.43597C8.96031 4 7.84021 4 5.6 4H4.6C4.03995 4 3.75992 4 3.54601 4.10899C3.35785 4.20487 3.20487 4.35785 3.10899 4.54601C3 4.75992 3 5.03995 3 5.6V16.4C3 16.9601 3 17.2401 3.10899 17.454C3.20487 17.6422 3.35785 17.7951 3.54601 17.891C3.75992 18 4.03995 18 4.6 18H7.54668C8.08687 18 8.35696 18 8.61814 18.0466C8.84995 18.0879 9.0761 18.1563 9.29191 18.2506C9.53504 18.3567 9.75977 18.5065 10.2092 18.8062L12 20M12 10.4C12 8.15979 12 7.03969 12.436 6.18404C12.8195 5.43139 13.4314 4.81947 14.184 4.43597C15.0397 4 16.1598 4 18.4 4H19.4C19.9601 4 20.2401 4 20.454 4.10899C20.6422 4.20487 20.7951 4.35785 20.891 4.54601C21 4.75992 21 5.03995 21 5.6V16.4C21 16.9601 21 17.2401 20.891 17.454C20.7951 17.6422 20.6422 17.7951 20.454 17.891C20.2401 18 19.9601 18 19.4 18H16.4533C15.9131 18 15.643 18 15.3819 18.0466C15.15 18.0879 14.9239 18.1563 14.7081 18.2506C14.465 18.3567 14.2402 18.5065 13.7908 18.8062L12 20" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg>
-        </a>
-        <a class="nav-button" href="https://neuralnetsandprettypatterns.com/deepdreamstate/cast/" aria-label="Cast and Crew">
-          <svg viewBox="0 0 299.196 299.196" fill="currentColor"><path d="M101.833,91.468c-4.882-4.882-4.882-12.796,0-17.678c3.915-3.915,9.781-4.682,14.469-2.316c4.495-7.917,11.674-13.995,20.423-17.098c4.113-1.459,8.411-2.199,12.774-2.199c7.024,0,13.906,1.934,19.902,5.593c1.78,1.086,3.645,2.177,5.584,3.27V27.843c0-5.351-2.384-10.359-6.539-13.738c-4.164-3.386-9.556-4.705-14.789-3.607c-18.029,3.77-41.526,5.845-66.164,5.845s-48.135-2.075-66.164-5.845c-1.214-0.254-2.437-0.379-3.65-0.379c-4.024,0-7.948,1.375-11.142,3.974C2.382,17.47,0,22.482,0,27.843v92.63c0,44.46,33.335,81.281,76.323,86.782c-0.817-14.212,1.207-28.581,6.123-42.396l3.408-9.578c-6.281,0.383-12.452,2.963-17.241,7.752c-4.881,4.881-12.797,4.881-17.678,0c-4.882-4.882-4.882-12.796,0-17.678c11.885-11.885,28.163-16.756,43.655-14.626l12.438-34.957C105.186,94.514,103.445,93.08,101.833,91.468z M71.95,91.468c-6.775,6.775-15.784,10.507-25.366,10.507c-9.583,0-18.592-3.731-25.367-10.507c-4.882-4.882-4.882-12.796,0-17.678c4.881-4.881,12.797-4.881,17.678,0c4.241,4.241,11.139,4.239,15.378,0c4.881-4.881,12.797-4.881,17.678,0C76.832,78.672,76.832,86.587,71.95,91.468z"/><path d="M296.544,127.725c-2.847-4.684-7.654-7.85-13.084-8.592c-17.524-2.393-40.144-8.091-64.195-16.649c-24.051-8.558-45.186-18.428-60.283-27.642c-2.89-1.764-6.176-2.665-9.483-2.665c-2.05,0-4.109,0.346-6.087,1.048c-5.169,1.834-9.233,5.901-11.071,11.068l-31.052,87.27c-16.291,45.785,7.619,96.108,53.404,112.398c9.75,3.469,19.706,5.115,29.495,5.115c36.179,0,70.081-22.484,82.903-58.519l31.052-87.27C299.98,138.124,299.391,132.408,296.544,127.725z M131.629,151.079c-2.963-6.235-0.31-13.692,5.926-16.654c8.655-4.113,18.394-4.608,27.421-1.396c9.027,3.213,16.264,9.748,20.376,18.403c2.963,6.235,0.31,13.692-5.926,16.654c-1.731,0.823-3.558,1.213-5.355,1.213c-4.676,0-9.159-2.635-11.299-7.139c-1.247-2.623-3.44-4.605-6.177-5.578c-2.736-0.975-5.688-0.823-8.311,0.423C142.049,159.97,134.591,157.315,131.629,151.079z M208.213,242.594c-7.141,3.393-14.681,5-22.105,5c-19.349,0-37.936-10.901-46.776-29.509c-2.963-6.235-0.31-13.691,5.926-16.654c6.235-2.964,13.692-0.31,16.654,5.926c6.318,13.297,22.275,18.975,35.573,12.657c6.236-2.963,13.692-0.31,16.654,5.926C217.102,232.175,214.448,239.631,208.213,242.594z M255.378,195.11c-1.731,0.823-3.558,1.213-5.355,1.213c-4.676,0-9.159-2.635-11.299-7.139c-2.574-5.416-9.073-7.729-14.489-5.155c-6.233,2.965-13.691,0.311-16.654-5.926c-2.963-6.235-0.31-13.692,5.926-16.654c17.864-8.489,39.309-0.861,47.798,17.007C264.267,184.691,261.613,192.148,255.378,195.11z"/></svg>
-        </a>
-        <a class="nav-button" href="https://neuralnetsandprettypatterns.com/deepdreamstate/art/" aria-label="Art">
-          <svg viewBox="0 0 100 100" xmlns="http://www.w3.org/2000/svg" fill="currentColor"><path d="M63.336,43.333H53.334V16.667c0-3.682-2.986-6.667-6.667-6.667C42.988,10,40,12.985,40,16.667v26.67H30c-3.682,0-6.666,2.981-6.666,6.663v6.667H70V50C70,46.318,67.018,43.333,63.336,43.333z"/><path d="M23.333,90h53.333C72.221,85.554,70,79.727,70,73.899V61.667H23.333V90z"/></svg>
-        </a>
-        <a class="nav-button" href="https://neuralnetsandprettypatterns.com/deepdreamstate/new/" aria-label="New">NEW</a>
-      </div>
+        <a class="nav-button" href="https://neuralnetsandprettypatterns.com/deepdreamstate/arcs/" aria-label="Episode List">EP LIST</a>
+        <a class="nav-button" href="https://neuralnetsandprettypatterns.com/deepdreamstate/glossary/" aria-label="Lore Glossary">LORE</a>
+        <a class="nav-button" href="https://neuralnetsandprettypatterns.com/deepdreamstate/cast/" aria-label="Cast">CAST</a>
+        <a class="nav-button" href="https://neuralnetsandprettypatterns.com/deepdreamstate/more/" aria-label="More">MORE</a>
+        <a class="nav-button" href="https://neuralnetsandprettypatterns.com/neuralpedia/new-releases/" aria-label="New Releases">NEW</a>
+      </nav>
 
       <div class="carousel-wrap">
         <div class="carousel-row">
@@ -627,7 +623,8 @@
         <a href="https://neuralnetsandprettypatterns.com/deepdreamstate/arcs/vale-four/episode-6-pot-limit.html">Pot Limit</a> · S4E6 GE33 |
         <a href="https://neuralnetsandprettypatterns.com/deepdreamstate/arcs/vale-four/episode-7-the-river.html">The River</a> · S4E7 GE34 |
         <a href="https://neuralnetsandprettypatterns.com/deepdreamstate/arcs/vale-four/episode-8-quiver.html">Quiver</a> · S4E8 GE35 |
-        <a href="https://neuralnetsandprettypatterns.com/deepdreamstate/arcs/vale-four/episode-9-nock.html">Nock</a> · S4E9 GE36
+        <a href="https://neuralnetsandprettypatterns.com/deepdreamstate/arcs/vale-four/episode-9-nock.html">Nock</a> · S4E9 GE36 |
+        <a href="https://neuralnetsandprettypatterns.com/deepdreamstate/arcs/vale-four/episode-10-bullseye/">Bullseye</a> · S4E10 GE37
       </div>
     </section>
 
