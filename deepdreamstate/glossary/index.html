@@ -115,29 +115,47 @@
       align-items: center;
       gap: 0.6rem;
       padding: 1.5rem 0;
+      flex-wrap: wrap;
     }
     .nav-buttons.bottom-nav { padding: 1.5rem 0 0; }
     .nav-button {
+      width: 45px;
       min-width: 45px;
       height: 45px;
-      padding: 0 0.75rem;
+      padding: 0;
       border: 1.5px solid #e8e8e8;
-      border-radius: 999px;
+      border-radius: 50%;
       background: transparent;
       color: #e8e8e8;
       cursor: pointer;
       display: inline-flex;
       justify-content: center;
       align-items: center;
-      transition: all 0.3s ease;
       flex-shrink: 0;
       text-decoration: none;
       font-family: 'IM Fell DW Pica', serif;
       font-size: 0.65rem;
+      line-height: 1;
       letter-spacing: 0.1em;
-      white-space: nowrap;
+      text-align: center;
+      white-space: normal;
+      transition:
+        background 0.25s ease,
+        color 0.25s ease,
+        transform 0.25s ease;
     }
-    .nav-button:hover { background: #e8e8e8; color: #1a0a2e; transform: scale(1.1); }
+    .nav-button.text-btn {
+      padding: 0.15rem;
+      font-size: 0.55rem;
+      line-height: 1.05;
+      letter-spacing: 0.04em;
+    }
+    .nav-button:hover,
+    .nav-button:focus-visible {
+      background: #e8e8e8;
+      color: #1a0a2e;
+      transform: scale(1.08);
+    }
     .nav-button svg {
       width: 20px;
       height: 20px;
@@ -390,7 +408,7 @@
     @media (max-width: 600px) {
       main { padding: 2rem 1rem; }
       .page-header h1 { font-size: 1.8rem; }
-      .nav-button { min-width: 40px; height: 40px; padding: 0 0.6rem; }
+      .nav-button { width: 40px; min-width: 40px; height: 40px; padding: 0; }
     }
   </style>
 </head>
