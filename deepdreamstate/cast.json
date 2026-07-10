@@ -2768,10 +2768,41 @@
           "stageName": "Jen Larner",
           "character": "Piper"
         },
-        {
+               {
           "performerId": "valentina-vallay",
           "stageName": "Valentina Vallay",
           "character": "Gia"
+        }
+      ]
+    },
+    {
+      "type": "performer-update",
+      "performerId": "valentina-vallay",
+      "stageName": "Valentina Vallay",
+      "imdbLinks": [
+        {
+          "label": "IMDb",
+          "url": "https://www.imdb.com/name/nm18304235/"
+        }
+      ],
+      "socialLinks": [
+        {
+          "label": "Instagram",
+          "url": "https://www.instagram.com/valentinavallay/"
+        },
+        {
+          "label": "Beacons",
+          "url": "https://beacons.ai/valentinavallay"
+        }
+      ],
+      "otherLinks": [
+        {
+          "label": "Official Website",
+          "url": "https://valentinavallay.com/"
+        },
+        {
+          "label": "It Ends in Blood",
+          "url": "https://valentinavallay.com/products/it-ends-in-blood-paperback"
         }
       ]
     }
