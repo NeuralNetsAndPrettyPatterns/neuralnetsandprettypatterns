@@ -1,5 +1,4 @@
 <!DOCTYPE html>
-
 <html lang="en">
 <head>
 <meta charset="utf-8"/>
@@ -176,18 +175,64 @@ main {
 
 .page-title { font-size: 2.5rem; text-align: center; margin-bottom: 0.5rem; letter-spacing: 0.1em; font-weight: normal; }
 .episode-number { font-size: 0.95rem; text-align: center; margin-bottom: 0.4rem; opacity: 0.8; letter-spacing: 0.05em; }
-.nav-buttons { display: flex; justify-content: center; gap: 0.5rem; margin-top: 1rem; margin-bottom: 2rem; flex-wrap: nowrap; }
-.nav-button {
-    width: 45px; height: 45px;
-    border: 2px solid #e8e8e8; border-radius: 50%;
-    background: transparent; color: #e8e8e8;
-    cursor: pointer; display: flex; justify-content: center; align-items: center;
-    transition: all 0.3s ease; text-decoration: none;
-    font-family: 'IM Fell DW Pica', serif; flex-shrink: 0;
+.nav-buttons,
+.footer-nav {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 0.6rem;
+    flex-wrap: wrap;
 }
-.nav-button:hover { background: #e8e8e8; color: #1a0a2e; transform: scale(1.1); }
-.nav-button:active { transform: scale(0.95); }
-.nav-button.text-btn { font-size: 0.55rem; letter-spacing: 0.04em; text-align: center; line-height: 1.05; padding: 0.15rem; }
+
+.nav-buttons {
+    margin-top: 1rem;
+    margin-bottom: 2rem;
+}
+
+.nav-button {
+    width: 45px;
+    min-width: 45px;
+    height: 45px;
+    padding: 0;
+    border: 1.5px solid #e8e8e8;
+    border-radius: 50%;
+    background: transparent;
+    color: #e8e8e8;
+    cursor: pointer;
+    display: inline-flex;
+    justify-content: center;
+    align-items: center;
+    flex-shrink: 0;
+    text-decoration: none;
+    font-family: 'IM Fell DW Pica', serif;
+    font-size: 0.65rem;
+    line-height: 1;
+    letter-spacing: 0.1em;
+    text-align: center;
+    white-space: normal;
+    transition:
+        background 0.25s ease,
+        color 0.25s ease,
+        transform 0.25s ease;
+}
+
+.nav-button.text-btn {
+    padding: 0.15rem;
+    font-size: 0.55rem;
+    line-height: 1.05;
+    letter-spacing: 0.04em;
+}
+
+.nav-button:hover,
+.nav-button:focus-visible {
+    background: #e8e8e8;
+    color: #1a0a2e;
+    transform: scale(1.08);
+}
+
+.nav-button:active {
+    transform: scale(0.95);
+}
 .section-divider { border-top: 1px solid rgba(232,232,232,0.2); margin: 3rem 0; }
 .hero-line { text-align: center; font-style: italic; font-size: 1.2rem; line-height: 1.8; opacity: 0.9; margin: 1rem 0 1.5rem; }
 .hero-media-row { display: grid; grid-template-columns: 45px minmax(220px, 400px) 45px; gap: 1rem; align-items: center; justify-content: center; margin: 2rem auto; }
@@ -214,7 +259,7 @@ h2 { font-size: 1.6rem; margin: 2.5rem 0 1.5rem; text-align: center; letter-spac
 .episode-list { margin: 2rem 0; line-height: 1.8; text-align: center; }
 .episode-list p { text-align: center; margin-bottom: 0.6rem; }
 .plain-episode-nav { text-align: center; margin-top: 3rem; font-size: 0.85rem; opacity: 0.6; letter-spacing: 0.03em; }
-.footer-nav { display: flex; justify-content: center; gap: 0.5rem; margin-top: 4rem; padding-top: 2rem; border-top: 1px solid rgba(232,232,232,0.2); flex-wrap: nowrap; }
+.footer-nav { margin-top: 4rem; padding-top: 2rem; border-top: 1px solid rgba(232,232,232,0.2); }
 .footer-credit { margin-top: 2rem; font-size: 0.9rem; opacity: 0.7; text-align: center; font-style: italic; line-height: 1.8; }
 .content-section a, .links-section a, .listen-line a, .cast-table a, .episode-list a, .plain-episode-nav a, .footer-credit a, .support-section a { color: #e8e8e8; text-decoration: none; border-bottom: 1px solid rgba(232,232,232,0.3); transition: border-color 0.3s; }
 .content-section a:hover, .links-section a:hover, .listen-line a:hover, .cast-table a:hover, .episode-list a:hover, .plain-episode-nav a:hover, .footer-credit a:hover, .support-section a:hover { border-bottom-color: #e8e8e8; }
@@ -227,7 +272,7 @@ h2 { font-size: 1.6rem; margin: 2.5rem 0 1.5rem; text-align: center; letter-spac
     .hero-media-row { grid-template-columns: 40px minmax(200px, 320px) 40px; gap: 0.6rem; }
     .hero-arrow { width: 40px; height: 40px; }
     .cast-table td, .cast-table th { padding: 0.6rem 0.5rem; font-size: 0.9rem; }
-    .nav-button { width: 40px; height: 40px; }
+    .nav-button { width: 40px; min-width: 40px; height: 40px; }
 }
 @media (max-width: 480px) {
     main { padding: 1.5rem 1rem; }
@@ -237,8 +282,9 @@ h2 { font-size: 1.6rem; margin: 2.5rem 0 1.5rem; text-align: center; letter-spac
     .hero-media-row { grid-template-columns: 38px minmax(180px, 280px) 38px; gap: 0.4rem; }
     .hero-arrow { width: 38px; height: 38px; font-size: 1.6rem; }
     .cast-table td, .cast-table th { padding: 0.5rem 0.3rem; font-size: 0.85rem; }
-    .nav-buttons { gap: 0.3rem; }
-    .nav-button { width: 38px; height: 38px; }
+    .nav-buttons,
+    .footer-nav { gap: 0.3rem; }
+    .nav-button { width: 38px; min-width: 38px; height: 38px; }
 }
 
         .spoiler-text {
@@ -273,20 +319,14 @@ h2 { font-size: 1.6rem; margin: 2.5rem 0 1.5rem; text-align: center; letter-spac
             color: #e8e8e8;
         }
 </style>
-</meta></head>
+</head>
 <body>
 <div id="background-container"></div>
 <main>
 <div class="series-header">Deep Dream State</div>
-<div aria-label="Site navigation" class="nav-buttons">
-            <a aria-label="Neural Nets and Pretty Patterns" class="nav-button text-btn" href="/">NNPP</a>
-            <a aria-label="Deep Dream State" class="nav-button text-btn" href="/deepdreamstate/">DDS</a>
-            <a aria-label="Episode List" class="nav-button text-btn" href="/deepdreamstate/arcs/">EP LIST</a>
-            <a aria-label="Lore Glossary" class="nav-button text-btn" href="/deepdreamstate/glossary/">LORE</a>
-            <a aria-label="Cast" class="nav-button text-btn" href="/deepdreamstate/cast/">CAST</a>
-            <a aria-label="More" class="nav-button text-btn" href="/deepdreamstate/more/">MORE</a>
-            <a aria-label="New Releases" class="nav-button text-btn" href="/neuralpedia/new-releases/">NEW</a>
-        </div>
+<div class="nav-buttons dynamic-dds-nav" role="navigation" aria-label="Site navigation">
+  <script src="https://neuralnetsandprettypatterns.com/deepdreamstate/navigation.js"></script>
+</div>
 <div class="section-divider"></div>
 <h1 class="page-title">Winner Winner</h1>
 <p class="episode-number">A2 E5: Winner Winner (GE14)</p>
@@ -388,18 +428,12 @@ h2 { font-size: 1.6rem; margin: 2.5rem 0 1.5rem; text-align: center; letter-spac
 <p>Winner Winner contains surveillance themes, private-footage exposure, reality competition horror, identity manipulation, adult themes, coercive game systems, betrayal, and stylized psychological control.</p>
 </div>
 <nav aria-label="Plain episode navigation" class="plain-episode-nav"><a href="/deepdreamstate/">Deep Dream State</a> | <a href="/deepdreamstate/arcs/incognitoh/episode-4-deep-fake/">Previous Episode: Deep Fake</a> | <a href="/deepdreamstate/arcs/incognitoh/episode-6-the-chain/">Next Episode: The Chain</a> | <a href="/deepdreamstate/glossary/">Lore Glossary</a></nav>
-<div aria-label="Footer navigation" class="footer-nav">
-            <a aria-label="Neural Nets and Pretty Patterns" class="nav-button text-btn" href="/">NNPP</a>
-            <a aria-label="Deep Dream State" class="nav-button text-btn" href="/deepdreamstate/">DDS</a>
-            <a aria-label="Episode List" class="nav-button text-btn" href="/deepdreamstate/arcs/">EP LIST</a>
-            <a aria-label="Lore Glossary" class="nav-button text-btn" href="/deepdreamstate/glossary/">LORE</a>
-            <a aria-label="Cast" class="nav-button text-btn" href="/deepdreamstate/cast/">CAST</a>
-            <a aria-label="More" class="nav-button text-btn" href="/deepdreamstate/more/">MORE</a>
-            <a aria-label="New Releases" class="nav-button text-btn" href="/neuralpedia/new-releases/">NEW</a>
-        </div>
+<div class="footer-nav dynamic-dds-nav" role="navigation" aria-label="Footer navigation">
+  <script src="https://neuralnetsandprettypatterns.com/deepdreamstate/navigation.js"></script>
+</div>
 <div class="footer-credit">
             Deep Dream State is a full-cast desire horror audio drama by <a href="/">Neural Nets and Pretty Patterns</a>.
-             ·  ISNI: <a href="https://isni.org/isni/0000000528776254">0000 0005 2877 6254</a>
+             ·  ISNI: <a href="https://isni.org/isni/0000000528776254">0000 0005 2877 6254</a>
 </div>
 </main>
 <script>
