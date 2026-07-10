@@ -15,14 +15,14 @@ export default {
 
     const contentTypes = {
       ".html": "text/html; charset=utf-8",
-      ".jpg":  "image/jpeg",
+      ".jpg": "image/jpeg",
       ".jpeg": "image/jpeg",
-      ".png":  "image/png",
-      ".gif":  "image/gif",
+      ".png": "image/png",
+      ".gif": "image/gif",
       ".webp": "image/webp",
-      ".svg":  "image/svg+xml",
-      ".css":  "text/css; charset=utf-8",
-      ".js":   "application/javascript; charset=utf-8",
+      ".svg": "image/svg+xml",
+      ".css": "text/css; charset=utf-8",
+      ".js": "application/javascript; charset=utf-8",
       ".json": "application/json; charset=utf-8"
     };
 
@@ -45,12 +45,12 @@ export default {
       const ext = path.slice(lastDot).toLowerCase();
 
       const imageTypes = {
-        ".jpg":  "image/jpeg",
+        ".jpg": "image/jpeg",
         ".jpeg": "image/jpeg",
-        ".png":  "image/png",
-        ".gif":  "image/gif",
+        ".png": "image/png",
+        ".gif": "image/gif",
         ".webp": "image/webp",
-        ".svg":  "image/svg+xml"
+        ".svg": "image/svg+xml"
       };
 
       return imageTypes[ext] || null;
@@ -72,7 +72,11 @@ export default {
       });
     }
 
-    async function serveAsset(repoPath, ct, cache = "public, max-age=86400") {
+    async function serveAsset(
+      repoPath,
+      ct,
+      cache = "public, max-age=86400"
+    ) {
       const res = await fetch(mainRepoUrl(repoPath));
 
       return new Response(res.body, {
@@ -92,11 +96,17 @@ export default {
 
     async function legacyDeepDreamStateProxy(path, requestUrl) {
       const githubPath = path.replace("/deepdreamstate", "");
-      const proxyUrl = `${LEGACY_DDS_BASE}${githubPath}${requestUrl.search}`;
-      const response = await fetch(proxyUrl);
-      const contentType = response.headers.get("content-type") || "";
+      const proxyUrl =
+        `${LEGACY_DDS_BASE}${githubPath}${requestUrl.search}`;
 
-      if (contentType.includes("text/html") || contentType.includes("javascript")) {
+      const response = await fetch(proxyUrl);
+      const contentType =
+        response.headers.get("content-type") || "";
+
+      if (
+        contentType.includes("text/html") ||
+        contentType.includes("javascript")
+      ) {
         let text = await response.text();
 
         text = text.replaceAll(
@@ -118,12 +128,16 @@ export default {
       });
     }
 
-    async function serveMigratedDeepDreamStatePathWithFallback(path, requestUrl) {
+    async function serveMigratedDeepDreamStatePathWithFallback(
+      path,
+      requestUrl
+    ) {
       const repoPath = mainRepoPathForRequest(path);
       const migratedRes = await fetch(mainRepoUrl(repoPath));
 
       if (migratedRes.ok) {
-        const ct = fileType(repoPath) || "text/html; charset=utf-8";
+        const ct =
+          fileType(repoPath) || "text/html; charset=utf-8";
 
         return new Response(migratedRes.body, {
           status: migratedRes.status,
@@ -143,7 +157,11 @@ export default {
     }
 
     // Contact
-    if (p === "/contact" || p === "/contact/" || p === "/contact/index.html") {
+    if (
+      p === "/contact" ||
+      p === "/contact/" ||
+      p === "/contact/index.html"
+    ) {
       return serveHtml("/contact/index.html", true);
     }
 
@@ -186,26 +204,47 @@ export default {
       p === "/deepdreamstate/arcs/vale-four" ||
       p.startsWith("/deepdreamstate/arcs/vale-four/")
     ) {
-      return serveMigratedDeepDreamStatePathWithFallback(p, url);
+      return serveMigratedDeepDreamStatePathWithFallback(
+        p,
+        url
+      );
     }
 
     // Images anywhere else in the site
     {
       const ct = imgType(p);
-      if (ct) return serveAsset(p, ct);
+
+      if (ct) {
+        return serveAsset(p, ct);
+      }
     }
 
     // The Pink Room
-    if (p === "/the-pink-room" || p === "/the-pink-room/") {
+    if (
+      p === "/the-pink-room" ||
+      p === "/the-pink-room/"
+    ) {
       return serveHtml("/the-pink-room/index.html");
     }
 
-    if (p === "/the-pink-room/weekly-events" || p === "/the-pink-room/weekly-events/") {
-      return serveHtml("/the-pink-room/weekly-events/index.html", true);
+    if (
+      p === "/the-pink-room/weekly-events" ||
+      p === "/the-pink-room/weekly-events/"
+    ) {
+      return serveHtml(
+        "/the-pink-room/weekly-events/index.html",
+        true
+      );
     }
 
-    if (p === "/the-pink-room/weekly-events/events-data.js") {
-      const res = await fetch(mainRepoUrl("/the-pink-room/weekly-events/events-data.js"));
+    if (
+      p === "/the-pink-room/weekly-events/events-data.js"
+    ) {
+      const res = await fetch(
+        mainRepoUrl(
+          "/the-pink-room/weekly-events/events-data.js"
+        )
+      );
 
       return new Response(await res.text(), {
         status: res.ok ? 200 : 404,
@@ -217,33 +256,62 @@ export default {
     }
 
     // Deep Drop Party
-    if (p === "/deep-drop-party" || p === "/deep-drop-party/") {
+    if (
+      p === "/deep-drop-party" ||
+      p === "/deep-drop-party/"
+    ) {
       return serveHtml("/deep-drop-party/index.html");
     }
 
-    if (p === "/deep-drop-party/now" || p === "/deep-drop-party/now/") {
-      return serveHtml("/deep-drop-party/now/index.html");
+    if (
+      p === "/deep-drop-party/now" ||
+      p === "/deep-drop-party/now/"
+    ) {
+      return serveHtml(
+        "/deep-drop-party/now/index.html"
+      );
     }
 
-    if (p === "/deep-drop-party/faq" || p === "/deep-drop-party/faq/") {
-      return serveHtml("/deep-drop-party/faq/index.html");
+    if (
+      p === "/deep-drop-party/faq" ||
+      p === "/deep-drop-party/faq/"
+    ) {
+      return serveHtml(
+        "/deep-drop-party/faq/index.html"
+      );
     }
 
-    if (p === "/deep-drop-party/episodes" || p === "/deep-drop-party/episodes/") {
-      return serveHtml("/deep-drop-party/episodes/index.html");
+    if (
+      p === "/deep-drop-party/episodes" ||
+      p === "/deep-drop-party/episodes/"
+    ) {
+      return serveHtml(
+        "/deep-drop-party/episodes/index.html"
+      );
     }
 
-    if (p === "/deep-drop-party/testpage" || p === "/deep-drop-party/testpage/") {
-      return serveHtml("/deep-drop-party/testpage/index.html", true);
+    if (
+      p === "/deep-drop-party/testpage" ||
+      p === "/deep-drop-party/testpage/"
+    ) {
+      return serveHtml(
+        "/deep-drop-party/testpage/index.html",
+        true
+      );
     }
 
     // Scripts
-    if (p === "/scripts" || p === "/scripts/") {
+    if (
+      p === "/scripts" ||
+      p === "/scripts/"
+    ) {
       return serveHtml("/scripts/index.html", true);
     }
 
     if (p === "/scripts/scripts.json") {
-      const res = await fetch(mainRepoUrl("/scripts/scripts.json"));
+      const res = await fetch(
+        mainRepoUrl("/scripts/scripts.json")
+      );
 
       return new Response(await res.text(), {
         status: res.ok ? 200 : 404,
@@ -262,7 +330,9 @@ export default {
         const res = await fetch(mainRepoUrl(p));
 
         if (!res.ok) {
-          return new Response("Not found", { status: 404 });
+          return new Response("Not found", {
+            status: 404
+          });
         }
 
         return new Response(res.body, {
@@ -274,12 +344,19 @@ export default {
         });
       }
 
-      if (p === "/neuralpedia" || p === "/neuralpedia/") {
-        return serveHtml("/neuralpedia/index.html");
+      if (
+        p === "/neuralpedia" ||
+        p === "/neuralpedia/"
+      ) {
+        return serveHtml(
+          "/neuralpedia/index.html"
+        );
       }
 
       const path = p.endsWith("/") ? p : p + "/";
-      const res = await fetch(mainRepoUrl(`${path}index.html`));
+      const res = await fetch(
+        mainRepoUrl(`${path}index.html`)
+      );
 
       if (res.ok) {
         return new Response(await res.text(), {
@@ -289,10 +366,15 @@ export default {
         });
       }
 
-      return new Response("Not found", { status: 404 });
+      return new Response("Not found", {
+        status: 404
+      });
     }
 
-    if (p === "/neuralpedia" || p === "/neuralpedia/") {
+    if (
+      p === "/neuralpedia" ||
+      p === "/neuralpedia/"
+    ) {
       return serveHtml("/neuralpedia/index.html");
     }
 
@@ -313,13 +395,46 @@ export default {
       );
     }
 
-    // Deep Dream State glossary
-    if (p === "/deepdreamstate/glossary" || p === "/deepdreamstate/glossary/") {
-      return serveHtml("/deepdreamstate/glossary/index.html", true);
+    // Deep Dream State cast page
+    if (
+      p === "/deepdreamstate/cast" ||
+      p === "/deepdreamstate/cast/" ||
+      p === "/deepdreamstate/cast/index.html"
+    ) {
+      return serveHtml(
+        "/deepdreamstate/cast/index.html",
+        true
+      );
     }
 
-    if (p === "/deepdreamstate/glossary/glossary.json") {
-      const res = await fetch(mainRepoUrl("/deepdreamstate/glossary/glossary.json"));
+    // Deep Dream State cast data
+    if (p === "/deepdreamstate/cast.json") {
+      return serveAsset(
+        "/deepdreamstate/cast.json",
+        "application/json; charset=utf-8",
+        "no-store"
+      );
+    }
+
+    // Deep Dream State glossary
+    if (
+      p === "/deepdreamstate/glossary" ||
+      p === "/deepdreamstate/glossary/"
+    ) {
+      return serveHtml(
+        "/deepdreamstate/glossary/index.html",
+        true
+      );
+    }
+
+    if (
+      p === "/deepdreamstate/glossary/glossary.json"
+    ) {
+      const res = await fetch(
+        mainRepoUrl(
+          "/deepdreamstate/glossary/glossary.json"
+        )
+      );
 
       return new Response(await res.text(), {
         status: res.ok ? 200 : 404,
@@ -330,8 +445,14 @@ export default {
       });
     }
 
-    if (p === "/deepdreamstate/glossary/appearances.json") {
-      const res = await fetch(mainRepoUrl("/deepdreamstate/glossary/appearances.json"));
+    if (
+      p === "/deepdreamstate/glossary/appearances.json"
+    ) {
+      const res = await fetch(
+        mainRepoUrl(
+          "/deepdreamstate/glossary/appearances.json"
+        )
+      );
 
       return new Response(await res.text(), {
         status: res.ok ? 200 : 404,
@@ -343,13 +464,25 @@ export default {
     }
 
     // Deep Dream State arcs index
-    if (p === "/deepdreamstate/arcs" || p === "/deepdreamstate/arcs/") {
-      return serveHtml("/deepdreamstate/arcs/index.html", true);
+    if (
+      p === "/deepdreamstate/arcs" ||
+      p === "/deepdreamstate/arcs/"
+    ) {
+      return serveHtml(
+        "/deepdreamstate/arcs/index.html",
+        true
+      );
     }
 
     // Deep Dream State home
-    if (p === "/deepdreamstate" || p === "/deepdreamstate/") {
-      return serveHtml("/deepdreamstate/index.html", true);
+    if (
+      p === "/deepdreamstate" ||
+      p === "/deepdreamstate/"
+    ) {
+      return serveHtml(
+        "/deepdreamstate/index.html",
+        true
+      );
     }
 
     // Deep Dream State legacy catch-all
@@ -359,14 +492,19 @@ export default {
     }
 
     // 404
-    return new Response("Not found", { status: 404 });
+    return new Response("Not found", {
+      status: 404
+    });
   }
 };
 
 // Recipient fallback is in the Worker, not in contact/index.html.
 // Override either value with Worker environment variables if needed.
-const CONTACT_TO_FALLBACK = "deepdreamstates@gmail.com";
-const CONTACT_FROM_FALLBACK = "Deep Dream State Contact <contact@neuralnetsandprettypatterns.com>";
+const CONTACT_TO_FALLBACK =
+  "deepdreamstates@gmail.com";
+
+const CONTACT_FROM_FALLBACK =
+  "Deep Dream State Contact <contact@neuralnetsandprettypatterns.com>";
 
 const CONTACT_CATEGORY_LABELS = {
   "voice-auditions": "Voice auditions",
@@ -388,35 +526,83 @@ async function handleContactPost(request, env) {
   if (request.method !== "POST") {
     return contactResponse(
       request,
-      { ok: false, error: "Method not allowed." },
+      {
+        ok: false,
+        error: "Method not allowed."
+      },
       405,
-      { Allow: "POST" }
+      {
+        Allow: "POST"
+      }
     );
   }
 
   if (!env || !env.RESEND_API_KEY) {
-    return contactResponse(request, { ok: false, error: "Contact form is not configured: RESEND_API_KEY is missing." }, 500);
+    return contactResponse(
+      request,
+      {
+        ok: false,
+        error:
+          "Contact form is not configured: RESEND_API_KEY is missing."
+      },
+      500
+    );
   }
 
-  const contactTo = env.CONTACT_TO || CONTACT_TO_FALLBACK;
-  const contactFrom = env.CONTACT_FROM || CONTACT_FROM_FALLBACK;
+  const contactTo =
+    env.CONTACT_TO || CONTACT_TO_FALLBACK;
+
+  const contactFrom =
+    env.CONTACT_FROM || CONTACT_FROM_FALLBACK;
 
   let fields;
+
   try {
     fields = await readContactFields(request);
   } catch (err) {
-    return contactResponse(request, { ok: false, error: "Could not read form submission." }, 400);
+    return contactResponse(
+      request,
+      {
+        ok: false,
+        error: "Could not read form submission."
+      },
+      400
+    );
   }
 
-  const validationError = validateContactFields(fields);
+  const validationError =
+    validateContactFields(fields);
+
   if (validationError) {
-    return contactResponse(request, { ok: false, error: validationError }, 400);
+    return contactResponse(
+      request,
+      {
+        ok: false,
+        error: validationError
+      },
+      400
+    );
   }
 
-  const categoryLabel = CONTACT_CATEGORY_LABELS[fields.category];
-  const subject = `[NNPP Contact] ${categoryLabel}`;
-  const textBody = buildContactTextBody(fields, categoryLabel, request);
-  const htmlBody = buildContactHtmlBody(fields, categoryLabel, request);
+  const categoryLabel =
+    CONTACT_CATEGORY_LABELS[fields.category];
+
+  const subject =
+    `[NNPP Contact] ${categoryLabel}`;
+
+  const textBody =
+    buildContactTextBody(
+      fields,
+      categoryLabel,
+      request
+    );
+
+  const htmlBody =
+    buildContactHtmlBody(
+      fields,
+      categoryLabel,
+      request
+    );
 
   const resendPayload = {
     from: contactFrom,
@@ -427,56 +613,80 @@ async function handleContactPost(request, env) {
     html: htmlBody
   };
 
-  const resendResponse = await fetch("https://api.resend.com/emails", {
-    method: "POST",
-    headers: {
-      "Authorization": `Bearer ${env.RESEND_API_KEY}`,
-      "Content-Type": "application/json"
-    },
-    body: JSON.stringify(resendPayload)
-  });
+  const resendResponse = await fetch(
+    "https://api.resend.com/emails",
+    {
+      method: "POST",
+      headers: {
+        "Authorization":
+          `Bearer ${env.RESEND_API_KEY}`,
+        "Content-Type": "application/json"
+      },
+      body: JSON.stringify(resendPayload)
+    }
+  );
 
   if (!resendResponse.ok) {
     let detail = "";
 
     try {
-      detail = JSON.stringify(await resendResponse.json());
+      detail = JSON.stringify(
+        await resendResponse.json()
+      );
     } catch (err) {
       detail = await resendResponse.text();
     }
 
-    console.error("Resend contact email failed:", resendResponse.status, detail);
+    console.error(
+      "Resend contact email failed:",
+      resendResponse.status,
+      detail
+    );
 
     return contactResponse(
       request,
-      { ok: false, error: "Message could not be sent." },
+      {
+        ok: false,
+        error: "Message could not be sent."
+      },
       502
     );
   }
 
   return contactResponse(
     request,
-    { ok: true, message: "Message sent." },
+    {
+      ok: true,
+      message: "Message sent."
+    },
     200
   );
 }
 
 async function readContactFields(request) {
-  const contentType = request.headers.get("content-type") || "";
+  const contentType =
+    request.headers.get("content-type") || "";
+
   const fields = {};
 
-  if (contentType.includes("application/json")) {
+  if (
+    contentType.includes("application/json")
+  ) {
     const json = await request.json();
 
-    Object.entries(json || {}).forEach(([key, value]) => {
-      fields[key] = normalizeField(value);
-    });
+    Object.entries(json || {}).forEach(
+      ([key, value]) => {
+        fields[key] = normalizeField(value);
+      }
+    );
 
     return fields;
   }
 
   if (
-    contentType.includes("application/x-www-form-urlencoded") ||
+    contentType.includes(
+      "application/x-www-form-urlencoded"
+    ) ||
     contentType.includes("multipart/form-data")
   ) {
     const formData = await request.formData();
@@ -505,7 +715,11 @@ function validateContactFields(fields) {
     return "Message could not be sent.";
   }
 
-  if (fields.form_name && fields.form_name !== "deep-dream-state-contact") {
+  if (
+    fields.form_name &&
+    fields.form_name !==
+      "deep-dream-state-contact"
+  ) {
     return "Invalid form submission.";
   }
 
@@ -517,12 +731,17 @@ function validateContactFields(fields) {
     return "Please enter a valid reply email.";
   }
 
-  if (!CONTACT_CATEGORY_LABELS[fields.category]) {
+  if (
+    !CONTACT_CATEGORY_LABELS[fields.category]
+  ) {
     return "Please choose a subject category.";
   }
 
   if (!hasLength(fields.message, 10, 4000)) {
-    return "Please enter a message between 10 and 4000 characters.";
+    return (
+      "Please enter a message between " +
+      "10 and 4000 characters."
+    );
   }
 
   const maxLengths = {
@@ -543,17 +762,26 @@ function validateContactFields(fields) {
     other_subject: 180
   };
 
-  for (const [key, max] of Object.entries(maxLengths)) {
+  for (
+    const [key, max] of
+    Object.entries(maxLengths)
+  ) {
     if ((fields[key] || "").length > max) {
       return "One of the form fields is too long.";
     }
   }
 
-  for (const urlKey of ["demo_link", "project_link"]) {
+  for (
+    const urlKey of
+    ["demo_link", "project_link"]
+  ) {
     const value = fields[urlKey];
 
     if (value && !isProbablyUrl(value)) {
-      return "Please enter valid URLs where URLs are requested.";
+      return (
+        "Please enter valid URLs where " +
+        "URLs are requested."
+      );
     }
   }
 
@@ -562,29 +790,44 @@ function validateContactFields(fields) {
 
 function hasLength(value, min, max) {
   const text = String(value || "").trim();
-  return text.length >= min && text.length <= max;
+
+  return (
+    text.length >= min &&
+    text.length <= max
+  );
 }
 
 function isValidEmail(value) {
-  const email = String(value || "").trim();
+  const email =
+    String(value || "").trim();
 
   if (email.length > 254) {
     return false;
   }
 
-  return /^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(email);
+  return /^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(
+    email
+  );
 }
 
 function isProbablyUrl(value) {
   try {
     const url = new URL(value);
-    return url.protocol === "http:" || url.protocol === "https:";
+
+    return (
+      url.protocol === "http:" ||
+      url.protocol === "https:"
+    );
   } catch (err) {
     return false;
   }
 }
 
-function buildContactTextBody(fields, categoryLabel, request) {
+function buildContactTextBody(
+  fields,
+  categoryLabel,
+  request
+) {
   const lines = [
     "New Neural Nets and Pretty Patterns contact form submission",
     "",
@@ -599,16 +842,30 @@ function buildContactTextBody(fields, categoryLabel, request) {
     fields.message,
     "",
     "Technical:",
-    `Submitted from: ${request.headers.get("referer") || "unknown"}`,
-    `User agent: ${request.headers.get("user-agent") || "unknown"}`
+    `Submitted from: ${
+      request.headers.get("referer") ||
+      "unknown"
+    }`,
+    `User agent: ${
+      request.headers.get("user-agent") ||
+      "unknown"
+    }`
   ];
 
   return lines
-    .filter(line => line !== null && line !== undefined)
+    .filter(
+      line =>
+        line !== null &&
+        line !== undefined
+    )
     .join("\n");
 }
 
-function buildContactHtmlBody(fields, categoryLabel, request) {
+function buildContactHtmlBody(
+  fields,
+  categoryLabel,
+  request
+) {
   const details = categoryDetailLines(fields)
     .filter(Boolean)
     .map(line => {
@@ -619,9 +876,13 @@ function buildContactHtmlBody(fields, categoryLabel, request) {
       }
 
       const label = line.slice(0, index);
-      const value = line.slice(index + 1).trim();
+      const value =
+        line.slice(index + 1).trim();
 
-      return `<p><strong>${escapeHtml(label)}:</strong> ${linkifyIfUrl(value)}</p>`;
+      return (
+        `<p><strong>${escapeHtml(label)}:</strong> ` +
+        `${linkifyIfUrl(value)}</p>`
+      );
     })
     .join("");
 
@@ -650,41 +911,86 @@ function categoryDetailLines(fields) {
   switch (fields.category) {
     case "voice-auditions":
       return compactLines([
-        fieldLine("Performer name", fields.performer_name),
-        fieldLine("Demo link", fields.demo_link),
-        fieldLine("Voice / range notes", fields.voice_notes),
-        fieldLine("Relevant links", fields.audition_links)
+        fieldLine(
+          "Performer name",
+          fields.performer_name
+        ),
+        fieldLine(
+          "Demo link",
+          fields.demo_link
+        ),
+        fieldLine(
+          "Voice / range notes",
+          fields.voice_notes
+        ),
+        fieldLine(
+          "Relevant links",
+          fields.audition_links
+        )
       ]);
 
     case "collabs-active-creators":
       return compactLines([
-        fieldLine("Creator / project name", fields.creator_name),
-        fieldLine("Platform / links", fields.creator_platform),
-        fieldLine("Collab idea", fields.collab_idea)
+        fieldLine(
+          "Creator / project name",
+          fields.creator_name
+        ),
+        fieldLine(
+          "Platform / links",
+          fields.creator_platform
+        ),
+        fieldLine(
+          "Collab idea",
+          fields.collab_idea
+        )
       ]);
 
     case "patreon-questions":
       return compactLines([
-        fieldLine("Patreon username", fields.patreon_name),
-        fieldLine("Patreon topic", fields.patreon_topic)
+        fieldLine(
+          "Patreon username",
+          fields.patreon_name
+        ),
+        fieldLine(
+          "Patreon topic",
+          fields.patreon_topic
+        )
       ]);
 
     case "press-inquiries":
       return compactLines([
-        fieldLine("Outlet / publication", fields.outlet),
-        fieldLine("Deadline", fields.press_deadline),
-        fieldLine("Press request", fields.press_request)
+        fieldLine(
+          "Outlet / publication",
+          fields.outlet
+        ),
+        fieldLine(
+          "Deadline",
+          fields.press_deadline
+        ),
+        fieldLine(
+          "Press request",
+          fields.press_request
+        )
       ]);
 
     case "project-inquiries":
       return compactLines([
-        fieldLine("Project", fields.project),
-        fieldLine("Relevant link", fields.project_link)
+        fieldLine(
+          "Project",
+          fields.project
+        ),
+        fieldLine(
+          "Relevant link",
+          fields.project_link
+        )
       ]);
 
     case "other":
       return compactLines([
-        fieldLine("Short subject", fields.other_subject)
+        fieldLine(
+          "Short subject",
+          fields.other_subject
+        )
       ]);
 
     default:
@@ -693,8 +999,12 @@ function categoryDetailLines(fields) {
 }
 
 function fieldLine(label, value) {
-  const text = String(value || "").trim();
-  return text ? `${label}: ${text}` : "";
+  const text =
+    String(value || "").trim();
+
+  return text
+    ? `${label}: ${text}`
+    : "";
 }
 
 function compactLines(lines) {
@@ -712,17 +1022,22 @@ function linkifyIfUrl(value) {
 }
 
 function escapeHtml(value) {
-  return String(value || "").replace(/[&<>"']/g, ch => ({
-    "&": "&amp;",
-    "<": "&lt;",
-    ">": "&gt;",
-    '"': "&quot;",
-    "'": "&#39;"
-  }[ch]));
+  return String(value || "").replace(
+    /[&<>"']/g,
+    ch =>
+      ({
+        "&": "&amp;",
+        "<": "&lt;",
+        ">": "&gt;",
+        '"': "&quot;",
+        "'": "&#39;"
+      })[ch]
+  );
 }
 
 function contactCorsHeaders(request) {
-  const origin = request.headers.get("origin") || "";
+  const origin =
+    request.headers.get("origin") || "";
 
   const allowedOrigins = new Set([
     "https://neuralnetsandprettypatterns.com",
@@ -730,39 +1045,58 @@ function contactCorsHeaders(request) {
   ]);
 
   const headers = {
-    "Access-Control-Allow-Methods": "POST, OPTIONS",
-    "Access-Control-Allow-Headers": "Content-Type, Accept",
+    "Access-Control-Allow-Methods":
+      "POST, OPTIONS",
+    "Access-Control-Allow-Headers":
+      "Content-Type, Accept",
     "Vary": "Origin"
   };
 
   if (allowedOrigins.has(origin)) {
-    headers["Access-Control-Allow-Origin"] = origin;
+    headers["Access-Control-Allow-Origin"] =
+      origin;
   }
 
   return headers;
 }
 
-function contactResponse(request, body, status = 200, extraHeaders = {}) {
-  const accept = request.headers.get("accept") || "";
+function contactResponse(
+  request,
+  body,
+  status = 200,
+  extraHeaders = {}
+) {
+  const accept =
+    request.headers.get("accept") || "";
 
   if (accept.includes("application/json")) {
-    return new Response(JSON.stringify(body), {
-      status,
-      headers: {
-        "Content-Type": "application/json; charset=utf-8",
-        ...contactCorsHeaders(request),
-        ...extraHeaders
+    return new Response(
+      JSON.stringify(body),
+      {
+        status,
+        headers: {
+          "Content-Type":
+            "application/json; charset=utf-8",
+          ...contactCorsHeaders(request),
+          ...extraHeaders
+        }
       }
-    });
+    );
   }
 
-  const title = body.ok ? "Message sent" : "Message not sent";
+  const title = body.ok
+    ? "Message sent"
+    : "Message not sent";
 
   const message = body.ok
     ? "Message sent. Thank you."
-    : (body.error || "Message could not be sent.");
+    : (
+        body.error ||
+        "Message could not be sent."
+      );
 
-  return new Response(`<!doctype html>
+  return new Response(
+    `<!doctype html>
 <html lang="en">
 <head>
   <meta charset="utf-8">
@@ -776,12 +1110,15 @@ function contactResponse(request, body, status = 200, extraHeaders = {}) {
     <p><a href="/contact/">Back to contact</a></p>
   </main>
 </body>
-</html>`, {
-    status,
-    headers: {
-      "Content-Type": "text/html; charset=utf-8",
-      ...contactCorsHeaders(request),
-      ...extraHeaders
+</html>`,
+    {
+      status,
+      headers: {
+        "Content-Type":
+          "text/html; charset=utf-8",
+        ...contactCorsHeaders(request),
+        ...extraHeaders
+      }
     }
-  });
+  );
 }
