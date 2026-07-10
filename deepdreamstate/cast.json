@@ -1956,10 +1956,822 @@
           "stageName": "Sofi Starship",
           "character": "Phoebe Bosworth"
         },
-        {
+                {
           "performerId": "flux-lynniegal",
           "stageName": "Flux Lynniegal",
           "character": "Lyra Crosswell"
+        }
+      ]
+    },
+    {
+      "type": "episode",
+      "ge": 28,
+      "season": 4,
+      "episode": 1,
+      "title": "Refrain",
+      "url": "/deepdreamstate/arcs/vale-four/episode-1-refrain/",
+      "cast": [
+        {
+          "performerId": "neural-nets-and-pretty-patterns",
+          "stageName": "Neural Nets and Pretty Patterns",
+          "character": "Z / Dr. Zev Talcott"
+        },
+        {
+          "performerId": "bliss-blank",
+          "stageName": "Bliss Blank",
+          "character": "June Lowell"
+        },
+        {
+          "performerId": "ring-of-kees",
+          "stageName": "Ring of Kees",
+          "character": "Tessa Finn"
+        },
+        {
+          "performerId": "bun-li",
+          "stageName": "Bun Li",
+          "character": "Meg Aerin"
+        },
+        {
+          "performerId": "dizzy-dollie",
+          "stageName": "Dizzy Dollie",
+          "character": "Naia Anderson",
+          "characterUrl": "/deepdreamstate/glossary/#naia-anderson"
+        },
+        {
+          "performerId": "echo-doll",
+          "stageName": "Echo Doll",
+          "character": "Elle Lawson"
+        },
+        {
+          "performerId": "swirls-and-twirls",
+          "stageName": "Swirls and Twirls",
+          "character": "Iris Vale"
+        },
+        {
+          "performerId": "jericho-caine",
+          "stageName": "Jericho Caine",
+          "character": "Cael"
+        },
+        {
+          "performerId": "syndi-rella",
+          "stageName": "Syndi Rella",
+          "character": "Hespa Apate"
+        },
+        {
+          "performerId": "dakota-dream",
+          "stageName": "Dakota Dream",
+          "character": "Astoria"
+        },
+        {
+          "performerId": "tickled-panda",
+          "stageName": "Tickled Panda",
+          "character": "Hilton"
+        },
+        {
+          "performerId": "fallen",
+          "stageName": "Fallen",
+          "character": "Vera",
+          "characterUrl": "/deepdreamstate/glossary/#vera"
+        },
+        {
+          "performerId": "panda-moanium",
+          "stageName": "Panda Moanium",
+          "character": "Celeste",
+          "characterUrl": "/deepdreamstate/glossary/#celeste"
+        }
+      ]
+    },
+    {
+      "type": "episode",
+      "ge": 29,
+      "season": 4,
+      "episode": 2,
+      "title": "Hook Line",
+      "url": "/deepdreamstate/arcs/vale-four/episode-2-hook-line/",
+      "cast": [
+        {
+          "performerId": "neural-nets-and-pretty-patterns",
+          "stageName": "Neural Nets and Pretty Patterns",
+          "character": "Z / Dr. Zev Talcott"
+        },
+        {
+          "performerId": "bliss-blank",
+          "stageName": "Bliss Blank",
+          "character": "June Lowell"
+        },
+        {
+          "performerId": "ring-of-kees",
+          "stageName": "Ring of Kees",
+          "character": "Tessa Finn"
+        },
+        {
+          "performerId": "bun-li",
+          "stageName": "Bun Li",
+          "character": "Meg Aerin"
+        },
+        {
+          "performerId": "dizzy-dollie",
+          "stageName": "Dizzy Dollie",
+          "character": "Naia Anderson"
+        },
+        {
+          "performerId": "echo-doll",
+          "stageName": "Echo Doll",
+          "character": "Elle Lawson"
+        },
+        {
+          "performerId": "swirls-and-twirls",
+          "stageName": "Swirls and Twirls",
+          "character": "Iris Vale"
+        },
+        {
+          "performerId": "jericho-caine",
+          "stageName": "Jericho Caine",
+          "character": "Cael"
+        },
+        {
+          "performerId": "syndi-rella",
+          "stageName": "Syndi Rella",
+          "character": "Hespa Apate"
+        },
+        {
+          "performerId": "dakota-dream",
+          "stageName": "Dakota Dream",
+          "character": "Astoria"
+        },
+        {
+          "performerId": "tickled-panda",
+          "stageName": "Tickled Panda",
+          "character": "Hilton"
+        },
+        {
+          "performerId": "valentina-vallay",
+          "stageName": "Valentina Vallay",
+          "character": "Synthserv 3.0"
+        },
+        {
+          "performerId": "fallen",
+          "stageName": "Fallen",
+          "character": "Vera"
+        },
+        {
+          "performerId": "panda-moanium",
+          "stageName": "Panda Moanium",
+          "character": "Celeste"
+        }
+      ]
+    },
+    {
+      "type": "episode",
+      "ge": 30,
+      "season": 4,
+      "episode": 3,
+      "title": "Sinker",
+      "url": "/deepdreamstate/arcs/vale-four/episode-3-sinker/",
+      "cast": [
+        {
+          "performerId": "neural-nets-and-pretty-patterns",
+          "stageName": "Neural Nets and Pretty Patterns",
+          "character": "Z / Dr. Zev Talcott"
+        },
+        {
+          "performerId": "bliss-blank",
+          "stageName": "Bliss Blank",
+          "character": "June Lowell"
+        },
+        {
+          "performerId": "ring-of-kees",
+          "stageName": "Ring of Kees",
+          "character": "Tessa Finn"
+        },
+        {
+          "performerId": "bun-li",
+          "stageName": "Bun Li",
+          "character": "Meg Aerin"
+        },
+        {
+          "performerId": "dizzy-dollie",
+          "stageName": "Dizzy Dollie",
+          "character": "Naia Anderson"
+        },
+        {
+          "performerId": "echo-doll",
+          "stageName": "Echo Doll",
+          "character": "Elle Lawson"
+        },
+        {
+          "performerId": "swirls-and-twirls",
+          "stageName": "Swirls and Twirls",
+          "character": "Iris Vale"
+        },
+        {
+          "performerId": "jericho-caine",
+          "stageName": "Jericho Caine",
+          "character": "Cael"
+        },
+        {
+          "performerId": "syndi-rella",
+          "stageName": "Syndi Rella",
+          "character": "Hespa Apate"
+        },
+        {
+          "performerId": "dakota-dream",
+          "stageName": "Dakota Dream",
+          "character": "Astoria"
+        },
+        {
+          "performerId": "tickled-panda",
+          "stageName": "Tickled Panda",
+          "character": "Hilton"
+        },
+        {
+          "performerId": "valentina-vallay",
+          "stageName": "Valentina Vallay",
+          "character": "Synthserv 3.0"
+        },
+        {
+          "performerId": "fallen",
+          "stageName": "Fallen",
+          "character": "Vera"
+        },
+        {
+          "performerId": "panda-moanium",
+          "stageName": "Panda Moanium",
+          "character": "Celeste"
+        }
+      ]
+    },
+    {
+      "type": "episode",
+      "ge": 31,
+      "season": 4,
+      "episode": 4,
+      "title": "Slowplay",
+      "url": "/deepdreamstate/arcs/vale-four/episode-4-slowplay/",
+      "cast": [
+        {
+          "performerId": "neural-nets-and-pretty-patterns",
+          "stageName": "Neural Nets and Pretty Patterns",
+          "character": "Z / Dr. Zev Talcott"
+        },
+        {
+          "performerId": "neural-nets-and-pretty-patterns",
+          "stageName": "Neural Nets and Pretty Patterns",
+          "character": "Midstream Sports"
+        },
+        {
+          "performerId": "bliss-blank",
+          "stageName": "Bliss Blank",
+          "character": "June Lowell"
+        },
+        {
+          "performerId": "ring-of-kees",
+          "stageName": "Ring of Kees",
+          "character": "Tessa Finn"
+        },
+        {
+          "performerId": "bun-li",
+          "stageName": "Bun Li",
+          "character": "Meg Aerin"
+        },
+        {
+          "performerId": "dizzy-dollie",
+          "stageName": "Dizzy Dollie",
+          "character": "Naia Anderson"
+        },
+        {
+          "performerId": "echo-doll",
+          "stageName": "Echo Doll",
+          "character": "Elle Lawson"
+        },
+        {
+          "performerId": "swirls-and-twirls",
+          "stageName": "Swirls and Twirls",
+          "character": "Iris Vale"
+        },
+        {
+          "performerId": "jericho-caine",
+          "stageName": "Jericho Caine",
+          "character": "Cael"
+        },
+        {
+          "performerId": "syndi-rella",
+          "stageName": "Syndi Rella",
+          "character": "Hespa Apate"
+        },
+        {
+          "performerId": "valentina-vallay",
+          "stageName": "Valentina Vallay",
+          "character": "Synthserv 3.0"
+        },
+        {
+          "performerId": "kitten-azazel",
+          "stageName": "Kitten Azazel",
+          "character": "Ava",
+          "characterUrl": "/deepdreamstate/glossary/#ava"
+        },
+        {
+          "performerId": "fft",
+          "stageName": "FFT",
+          "character": "Mr. Mega"
+        },
+        {
+          "performerId": "chavito",
+          "stageName": "Chavito",
+          "character": "Mr. Beefcake"
+        }
+      ]
+    },
+    {
+      "type": "episode",
+      "ge": 32,
+      "season": 4,
+      "episode": 5,
+      "title": "Raise",
+      "url": "/deepdreamstate/arcs/vale-four/episode-5-raise/",
+      "cast": [
+        {
+          "performerId": "neural-nets-and-pretty-patterns",
+          "stageName": "Neural Nets and Pretty Patterns",
+          "character": "Z / Dr. Zev Talcott"
+        },
+        {
+          "performerId": "bliss-blank",
+          "stageName": "Bliss Blank",
+          "character": "June Lowell"
+        },
+        {
+          "performerId": "ring-of-kees",
+          "stageName": "Ring of Kees",
+          "character": "Tessa Finn"
+        },
+        {
+          "performerId": "bun-li",
+          "stageName": "Bun Li",
+          "character": "Meg Aerin"
+        },
+        {
+          "performerId": "dizzy-dollie",
+          "stageName": "Dizzy Dollie",
+          "character": "Naia Anderson"
+        },
+        {
+          "performerId": "echo-doll",
+          "stageName": "Echo Doll",
+          "character": "Elle Lawson"
+        },
+        {
+          "performerId": "swirls-and-twirls",
+          "stageName": "Swirls and Twirls",
+          "character": "Iris Vale"
+        },
+        {
+          "performerId": "jericho-caine",
+          "stageName": "Jericho Caine",
+          "character": "Cael"
+        },
+        {
+          "performerId": "syndi-rella",
+          "stageName": "Syndi Rella",
+          "character": "Hespa Apate"
+        },
+        {
+          "performerId": "tickled-panda",
+          "stageName": "Tickled Panda",
+          "character": "Hilton"
+        },
+        {
+          "performerId": "dakota-dream",
+          "stageName": "Dakota Dream",
+          "character": "Astoria"
+        },
+        {
+          "performerId": "kitten-azazel",
+          "stageName": "Kitten Azazel",
+          "character": "Ava"
+        },
+        {
+          "performerId": "valentina-vallay",
+          "stageName": "Valentina Vallay",
+          "character": "Synthserv 3.0"
+        }
+      ]
+    },
+    {
+      "type": "episode",
+      "ge": 33,
+      "season": 4,
+      "episode": 6,
+      "title": "Pot Limit",
+      "url": "/deepdreamstate/arcs/vale-four/episode-6-pot-limit/",
+      "cast": [
+        {
+          "performerId": "neural-nets-and-pretty-patterns",
+          "stageName": "Neural Nets and Pretty Patterns",
+          "character": "Z / Dr. Zev Talcott"
+        },
+        {
+          "performerId": "bliss-blank",
+          "stageName": "Bliss Blank",
+          "character": "June Lowell"
+        },
+        {
+          "performerId": "ring-of-kees",
+          "stageName": "Ring of Kees",
+          "character": "Tessa Finn"
+        },
+        {
+          "performerId": "bun-li",
+          "stageName": "Bun Li",
+          "character": "Meg Aerin"
+        },
+        {
+          "performerId": "echo-doll",
+          "stageName": "Echo Doll",
+          "character": "Elle Lawson"
+        },
+        {
+          "performerId": "swirls-and-twirls",
+          "stageName": "Swirls and Twirls",
+          "character": "Iris Vale"
+        },
+        {
+          "performerId": "jericho-caine",
+          "stageName": "Jericho Caine",
+          "character": "Cael"
+        },
+        {
+          "performerId": "syndi-rella",
+          "stageName": "Syndi Rella",
+          "character": "Hespa Apate"
+        },
+        {
+          "performerId": "kitten-azazel",
+          "stageName": "Kitten Azazel",
+          "character": "Ava"
+        },
+        {
+          "performerId": "valentina-vallay",
+          "stageName": "Valentina Vallay",
+          "character": "Synthserv 3.0"
+        }
+      ]
+    },
+    {
+      "type": "episode",
+      "ge": 34,
+      "season": 4,
+      "episode": 7,
+      "title": "The River",
+      "url": "/deepdreamstate/arcs/vale-four/episode-7-the-river/",
+      "cast": [
+        {
+          "performerId": "neural-nets-and-pretty-patterns",
+          "stageName": "Neural Nets and Pretty Patterns",
+          "character": "Z / Dr. Zev Talcott"
+        },
+        {
+          "performerId": "bliss-blank",
+          "stageName": "Bliss Blank",
+          "character": "June Lowell"
+        },
+        {
+          "performerId": "ring-of-kees",
+          "stageName": "Ring of Kees",
+          "character": "Tessa Finn"
+        },
+        {
+          "performerId": "bun-li",
+          "stageName": "Bun Li",
+          "character": "Meg Aerin"
+        },
+        {
+          "performerId": "echo-doll",
+          "stageName": "Echo Doll",
+          "character": "Elle Lawson"
+        },
+        {
+          "performerId": "swirls-and-twirls",
+          "stageName": "Swirls and Twirls",
+          "character": "Iris Vale"
+        },
+        {
+          "performerId": "syndi-rella",
+          "stageName": "Syndi Rella",
+          "character": "Hespa Apate"
+        },
+        {
+          "performerId": "kitten-azazel",
+          "stageName": "Kitten Azazel",
+          "character": "Ava"
+        },
+        {
+          "performerId": "valentina-vallay",
+          "stageName": "Valentina Vallay",
+          "character": "FaceTrace AI Voice"
+        }
+      ]
+    },
+    {
+      "type": "episode",
+      "ge": 35,
+      "season": 4,
+      "episode": 8,
+      "title": "Quiver",
+      "url": "/deepdreamstate/arcs/vale-four/episode-8-quiver/",
+      "cast": [
+        {
+          "performerId": "neural-nets-and-pretty-patterns",
+          "stageName": "Neural Nets and Pretty Patterns",
+          "character": "Z / Dr. Zev Talcott"
+        },
+        {
+          "performerId": "bliss-blank",
+          "stageName": "Bliss Blank",
+          "character": "June Lowell"
+        },
+        {
+          "performerId": "ring-of-kees",
+          "stageName": "Ring of Kees",
+          "character": "Tessa Finn"
+        },
+        {
+          "performerId": "bun-li",
+          "stageName": "Bun Li",
+          "character": "Meg Aerin"
+        },
+        {
+          "performerId": "echo-doll",
+          "stageName": "Echo Doll",
+          "character": "Elle Lawson"
+        },
+        {
+          "performerId": "swirls-and-twirls",
+          "stageName": "Swirls and Twirls",
+          "character": "Iris Vale"
+        },
+        {
+          "performerId": "syndi-rella",
+          "stageName": "Syndi Rella",
+          "character": "Hespa Apate"
+        },
+        {
+          "performerId": "dizzy-dollie",
+          "stageName": "Dizzy Dollie",
+          "character": "Naia Anderson"
+        },
+        {
+          "performerId": "jericho-caine",
+          "stageName": "Jericho Caine",
+          "character": "Cael"
+        },
+        {
+          "performerId": "panda-moanium",
+          "stageName": "Panda Moanium",
+          "character": "Celeste"
+        },
+        {
+          "performerId": "tickled-panda",
+          "stageName": "Tickled Panda",
+          "character": "Hilton"
+        },
+        {
+          "performerId": "dakota-dream",
+          "stageName": "Dakota Dream",
+          "character": "Astoria"
+        },
+        {
+          "performerId": "valentina-vallay",
+          "stageName": "Valentina Vallay",
+          "character": "Gia",
+          "characterUrl": "/deepdreamstate/glossary/#gia"
+        },
+        {
+          "performerId": "jen-larner",
+          "stageName": "Jen Larner",
+          "character": "Piper",
+          "characterUrl": "/deepdreamstate/glossary/#piper"
+        },
+        {
+          "performerId": "naomi-biela",
+          "stageName": "Naomi Biela",
+          "character": "Blake",
+          "characterUrl": "/deepdreamstate/glossary/#blake"
+        },
+        {
+          "performerId": "eclipse-aleice",
+          "stageName": "Eclipse Aleice",
+          "character": "Glitch Kitten"
+        },
+        {
+          "performerId": "brie-michelle",
+          "stageName": "Brie Michelle",
+          "character": "Power Up Peach"
+        },
+        {
+          "performerId": "kat-mcqueen",
+          "stageName": "Kat McQueen",
+          "character": "Joystick Jezebel"
+        },
+        {
+          "performerId": "karma-reid",
+          "stageName": "Karma Reid",
+          "character": "Loot Bunny"
+        },
+        {
+          "performerId": "kitty-pawa",
+          "stageName": "Kitty Pawa",
+          "character": "Respawn Rouge"
+        },
+        {
+          "performerId": "cherry-pak",
+          "stageName": "Cherry Pak",
+          "character": "Pixel Dollie"
+        }
+      ]
+    },
+    {
+      "type": "episode",
+      "ge": 36,
+      "season": 4,
+      "episode": 9,
+      "title": "Nock",
+      "url": "/deepdreamstate/arcs/vale-four/episode-9-nock/",
+      "cast": [
+        {
+          "performerId": "neural-nets-and-pretty-patterns",
+          "stageName": "Neural Nets and Pretty Patterns",
+          "character": "Z / Dr. Zev Talcott"
+        },
+        {
+          "performerId": "bliss-blank",
+          "stageName": "Bliss Blank",
+          "character": "June Lowell"
+        },
+        {
+          "performerId": "ring-of-kees",
+          "stageName": "Ring of Kees",
+          "character": "Tessa Finn"
+        },
+        {
+          "performerId": "bun-li",
+          "stageName": "Bun Li",
+          "character": "Meg Aerin"
+        },
+        {
+          "performerId": "echo-doll",
+          "stageName": "Echo Doll",
+          "character": "Elle Lawson"
+        },
+        {
+          "performerId": "syndi-rella",
+          "stageName": "Syndi Rella",
+          "character": "Hespa Apate"
+        },
+        {
+          "performerId": "jericho-caine",
+          "stageName": "Jericho Caine",
+          "character": "Cael"
+        },
+        {
+          "performerId": "panda-moanium",
+          "stageName": "Panda Moanium",
+          "character": "Celeste"
+        },
+        {
+          "performerId": "tickled-panda",
+          "stageName": "Tickled Panda",
+          "character": "Hilton"
+        },
+        {
+          "performerId": "dakota-dream",
+          "stageName": "Dakota Dream",
+          "character": "Astoria"
+        },
+        {
+          "performerId": "valentina-vallay",
+          "stageName": "Valentina Vallay",
+          "character": "Gia"
+        },
+        {
+          "performerId": "jen-larner",
+          "stageName": "Jen Larner",
+          "character": "Piper"
+        },
+        {
+          "performerId": "naomi-biela",
+          "stageName": "Naomi Biela",
+          "character": "Blake"
+        }
+      ]
+    },
+    {
+      "type": "episode",
+      "ge": 37,
+      "season": 4,
+      "episode": 10,
+      "title": "Bullseye",
+      "url": "/deepdreamstate/arcs/vale-four/episode-10-bullseye/",
+      "cast": [
+        {
+          "performerId": "neural-nets-and-pretty-patterns",
+          "stageName": "Neural Nets and Pretty Patterns",
+          "character": "Z / Dr. Zev Talcott"
+        },
+        {
+          "performerId": "bliss-blank",
+          "stageName": "Bliss Blank",
+          "character": "June Lowell"
+        },
+        {
+          "performerId": "ring-of-kees",
+          "stageName": "Ring of Kees",
+          "character": "Tessa Finn"
+        },
+        {
+          "performerId": "bun-li",
+          "stageName": "Bun Li",
+          "character": "Meg Aerin"
+        },
+        {
+          "performerId": "echo-doll",
+          "stageName": "Echo Doll",
+          "character": "Elle Lawson"
+        },
+        {
+          "performerId": "syndi-rella",
+          "stageName": "Syndi Rella",
+          "character": "Hespa Apate"
+        },
+        {
+          "performerId": "jericho-caine",
+          "stageName": "Jericho Caine",
+          "character": "Cael"
+        },
+        {
+          "performerId": "swirls-and-twirls",
+          "stageName": "Swirls and Twirls",
+          "character": "Iris Vale"
+        },
+        {
+          "performerId": "dizzy-dollie",
+          "stageName": "Dizzy Dollie",
+          "character": "Naia Anderson"
+        },
+        {
+          "performerId": "dakota-dream",
+          "stageName": "Dakota Dream",
+          "character": "Astoria"
+        },
+        {
+          "performerId": "tickled-panda",
+          "stageName": "Tickled Panda",
+          "character": "Hilton"
+        },
+        {
+          "performerId": "eclipse-aleice",
+          "stageName": "Eclipse Aleice",
+          "character": "Glitch Kitten"
+        },
+        {
+          "performerId": "kat-mcqueen",
+          "stageName": "Kat McQueen",
+          "character": "Joystick Jezebel"
+        },
+        {
+          "performerId": "brie-michelle",
+          "stageName": "Brie Michelle",
+          "character": "Power Up Peach"
+        },
+        {
+          "performerId": "cherry-pak",
+          "stageName": "Cherry Pak",
+          "character": "Pixel Dollie"
+        },
+        {
+          "performerId": "kitty-pawa",
+          "stageName": "Kitty Pawa",
+          "character": "Respawn Rouge"
+        },
+        {
+          "performerId": "karma-reid",
+          "stageName": "Karma Reid",
+          "character": "Loot Bunny"
+        },
+        {
+          "performerId": "naomi-biela",
+          "stageName": "Naomi Biela",
+          "character": "Blake"
+        },
+        {
+          "performerId": "jen-larner",
+          "stageName": "Jen Larner",
+          "character": "Piper"
+        },
+        {
+          "performerId": "valentina-vallay",
+          "stageName": "Valentina Vallay",
+          "character": "Gia"
         }
       ]
     }
