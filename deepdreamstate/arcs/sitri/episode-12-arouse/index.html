@@ -264,27 +264,47 @@ main {
     opacity: 0.8;
     letter-spacing: 0.05em;
 }
-.nav-buttons {
+.nav-buttons,
+.footer-nav {
     display: flex;
     justify-content: center;
-    gap: 0.5rem;
+    align-items: center;
+    gap: 0.6rem;
+    flex-wrap: wrap;
+}
+
+.nav-buttons {
     margin-top: 1rem;
     margin-bottom: 2rem;
-    flex-wrap: nowrap;
 }
 .nav-button {
-    width: 45px; height: 45px;
-    border: 2px solid #e8e8e8;
+    width: 45px;
+    min-width: 45px;
+    height: 45px;
+    padding: 0;
+    border: 1.5px solid #e8e8e8;
     border-radius: 50%;
-    background: transparent; color: #e8e8e8;
+    background: transparent;
+    color: #e8e8e8;
     cursor: pointer;
-    display: flex; justify-content: center; align-items: center;
-    transition: all 0.3s ease;
+    display: inline-flex;
+    justify-content: center;
+    align-items: center;
+    flex-shrink: 0;
     text-decoration: none;
     font-family: 'IM Fell DW Pica', serif;
-    flex-shrink: 0;
+    font-size: 0.65rem;
+    line-height: 1;
+    letter-spacing: 0.1em;
+    text-align: center;
+    white-space: normal;
+    transition:
+        background 0.25s ease,
+        color 0.25s ease,
+        transform 0.25s ease;
 }
-.nav-button:hover { background: #e8e8e8; color: #1a0a2e; transform: scale(1.1); }
+.nav-button:hover,
+.nav-button:focus-visible { background: #e8e8e8; color: #1a0a2e; transform: scale(1.08); }
 .nav-button:active { transform: scale(0.95); }
 .nav-button.text-btn {
     font-size: 0.55rem;
@@ -421,13 +441,9 @@ h2 {
     letter-spacing: 0.03em;
 }
 .footer-nav {
-    display: flex;
-    justify-content: center;
-    gap: 0.5rem;
     margin-top: 4rem;
     padding-top: 2rem;
     border-top: 1px solid rgba(232,232,232,0.2);
-    flex-wrap: nowrap;
 }
 .footer-credit {
     margin-top: 2rem;
@@ -507,7 +523,7 @@ h2 {
     .hero-media-row { grid-template-columns: 40px minmax(200px, 320px) 40px; gap: 0.6rem; }
     .hero-arrow { width: 40px; height: 40px; }
     .cast-table td { padding: 0.6rem 0.5rem; font-size: 0.9rem; }
-    .nav-button { width: 40px; height: 40px; }
+    .nav-button { width: 40px; min-width: 40px; height: 40px; }
 }
 @media (max-width: 480px) {
     main { padding: 1.5rem 1rem; }
@@ -517,8 +533,9 @@ h2 {
     .hero-media-row { grid-template-columns: 38px minmax(180px, 280px) 38px; gap: 0.4rem; }
     .hero-arrow { width: 38px; height: 38px; font-size: 1.6rem; }
     .cast-table td { padding: 0.5rem 0.3rem; font-size: 0.85rem; }
-    .nav-buttons { gap: 0.3rem; }
-    .nav-button { width: 38px; height: 38px; }
+    .nav-buttons,
+    .footer-nav { gap: 0.3rem; }
+    .nav-button { width: 38px; min-width: 38px; height: 38px; }
 }
 
     </style>
@@ -529,14 +546,8 @@ h2 {
     <main>
         <div class="series-header">Deep Dream State</div>
 
-        <nav class="nav-buttons" aria-label="Site navigation">
-            <a class="nav-button text-btn" href="/" aria-label="Neural Nets and Pretty Patterns">NNPP</a>
-            <a class="nav-button text-btn" href="/deepdreamstate/" aria-label="Deep Dream State">DDS</a>
-            <a class="nav-button text-btn" href="/deepdreamstate/arcs/" aria-label="Episode List">EP LIST</a>
-            <a class="nav-button text-btn" href="/deepdreamstate/glossary/" aria-label="Lore Glossary">LORE</a>
-            <a class="nav-button text-btn" href="/deepdreamstate/cast/" aria-label="Cast">CAST</a>
-            <a class="nav-button text-btn" href="/deepdreamstate/more/" aria-label="More">MORE</a>
-            <a class="nav-button text-btn" href="/neuralpedia/new-releases/" aria-label="New Releases">NEW</a>
+        <nav class="nav-buttons dynamic-dds-nav" aria-label="Site navigation">
+            <script src="https://neuralnetsandprettypatterns.com/deepdreamstate/navigation.js"></script>
         </nav>
 
         <div class="section-divider"></div>
@@ -696,14 +707,8 @@ h2 {
             <a href="/deepdreamstate/new/">New Listeners</a>
         </nav>
 
-        <nav class="footer-nav" aria-label="Footer navigation">
-            <a class="nav-button text-btn" href="/" aria-label="Neural Nets and Pretty Patterns">NNPP</a>
-            <a class="nav-button text-btn" href="/deepdreamstate/" aria-label="Deep Dream State">DDS</a>
-            <a class="nav-button text-btn" href="/deepdreamstate/arcs/" aria-label="Episode List">EP LIST</a>
-            <a class="nav-button text-btn" href="/deepdreamstate/glossary/" aria-label="Lore Glossary">LORE</a>
-            <a class="nav-button text-btn" href="/deepdreamstate/cast/" aria-label="Cast">CAST</a>
-            <a class="nav-button text-btn" href="/deepdreamstate/more/" aria-label="More">MORE</a>
-            <a class="nav-button text-btn" href="/neuralpedia/new-releases/" aria-label="New Releases">NEW</a>
+        <nav class="footer-nav dynamic-dds-nav" aria-label="Footer navigation">
+            <script src="https://neuralnetsandprettypatterns.com/deepdreamstate/navigation.js"></script>
         </nav>
 
         <div class="footer-credit">
