@@ -375,9 +375,16 @@
         + cta;
     }
 
-    if (window.DDP && window.DDP.shows && window.DDP.shows.length >= 2) {
-      document.getElementById('current-show').innerHTML  = renderShowBlock(window.DDP.shows[0], true);
-      document.getElementById('previous-show').innerHTML = renderShowBlock(window.DDP.shows[1], false);
+    if (window.DDP && Array.isArray(window.DDP.shows) && window.DDP.shows.length >= 2) {
+      var shows = window.DDP.shows;
+      var currentShow = shows[shows.length - 1];
+      var previousShow = shows[shows.length - 2];
+
+      document.getElementById('current-show').innerHTML =
+        renderShowBlock(currentShow, true);
+
+      document.getElementById('previous-show').innerHTML =
+        renderShowBlock(previousShow, false);
     }
   </script>
 
