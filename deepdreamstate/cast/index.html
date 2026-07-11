@@ -501,8 +501,19 @@
       border-bottom: none;
     }
 
-    .cast-table tbody tr:hover {
+    .cast-table tbody tr {
+      scroll-margin-top: 5rem;
+    }
+
+    .cast-table tbody tr:hover,
+    .cast-table tbody tr:target {
       background: rgba(232, 232, 232, 0.045);
+    }
+
+    .cast-table tbody tr:target {
+      background: rgba(255, 255, 255, 0.09);
+      outline: 1px solid rgba(244, 244, 248, 0.4);
+      outline-offset: -1px;
     }
 
     .cast-table a {
@@ -1099,6 +1110,7 @@
 
         visible.forEach(function (performer) {
           var row = document.createElement("tr");
+          row.id = "performer-" + performer.performerId;
 
           var stageNameCell = createTextCell("stage-name");
           stageNameCell.textContent = performer.stageName;
@@ -1145,6 +1157,14 @@
         .then(function (data) {
           performers = processRecords(data);
           renderTable();
+
+          if (window.location.hash) {
+            var target = document.querySelector(window.location.hash);
+
+            if (target) {
+              target.scrollIntoView();
+            }
+          }
         })
         .catch(function (error) {
           console.error("Cast data could not be loaded:", error);
