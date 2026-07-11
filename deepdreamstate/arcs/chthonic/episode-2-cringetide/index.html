@@ -463,7 +463,41 @@
     .arc-kicker:hover { color: #f0f4ff; text-decoration: underline; text-underline-offset: 0.25em; }
     .episode-heading { font-size: clamp(1.9rem, 5vw, 3.1rem); font-weight: normal; line-height: 1.1; color: #f0f4ff; letter-spacing: 0.05em; margin-bottom: 0.55rem; }
     .episode-logline { font-size: clamp(1rem, 2.6vw, 1.22rem); color: rgba(232,232,232,0.74); font-style: italic; letter-spacing: 0.04em; margin: 0 auto 1.5rem; text-align: center; }
-    .hero-image-wrap { margin: 0.4rem auto 0; max-width: 460px; }
+    .hero-media-row {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      gap: 1rem;
+      margin: 0.4rem auto 0;
+      max-width: 620px;
+    }
+    .hero-arrow {
+      width: 45px;
+      height: 45px;
+      border: 1.5px solid #e8e8e8;
+      border-radius: 50%;
+      background: transparent;
+      color: #e8e8e8;
+      font-size: 1.8rem;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      text-decoration: none;
+      transition: all 0.3s ease;
+      flex-shrink: 0;
+      line-height: 1;
+    }
+    .hero-arrow:hover {
+      background: #e8e8e8;
+      color: #1a0a2e;
+      transform: scale(1.1);
+    }
+    .hero-image-wrap {
+      margin: 0;
+      max-width: 460px;
+      flex: 1;
+      min-width: 0;
+    }
     .hero-image { width: 100%; aspect-ratio: 1; display: block; object-fit: cover; border-radius: 8px; box-shadow: 0 8px 32px rgba(0,0,0,0.6); }
     .episode-nav { display: flex; justify-content: center; align-items: center; gap: 0.75rem; flex-wrap: wrap; margin: 1rem auto 0; font-size: 0.92rem; }
     .episode-nav-separator { color: rgba(232,232,232,0.28); }
@@ -581,6 +615,8 @@
       header { padding: 1.3rem 0 1.5rem; }
       .section { padding: 2rem 0; }
       .hero-image-wrap { max-width: 280px; }
+      .hero-media-row { gap: 0.5rem; }
+      .hero-arrow { width: 38px; height: 38px; font-size: 1.4rem; }
       .nav-buttons { gap: 0.45rem; }
       .nav-button { width: 42px; height: 42px; }
       .episode-nav { gap: 0.5rem; }
@@ -592,22 +628,20 @@
   <div class="container">
     <header>
       <h1>Deep Dream State</h1>
-      <nav class="nav-buttons" aria-label="Site navigation">
-        <a class="nav-button text-nav-button" href="https://neuralnetsandprettypatterns.com/" aria-label="Neural Nets and Pretty Patterns">NNPP</a>
-        <a class="nav-button text-nav-button" href="https://neuralnetsandprettypatterns.com/deepdreamstate/" aria-label="Deep Dream State">DDS</a>
-        <a class="nav-button text-nav-button" href="https://neuralnetsandprettypatterns.com/deepdreamstate/arcs/" aria-label="Episode List">EP LIST</a>
-        <a class="nav-button text-nav-button" href="https://neuralnetsandprettypatterns.com/deepdreamstate/glossary/" aria-label="Lore">LORE</a>
-        <a class="nav-button text-nav-button" href="https://neuralnetsandprettypatterns.com/deepdreamstate/cast/" aria-label="Cast">CAST</a>
-        <a class="nav-button text-nav-button" href="https://neuralnetsandprettypatterns.com/deepdreamstate/more" aria-label="More">MORE</a>
-        <a class="nav-button text-nav-button" href="https://neuralnetsandprettypatterns.com/deepdreamstate/new/" aria-label="New">NEW</a>
+      <nav class="nav-buttons dynamic-dds-nav" aria-label="Site navigation">
+        <script src="https://neuralnetsandprettypatterns.com/deepdreamstate/navigation.js"></script>
       </nav>
       <div class="rule nav-rule"><span class="rule-symbol">* * *</span></div>
       <div class="episode-hero">
         <a class="arc-kicker" href="/deepdreamstate/arcs/chthonic/">The Chthonic</a>
         <h2 class="episode-heading">A1 E2: Cringetide (GE2)</h2>
         <p class="episode-logline">The tide is rising. And shame makes a sound.</p>
-        <div class="hero-image-wrap">
-          <img class="hero-image" src="https://neuralnetsandprettypatterns.com/deepdreamstate/arc-carousel-chthonic.webp" alt="A1 E2: Cringetide (GE2) - The Chthonic - Deep Dream State">
+        <div class="hero-media-row" aria-label="Episode navigation and artwork">
+          <a class="hero-arrow" href="/deepdreamstate/arcs/chthonic/episode-1-maiden-voyage/" aria-label="Previous episode: Maiden Voyage">‹</a>
+          <div class="hero-image-wrap">
+            <img class="hero-image" src="https://neuralnetsandprettypatterns.com/deepdreamstate/arc-carousel-chthonic.webp" alt="A1 E2: Cringetide (GE2) - The Chthonic - Deep Dream State">
+          </div>
+          <a class="hero-arrow" href="/deepdreamstate/arcs/chthonic/episode-3-veil/" aria-label="Next episode: Veil">›</a>
         </div>
         <nav class="episode-nav" aria-label="Episode navigation">
           <a href="/deepdreamstate/arcs/chthonic/episode-1-maiden-voyage/">&#8592; A1 E1: Maiden Voyage (GE1)</a>
@@ -818,14 +852,8 @@
       <section class="section">
           <div class="fan-material">
             <h2>Navigation</h2>
-            <nav class="nav-buttons bottom-nav-buttons" aria-label="Footer navigation">
-              <a class="nav-button text-nav-button" href="https://neuralnetsandprettypatterns.com/" aria-label="Neural Nets and Pretty Patterns">NNPP</a>
-              <a class="nav-button text-nav-button" href="https://neuralnetsandprettypatterns.com/deepdreamstate/" aria-label="Deep Dream State">DDS</a>
-              <a class="nav-button text-nav-button" href="https://neuralnetsandprettypatterns.com/deepdreamstate/arcs/" aria-label="Episode List">EP LIST</a>
-              <a class="nav-button text-nav-button" href="https://neuralnetsandprettypatterns.com/deepdreamstate/glossary/" aria-label="Lore">LORE</a>
-              <a class="nav-button text-nav-button" href="https://neuralnetsandprettypatterns.com/deepdreamstate/cast/" aria-label="Cast">CAST</a>
-              <a class="nav-button text-nav-button" href="https://neuralnetsandprettypatterns.com/deepdreamstate/more" aria-label="More">MORE</a>
-              <a class="nav-button text-nav-button" href="https://neuralnetsandprettypatterns.com/deepdreamstate/new/" aria-label="New">NEW</a>
+            <nav class="nav-buttons bottom-nav-buttons dynamic-dds-nav" aria-label="Footer navigation">
+              <script src="https://neuralnetsandprettypatterns.com/deepdreamstate/navigation.js"></script>
             </nav>
           </div>
         </section>
