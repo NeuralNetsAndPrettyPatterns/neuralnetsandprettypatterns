@@ -454,6 +454,39 @@ window.DDP = {
         { pos: "07", title: "Empty",                     links: [{ label: "Patreon", url: "https://www.patreon.com/posts/empty-55511875" }], badges: [{ label: "Haptic", cls: "badge-haptic" }] },
         { pos: "08", title: "Talk Gooder",               links: [{ label: "Patreon", url: "https://www.patreon.com/posts/talk-gooder-tied-112215920" }], badges: [{ label: "Haptic", cls: "badge-haptic" }] }
       ]
+    },
+
+    // ── [NEW] APPENDED THIS WEEK ─────────────────────────────
+    {
+      number:      438,
+      title:       "Nectar",
+      titleText:   "Nectar",
+      theme:       "Goddesses on mic.  Come into our garden - we promise it's divine.",
+      themeLabel:  "Theme",
+      date:        "2026-07-11T21:00:00-04:00",
+      dateLabel:   "Saturday, July 11",
+      kicker:      "Tonight!",
+      poster:      "https://neuralnetsandprettypatterns.com/deep-drop-party/now/NectarNeuralNetsAndPrettyPatternsDDP438.webp",
+      description: [
+        "We're celebrating Radix.  It's the latest brilliant performance from Dizzy Dollie.  She's a real dryad, but she's never dry.  We're celebrating with the best botanicals, in audio form.  There's all sorts of succulents in this garden, and we want you to try them all."
+      ],
+      hostesses: [
+        {
+          name: "Bliss Blank",
+          links: [
+            { label: "Social", url: "https://www.tumblr.com/blink-blank-bliss" },
+            { label: "Cast Page", url: "https://neuralnetsandprettypatterns.com/deepdreamstate/cast/#performer-bliss-blank" }
+          ]
+        },
+        {
+          name: "Dizzy Dollie",
+          links: [
+            { label: "Social", url: "https://www.imdb.com/name/nm17760876/" },
+            { label: "Cast Page", url: "https://neuralnetsandprettypatterns.com/deepdreamstate/cast/#performer-dizzy-dollie" }
+          ]
+        }
+      ],
+      tracks: []
     }
 
   ] // end shows
