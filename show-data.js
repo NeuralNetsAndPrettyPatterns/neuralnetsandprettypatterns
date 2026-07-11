@@ -2658,7 +2658,7 @@ window.DDP = {
       "date": "2026-07-11T21:00:00-04:00",
       "dateLabel": "Saturday, July 11",
       "kicker": "Tonight!",
-      "poster": "https://neuralnetsandprettypatterns.com/deep-drop-party/now/NectarNeuralNetsAndPrettyPatternsDDP438.webp",
+      "poster": "https://neuralnetsandprettypatterns.com/deep-drop-party/now/NectarNeuralNetsAndPrettyPatternsDDP438.webp?v=438",
       "description": [
         "We're celebrating Radix.  It's the latest brilliant performance from Dizzy Dollie.  She's a real dryad, but she's never dry.  We're celebrating with the best botanicals, in audio form.  There's all sorts of succulents in this garden, and we want you to try them all."
       ],
