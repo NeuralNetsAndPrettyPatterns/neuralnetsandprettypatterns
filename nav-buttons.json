@@ -1,0 +1,43 @@
+{
+  "buttons": [
+    {
+      "lines": ["TRACKS /", "FILES"],
+      "class": "two-line",
+      "href": "https://neuralnetsandprettypatterns.com/neuralpedia/",
+      "ariaLabel": "Neuralpedia"
+    },
+    {
+      "label": "NEW",
+      "href": "https://neuralnetsandprettypatterns.com/neuralpedia/new-releases/",
+      "ariaLabel": "New Releases"
+    },
+    {
+      "label": "AUDIO DRAMA",
+      "href": "https://neuralnetsandprettypatterns.com/deepdreamstate/",
+      "ariaLabel": "Deep Dream State"
+    },
+    {
+      "label": "SCRIPTS",
+      "href": "https://neuralnetsandprettypatterns.com/scripts/",
+      "ariaLabel": "Scripts"
+    },
+    {
+      "icon": "discord",
+      "class": "pink-room",
+      "href": "https://neuralnetsandprettypatterns.com/the-pink-room/",
+      "ariaLabel": "The Pink Room Discord and Deep Drop Party",
+      "target": "_blank"
+    },
+    {
+      "icon": "patreon",
+      "href": "https://www.patreon.com/minderaser",
+      "ariaLabel": "Patreon",
+      "target": "_blank"
+    },
+    {
+      "icon": "envelope",
+      "href": "https://neuralnetsandprettypatterns.com/contact/",
+      "ariaLabel": "Contact"
+    }
+  ]
+}
