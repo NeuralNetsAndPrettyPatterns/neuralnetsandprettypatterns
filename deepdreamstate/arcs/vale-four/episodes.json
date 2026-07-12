@@ -111,6 +111,15 @@
       "blubrry": "https://deepdreamstate.blubrry.net/bullseye-vale-four-s4e10-ge37/",
       "musicBrainz": "https://musicbrainz.org/release/23988d90-4889-4fbd-9fad-312411aa24ba",
       "imdb": "https://www.imdb.com/title/tt43525295/"
+    },
+    {
+      "seasonEpisode": "S4E11",
+      "globalEpisode": "GE38",
+      "title": "Luna",
+      "topic": "Video Games and Augmented Reality",
+      "cycle": "Snarecraft Cycle",
+      "path": "/deepdreamstate/arcs/vale-four/episode-11-luna/",
+      "blubrry": "https://deepdreamstate.blubrry.net/luna-vale-four-s4e11-ge38/"
     }
   ]
 }
