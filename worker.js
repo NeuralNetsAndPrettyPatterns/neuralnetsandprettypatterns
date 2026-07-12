@@ -192,9 +192,9 @@ export default {
 
     // Shared site-wide nav buttons (used by the home page and other
     // pages that render their nav from JSON instead of hardcoding it)
-    if (p === "/assets/nav-buttons.json") {
+    if (p === "/nav-buttons.json") {
       return serveAsset(
-        "/assets/nav-buttons.json",
+        "/nav-buttons.json",
         "application/json; charset=utf-8",
         "no-store"
       );
