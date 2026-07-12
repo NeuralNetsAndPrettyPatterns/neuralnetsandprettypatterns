@@ -285,6 +285,16 @@
       white-space: nowrap;
     }
 
+    .nav-button.two-line {
+      flex-direction: column;
+      gap: 0.05rem;
+      height: auto;
+      min-height: 45px;
+      padding: 0.4rem 0.7rem;
+      border-radius: 14px;
+      line-height: 1.15;
+    }
+
     .nav-button.pink-room {
       color: var(--pink);
       border-color: var(--pink);
@@ -307,6 +317,12 @@
       background: var(--pink);
       color: #fff;
       transform: scale(1.1);
+    }
+
+    .nav-button svg {
+      width: 18px;
+      height: 18px;
+      flex-shrink: 0;
     }
 
     .inline-archive-link {
@@ -583,21 +599,7 @@
       <p class="tagline">Writer. Performer. Audio producer. Architect of the Neuralverse.</p>
     </header>
 
-    <div class="nav-buttons">
-      <a class="nav-button" href="https://neuralnetsandprettypatterns.com/neuralpedia/new-releases/" aria-label="New Releases">NEW</a>
-      <a class="nav-button" href="https://neuralnetsandprettypatterns.com/neuralpedia/" aria-label="Neuralpedia">NP</a>
-      <a class="nav-button" href="https://neuralnetsandprettypatterns.com/neuralpedia/chronology/page-1/" aria-label="Chronological Archive">TRACKS</a>
-      <a class="nav-button" href="https://neuralnetsandprettypatterns.com/deepdreamstate/" aria-label="Deep Dream State">DDS</a>
-      <a class="nav-button" href="https://neuralnetsandprettypatterns.com/deep-drop-party/" aria-label="Deep Drop Party">DDP</a>
-      <a class="nav-button" href="https://neuralnetsandprettypatterns.com/scripts/" aria-label="Scripts">SCRIPTS</a>
-      <a class="nav-button pink-room" href="https://neuralnetsandprettypatterns.com/the-pink-room/" target="_blank" rel="noopener" aria-label="The Pink Room">TPR</a>
-      <a class="nav-button" href="https://neuralnetsandprettypatterns.com/contact/" aria-label="Contact">
-        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" width="18" height="18" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
-          <path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"/>
-          <path d="M22 6l-10 7L2 6"/>
-        </svg>
-      </a>
-    </div>
+    <div class="nav-buttons" id="nav-buttons-top" aria-label="Site navigation"></div>
 
     <section>
       <div class="section-label">Entity</div>
@@ -708,21 +710,7 @@
       </div>
     </section>
 
-    <div class="nav-buttons bottom-nav">
-      <a class="nav-button" href="https://neuralnetsandprettypatterns.com/neuralpedia/new-releases/" aria-label="New Releases">NEW</a>
-      <a class="nav-button" href="https://neuralnetsandprettypatterns.com/neuralpedia/" aria-label="Neuralpedia">NP</a>
-      <a class="nav-button" href="https://neuralnetsandprettypatterns.com/neuralpedia/chronology/page-1/" aria-label="Chronological Archive">TRACKS</a>
-      <a class="nav-button" href="https://neuralnetsandprettypatterns.com/deepdreamstate/" aria-label="Deep Dream State">DDS</a>
-      <a class="nav-button" href="https://neuralnetsandprettypatterns.com/deep-drop-party/" aria-label="Deep Drop Party">DDP</a>
-      <a class="nav-button" href="https://neuralnetsandprettypatterns.com/scripts/" aria-label="Scripts">SCRIPTS</a>
-      <a class="nav-button pink-room" href="https://neuralnetsandprettypatterns.com/the-pink-room/" target="_blank" rel="noopener" aria-label="The Pink Room">TPR</a>
-      <a class="nav-button" href="https://neuralnetsandprettypatterns.com/contact/" aria-label="Contact">
-        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" width="18" height="18" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
-          <path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"/>
-          <path d="M22 6l-10 7L2 6"/>
-        </svg>
-      </a>
-    </div>
+    <div class="nav-buttons bottom-nav" id="nav-buttons-bottom" aria-label="Site navigation footer"></div>
 
     <footer>
       <div class="isni">ISNI: 0000 0005 2877 6254 &nbsp;·&nbsp; IPI: 01346215566 / 01346215468</div>
@@ -730,5 +718,90 @@
     </footer>
 
   </div>
+
+  <script>
+    (function () {
+      "use strict";
+
+      var NAV_JSON_URL = "https://neuralnetsandprettypatterns.com/assets/nav-buttons.json";
+
+      var ICONS = {
+        envelope:
+          '<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" width="18" height="18" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">' +
+          '<path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"/>' +
+          '<path d="M22 6l-10 7L2 6"/>' +
+          "</svg>",
+        discord:
+          '<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" width="18" height="18" fill="currentColor" aria-hidden="true">' +
+          '<path d="M20.32 4.37a19.8 19.8 0 0 0-4.89-1.52.07.07 0 0 0-.08.04c-.21.38-.45.87-.61 1.26a18.3 18.3 0 0 0-5.48 0 12.6 12.6 0 0 0-.62-1.26.07.07 0 0 0-.08-.04c-1.7.29-3.36.8-4.89 1.52a.07.07 0 0 0-.03.03C.75 8.68.06 12.86.35 16.99a.08.08 0 0 0 .03.06 19.9 19.9 0 0 0 6 3.03.08.08 0 0 0 .08-.03c.46-.63.88-1.3 1.23-2a.08.08 0 0 0-.04-.11 13.1 13.1 0 0 1-1.87-.9.08.08 0 0 1-.01-.13c.13-.09.25-.19.37-.29a.08.08 0 0 1 .08-.01c3.93 1.8 8.18 1.8 12.06 0a.08.08 0 0 1 .08.01c.12.1.24.2.37.29a.08.08 0 0 1-.01.13c-.6.35-1.22.65-1.88.9a.08.08 0 0 0-.04.11c.36.7.78 1.36 1.23 2a.08.08 0 0 0 .08.03 19.8 19.8 0 0 0 6.01-3.03.08.08 0 0 0 .03-.06c.35-4.78-.58-8.93-2.46-12.6a.06.06 0 0 0-.03-.02zM8.02 14.65c-1.18 0-2.15-1.08-2.15-2.42s.95-2.42 2.15-2.42c1.21 0 2.17 1.1 2.15 2.42 0 1.34-.95 2.42-2.15 2.42zm7.97 0c-1.18 0-2.15-1.08-2.15-2.42s.95-2.42 2.15-2.42c1.21 0 2.17 1.1 2.15 2.42 0 1.34-.94 2.42-2.15 2.42z"/>' +
+          "</svg>",
+        patreon:
+          '<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512" fill="currentColor" fill-rule="evenodd" clip-rule="evenodd" stroke-linejoin="round" stroke-miterlimit="2" aria-hidden="true">' +
+          '<g transform="matrix(.47407 0 0 .47407 .383 .422)">' +
+          '<clipPath id="prefix__nav-patreon-clip"><path d="M0 0h1080v1080H0z"/></clipPath>' +
+          '<g clip-path="url(#prefix__nav-patreon-clip)">' +
+          '<path d="M1033.05 324.45c-.19-137.9-107.59-250.92-233.6-291.7-156.48-50.64-362.86-43.3-512.28 27.2-181.1 85.46-237.99 272.66-240.11 459.36-1.74 153.5 13.58 557.79 241.62 560.67 169.44 2.15 194.67-216.18 273.07-321.33 55.78-74.81 127.6-95.94 216.01-117.82 151.95-37.61 255.51-157.53 255.29-316.38z" fill-rule="nonzero"/>' +
+          "</g></g></svg>"
+      };
+
+      function buildButton(button) {
+        var a = document.createElement("a");
+        var classes = ["nav-button"];
+        if (button.class) classes.push(button.class);
+        a.className = classes.join(" ");
+        a.href = button.href;
+        a.setAttribute("aria-label", button.ariaLabel || button.label || "");
+
+        if (button.target) {
+          a.target = button.target;
+          a.rel = "noopener";
+        }
+
+        if (button.icon && ICONS[button.icon]) {
+          a.innerHTML = ICONS[button.icon];
+        } else if (Array.isArray(button.lines)) {
+          button.lines.forEach(function (line) {
+            var span = document.createElement("span");
+            span.textContent = line;
+            a.appendChild(span);
+          });
+        } else {
+          a.textContent = button.label || "";
+        }
+
+        return a;
+      }
+
+      function renderButtons(buttons) {
+        var containers = [
+          document.getElementById("nav-buttons-top"),
+          document.getElementById("nav-buttons-bottom")
+        ];
+
+        containers.forEach(function (container) {
+          if (!container) return;
+          buttons.forEach(function (button) {
+            container.appendChild(buildButton(button));
+          });
+        });
+      }
+
+      fetch(NAV_JSON_URL, { cache: "no-store" })
+        .then(function (response) {
+          if (!response.ok) {
+            throw new Error("Nav buttons request failed with status " + response.status);
+          }
+          return response.json();
+        })
+        .then(function (data) {
+          var buttons = data && Array.isArray(data.buttons) ? data.buttons : [];
+          renderButtons(buttons);
+        })
+        .catch(function (error) {
+          console.error("Nav buttons could not be loaded:", error);
+        });
+    })();
+  </script>
+
 </body>
 </html>
