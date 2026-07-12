@@ -190,6 +190,16 @@ export default {
       });
     }
 
+    // Shared site-wide nav buttons (used by the home page and other
+    // pages that render their nav from JSON instead of hardcoding it)
+    if (p === "/assets/nav-buttons.json") {
+      return serveAsset(
+        "/assets/nav-buttons.json",
+        "application/json; charset=utf-8",
+        "no-store"
+      );
+    }
+
     // Deep Dream State migrated arc pages and assets
     // New main repo file wins when present.
     // Missing main repo file falls back to the legacy Deep Dream State site.
