@@ -2096,5 +2096,65 @@
   "class": "Product",
   "definition": "The wearable training system June describes to Blake in GE37 as the next protocol — distinct from Prismatix in purpose. Where Prismatix reads and responds to the buzzgraph, the conditioning suit trains the subject, building behavioral patterns through haptic command and response. Naia confirms its function to Blake in the Garden Nest: it was never going to measure you. It was gonna train you. It builds who you become. Blake's refusal to enter the suit is the proximate cause of her exit from Vale Four.",
   "links": []
+},
+{
+  "term": "Laura",
+  "class": "Character",
+  "definition": "New to the hunt and to this world. Assigned to Team Thorns under Queen Tessa. Nervous and naive, she is worn down scene by scene until she stops resisting what Tessa wants from her.",
+  "performer": "Jade Deckard",
+  "performer_url": "https://www.castingcall.club/jadedeckardvoice",
+  "links": []
+},
+{
+  "term": "Leandra",
+  "class": "Character",
+  "definition": "New to the hunt. Assigned to Team Alchemy alongside Meg. Plays in an unsettling, simple register. A video game addict who recognizes Snarecraft's maze as reused assets from a prior game called Deep Ward, and remembers it better than she wants to.",
+  "performer": "Talithara",
+  "performer_url": "",
+  "links": []
+},
+{
+  "term": "Porsche",
+  "class": "Character",
+  "definition": "New to the hunt. Assigned to Team Flowers alongside Elle. Vapid, lovable, and starstruck. A GluckGluck and Spotlight player fangirling over Elle, guided across the stream without knowing why it matters.",
+  "performer": "Princess Ella",
+  "performer_url": "",
+  "links": []
+},
+{
+  "term": "Deep Ward",
+  "class": "Game",
+  "definition": "A prior game Leandra played before Snarecraft, referenced during the Team Alchemy hunt sequence. Its map structure and briar-response assets turn out to be identical to Snarecraft's — the same saved behavior, the same code — allowing Meg to cross-reference Leandra's memory of Deep Ward against the maze Hespa built.",
+  "links": []
+},
+{
+  "term": "Team Thorns",
+  "class": "Plot Detail",
+  "definition": "One of three advance hunting parties sent through Snarecraft to track Hespa and Blake. Led by Queen Tessa, taking the northern route. The path of absolute brutality.",
+  "links": []
+},
+{
+  "term": "Team Alchemy",
+  "class": "Plot Detail",
+  "definition": "One of three advance hunting parties sent through Snarecraft to track Hespa and Blake. Led by Meg and Leandra, taking the western route. The path of calculation and foresight. All episode titles in the Snarecraft Cycle are drawn from alchemy.",
+  "links": []
+},
+{
+  "term": "Team Flowers",
+  "class": "Plot Detail",
+  "definition": "One of three advance hunting parties sent through Snarecraft to track Hespa and Blake. Led by Elle and Porsche, taking the eastern route. The path of randomness and vibes.",
+  "links": []
+},
+{
+  "term": "Bad Girls Club",
+  "class": "Plot Detail",
+  "definition": "A phrase Elle uses to explain her insider knowledge of the maze's hidden routes to Porsche, framing her connection to Hespa's subversive network as membership in an informal club rather than naming it directly.",
+  "links": []
+},
+{
+  "term": "NPC",
+  "class": "Plot Detail",
+  "definition": "Tessa's term for Laura during the Bramble scene, used to draw a line between those who are actual players in the hunt and those who are background. The label is part of Tessa's method of reducing a hunt member's sense of agency before escalating control over her.",
+  "links": []
 }
 ]
