@@ -2159,7 +2159,7 @@
 },
 {
   "term": "Lollipopped",
-  "class": "Plot Detail",
+  "class": "Continuity",
   "definition": "A state of mind rather than an object, evoked as a track title across the Neuralverse catalogue. In the Continuity, it belongs to the Mouth Time series, tying the sensation and language of the mouth to the particular kind of glazed compliance the word suggests.",
   "links": [
     { "text": "Mouth Time (Neuralpedia)", "url": "https://neuralnetsandprettypatterns.com/neuralpedia/mouth-time/" }
@@ -2167,7 +2167,7 @@
 },
 {
   "term": "Facility",
-  "class": "Setting",
+  "class": "Continuity",
   "definition": "A recurring, deliberately vague place across the Neuralverse, closer to an institution than a single building. Like the Lotus and the Pink Room, the Facility gestures at imagined intense discipline without pinning down its geography or ownership. In the Continuity, it anchors its own standalone Neuralpedia series.",
   "links": [
     { "text": "Facility (Neuralpedia)", "url": "https://neuralnetsandprettypatterns.com/neuralpedia/facility/" }
@@ -2175,10 +2175,9 @@
 },
 {
   "term": "Neuralverse",
-  "class": "Metashow",
+  "class": "Continuity",
   "definition": "The built fictional universe that Deep Dream State is one part of: an interconnected body of audio, music, and writing by Neural Nets and Pretty Patterns going back to 2017. Terms, characters, and phrases recur across its arcs and series, including in works well outside Deep Dream State itself.",
   "links": [
     { "text": "Neuralpedia", "url": "https://neuralnetsandprettypatterns.com/neuralpedia/" }
   ]
 }
-]
