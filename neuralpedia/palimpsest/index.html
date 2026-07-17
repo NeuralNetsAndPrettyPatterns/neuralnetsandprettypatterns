@@ -1,0 +1,479 @@
+<!-- NEURALSERIES -->
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Palimpsest | Neuralpedia | Neural Nets and Pretty Patterns</title>
+  <meta name="description" content="Palimpsest: audio experiments in the Neuralverse catalogue by Neural Nets and Pretty Patterns.">
+  <meta name="author" content="Neural Nets and Pretty Patterns">
+  <link rel="canonical" href="https://neuralnetsandprettypatterns.com/neuralpedia/palimpsest/">
+  <link rel="icon" type="image/png" sizes="512x512" href="https://neuralnetsandprettypatterns.github.io/neuralnetsandprettypatterns/favicon-transparent.png">
+  <link rel="apple-touch-icon" sizes="512x512" href="https://neuralnetsandprettypatterns.github.io/neuralnetsandprettypatterns/favicon-transparent.png">
+
+  <meta property="og:title" content="Palimpsest | Neuralpedia">
+  <meta property="og:description" content="Audio experiments in the Neuralverse catalogue by Neural Nets and Pretty Patterns.">
+  <meta property="og:url" content="https://neuralnetsandprettypatterns.com/neuralpedia/palimpsest/">
+  <meta property="og:type" content="website">
+
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;1,300;1,400&family=Inconsolata:wght@300;400&display=swap" rel="stylesheet">
+
+  <style>
+    :root {
+      --border: rgba(240, 244, 255, 0.15);
+      --text-dim: #6b7c99;
+      --text: #c8d4f0;
+      --text-bright: #f0f4ff;
+      --accent: #7eb8c9;
+      --accent-warm: #c9a87e;
+      --violet-deep: #1a0a2e;
+      --pink: #ff2d78;
+      --surface: rgba(255,255,255,0.035);
+      --serif: 'Cormorant Garamond', Georgia, serif;
+      --mono: 'Inconsolata', monospace;
+    }
+
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+    html { font-size: 16px; scroll-behavior: smooth; }
+
+    body {
+      width: 100%;
+      min-height: 100vh;
+      background: linear-gradient(135deg, #1a0a2e 0%, #16213e 50%, #0f3460 100%);
+      color: var(--text);
+      font-family: var(--serif);
+      font-weight: 300;
+      line-height: 1.7;
+      overflow-x: hidden;
+    }
+
+    .container {
+      position: relative;
+      z-index: 1;
+      max-width: 900px;
+      margin: 0 auto;
+      padding: 0 1.5rem;
+    }
+
+    header {
+      padding: 4rem 0 2rem;
+      border-bottom: 1px solid var(--border);
+      text-align: center;
+    }
+
+    .sigil {
+      font-family: var(--mono);
+      font-size: 0.65rem;
+      letter-spacing: 0.25em;
+      color: var(--accent);
+      text-transform: uppercase;
+      opacity: 0.75;
+      margin-bottom: 1.5rem;
+    }
+
+    h1 {
+      font-family: var(--serif);
+      font-size: clamp(2rem, 5.6vw, 3.4rem);
+      font-weight: 300;
+      line-height: 1.1;
+      letter-spacing: 0.02em;
+      color: var(--text-bright);
+    }
+
+    .nav-buttons {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      gap: 0.6rem;
+      flex-wrap: wrap;
+      padding: 2rem 0 0;
+      margin: 0 0 1rem 0;
+    }
+
+    .nav-buttons.bottom-nav { padding: 0; margin: 2rem 0; }
+
+    .nav-button {
+      min-width: 45px;
+      height: 45px;
+      padding: 0 0.85rem;
+      border: 2px solid var(--text-bright);
+      border-radius: 999px;
+      background: transparent;
+      color: var(--text-bright);
+      font-size: 0.65rem;
+      letter-spacing: 0.12em;
+      cursor: pointer;
+      display: inline-flex;
+      justify-content: center;
+      align-items: center;
+      transition: all 0.3s ease;
+      font-family: var(--mono);
+      flex-shrink: 0;
+      text-decoration: none;
+      line-height: 1;
+      white-space: nowrap;
+    }
+
+    .nav-button.two-line {
+      flex-direction: column;
+      gap: 0.05rem;
+      height: auto;
+      min-height: 45px;
+      padding: 0.4rem 0.7rem;
+      border-radius: 14px;
+      line-height: 1.15;
+    }
+
+    .nav-button.pink-room { color: var(--pink); border-color: var(--pink); }
+    .nav-button.pink-room:hover { background: var(--pink); color: #fff; transform: scale(1.1); }
+    .nav-button:hover { background: var(--text-bright); color: var(--violet-deep); transform: scale(1.1); }
+    .nav-button svg { width: 18px; height: 18px; flex-shrink: 0; }
+
+    section { padding: 3rem 0; border-bottom: 1px solid var(--border); }
+    section:last-of-type { border-bottom: none; }
+
+    p { font-size: 1.05rem; color: var(--text); margin-bottom: 1.2rem; max-width: 68ch; }
+    p:last-child { margin-bottom: 0; }
+    p a { color: var(--accent); text-decoration: none; transition: color 0.25s ease; }
+    p a:hover { color: var(--text-bright); }
+
+    .section-label {
+      font-family: var(--mono);
+      font-size: 0.6rem;
+      letter-spacing: 0.3em;
+      text-transform: uppercase;
+      color: var(--accent);
+      opacity: 0.7;
+      margin-bottom: 1.25rem;
+    }
+
+    .catalogue-meta {
+      font-family: var(--mono);
+      font-size: 0.8rem;
+      color: var(--text-dim);
+      margin-bottom: 1rem;
+    }
+
+    .track-index {
+      font-size: 0.9rem;
+      line-height: 2;
+      margin-bottom: 2rem;
+      color: var(--text-dim);
+    }
+    .track-index a { color: var(--accent); text-decoration: none; }
+    .track-index a:hover { color: var(--text-bright); }
+
+    details.track-entry {
+      border: 1px solid var(--border);
+      border-radius: 6px;
+      background: var(--surface);
+      margin-bottom: 0.75rem;
+      overflow: hidden;
+    }
+    details.track-entry > summary {
+      list-style: none;
+      cursor: pointer;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 0.75rem;
+      padding: 0.9rem 1.1rem;
+      font-family: var(--serif);
+      font-size: 1.1rem;
+      color: var(--text-bright);
+      user-select: none;
+    }
+    details.track-entry > summary::-webkit-details-marker { display: none; }
+    details.track-entry > summary::after {
+      content: '+';
+      font-family: var(--serif);
+      font-size: 1.3rem;
+      flex-shrink: 0;
+      color: var(--accent);
+    }
+    details.track-entry[open] > summary::after { content: '\2212'; }
+    details.track-entry > summary:hover { color: var(--accent); }
+    .track-number {
+      font-family: var(--mono);
+      font-size: 0.7rem;
+      color: var(--text-dim);
+      margin-right: 0.6rem;
+    }
+    .track-body {
+      padding: 0 1.1rem 1.1rem;
+      font-family: var(--mono);
+      font-size: 0.82rem;
+      color: var(--text-dim);
+      line-height: 1.9;
+    }
+    .track-body .row { margin-bottom: 0.3rem; }
+    .track-body .row strong {
+      color: var(--text);
+      font-weight: 400;
+      letter-spacing: 0.06em;
+      text-transform: uppercase;
+      font-size: 0.7rem;
+      margin-right: 0.5rem;
+    }
+    .track-body a { color: var(--accent); text-decoration: none; }
+    .track-body a:hover { color: var(--text-bright); }
+
+    #catalogue-status {
+      font-family: var(--mono);
+      font-size: 0.85rem;
+      color: var(--text-dim);
+      font-style: italic;
+    }
+
+    footer { padding: 2rem 0 3rem; text-align: center; }
+    .isni { font-family: var(--mono); font-size: 0.6rem; letter-spacing: 0.2em; color: var(--text-dim); }
+
+    @media (max-width: 600px) {
+      .container { padding: 0 1rem; }
+      header { padding: 2.5rem 0 1.5rem; }
+      section { padding: 2rem 0; }
+    }
+  </style>
+</head>
+<body>
+  <div class="container">
+
+    <header>
+      <div class="sigil">neuralpedia · neuralnetsandprettypatterns.com</div>
+      <h1>Palimpsest</h1>
+    </header>
+
+    <div class="nav-buttons" id="nav-buttons-top" aria-label="Site navigation"></div>
+
+    <!-- COPY GOES HERE. Intro <section> with <p> paragraphs, same pattern as
+         the 1-2-3-4 / Apron / Mind Pop / Mouth Time / Classic / Facility pages.
+         Left out entirely for now, not filled with placeholder text. -->
+
+    <section>
+      <div class="section-label">Tracks</div>
+      <p class="catalogue-meta" id="catalogue-meta">Loading catalogue…</p>
+
+      <div class="track-index" id="track-index"></div>
+
+      <div id="track-list"></div>
+
+      <p id="catalogue-status" role="status" aria-live="polite"></p>
+    </section>
+
+    <div class="nav-buttons bottom-nav" id="nav-buttons-bottom" aria-label="Site navigation footer"></div>
+
+    <footer>
+      <div class="isni">ISNI: 0000 0005 2877 6254 &nbsp;·&nbsp; Neural Nets and Pretty Patterns</div>
+    </footer>
+
+  </div>
+
+  <script>
+    (function () {
+      "use strict";
+
+      // ---- Page-specific config (only thing that changes per series page) ----
+      var SERIES_NAME = "Palimpsest";
+      var CHRONOLOGY_URL = "https://neuralnetsandprettypatterns.com/neuralpedia/chronology/chronology.json";
+      var NAV_JSON_URL = "https://neuralnetsandprettypatterns.com/nav-buttons.json";
+
+      // No tracks hardcoded statically on this page yet.
+      // If crawlability matters here the way it did on the 1-2-3-4 page,
+      // add record IDs here and their markup in the HTML above.
+      var STATIC_IDS = [];
+
+      // ---- Nav buttons (shared across the whole site) ----
+      var ICONS = {
+        envelope:
+          '<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" width="18" height="18" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">' +
+          '<path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"/>' +
+          '<path d="M22 6l-10 7L2 6"/>' +
+          "</svg>",
+        discord:
+          '<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" width="18" height="18" fill="currentColor" aria-hidden="true">' +
+          '<path d="M20.32 4.37a19.8 19.8 0 0 0-4.89-1.52.07.07 0 0 0-.08.04c-.21.38-.45.87-.61 1.26a18.3 18.3 0 0 0-5.48 0 12.6 12.6 0 0 0-.62-1.26.07.07 0 0 0-.08-.04c-1.7.29-3.36.8-4.89 1.52a.07.07 0 0 0-.03.03C.75 8.68.06 12.86.35 16.99a.08.08 0 0 0 .03.06 19.9 19.9 0 0 0 6 3.03.08.08 0 0 0 .08-.03c.46-.63.88-1.3 1.23-2a.08.08 0 0 0-.04-.11 13.1 13.1 0 0 1-1.87-.9.08.08 0 0 1-.01-.13c.13-.09.25-.19.37-.29a.08.08 0 0 1 .08-.01c3.93 1.8 8.18 1.8 12.06 0a.08.08 0 0 1 .08.01c.12.1.24.2.37.29a.08.08 0 0 1-.01.13c-.6.35-1.22.65-1.88.9a.08.08 0 0 0-.04.11c.36.7.78 1.36 1.23 2a.08.08 0 0 0 .08.03 19.8 19.8 0 0 0 6.01-3.03.08.08 0 0 0 .03-.06c.35-4.78-.58-8.93-2.46-12.6a.06.06 0 0 0-.03-.02zM8.02 14.65c-1.18 0-2.15-1.08-2.15-2.42s.95-2.42 2.15-2.42c1.21 0 2.17 1.1 2.15 2.42 0 1.34-.95 2.42-2.15 2.42zm7.97 0c-1.18 0-2.15-1.08-2.15-2.42s.95-2.42 2.15-2.42c1.21 0 2.17 1.1 2.15 2.42 0 1.34-.94 2.42-2.15 2.42z"/>' +
+          "</svg>",
+        patreon:
+          '<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512" fill="currentColor" fill-rule="evenodd" clip-rule="evenodd" stroke-linejoin="round" stroke-miterlimit="2" aria-hidden="true">' +
+          '<g transform="matrix(.47407 0 0 .47407 .383 .422)">' +
+          '<clipPath id="prefix__nav-patreon-clip"><path d="M0 0h1080v1080H0z"/></clipPath>' +
+          '<g clip-path="url(#prefix__nav-patreon-clip)">' +
+          '<path d="M1033.05 324.45c-.19-137.9-107.59-250.92-233.6-291.7-156.48-50.64-362.86-43.3-512.28 27.2-181.1 85.46-237.99 272.66-240.11 459.36-1.74 153.5 13.58 557.79 241.62 560.67 169.44 2.15 194.67-216.18 273.07-321.33 55.78-74.81 127.6-95.94 216.01-117.82 151.95-37.61 255.51-157.53 255.29-316.38z" fill-rule="nonzero"/>' +
+          "</g></g></svg>"
+      };
+
+      function buildNavButton(button) {
+        var a = document.createElement("a");
+        var classes = ["nav-button"];
+        if (button.class) classes.push(button.class);
+        a.className = classes.join(" ");
+        a.href = button.href;
+        a.setAttribute("aria-label", button.ariaLabel || button.label || "");
+        if (button.target) { a.target = button.target; a.rel = "noopener"; }
+        if (button.icon && ICONS[button.icon]) {
+          a.innerHTML = ICONS[button.icon];
+        } else if (Array.isArray(button.lines)) {
+          button.lines.forEach(function (line) {
+            var span = document.createElement("span");
+            span.textContent = line;
+            a.appendChild(span);
+          });
+        } else {
+          a.textContent = button.label || "";
+        }
+        return a;
+      }
+
+      fetch(NAV_JSON_URL, { cache: "no-store" })
+        .then(function (r) { if (!r.ok) throw new Error("nav fetch failed"); return r.json(); })
+        .then(function (data) {
+          var buttons = data && Array.isArray(data.buttons) ? data.buttons : [];
+          [document.getElementById("nav-buttons-top"), document.getElementById("nav-buttons-bottom")]
+            .forEach(function (container) {
+              if (!container) return;
+              buttons.forEach(function (b) { container.appendChild(buildNavButton(b)); });
+            });
+        })
+        .catch(function (err) { console.error("Nav buttons could not be loaded:", err); });
+
+      // ---- Track catalogue: fetch full chronology, filter by series name ----
+      function slugify(name) {
+        return String(name)
+          .toLowerCase()
+          .trim()
+          .replace(/[^a-z0-9]+/g, "-")
+          .replace(/(^-|-$)/g, "");
+      }
+
+      function escapeHtml(value) {
+        return String(value == null ? "" : value).replace(/[&<>"']/g, function (c) {
+          return { "&": "&amp;", "<": "&lt;", ">": "&gt;", '"': "&quot;", "'": "&#39;" }[c];
+        });
+      }
+
+      function seriesLinksHtml(seriesNames, currentSeries) {
+        if (!Array.isArray(seriesNames) || !seriesNames.length) return "";
+        return seriesNames
+          .map(function (name) {
+            var url = "https://neuralnetsandprettypatterns.com/neuralpedia/" + slugify(name) + "/";
+            var isCurrent = name === currentSeries;
+            return isCurrent
+              ? escapeHtml(name)
+              : '<a href="' + url + '">' + escapeHtml(name) + "</a>";
+          })
+          .join(", ");
+      }
+
+      function linksHtml(links) {
+        if (!links || typeof links !== "object") return "";
+        var labelMap = { patreon: "Patreon", soundgasm: "Soundgasm", spotify: "Spotify", musicbrainz: "MusicBrainz" };
+        return Object.keys(links)
+          .map(function (key) {
+            var url = links[key];
+            if (!url) return "";
+            var label = labelMap[key] || key;
+            return '<a href="' + escapeHtml(url) + '" target="_blank" rel="noopener">' + escapeHtml(label) + "</a>";
+          })
+          .filter(Boolean)
+          .join(" | ");
+      }
+
+      function trackAnchorId(track) {
+        return String(track.id || "").toLowerCase();
+      }
+
+      function renderTrackEntry(track, number) {
+        var details = document.createElement("details");
+        details.className = "track-entry";
+        details.id = trackAnchorId(track);
+        details.setAttribute("data-number", String(number));
+
+        var summary = document.createElement("summary");
+        summary.innerHTML =
+          '<span><span class="track-number">' + number + ".</span>" +
+          escapeHtml(track.title) + "</span>";
+        details.appendChild(summary);
+
+        var body = document.createElement("div");
+        body.className = "track-body";
+
+        var rows = [];
+        if (track.date) rows.push('<div class="row"><strong>Date</strong>' + escapeHtml(track.date) + "</div>");
+        var links = linksHtml(track.links);
+        if (links) rows.push('<div class="row"><strong>Links</strong>' + links + "</div>");
+        if (Array.isArray(track.tags) && track.tags.length) {
+          rows.push('<div class="row"><strong>Genre</strong>' + escapeHtml(track.tags.join(", ")) + "</div>");
+        }
+        var seriesHtml = seriesLinksHtml(track.series, SERIES_NAME);
+        if (seriesHtml) rows.push('<div class="row"><strong>Series</strong>' + seriesHtml + "</div>");
+        if (track.format) rows.push('<div class="row"><strong>Format</strong>' + escapeHtml(track.format) + "</div>");
+        if (track.duration) rows.push('<div class="row"><strong>Length</strong>' + escapeHtml(track.duration) + "</div>");
+        if (track.id) rows.push('<div class="row"><strong>Record</strong>' + escapeHtml(track.id) + "</div>");
+
+        body.innerHTML = rows.join("");
+        details.appendChild(body);
+        return details;
+      }
+
+      function insertInOrder(container, element, number) {
+        var existing = container.querySelectorAll("[data-number]");
+        for (var i = 0; i < existing.length; i++) {
+          var existingNumber = parseInt(existing[i].getAttribute("data-number"), 10);
+          if (existingNumber > number) {
+            container.insertBefore(element, existing[i]);
+            return;
+          }
+        }
+        container.appendChild(element);
+      }
+
+      fetch(CHRONOLOGY_URL, { cache: "no-store" })
+        .then(function (r) {
+          if (!r.ok) throw new Error("Chronology request failed with status " + r.status);
+          return r.json();
+        })
+        .then(function (data) {
+          var all = Array.isArray(data) ? data : (Array.isArray(data.records) ? data.records : []);
+          var matches = all.filter(function (item) {
+            return item && item.type === "track" && Array.isArray(item.series) && item.series.indexOf(SERIES_NAME) !== -1;
+          });
+
+          matches.sort(function (a, b) {
+            return String(a.date || "").localeCompare(String(b.date || ""));
+          });
+
+          document.getElementById("catalogue-meta").textContent =
+            matches.length + (matches.length === 1 ? " file in this series." : " files in this series.");
+
+          var indexEl = document.getElementById("track-index");
+          indexEl.innerHTML = matches
+            .map(function (track, i) {
+              return '<a href="#' + trackAnchorId(track) + '">' + (i + 1) + ". " + escapeHtml(track.title) + "</a>";
+            })
+            .join(" | ");
+
+          var listEl = document.getElementById("track-list");
+          matches.forEach(function (track, i) {
+            var number = i + 1;
+            var idLower = trackAnchorId(track);
+            if (STATIC_IDS.indexOf(idLower) !== -1) return;
+            var entry = renderTrackEntry(track, number);
+            insertInOrder(listEl, entry, number);
+          });
+
+          document.getElementById("catalogue-status").textContent =
+            matches.length + (matches.length === 1 ? " track loaded." : " tracks loaded.");
+        })
+        .catch(function (err) {
+          console.error("Chronology could not be loaded:", err);
+          document.getElementById("catalogue-meta").textContent = "";
+          document.getElementById("catalogue-status").textContent = "Track catalogue could not be loaded.";
+        });
+    })();
+  </script>
+
+</body>
+</html>
+
