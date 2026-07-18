@@ -1,8 +1,6 @@
 {
   "meta": {
-    "baseline_catalogue_count": 665,
-    "baseline_cutoff_date": "2026-05-20",
-    "last_updated": "2026-06-14",
+    "last_updated": "2026-07-17",
     "artist": {
       "name": "Neural Nets and Pretty Patterns",
       "isni": "0000 0005 2877 6254",
@@ -23,11 +21,11 @@
         "neuralpedia": "https://neuralnetsandprettypatterns.com/neuralpedia/"
       },
       "social": {
+        "patreon": "https://www.patreon.com/minderaser",
         "twitter": "https://twitter.com/MCNeuralNets",
         "reddit": "https://www.reddit.com/user/prettypattern/",
         "tumblr": "https://www.tumblr.com/blog/blink-blank-bliss",
-        "discord": "https://discord.gg/thepinkroom",
-        "patreon": "https://www.patreon.com/minderaser"
+        "discord": "https://discord.gg/thepinkroom"
       },
       "music": {
         "apple_music": "https://music.apple.com/us/artist/neural-nets/1570376584",
@@ -239,6 +237,43 @@
       "description": "Sparkle Service crosses over the Desire Horror and Pink Noir parts of the Neuralverse, in one fabulous apron. Echo Doll stars as the corporate trainer for the Starlight Coffee chain. She is completely plausible as a corporate trainer, which makes the gradual shift into pink noir feel almost imperceptible.",
       "credits": {
         "music": "Corporate base music by Denys Kyshchuk, under public license"
+      }
+    },
+    {
+      "title": "Sparkle Secret",
+      "series": [
+        "Neuroplex"
+      ],
+      "release_date": "2026-07-17",
+      "genre": [
+        "Audio Drama",
+        "Posthuman Romance"
+      ],
+      "power_geometry": [
+        "fs"
+      ],
+      "format": "Pure audio",
+      "length": "32:37",
+      "duration_iso": "PT32M37S",
+      "canonical_url": "https://www.patreon.com/minderaser/posts/sparkle-secret-164138076",
+      "same_as": [
+        "https://musicbrainz.org/release/c20a8d00-ba91-4755-a257-359a6220f363"
+      ],
+      "image": "",
+      "links": [
+        {
+          "label": "Patreon",
+          "url": "https://www.patreon.com/minderaser/posts/sparkle-secret-164138076"
+        },
+        {
+          "label": "MusicBrainz",
+          "url": "https://musicbrainz.org/release/c20a8d00-ba91-4755-a257-359a6220f363"
+        }
+      ],
+      "is_free": false,
+      "description": "Sparkle Secret follows the advanced training track for the Starlight coffee chain, where an ordinary corporate onboarding video shifts into something older and stranger underneath. Echo Doll stars as the trainer, plausible enough as a barista instructor that the descent into myth barely registers until it's already happened. A mermaid, an NDA, and a rewards program that means more than it says.",
+      "credits": {
+        "music": ""
       }
     }
   ]
