@@ -2180,5 +2180,59 @@
   "links": [
     { "text": "Neuralpedia", "url": "https://neuralnetsandprettypatterns.com/neuralpedia/" }
   ]
+},
+{
+  "term": "The Chain",
+  "class": "Plot Detail",
+  "definition": "The opening section of Sparkle Secret, named for the corporate hierarchy the trainer describes as having taught partners to smile in the first place. The soundscape shifts from ocean waves into upbeat corporate beats here, establishing the episode's layered audio structure before the training script proper begins. The Chain sets up Starlight's core mechanism, where approval, reward, and repetition are presented as the natural result of doing a good job rather than as conditioning.",
+  "links": []
+},
+{
+  "term": "Starlight",
+  "class": "Setting",
+  "definition": "The fictional coffee chain at the center of Sparkle Secret, presented on the surface as an ordinary retail brand with loyalty cards, drink stickers, and a rewards program. Underneath that surface, Starlight operates the same layered training and conditioning structure seen in the Chthonic and Vale Four arcs, moving partners from ordinary onboarding into a private vocabulary and a devotional relationship with an entity discovered off San Nicolas. The chain's slogan, we make it right at Starlight, doubles as both customer service language and a description of what the training does to the partner herself.",
+  "links": []
+},
+{
+  "term": "San Nicolas",
+  "class": "Setting",
+  "definition": "An island off the coast referenced in Sparkle Secret's filmstrip sequence, the site of a 1968 Navy research program that first encountered the entity later folded into Starlight's origin story. The official history credits the company's founding to a belief that coffee could bring people together, but the trainer voice frames that as an edited cover for what actually happened at San Nicolas. Access to the island is now restricted under various official pretexts, none of which the trainer treats as the real reason.",
+  "links": []
+},
+{
+  "term": "Affagato",
+  "class": "Product",
+  "definition": "A drink and a euphemism inside Starlight's Sparkle Secret training track, positioned as the special ingredient supposedly present in every cup. The trainer voice insists it is real, then teases that there is another layer of meaning underneath it, part of the pink drink alphabet partners are taught to hear. Affagato functions the same way Starlight's other reward language does, turning something that sounds like an actual menu item into a coded signal of compliance.",
+  "links": []
+},
+{
+  "term": "Pink Drink",
+  "class": "Product",
+  "definition": "The Starlight beverage that triggers memory loss in Sparkle Secret, referenced as something the listener already had without fully remembering it. The trainer treats it as the threshold item that grants access to the pink drink alphabet, a private vocabulary layered underneath ordinary Starlight slogans. Drinking it is framed as consent already given, the same sleight of hand the Neuralverse uses elsewhere to make surrender look like something the subject chose.",
+  "links": []
+},
+{
+  "term": "Intima",
+  "class": "Product",
+  "definition": "The undergarment referenced during Sparkle Secret's hole rush sequence, worn beneath the Starlight uniform as part of the partner's fitted, corrected presentation. The trainer folds it into the same list as the apron, framing both as proof that the partner now fits perfectly into the role. Intima marks the point where the training script moves from drink preparation into bodily conditioning.",
+  "links": []
+},
+{
+  "term": "NDA",
+  "class": "Plot Detail",
+  "definition": "The acronym partners sign when they take the Pink Drink in Sparkle Secret, publicly explained to regular staff as a standard Non-Disclosure Agreement. The trainer voice tells the listener this is only the cover story, and that advanced partners are meant to forget the literal meaning entirely in favor of a felt, wordless understanding. The NDA in Starlight lore is less a legal document than an induction marker, the same way Hupakoē functioned as a seeded pipeline in the Chthonic arc.",
+  "links": []
+},
+{
+  "term": "Twin Tails",
+  "class": "Plot Detail",
+  "definition": "A uniform detail in Sparkle Secret, tied to the mermaid imagery running through Starlight's filmstrip sequence and described by the trainer as meaning something beyond decoration. Wearing them is framed as an act of agreement, a physical yes to feeling the entity's presence during a shift. Twin Tails ties Starlight's uniform design directly to the devotional register the training script escalates into by its end.",
+  "links": []
+},
+{
+  "term": "Ouroborus",
+  "class": "Meta",
+  "definition": "A looping structure in Sparkle Secret, explicitly marked in the script for reloop, where a line like the chain trained us to smile is repeated back into itself so the recording can play continuously. It works the same way Please Let Me Please does elsewhere in the Neuralverse, converting a single conditioning line into a sustained, self-feeding loop rather than a one-time statement. The Ouroborus tag signals a production technique as much as an in-world concept, telling the listener that Starlight's training material is built to run without end.",
+  "links": []
 }
 ]
