@@ -218,6 +218,7 @@
     .term-class.class-metashow    { color: #c8c8a8; border-color: rgba(200,200,168,0.35); }
     .term-class.class-character   { color: #e8c89e; border-color: rgba(232,200,158,0.35); }
     .term-class.class-continuity  { color: #b8a8d5; border-color: rgba(184,168,213,0.35); }
+    .term-class.class-meta        { color: #d5d5d5; border-color: rgba(213,213,213,0.35); }
     dd { font-size: 0.97rem; line-height: 1.75; opacity: 0.8; max-width: 72ch; }
     dd a { color: #9eb8e8; text-decoration: none; border-bottom: 1px solid rgba(158,184,232,0.3); transition: all 0.2s ease; }
     dd a:hover { color: #e8e8e8; border-bottom-color: rgba(232,232,232,0.5); }
@@ -233,6 +234,32 @@
     }
     .footer-credit a { color: inherit; text-decoration: none; }
     .footer-credit a:hover { opacity: 1; }
+
+    /* Spoiler bars: text hidden behind a solid bar until hovered or focused.
+       Populated via {{spoiler}}...{{/spoiler}} tokens inside glossary.json
+       definition strings; see applySpoilerTokens() in the script below. */
+    .spoiler-text {
+      display: inline;
+      background: #0a0510;
+      color: transparent !important;
+      border-radius: 3px;
+      padding: 0.05em 0.3em;
+      cursor: help;
+      user-select: none;
+      box-decoration-break: clone;
+      -webkit-box-decoration-break: clone;
+      transition: color 0.15s ease, background 0.15s ease;
+    }
+    .spoiler-text:hover,
+    .spoiler-text:focus {
+      color: #f0f0f0 !important;
+      background: rgba(10, 5, 16, 0.35);
+      outline: 1px solid rgba(232, 232, 232, 0.4);
+      user-select: text;
+    }
+    .spoiler-text a { color: transparent !important; }
+    .spoiler-text:hover a,
+    .spoiler-text:focus a { color: #9eb8e8 !important; }
 
     .index-view-card {
       margin: 0 0 2.5rem;
@@ -469,420 +496,7 @@
 
   <nav class="alpha-nav" id="alpha-nav" aria-label="Jump to letter"></nav>
 
-  <div id="glossary-body" aria-live="polite">
-  <section class="alpha-section" id="letter-A">
-    <p class="alpha-heading">A</p>
-    <dl>
-      <div class="term-entry" id="abyssrath">
-        <dt><span class="term-name">Abyssrath</span><span class="term-class class-plot-detail">Plot Detail</span></dt>
-        <dd>An observer whose approval must be shown through proper conduct and deference. The name suggests a deep-ocean elder being with a direct stake in the Chthonic's operation. Referenced by Captain William during his dressing-down of Olivia.<span class="term-meta">Appears in: <a href="https://neuralnetsandprettypatterns.com/deepdreamstate/arcs/chthonic/episode-1-maiden-voyage/" target="_blank" rel="noopener">S1:E1 / GE1</a></span></dd>
-      </div>
-      <div class="term-entry" id="aegir-blot">
-        <dt><span class="term-name">Aegir Blot</span><span class="term-class class-plot-detail">Plot Detail</span></dt>
-        <dd>A Norse ritual offering to Aegir, god of the sea and its storms, referenced by Kara as part of a cross-cultural pattern linking coastal civilizations to bride offerings and binding rites. In Norse practice, the blot was a sacrificial feast made to the gods in exchange for their favor. Aegir hosted the gods at the bottom of the ocean, and the sea was understood as his hall. <a href="https://en.wikipedia.org/wiki/Aegir" target="_blank" rel="noopener">Aegir (Wikipedia)</a> In E6 Sarah asks whether the Aegir Blot was real or just part of the mind game, and Selene keeps both possibilities alive.<span class="term-meta">Appears in: <a href="https://neuralnetsandprettypatterns.com/deepdreamstate/arcs/chthonic/episode-5-shower/" target="_blank" rel="noopener">S1:E5 / GE5</a>, <a href="https://neuralnetsandprettypatterns.com/deepdreamstate/arcs/chthonic/episode-6-garter/" target="_blank" rel="noopener">S1:E6 / GE6</a></span></dd>
-      </div>
-      <div class="term-entry" id="alastair">
-        <dt><span class="term-name">Alastair</span><span class="term-class class-character">Character</span></dt>
-        <dd>The Neuroplex CEO. Predatory and gamified in his interest in the people around him, speaking of wanting something fresh. Travels on his own vessel and condescends to visit the Chthonic. In E4 he joins the ceremony as judge of Emma's readiness and loans Holly to Captain Dyer, noting the expense of keeping her current on her vaccinations. In E6 he remains offscreen but present through the camera handoff and the promise that he will pay double for Sarah's altered state.<span class="term-performer">Played by <a href="https://deepdreamstate.blubrry.net/jericho-caine/" target="_blank" rel="noopener">Jericho Caine</a></span><span class="term-meta">Appears in: <a href="https://neuralnetsandprettypatterns.com/deepdreamstate/arcs/chthonic/episode-1-maiden-voyage/" target="_blank" rel="noopener">S1:E1 / GE1</a>, <a href="https://neuralnetsandprettypatterns.com/deepdreamstate/arcs/chthonic/episode-2-cringetide/" target="_blank" rel="noopener">S1:E2 / GE2</a>, <a href="https://neuralnetsandprettypatterns.com/deepdreamstate/arcs/chthonic/episode-4-asunder/" target="_blank" rel="noopener">S1:E4 / GE4</a>, <a href="https://neuralnetsandprettypatterns.com/deepdreamstate/arcs/chthonic/episode-5-shower/" target="_blank" rel="noopener">S1:E5 / GE5</a>, <a href="https://neuralnetsandprettypatterns.com/deepdreamstate/arcs/chthonic/episode-6-garter/" target="_blank" rel="noopener">S1:E6 / GE6</a></span></dd>
-      </div>
-      <div class="term-entry" id="amanda">
-        <dt><span class="term-name">Amanda</span><span class="term-class class-character">Character</span></dt>
-        <dd>House mother of the bachelorette party. Arrived for the Incognitoh game and stayed for the voyage. At the Tunngavik site she recognizes herself in the ancient carvings before she understands what that means. By E4 she speaks in the cadence of the ceremony. By E5 she is singing Mind Popper in a way that signals she is no longer operating on her own terms.<span class="term-performer">Played by <a href="https://deepdreamstate.blubrry.net/korrupted-innocence/" target="_blank" rel="noopener">Korrupted Innocence</a></span><span class="term-meta">Appears in: <a href="https://neuralnetsandprettypatterns.com/deepdreamstate/arcs/chthonic/episode-1-maiden-voyage/" target="_blank" rel="noopener">S1:E1 / GE1</a>, <a href="https://neuralnetsandprettypatterns.com/deepdreamstate/arcs/chthonic/episode-2-cringetide/" target="_blank" rel="noopener">S1:E2 / GE2</a>, <a href="https://neuralnetsandprettypatterns.com/deepdreamstate/arcs/chthonic/episode-3-veil/" target="_blank" rel="noopener">S1:E3 / GE3</a>, <a href="https://neuralnetsandprettypatterns.com/deepdreamstate/arcs/chthonic/episode-4-asunder/" target="_blank" rel="noopener">S1:E4 / GE4</a>, <a href="https://neuralnetsandprettypatterns.com/deepdreamstate/arcs/chthonic/episode-5-shower/" target="_blank" rel="noopener">S1:E5 / GE5</a></span></dd>
-      </div>
-      <div class="term-entry" id="ash-ashur">
-        <dt><span class="term-name">Ash / Ashur</span><span class="term-class class-plot-detail">Plot Detail</span></dt>
-        <dd>The nature of Ash is left deliberately unclear in early episodes. In E4 the named form surfaces: Ashur, the entity at the altar for whom Emma is being prepared. The name connects to Ashur, chief deity of the Assyrian pantheon, a war god and king of gods whose name gave rise to the word Assyria itself. In the show's cosmology, Ash is an Old One with a claim on a bride, and the Chthonic's entire operation exists in part to fulfill it. <a href="https://en.wikipedia.org/wiki/Ashur_(god)" target="_blank" rel="noopener">Ashur (Wikipedia)</a><span class="term-meta">Appears in: <a href="https://neuralnetsandprettypatterns.com/deepdreamstate/arcs/chthonic/episode-1-maiden-voyage/" target="_blank" rel="noopener">S1:E1 / GE1</a>, <a href="https://neuralnetsandprettypatterns.com/deepdreamstate/arcs/chthonic/episode-4-asunder/" target="_blank" rel="noopener">S1:E4 / GE4</a></span></dd>
-      </div>
-      <div class="term-entry" id="assets">
-        <dt><span class="term-name">Assets</span><span class="term-class class-game">Game</span></dt>
-        <dd>A menacing hunt game. Players are directed toward hunting a target, with capture described as the win condition. Assets diagnoses the objectification built into a lot of game design, and foreshadows future action in the series.<span class="term-meta">Appears in: <a href="https://www.imdb.com/title/tt43393347/" target="_blank" rel="noopener">S4:E9 / GE36</a></span></dd>
-      </div>
-    </dl>
-  </section>
-  <section class="alpha-section" id="letter-B">
-    <p class="alpha-heading">B</p>
-    <dl>
-      <div class="term-entry" id="binding-of-waters-the">
-        <dt><span class="term-name">Binding of Waters, The</span><span class="term-class class-plot-detail">Plot Detail</span></dt>
-        <dd>A text Sarah finds in the Chthonic library, referencing a bride, a vessel, and an entity called the Old Groom. The passage she reads aloud describes a union that causes land to sink and seas to rise. It is the clearest statement in the arc of what the ceremony is actually for. In E6 Sarah asks whether The Binding of the Waters is real or a dream, and Selene confirms the text is both lore and active mechanism.<span class="term-meta">Appears in: <a href="https://neuralnetsandprettypatterns.com/deepdreamstate/arcs/chthonic/episode-5-shower/" target="_blank" rel="noopener">S1:E5 / GE5</a>, <a href="https://neuralnetsandprettypatterns.com/deepdreamstate/arcs/chthonic/episode-6-garter/" target="_blank" rel="noopener">S1:E6 / GE6</a></span></dd>
-      </div>
-      <div class="term-entry" id="bowheads">
-        <dt><span class="term-name">Bowheads</span><span class="term-class class-plot-detail">Plot Detail</span></dt>
-        <dd>Bowhead whale songs recorded and pitched up twelve octaves by Neural Nets and Pretty Patterns, producing a sound eerily close to human vocalization. Heard through the Chthonic's instrument room equipment. The show frames them not as ambient ocean noise but as intentional communication, something that wants to be heard. Selene describes them as guardians of the deep places. In E5 Kara tracks hundreds of them circling with no feeding pattern, no migration logic , just waiting.<span class="term-meta">Appears in: <a href="https://neuralnetsandprettypatterns.com/deepdreamstate/arcs/chthonic/episode-3-veil/" target="_blank" rel="noopener">S1:E3 / GE3</a>, <a href="https://neuralnetsandprettypatterns.com/deepdreamstate/arcs/chthonic/episode-5-shower/" target="_blank" rel="noopener">S1:E5 / GE5</a></span></dd>
-      </div>
-      <div class="term-entry" id="brittany">
-        <dt><span class="term-name">Brittany</span><span class="term-class class-character">Character</span></dt>
-        <dd>Bridesmaid. Loud, present, and more perceptive than she lets on. She is among the first to admit she has been having the dreams. By E4 she participates in the ceremony as one of the chorus. By E5 she is singing Mind Popper in a way that signals she is no longer operating on her own terms.<span class="term-performer">Played by <a href="https://deepdreamstate.blubrry.net/kitten-azazel/" target="_blank" rel="noopener">Kitten Azazel</a></span><span class="term-meta">Appears in: <a href="https://neuralnetsandprettypatterns.com/deepdreamstate/arcs/chthonic/episode-1-maiden-voyage/" target="_blank" rel="noopener">S1:E1 / GE1</a>, <a href="https://neuralnetsandprettypatterns.com/deepdreamstate/arcs/chthonic/episode-2-cringetide/" target="_blank" rel="noopener">S1:E2 / GE2</a>, <a href="https://neuralnetsandprettypatterns.com/deepdreamstate/arcs/chthonic/episode-3-veil/" target="_blank" rel="noopener">S1:E3 / GE3</a>, <a href="https://neuralnetsandprettypatterns.com/deepdreamstate/arcs/chthonic/episode-4-asunder/" target="_blank" rel="noopener">S1:E4 / GE4</a>, <a href="https://neuralnetsandprettypatterns.com/deepdreamstate/arcs/chthonic/episode-5-shower/" target="_blank" rel="noopener">S1:E5 / GE5</a></span></dd>
-      </div>
-    </dl>
-  </section>
-  <section class="alpha-section" id="letter-C">
-    <p class="alpha-heading">C</p>
-    <dl>
-      <div class="term-entry" id="captains-mast">
-        <dt><span class="term-name">Captain's Mast</span><span class="term-class class-plot-detail">Plot Detail</span></dt>
-        <dd>A real naval disciplinary procedure, borrowed here as the name for the surveillance room where Captain William judges and reassigns crew. In the US Navy, captain's mast is non-judicial punishment administered by a commanding officer, outside the formal court-martial system. The show uses the term precisely: discipline that happens off the books, at the captain's discretion, with no appeal. <a href="https://en.wikipedia.org/wiki/Captain%27s_mast" target="_blank" rel="noopener">Captain's Mast (Wikipedia)</a><span class="term-meta">Appears in: <a href="https://neuralnetsandprettypatterns.com/deepdreamstate/arcs/chthonic/episode-2-cringetide/" target="_blank" rel="noopener">S1:E2 / GE2</a></span></dd>
-      </div>
-      <div class="term-entry" id="chthonic-the">
-        <dt><span class="term-name">Chthonic, The</span><span class="term-class class-setting">Setting</span></dt>
-        <dd>A cruise ship operating as an enclosed experimental environment, with guests unaware of the mechanisms operating around and beneath them. A wholly owned subsidiary of the Dagon Dream Group, operating under the authority of Neuroplex. In E6 Sarah names the Chthonic as the force behind the trap, and the ship's workplace structure becomes part of the danger: crew jobs, secret rooms, surveillance, and service roles all feed the same operation.<span class="term-meta">Appears in: <a href="https://neuralnetsandprettypatterns.com/deepdreamstate/arcs/chthonic/episode-1-maiden-voyage/" target="_blank" rel="noopener">S1:E1 / GE1</a>, <a href="https://neuralnetsandprettypatterns.com/deepdreamstate/arcs/chthonic/episode-2-cringetide/" target="_blank" rel="noopener">S1:E2 / GE2</a>, <a href="https://neuralnetsandprettypatterns.com/deepdreamstate/arcs/chthonic/episode-3-veil/" target="_blank" rel="noopener">S1:E3 / GE3</a>, <a href="https://neuralnetsandprettypatterns.com/deepdreamstate/arcs/chthonic/episode-4-asunder/" target="_blank" rel="noopener">S1:E4 / GE4</a>, <a href="https://neuralnetsandprettypatterns.com/deepdreamstate/arcs/chthonic/episode-5-shower/" target="_blank" rel="noopener">S1:E5 / GE5</a>, <a href="https://neuralnetsandprettypatterns.com/deepdreamstate/arcs/chthonic/episode-6-garter/" target="_blank" rel="noopener">S1:E6 / GE6</a></span></dd>
-      </div>
-      <div class="term-entry" id="cycle">
-        <dt><span class="term-name">Cycle</span><span class="term-class class-metashow">Metashow</span></dt>
-        <dd>A grouped set of episodes inside a Deep Dream State arc or season. Cycle titles and numbers are supplementary information. If you find them confusing, navigate by Season:Episode or Global Episode number instead.</dd>
-      </div>
-    </dl>
-  </section>
-  <section class="alpha-section" id="letter-D">
-    <p class="alpha-heading">D</p>
-    <dl>
-      <div class="term-entry" id="dagon-app-the">
-        <dt><span class="term-name">Dagon App, The</span><span class="term-class class-product">Product</span></dt>
-        <dd>The passenger-facing app for the Chthonic experience. Guests use it to summon crew via a bell icon, positioning control of the staff as a consumer convenience.<span class="term-meta">Appears in: <a href="https://neuralnetsandprettypatterns.com/deepdreamstate/arcs/chthonic/episode-1-maiden-voyage/" target="_blank" rel="noopener">S1:E1 / GE1</a></span></dd>
-      </div>
-      <div class="term-entry" id="dagon-dream-group">
-        <dt><span class="term-name">Dagon Dream Group</span><span class="term-class class-plot-detail">Plot Detail</span></dt>
-        <dd>The corporate parent of the Chthonic. The name invokes the Lovecraftian sea deity Dagon, linking the cruise operation to the broader mythology of the Old Ones threading through Season 1. <a href="https://en.wikipedia.org/wiki/Dagon_(short_story)" target="_blank" rel="noopener">Dagon (Lovecraft)</a><span class="term-meta">Appears in: <a href="https://neuralnetsandprettypatterns.com/deepdreamstate/arcs/chthonic/episode-1-maiden-voyage/" target="_blank" rel="noopener">S1:E1 / GE1</a></span></dd>
-      </div>
-      <div class="term-entry" id="desire-horror">
-        <dt><span class="term-name">Desire Horror</span><span class="term-class class-metashow">Metashow</span></dt>
-        <dd>The genre originated by Deep Dream State. While conventional horror positions you against an outside threat, desire horror implicates you completely in it. The dread emerges from recognition, from understanding why the characters choose to stay, and why surrender ultimately feels like relief. The narrative treats desire as a structural force, built around documented psychological, sociological, and technological phenomena to engineer systems that exploit human wanting. <a href="https://www.wikidata.org/wiki/Q139545448" target="_blank" rel="noopener">Desire Horror on Wikidata</a></dd>
-      </div>
-    </dl>
-  </section>
-  <section class="alpha-section" id="letter-E">
-    <p class="alpha-heading">E</p>
-    <dl>
-      <div class="term-entry" id="emma">
-        <dt><span class="term-name">Emma</span><span class="term-class class-character">Character</span></dt>
-        <dd>The bride. Her wedding is the official reason for the Chthonic voyage and the nominal center of the bachelorette party, though the ship has its own reasons for having her aboard. She resists longer than most. By E4 the ceremony is built entirely around her, and the hesitation Captain Dyer flags as unreadiness is the last thing standing between her and whatever comes next.<span class="term-performer">Played by <a href="https://deepdreamstate.blubrry.net/pipp/" target="_blank" rel="noopener">Pipp</a></span><span class="term-meta">Appears in: <a href="https://neuralnetsandprettypatterns.com/deepdreamstate/arcs/chthonic/episode-1-maiden-voyage/" target="_blank" rel="noopener">S1:E1 / GE1</a>, <a href="https://neuralnetsandprettypatterns.com/deepdreamstate/arcs/chthonic/episode-2-cringetide/" target="_blank" rel="noopener">S1:E2 / GE2</a>, <a href="https://neuralnetsandprettypatterns.com/deepdreamstate/arcs/chthonic/episode-3-veil/" target="_blank" rel="noopener">S1:E3 / GE3</a>, <a href="https://neuralnetsandprettypatterns.com/deepdreamstate/arcs/chthonic/episode-4-asunder/" target="_blank" rel="noopener">S1:E4 / GE4</a></span></dd>
-      </div>
-    </dl>
-  </section>
-  <section class="alpha-section" id="letter-F">
-    <p class="alpha-heading">F</p>
-    <dl>
-      <div class="term-entry" id="fion">
-        <dt><span class="term-name">Fion</span><span class="term-class class-character">Character</span></dt>
-        <dd>Chief engineer of the Chthonic. Practical, protective of Nikki, and the conscience of the crew quarters. Her relationship with Mairead is the emotional spine of the service deck. In E6 she tries to save Sarah from the Chthonic's trap, then helps spring a different trap using the book, exposing how far fear, money, and loyalty have tangled her motives.<span class="term-performer">Played by <a href="https://deepdreamstate.blubrry.net/jade-wolf/" target="_blank" rel="noopener">Jade Wolf</a></span><span class="term-meta">Appears in: <a href="https://neuralnetsandprettypatterns.com/deepdreamstate/arcs/chthonic/episode-1-maiden-voyage/" target="_blank" rel="noopener">S1:E1 / GE1</a>, <a href="https://neuralnetsandprettypatterns.com/deepdreamstate/arcs/chthonic/episode-2-cringetide/" target="_blank" rel="noopener">S1:E2 / GE2</a>, <a href="https://neuralnetsandprettypatterns.com/deepdreamstate/arcs/chthonic/episode-6-garter/" target="_blank" rel="noopener">S1:E6 / GE6</a></span></dd>
-      </div>
-      <div class="term-entry" id="forevermore">
-        <dt><span class="term-name">Forevermore</span><span class="term-class class-plot-detail">Plot Detail</span></dt>
-        <dd>Captain Dyer's word for Emma's life before the Chthonic found her. Used in a single dismissive sentence that implies she had a shop, a name, a fiance, a self. Whatever she was then is sealed off under that word. Olivia responds with whatevermore, and together they describe a door that has already closed.<span class="term-meta">Appears in: <a href="https://neuralnetsandprettypatterns.com/deepdreamstate/arcs/chthonic/episode-4-asunder/" target="_blank" rel="noopener">S1:E4 / GE4</a></span></dd>
-      </div>
-    </dl>
-  </section>
-  <section class="alpha-section" id="letter-G">
-    <p class="alpha-heading">G</p>
-    <dl>
-      <div class="term-entry" id="garden-nest">
-        <dt><span class="term-name">Garden Nest</span><span class="term-class class-setting">Setting</span></dt>
-        <dd>Naia Anderson's underground yurt. This is where she plots her takeover of Vale Four and plans the resurgence of Meridian A. The interior is entirely ecological in design. The plants block signals and appear to be an extension of Naia herself.<span class="term-meta">Appears in: <a href="https://www.imdb.com/title/tt43393347/" target="_blank" rel="noopener">S4:E9 / GE36</a></span></dd>
-      </div>
-      <div class="term-entry" id="global-episode">
-        <dt><span class="term-name">Global Episode</span><span class="term-class class-metashow">Metashow</span></dt>
-        <dd>The total episode count for Deep Dream State across all arcs and seasons. A single number. Simple.</dd>
-      </div>
-    </dl>
-  </section>
-  <section class="alpha-section" id="letter-H">
-    <p class="alpha-heading">H</p>
-    <dl>
-      <div class="term-entry" id="holdfast">
-        <dt><span class="term-name">Holdfast</span><span class="term-class class-plot-detail">Plot Detail</span></dt>
-        <dd>Double agents operating inside the Neuroplex structure. They answer to Naia Anderson, the dispossessed company founder. Named after plant life, reflecting Naia's deep connection to botany.<span class="term-meta">Appears in: <a href="https://www.imdb.com/title/tt43393347/" target="_blank" rel="noopener">S4:E9 / GE36</a></span></dd>
-      </div>
-      <div class="term-entry" id="holly">
-        <dt><span class="term-name">Holly</span><span class="term-class class-character">Character</span></dt>
-        <dd>Alastair's companion aboard the Chthonic. Presents as cheerful and compliant, but passes information in a dissociated state and her loyalty to Alastair is more complicated than it first appears. By E4 she participates in the ceremony and is loaned to Captain Dyer as a reward. In E5 she is the one who identifies Kara and Sarah as ideal vessels, noting their curiosity and obsessive need to understand as what makes them perfect prey. In E6 she reveals that Alastair sees only what she chooses to show him, turning the surveillance feed against Fion's attempted sale.<span class="term-performer">Played by <a href="https://deepdreamstate.blubrry.net/dizzy-dollie/" target="_blank" rel="noopener">Dizzy Dollie</a></span><span class="term-meta">Appears in: <a href="https://neuralnetsandprettypatterns.com/deepdreamstate/arcs/chthonic/episode-1-maiden-voyage/" target="_blank" rel="noopener">S1:E1 / GE1</a>, <a href="https://neuralnetsandprettypatterns.com/deepdreamstate/arcs/chthonic/episode-2-cringetide/" target="_blank" rel="noopener">S1:E2 / GE2</a>, <a href="https://neuralnetsandprettypatterns.com/deepdreamstate/arcs/chthonic/episode-4-asunder/" target="_blank" rel="noopener">S1:E4 / GE4</a>, <a href="https://neuralnetsandprettypatterns.com/deepdreamstate/arcs/chthonic/episode-5-shower/" target="_blank" rel="noopener">S1:E5 / GE5</a>, <a href="https://neuralnetsandprettypatterns.com/deepdreamstate/arcs/chthonic/episode-6-garter/" target="_blank" rel="noopener">S1:E6 / GE6</a></span></dd>
-      </div>
-      <div class="term-entry" id="hybrid-the">
-        <dt><span class="term-name">Hybrid, The</span><span class="term-class class-plot-detail">Plot Detail</span></dt>
-        <dd>What Kara declares herself and the chosen women to be at the Tunngavik site, distinct from and above the designation of vessel. The hybrid is not a container. The hybrid is becoming something that has not existed before.<span class="term-meta">Appears in: <a href="https://neuralnetsandprettypatterns.com/deepdreamstate/arcs/chthonic/episode-3-veil/" target="_blank" rel="noopener">S1:E3 / GE3</a></span></dd>
-      </div>
-    </dl>
-  </section>
-  <section class="alpha-section" id="letter-I">
-    <p class="alpha-heading">I</p>
-    <dl>
-      <div class="term-entry" id="im-not-a-person-im-a-pet">
-        <dt><span class="term-name">I'm not a person. I'm a pet.</span><span class="term-class class-plot-detail">Plot Detail</span></dt>
-        <dd>A pet-state declaration Sarah reads from the book in E6, reducing personhood into trained obedience. The line marks the attempted conversion of Sarah from curious investigator into a compliant animalized role.<span class="term-meta">Appears in: <a href="https://neuralnetsandprettypatterns.com/deepdreamstate/arcs/chthonic/episode-6-garter/" target="_blank" rel="noopener">S1:E6 / GE6</a></span></dd>
-      </div>
-      <div class="term-entry" id="incognitoh">
-        <dt><span class="term-name">Incognitoh</span><span class="term-class class-plot-detail">Plot Detail</span></dt>
-        <dd>A reality show game explored in Season Two of the Deep Dream State. The game uses surveillance not just to watch but to rewrite, turning visibility itself into the mechanism of control.<span class="term-meta">Appears in: <a href="https://www.imdb.com/title/tt43393347/" target="_blank" rel="noopener">S4:E9 / GE36</a></span></dd>
-      </div>
-      <div class="term-entry" id="instrument-room">
-        <dt><span class="term-name">Instrument Room</span><span class="term-class class-setting">Setting</span></dt>
-        <dd>A hidden space aboard the Chthonic where deep ocean sound is monitored. Selene operates from here. It listens to the abyss, and the abyss responds. The bowhead recordings processed here are the clearest evidence that the ship's mission is not what passengers are told.<span class="term-meta">Appears in: <a href="https://neuralnetsandprettypatterns.com/deepdreamstate/arcs/chthonic/episode-3-veil/" target="_blank" rel="noopener">S1:E3 / GE3</a></span></dd>
-      </div>
-    </dl>
-  </section>
-  <section class="alpha-section" id="letter-K">
-    <p class="alpha-heading">K</p>
-    <dl>
-      <div class="term-entry" id="kamas">
-        <dt><span class="term-name">Kamas</span><span class="term-class class-plot-detail">Plot Detail</span></dt>
-        <dd>The internal currency used inside the Vale Four facility. Kamas are part of the isolated experiment structure, allowing the designers to rebuild the economy from scratch as another mechanism for engineering desire.<span class="term-meta">Appears in: <a href="https://www.imdb.com/title/tt43393347/" target="_blank" rel="noopener">S4:E9 / GE36</a></span></dd>
-      </div>
-      <div class="term-entry" id="kara">
-        <dt><span class="term-name">Kara</span><span class="term-class class-character">Character</span></dt>
-        <dd>Bridesmaid and linguist with a deep research background in Lovecraftian mythology and deep ocean cosmology. On the Chthonic she moves from skeptical observer to active participant in the ship's hidden order. At the Tunngavik site she crosses a threshold no one else in the party is ready for. In E4 she is addressed by her changed name: Ka'ara. In E5 she and Sarah hole up in the ship's library, cross-referencing ancient texts and tracking the patterns that confirm the ceremony is designed, not spontaneous. In E6 she returns in distorted tentacle mode after invoking a law of the deep, proving her transformation has become operational rather than theoretical.<span class="term-performer">Played by <a href="https://deepdreamstate.blubrry.net/tender-confusion/" target="_blank" rel="noopener">Tender Confusion</a></span><span class="term-meta">Appears in: <a href="https://neuralnetsandprettypatterns.com/deepdreamstate/arcs/chthonic/episode-1-maiden-voyage/" target="_blank" rel="noopener">S1:E1 / GE1</a>, <a href="https://neuralnetsandprettypatterns.com/deepdreamstate/arcs/chthonic/episode-2-cringetide/" target="_blank" rel="noopener">S1:E2 / GE2</a>, <a href="https://neuralnetsandprettypatterns.com/deepdreamstate/arcs/chthonic/episode-3-veil/" target="_blank" rel="noopener">S1:E3 / GE3</a>, <a href="https://neuralnetsandprettypatterns.com/deepdreamstate/arcs/chthonic/episode-4-asunder/" target="_blank" rel="noopener">S1:E4 / GE4</a>, <a href="https://neuralnetsandprettypatterns.com/deepdreamstate/arcs/chthonic/episode-5-shower/" target="_blank" rel="noopener">S1:E5 / GE5</a>, <a href="https://neuralnetsandprettypatterns.com/deepdreamstate/arcs/chthonic/episode-6-garter/" target="_blank" rel="noopener">S1:E6 / GE6</a></span></dd>
-      </div>
-    </dl>
-  </section>
-  <section class="alpha-section" id="letter-M">
-    <p class="alpha-heading">M</p>
-    <dl>
-      <div class="term-entry" id="magus">
-        <dt><span class="term-name">Magus</span><span class="term-class class-plot-detail">Plot Detail</span></dt>
-        <dd>A title used in private for Captain William, distinct from his public-facing rank. It signals a hidden authority structure aboard the ship that operates separately from its cruise company cover. In E4 both Holly and Olivia address him directly as Magus during the ceremony.<span class="term-meta">Appears in: <a href="https://neuralnetsandprettypatterns.com/deepdreamstate/arcs/chthonic/episode-1-maiden-voyage/" target="_blank" rel="noopener">S1:E1 / GE1</a>, <a href="https://neuralnetsandprettypatterns.com/deepdreamstate/arcs/chthonic/episode-4-asunder/" target="_blank" rel="noopener">S1:E4 / GE4</a>, <a href="https://neuralnetsandprettypatterns.com/deepdreamstate/arcs/chthonic/episode-5-shower/" target="_blank" rel="noopener">S1:E5 / GE5</a></span></dd>
-      </div>
-      <div class="term-entry" id="mairead">
-        <dt><span class="term-name">Mairead</span><span class="term-class class-character">Character</span></dt>
-        <dd>Spa manager of the Chthonic's wellness center, and the crew member most visibly caught between survival and self-destruction. A skilled poker player with a gambling debt Alastair holds over her. Her assignment to guide the Tunngavik excursion is coercion dressed as opportunity. In E6 she turns against the handoff, motivated by not wanting to feel like a criminal, which shows the debt has not erased her conscience.<span class="term-performer">Played by <a href="https://deepdreamstate.blubrry.net/bun-li/" target="_blank" rel="noopener">Bun-li</a></span><span class="term-meta">Appears in: <a href="https://neuralnetsandprettypatterns.com/deepdreamstate/arcs/chthonic/episode-1-maiden-voyage/" target="_blank" rel="noopener">S1:E1 / GE1</a>, <a href="https://neuralnetsandprettypatterns.com/deepdreamstate/arcs/chthonic/episode-2-cringetide/" target="_blank" rel="noopener">S1:E2 / GE2</a>, <a href="https://neuralnetsandprettypatterns.com/deepdreamstate/arcs/chthonic/episode-3-veil/" target="_blank" rel="noopener">S1:E3 / GE3</a>, <a href="https://neuralnetsandprettypatterns.com/deepdreamstate/arcs/chthonic/episode-6-garter/" target="_blank" rel="noopener">S1:E6 / GE6</a></span></dd>
-      </div>
-      <div class="term-entry" id="midstream">
-        <dt><span class="term-name">Midstream</span><span class="term-class class-plot-detail">Plot Detail</span></dt>
-        <dd>A sports podcast that sponsors Vale Four. Run by Cael. Completely over the top. It frequently interrupts the action, and that's intentional. Deep Dream State doesn't do ads. Midstream is what we think of ads.<span class="term-meta">Appears in: <a href="https://www.imdb.com/title/tt43393347/" target="_blank" rel="noopener">S4:E9 / GE36</a></span></dd>
-      </div>
-      <div class="term-entry" id="mind-pop">
-        <dt><span class="term-name">Mind Pop</span><span class="term-class class-plot-detail">Plot Detail</span></dt>
-        <dd>A Neuralverse series by Neural Nets and Pretty Patterns spanning mantric and game formats. Kara notes in E5 that Brittany and Amanda are singing Mind Popper in a way that signals they have crossed into compliance. The series functions across the Neuralverse as a sonic conditioning system, a recurring device that surfaces when a character is no longer operating on their own terms. <a href="https://neuralnetsandprettypatterns.com/neuralpedia/chronology/page-7/" target="_blank" rel="noopener">Neuralverse Catalogue</a>, <a href="https://neuralnetsandprettypatterns.com/" target="_blank" rel="noopener">Neural Nets and Pretty Patterns</a><span class="term-meta">Appears in: <a href="https://neuralnetsandprettypatterns.com/deepdreamstate/arcs/chthonic/episode-5-shower/" target="_blank" rel="noopener">S1:E5 / GE5</a></span></dd>
-      </div>
-      <div class="term-entry" id="muppettes">
-        <dt><span class="term-name">Muppettes</span><span class="term-class class-plot-detail">Plot Detail</span></dt>
-        <dd>Hilton and Astoria, who frequently appear in opening scenes. Their names are derived from the feminine counterparts to Waldorf and Statler from The Muppet Show. They came for the Incognitoh game and appear to have stayed trapped in the system. These summaries are not found-footage contrivance. They are a built part of the plot.<span class="term-meta">Appears in: <a href="https://www.imdb.com/title/tt43393347/" target="_blank" rel="noopener">S4:E9 / GE36</a></span></dd>
-      </div>
-    </dl>
-  </section>
-  <section class="alpha-section" id="letter-N">
-    <p class="alpha-heading">N</p>
-    <dl>
-      <div class="term-entry" id="naditu">
-        <dt><span class="term-name">Naditu</span><span class="term-class class-plot-detail">Plot Detail</span></dt>
-        <dd>In ancient Mesopotamia, the naditu were a class of consecrated women, typically associated with temples, who lived under religious restrictions and devoted themselves to service of a deity. The show reaches for this term at the Tunngavik site to name what is happening to the chosen women: not possession, not sacrifice, but a very old kind of dedication. The word carries weight across thousands of years of documented practice. In E5 the ritual logic surfaces again in the library texts Kara and Sarah read: through the cleansing waters, the vessel is stripped of memory, washed of self. <a href="https://en.wikipedia.org/wiki/Naditu" target="_blank" rel="noopener">Naditu (Wikipedia)</a> In E6 Nikki and Fion use the word as if it were shorthand for obedience, but Holly rejects that misuse, preserving the distinction between dedication and crude conditioning.<span class="term-meta">Appears in: <a href="https://neuralnetsandprettypatterns.com/deepdreamstate/arcs/chthonic/episode-3-veil/" target="_blank" rel="noopener">S1:E3 / GE3</a>, <a href="https://neuralnetsandprettypatterns.com/deepdreamstate/arcs/chthonic/episode-5-shower/" target="_blank" rel="noopener">S1:E5 / GE5</a>, <a href="https://neuralnetsandprettypatterns.com/deepdreamstate/arcs/chthonic/episode-6-garter/" target="_blank" rel="noopener">S1:E6 / GE6</a></span></dd>
-      </div>
-      <div class="term-entry" id="nameless">
-        <dt><span class="term-name">Nameless</span><span class="term-class class-plot-detail">Plot Detail</span></dt>
-        <dd>A surname Olivia catches herself using before correcting to Naylor. In Lovecraft's fiction, the nameless and the unnameable are structural features of cosmic horror, things too vast or wrong to be designated. Its appearance as a surname, nearly spoken aloud to passengers, suggests Olivia's identity is not entirely her own to give. <a href="https://en.wikipedia.org/wiki/The_Unnamable" target="_blank" rel="noopener">The Unnamable (Lovecraft)</a><span class="term-meta">Appears in: <a href="https://neuralnetsandprettypatterns.com/deepdreamstate/arcs/chthonic/episode-1-maiden-voyage/" target="_blank" rel="noopener">S1:E1 / GE1</a></span></dd>
-      </div>
-      <div class="term-entry" id="neuroplex">
-        <dt><span class="term-name">Neuroplex</span><span class="term-class class-plot-detail">Plot Detail</span></dt>
-        <dd>The sinister corporate entity at the center of the Neuralverse. Its first imperative is maximizing control and profit. People are a means to an end for Neuroplex, even if that end remains cloaked in mystery. <a href="https://kakosindustries.com/" target="_blank" rel="noopener">Kakos Industries</a>, <a href="https://www.goodmorningevildoers.com/" target="_blank" rel="noopener">Good Morning Evildoers</a><span class="term-meta">Appears in: <a href="https://www.imdb.com/title/tt43393347/" target="_blank" rel="noopener">S4:E9 / GE36</a></span></dd>
-      </div>
-      <div class="term-entry" id="new-mexico-ac">
-        <dt><span class="term-name">New Mexico AC</span><span class="term-class class-plot-detail">Plot Detail</span></dt>
-        <dd>The lab Alastair references as the source of Holly's vaccinations, described as expensive. The name points toward Dulce Base, a persistent conspiracy theory about an underground government and alien research facility beneath Dulce, New Mexico. Grant Morrison's The Invisibles mapped similar territory as fiction. In the show's universe, New Mexico AC operates as a real institutional supplier to the Neuroplex network, connected to Wave Labs as part of the same infrastructure. <a href="https://en.wikipedia.org/wiki/Dulce_Base" target="_blank" rel="noopener">Dulce Base (Wikipedia)</a>, <a href="https://en.wikipedia.org/wiki/The_Invisibles" target="_blank" rel="noopener">The Invisibles (Wikipedia)</a><span class="term-meta">Appears in: <a href="https://neuralnetsandprettypatterns.com/deepdreamstate/arcs/chthonic/episode-4-asunder/" target="_blank" rel="noopener">S1:E4 / GE4</a></span></dd>
-      </div>
-      <div class="term-entry" id="nikki">
-        <dt><span class="term-name">Nikki</span><span class="term-class class-character">Character</span></dt>
-        <dd>Nikki is the ship maid of the Chthonic, introduced by Olivia as a demonstration. Her uniform is described as scandalous. She hears things no one else notices because no one locks up their secrets around the maid. Her whispered phrase after Room 203 , puppets program puppets , surfaces something the show will not let go of. In E6 Nikki joins Fion in leading Sarah to the book and pushing her through maid, yes, naditu, and pet-state scripts before the rescue interrupts the handoff.<span class="term-performer">Played by <a href="https://deepdreamstate.blubrry.net/echo/" target="_blank" rel="noopener">Echo</a></span><span class="term-meta">Appears in: <a href="https://neuralnetsandprettypatterns.com/deepdreamstate/arcs/chthonic/episode-1-maiden-voyage/" target="_blank" rel="noopener">S1:E1 / GE1</a>, <a href="https://neuralnetsandprettypatterns.com/deepdreamstate/arcs/chthonic/episode-2-cringetide/" target="_blank" rel="noopener">S1:E2 / GE2</a>, <a href="https://neuralnetsandprettypatterns.com/deepdreamstate/arcs/chthonic/episode-6-garter/" target="_blank" rel="noopener">S1:E6 / GE6</a></span></dd>
-      </div>
-      <div class="term-entry" id="non-euclidean">
-        <dt><span class="term-name">Non-Euclidean</span><span class="term-class class-plot-detail">Plot Detail</span></dt>
-        <dd>Sarah uses the term to describe the physics of what the chosen women are becoming. In Lovecraft's fiction, non-Euclidean geometry is the signature of spaces that should not exist, angles that don't add up, architecture that the human mind cannot hold without breaking. The show borrows it precisely: the transformation is not metaphorical, it is structural. <a href="https://en.wikipedia.org/wiki/Non-Euclidean_geometry" target="_blank" rel="noopener">Non-Euclidean geometry (Wikipedia)</a><span class="term-meta">Appears in: <a href="https://neuralnetsandprettypatterns.com/deepdreamstate/arcs/chthonic/episode-4-asunder/" target="_blank" rel="noopener">S1:E4 / GE4</a></span></dd>
-      </div>
-    </dl>
-  </section>
-  <section class="alpha-section" id="letter-O">
-    <p class="alpha-heading">O</p>
-    <dl>
-      <div class="term-entry" id="old-alphabet-the">
-        <dt><span class="term-name">Old Alphabet, The</span><span class="term-class class-plot-detail">Plot Detail</span></dt>
-        <dd>Holly observes that Kara may speak it, cross-referencing ancient texts. In Grant Morrison's The Invisibles, a 64-letter forbidden alphabet functions as a psychic weapon, hijacking language processing and rewriting reality by restricting human thought. The show borrows the concept: some languages do not describe the world, they rewrite the person reading them. <a href="https://en.wikipedia.org/wiki/The_Invisibles" target="_blank" rel="noopener">The Invisibles (Wikipedia)</a><span class="term-meta">Appears in: <a href="https://neuralnetsandprettypatterns.com/deepdreamstate/arcs/chthonic/episode-5-shower/" target="_blank" rel="noopener">S1:E5 / GE5</a></span></dd>
-      </div>
-      <div class="term-entry" id="old-groom-the">
-        <dt><span class="term-name">Old Groom, The</span><span class="term-class class-plot-detail">Plot Detail</span></dt>
-        <dd>The entity named in The Binding of Waters. The passage reads: the Old Groom shall claim his bride, through her the land shall sink, the seas rise, washed anew for the New Order. The name positions the cosmic horror not as a destroyer but as a bridegroom, and the ceremony not as sacrifice but as a wedding.<span class="term-meta">Appears in: <a href="https://neuralnetsandprettypatterns.com/deepdreamstate/arcs/chthonic/episode-5-shower/" target="_blank" rel="noopener">S1:E5 / GE5</a></span></dd>
-      </div>
-      <div class="term-entry" id="old-ones-the">
-        <dt><span class="term-name">Old Ones, The</span><span class="term-class class-plot-detail">Plot Detail</span></dt>
-        <dd>Ancient entities whose presence underlies the events of Season 1, framed by Captain William as the true owners of the space the crew inhabits. Selene references a coming reckoning in their name. The framework draws on Lovecraftian mythology while routing it through the mechanics of corporate power. <a href="https://en.wikipedia.org/wiki/Great_Old_Ones" target="_blank" rel="noopener">Great Old Ones (Lovecraft)</a><span class="term-meta">Appears in: <a href="https://neuralnetsandprettypatterns.com/deepdreamstate/arcs/chthonic/episode-1-maiden-voyage/" target="_blank" rel="noopener">S1:E1 / GE1</a>, <a href="https://neuralnetsandprettypatterns.com/deepdreamstate/arcs/chthonic/episode-3-veil/" target="_blank" rel="noopener">S1:E3 / GE3</a>, <a href="https://neuralnetsandprettypatterns.com/deepdreamstate/arcs/chthonic/episode-4-asunder/" target="_blank" rel="noopener">S1:E4 / GE4</a>, <a href="https://neuralnetsandprettypatterns.com/deepdreamstate/arcs/chthonic/episode-5-shower/" target="_blank" rel="noopener">S1:E5 / GE5</a></span></dd>
-      </div>
-      <div class="term-entry" id="olivia">
-        <dt><span class="term-name">Olivia</span><span class="term-class class-character">Character</span></dt>
-        <dd>Cruise director of the Chthonic. The public face of the operation, managing guests while navigating the ship's hidden power structure. Nearly introduces herself as Olivia Nameless before catching herself. In E4 she co-officiates the ceremony and delivers the show's central creed without breaking stride. In E5 she agrees with Holly's assessment that Kara and Sarah's obsessive curiosity makes them perfect prey.<span class="term-performer">Played by <a href="https://deepdreamstate.blubrry.net/blissblank/" target="_blank" rel="noopener">Bliss Blank</a></span><span class="term-meta">Appears in: <a href="https://neuralnetsandprettypatterns.com/deepdreamstate/arcs/chthonic/episode-1-maiden-voyage/" target="_blank" rel="noopener">S1:E1 / GE1</a>, <a href="https://neuralnetsandprettypatterns.com/deepdreamstate/arcs/chthonic/episode-2-cringetide/" target="_blank" rel="noopener">S1:E2 / GE2</a>, <a href="https://neuralnetsandprettypatterns.com/deepdreamstate/arcs/chthonic/episode-3-veil/" target="_blank" rel="noopener">S1:E3 / GE3</a>, <a href="https://neuralnetsandprettypatterns.com/deepdreamstate/arcs/chthonic/episode-4-asunder/" target="_blank" rel="noopener">S1:E4 / GE4</a>, <a href="https://neuralnetsandprettypatterns.com/deepdreamstate/arcs/chthonic/episode-5-shower/" target="_blank" rel="noopener">S1:E5 / GE5</a></span></dd>
-      </div>
-    </dl>
-  </section>
-  <section class="alpha-section" id="letter-P">
-    <p class="alpha-heading">P</p>
-    <dl>
-      <div class="term-entry" id="pink-fog">
-        <dt><span class="term-name">Pink Fog</span><span class="term-class class-plot-detail">Plot Detail</span></dt>
-        <dd>Referenced by Kara alongside whale songs and forgotten gods as part of the constellation of real phenomena she and Sarah are tracking. Not yet fully explained, but placed alongside confirmed events. The pink fog connects to the NNPP phenomenon of reverse sapio, in which intelligence and awareness are inverted rather than suppressed, producing a state of heightened perception that is indistinguishable from dissolution.<span class="term-meta">Appears in: <a href="https://neuralnetsandprettypatterns.com/deepdreamstate/arcs/chthonic/episode-5-shower/" target="_blank" rel="noopener">S1:E5 / GE5</a></span></dd>
-      </div>
-      <div class="term-entry" id="pretty-patterns">
-        <dt><span class="term-name">Pretty Patterns</span><span class="term-class class-plot-detail">Plot Detail</span></dt>
-        <dd>Kara reads aloud from a text describing patterns in behavior, songs that resonate with the blood, triggering obedience via sound waves, like an algorithm. The phrase lands as a direct in-world reference to the production methodology of Neural Nets and Pretty Patterns, making explicit what the show has always implied: the audio is the mechanism. <a href="https://neuralnetsandprettypatterns.com/" target="_blank" rel="noopener">Neural Nets and Pretty Patterns</a> In E6 the page turns, whispered repetitions, and command phrases demonstrate the same pattern logic as an active conditioning method.<span class="term-meta">Appears in: <a href="https://neuralnetsandprettypatterns.com/deepdreamstate/arcs/chthonic/episode-5-shower/" target="_blank" rel="noopener">S1:E5 / GE5</a>, <a href="https://neuralnetsandprettypatterns.com/deepdreamstate/arcs/chthonic/episode-6-garter/" target="_blank" rel="noopener">S1:E6 / GE6</a></span></dd>
-      </div>
-      <div class="term-entry" id="please-let-me-please">
-        <dt><span class="term-name">Please Let Me Please</span><span class="term-class class-plot-detail">Plot Detail</span></dt>
-        <dd>A phrase in E6 where desire, politeness, and command collapse into the same reflex. Sarah's “Please? Let me please” turns pleasing into purpose, and Fion later weaponizes the word “please” as an instruction Sarah answers automatically.<span class="term-meta">Appears in: <a href="https://neuralnetsandprettypatterns.com/deepdreamstate/arcs/chthonic/episode-6-garter/" target="_blank" rel="noopener">S1:E6 / GE6</a></span></dd>
-      </div>
-      <div class="term-entry" id="prismatix">
-        <dt><span class="term-name">Prismatix</span><span class="term-class class-product">Product</span></dt>
-        <dd>A clothing line described as mesh and light, and as scandalously revealing. Subjects who wear it become mapped data points. Ad messages appear directly on their bodies, turning them into billboards. The system adapts to feedback through mechanisms like the tingle clips.<span class="term-meta">Appears in: <a href="https://www.imdb.com/title/tt43393347/" target="_blank" rel="noopener">S4:E9 / GE36</a></span></dd>
-      </div>
-      <div class="term-entry" id="pulsers">
-        <dt><span class="term-name">Pulsers</span><span class="term-class class-plot-detail">Plot Detail</span></dt>
-        <dd>Holly mentions that Emma is now handling six. The number is a measure of progress, of capacity, of how far the conditioning has taken hold. The term recurs across the Neuralverse as a unit of endurance and compliance, tracking how much a subject can take and still want more.<span class="term-meta">Appears in: <a href="https://neuralnetsandprettypatterns.com/deepdreamstate/arcs/chthonic/episode-4-asunder/" target="_blank" rel="noopener">S1:E4 / GE4</a></span></dd>
-      </div>
-      <div class="term-entry" id="puppets-program-puppets">
-        <dt><span class="term-name">Puppets Program Puppets</span><span class="term-class class-plot-detail">Plot Detail</span></dt>
-        <dd>A phrase Nikita whispers in the crew quarters, unprompted, after her experience in Room 203. It surfaces the show's central interest in coercive systems that reproduce themselves through their subjects. Also the title of a Neuralverse companion track. In E5 Kara whispers it to herself in the library, reading about ritual washing and meat puppets. <a href="https://www.patreon.com/posts/p3-puppet-audio-119687411" target="_blank" rel="noopener">Puppets Program Puppets (Patreon)</a><span class="term-meta">Appears in: <a href="https://neuralnetsandprettypatterns.com/deepdreamstate/arcs/chthonic/episode-1-maiden-voyage/" target="_blank" rel="noopener">S1:E1 / GE1</a>, <a href="https://neuralnetsandprettypatterns.com/deepdreamstate/arcs/chthonic/episode-5-shower/" target="_blank" rel="noopener">S1:E5 / GE5</a></span></dd>
-      </div>
-      <div class="term-entry" id="purpose">
-        <dt><span class="term-name">Purpose</span><span class="term-class class-game">Game</span></dt>
-        <dd>A service game modelled on task management games. Players must serve an increasingly wide range of patrons. Purpose underlines the way games already trend toward power dynamics.<span class="term-meta">Appears in: <a href="https://www.imdb.com/title/tt43393347/" target="_blank" rel="noopener">S4:E9 / GE36</a></span></dd>
-      </div>
-    </dl>
-  </section>
-  <section class="alpha-section" id="letter-R">
-    <p class="alpha-heading">R</p>
-    <dl>
-      <div class="term-entry" id="rlyeh">
-        <dt><span class="term-name">R'lyeh</span><span class="term-class class-plot-detail">Plot Detail</span></dt>
-        <dd>The sunken city from Lovecraft's mythology, whispered by Selene as the destination the bowhead whales are guarding. In the Cthulhu mythos, R'lyeh is where the Great Old One Cthulhu lies dreaming beneath the Pacific Ocean, waiting. The show places it in the Arctic, beneath the ice, close enough to touch from the Chthonic's excursion route. In E5 Kara's entire library research is oriented around it, tracking the signs of its awakening in real ocean data. <a href="https://en.wikipedia.org/wiki/R%27lyeh" target="_blank" rel="noopener">R'lyeh (Lovecraft)</a><span class="term-meta">Appears in: <a href="https://neuralnetsandprettypatterns.com/deepdreamstate/arcs/chthonic/episode-3-veil/" target="_blank" rel="noopener">S1:E3 / GE3</a>, <a href="https://neuralnetsandprettypatterns.com/deepdreamstate/arcs/chthonic/episode-5-shower/" target="_blank" rel="noopener">S1:E5 / GE5</a></span></dd>
-      </div>
-      <div class="term-entry" id="room-203">
-        <dt><span class="term-name">Room 203</span><span class="term-class class-setting">Setting</span></dt>
-        <dd>In Japanese horror culture, Room 203 carries specific weight. The number originates with Nanami Kamon's 2003 novel, about a woman driven to ruin by an inexplicable curse in her apartment, and expanded through internet folklore into the archetypal haunted room, the one where something went wrong and never stopped. Alastair's cabin aboard the Chthonic. Selene knows immediately where Nikita has been. <a href="https://variety.com/2020/film/asia/akatsuki-wraps-room-203-adaptation-of-japanese-horror-tale-1234845149/" target="_blank" rel="noopener">Room 203 (Variety)</a><span class="term-meta">Appears in: <a href="https://neuralnetsandprettypatterns.com/deepdreamstate/arcs/chthonic/episode-1-maiden-voyage/" target="_blank" rel="noopener">S1:E1 / GE1</a>, <a href="https://neuralnetsandprettypatterns.com/deepdreamstate/arcs/chthonic/episode-2-cringetide/" target="_blank" rel="noopener">S1:E2 / GE2</a></span></dd>
-      </div>
-    </dl>
-  </section>
-  <section class="alpha-section" id="letter-S">
-    <p class="alpha-heading">S</p>
-    <dl>
-      <div class="term-entry" id="sapient">
-        <dt><span class="term-name">Sapient</span><span class="term-class class-game">Game</span></dt>
-        <dd>A turn-based strategy game and Blake's game of choice. Included to make a point: getting smarter, or adding more design, is absolutely not the answer in a desire horror scenario.<span class="term-meta">Appears in: <a href="https://www.imdb.com/title/tt43393347/" target="_blank" rel="noopener">S4:E9 / GE36</a></span></dd>
-      </div>
-      <div class="term-entry" id="sarah">
-        <dt><span class="term-name">Sarah</span><span class="term-class class-character">Character</span></dt>
-        <dd>Bridesmaid. The skeptic of the group, and the one Kara identifies as the smart one, for now. Her resistance at the Tunngavik site is the most articulate, and the most temporary. By E4 she speaks in the ceremony's register. In E5 she is in the library with Kara, cross-referencing ancient texts, and she is the one who follows the secret note alone. In E6 she follows the note, reads from the book, is pushed into a pet-state script, and is saved by Holly, Selene, Mairead, and Kara.<span class="term-performer">Played by <a href="https://deepdreamstate.blubrry.net/ring-of-kees/" target="_blank" rel="noopener">Ring of Keys</a></span><span class="term-meta">Appears in: <a href="https://neuralnetsandprettypatterns.com/deepdreamstate/arcs/chthonic/episode-1-maiden-voyage/" target="_blank" rel="noopener">S1:E1 / GE1</a>, <a href="https://neuralnetsandprettypatterns.com/deepdreamstate/arcs/chthonic/episode-2-cringetide/" target="_blank" rel="noopener">S1:E2 / GE2</a>, <a href="https://neuralnetsandprettypatterns.com/deepdreamstate/arcs/chthonic/episode-3-veil/" target="_blank" rel="noopener">S1:E3 / GE3</a>, <a href="https://neuralnetsandprettypatterns.com/deepdreamstate/arcs/chthonic/episode-4-asunder/" target="_blank" rel="noopener">S1:E4 / GE4</a>, <a href="https://neuralnetsandprettypatterns.com/deepdreamstate/arcs/chthonic/episode-5-shower/" target="_blank" rel="noopener">S1:E5 / GE5</a>, <a href="https://neuralnetsandprettypatterns.com/deepdreamstate/arcs/chthonic/episode-6-garter/" target="_blank" rel="noopener">S1:E6 / GE6</a></span></dd>
-      </div>
-      <div class="term-entry" id="selene">
-        <dt><span class="term-name">Selene</span><span class="term-class class-character">Character</span></dt>
-        <dd>Chief purser of the Chthonic, and its oldest crew member by her own account. She will be with the ship until it sinks. Keeper of the instrument room, where she monitors the deep ocean for sounds that travel for miles. She passes forbidden knowledge to passengers she judges ready for it, and speaks of a returning power that will change things when the time comes. In E6 she joins the rescue, controls the room from off camera, and explains that the lore Sarah found is both real and dreamlike.<span class="term-performer">Played by <a href="https://deepdreamstate.blubrry.net/syndi-rella/" target="_blank" rel="noopener">Syndi_Rella</a></span><span class="term-meta">Appears in: <a href="https://neuralnetsandprettypatterns.com/deepdreamstate/arcs/chthonic/episode-1-maiden-voyage/" target="_blank" rel="noopener">S1:E1 / GE1</a>, <a href="https://neuralnetsandprettypatterns.com/deepdreamstate/arcs/chthonic/episode-2-cringetide/" target="_blank" rel="noopener">S1:E2 / GE2</a>, <a href="https://neuralnetsandprettypatterns.com/deepdreamstate/arcs/chthonic/episode-3-veil/" target="_blank" rel="noopener">S1:E3 / GE3</a>, <a href="https://neuralnetsandprettypatterns.com/deepdreamstate/arcs/chthonic/episode-6-garter/" target="_blank" rel="noopener">S1:E6 / GE6</a></span></dd>
-      </div>
-      <div class="term-entry" id="selkies">
-        <dt><span class="term-name">Selkies</span><span class="term-class class-plot-detail">Plot Detail</span></dt>
-        <dd>Seal-folk from Scottish and Irish mythology who shed their skins to walk as humans on land. In the lore, a selkie bride is made by stealing her seal skin: she cannot return to the sea without it, and so she stays, trapped in a human life by the thing that was taken from her. Kara names them as part of a cross-cultural pattern of coastal binding rites. The Chthonic's bachelorette party maps cleanly onto the archetype: women brought aboard, their old lives sealed off, unable to go back. <a href="https://en.wikipedia.org/wiki/Selkie" target="_blank" rel="noopener">Selkie (Wikipedia)</a><span class="term-meta">Appears in: <a href="https://neuralnetsandprettypatterns.com/deepdreamstate/arcs/chthonic/episode-5-shower/" target="_blank" rel="noopener">S1:E5 / GE5</a></span></dd>
-      </div>
-      <div class="term-entry" id="spotlight">
-        <dt><span class="term-name">Spotlight</span><span class="term-class class-game">Game</span></dt>
-        <dd>A performance and attention game directly modelled on recurring character Iris Vale. Players compete for notoriety, trying to break out into fame and influence as they vie for the spotlight.<span class="term-meta">Appears in: <a href="https://www.imdb.com/title/tt43393347/" target="_blank" rel="noopener">S4:E9 / GE36</a></span></dd>
-      </div>
-      <div class="term-entry" id="synthservs">
-        <dt><span class="term-name">Synthservs</span><span class="term-class class-product">Product</span></dt>
-        <dd>Automated service units, a fantasy construction of total automation in which human labor is replaced entirely by synthetic workers. Referenced by Fion as what Neuroplex's class of owner uses in place of human staff, making the crew's presence on the Chthonic a deliberate choice rather than a necessity.<span class="term-meta">Appears in: <a href="https://neuralnetsandprettypatterns.com/deepdreamstate/arcs/chthonic/episode-1-maiden-voyage/" target="_blank" rel="noopener">S1:E1 / GE1</a></span></dd>
-      </div>
-    </dl>
-  </section>
-  <section class="alpha-section" id="letter-T">
-    <p class="alpha-heading">T</p>
-    <dl>
-      <div class="term-entry" id="theres-always-a-bigger-tentacle">
-        <dt><span class="term-name">There's Always a Bigger Tentacle</span><span class="term-class class-plot-detail">Plot Detail</span></dt>
-        <dd>A law of the deep invoked by Kara in E6. The phrase names the arc's hierarchy of traps: Sarah is caught by Nikki and Fion, they are caught by Alastair's economy, the feed is controlled by Holly, the room is controlled by Selene, and Kara arrives as something deeper still.<span class="term-meta">Appears in: <a href="https://neuralnetsandprettypatterns.com/deepdreamstate/arcs/chthonic/episode-6-garter/" target="_blank" rel="noopener">S1:E6 / GE6</a></span></dd>
-      </div>
-      <div class="term-entry" id="trixie">
-        <dt><span class="term-name">Trixie</span><span class="term-class class-plot-detail">Plot Detail</span></dt>
-        <dd>A recurring Neuralverse term for pettification: training humans in an animal fashion through reward, command, repetition, and operant conditioning. In E6, Fion's “Say haiii, Trixie” marks Sarah's attempted reduction into a trained pet-state, just before Holly and Selene interrupt the handoff.<span class="term-meta">Appears in: <a href="https://neuralnetsandprettypatterns.com/deepdreamstate/arcs/chthonic/episode-6-garter/" target="_blank" rel="noopener">S1:E6 / GE6</a></span></dd>
-      </div>
-      <div class="term-entry" id="taputapuatea-marae">
-        <dt><span class="term-name">Taputapuatea Marae</span><span class="term-class class-plot-detail">Plot Detail</span></dt>
-        <dd>A sacred ceremonial site on the island of Ra'iatea in French Polynesia, one of the most significant in all of Polynesian culture. It was the spiritual center of the cult of Oro, god of war and fertility, where high priests from across the Pacific gathered for ritual and political alliance. Human sacrifice was practiced here. Kara names it alongside the Aegir Blot and Selkies as evidence that the pattern of offering to sea powers is not mythology but history, repeated across every culture with a coastline. <a href="https://en.wikipedia.org/wiki/Taputapuatea_marae" target="_blank" rel="noopener">Taputapuatea (Wikipedia)</a><span class="term-meta">Appears in: <a href="https://neuralnetsandprettypatterns.com/deepdreamstate/arcs/chthonic/episode-5-shower/" target="_blank" rel="noopener">S1:E5 / GE5</a></span></dd>
-      </div>
-      <div class="term-entry" id="tick-tock">
-        <dt><span class="term-name">Tick-Tock</span><span class="term-class class-plot-detail">Plot Detail</span></dt>
-        <dd>A recurring countdown motif across the Neuralverse, used in Deep Dream State as the signal that a psychological threshold is approaching. Amanda's single tick, tock in the E4 ceremony is not punctuation. It is a summons. The motif dates to early catalogue releases and threads through multiple arcs as the sound the system makes when it is almost ready. <a href="https://deepdreamstate.blubrry.net/neuralpedia-the-nnpp-file-catalogue/" target="_blank" rel="noopener">Neuralverse Catalogue</a><span class="term-meta">Appears in: <a href="https://neuralnetsandprettypatterns.com/deepdreamstate/arcs/chthonic/episode-4-asunder/" target="_blank" rel="noopener">S1:E4 / GE4</a>, <a href="https://neuralnetsandprettypatterns.com/deepdreamstate/arcs/chthonic/episode-5-shower/" target="_blank" rel="noopener">S1:E5 / GE5</a></span></dd>
-      </div>
-      <div class="term-entry" id="tiffany">
-        <dt><span class="term-name">Tiffany</span><span class="term-class class-character">Character</span></dt>
-        <dd>Bridesmaid. She stopped sleeping. She did not go to Tunngavik.<span class="term-performer">Played by <a href="https://deepdreamstate.blubrry.net/britt-reprogrammed/" target="_blank" rel="noopener">Britt Reprogrammed</a></span><span class="term-meta">Appears in: <a href="https://neuralnetsandprettypatterns.com/deepdreamstate/arcs/chthonic/episode-1-maiden-voyage/" target="_blank" rel="noopener">S1:E1 / GE1</a>, <a href="https://neuralnetsandprettypatterns.com/deepdreamstate/arcs/chthonic/episode-2-cringetide/" target="_blank" rel="noopener">S1:E2 / GE2</a></span></dd>
-      </div>
-      <div class="term-entry" id="tunngavik">
-        <dt><span class="term-name">Tunngavik</span><span class="term-class class-setting">Setting</span></dt>
-        <dd>A real archaeological site in the Canadian Arctic, used as a shore excursion destination for Chthonic passengers. Olivia describes it as a place of ancient relics and lost knowledge. Its inclusion alongside the Old Ones mythology is not accidental, reaching toward something older than the cruise company's framing of it. <a href="https://www.tunngavik.com/" target="_blank" rel="noopener">Tunngavik</a><span class="term-meta">Appears in: <a href="https://neuralnetsandprettypatterns.com/deepdreamstate/arcs/chthonic/episode-1-maiden-voyage/" target="_blank" rel="noopener">S1:E1 / GE1</a>, <a href="https://neuralnetsandprettypatterns.com/deepdreamstate/arcs/chthonic/episode-2-cringetide/" target="_blank" rel="noopener">S1:E2 / GE2</a>, <a href="https://neuralnetsandprettypatterns.com/deepdreamstate/arcs/chthonic/episode-3-veil/" target="_blank" rel="noopener">S1:E3 / GE3</a>, <a href="https://neuralnetsandprettypatterns.com/deepdreamstate/arcs/chthonic/episode-5-shower/" target="_blank" rel="noopener">S1:E5 / GE5</a></span></dd>
-      </div>
-    </dl>
-  </section>
-  <section class="alpha-section" id="letter-V">
-    <p class="alpha-heading">V</p>
-    <dl>
-      <div class="term-entry" id="valescape">
-        <dt><span class="term-name">Valescape</span><span class="term-class class-setting">Setting</span></dt>
-        <dd>An arcade inside the Vale Four facility, used to help the research group map consumer choice. The gameplay is deeply addictive. There are rumors of depraved rooms deeper inside.<span class="term-meta">Appears in: <a href="https://www.imdb.com/title/tt43393347/" target="_blank" rel="noopener">S4:E9 / GE36</a></span></dd>
-      </div>
-      <div class="term-entry" id="veil-the">
-        <dt><span class="term-name">Veil, The</span><span class="term-class class-plot-detail">Plot Detail</span></dt>
-        <dd>Selene describes certain places as locations where the veil is thin, where the boundary between the world passengers know and the older world beneath it becomes permeable. The Tunngavik site is one such place. The whales gather there. The veil is not a metaphor in the show's cosmology.<span class="term-meta">Appears in: <a href="https://neuralnetsandprettypatterns.com/deepdreamstate/arcs/chthonic/episode-3-veil/" target="_blank" rel="noopener">S1:E3 / GE3</a></span></dd>
-      </div>
-      <div class="term-entry" id="vessel">
-        <dt><span class="term-name">Vessel</span><span class="term-class class-plot-detail">Plot Detail</span></dt>
-        <dd>The designation Kara applies to the women chosen at the Tunngavik site before she revises upward. A vessel is a container. What the ancient ones want from the chosen women is not just containment. Kara draws the distinction herself: they are vessels, we are the hybrid. In E4 Captain Dyer asks Emma directly if she will be its vessel, and she says yes. In E5 Holly identifies Kara and Sarah as good vessels specifically because of their need to understand.<span class="term-meta">Appears in: <a href="https://neuralnetsandprettypatterns.com/deepdreamstate/arcs/chthonic/episode-3-veil/" target="_blank" rel="noopener">S1:E3 / GE3</a>, <a href="https://neuralnetsandprettypatterns.com/deepdreamstate/arcs/chthonic/episode-4-asunder/" target="_blank" rel="noopener">S1:E4 / GE4</a>, <a href="https://neuralnetsandprettypatterns.com/deepdreamstate/arcs/chthonic/episode-5-shower/" target="_blank" rel="noopener">S1:E5 / GE5</a></span></dd>
-      </div>
-    </dl>
-  </section>
-  <section class="alpha-section" id="letter-W">
-    <p class="alpha-heading">W</p>
-    <dl>
-      <div class="term-entry" id="warm-wet-waves">
-        <dt><span class="term-name">Warm Wet Waves</span><span class="term-class class-plot-detail">Plot Detail</span></dt>
-        <dd>A Neural Nets and Pretty Patterns production in which the ocean becomes the mechanism of erasure, washing away memory, resistance, and selfhood in successive layers. Captain Dyer's everything washes away sequence in E4 invokes it directly: thoughts are sandcastles, the old world is built on sand, and the tide is coming. <a href="https://www.youtube.com/watch?v=yHQ0SgTZ-yM" target="_blank" rel="noopener">YouTube</a>, <a href="https://open.spotify.com/track/4Su2mDuKdP5aSdumyuYNX2" target="_blank" rel="noopener">Spotify</a>, <a href="https://musicbrainz.org/release/1c5cfe8b-d5d9-47c1-9d9e-59d55ed92989" target="_blank" rel="noopener">MusicBrainz</a><span class="term-meta">Appears in: <a href="https://neuralnetsandprettypatterns.com/deepdreamstate/arcs/chthonic/episode-4-asunder/" target="_blank" rel="noopener">S1:E4 / GE4</a></span></dd>
-      </div>
-      <div class="term-entry" id="wave-labs">
-        <dt><span class="term-name">Wave Labs</span><span class="term-class class-plot-detail">Plot Detail</span></dt>
-        <dd>Part of the same institutional network as New Mexico AC, supplying the Chthonic operation. Where New Mexico AC handles biological preparation, Wave Labs operates in the acoustic and neurological space, developing the sound-based conditioning systems the ship deploys.<span class="term-meta">Appears in: <a href="https://neuralnetsandprettypatterns.com/deepdreamstate/arcs/chthonic/episode-5-shower/" target="_blank" rel="noopener">S1:E5 / GE5</a></span></dd>
-      </div>
-      <div class="term-entry" id="we-know-our-place">
-        <dt><span class="term-name">We Know Our Place</span><span class="term-class class-plot-detail">Plot Detail</span></dt>
-        <dd>Olivia's creed, delivered in E4 during the ceremony: we know our place, we know our role, we know our need, we need control. A longstanding NNPP mantra that recurs across the Neuralverse, describing the internal state of those who have moved past resistance into willing participation in the system. It is not submission. It is alignment.<span class="term-meta">Appears in: <a href="https://neuralnetsandprettypatterns.com/deepdreamstate/arcs/chthonic/episode-4-asunder/" target="_blank" rel="noopener">S1:E4 / GE4</a></span></dd>
-      </div>
-      <div class="term-entry" id="wellness-center">
-        <dt><span class="term-name">Wellness Center</span><span class="term-class class-setting">Setting</span></dt>
-        <dd>Mairead's official operation aboard the Chthonic. The gap between its name and function is doing a lot of work.<span class="term-meta">Appears in: <a href="https://neuralnetsandprettypatterns.com/deepdreamstate/arcs/chthonic/episode-2-cringetide/" target="_blank" rel="noopener">S1:E2 / GE2</a></span></dd>
-      </div>
-      <div class="term-entry" id="wendy-and-the-kraken-crew">
-        <dt><span class="term-name">Wendy and the Kraken Crew</span><span class="term-class class-plot-detail">Plot Detail</span></dt>
-        <dd>The entertainment act performing aboard the Chthonic. Their shanty references Wendy as a benevolent watcher who rewards passengers with tokens when the tide rises, a cheerful surface over something older.<span class="term-meta">Appears in: <a href="https://neuralnetsandprettypatterns.com/deepdreamstate/arcs/chthonic/episode-1-maiden-voyage/" target="_blank" rel="noopener">S1:E1 / GE1</a></span></dd>
-      </div>
-      <div class="term-entry" id="william-dyer">
-        <dt><span class="term-name">William Dyer</span><span class="term-class class-character">Character</span></dt>
-        <dd>Captain of the Chthonic, privately titled Magus. The name is a direct reference to the narrator of Lovecraft's At the Mountains of Madness. States he has been doing it for 144 years, suggesting he is not entirely human. In E4 he officiates the ceremony and sets the terms of Emma's transformation. In E5 Holly notes that the Dreamer may have a different dream in mind than Alastair's, signaling a divergence of interest within the ship's own power structure. <a href="https://en.wikipedia.org/wiki/At_the_Mountains_of_Madness" target="_blank" rel="noopener">At the Mountains of Madness (Lovecraft)</a> In E6 he is referenced as the Captain who would love seeing Sarah's altered state, keeping his authority present even offscreen.<span class="term-performer">Played by <a href="https://deepdreamstate.blubrry.net/neural-nets-and-pretty-patterns/" target="_blank" rel="noopener">Neural Nets</a></span><span class="term-meta">Appears in: <a href="https://neuralnetsandprettypatterns.com/deepdreamstate/arcs/chthonic/episode-1-maiden-voyage/" target="_blank" rel="noopener">S1:E1 / GE1</a>, <a href="https://neuralnetsandprettypatterns.com/deepdreamstate/arcs/chthonic/episode-2-cringetide/" target="_blank" rel="noopener">S1:E2 / GE2</a>, <a href="https://neuralnetsandprettypatterns.com/deepdreamstate/arcs/chthonic/episode-3-veil/" target="_blank" rel="noopener">S1:E3 / GE3</a>, <a href="https://neuralnetsandprettypatterns.com/deepdreamstate/arcs/chthonic/episode-4-asunder/" target="_blank" rel="noopener">S1:E4 / GE4</a>, <a href="https://neuralnetsandprettypatterns.com/deepdreamstate/arcs/chthonic/episode-5-shower/" target="_blank" rel="noopener">S1:E5 / GE5</a>, <a href="https://neuralnetsandprettypatterns.com/deepdreamstate/arcs/chthonic/episode-6-garter/" target="_blank" rel="noopener">S1:E6 / GE6</a></span></dd>
-      </div>
-      <div class="term-entry" id="world-beneath-the-world">
-        <dt><span class="term-name">World Beneath the World</span><span class="term-class class-plot-detail">Plot Detail</span></dt>
-        <dd>Brittany whispers it in the E4 ceremony: world beneath the world beneath the world beneath the... The phrase is the show's slogan and its cosmological premise. There is always another layer. The Chthonic operates on the surface of one, and the ceremony is an attempt to break through to the next.<span class="term-meta">Appears in: <a href="https://neuralnetsandprettypatterns.com/deepdreamstate/arcs/chthonic/episode-4-asunder/" target="_blank" rel="noopener">S1:E4 / GE4</a></span></dd>
-      </div>
-    </dl>
-  </section>
-  <section class="alpha-section" id="letter-Y">
-    <p class="alpha-heading">Y</p>
-    <dl>
-      <div class="term-entry" id="yes-is-best">
-        <dt><span class="term-name">Yes is best</span><span class="term-class class-plot-detail">Plot Detail</span></dt>
-        <dd>A conditioning phrase in E6 that turns relief from stress into automatic agreement. Nikki and Fion frame the script as “No stress. Just yes,” and Sarah repeats the logic as yes becomes the easiest available answer.<span class="term-meta">Appears in: <a href="https://neuralnetsandprettypatterns.com/deepdreamstate/arcs/chthonic/episode-6-garter/" target="_blank" rel="noopener">S1:E6 / GE6</a></span></dd>
-      </div>
-      <div class="term-entry" id="yo-ho-hos">
-        <dt><span class="term-name">Yo Ho Hos</span><span class="term-class class-plot-detail">Plot Detail</span></dt>
-        <dd>The karaoke act performing at the Chthonic's entertainment night. Their shanty is performed by the bachelorette party guests and serves as cover noise over the ship's actual business.<span class="term-meta">Appears in: <a href="https://neuralnetsandprettypatterns.com/deepdreamstate/arcs/chthonic/episode-2-cringetide/" target="_blank" rel="noopener">S1:E2 / GE2</a></span></dd>
-      </div>
-      <div class="term-entry" id="yogmind">
-        <dt><span class="term-name">YogMind</span><span class="term-class class-plot-detail">Plot Detail</span></dt>
-        <dd>Referenced by Alastair as a future replacement for human secretaries, something that would make even a compliant Olivia redundant. The name suggests Yog-Sothoth, the Lovecraftian entity that is the gate and the key and the guardian of the gate, a being of pure cosmic knowledge. Applied here to a system that would absorb the administrative and compliance functions currently performed by conditioned humans. <a href="https://en.wikipedia.org/wiki/Yog-Sothoth" target="_blank" rel="noopener">Yog-Sothoth (Wikipedia)</a><span class="term-meta">Appears in: <a href="https://neuralnetsandprettypatterns.com/deepdreamstate/arcs/chthonic/episode-4-asunder/" target="_blank" rel="noopener">S1:E4 / GE4</a></span></dd>
-      </div>
-      <div class="term-entry" id="yum-yum-time">
-        <dt><span class="term-name">Yum Yum Time</span><span class="term-class class-game">Game</span></dt>
-        <dd>A candy game with a suggestive emphasis on eating. It spawned one of the first secret tracks, featuring Pipp. You can explore the game further with the companion track. <a href="https://www.patreon.com/posts/yum-yum-time-all-157031167" target="_blank" rel="noopener">Yum Yum Time (Patreon)</a><span class="term-meta">Appears in: <a href="https://www.imdb.com/title/tt43393347/" target="_blank" rel="noopener">S4:E9 / GE36</a></span></dd>
-      </div>
-    </dl>
-  </section>
-</div>
+  <div id="glossary-body" aria-live="polite"></div>
 
   <p class="no-results" id="no-results">No terms match your search.</p>
   <noscript>
@@ -919,6 +533,30 @@
 
   function escapeHtml(value) {
     return String(value).replace(/[&<>"']/g, ch => ({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;'}[ch]));
+  }
+
+  // Spoiler token support.
+  // Definitions may contain {{spoiler}}text{{/spoiler}} to mark a phrase as
+  // a hidden spoiler bar. This runs AFTER escapeHtml(), so it only ever
+  // recognizes the literal token strings (which contain no HTML-special
+  // characters and therefore pass escapeHtml unchanged) — no raw HTML from
+  // glossary.json is ever inserted into the page. Only the two fixed
+  // <span> wrappers below are introduced, by this code, not by the data.
+  const SPOILER_OPEN = /\{\{spoiler\}\}/g;
+  const SPOILER_CLOSE = /\{\{\/spoiler\}\}/g;
+
+  function applySpoilerTokens(escapedText) {
+    return escapedText
+      .replace(SPOILER_OPEN, '<span class="spoiler-text" tabindex="0">')
+      .replace(SPOILER_CLOSE, '</span>');
+  }
+
+  // Used for schema.org output and search matching, where raw plain text
+  // is wanted with no token markup and no visible token remnants.
+  function stripSpoilerTokens(text) {
+    return String(text)
+      .replace(/\{\{spoiler\}\}/g, '')
+      .replace(/\{\{\/spoiler\}\}/g, '');
   }
 
   function slugify(value) {
@@ -1173,7 +811,11 @@ function buildTermEpisodeMap(appearancesData) {
       if (!terms.length) return;
 
       const inFilter = t => activeClass === 'all' || t.class === activeClass;
-      const inSearch = t => !q || t.term.toLowerCase().includes(q) || t.definition.toLowerCase().includes(q);
+      const inSearch = t => {
+        if (!q) return true;
+        const plainDef = stripSpoilerTokens(t.definition).toLowerCase();
+        return t.term.toLowerCase().includes(q) || plainDef.includes(q);
+      };
       const sectionTerms = terms.filter(t => inFilter(t) && inSearch(t));
       if (!sectionTerms.length) return;
 
@@ -1195,7 +837,7 @@ function buildTermEpisodeMap(appearancesData) {
           ? `<span class="term-performer">Played by <a href="${escapeHtml(t.performer_url)}" target="_blank" rel="noopener">${escapeHtml(t.performer)}</a></span>`
           : '';
 
-        const escapedDef = escapeHtml(t.definition);
+        const escapedDef = applySpoilerTokens(escapeHtml(t.definition));
         const linkHtml = (t.links && t.links.length)
           ? ' ' + t.links.map(l => `<a href="${escapeHtml(safeUrl(l.url))}" target="_blank" rel="noopener">${escapeHtml(l.text)}</a>`).join(', ')
           : '';
@@ -1222,7 +864,7 @@ function buildTermEpisodeMap(appearancesData) {
       "@type": "DefinedTerm",
       "@id": `https://neuralnetsandprettypatterns.com/deepdreamstate/glossary/#${slugify(t.term)}`,
       "name": t.term,
-      "description": t.definition,
+      "description": stripSpoilerTokens(t.definition),
       "inDefinedTermSet": { "@id": "https://neuralnetsandprettypatterns.com/deepdreamstate/glossary/#termset" }
     }));
     const script = document.createElement('script');
