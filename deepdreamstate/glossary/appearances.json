@@ -1229,5 +1229,70 @@
       "Treatstick",
       "Twin Tails"
     ]
+  },
+  {
+    "ge": 38,
+    "season": 4,
+    "episode": 11,
+    "title": "Luna",
+    "url": "https://neuralnetsandprettypatterns.com/deepdreamstate/arcs/vale-four/episode-11-luna/",
+    "terms": [
+      "Assets",
+      "Bad Girls Club",
+      "Claws Out",
+      "Deep Ward",
+      "Elle Lawson",
+      "Gia",
+      "Gluckgluck",
+      "Hespa Apate",
+      "Iris Vale (Sitri)",
+      "June Lowell (Sitri)",
+      "Kamas",
+      "Laura",
+      "Leandra",
+      "Meg Aerin (Sitri)",
+      "Naia Anderson",
+      "NPC",
+      "Porsche",
+      "Snarecraft",
+      "Spotlight",
+      "Team Alchemy",
+      "Team Flowers",
+      "Team Thorns"
+    ]
+  },
+  {
+    "ge": 0,
+    "season": 0,
+    "episode": 0,
+    "title": "Continuity",
+    "url": "https://neuralnetsandprettypatterns.com/neuralpedia/",
+    "terms": [
+      "Facility",
+      "Lollipopped",
+      "Mind Pop",
+      "Neuralverse"
+    ]
+  },
+  {
+    "ge": 0,
+    "season": 0,
+    "episode": 0,
+    "title": "Sparkle Secret",
+    "url": "https://www.patreon.com/minderaser/",
+    "terms": [
+      "Affagato",
+      "Intima",
+      "NDA",
+      "Ouroborus",
+      "Pink Drink",
+      "San Nicolas",
+      "Starlight",
+      "The Chain",
+      "Treatstick",
+      "Twin Tails"
+    ]
   }
+]
+
 ]
