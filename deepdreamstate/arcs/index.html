@@ -6,21 +6,21 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <meta name="robots" content="index,follow,max-image-preview:large,max-snippet:-1,max-video-preview:-1">
   <meta name="googlebot" content="index,follow,max-image-preview:large,max-snippet:-1">
-  <title>Arcs — Deep Dream State | Neural Nets and Pretty Patterns</title>
+  <title>Arcs | Deep Dream State | Neural Nets and Pretty Patterns</title>
   <link rel="canonical" href="https://neuralnetsandprettypatterns.com/deepdreamstate/arcs/">
   <link rel="icon" type="image/png" sizes="512x512" href="https://neuralnetsandprettypatterns.github.io/neuralnetsandprettypatterns/favicon-transparent.png">
   <link rel="apple-touch-icon" sizes="512x512" href="https://neuralnetsandprettypatterns.github.io/neuralnetsandprettypatterns/favicon-transparent.png">
   <meta name="description" content="All arcs and episodes of Deep Dream State, a full-cast desire horror audio drama by Neural Nets and Pretty Patterns.">
   <meta name="author" content="Neural Nets and Pretty Patterns">
   <meta name="theme-color" content="#1a0a2e">
-  <meta property="og:title" content="Arcs — Deep Dream State">
+  <meta property="og:title" content="Arcs | Deep Dream State">
   <meta property="og:description" content="All arcs and episodes of Deep Dream State by Neural Nets and Pretty Patterns.">
   <meta property="og:url" content="https://neuralnetsandprettypatterns.com/deepdreamstate/arcs/">
   <meta property="og:type" content="website">
   <meta property="og:site_name" content="Deep Dream State">
   <meta property="og:image" content="https://neuralnetsandprettypatterns.com/deepdreamstate/assets/images/dds-carousel-background.webp">
   <meta name="twitter:card" content="summary_large_image">
-  <meta name="twitter:title" content="Arcs — Deep Dream State">
+  <meta name="twitter:title" content="Arcs | Deep Dream State">
   <meta name="twitter:image" content="https://neuralnetsandprettypatterns.com/deepdreamstate/assets/images/dds-carousel-background.webp">
   <meta name="twitter:creator" content="@MCNeuralNets">
   <meta name="twitter:site" content="@MCNeuralNets">
@@ -55,7 +55,7 @@
         "@type": "CollectionPage",
         "@id": "https://neuralnetsandprettypatterns.com/deepdreamstate/arcs/#page",
         "url": "https://neuralnetsandprettypatterns.com/deepdreamstate/arcs/",
-        "name": "Arcs — Deep Dream State",
+        "name": "Arcs | Deep Dream State",
         "description": "All arcs and episodes of Deep Dream State by Neural Nets and Pretty Patterns.",
         "isPartOf": { "@id": "https://neuralnetsandprettypatterns.com/#website" },
         "about": { "@id": "https://neuralnetsandprettypatterns.com/deepdreamstate/#series" },
@@ -96,7 +96,7 @@
         "@id": "https://neuralnetsandprettypatterns.com/deepdreamstate/arcs/#episode-list",
         "name": "Deep Dream State episode list",
         "itemListOrder": "https://schema.org/ItemListOrderAscending",
-        "numberOfItems": 37,
+        "numberOfItems": 39,
         "isPartOf": { "@id": "https://neuralnetsandprettypatterns.com/deepdreamstate/arcs/#page" },
         "about": { "@id": "https://neuralnetsandprettypatterns.com/deepdreamstate/#series" }
       }
@@ -441,6 +441,155 @@
 
     .ep-pipe a:hover { color: #f0f4ff; }
 
+
+    /* ARC AND EPISODE SEARCH */
+    .archive-search {
+      padding: 1.4rem 0 1.7rem;
+      border-bottom: 1px solid rgba(232,232,232,0.12);
+    }
+
+    .archive-search h2 {
+      text-align: center;
+      margin-bottom: 0.75rem;
+    }
+
+    .search-label {
+      display: block;
+      max-width: 760px;
+      margin: 0 auto 0.45rem;
+      color: rgba(232,232,232,0.72);
+      font-size: 0.88rem;
+    }
+
+    .search-control {
+      position: relative;
+      max-width: 760px;
+      margin: 0 auto;
+    }
+
+    #archive-search-input {
+      width: 100%;
+      min-height: 50px;
+      border: 1.5px solid rgba(232,232,232,0.75);
+      border-radius: 8px;
+      background: rgba(0,0,0,0.58);
+      color: #fff;
+      font-family: 'IM Fell DW Pica', serif;
+      font-size: 1rem;
+      line-height: 1.3;
+      padding: 0.8rem 3rem 0.8rem 1rem;
+      outline: none;
+      transition: border-color 0.2s ease, box-shadow 0.2s ease;
+    }
+
+    #archive-search-input::placeholder {
+      color: rgba(232,232,232,0.48);
+    }
+
+    #archive-search-input:focus {
+      border-color: #f0f4ff;
+      box-shadow: 0 0 0 3px rgba(240,244,255,0.12);
+    }
+
+    .search-clear {
+      position: absolute;
+      top: 50%;
+      right: 0.55rem;
+      width: 36px;
+      height: 36px;
+      transform: translateY(-50%);
+      border: 0;
+      border-radius: 50%;
+      background: transparent;
+      color: rgba(232,232,232,0.7);
+      font: inherit;
+      font-size: 1.35rem;
+      cursor: pointer;
+      display: none;
+    }
+
+    .search-clear.visible {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+    }
+
+    .search-clear:hover,
+    .search-clear:focus-visible {
+      color: #fff;
+      background: rgba(232,232,232,0.12);
+      outline: none;
+    }
+
+    .search-help {
+      max-width: 760px;
+      margin: 0.45rem auto 0;
+      color: rgba(232,232,232,0.48);
+      font-size: 0.82rem;
+    }
+
+    .search-results {
+      max-width: 760px;
+      margin: 0.65rem auto 0;
+      overflow: hidden;
+      border: 1px solid rgba(232,232,232,0.18);
+      border-radius: 8px;
+      background: rgba(7,7,14,0.94);
+      box-shadow: 0 12px 32px rgba(0,0,0,0.38);
+    }
+
+    .search-results[hidden] {
+      display: none;
+    }
+
+    .search-result {
+      display: block;
+      padding: 0.8rem 1rem;
+      color: #e8e8e8;
+      text-decoration: none;
+      border-bottom: 1px solid rgba(232,232,232,0.09);
+      transition: background 0.15s ease;
+    }
+
+    .search-result:last-child {
+      border-bottom: 0;
+    }
+
+    .search-result:hover,
+    .search-result.active,
+    .search-result:focus-visible {
+      background: rgba(232,232,232,0.11);
+      outline: none;
+    }
+
+    .search-result-type {
+      display: block;
+      color: rgba(232,232,232,0.48);
+      font-size: 0.68rem;
+      letter-spacing: 0.14em;
+      text-transform: uppercase;
+    }
+
+    .search-result-title {
+      display: block;
+      color: #f0f4ff;
+      font-size: 1rem;
+      line-height: 1.35;
+    }
+
+    .search-result-subtitle {
+      display: block;
+      color: rgba(232,232,232,0.58);
+      font-size: 0.82rem;
+      line-height: 1.4;
+    }
+
+    .search-message {
+      padding: 0.9rem 1rem;
+      color: rgba(232,232,232,0.68);
+      font-size: 0.9rem;
+    }
+
     /* FOOTER */
     footer {
       padding: 1rem 0 1.5rem;
@@ -523,6 +672,33 @@
       </div>
 
     </header>
+
+
+    <section class="archive-search" aria-labelledby="archive-search-heading">
+      <h2 id="archive-search-heading">Find an Arc or Episode</h2>
+      <label class="search-label" for="archive-search-input">Search by title, season, episode number, or story term</label>
+      <div class="search-control">
+        <input
+          id="archive-search-input"
+          type="search"
+          placeholder="Try Luna, Season 4, GE39, or cruise"
+          autocomplete="off"
+          spellcheck="false"
+          aria-controls="archive-search-results"
+          aria-expanded="false"
+        >
+        <button class="search-clear" id="archive-search-clear" type="button" aria-label="Clear search">×</button>
+      </div>
+      <p class="search-help">Results open the matching arc or episode page.</p>
+      <div
+        id="archive-search-results"
+        class="search-results"
+        role="listbox"
+        aria-label="Search results"
+        hidden
+      ></div>
+      <noscript><p class="search-help">JavaScript is required for archive search.</p></noscript>
+    </section>
 
     <section class="section">
       <h2>Show</h2>
@@ -612,17 +788,18 @@
       <p>The plotting is detailed. There's a very continuous throughline. The twists are numerous, but they're earned. If you see where this is going from the outset, you are a true galaxy brain. Even cracking the riddle of the name requires knowing audio drama cliches and demonology. Dig in.</p>
 
       <div class="ep-pipe">
-        <a href="https://neuralnetsandprettypatterns.com/deepdreamstate/arcs/vale-four/episode-1-refrain.html">Refrain</a> · S4E1 GE28 |
-        <a href="https://neuralnetsandprettypatterns.com/deepdreamstate/arcs/vale-four/episode-2-hook-line.html">Hook Line</a> · S4E2 GE29 |
-        <a href="https://neuralnetsandprettypatterns.com/deepdreamstate/arcs/vale-four/episode-3-sinker.html">Sinker</a> · S4E3 GE30 |
-        <a href="https://neuralnetsandprettypatterns.com/deepdreamstate/arcs/vale-four/episode-4-slowplay.html">Slowplay</a> · S4E4 GE31 |
-        <a href="https://neuralnetsandprettypatterns.com/deepdreamstate/arcs/vale-four/episode-5-raise.html">Raise</a> · S4E5 GE32 |
-        <a href="https://neuralnetsandprettypatterns.com/deepdreamstate/arcs/vale-four/episode-6-pot-limit.html">Pot Limit</a> · S4E6 GE33 |
-        <a href="https://neuralnetsandprettypatterns.com/deepdreamstate/arcs/vale-four/episode-7-the-river.html">The River</a> · S4E7 GE34 |
-        <a href="https://neuralnetsandprettypatterns.com/deepdreamstate/arcs/vale-four/episode-8-quiver.html">Quiver</a> · S4E8 GE35 |
-        <a href="https://neuralnetsandprettypatterns.com/deepdreamstate/arcs/vale-four/episode-9-nock.html">Nock</a> · S4E9 GE36 |
+        <a href="https://neuralnetsandprettypatterns.com/deepdreamstate/arcs/vale-four/episode-1-refrain/">Refrain</a> · S4E1 GE28 |
+        <a href="https://neuralnetsandprettypatterns.com/deepdreamstate/arcs/vale-four/episode-2-hook-line/">Hook Line</a> · S4E2 GE29 |
+        <a href="https://neuralnetsandprettypatterns.com/deepdreamstate/arcs/vale-four/episode-3-sinker/">Sinker</a> · S4E3 GE30 |
+        <a href="https://neuralnetsandprettypatterns.com/deepdreamstate/arcs/vale-four/episode-4-slowplay/">Slowplay</a> · S4E4 GE31 |
+        <a href="https://neuralnetsandprettypatterns.com/deepdreamstate/arcs/vale-four/episode-5-raise/">Raise</a> · S4E5 GE32 |
+        <a href="https://neuralnetsandprettypatterns.com/deepdreamstate/arcs/vale-four/episode-6-pot-limit/">Pot Limit</a> · S4E6 GE33 |
+        <a href="https://neuralnetsandprettypatterns.com/deepdreamstate/arcs/vale-four/episode-7-the-river/">The River</a> · S4E7 GE34 |
+        <a href="https://neuralnetsandprettypatterns.com/deepdreamstate/arcs/vale-four/episode-8-quiver/">Quiver</a> · S4E8 GE35 |
+        <a href="https://neuralnetsandprettypatterns.com/deepdreamstate/arcs/vale-four/episode-9-nock/">Nock</a> · S4E9 GE36 |
         <a href="https://neuralnetsandprettypatterns.com/deepdreamstate/arcs/vale-four/episode-10-bullseye/">Bullseye</a> · S4E10 GE37 |
-        <a href="https://neuralnetsandprettypatterns.com/deepdreamstate/arcs/vale-four/episode-11-luna/">Luna</a> · S4E11 GE38
+        <a href="https://neuralnetsandprettypatterns.com/deepdreamstate/arcs/vale-four/episode-11-luna/">Luna</a> · S4E11 GE38 |
+        <a href="https://neuralnetsandprettypatterns.com/deepdreamstate/arcs/vale-four/episode-12-quintessence/">Quintessence</a> · S4E12 GE39
       </div>
     </section>
 
@@ -677,6 +854,241 @@
 
     document.getElementById('carousel-prev').addEventListener('click', () => goTo((current - 1 + slides.length) % slides.length));
     document.getElementById('carousel-next').addEventListener('click', () => goTo((current + 1) % slides.length));
+
+
+    const archiveSearchInput = document.getElementById('archive-search-input');
+    const archiveSearchResults = document.getElementById('archive-search-results');
+    const archiveSearchClear = document.getElementById('archive-search-clear');
+
+    let archiveData = null;
+    let activeSearchIndex = -1;
+    let renderedSearchResults = [];
+
+    function normalizeSearch(value) {
+      return String(value || '')
+        .toLowerCase()
+        .normalize('NFKD')
+        .replace(/[\u0300-\u036f]/g, '')
+        .replace(/&/g, ' and ')
+        .replace(/[^a-z0-9]+/g, ' ')
+        .replace(/\s+/g, ' ')
+        .trim();
+    }
+
+    function compactSearch(value) {
+      return normalizeSearch(value).replace(/\s+/g, '');
+    }
+
+    function applySearchSynonyms(value) {
+      let normalized = normalizeSearch(value);
+      if (!archiveData || !archiveData.synonyms) return normalized;
+
+      const entries = Object.entries(archiveData.synonyms)
+        .sort((a, b) => b[0].length - a[0].length);
+
+      entries.forEach(([from, to]) => {
+        const source = normalizeSearch(from);
+        const target = normalizeSearch(to);
+        if (!source) return;
+        const pattern = new RegExp('(^|\\s)' + source.replace(/[.*+?^${}()|[\]\\]/g, '\\$&') + '(?=\\s|$)', 'g');
+        normalized = normalized.replace(pattern, (match, prefix) => prefix + target);
+      });
+
+      return normalized.replace(/\s+/g, ' ').trim();
+    }
+
+    function isPureSeasonQuery(query) {
+      return /^(season|arc)\s*[1-4]$/.test(query) ||
+             /^[sa]\s*[1-4]$/.test(query) ||
+             /^(first|second|third|fourth)\s+(season|arc)$/.test(query);
+    }
+
+    function prepareArchiveItem(item) {
+      const aliases = Array.isArray(item.aliases) ? item.aliases : [];
+      const fields = [item.title, item.subtitle, item.arc, ...aliases].filter(Boolean);
+
+      return {
+        ...item,
+        _title: normalizeSearch(item.title),
+        _titleCompact: compactSearch(item.title),
+        _aliases: aliases.map(normalizeSearch),
+        _aliasesCompact: aliases.map(compactSearch),
+        _searchable: normalizeSearch(fields.join(' '))
+      };
+    }
+
+    function scoreArchiveItem(item, query) {
+      const compactQuery = compactSearch(query);
+      const tokens = query.split(' ').filter(Boolean);
+      let score = 0;
+
+      if (item._title === query) score = Math.max(score, 1000);
+      if (item._titleCompact === compactQuery) score = Math.max(score, 980);
+      if (item._aliases.includes(query)) score = Math.max(score, 950);
+      if (item._aliasesCompact.includes(compactQuery)) score = Math.max(score, 930);
+      if (item._title.startsWith(query)) score = Math.max(score, 850);
+      if (item._aliases.some(alias => alias.startsWith(query))) score = Math.max(score, 800);
+      if (item._title.includes(query)) score = Math.max(score, 720);
+      if (item._aliases.some(alias => alias.includes(query))) score = Math.max(score, 680);
+      if (tokens.length > 1 && tokens.every(token => item._searchable.includes(token))) {
+        score = Math.max(score, 620);
+      }
+      if (item._searchable.includes(query)) score = Math.max(score, 560);
+
+      if (item.type === 'season' && isPureSeasonQuery(query)) score += 100;
+      return score;
+    }
+
+    function closeArchiveSearch() {
+      archiveSearchResults.hidden = true;
+      archiveSearchResults.innerHTML = '';
+      archiveSearchInput.setAttribute('aria-expanded', 'false');
+      activeSearchIndex = -1;
+      renderedSearchResults = [];
+    }
+
+    function setActiveSearchResult(index) {
+      const links = archiveSearchResults.querySelectorAll('.search-result');
+      links.forEach((link, linkIndex) => {
+        const isActive = linkIndex === index;
+        link.classList.toggle('active', isActive);
+        link.setAttribute('aria-selected', isActive ? 'true' : 'false');
+      });
+
+      activeSearchIndex = index;
+      if (links[index]) links[index].scrollIntoView({ block: 'nearest' });
+    }
+
+    function renderArchiveSearch(items, message) {
+      archiveSearchResults.hidden = false;
+      archiveSearchInput.setAttribute('aria-expanded', 'true');
+      activeSearchIndex = -1;
+      renderedSearchResults = items;
+
+      if (message) {
+        archiveSearchResults.innerHTML = '<div class="search-message">' + message + '</div>';
+        return;
+      }
+
+      archiveSearchResults.innerHTML = items.map((item, index) => `
+        <a
+          class="search-result"
+          href="${item.path}"
+          role="option"
+          aria-selected="false"
+          data-result-index="${index}"
+        >
+          <span class="search-result-type">${item.type === 'season' ? 'Season' : 'Episode'}</span>
+          <span class="search-result-title">${item.title}</span>
+          <span class="search-result-subtitle">${item.subtitle}</span>
+        </a>
+      `).join('');
+    }
+
+    function runArchiveSearch() {
+      const rawQuery = archiveSearchInput.value;
+      archiveSearchClear.classList.toggle('visible', rawQuery.length > 0);
+
+      if (!archiveData) {
+        if (rawQuery.trim().length >= 2) {
+          renderArchiveSearch([], 'The archive is still loading.');
+        } else {
+          closeArchiveSearch();
+        }
+        return;
+      }
+
+      const query = applySearchSynonyms(rawQuery);
+      if (query.length < 2) {
+        closeArchiveSearch();
+        return;
+      }
+
+      const pureSeason = isPureSeasonQuery(query);
+      const matches = archiveData._items
+        .filter(item => !pureSeason || item.type === 'season')
+        .map(item => ({ item, score: scoreArchiveItem(item, query) }))
+        .filter(result => result.score > 0)
+        .sort((a, b) =>
+          b.score - a.score ||
+          (a.item.type === 'season' ? -1 : 1) ||
+          a.item.title.localeCompare(b.item.title)
+        )
+        .slice(0, 8)
+        .map(result => result.item);
+
+      if (!matches.length) {
+        renderArchiveSearch([], 'No matching arc or episode. Try a title, S4E12, GE39, or a story term.');
+        return;
+      }
+
+      renderArchiveSearch(matches);
+    }
+
+    fetch('/deepdreamstate/arcs/vale-four/epiarchive.json')
+      .then(response => {
+        if (!response.ok) throw new Error('Episode archive could not load.');
+        return response.json();
+      })
+      .then(data => {
+        if (!data || !Array.isArray(data.items)) {
+          throw new Error('Episode archive has an invalid structure.');
+        }
+
+        archiveData = {
+          ...data,
+          _items: data.items.map(prepareArchiveItem)
+        };
+
+        if (archiveSearchInput.value.trim()) runArchiveSearch();
+      })
+      .catch(error => {
+        console.error(error);
+        archiveData = null;
+        if (archiveSearchInput.value.trim().length >= 2) {
+          renderArchiveSearch([], 'Search is temporarily unavailable.');
+        }
+      });
+
+    archiveSearchInput.addEventListener('input', runArchiveSearch);
+
+    archiveSearchInput.addEventListener('keydown', event => {
+      const links = archiveSearchResults.querySelectorAll('.search-result');
+      if (!links.length) return;
+
+      if (event.key === 'ArrowDown') {
+        event.preventDefault();
+        setActiveSearchResult((activeSearchIndex + 1) % links.length);
+      } else if (event.key === 'ArrowUp') {
+        event.preventDefault();
+        setActiveSearchResult((activeSearchIndex - 1 + links.length) % links.length);
+      } else if (event.key === 'Enter') {
+        event.preventDefault();
+        const destination = links[activeSearchIndex >= 0 ? activeSearchIndex : 0];
+        if (destination) window.location.href = destination.href;
+      } else if (event.key === 'Escape') {
+        closeArchiveSearch();
+        archiveSearchInput.blur();
+      }
+    });
+
+    archiveSearchClear.addEventListener('click', () => {
+      archiveSearchInput.value = '';
+      archiveSearchClear.classList.remove('visible');
+      closeArchiveSearch();
+      archiveSearchInput.focus();
+    });
+
+    archiveSearchResults.addEventListener('mousemove', event => {
+      const result = event.target.closest('.search-result');
+      if (!result) return;
+      setActiveSearchResult(Number(result.dataset.resultIndex));
+    });
+
+    document.addEventListener('click', event => {
+      if (!event.target.closest('.archive-search')) closeArchiveSearch();
+    });
+
   </script>
 
 </body>
