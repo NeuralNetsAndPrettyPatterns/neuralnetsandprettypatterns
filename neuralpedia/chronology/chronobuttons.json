@@ -1,0 +1,75 @@
+{
+  "version": 1,
+  "name": "Neuralpedia chronology navigation",
+  "buttons": [
+    {
+      "type": "page",
+      "direction": "prev",
+      "icon": "arrow-left",
+      "label": "Previous page",
+      "title": "Previous page"
+    },
+    {
+      "type": "link",
+      "label": "NEW",
+      "href": "/neuralpedia/new-releases/",
+      "ariaLabel": "New Releases",
+      "style": "text"
+    },
+    {
+      "type": "link",
+      "label": "NEURALPEDIA",
+      "href": "/neuralpedia/",
+      "ariaLabel": "Neuralpedia",
+      "style": "text"
+    },
+    {
+      "type": "link",
+      "label": "AUDIO DRAMA",
+      "href": "/deepdreamstate/",
+      "ariaLabel": "Audio Drama",
+      "style": "text"
+    },
+    {
+      "type": "link",
+      "icon": "discord",
+      "href": "/the-pink-room/",
+      "ariaLabel": "The Pink Room on Discord",
+      "title": "The Pink Room on Discord",
+      "style": "icon",
+      "className": "pink-room"
+    },
+    {
+      "type": "link",
+      "icon": "patreon",
+      "href": "https://www.patreon.com/minderaser",
+      "ariaLabel": "Patreon",
+      "title": "Patreon",
+      "style": "icon",
+      "external": true
+    },
+    {
+      "type": "link",
+      "icon": "home",
+      "href": "/",
+      "ariaLabel": "Home",
+      "title": "Home",
+      "style": "icon"
+    },
+    {
+      "type": "link",
+      "icon": "contact",
+      "href": "/contact/",
+      "ariaLabel": "Contact",
+      "title": "Contact",
+      "style": "icon"
+    },
+    {
+      "type": "page",
+      "direction": "next",
+      "icon": "arrow-right",
+      "label": "Next page",
+      "title": "Next page"
+    }
+  ]
+}
