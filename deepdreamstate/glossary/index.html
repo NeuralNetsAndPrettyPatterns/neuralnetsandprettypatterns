@@ -523,7 +523,14 @@
 
 <script>
   (function() {
-    var bgUrl = 'https://neuralnetsandprettypatterns.com/deepdreamstate/assets/images/dds-carousel-background.webp';
+    var backgrounds = [
+      'https://neuralnetsandprettypatterns.com/deepdreamstate/arc-carousel-chthonic.webp',
+      'https://neuralnetsandprettypatterns.com/deepdreamstate/arc-carousel-incognitoh.webp',
+      'https://neuralnetsandprettypatterns.com/deepdreamstate/arc-carousel-overview.webp',
+      'https://neuralnetsandprettypatterns.com/deepdreamstate/arc-carousel-sitri.webp',
+      'https://neuralnetsandprettypatterns.com/deepdreamstate/arc-carousel-vale-four.webp'
+    ];
+    var bgUrl = backgrounds[Math.floor(Math.random() * backgrounds.length)];
     var container = document.getElementById('background-container');
     var img = new Image();
     img.onload = function() { container.style.backgroundImage = 'url(' + bgUrl + ')'; };
