@@ -453,6 +453,60 @@
       white-space: nowrap;
     }
 
+    .search-result-series {
+      width: 100%;
+      color: inherit;
+      text-decoration: none;
+      border-left: 2px solid var(--accent);
+      padding-left: 0.85rem;
+      padding-right: 0.5rem;
+      transition: background 0.2s ease, border-color 0.2s ease;
+    }
+
+    .search-result-series:hover,
+    .search-result-series:focus-visible {
+      background: rgba(126, 184, 201, 0.08);
+      border-left-color: var(--text-bright);
+      outline: none;
+    }
+
+    .search-result-series:hover .search-result-title,
+    .search-result-series:focus-visible .search-result-title {
+      color: var(--accent);
+    }
+
+    .search-result-heading {
+      padding: 1rem 0 0.35rem;
+      font-family: var(--mono);
+      font-size: 0.6rem;
+      letter-spacing: 0.22em;
+      text-transform: uppercase;
+      color: var(--accent);
+      opacity: 0.8;
+    }
+
+    .search-result-kind {
+      display: block;
+      margin-bottom: 0.12rem;
+      font-family: var(--mono);
+      font-size: 0.55rem;
+      letter-spacing: 0.16em;
+      text-transform: uppercase;
+      color: var(--accent);
+      opacity: 0.8;
+    }
+
+    @media (max-width: 600px) {
+      .search-result {
+        align-items: flex-start;
+      }
+
+      .search-result-meta {
+        white-space: normal;
+        text-align: right;
+      }
+    }
+
     /* Series grid */
     .series-grid {
       display: flex;
@@ -774,79 +828,282 @@
   const statusEl = document.getElementById('search-status');
   const resultsEl = document.getElementById('search-results');
 
+  const MAX_SERIES_RESULTS = 8;
+  const MAX_TOTAL_RESULTS = 40;
+
   let allTracks = null;
   let loadError = false;
 
+  function normalizeSearchValue(value) {
+    return String(value || '')
+      .toLowerCase()
+      .normalize('NFKD')
+      .replace(/[\u0300-\u036f]/g, '')
+      .replace(/&/g, ' and ')
+      .replace(/[^a-z0-9]+/g, ' ')
+      .replace(/\s+/g, ' ')
+      .trim();
+  }
+
+  function buildSeriesIndex() {
+    const byUrl = new Map();
+
+    document.querySelectorAll('.series-grid .series-link').forEach(link => {
+      const nameNode = link.cloneNode(true);
+      const countNode = nameNode.querySelector('.series-count');
+      if (countNode) countNode.remove();
+
+      const title = nameNode.textContent.trim();
+      const countText = link.querySelector('.series-count')?.textContent || '';
+      const countMatch = countText.match(/\d+/);
+      const count = countMatch ? Number(countMatch[0]) : 0;
+      const url = link.href;
+
+      if (!title || !url) return;
+
+      const existing = byUrl.get(url);
+      if (!existing) {
+        byUrl.set(url, {
+          type: 'series',
+          title,
+          url,
+          count,
+          normalizedTitle: normalizeSearchValue(title)
+        });
+        return;
+      }
+
+      if (count > existing.count) existing.count = count;
+    });
+
+    return [...byUrl.values()];
+  }
+
+  const seriesIndex = buildSeriesIndex();
+
   async function loadData() {
     if (allTracks || loadError) return;
+
     try {
-      const res = await fetch('https://neuralnetsandprettypatterns.com/neuralpedia/chronology/chronology.json', { cache: 'no-store' });
-      if (!res.ok) throw new Error('not ok');
-      allTracks = await res.json();
+      const res = await fetch(
+        'https://neuralnetsandprettypatterns.com/neuralpedia/chronology/chronology.json',
+        { cache: 'no-store' }
+      );
+
+      if (!res.ok) throw new Error('Search index request failed.');
+
+      const data = await res.json();
+      if (!Array.isArray(data)) throw new Error('Search index has an invalid structure.');
+
+      allTracks = data;
+
+      if (!searchInput.value.trim()) {
+        statusEl.textContent = `${seriesIndex.length} series and ${allTracks.length} tracks indexed.`;
+      }
     } catch (err) {
+      console.error(err);
       loadError = true;
       statusEl.textContent = 'Search index is still being built. Check back soon.';
     }
   }
 
-  function renderResults(query) {
+  function scoreSeries(series, query) {
+    const title = series.normalizedTitle;
+
+    if (title === query) return 400;
+    if (title.startsWith(query)) return 300;
+
+    const words = title.split(' ');
+    if (words.some(word => word.startsWith(query))) return 250;
+    if (title.includes(query)) return 200;
+
+    return 0;
+  }
+
+  function scoreTrack(track, query) {
+    const title = normalizeSearchValue(track.title);
+    const series = normalizeSearchValue(
+      Array.isArray(track.series) ? track.series.join(' ') : track.series
+    );
+    const tags = normalizeSearchValue(
+      Array.isArray(track.tags) ? track.tags.join(' ') : track.tags
+    );
+    const date = normalizeSearchValue(track.date);
+    const id = normalizeSearchValue(track.id);
+
+    if (title === query) return 180;
+    if (title.startsWith(query)) return 160;
+    if (title.includes(query)) return 140;
+    if (series.includes(query)) return 110;
+    if (tags.includes(query)) return 90;
+    if (date.includes(query) || id.includes(query)) return 80;
+
+    return 0;
+  }
+
+  function pluralize(count, singular, plural) {
+    return `${count} ${count === 1 ? singular : plural}`;
+  }
+
+  function appendResultHeading(text) {
+    const heading = document.createElement('div');
+    heading.className = 'search-result-heading';
+    heading.textContent = text;
+    resultsEl.appendChild(heading);
+  }
+
+  function appendSeriesResult(series) {
+    const row = document.createElement('a');
+    row.className = 'search-result search-result-series';
+    row.href = series.url;
+
+    const titleWrap = document.createElement('div');
+    titleWrap.className = 'search-result-title';
+
+    const kind = document.createElement('span');
+    kind.className = 'search-result-kind';
+    kind.textContent = 'Series';
+
+    const title = document.createElement('span');
+    title.textContent = series.title;
+
+    titleWrap.appendChild(kind);
+    titleWrap.appendChild(title);
+
+    const meta = document.createElement('div');
+    meta.className = 'search-result-meta';
+    meta.textContent = series.count
+      ? `${series.count} track${series.count === 1 ? '' : 's'} · View series`
+      : 'View series';
+
+    row.appendChild(titleWrap);
+    row.appendChild(meta);
+    resultsEl.appendChild(row);
+  }
+
+  function appendTrackResult(track) {
+    const row = document.createElement('div');
+    row.className = 'search-result';
+
+    const titleWrap = document.createElement('div');
+    titleWrap.className = 'search-result-title';
+
+    const link = track.url || track.link || (
+      track.links && (
+        track.links.patreon ||
+        track.links.spotify ||
+        track.links.soundgasm
+      )
+    );
+
+    if (link) {
+      const anchor = document.createElement('a');
+      anchor.href = link;
+      anchor.textContent = track.title || 'Untitled';
+      anchor.target = '_blank';
+      anchor.rel = 'noopener';
+      titleWrap.appendChild(anchor);
+    } else {
+      titleWrap.textContent = track.title || 'Untitled';
+    }
+
+    const meta = document.createElement('div');
+    meta.className = 'search-result-meta';
+
+    const seriesText = Array.isArray(track.series)
+      ? track.series.join(', ')
+      : track.series;
+
+    meta.textContent = [seriesText, track.date].filter(Boolean).join(' · ');
+
+    row.appendChild(titleWrap);
+    row.appendChild(meta);
+    resultsEl.appendChild(row);
+  }
+
+  function renderResults(rawQuery) {
     resultsEl.innerHTML = '';
 
+    const query = normalizeSearchValue(rawQuery);
+
     if (!query) {
-      statusEl.textContent = allTracks ? `${allTracks.length} tracks indexed.` : '';
+      statusEl.textContent = allTracks
+        ? `${seriesIndex.length} series and ${allTracks.length} tracks indexed.`
+        : `${seriesIndex.length} series indexed.`;
       return;
     }
 
-    if (!allTracks) {
-      return;
+    if (!allTracks) return;
+
+    const seriesMatches = seriesIndex
+      .map(series => ({
+        series,
+        score: scoreSeries(series, query)
+      }))
+      .filter(result => result.score > 0)
+      .sort((a, b) =>
+        b.score - a.score ||
+        b.series.count - a.series.count ||
+        a.series.title.localeCompare(b.series.title)
+      );
+
+    const trackMatches = allTracks
+      .map(track => ({
+        track,
+        score: scoreTrack(track, query)
+      }))
+      .filter(result => result.score > 0)
+      .sort((a, b) =>
+        b.score - a.score ||
+        String(a.track.title || '').localeCompare(String(b.track.title || ''))
+      );
+
+    const visibleSeries = seriesMatches
+      .slice(0, MAX_SERIES_RESULTS)
+      .map(result => result.series);
+
+    const availableTrackSlots = Math.max(
+      0,
+      MAX_TOTAL_RESULTS - visibleSeries.length
+    );
+
+    const visibleTracks = trackMatches
+      .slice(0, availableTrackSlots)
+      .map(result => result.track);
+
+    const statusParts = [
+      pluralize(seriesMatches.length, 'series', 'series'),
+      pluralize(trackMatches.length, 'track', 'tracks')
+    ];
+
+    const isTruncated =
+      visibleSeries.length < seriesMatches.length ||
+      visibleTracks.length < trackMatches.length;
+
+    statusEl.textContent =
+      `${statusParts.join(' and ')}${isTruncated ? ' · showing first 40 results' : ''}`;
+
+    if (visibleSeries.length) {
+      appendResultHeading('Series');
+      visibleSeries.forEach(appendSeriesResult);
     }
 
-    const q = query.toLowerCase();
+    if (visibleTracks.length) {
+      appendResultHeading('Tracks');
+      visibleTracks.forEach(appendTrackResult);
+    }
 
-    const matches = allTracks.filter(track => {
-      const haystack = [
-        track.title,
-        track.series,
-        track.date,
-        Array.isArray(track.tags) ? track.tags.join(' ') : track.tags
-      ].filter(Boolean).join(' ').toLowerCase();
-      return haystack.includes(q);
-    }).slice(0, 40);
-
-    statusEl.textContent = `${matches.length} match${matches.length === 1 ? '' : 'es'}${matches.length === 40 ? ' (showing first 40)' : ''}`;
-
-    matches.forEach(track => {
-      const row = document.createElement('div');
-      row.className = 'search-result';
-
-      const titleWrap = document.createElement('div');
-      titleWrap.className = 'search-result-title';
-
-      const link = track.url || track.link || (track.links && (track.links.patreon || track.links.spotify));
-      if (link) {
-        const a = document.createElement('a');
-        a.href = link;
-        a.textContent = track.title || 'Untitled';
-        a.target = '_blank';
-        a.rel = 'noopener';
-        titleWrap.appendChild(a);
-      } else {
-        titleWrap.textContent = track.title || 'Untitled';
-      }
-
-      const meta = document.createElement('div');
-      meta.className = 'search-result-meta';
-      meta.textContent = [track.series, track.date].filter(Boolean).join(' · ');
-
-      row.appendChild(titleWrap);
-      row.appendChild(meta);
-      resultsEl.appendChild(row);
-    });
+    if (!visibleSeries.length && !visibleTracks.length) {
+      statusEl.textContent = 'No matching series or tracks.';
+    }
   }
 
   searchInput.addEventListener('focus', loadData);
+
   searchInput.addEventListener('input', event => {
-    loadData().then(() => renderResults(event.target.value.trim()));
+    loadData().then(() => {
+      renderResults(event.target.value.trim());
+    });
   });
 </script>
 
