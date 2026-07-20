@@ -146,11 +146,14 @@
       height: 100%;
       z-index: 0;
       background-color: #020204;
-      background-image: linear-gradient(135deg, #08030f 0%, #060812 50%, #03070d 100%);
-      background-blend-mode: multiply;
       background-size: cover;
       background-position: center;
       background-repeat: no-repeat;
+    }
+
+    /* Fallback gradient shown only if the photo fails to load (see JS) */
+    #background-container.fallback {
+      background-image: linear-gradient(135deg, #08030f 0%, #060812 50%, #03070d 100%);
     }
 
     #background-container::after {
@@ -529,6 +532,7 @@
           "Background image failed to load, using gradient fallback:",
           bgUrl
         );
+        container.classList.add("fallback");
       };
 
       img.src = bgUrl;
