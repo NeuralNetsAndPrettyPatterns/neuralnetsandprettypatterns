@@ -183,6 +183,10 @@
     .search-wrap input:focus { border-color: rgba(232,232,232,0.6); }
     .search-icon { position: absolute; left: 0.75rem; top: 50%; transform: translateY(-50%); opacity: 0.4; font-size: 1rem; pointer-events: none; }
     .filter-row { display: flex; gap: 0.5rem; flex-wrap: wrap; align-items: center; }
+    .season-filter-row {
+      padding-top: 0.15rem;
+      border-top: 1px solid rgba(232,232,232,0.08);
+    }
     .filter-label { font-size: 0.75rem; letter-spacing: 0.12em; text-transform: uppercase; opacity: 0.5; margin-right: 0.25rem; }
     .filter-btn {
       padding: 0.3rem 0.85rem; border: 1px solid rgba(232,232,232,0.3); border-radius: 20px;
@@ -191,6 +195,50 @@
     }
     .filter-btn:hover { opacity: 1; border-color: rgba(232,232,232,0.7); }
     .filter-btn.active { background: rgba(232,232,232,0.15); border-color: #e8e8e8; opacity: 1; }
+
+    .season-btn {
+      opacity: 0.82;
+      font-weight: bold;
+    }
+    .season-btn.season-1 { color: #8fc7ff; border-color: rgba(84,169,255,0.72); }
+    .season-btn.season-2 { color: #ff9fd0; border-color: rgba(255,105,180,0.72); }
+    .season-btn.season-3 {
+      color: #f2f2f2;
+      border-color: rgba(185,185,185,0.72);
+      background: rgba(0,0,0,0.58);
+    }
+    .season-btn.season-4 { color: #9ee6ad; border-color: rgba(76,190,103,0.72); }
+
+    .season-btn.season-1.active {
+      color: #08131f;
+      background: #54a9ff;
+      border-color: #8fc7ff;
+    }
+    .season-btn.season-2.active {
+      color: #25101b;
+      background: #ff69b4;
+      border-color: #ff9fd0;
+    }
+    .season-btn.season-3.active {
+      color: #ffffff;
+      background: #000000;
+      border-color: #ffffff;
+      box-shadow: 0 0 0 1px rgba(255,255,255,0.18);
+    }
+    .season-btn.season-4.active {
+      color: #07170b;
+      background: #4cbe67;
+      border-color: #9ee6ad;
+    }
+    .continuity-filter-btn {
+      color: #c9b8ed;
+      border-color: rgba(184,168,213,0.58);
+    }
+    .continuity-filter-btn.active {
+      color: #130b20;
+      background: #b8a8d5;
+      border-color: #d6c9ef;
+    }
     .alpha-nav { display: flex; flex-wrap: wrap; gap: 0.3rem; margin-bottom: 2rem; justify-content: center; }
     .alpha-nav a {
       color: #e8e8e8; text-decoration: none; font-size: 0.85rem; letter-spacing: 0.08em;
@@ -492,15 +540,22 @@
     </div>
     <div class="filter-row" role="group" aria-label="Filter by class">
       <span class="filter-label">Filter:</span>
-      <button class="filter-btn active" data-class="all">All</button>
-      <button class="filter-btn" data-class="Character">Character</button>
-      <button class="filter-btn" data-class="Game">Game</button>
-      <button class="filter-btn" data-class="Setting">Setting</button>
-      <button class="filter-btn" data-class="Plot Detail">Plot Detail</button>
-      <button class="filter-btn" data-class="Product">Product</button>
-      <button class="filter-btn" data-class="Metashow">Metashow</button>
-      <button class="filter-btn" data-class="Index View">Index View</button>
-      <button class="filter-btn" data-class="Continuity">Continuity</button>
+      <button class="filter-btn class-filter-btn active" data-class="all" aria-pressed="true">All</button>
+      <button class="filter-btn class-filter-btn" data-class="Character" aria-pressed="false">Character</button>
+      <button class="filter-btn class-filter-btn" data-class="Game" aria-pressed="false">Game</button>
+      <button class="filter-btn class-filter-btn" data-class="Setting" aria-pressed="false">Setting</button>
+      <button class="filter-btn class-filter-btn" data-class="Plot Detail" aria-pressed="false">Plot Detail</button>
+      <button class="filter-btn class-filter-btn" data-class="Product" aria-pressed="false">Product</button>
+      <button class="filter-btn class-filter-btn" data-class="Metashow" aria-pressed="false">Metashow</button>
+      <button class="filter-btn class-filter-btn" data-class="Index View" aria-pressed="false">Index View</button>
+    </div>
+    <div class="filter-row season-filter-row" role="group" aria-label="Filter by season or continuity">
+      <span class="filter-label">Season:</span>
+      <button class="filter-btn season-btn season-1" data-season="1" aria-pressed="false">Season 1</button>
+      <button class="filter-btn season-btn season-2" data-season="2" aria-pressed="false">Season 2</button>
+      <button class="filter-btn season-btn season-3" data-season="3" aria-pressed="false">Season 3</button>
+      <button class="filter-btn season-btn season-4" data-season="4" aria-pressed="false">Season 4</button>
+      <button class="filter-btn continuity-filter-btn" data-scope="Continuity" aria-pressed="false">Continuity</button>
     </div>
   </div>
 
@@ -549,6 +604,8 @@
   let allTerms = [];
   let appearancesIndex = [];
   let activeClass = 'all';
+  let activeSeason = null;
+  let continuityOnly = false;
   let searchQuery = '';
 
   function escapeHtml(value) {
@@ -806,6 +863,43 @@ function buildTermEpisodeMap(appearancesData) {
   }
 
 
+  function termAppearsInSeason(term, season) {
+    if (!Array.isArray(term.episodes) || !term.episodes.length) return false;
+
+    return term.episodes.some(ep => {
+      const ge = Number(ep.ge);
+      if (!Number.isFinite(ge)) return false;
+
+      if (season === 1) return ge >= 1 && ge <= 9;
+      if (season === 2) return ge >= 10 && ge <= 15;
+      if (season === 3) return ge >= 16 && ge <= 27;
+      if (season === 4) return ge >= 28;
+      return true;
+    });
+  }
+
+  function updateClassFilterButtons() {
+    document.querySelectorAll('.class-filter-btn').forEach(btn => {
+      const isActive = btn.dataset.class === activeClass;
+      btn.classList.toggle('active', isActive);
+      btn.setAttribute('aria-pressed', isActive ? 'true' : 'false');
+    });
+  }
+
+  function updateScopeFilterButtons() {
+    document.querySelectorAll('.season-btn').forEach(btn => {
+      const isActive = !continuityOnly && activeSeason === Number(btn.dataset.season);
+      btn.classList.toggle('active', isActive);
+      btn.setAttribute('aria-pressed', isActive ? 'true' : 'false');
+    });
+
+    const continuityButton = document.querySelector('.continuity-filter-btn');
+    if (continuityButton) {
+      continuityButton.classList.toggle('active', continuityOnly);
+      continuityButton.setAttribute('aria-pressed', continuityOnly ? 'true' : 'false');
+    }
+  }
+
   function render() {
     if (activeClass === 'Index View') {
       renderIndexView();
@@ -830,13 +924,20 @@ function buildTermEpisodeMap(appearancesData) {
       const terms = grouped[letter];
       if (!terms.length) return;
 
-      const inFilter = t => activeClass === 'all' || t.class === activeClass;
+      const inClassFilter = t => activeClass === 'all' || t.class === activeClass;
+      const inSeasonFilter = t => activeSeason === null || termAppearsInSeason(t, activeSeason);
+      const inContinuityFilter = t => !continuityOnly || t.class === 'Continuity';
       const inSearch = t => {
         if (!q) return true;
         const plainDef = stripSpoilerTokens(t.definition).toLowerCase();
         return t.term.toLowerCase().includes(q) || plainDef.includes(q);
       };
-      const sectionTerms = terms.filter(t => inFilter(t) && inSearch(t));
+      const sectionTerms = terms.filter(t =>
+        inClassFilter(t) &&
+        inSeasonFilter(t) &&
+        inContinuityFilter(t) &&
+        inSearch(t)
+      );
       if (!sectionTerms.length) return;
 
       html += `<section class="alpha-section" id="letter-${letter}"><p class="alpha-heading">${letter}</p><dl>`;
@@ -896,14 +997,58 @@ function buildTermEpisodeMap(appearancesData) {
 
   document.getElementById('search').addEventListener('input', e => { searchQuery = e.target.value; render(); });
 
-  document.querySelectorAll('.filter-btn').forEach(btn => {
+  document.querySelectorAll('.class-filter-btn').forEach(btn => {
     btn.addEventListener('click', () => {
-      document.querySelectorAll('.filter-btn').forEach(b => b.classList.remove('active'));
-      btn.classList.add('active');
       activeClass = btn.dataset.class;
+
+      if (continuityOnly) {
+        continuityOnly = false;
+      }
+
+      if (activeClass === 'Index View') {
+        activeSeason = null;
+      }
+
+      updateClassFilterButtons();
+      updateScopeFilterButtons();
       render();
     });
   });
+
+  document.querySelectorAll('.season-btn').forEach(btn => {
+    btn.addEventListener('click', () => {
+      const selectedSeason = Number(btn.dataset.season);
+
+      activeSeason = activeSeason === selectedSeason && !continuityOnly
+        ? null
+        : selectedSeason;
+      continuityOnly = false;
+
+      if (activeClass === 'Index View') {
+        activeClass = 'all';
+      }
+
+      updateClassFilterButtons();
+      updateScopeFilterButtons();
+      render();
+    });
+  });
+
+  const continuityFilterButton = document.querySelector('.continuity-filter-btn');
+  if (continuityFilterButton) {
+    continuityFilterButton.addEventListener('click', () => {
+      continuityOnly = !continuityOnly;
+      activeSeason = null;
+
+      if (continuityOnly || activeClass === 'Index View') {
+        activeClass = 'all';
+      }
+
+      updateClassFilterButtons();
+      updateScopeFilterButtons();
+      render();
+    });
+  }
 
   window.addEventListener('hashchange', scrollToHashTarget);
 
