@@ -2136,7 +2136,7 @@
   async function renderNavigation() {
     try {
       const response = await fetch(configUrl, { cache: 'no-store' });
-      if (!response.ok) throw new Error(`Navigation request failed: ${response.status}`);
+      if (!response.ok) throw naew Error(`Navigation request failed: ${response.status}`);
 
       const config = await response.json();
       if (!config || !Array.isArray(config.buttons)) {
