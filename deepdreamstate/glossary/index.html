@@ -182,6 +182,49 @@
     .search-wrap input::placeholder { color: rgba(232,232,232,0.4); }
     .search-wrap input:focus { border-color: rgba(232,232,232,0.6); }
     .search-icon { position: absolute; left: 0.75rem; top: 50%; transform: translateY(-50%); opacity: 0.4; font-size: 1rem; pointer-events: none; }
+    .search-autocomplete {
+      position: absolute;
+      top: calc(100% + 0.35rem);
+      left: 0;
+      right: 0;
+      z-index: 50;
+      display: none;
+      overflow: hidden;
+      border: 1px solid rgba(232,232,232,0.28);
+      border-radius: 6px;
+      background: rgba(10,5,16,0.98);
+      box-shadow: 0 0.8rem 2rem rgba(0,0,0,0.45);
+    }
+    .search-autocomplete.open { display: block; }
+    .autocomplete-option {
+      width: 100%;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 1rem;
+      padding: 0.65rem 0.85rem;
+      border: 0;
+      border-bottom: 1px solid rgba(232,232,232,0.08);
+      background: transparent;
+      color: #e8e8e8;
+      font-family: 'IM Fell DW Pica', serif;
+      text-align: left;
+      cursor: pointer;
+    }
+    .autocomplete-option:last-child { border-bottom: 0; }
+    .autocomplete-option:hover,
+    .autocomplete-option.active {
+      background: rgba(232,232,232,0.14);
+      color: #ffffff;
+    }
+    .autocomplete-term { font-size: 0.95rem; letter-spacing: 0.03em; }
+    .autocomplete-class {
+      flex-shrink: 0;
+      font-size: 0.62rem;
+      letter-spacing: 0.12em;
+      text-transform: uppercase;
+      opacity: 0.52;
+    }
     .filter-row { display: flex; gap: 0.5rem; flex-wrap: wrap; align-items: center; }
     .season-filter-row {
       padding-top: 0.15rem;
@@ -536,7 +579,22 @@
   <div class="controls">
     <div class="search-wrap">
       <span class="search-icon" aria-hidden="true">⌕</span>
-      <input type="search" id="search" placeholder="Search terms and definitions…" aria-label="Search glossary">
+      <input
+        type="search"
+        id="search"
+        placeholder="Search terms and definitions…"
+        aria-label="Search glossary"
+        aria-autocomplete="list"
+        aria-controls="search-autocomplete"
+        aria-expanded="false"
+        autocomplete="off"
+      >
+      <div
+        class="search-autocomplete"
+        id="search-autocomplete"
+        role="listbox"
+        aria-label="Glossary term suggestions"
+      ></div>
     </div>
     <div class="filter-row" role="group" aria-label="Filter by class">
       <span class="filter-label">Filter:</span>
@@ -607,6 +665,8 @@
   let activeSeason = null;
   let continuityOnly = false;
   let searchQuery = '';
+  let autocompleteMatches = [];
+  let activeAutocompleteIndex = -1;
 
   function escapeHtml(value) {
     return String(value).replace(/[&<>"']/g, ch => ({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;'}[ch]));
@@ -900,21 +960,122 @@ function buildTermEpisodeMap(appearancesData) {
     }
   }
 
+  function normalizeSearchText(value) {
+    return String(value || '').toLowerCase().trim().replace(/\s+/g, ' ');
+  }
+
+  function termPassesScopeFilters(term) {
+    const inClassFilter = activeClass === 'all' || term.class === activeClass;
+    const inSeasonFilter = activeSeason === null || termAppearsInSeason(term, activeSeason);
+    const inContinuityFilter = !continuityOnly || term.class === 'Continuity';
+    return inClassFilter && inSeasonFilter && inContinuityFilter;
+  }
+
+  function getSearchScore(term, query) {
+    const termText = normalizeSearchText(term.term);
+    const definitionText = normalizeSearchText(stripSpoilerTokens(term.definition || ''));
+
+    if (termText === query) return 0;
+    if (termText.startsWith(query)) return 100 + ((termText.length - query.length) / 1000);
+
+    const words = termText.split(/[^a-z0-9]+/).filter(Boolean);
+    const wordIndex = words.findIndex(word => word.startsWith(query));
+    if (wordIndex !== -1) return 200 + wordIndex + ((termText.length - query.length) / 1000);
+
+    const termIndex = termText.indexOf(query);
+    if (termIndex !== -1) return 300 + termIndex + ((termText.length - query.length) / 1000);
+
+    const definitionIndex = definitionText.indexOf(query);
+    if (definitionIndex !== -1) return 1000 + (definitionIndex / 1000);
+
+    return null;
+  }
+
+  function getAutocompleteScore(term, query) {
+    const termText = normalizeSearchText(term.term);
+
+    if (termText === query) return 0;
+    if (termText.startsWith(query)) return 100 + ((termText.length - query.length) / 1000);
+
+    const words = termText.split(/[^a-z0-9]+/).filter(Boolean);
+    const wordIndex = words.findIndex(word => word.startsWith(query));
+    if (wordIndex !== -1) return 200 + wordIndex + ((termText.length - query.length) / 1000);
+
+    const termIndex = termText.indexOf(query);
+    if (termIndex !== -1) return 300 + termIndex + ((termText.length - query.length) / 1000);
+
+    return null;
+  }
+
+  function renderTermEntry(term) {
+    const termSlug = slugify(term.term);
+    const classSlug = CLASS_SLUG(term.class);
+
+    const epMeta = (Array.isArray(term.episodes) && term.episodes.length)
+      ? '<span class="term-meta">Appears in: ' + term.episodes.map(e => {
+          const label = `S${e.season}:E${e.episode} / GE${e.ge}`;
+          return e.url ? `<a href="${escapeHtml(e.url)}" target="_blank" rel="noopener">${label}</a>` : label;
+        }).join(', ') + '</span>'
+      : '';
+
+    const performerHtml = (term.performer && term.performer_url)
+      ? `<span class="term-performer">Played by <a href="${escapeHtml(term.performer_url)}" target="_blank" rel="noopener">${escapeHtml(term.performer)}</a></span>`
+      : '';
+
+    const escapedDef = applySpoilerTokens(escapeHtml(term.definition));
+    const linkHtml = (term.links && term.links.length)
+      ? ' ' + term.links.map(l => `<a href="${escapeHtml(safeUrl(l.url))}" target="_blank" rel="noopener">${escapeHtml(l.text)}</a>`).join(', ')
+      : '';
+
+    return `<div class="term-entry" id="${termSlug}">
+        <dt><span class="term-name">${escapeHtml(term.term)}</span><span class="term-class class-${classSlug}">${escapeHtml(term.class)}</span></dt>
+        <dd>${escapedDef}${linkHtml}${performerHtml}${epMeta}</dd>
+      </div>`;
+  }
+
   function render() {
     if (activeClass === 'Index View') {
+      closeAutocomplete();
+      document.getElementById('alpha-nav').style.display = 'none';
       renderIndexView();
       return;
     }
 
     const body = document.getElementById('glossary-body');
     const noResults = document.getElementById('no-results');
-    const q = searchQuery.toLowerCase();
+    const alphaNav = document.getElementById('alpha-nav');
+    const q = normalizeSearchText(searchQuery);
+    const scopeTerms = allTerms.filter(termPassesScopeFilters);
+
+    if (q) {
+      alphaNav.style.display = 'none';
+
+      const rankedTerms = scopeTerms
+        .map(term => ({ term, score: getSearchScore(term, q) }))
+        .filter(item => item.score !== null)
+        .sort((a, b) =>
+          a.score - b.score ||
+          a.term.term.length - b.term.term.length ||
+          a.term.term.localeCompare(b.term.term)
+        )
+        .map(item => item.term);
+
+      body.innerHTML = rankedTerms.length
+        ? `<section class="alpha-section" id="search-results"><p class="alpha-heading">Search Results</p><dl>${rankedTerms.map(renderTermEntry).join('')}</dl></section>`
+        : '';
+
+      noResults.style.display = rankedTerms.length ? 'none' : 'block';
+      injectDefinedTermSchema(allTerms);
+      return;
+    }
+
+    alphaNav.style.display = 'flex';
 
     const grouped = {};
-    ALPHABET.forEach(l => grouped[l] = []);
-    allTerms.forEach(t => {
-      const letter = t.term ? t.term[0].toUpperCase() : '';
-      if (grouped[letter]) grouped[letter].push(t);
+    ALPHABET.forEach(letter => { grouped[letter] = []; });
+    scopeTerms.forEach(term => {
+      const letter = term.term ? term.term[0].toUpperCase() : '';
+      if (grouped[letter]) grouped[letter].push(term);
     });
 
     let html = '';
@@ -924,51 +1085,9 @@ function buildTermEpisodeMap(appearancesData) {
       const terms = grouped[letter];
       if (!terms.length) return;
 
-      const inClassFilter = t => activeClass === 'all' || t.class === activeClass;
-      const inSeasonFilter = t => activeSeason === null || termAppearsInSeason(t, activeSeason);
-      const inContinuityFilter = t => !continuityOnly || t.class === 'Continuity';
-      const inSearch = t => {
-        if (!q) return true;
-        const plainDef = stripSpoilerTokens(t.definition).toLowerCase();
-        return t.term.toLowerCase().includes(q) || plainDef.includes(q);
-      };
-      const sectionTerms = terms.filter(t =>
-        inClassFilter(t) &&
-        inSeasonFilter(t) &&
-        inContinuityFilter(t) &&
-        inSearch(t)
-      );
-      if (!sectionTerms.length) return;
-
+      anyVisible = true;
       html += `<section class="alpha-section" id="letter-${letter}"><p class="alpha-heading">${letter}</p><dl>`;
-
-      sectionTerms.forEach(t => {
-        anyVisible = true;
-        const termSlug = slugify(t.term);
-        const classSlug = CLASS_SLUG(t.class);
-
-        const epMeta = (Array.isArray(t.episodes) && t.episodes.length)
-          ? '<span class="term-meta">Appears in: ' + t.episodes.map(e => {
-              const label = `S${e.season}:E${e.episode} / GE${e.ge}`;
-              return e.url ? `<a href="${escapeHtml(e.url)}" target="_blank" rel="noopener">${label}</a>` : label;
-            }).join(', ') + '</span>'
-          : '';
-
-        const performerHtml = (t.performer && t.performer_url)
-          ? `<span class="term-performer">Played by <a href="${escapeHtml(t.performer_url)}" target="_blank" rel="noopener">${escapeHtml(t.performer)}</a></span>`
-          : '';
-
-        const escapedDef = applySpoilerTokens(escapeHtml(t.definition));
-        const linkHtml = (t.links && t.links.length)
-          ? ' ' + t.links.map(l => `<a href="${escapeHtml(safeUrl(l.url))}" target="_blank" rel="noopener">${escapeHtml(l.text)}</a>`).join(', ')
-          : '';
-
-        html += `<div class="term-entry" id="${termSlug}">
-            <dt><span class="term-name">${escapeHtml(t.term)}</span><span class="term-class class-${classSlug}">${escapeHtml(t.class)}</span></dt>
-            <dd>${escapedDef}${linkHtml}${performerHtml}${epMeta}</dd>
-          </div>`;
-      });
-
+      html += terms.map(renderTermEntry).join('');
       html += '</dl></section>';
     });
 
@@ -995,7 +1114,140 @@ function buildTermEpisodeMap(appearancesData) {
     document.head.appendChild(script);
   }
 
-  document.getElementById('search').addEventListener('input', e => { searchQuery = e.target.value; render(); });
+  const searchInput = document.getElementById('search');
+  const autocompleteBox = document.getElementById('search-autocomplete');
+
+  function closeAutocomplete() {
+    autocompleteMatches = [];
+    activeAutocompleteIndex = -1;
+    autocompleteBox.innerHTML = '';
+    autocompleteBox.classList.remove('open');
+    searchInput.setAttribute('aria-expanded', 'false');
+    searchInput.removeAttribute('aria-activedescendant');
+  }
+
+  function setActiveAutocompleteIndex(index) {
+    if (!autocompleteMatches.length) {
+      activeAutocompleteIndex = -1;
+      return;
+    }
+
+    activeAutocompleteIndex = (index + autocompleteMatches.length) % autocompleteMatches.length;
+
+    autocompleteBox.querySelectorAll('.autocomplete-option').forEach((option, optionIndex) => {
+      const isActive = optionIndex === activeAutocompleteIndex;
+      option.classList.toggle('active', isActive);
+      option.setAttribute('aria-selected', isActive ? 'true' : 'false');
+    });
+
+    const activeOption = document.getElementById(`autocomplete-option-${activeAutocompleteIndex}`);
+    if (activeOption) {
+      searchInput.setAttribute('aria-activedescendant', activeOption.id);
+      activeOption.scrollIntoView({ block: 'nearest' });
+    }
+  }
+
+  function renderAutocomplete() {
+    const q = normalizeSearchText(searchInput.value);
+
+    if (!q || activeClass === 'Index View' || !allTerms.length) {
+      closeAutocomplete();
+      return;
+    }
+
+    autocompleteMatches = allTerms
+      .filter(termPassesScopeFilters)
+      .map(term => ({ term, score: getAutocompleteScore(term, q) }))
+      .filter(item => item.score !== null)
+      .sort((a, b) =>
+        a.score - b.score ||
+        a.term.term.length - b.term.term.length ||
+        a.term.term.localeCompare(b.term.term)
+      )
+      .slice(0, 8)
+      .map(item => item.term);
+
+    if (!autocompleteMatches.length) {
+      closeAutocomplete();
+      return;
+    }
+
+    autocompleteBox.innerHTML = autocompleteMatches.map((term, index) =>
+      `<button
+        type="button"
+        class="autocomplete-option${index === 0 ? ' active' : ''}"
+        id="autocomplete-option-${index}"
+        role="option"
+        aria-selected="${index === 0 ? 'true' : 'false'}"
+        data-autocomplete-index="${index}"
+      ><span class="autocomplete-term">${escapeHtml(term.term)}</span><span class="autocomplete-class">${escapeHtml(term.class)}</span></button>`
+    ).join('');
+
+    activeAutocompleteIndex = 0;
+    autocompleteBox.classList.add('open');
+    searchInput.setAttribute('aria-expanded', 'true');
+    searchInput.setAttribute('aria-activedescendant', 'autocomplete-option-0');
+  }
+
+  function selectAutocompleteTerm(term) {
+    if (!term) return;
+
+    searchInput.value = term.term;
+    searchQuery = term.term;
+    closeAutocomplete();
+    render();
+
+    window.requestAnimationFrame(() => {
+      const target = document.getElementById(slugify(term.term));
+      if (!target) return;
+      target.scrollIntoView({ behavior: 'smooth', block: 'start' });
+      target.classList.add('term-entry-highlight');
+      window.setTimeout(() => target.classList.remove('term-entry-highlight'), 2200);
+    });
+  }
+
+  searchInput.addEventListener('input', event => {
+    searchQuery = event.target.value;
+    render();
+    renderAutocomplete();
+  });
+
+  searchInput.addEventListener('focus', renderAutocomplete);
+
+  searchInput.addEventListener('keydown', event => {
+    if (!autocompleteBox.classList.contains('open') || !autocompleteMatches.length) {
+      if (event.key === 'Escape') closeAutocomplete();
+      return;
+    }
+
+    if (event.key === 'ArrowDown') {
+      event.preventDefault();
+      setActiveAutocompleteIndex(activeAutocompleteIndex + 1);
+    } else if (event.key === 'ArrowUp') {
+      event.preventDefault();
+      setActiveAutocompleteIndex(activeAutocompleteIndex - 1);
+    } else if (event.key === 'Enter') {
+      event.preventDefault();
+      selectAutocompleteTerm(autocompleteMatches[activeAutocompleteIndex]);
+    } else if (event.key === 'Escape') {
+      event.preventDefault();
+      closeAutocomplete();
+    }
+  });
+
+  autocompleteBox.addEventListener('pointerdown', event => {
+    if (event.target.closest('.autocomplete-option')) event.preventDefault();
+  });
+
+  autocompleteBox.addEventListener('click', event => {
+    const option = event.target.closest('.autocomplete-option');
+    if (!option) return;
+    selectAutocompleteTerm(autocompleteMatches[Number(option.dataset.autocompleteIndex)]);
+  });
+
+  document.addEventListener('click', event => {
+    if (!event.target.closest('.search-wrap')) closeAutocomplete();
+  });
 
   document.querySelectorAll('.class-filter-btn').forEach(btn => {
     btn.addEventListener('click', () => {
@@ -1012,6 +1264,7 @@ function buildTermEpisodeMap(appearancesData) {
       updateClassFilterButtons();
       updateScopeFilterButtons();
       render();
+      renderAutocomplete();
     });
   });
 
@@ -1031,6 +1284,7 @@ function buildTermEpisodeMap(appearancesData) {
       updateClassFilterButtons();
       updateScopeFilterButtons();
       render();
+      renderAutocomplete();
     });
   });
 
@@ -1047,6 +1301,7 @@ function buildTermEpisodeMap(appearancesData) {
       updateClassFilterButtons();
       updateScopeFilterButtons();
       render();
+      renderAutocomplete();
     });
   }
 
