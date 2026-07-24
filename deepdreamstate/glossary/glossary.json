@@ -2320,13 +2320,13 @@
     "definition": "In Snarecraft, three official teams, Team Thorns, Team Alchemy, and Team Flowers, hunt the fugitives openly, but Z reveals in Quintessence that he keeps a fourth, unofficial team in reserve: a group of trained wolfgirls held in a kennel and conditioned to track by scent rather than reasoning. Past subjects appear to end up here, suggesting the kennel is one of the endpoint scenarios built into Vale Four's conditioning protocols rather than an improvised punishment.",
     "links": []
   },
-  {
+{
     "term": "The Corner",
     "class": "Plot Detail",
     "definition": "An unsettling reference to Deep Ward's disciplinary protocols, raised by Leandra in the library scene of Quintessence. Leandra, who knows the place best, is not always coherent about it, but the surrounding context suggests The Corner involves {{spoiler}}extended isolation, comparable to solitary confinement{{/spoiler}}. She distinguishes it from the lesser disciplinary state of Time Out and from the more totalizing, clockless state she calls Notime, without ever fully resolving which of the three she and Meg are actually inside.",
     "links": []
   },
-{
+  {
     "term": "xxDarkMage420xx",
     "class": "Plot Detail",
     "definition": "An online handle referenced in a note found on a storage box inside Snarecraft's library assets: 'Raided storage like xxDarkMage420xx said - good enough for background l - o - l.' Elle traces the name to what looks like a mundane explanation for the game's real documents: an intern grabbed whatever was sitting in storage to fill the library set without checking what was in the boxes. {{spoiler}}The ad sequence closing Quintessence complicates that read considerably. Z tells Iris he's been teaching himself to code, calls it 'DARK MAGIC,' and admits he 'might have made a few errors' - language that lines up with the handle closely enough to raise the question of whether the intern story was ever the whole truth{{/spoiler}}.",
@@ -2352,7 +2352,7 @@
   {
     "term": "Disgraced. Deadly. Desperate.",
     "class": "Plot Detail",
-    "definition": "...",
+    "definition": "A three-word chant delivered by the full cast during the Quintessence-closing ad, cataloguing Tessa's descent as she cycles through Vale Four's games. Structurally it mirrors the earlier threefold naming pattern of 'Violet, Velvet, Vixen,' converting a character's unraveling into a marketable, rhythmic tagline. In-world, it doubles as the ad slogan for Claws Out, the fem-fighting game built on subject character data, pitched with a deliberate Russ Meyer-style exploitation-cinema sensibility: high glamour, high camp, high violence.",
     "links": [
       {
         "text": "Russ Meyer (Wikipedia)",
