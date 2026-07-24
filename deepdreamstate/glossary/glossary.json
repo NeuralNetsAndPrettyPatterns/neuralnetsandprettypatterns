@@ -2325,5 +2325,40 @@
     "class": "Plot Detail",
     "definition": "An unsettling reference to Deep Ward's disciplinary protocols, raised by Leandra in the library scene of Quintessence. Leandra, who knows the place best, is not always coherent about it, but the surrounding context suggests The Corner involves {{spoiler}}extended isolation, comparable to solitary confinement{{/spoiler}}. She distinguishes it from the lesser disciplinary state of Time Out and from the more totalizing, clockless state she calls Notime, without ever fully resolving which of the three she and Meg are actually inside.",
     "links": []
+  },
+{
+    "term": "xxDarkMage420xx",
+    "class": "Plot Detail",
+    "definition": "An online handle referenced in a note found on a storage box inside Snarecraft's library assets: 'Raided storage like xxDarkMage420xx said - good enough for background l - o - l.' Elle traces the name to what looks like a mundane explanation for the game's real documents: an intern grabbed whatever was sitting in storage to fill the library set without checking what was in the boxes. {{spoiler}}The ad sequence closing Quintessence complicates that read considerably. Z tells Iris he's been teaching himself to code, calls it 'DARK MAGIC,' and admits he 'might have made a few errors' - language that lines up with the handle closely enough to raise the question of whether the intern story was ever the whole truth{{/spoiler}}.",
+    "links": []
+  },
+  {
+    "term": "Plug and Play",
+    "class": "Game",
+    "definition": "An in-game command chanted by Naia and Hespa's avatars and picked up by Porsche and Elle as they escalate through conditioning states. By the postgame ad sequence it has become Vale Four's actual advertising slogan and chorus, chanted by the full cast as Z and Iris pitch a future where players 'aren't just consumers, they're products.' The phrase is a standing term across the wider Neuralverse rather than a Vale Four coinage, most directly tied to the xxboxx series and its Plug and Play track.",
+    "links": [
+      {
+        "text": "Plug and Play (Patreon)",
+        "url": "https://www.patreon.com/posts/plug-and-play-28678257"
+      }
+    ]
+  },
+  {
+    "term": "Brainbow",
+    "class": "Plot Detail",
+    "definition": "A reward dangled by Naia's INGAME avatar to keep Porsche and Elle playing past the point of safety: 'Don't stop. You're gonna get a BRAINBOW!' The nonsense-reward phrasing sits in the same family as gold stars and liquid praise, sensory-coded incentive language standing in for whatever is actually being extracted from the subject. The term is tied specifically to Iris, whose arc across the Neuralverse repeatedly draws on her namesake in Greek mythology, the goddess of the rainbow and messenger between worlds (see: Rainbow). Brainbow reads as her signature reward-mechanic, a rainbow re-coded as a neurological hook.",
+    "links": []
+  },
+json
+  {
+    "term": "Disgraced. Deadly. Desperate.",
+    "class": "Plot Detail",
+    "definition": "...",
+    "links": [
+      {
+        "text": "Russ Meyer (Wikipedia)",
+        "url": "https://en.wikipedia.org/wiki/Russ_Meyer"
+      }
+    ]
   }
 ]
