@@ -3017,6 +3017,76 @@
       "url": "/deepdreamstate/arcs/vale-four/episode-12-quintessence/"
     }
   ]
+},
+{
+  "type": "episode",
+  "ge": 42,
+  "season": 4,
+  "episode": 15,
+  "title": "Sublimate",
+  "url": "",
+  "cast": [
+    {
+      "performerId": "neural-nets-and-pretty-patterns",
+      "stageName": "Neural Nets and Pretty Patterns",
+      "character": "Z / Dr. Zev Talcott"
+    },
+    {
+      "performerId": "valentina-vallay",
+      "stageName": "Valentina Vallay",
+      "character": "Gia"
+    },
+    {
+      "performerId": "vixen-clouds",
+      "stageName": "Vixen Clouds",
+      "character": "Clara"
+    },
+    {
+      "performerId": "panda-moanium",
+      "stageName": "Panda Moanium",
+      "character": "Celeste"
+    },
+    {
+      "performerId": "princess-ella",
+      "stageName": "Princess Ella",
+      "character": "Porsche"
+    },
+    {
+      "performerId": "echo-doll",
+      "stageName": "Echo Doll",
+      "character": "Elle Lawson"
+    },
+    {
+      "performerId": "swirls-and-twirls",
+      "stageName": "Swirls and Twirls",
+      "character": "Iris Vale"
+    },
+    {
+      "performerId": "naomi-biela",
+      "stageName": "Naomi Biela",
+      "character": "Blake"
+    },
+    {
+      "performerId": "syndi-rella",
+      "stageName": "Syndi Rella",
+      "character": "Hespa Apate"
+    },
+    {
+      "performerId": "dizzy-dollie",
+      "stageName": "Dizzy Dollie",
+      "character": "Naia Anderson"
+    },
+    {
+      "performerId": "ring-of-kees",
+      "stageName": "Ring of Kees",
+      "character": "Tessa Finn"
+    },
+    {
+      "performerId": "talithara",
+      "stageName": "Talithara",
+      "character": "Leandra"
+    }
+  ]
 }
 ]
 }
