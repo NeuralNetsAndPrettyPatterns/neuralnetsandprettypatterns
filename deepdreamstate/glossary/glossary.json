@@ -2357,7 +2357,36 @@
       {
         "text": "Russ Meyer (Wikipedia)",
         "url": "https://en.wikipedia.org/wiki/Russ_Meyer"
-      }
-    ]
+      },
+      {
+    "term": "Notime",
+    "class": "Plot Detail",
+    "definition": "A disciplinary state Leandra distinguishes from Time Out in Sealed by what it lacks rather than what it enforces: no clock, no view outside, no permission to speak aloud. She identifies the moment she and Meg were placed in Notime as when they were discovered in the shower. Where Time Out is a bounded punishment for minor infractions, Notime has no stated duration, asking the subject to give up the concept of time passing at all.",
+    "links": []
+  },
+  {
+    "term": "Time Out",
+    "class": "Plot Detail",
+    "definition": "The lesser of two disciplinary states named by Leandra in Sealed, reserved for minor infractions like talking to Maddy extra. Unlike Notime, Time Out still runs on a clock. Leandra's distinction between the two states is the clearest definition either term receives in the show.",
+    "links": []
+  },
+  {
+    "term": "The Map Room",
+    "class": "Setting",
+    "definition": "The reward chamber inside the library that the Head Librarian controls access to. It contains maps described as impossibly perfect, self-updating renderings of the game's terrain, granted for one hour each evening in exchange for a day of service to the library's patrons. Meg's hunger to see the Map Room in full drives the entire bargain of Sealed, and by the episode's end she has stopped negotiating for anything else.",
+    "links": []
+  },
+  {
+    "term": "Head Librarian",
+    "class": "Character",
+    "definition": "The commanding, softly merciless figure who governs the library at the heart of Sealed, billed without confirming her identity on the cast list. She controls the terms of the Map Room bargain, administers Notime, and extracts a joint application from Meg and Leandra rather than allowing either to enter alone. {{spoiler}}She is performed by the same actor behind Naia Anderson, and her manner, her authority over access and discipline, and the name she slips at the very end, 'Thank YOU, Lilly,' all point toward continuity with Naia's established role as an architect of Vale Four's systems.{{/spoiler}}",
+    "links": []
+  },
+  {
+    "term": "Panoptic Library",
+    "class": "Setting",
+    "definition": "{{spoiler}}The formal name for the library at the center of Sealed, a space that indexes, cross-references, and watches its own patrons as thoroughly as it catalogues its maps. The Head Librarian oversees it as a system of surveillance disguised as scholarship: every patron's schedule, tastes, and price are known before they walk through the door. The Corner and Notime are both administered from here, positioning the Panoptic Library as a hub within Deep Ward's disciplinary architecture rather than a mere backdrop.{{/spoiler}}",
+    "links": []
   }
 ]
+ 
