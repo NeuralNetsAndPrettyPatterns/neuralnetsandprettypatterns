@@ -12217,16 +12217,14 @@
       "musicbrainz_work": "https://musicbrainz.org/work/453008d0-fa72-4584-8164-29d452b7a7b2"
     }
   },
- {
+{
     "type": "track",
     "id": "PA55PL7",
     "title": "Performance Improvement Plan",
     "date": "",
     "duration": "18:05",
     "series": [
-      "Mythic",
-      "Neuroplex",
-      "Bimbucks"
+      "Neuroplex"
     ],
     "tags": [
       "Narrative",
