@@ -12198,7 +12198,7 @@
       "patreon": "https://www.patreon.com/posts/it-goes-in-my-143621323"
     }
   },
-  {
+{
     "type": "track",
     "id": "A55uR3U",
     "title": "Mind Set: Assure",
@@ -12215,6 +12215,25 @@
     "links": {
       "patreon": "https://www.patreon.com/posts/146567708",
       "musicbrainz_work": "https://musicbrainz.org/work/453008d0-fa72-4584-8164-29d452b7a7b2"
+    }
+  },
+  {
+    "type": "track",
+    "id": "PA55PL7",
+    "title": "Performance Improvement Plan",
+    "date": "",
+    "duration": "18:05",
+    "series": [
+      "Neuroplex"
+    ],
+    "tags": [
+      "Narrative",
+      "Mantric"
+    ],
+    "url": "https://www.patreon.com/minderaser/posts/performance-plan-164759851",
+    "links": {
+      "patreon": "https://www.patreon.com/minderaser/posts/performance-plan-164759851",
+      "musicbrainz": "https://musicbrainz.org/release/aadd992a-ccfb-4370-b261-7871b3152054"
     }
   }
 ]
