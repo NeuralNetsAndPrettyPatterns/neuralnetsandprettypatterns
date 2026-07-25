@@ -1002,7 +1002,7 @@
         "bulls eye"
       ]
     },
-    {
+  {
       "type": "episode",
       "title": "Luna",
       "seasonNumber": 4,
@@ -1066,6 +1066,41 @@
         "video games",
         "augmented reality",
         "i know exactly who is watching"
+      ]
+    },
+    {
+      "type": "episode",
+      "title": "Sealed",
+      "seasonNumber": 4,
+      "episodeNumber": 13,
+      "globalEpisode": 40,
+      "arc": "Vale Four",
+      "subtitle": "S4E13 | GE40 | Vale Four",
+      "path": "/deepdreamstate/arcs/vale-four/episode-13-sealed/",
+      "aliases": [
+        "s4e13",
+        "s4 e13",
+        "s4:e13",
+        "season 4 episode 13",
+        "a4e13",
+        "arc 4 episode 13",
+        "ge40",
+        "ge 40",
+        "global episode 40",
+        "episode 40",
+        "Vale Four",
+        "snarecraft",
+        "team alchemy",
+        "head librarian",
+        "deep ward",
+        "notime",
+        "time out",
+        "map room",
+        "panoptic library",
+        "video games",
+        "augmented reality",
+        "everything in its place",
+        "everyone in their place"
       ]
     }
   ]
