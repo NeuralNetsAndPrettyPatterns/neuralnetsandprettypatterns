@@ -3087,6 +3087,62 @@
       "character": "Leandra"
     }
   ]
+},
+,
+{
+  "type": "episode",
+  "ge": 40,
+  "season": 4,
+  "episode": 13,
+  "title": "Sealed",
+  "url": "",
+  "cast": [
+    {
+      "performerId": "neural-nets-and-pretty-patterns",
+      "stageName": "Neural Nets and Pretty Patterns",
+      "character": "Z / Dr. Zev Talcott"
+    },
+    {
+      "performerId": "valentina-vallay",
+      "stageName": "Valentina Vallay",
+      "character": "Gia"
+    },
+    {
+      "performerId": "panda-moanium",
+      "stageName": "Panda Moanium",
+      "character": "Celeste"
+    },
+    {
+      "performerId": "vixen-clouds",
+      "stageName": "Vixen Clouds",
+      "character": "Clara"
+    },
+    {
+      "performerId": "echo-doll",
+      "stageName": "Echo Doll",
+      "character": "Elle Lawson"
+    },
+    {
+      "performerId": "princess-ella",
+      "stageName": "Princess Ella",
+      "character": "Porsche"
+    },
+    {
+      "performerId": "bun-li",
+      "stageName": "Bun Li",
+      "character": "Meg Aerin"
+    },
+    {
+      "performerId": "talithara",
+      "stageName": "Talithara",
+      "character": "Leandra"
+    },
+    {
+      "performerId": "dizzy-dollie",
+      "stageName": "Dizzy Dollie",
+      "character": "the Head Librarian"
+    }
+  ]
 }
 ]
 }
