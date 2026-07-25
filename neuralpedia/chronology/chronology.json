@@ -12236,7 +12236,7 @@
       "musicbrainz": "https://musicbrainz.org/release/aadd992a-ccfb-4370-b261-7871b3152054"
     }
   },
-  {
+{
     "type": "track",
     "id": "PA55PL7",
     "title": "Performance Improvement Plan",
@@ -12256,6 +12256,25 @@
       "patreon": "https://www.patreon.com/minderaser/posts/performance-plan-164759851",
       "musicbrainz": "https://musicbrainz.org/release/aadd992a-ccfb-4370-b261-7871b3152054",
       "bmi_work_id": "81263753"
+    }
+  },
+  {
+    "type": "track",
+    "id": "SPKLSC7",
+    "title": "Sparkle Secret",
+    "date": "2026-07-17",
+    "duration": "32:37",
+    "series": [
+      "Neuroplex"
+    ],
+    "tags": [
+      "Narrative",
+      "Audio Drama"
+    ],
+    "url": "https://www.patreon.com/minderaser/posts/sparkle-secret-164138076",
+    "links": {
+      "patreon": "https://www.patreon.com/minderaser/posts/sparkle-secret-164138076",
+      "musicbrainz": "https://musicbrainz.org/release/c20a8d00-ba91-4755-a257-359a6220f363"
     }
   }
 ]
