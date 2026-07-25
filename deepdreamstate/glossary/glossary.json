@@ -2349,7 +2349,7 @@
     "definition": "A reward dangled by Naia's INGAME avatar to keep Porsche and Elle playing past the point of safety: 'Don't stop. You're gonna get a BRAINBOW!' The nonsense-reward phrasing sits in the same family as gold stars and liquid praise, sensory-coded incentive language standing in for whatever is actually being extracted from the subject. The term is tied specifically to Iris, whose arc across the Neuralverse repeatedly draws on her namesake in Greek mythology, the goddess of the rainbow and messenger between worlds (see: Rainbow). Brainbow reads as her signature reward-mechanic, a rainbow re-coded as a neurological hook.",
     "links": []
   },
-  {
+{
     "term": "Disgraced. Deadly. Desperate.",
     "class": "Plot Detail",
     "definition": "A three-word chant delivered by the full cast during the Quintessence-closing ad, cataloguing Tessa's descent as she cycles through Vale Four's games. Structurally it mirrors the earlier threefold naming pattern of 'Violet, Velvet, Vixen,' converting a character's unraveling into a marketable, rhythmic tagline. In-world, it doubles as the ad slogan for Claws Out, the fem-fighting game built on subject character data, pitched with a deliberate Russ Meyer-style exploitation-cinema sensibility: high glamour, high camp, high violence.",
@@ -2357,8 +2357,10 @@
       {
         "text": "Russ Meyer (Wikipedia)",
         "url": "https://en.wikipedia.org/wiki/Russ_Meyer"
-      },
-      {
+      }
+    ]
+  },
+  {
     "term": "Notime",
     "class": "Plot Detail",
     "definition": "A disciplinary state Leandra distinguishes from Time Out in Sealed by what it lacks rather than what it enforces: no clock, no view outside, no permission to speak aloud. She identifies the moment she and Meg were placed in Notime as when they were discovered in the shower. Where Time Out is a bounded punishment for minor infractions, Notime has no stated duration, asking the subject to give up the concept of time passing at all.",
@@ -2389,4 +2391,3 @@
     "links": []
   }
 ]
- 
