@@ -12235,5 +12235,27 @@
       "patreon": "https://www.patreon.com/minderaser/posts/performance-plan-164759851",
       "musicbrainz": "https://musicbrainz.org/release/aadd992a-ccfb-4370-b261-7871b3152054"
     }
+  },
+  {
+    "type": "track",
+    "id": "PA55PL7",
+    "title": "Performance Improvement Plan",
+    "date": "",
+    "duration": "18:05",
+    "series": [
+      "Mythic",
+      "Neuroplex",
+      "Bimbucks"
+    ],
+    "tags": [
+      "Narrative",
+      "Mantric"
+    ],
+    "url": "https://www.patreon.com/minderaser/posts/performance-plan-164759851",
+    "links": {
+      "patreon": "https://www.patreon.com/minderaser/posts/performance-plan-164759851",
+      "musicbrainz": "https://musicbrainz.org/release/aadd992a-ccfb-4370-b261-7871b3152054",
+      "bmi_work_id": "81263753"
+    }
   }
 ]
