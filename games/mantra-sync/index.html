@@ -1,0 +1,1787 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="robots" content="index,follow,max-image-preview:large,max-snippet:-1,max-video-preview:-1">
+    <meta name="googlebot" content="index,follow,max-image-preview:large,max-snippet:-1">
+    <title>Mantra Sync | Neural Nets And Pretty Patterns</title>
+    <link rel="canonical" href="https://neuralnetsandprettypatterns.com/games/mantra-sync/">
+    <meta name="description" content="Mantra Sync is a browser-based mantra memory game by Neural Nets And Pretty Patterns. Choose a series, remember the missing text, then repeat the complete mantra.">
+    <meta name="author" content="Neural Nets And Pretty Patterns">
+    <meta name="theme-color" content="#ff2d78">
+    <link rel="icon" type="image/png" sizes="512x512" href="https://neuralnetsandprettypatterns.com/favicon-transparent.png">
+    <link rel="apple-touch-icon" sizes="512x512" href="https://neuralnetsandprettypatterns.com/favicon-transparent.png">
+
+    <meta property="og:title" content="Mantra Sync | Neural Nets And Pretty Patterns">
+    <meta property="og:description" content="A browser-based mantra memory game by Neural Nets And Pretty Patterns.">
+    <meta property="og:url" content="https://neuralnetsandprettypatterns.com/games/mantra-sync/">
+    <meta property="og:type" content="website">
+    <meta property="og:site_name" content="Neural Nets And Pretty Patterns">
+    <meta name="twitter:card" content="summary">
+    <meta name="twitter:title" content="Mantra Sync | Neural Nets And Pretty Patterns">
+    <meta name="twitter:description" content="A browser-based mantra memory game by Neural Nets And Pretty Patterns.">
+    <meta name="twitter:creator" content="@MCNeuralNets">
+    <meta name="twitter:site" content="@MCNeuralNets">
+
+    <script type="application/ld+json">
+    {
+        "@context": "https://schema.org",
+        "@graph": [
+            {
+                "@type": "BreadcrumbList",
+                "@id": "https://neuralnetsandprettypatterns.com/games/mantra-sync/#breadcrumbs",
+                "itemListElement": [
+                    {
+                        "@type": "ListItem",
+                        "position": 1,
+                        "name": "Neural Nets And Pretty Patterns",
+                        "item": "https://neuralnetsandprettypatterns.com/"
+                    },
+                    {
+                        "@type": "ListItem",
+                        "position": 2,
+                        "name": "Games",
+                        "item": "https://neuralnetsandprettypatterns.com/games/"
+                    },
+                    {
+                        "@type": "ListItem",
+                        "position": 3,
+                        "name": "Mantra Sync",
+                        "item": "https://neuralnetsandprettypatterns.com/games/mantra-sync/"
+                    }
+                ]
+            },
+            {
+                "@type": "WebSite",
+                "@id": "https://neuralnetsandprettypatterns.com/#website",
+                "url": "https://neuralnetsandprettypatterns.com/",
+                "name": "Neural Nets And Pretty Patterns"
+            },
+            {
+                "@type": "Person",
+                "@id": "https://neuralnetsandprettypatterns.com/#nnpp",
+                "name": "Neural Nets And Pretty Patterns",
+                "alternateName": ["NNPP", "Neural Nets & Pretty Patterns"],
+                "url": "https://neuralnetsandprettypatterns.com/",
+                "identifier": {
+                    "@type": "PropertyValue",
+                    "propertyID": "ISNI",
+                    "value": "0000 0005 2877 6254"
+                }
+            },
+            {
+                "@type": "VideoGame",
+                "@id": "https://neuralnetsandprettypatterns.com/games/mantra-sync/#game",
+                "name": "Mantra Sync",
+                "url": "https://neuralnetsandprettypatterns.com/games/mantra-sync/",
+                "description": "A browser-based mantra memory game in which players recall missing text and then retype complete mantras.",
+                "gamePlatform": "Web browser",
+                "playMode": "SinglePlayer",
+                "genre": ["Memory game", "Word game"],
+                "creator": { "@id": "https://neuralnetsandprettypatterns.com/#nnpp" },
+                "inLanguage": "en-US"
+            },
+            {
+                "@type": "WebPage",
+                "@id": "https://neuralnetsandprettypatterns.com/games/mantra-sync/#page",
+                "url": "https://neuralnetsandprettypatterns.com/games/mantra-sync/",
+                "name": "Mantra Sync | Neural Nets And Pretty Patterns",
+                "isPartOf": { "@id": "https://neuralnetsandprettypatterns.com/#website" },
+                "mainEntity": { "@id": "https://neuralnetsandprettypatterns.com/games/mantra-sync/#game" },
+                "breadcrumb": { "@id": "https://neuralnetsandprettypatterns.com/games/mantra-sync/#breadcrumbs" },
+                "inLanguage": "en-US"
+            }
+        ]
+    }
+    </script>
+
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Syne:wght@400;700;800&family=Space+Mono:ital,wght@0,400;0,700;1,400&display=swap" rel="stylesheet">
+
+    <style>
+        :root {
+            --bg: #1a0010;
+            --bg2: #2a0018;
+            --bg3: #380020;
+            --pink: #ff2d78;
+            --pink-mid: #c4215a;
+            --pink-pale: #ffb3cc;
+            --pink-glow: rgba(255,45,120,0.18);
+            --pink-subtle: rgba(255,45,120,0.07);
+            --violet: #7b2fff;
+            --violet-glow: rgba(123,47,255,0.12);
+            --text: #ffe8f0;
+            --text-dim: #d4a0b8;
+            --text-muted: #8a5070;
+            --border: rgba(255,45,120,0.15);
+            --border-hi: rgba(255,45,120,0.4);
+            --success: #ff7eaa;
+            --danger: #ffc1d6;
+            --mono: 'Space Mono', monospace;
+            --display: 'Syne', sans-serif;
+            --sync-level: 0;
+        }
+
+        *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+        html { scroll-behavior: smooth; }
+
+        body {
+            background: var(--bg);
+            color: var(--text);
+            font-family: var(--mono);
+            font-size: 14px;
+            line-height: 1.75;
+            overflow-x: hidden;
+            min-height: 100vh;
+            transition: background-color 0.35s ease;
+        }
+
+        #sparkles {
+            position: fixed;
+            inset: 0;
+            pointer-events: none;
+            z-index: 0;
+        }
+
+        body::after {
+            content: '';
+            position: fixed;
+            inset: 0;
+            background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 200 200' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.85' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)' opacity='0.04'/%3E%3C/svg%3E");
+            pointer-events: none;
+            z-index: 999;
+        }
+
+        .bg-glow {
+            position: fixed;
+            inset: 0;
+            background:
+                radial-gradient(ellipse 60% 50% at 20% 10%, rgba(255,45,120,0.12) 0%, transparent 60%),
+                radial-gradient(ellipse 50% 40% at 80% 80%, rgba(123,47,255,0.1) 0%, transparent 60%),
+                radial-gradient(ellipse 40% 60% at 60% 30%, rgba(255,45,120,0.07) 0%, transparent 55%);
+            pointer-events: none;
+            z-index: 0;
+        }
+
+        .sync-wash {
+            position: fixed;
+            inset: 0;
+            pointer-events: none;
+            z-index: 0;
+            opacity: calc(var(--sync-level) * 0.72);
+            transition: opacity 0.35s ease;
+            background:
+                radial-gradient(circle at 50% 45%, rgba(255,45,120,0.38), transparent 58%),
+                linear-gradient(135deg, rgba(255,45,120,0.16), rgba(123,47,255,0.08));
+        }
+
+        #sync-ripple {
+            position: fixed;
+            left: 50%;
+            top: 50%;
+            width: 40px;
+            height: 40px;
+            border-radius: 50%;
+            border: 2px solid rgba(255,179,204,0.9);
+            transform: translate(-50%, -50%) scale(0);
+            opacity: 0;
+            pointer-events: none;
+            z-index: 998;
+        }
+
+        body.sync-burst #sync-ripple {
+            animation: ripple-burst 0.8s ease-out both;
+        }
+
+        #burst-banner {
+            position: fixed;
+            left: 50%;
+            top: 18%;
+            transform: translateX(-50%);
+            z-index: 1000;
+            padding: 0.55rem 0.9rem;
+            border: 1px solid rgba(255,179,204,0.75);
+            background: rgba(42,0,24,0.92);
+            color: var(--pink-pale);
+            font-family: var(--display);
+            font-weight: 800;
+            letter-spacing: 0.08em;
+            text-align: center;
+            opacity: 0;
+            pointer-events: none;
+        }
+
+        body.sync-burst #burst-banner {
+            animation: burst-banner 0.8s ease both;
+        }
+
+        body.sync-burst main {
+            animation: screen-shake 0.42s linear both;
+        }
+
+        @keyframes ripple-burst {
+            0% { transform: translate(-50%, -50%) scale(0.2); opacity: 1; }
+            100% { transform: translate(-50%, -50%) scale(30); opacity: 0; }
+        }
+
+        @keyframes burst-banner {
+            0%, 100% { opacity: 0; transform: translate(-50%, -12px); }
+            20%, 75% { opacity: 1; transform: translate(-50%, 0); }
+        }
+
+        @keyframes screen-shake {
+            0%, 100% { transform: translate(0, 0); }
+            15% { transform: translate(-5px, 2px); }
+            30% { transform: translate(5px, -2px); }
+            45% { transform: translate(-4px, -1px); }
+            60% { transform: translate(4px, 2px); }
+            75% { transform: translate(-2px, 1px); }
+        }
+
+        main {
+            position: relative;
+            z-index: 1;
+            max-width: 860px;
+            margin: 0 auto;
+            padding: 3rem 1.5rem 5rem;
+        }
+
+        .breadcrumb-nav {
+            font-size: 0.62rem;
+            text-align: center;
+            margin-bottom: 2rem;
+            opacity: 0.6;
+            letter-spacing: 0.14em;
+            text-transform: uppercase;
+        }
+
+        .breadcrumb-nav a { color: var(--text-dim); text-decoration: none; transition: color 0.2s; }
+        .breadcrumb-nav a:hover { color: var(--pink); }
+        .breadcrumb-nav span { margin: 0 0.5em; color: var(--text-muted); }
+
+        .page-header {
+            text-align: center;
+            margin-bottom: 2.25rem;
+            animation: fadeUp 0.5s ease both;
+        }
+
+        .page-kicker {
+            display: inline-flex;
+            align-items: center;
+            gap: 0.5rem;
+            font-size: 0.62rem;
+            letter-spacing: 0.2em;
+            text-transform: uppercase;
+            color: var(--text-muted);
+            margin-bottom: 1rem;
+        }
+
+        .pink-dot {
+            width: 6px;
+            height: 6px;
+            border-radius: 50%;
+            background: var(--pink);
+            box-shadow: 0 0 8px var(--pink), 0 0 16px var(--pink-glow);
+            animation: glow-pulse 2s ease-in-out infinite;
+        }
+
+        @keyframes glow-pulse {
+            0%, 100% { opacity: 1; box-shadow: 0 0 8px var(--pink), 0 0 16px var(--pink-glow); }
+            50% { opacity: 0.5; box-shadow: 0 0 4px var(--pink); }
+        }
+
+        .page-title {
+            font-family: var(--display);
+            font-weight: 800;
+            font-size: clamp(2.8rem, 8vw, 5.5rem);
+            letter-spacing: -0.04em;
+            line-height: 0.95;
+            color: var(--text);
+            margin-bottom: 0.4em;
+        }
+
+        .page-title .pink-word {
+            color: var(--pink);
+            text-shadow: 0 0 40px rgba(255,45,120,0.4);
+        }
+
+        .page-subtitle {
+            font-size: 0.72rem;
+            letter-spacing: 0.1em;
+            text-transform: uppercase;
+            color: var(--text-muted);
+            margin-top: 1rem;
+        }
+
+        .leaderboard {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 2px;
+            margin-bottom: 2rem;
+            animation: fadeUp 0.5s 0.05s ease both;
+        }
+
+        .leader-card {
+            min-height: 108px;
+            padding: 1rem;
+            border: 1px solid var(--border);
+            background: rgba(255,45,120,0.035);
+            text-align: center;
+        }
+
+        .leader-label {
+            display: block;
+            font-size: 0.58rem;
+            letter-spacing: 0.13em;
+            text-transform: uppercase;
+            color: var(--pink);
+            margin-bottom: 0.35rem;
+        }
+
+        .leader-name {
+            display: block;
+            font-family: var(--display);
+            font-weight: 700;
+            font-size: 0.92rem;
+            line-height: 1.25;
+            color: var(--text);
+            overflow-wrap: anywhere;
+        }
+
+        .leader-stat {
+            display: block;
+            margin-top: 0.4rem;
+            color: var(--text-muted);
+            font-size: 0.65rem;
+        }
+
+        .screen {
+            display: none;
+            animation: fadeUp 0.28s ease both;
+        }
+
+        .screen.active { display: block; }
+
+        .panel {
+            border: 1px solid var(--border-hi);
+            background: rgba(255,45,120,0.035);
+            padding: clamp(1rem, 4vw, 1.75rem);
+            box-shadow: 0 0 35px rgba(255,45,120,0.08);
+        }
+
+        .panel + .panel { margin-top: 0.75rem; }
+
+        .section-kicker {
+            color: var(--pink);
+            font-size: 0.6rem;
+            letter-spacing: 0.16em;
+            text-transform: uppercase;
+            margin-bottom: 0.5rem;
+        }
+
+        h2, h3 {
+            font-family: var(--display);
+            line-height: 1.15;
+            color: var(--text);
+        }
+
+        h2 { font-size: clamp(1.5rem, 4vw, 2.2rem); margin-bottom: 0.75rem; }
+        h3 { font-size: 1rem; margin-bottom: 0.65rem; }
+
+        .copy-block {
+            color: var(--text-dim);
+            font-size: 0.82rem;
+            line-height: 1.9;
+            margin-bottom: 1.25rem;
+        }
+
+        .copy-block:last-child { margin-bottom: 0; }
+
+        .btn-row {
+            display: flex;
+            gap: 0.55rem;
+            flex-wrap: wrap;
+            margin-top: 1.25rem;
+        }
+
+        .btn {
+            appearance: none;
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            gap: 0.4rem;
+            min-height: 40px;
+            padding: 0.55rem 1.1rem;
+            font-family: var(--mono);
+            font-size: 0.62rem;
+            letter-spacing: 0.12em;
+            text-transform: uppercase;
+            font-weight: 700;
+            text-decoration: none;
+            border-radius: 2px;
+            cursor: pointer;
+            transition: all 0.18s;
+            white-space: nowrap;
+        }
+
+        .btn:disabled { opacity: 0.45; cursor: not-allowed; }
+        .btn-primary { background: var(--pink); color: #fff; border: 1px solid var(--pink); box-shadow: 0 0 20px rgba(255,45,120,0.3); }
+        .btn-primary:hover:not(:disabled) { background: transparent; color: var(--pink); box-shadow: none; }
+        .btn-ghost { background: transparent; border: 1px solid var(--border-hi); color: var(--text-dim); }
+        .btn-ghost:hover:not(:disabled) { border-color: var(--pink); color: var(--text); box-shadow: 0 0 20px rgba(255,45,120,0.18); }
+
+        .field { margin-top: 1rem; }
+        .field:first-child { margin-top: 0; }
+
+        .field-label {
+            display: block;
+            margin-bottom: 0.4rem;
+            color: var(--text-dim);
+            font-size: 0.66rem;
+            letter-spacing: 0.09em;
+            text-transform: uppercase;
+        }
+
+        input[type="text"], textarea {
+            width: 100%;
+            border: 1px solid var(--border-hi);
+            border-radius: 2px;
+            background: rgba(10,0,7,0.72);
+            color: var(--text);
+            font-family: var(--mono);
+            font-size: 0.92rem;
+            line-height: 1.55;
+            padding: 0.8rem 0.9rem;
+            outline: none;
+            transition: border-color 0.18s, box-shadow 0.18s;
+        }
+
+        textarea { min-height: 110px; resize: vertical; }
+
+        input[type="text"]:focus, textarea:focus {
+            border-color: var(--pink);
+            box-shadow: 0 0 0 2px rgba(255,45,120,0.11);
+        }
+
+        input::placeholder, textarea::placeholder { color: var(--text-muted); }
+
+        .option-grid {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 2px;
+            margin-top: 0.65rem;
+        }
+
+        .option-grid.series-grid { grid-template-columns: repeat(2, 1fr); }
+
+        .choice {
+            position: relative;
+            display: block;
+        }
+
+        .choice input {
+            position: absolute;
+            opacity: 0;
+            pointer-events: none;
+        }
+
+        .choice-label {
+            display: flex;
+            min-height: 70px;
+            height: 100%;
+            flex-direction: column;
+            justify-content: center;
+            padding: 0.75rem;
+            border: 1px solid var(--border);
+            background: rgba(255,45,120,0.025);
+            cursor: pointer;
+            transition: background 0.18s, border-color 0.18s, color 0.18s;
+        }
+
+        .choice-label strong {
+            font-family: var(--display);
+            font-size: 0.85rem;
+            color: var(--text);
+        }
+
+        .choice-label small {
+            margin-top: 0.2rem;
+            color: var(--text-muted);
+            font-size: 0.62rem;
+            line-height: 1.4;
+        }
+
+        .choice input:checked + .choice-label {
+            border-color: var(--pink);
+            background: rgba(255,45,120,0.11);
+        }
+
+        .choice input:focus-visible + .choice-label {
+            outline: 2px solid var(--pink-pale);
+            outline-offset: 2px;
+        }
+
+        .check-row {
+            display: flex;
+            align-items: flex-start;
+            gap: 0.65rem;
+            margin-top: 1rem;
+            padding: 0.8rem;
+            border: 1px solid var(--border);
+            background: rgba(255,45,120,0.025);
+        }
+
+        .check-row input { margin-top: 0.28rem; accent-color: var(--pink); }
+        .check-row label { color: var(--text-dim); font-size: 0.78rem; cursor: pointer; }
+
+        .error-box, .status-box {
+            display: none;
+            margin-top: 1rem;
+            padding: 0.75rem 0.9rem;
+            border: 1px solid var(--border-hi);
+            color: var(--text-dim);
+            background: rgba(255,45,120,0.04);
+            font-size: 0.76rem;
+        }
+
+        .error-box.show, .status-box.show { display: block; }
+        .error-box { border-color: rgba(255,179,204,0.55); color: var(--danger); }
+
+        .hud {
+            display: grid;
+            grid-template-columns: repeat(4, 1fr);
+            gap: 2px;
+            margin-bottom: 0.75rem;
+        }
+
+        .hud-item {
+            border: 1px solid var(--border);
+            background: rgba(255,45,120,0.03);
+            padding: 0.65rem;
+            text-align: center;
+        }
+
+        .hud-label {
+            display: block;
+            color: var(--text-muted);
+            font-size: 0.53rem;
+            letter-spacing: 0.12em;
+            text-transform: uppercase;
+        }
+
+        .hud-value {
+            display: block;
+            margin-top: 0.1rem;
+            color: var(--text);
+            font-family: var(--display);
+            font-weight: 700;
+            font-size: 1rem;
+        }
+
+        .timer-wrap {
+            display: none;
+            margin: 0.85rem 0 1.1rem;
+        }
+
+        .timer-wrap.active { display: block; }
+
+        .timer-line {
+            height: 5px;
+            overflow: hidden;
+            border: 1px solid var(--border);
+            background: rgba(255,255,255,0.03);
+        }
+
+        #timer-bar {
+            height: 100%;
+            width: 100%;
+            background: var(--pink);
+            transition: width 0.12s linear;
+        }
+
+        #timer-text {
+            display: block;
+            margin-top: 0.35rem;
+            text-align: right;
+            color: var(--text-muted);
+            font-size: 0.62rem;
+        }
+
+        .mantra-card {
+            margin: 1rem 0;
+            padding: clamp(1rem, 4vw, 1.5rem);
+            border: 1px solid var(--border-hi);
+            background: rgba(255,45,120,0.045);
+            font-family: var(--display);
+            font-size: clamp(1.15rem, 4vw, 1.65rem);
+            font-weight: 700;
+            line-height: 1.45;
+            letter-spacing: -0.015em;
+            text-align: center;
+            overflow-wrap: anywhere;
+        }
+
+        .mystery {
+            color: var(--pink-pale);
+            text-shadow: 0 0 18px rgba(255,45,120,0.35);
+            white-space: nowrap;
+        }
+
+        .feedback {
+            min-height: 2rem;
+            margin-top: 0.75rem;
+            font-size: 0.78rem;
+            color: var(--text-dim);
+        }
+
+        .feedback.correct { color: var(--success); }
+        .feedback.wrong { color: var(--danger); }
+
+        .phase-note {
+            color: var(--text-muted);
+            font-size: 0.65rem;
+            letter-spacing: 0.06em;
+            text-transform: uppercase;
+        }
+
+        .report-grid {
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+            gap: 2px;
+            margin-top: 1rem;
+        }
+
+        .report-item {
+            padding: 1rem;
+            border: 1px solid var(--border);
+            background: rgba(255,45,120,0.03);
+        }
+
+        .report-item span { display: block; }
+        .report-label { color: var(--text-muted); font-size: 0.58rem; letter-spacing: 0.1em; text-transform: uppercase; }
+        .report-value { margin-top: 0.25rem; font-family: var(--display); font-size: 1.35rem; font-weight: 800; color: var(--text); }
+
+        .divider { border: none; border-top: 1px solid var(--border); margin: 3rem 0; }
+
+        .footer-note {
+            text-align: center;
+            font-size: 0.62rem;
+            color: var(--text-muted);
+            letter-spacing: 0.08em;
+            text-transform: uppercase;
+            line-height: 2;
+        }
+
+        .footer-note a { color: var(--text-muted); text-decoration: none; transition: color 0.2s; }
+        .footer-note a:hover { color: var(--pink); }
+
+        .visually-hidden {
+            position: absolute !important;
+            width: 1px !important;
+            height: 1px !important;
+            padding: 0 !important;
+            margin: -1px !important;
+            overflow: hidden !important;
+            clip: rect(0, 0, 0, 0) !important;
+            white-space: nowrap !important;
+            border: 0 !important;
+        }
+
+        @keyframes fadeUp {
+            from { opacity: 0; transform: translateY(16px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+
+        @media (max-width: 680px) {
+            main { padding: 2rem 1rem 4rem; }
+            .leaderboard { grid-template-columns: 1fr; }
+            .leader-card { min-height: auto; }
+            .hud { grid-template-columns: repeat(2, 1fr); }
+            .option-grid, .option-grid.series-grid { grid-template-columns: 1fr; }
+            .report-grid { grid-template-columns: 1fr; }
+            .btn-row .btn { flex: 1 1 100%; }
+        }
+
+        @media (prefers-reduced-motion: reduce) {
+            *, *::before, *::after {
+                animation-duration: 0.01ms !important;
+                animation-iteration-count: 1 !important;
+                scroll-behavior: auto !important;
+                transition-duration: 0.01ms !important;
+            }
+        }
+    </style>
+</head>
+<body>
+    <canvas id="sparkles" aria-hidden="true"></canvas>
+    <div class="bg-glow" aria-hidden="true"></div>
+    <div class="sync-wash" aria-hidden="true"></div>
+    <div id="sync-ripple" aria-hidden="true"></div>
+    <div id="burst-banner" aria-live="polite"></div>
+
+    <main>
+        <nav class="breadcrumb-nav" aria-label="Breadcrumb">
+            <a href="/">Neural Nets And Pretty Patterns</a>
+            <span aria-hidden="true">›</span>
+            <span>Games</span>
+            <span aria-hidden="true">›</span>
+            <span aria-current="page">Mantra Sync</span>
+        </nav>
+
+        <header class="page-header">
+            <p class="page-kicker"><span class="pink-dot" aria-hidden="true"></span>Memory Game</p>
+            <h1 class="page-title">Mantra <span class="pink-word">Sync</span></h1>
+            <p class="page-subtitle">Neural Nets And Pretty Patterns</p>
+        </header>
+
+        <section class="leaderboard" aria-label="Mantra Sync leaderboard">
+            <div class="leader-card">
+                <span class="leader-label">Gold Star</span>
+                <span class="leader-name" id="leader-gold-name">Loading...</span>
+                <span class="leader-stat" id="leader-gold-stat"></span>
+            </div>
+            <div class="leader-card">
+                <span class="leader-label">Star Quality</span>
+                <span class="leader-name" id="leader-quality-name">Loading...</span>
+                <span class="leader-stat" id="leader-quality-stat"></span>
+            </div>
+            <div class="leader-card">
+                <span class="leader-label">Play of the Game</span>
+                <span class="leader-name" id="leader-play-name">Loading...</span>
+                <span class="leader-stat" id="leader-play-stat"></span>
+            </div>
+        </section>
+
+        <section class="screen active" id="screen-intro">
+            <div class="panel">
+                <p class="section-kicker">Start</p>
+                <h2>Mantra Sync</h2>
+                <p class="copy-block" id="copy-intro"></p>
+                <div class="status-box" id="bank-status" role="status"></div>
+                <div class="error-box" id="bank-error" role="alert"></div>
+                <div class="btn-row">
+                    <button type="button" class="btn btn-primary" id="intro-start" disabled>Begin</button>
+                </div>
+            </div>
+        </section>
+
+        <section class="screen" id="screen-signin">
+            <div class="panel">
+                <p class="section-kicker">Identity</p>
+                <h2>Sign In</h2>
+                <p class="copy-block" id="copy-signin"></p>
+
+                <div class="field">
+                    <label class="field-label" for="player-name">Game name</label>
+                    <input type="text" id="player-name" maxlength="32" autocomplete="nickname" placeholder="Name shown on the leaderboard">
+                </div>
+
+                <div class="field">
+                    <span class="field-label">Pronouns</span>
+                    <div class="option-grid" id="pronoun-options"></div>
+                </div>
+
+                <div class="check-row">
+                    <input type="checkbox" id="age-check">
+                    <label for="age-check" id="copy-age"></label>
+                </div>
+
+                <div class="error-box" id="signin-error" role="alert"></div>
+
+                <div class="btn-row">
+                    <button type="button" class="btn btn-ghost" data-back="screen-intro">Back</button>
+                    <button type="button" class="btn btn-primary" id="signin-next">Continue</button>
+                </div>
+            </div>
+        </section>
+
+        <section class="screen" id="screen-select">
+            <div class="panel">
+                <p class="section-kicker">Setup</p>
+                <h2>Choose Your Game</h2>
+                <p class="copy-block" id="copy-select"></p>
+
+                <div class="field">
+                    <span class="field-label">Mode</span>
+                    <div class="option-grid">
+                        <label class="choice">
+                            <input type="radio" name="mode" value="untimed" checked>
+                            <span class="choice-label">
+                                <strong>Untimed</strong>
+                                <small id="copy-untimed"></small>
+                            </span>
+                        </label>
+                        <label class="choice">
+                            <input type="radio" name="mode" value="timed">
+                            <span class="choice-label">
+                                <strong>Timed</strong>
+                                <small id="copy-timed"></small>
+                            </span>
+                        </label>
+                    </div>
+                </div>
+
+                <div class="field">
+                    <span class="field-label">Series</span>
+                    <div class="option-grid series-grid" id="series-options"></div>
+                </div>
+
+                <div class="status-box show" id="pool-status" role="status"></div>
+                <div class="error-box" id="select-error" role="alert"></div>
+
+                <div class="btn-row">
+                    <button type="button" class="btn btn-ghost" data-back="screen-signin">Back</button>
+                    <button type="button" class="btn btn-primary" id="game-start">Start Game</button>
+                </div>
+            </div>
+        </section>
+
+        <section class="screen" id="screen-game">
+            <div class="hud" aria-label="Current game statistics">
+                <div class="hud-item"><span class="hud-label">Score</span><span class="hud-value" id="hud-score">0</span></div>
+                <div class="hud-item"><span class="hud-label">Repetitions</span><span class="hud-value" id="hud-reps">0</span></div>
+                <div class="hud-item"><span class="hud-label">Accuracy</span><span class="hud-value" id="hud-accuracy">0.0%</span></div>
+                <div class="hud-item"><span class="hud-label">Sync</span><span class="hud-value" id="hud-sync">0/8</span></div>
+            </div>
+
+            <div class="panel">
+                <p class="section-kicker" id="phase-kicker">Recall</p>
+                <h2 id="phase-title">Mantra Quiz</h2>
+                <p class="copy-block" id="phase-copy"></p>
+                <p class="phase-note" id="phase-context"></p>
+
+                <div class="timer-wrap" id="timer-wrap" aria-live="polite">
+                    <div class="timer-line"><div id="timer-bar"></div></div>
+                    <span id="timer-text">10.0 seconds</span>
+                </div>
+
+                <div class="mantra-card" id="mantra-display"></div>
+
+                <div class="field" id="blank-field">
+                    <label class="field-label" for="blank-input">Missing text</label>
+                    <input type="text" id="blank-input" autocomplete="off" autocapitalize="off" spellcheck="false" placeholder="Type only the missing text">
+                </div>
+
+                <div class="field" id="full-field" hidden>
+                    <label class="field-label" for="full-input">Complete mantra</label>
+                    <textarea id="full-input" autocomplete="off" autocapitalize="sentences" spellcheck="false" placeholder="Retype the complete mantra"></textarea>
+                </div>
+
+                <div class="feedback" id="feedback" aria-live="polite"></div>
+                <div class="error-box" id="game-error" role="alert"></div>
+
+                <div class="btn-row">
+                    <button type="button" class="btn btn-primary" id="phase-action">Submit</button>
+                </div>
+            </div>
+        </section>
+
+        <section class="screen" id="screen-checkpoint">
+            <div class="panel">
+                <p class="section-kicker">Checkpoint</p>
+                <h2>100 Repetitions</h2>
+                <p class="copy-block" id="copy-hundred"></p>
+                <p class="copy-block" id="copy-score-report"></p>
+
+                <div class="report-grid">
+                    <div class="report-item"><span class="report-label">Total score</span><span class="report-value" id="report-score">0</span></div>
+                    <div class="report-item"><span class="report-label">Repetitions</span><span class="report-value" id="report-reps">0</span></div>
+                    <div class="report-item"><span class="report-label">Accuracy</span><span class="report-value" id="report-accuracy">0.0%</span></div>
+                    <div class="report-item"><span class="report-label">Best block</span><span class="report-value" id="report-best">0</span></div>
+                </div>
+
+                <div class="status-box" id="checkpoint-status" role="status"></div>
+                <div class="error-box" id="checkpoint-error" role="alert"></div>
+
+                <div class="btn-row">
+                    <button type="button" class="btn btn-ghost" id="checkpoint-end">End and Log</button>
+                    <button type="button" class="btn btn-primary" id="checkpoint-continue">Continue</button>
+                </div>
+
+                <p class="copy-block" id="copy-end" style="margin-top:1rem"></p>
+                <p class="copy-block" id="copy-continue"></p>
+            </div>
+        </section>
+
+        <section class="screen" id="screen-end">
+            <div class="panel">
+                <p class="section-kicker">Logged</p>
+                <h2>Session Complete</h2>
+                <p class="copy-block" id="end-message"></p>
+
+                <div class="report-grid">
+                    <div class="report-item"><span class="report-label">Total score</span><span class="report-value" id="end-score">0</span></div>
+                    <div class="report-item"><span class="report-label">Repetitions</span><span class="report-value" id="end-reps">0</span></div>
+                    <div class="report-item"><span class="report-label">Accuracy</span><span class="report-value" id="end-accuracy">0.0%</span></div>
+                    <div class="report-item"><span class="report-label">Best block</span><span class="report-value" id="end-best">0</span></div>
+                </div>
+
+                <div class="btn-row">
+                    <button type="button" class="btn btn-primary" id="play-again">Play Again</button>
+                </div>
+            </div>
+        </section>
+
+        <hr class="divider">
+
+        <div class="footer-note">
+            <a href="/">Neural Nets And Pretty Patterns</a> &nbsp;·&nbsp;
+            <a href="/neuralpedia/">Neuralpedia</a> &nbsp;·&nbsp;
+            <a href="/deepdreamstate/">Deep Dream State</a> &nbsp;·&nbsp;
+            <a href="/contact/">Contact</a>
+            <br>
+            Neural Nets And Pretty Patterns · ISNI 0000 0005 2877 6254
+        </div>
+    </main>
+
+    <script>
+        // =========================================================
+        // REPLACEABLE COPY
+        // Search this file for "COPY]" to find provisional wording.
+        // =========================================================
+        const COPY = {
+            intro: "[INTRO COPY] [Mantra Sync tests memory through repeated phrases. First remember the missing text, then type the complete mantra.]",
+            signIn: "[SIGN IN COPY] [Choose the game name and pronouns you want to use for this session.]",
+            age: "[AGE ATTESTATION COPY] [I confirm that I am 18 or older.]",
+            select: "[GAME SELECT COPY] [Choose timed or untimed play, then choose the mantra series you want in the rotation.]",
+            timed: "[TIMED MODE COPY] [You have 10 seconds for each recall phase and 10 seconds for each full retype.]",
+            untimed: "[UNTIMED MODE COPY] [Take as long as you need for each answer.]",
+            quiz: "[MANTRA QUIZ COPY] [Type only the text hidden by the mystery marker.]",
+            success1: "[SUCCESS 1 COPY] [Correct. You remembered the missing text.]",
+            fail1: "[FAIL 1 COPY] [Not quite. The complete mantra comes next.]",
+            type: "[MANTRA TYPE COPY] [Now retype the complete mantra.]",
+            success2: "[SUCCESS 2 COPY] [Correct. Full repetition complete.]",
+            fail2: "[FAIL 2 COPY] [The repetition did not match.]",
+            eight: "[EIGHT SUCCESS EVENT COPY] [SYNC INTENSIFIES]",
+            hundred: "[100 REPETITIONS COPY] [You completed another block of 100 repetitions. You can log this session now or continue.]",
+            continue: "[CONTINUE COPY] [Continue keeps your total score and starts a new 100-repetition block.]",
+            end: "[END GAME COPY] [End and Log submits this session to the Mantra Sync leaderboard.]",
+            scoreReport: "[SCORE REPORT COPY] [Your session is summarized below.]"
+        };
+
+        const FALLBACK_PRONOUNS = {
+            he: {
+                label: "He / Him",
+                subject: "he",
+                object: "him",
+                possessive_adjective: "his",
+                possessive: "his",
+                reflexive: "himself",
+                be: "is",
+                have: "has"
+            },
+            she: {
+                label: "She / Her",
+                subject: "she",
+                object: "her",
+                possessive_adjective: "her",
+                possessive: "hers",
+                reflexive: "herself",
+                be: "is",
+                have: "has"
+            },
+            they: {
+                label: "They / Them",
+                subject: "they",
+                object: "them",
+                possessive_adjective: "their",
+                possessive: "theirs",
+                reflexive: "themselves",
+                be: "are",
+                have: "have"
+            }
+        };
+
+        const FALLBACK_SERIES = [
+            { id: "all", title: "All", inclusive: true },
+            { id: "melting", title: "Melting" },
+            { id: "wave", title: "Wave" },
+            { id: "slumber", title: "Slumber" },
+            { id: "machine", title: "Machine" }
+        ];
+
+        const state = {
+            bank: null,
+            pronouns: FALLBACK_PRONOUNS,
+            playerName: "",
+            pronounId: "they",
+            mode: "untimed",
+            seriesId: "all",
+            pool: [],
+            deck: [],
+            current: null,
+            currentParsed: null,
+            lastMantraId: null,
+            phase: "blank",
+            phaseLocked: false,
+            totalScore: 0,
+            pointsPossible: 0,
+            repetitions: 0,
+            currentBlockScore: 0,
+            bestBlock: 0,
+            successCycle: 0,
+            timerId: null,
+            timerDeadline: 0,
+            timerDuration: 10000,
+            checkpointPending: false
+        };
+
+        const $ = id => document.getElementById(id);
+
+        function setCopy() {
+            $("copy-intro").textContent = COPY.intro;
+            $("copy-signin").textContent = COPY.signIn;
+            $("copy-age").textContent = COPY.age;
+            $("copy-select").textContent = COPY.select;
+            $("copy-timed").textContent = COPY.timed;
+            $("copy-untimed").textContent = COPY.untimed;
+            $("copy-hundred").textContent = COPY.hundred;
+            $("copy-score-report").textContent = COPY.scoreReport;
+            $("copy-end").textContent = COPY.end;
+            $("copy-continue").textContent = COPY.continue;
+            $("burst-banner").textContent = COPY.eight;
+        }
+
+        function showScreen(id) {
+            stopTimer();
+            document.querySelectorAll(".screen").forEach(screen => {
+                screen.classList.toggle("active", screen.id === id);
+            });
+            window.scrollTo({ top: 0, behavior: "smooth" });
+        }
+
+        function showBox(id, message) {
+            const el = $(id);
+            el.textContent = message || "";
+            el.classList.toggle("show", Boolean(message));
+        }
+
+        function hideBox(id) {
+            showBox(id, "");
+        }
+
+        function escapeHtml(value) {
+            return String(value).replace(/[&<>"']/g, ch => ({
+                "&": "&amp;",
+                "<": "&lt;",
+                ">": "&gt;",
+                '"': "&quot;",
+                "'": "&#39;"
+            })[ch]);
+        }
+
+        function normalizeAnswer(value) {
+            return String(value || "")
+                .normalize("NFKC")
+                .toLowerCase()
+                .replace(/\s+/g, " ")
+                .trim()
+                .replace(/[.!?,;:'\"”’]+$/g, "")
+                .trim();
+        }
+
+        function capitalizeFirst(value) {
+            const text = String(value || "");
+            const index = text.search(/[A-Za-z]/);
+            if (index === -1) return text;
+            return text.slice(0, index) + text[index].toUpperCase() + text.slice(index + 1);
+        }
+
+        function resolvePronouns(text) {
+            const pronoun = state.pronouns[state.pronounId] || FALLBACK_PRONOUNS.they;
+            const resolved = String(text || "").replace(/\{\{([a-z_]+)\}\}/gi, (match, key) => {
+                const lookup = key.toLowerCase();
+                return Object.prototype.hasOwnProperty.call(pronoun, lookup)
+                    ? pronoun[lookup]
+                    : match;
+            });
+            return capitalizeFirst(resolved);
+        }
+
+        function parseMantra(rawText) {
+            const resolved = resolvePronouns(rawText);
+            const regex = /\[\[([\s\S]*?)\]\]/g;
+            const matches = [...resolved.matchAll(regex)];
+
+            if (!matches.length) {
+                return null;
+            }
+
+            const answers = matches.map(match => match[1]);
+            const blankAnswer = answers.join(" ");
+            const fullText = resolved.replace(regex, (_, hidden) => hidden);
+
+            let cursor = 0;
+            let displayHtml = "";
+
+            for (const match of matches) {
+                const start = match.index;
+                displayHtml += escapeHtml(resolved.slice(cursor, start));
+
+                const hidden = match[1];
+                const nonSpaceLength = [...hidden].filter(ch => !/\s/.test(ch)).length;
+                const blankLength = Math.max(2, Math.min(18, nonSpaceLength || 2));
+                displayHtml += `<span class="mystery" aria-label="missing text">${"_".repeat(blankLength)}</span>`;
+                cursor = start + match[0].length;
+            }
+
+            displayHtml += escapeHtml(resolved.slice(cursor));
+
+            return {
+                fullText,
+                blankAnswer,
+                displayHtml,
+                answers
+            };
+        }
+
+        function isPlayableMantra(mantra) {
+            return Boolean(
+                mantra &&
+                typeof mantra.id === "string" &&
+                typeof mantra.text === "string" &&
+                parseMantra(mantra.text)
+            );
+        }
+
+        function getSeriesList() {
+            const supplied = Array.isArray(state.bank?.series_options)
+                ? state.bank.series_options
+                : FALLBACK_SERIES;
+
+            const seen = new Set();
+            const list = [];
+
+            for (const series of supplied) {
+                if (!series || typeof series.id !== "string" || typeof series.title !== "string") continue;
+                if (seen.has(series.id)) continue;
+                seen.add(series.id);
+                list.push(series);
+            }
+
+            if (!seen.has("all")) {
+                list.unshift({ id: "all", title: "All", inclusive: true });
+            }
+
+            return list;
+        }
+
+        function mantrasForSeries(seriesId, playableOnly = false) {
+            const all = Array.isArray(state.bank?.mantras) ? state.bank.mantras : [];
+            const filtered = seriesId === "all"
+                ? all
+                : all.filter(mantra => Array.isArray(mantra.series) && mantra.series.includes(seriesId));
+            return playableOnly ? filtered.filter(isPlayableMantra) : filtered;
+        }
+
+        function renderPronounOptions() {
+            const container = $("pronoun-options");
+            container.innerHTML = "";
+
+            const entries = Object.entries(state.pronouns);
+            const preferred = entries.some(([key]) => key === "they") ? "they" : entries[0]?.[0];
+            state.pronounId = preferred || "they";
+
+            for (const [key, pronoun] of entries) {
+                const label = document.createElement("label");
+                label.className = "choice";
+                label.innerHTML = `
+                    <input type="radio" name="pronoun" value="${escapeHtml(key)}" ${key === state.pronounId ? "checked" : ""}>
+                    <span class="choice-label">
+                        <strong>${escapeHtml(pronoun.label || key)}</strong>
+                        <small>${escapeHtml(pronoun.subject || "")} / ${escapeHtml(pronoun.object || "")}</small>
+                    </span>`;
+                container.appendChild(label);
+            }
+        }
+
+        function renderSeriesOptions() {
+            const container = $("series-options");
+            container.innerHTML = "";
+            const list = getSeriesList();
+
+            if (!list.some(series => series.id === state.seriesId)) {
+                state.seriesId = "all";
+            }
+
+            for (const series of list) {
+                const totalCount = mantrasForSeries(series.id, false).length;
+                const playableCount = mantrasForSeries(series.id, true).length;
+                const label = document.createElement("label");
+                label.className = "choice";
+                label.innerHTML = `
+                    <input type="radio" name="series" value="${escapeHtml(series.id)}" ${series.id === state.seriesId ? "checked" : ""}>
+                    <span class="choice-label">
+                        <strong>${escapeHtml(series.title)}</strong>
+                        <small>${playableCount} playable of ${totalCount} entries</small>
+                    </span>`;
+                container.appendChild(label);
+            }
+
+            updatePoolStatus();
+        }
+
+        function updatePoolStatus() {
+            const selected = document.querySelector('input[name="series"]:checked')?.value || state.seriesId;
+            const total = mantrasForSeries(selected, false).length;
+            const playable = mantrasForSeries(selected, true).length;
+            const malformed = total - playable;
+            const note = malformed > 0
+                ? `${playable} playable mantras. ${malformed} entr${malformed === 1 ? "y is" : "ies are"} missing valid [[mystery text]] notation and will not be used.`
+                : `${playable} playable mantras available.`;
+            showBox("pool-status", note);
+        }
+
+        async function loadBank() {
+            hideBox("bank-error");
+            showBox("bank-status", "Loading mantra bank from Cloudflare...");
+
+            try {
+                const response = await fetch("/games/mantra-sync/mantra-bank.json", { cache: "no-store" });
+                if (!response.ok) throw new Error(`HTTP ${response.status}`);
+                const bank = await response.json();
+
+                if (!bank || !Array.isArray(bank.mantras)) {
+                    throw new Error("The mantra bank does not contain a mantras array.");
+                }
+
+                state.bank = bank;
+                state.pronouns = bank.pronouns && typeof bank.pronouns === "object"
+                    ? bank.pronouns
+                    : FALLBACK_PRONOUNS;
+
+                renderPronounOptions();
+                renderSeriesOptions();
+
+                const playable = bank.mantras.filter(isPlayableMantra).length;
+                showBox("bank-status", `Mantra bank loaded: ${bank.mantras.length} entries, ${playable} currently playable.`);
+                $("intro-start").disabled = playable === 0;
+
+                if (playable === 0) {
+                    showBox("bank-error", "The bank loaded, but no mantra contains valid [[mystery text]] notation yet.");
+                }
+            } catch (error) {
+                console.error("Mantra bank load failed:", error);
+                state.bank = null;
+                $("intro-start").disabled = true;
+                hideBox("bank-status");
+                showBox("bank-error", "The mantra bank could not be loaded. Check the KV route and JSON syntax.");
+            }
+        }
+
+        async function loadLeaderboard() {
+            try {
+                const response = await fetch("/api/mantra-sync/leaderboard", { cache: "no-store" });
+                if (!response.ok) throw new Error(`HTTP ${response.status}`);
+                const data = await response.json();
+                if (!data.ok) throw new Error(data.error || "Leaderboard error");
+                renderLeaderboard(data.leaderboard || {});
+            } catch (error) {
+                console.error("Leaderboard load failed:", error);
+                renderLeaderboard({});
+            }
+        }
+
+        function renderLeaderboard(board) {
+            const gold = board.gold_star;
+            const quality = board.star_quality;
+            const play = board.play_of_the_game;
+
+            $("leader-gold-name").textContent = gold?.player_name || "No score yet";
+            $("leader-gold-stat").textContent = gold ? `${gold.total_score} total` : "";
+
+            $("leader-quality-name").textContent = quality?.player_name || "No score yet";
+            $("leader-quality-stat").textContent = quality ? `${Number(quality.accuracy).toFixed(1)}% accuracy` : "";
+
+            $("leader-play-name").textContent = play?.player_name || "No score yet";
+            $("leader-play-stat").textContent = play ? `${play.best_block} / 300 block` : "";
+        }
+
+        function validateSignIn() {
+            hideBox("signin-error");
+            const playerName = $("player-name").value.replace(/\s+/g, " ").trim();
+            const pronounId = document.querySelector('input[name="pronoun"]:checked')?.value;
+
+            if (playerName.length < 2 || playerName.length > 32) {
+                showBox("signin-error", "Enter a game name between 2 and 32 characters.");
+                return false;
+            }
+
+            if (!pronounId || !state.pronouns[pronounId]) {
+                showBox("signin-error", "Choose a pronoun set.");
+                return false;
+            }
+
+            if (!$("age-check").checked) {
+                showBox("signin-error", "Age attestation is required to continue.");
+                return false;
+            }
+
+            state.playerName = playerName;
+            state.pronounId = pronounId;
+            return true;
+        }
+
+        function resetSession() {
+            stopTimer();
+            state.pool = [];
+            state.deck = [];
+            state.current = null;
+            state.currentParsed = null;
+            state.lastMantraId = null;
+            state.phase = "blank";
+            state.phaseLocked = false;
+            state.totalScore = 0;
+            state.pointsPossible = 0;
+            state.repetitions = 0;
+            state.currentBlockScore = 0;
+            state.bestBlock = 0;
+            state.successCycle = 0;
+            state.checkpointPending = false;
+            updateSyncVisual();
+            updateHud();
+            clearGameFeedback();
+        }
+
+        function startConfiguredGame() {
+            hideBox("select-error");
+            const mode = document.querySelector('input[name="mode"]:checked')?.value || "untimed";
+            const seriesId = document.querySelector('input[name="series"]:checked')?.value || "all";
+            const pool = mantrasForSeries(seriesId, true);
+
+            if (!pool.length) {
+                showBox("select-error", "This series has no playable mantras with valid [[mystery text]] notation.");
+                return;
+            }
+
+            state.mode = mode;
+            state.seriesId = seriesId;
+            resetSession();
+            state.pool = pool;
+            refillDeck();
+            showScreen("screen-game");
+            nextRound();
+        }
+
+        function shuffle(items) {
+            const copy = [...items];
+            for (let i = copy.length - 1; i > 0; i -= 1) {
+                const j = Math.floor(Math.random() * (i + 1));
+                [copy[i], copy[j]] = [copy[j], copy[i]];
+            }
+            return copy;
+        }
+
+        function refillDeck() {
+            state.deck = shuffle(state.pool);
+            if (
+                state.deck.length > 1 &&
+                state.lastMantraId &&
+                state.deck[0]?.id === state.lastMantraId
+            ) {
+                [state.deck[0], state.deck[1]] = [state.deck[1], state.deck[0]];
+            }
+        }
+
+        function drawMantra() {
+            if (!state.deck.length) refillDeck();
+            const mantra = state.deck.shift();
+            state.lastMantraId = mantra.id;
+            return mantra;
+        }
+
+        function nextRound() {
+            stopTimer();
+            state.phaseLocked = false;
+            state.phase = "blank";
+            state.checkpointPending = false;
+            state.current = drawMantra();
+            state.currentParsed = parseMantra(state.current.text);
+
+            if (!state.currentParsed) {
+                showBox("game-error", `Mantra ${state.current.id} is missing valid [[mystery text]] notation.`);
+                return;
+            }
+
+            hideBox("game-error");
+            $("phase-kicker").textContent = "Recall";
+            $("phase-title").textContent = "Mantra Quiz";
+            $("phase-copy").textContent = COPY.quiz;
+            $("phase-context").textContent = `${seriesTitle(state.seriesId)} · ${state.mode === "timed" ? "Timed" : "Untimed"}`;
+            $("mantra-display").innerHTML = state.currentParsed.displayHtml;
+            $("blank-field").hidden = false;
+            $("full-field").hidden = true;
+            $("blank-input").value = "";
+            $("full-input").value = "";
+            $("blank-input").disabled = false;
+            $("full-input").disabled = false;
+            $("phase-action").disabled = false;
+            $("phase-action").textContent = "Submit";
+            $("feedback").textContent = "";
+            $("feedback").className = "feedback";
+            updateHud();
+            $("blank-input").focus();
+            startTimerIfNeeded();
+        }
+
+        function seriesTitle(id) {
+            return getSeriesList().find(series => series.id === id)?.title || id;
+        }
+
+        function prepareFullPhase() {
+            stopTimer();
+            state.phaseLocked = false;
+            state.phase = "full";
+            $("phase-kicker").textContent = "Repeat";
+            $("phase-title").textContent = "Mantra Type";
+            $("phase-copy").textContent = COPY.type;
+            $("mantra-display").textContent = state.currentParsed.fullText;
+            $("blank-field").hidden = true;
+            $("full-field").hidden = false;
+            $("full-input").value = "";
+            $("full-input").disabled = false;
+            $("phase-action").disabled = false;
+            $("phase-action").textContent = "Submit";
+            $("feedback").textContent = "";
+            $("feedback").className = "feedback";
+            $("full-input").focus();
+            startTimerIfNeeded();
+        }
+
+        function clearGameFeedback() {
+            $("feedback").textContent = "";
+            $("feedback").className = "feedback";
+            hideBox("game-error");
+        }
+
+        function evaluateBlank(timedOut = false) {
+            if (state.phase !== "blank" || state.phaseLocked) return;
+            state.phaseLocked = true;
+            stopTimer();
+
+            const given = timedOut ? "" : $("blank-input").value;
+            const correct = normalizeAnswer(given) === normalizeAnswer(state.currentParsed.blankAnswer);
+            state.pointsPossible += 2;
+            $("blank-input").disabled = true;
+
+            if (correct) {
+                state.totalScore += 2;
+                state.currentBlockScore += 2;
+                registerSuccess();
+                setFeedback(COPY.success1, true);
+            } else {
+                setFeedback(timedOut ? `${COPY.fail1} [TIME EXPIRED]` : COPY.fail1, false);
+            }
+
+            updateHud();
+            $("phase-action").textContent = "Continue";
+            $("phase-action").disabled = false;
+        }
+
+        function evaluateFull(timedOut = false) {
+            if (state.phase !== "full" || state.phaseLocked) return;
+            state.phaseLocked = true;
+            stopTimer();
+
+            const given = timedOut ? "" : $("full-input").value;
+            const correct = normalizeAnswer(given) === normalizeAnswer(state.currentParsed.fullText);
+            state.pointsPossible += 1;
+            $("full-input").disabled = true;
+
+            if (correct) {
+                state.totalScore += 1;
+                state.currentBlockScore += 1;
+                registerSuccess();
+                setFeedback(COPY.success2, true);
+            } else {
+                setFeedback(timedOut ? `${COPY.fail2} [TIME EXPIRED]` : COPY.fail2, false);
+            }
+
+            state.repetitions += 1;
+
+            if (state.repetitions % 100 === 0) {
+                state.bestBlock = Math.max(state.bestBlock, state.currentBlockScore);
+                state.checkpointPending = true;
+                $("phase-action").textContent = "Checkpoint";
+            } else {
+                $("phase-action").textContent = "Next Mantra";
+            }
+
+            updateHud();
+            $("phase-action").disabled = false;
+        }
+
+        function setFeedback(message, correct) {
+            const el = $("feedback");
+            el.textContent = message;
+            el.className = `feedback ${correct ? "correct" : "wrong"}`;
+        }
+
+        function registerSuccess() {
+            state.successCycle += 1;
+            updateSyncVisual();
+
+            if (state.successCycle >= 8) {
+                document.body.classList.remove("sync-burst");
+                void document.body.offsetWidth;
+                document.body.classList.add("sync-burst");
+
+                window.setTimeout(() => {
+                    document.body.classList.remove("sync-burst");
+                    state.successCycle = 0;
+                    updateSyncVisual();
+                    updateHud();
+                }, 820);
+            }
+        }
+
+        function updateSyncVisual() {
+            const level = Math.min(1, state.successCycle / 8);
+            document.documentElement.style.setProperty("--sync-level", level.toFixed(3));
+        }
+
+        function accuracyPercent() {
+            if (!state.repetitions) return 0;
+            return (state.totalScore / (state.repetitions * 3)) * 100;
+        }
+
+        function liveAccuracyPercent() {
+            if (!state.pointsPossible) return 0;
+            return (state.totalScore / state.pointsPossible) * 100;
+        }
+
+        function updateHud() {
+            $("hud-score").textContent = String(state.totalScore);
+            $("hud-reps").textContent = String(state.repetitions);
+            $("hud-accuracy").textContent = `${liveAccuracyPercent().toFixed(1)}%`;
+            $("hud-sync").textContent = `${Math.min(state.successCycle, 8)}/8`;
+        }
+
+        function updateReport(prefix) {
+            $(`${prefix}-score`).textContent = String(state.totalScore);
+            $(`${prefix}-reps`).textContent = String(state.repetitions);
+            $(`${prefix}-accuracy`).textContent = `${accuracyPercent().toFixed(1)}%`;
+            $(`${prefix}-best`).textContent = String(state.bestBlock);
+        }
+
+        function showCheckpoint() {
+            updateReport("report");
+            hideBox("checkpoint-error");
+            hideBox("checkpoint-status");
+            $("checkpoint-end").disabled = false;
+            $("checkpoint-continue").disabled = false;
+            showScreen("screen-checkpoint");
+        }
+
+        async function endAndLog() {
+            hideBox("checkpoint-error");
+            showBox("checkpoint-status", "Logging score...");
+            $("checkpoint-end").disabled = true;
+            $("checkpoint-continue").disabled = true;
+
+            try {
+                const response = await fetch("/api/mantra-sync/score", {
+                    method: "POST",
+                    headers: { "Content-Type": "application/json" },
+                    body: JSON.stringify({
+                        player_name: state.playerName,
+                        total_score: state.totalScore,
+                        repetitions: state.repetitions,
+                        best_block: state.bestBlock,
+                        mode: state.mode,
+                        theme: state.seriesId
+                    })
+                });
+
+                const data = await response.json().catch(() => ({}));
+                if (!response.ok || !data.ok) {
+                    throw new Error(data.error || `HTTP ${response.status}`);
+                }
+
+                showBox("checkpoint-status", "Score logged.");
+                $("end-message").textContent = "[END GAME COPY] [Your score was logged successfully.]";
+                updateReport("end");
+                await loadLeaderboard();
+                showScreen("screen-end");
+            } catch (error) {
+                console.error("Score logging failed:", error);
+                hideBox("checkpoint-status");
+                showBox("checkpoint-error", `Score could not be logged: ${error.message}`);
+                $("checkpoint-end").disabled = false;
+                $("checkpoint-continue").disabled = false;
+            }
+        }
+
+        function continueAfterCheckpoint() {
+            state.currentBlockScore = 0;
+            state.checkpointPending = false;
+            showScreen("screen-game");
+            nextRound();
+        }
+
+        function startTimerIfNeeded() {
+            stopTimer();
+
+            if (state.mode !== "timed") {
+                $("timer-wrap").classList.remove("active");
+                return;
+            }
+
+            $("timer-wrap").classList.add("active");
+            state.timerDeadline = performance.now() + state.timerDuration;
+
+            const tick = () => {
+                const remaining = Math.max(0, state.timerDeadline - performance.now());
+                const fraction = remaining / state.timerDuration;
+                $("timer-bar").style.width = `${Math.max(0, Math.min(100, fraction * 100))}%`;
+                $("timer-text").textContent = `${(remaining / 1000).toFixed(1)} seconds`;
+
+                if (remaining <= 0) {
+                    stopTimer(false);
+                    if (state.phase === "blank") evaluateBlank(true);
+                    else if (state.phase === "full") evaluateFull(true);
+                }
+            };
+
+            tick();
+            state.timerId = window.setInterval(tick, 100);
+        }
+
+        function stopTimer(hide = true) {
+            if (state.timerId) {
+                clearInterval(state.timerId);
+                state.timerId = null;
+            }
+            if (hide) {
+                $("timer-wrap")?.classList.remove("active");
+            }
+        }
+
+        function phaseAction() {
+            if (state.phase === "blank") {
+                if (!state.phaseLocked) evaluateBlank(false);
+                else prepareFullPhase();
+                return;
+            }
+
+            if (state.phase === "full") {
+                if (!state.phaseLocked) {
+                    evaluateFull(false);
+                } else if (state.checkpointPending) {
+                    showCheckpoint();
+                } else {
+                    nextRound();
+                }
+            }
+        }
+
+        function bindEvents() {
+            $("intro-start").addEventListener("click", () => showScreen("screen-signin"));
+
+            document.querySelectorAll("[data-back]").forEach(button => {
+                button.addEventListener("click", () => showScreen(button.dataset.back));
+            });
+
+            $("signin-next").addEventListener("click", () => {
+                if (!validateSignIn()) return;
+                renderSeriesOptions();
+                showScreen("screen-select");
+            });
+
+            $("series-options").addEventListener("change", updatePoolStatus);
+            $("game-start").addEventListener("click", startConfiguredGame);
+            $("phase-action").addEventListener("click", phaseAction);
+
+            $("blank-input").addEventListener("keydown", event => {
+                if (event.key === "Enter" && !event.shiftKey) {
+                    event.preventDefault();
+                    phaseAction();
+                }
+            });
+
+            $("full-input").addEventListener("keydown", event => {
+                if (event.key === "Enter" && (event.ctrlKey || event.metaKey)) {
+                    event.preventDefault();
+                    phaseAction();
+                }
+            });
+
+            $("checkpoint-end").addEventListener("click", endAndLog);
+            $("checkpoint-continue").addEventListener("click", continueAfterCheckpoint);
+            $("play-again").addEventListener("click", () => {
+                resetSession();
+                renderSeriesOptions();
+                showScreen("screen-select");
+            });
+        }
+
+        function startSparkles() {
+            const canvas = $("sparkles");
+            const ctx = canvas.getContext("2d");
+            if (!ctx) return;
+
+            let width = 0;
+            let height = 0;
+            let sparks = [];
+
+            function resize() {
+                const ratio = Math.min(window.devicePixelRatio || 1, 2);
+                width = window.innerWidth;
+                height = window.innerHeight;
+                canvas.width = Math.floor(width * ratio);
+                canvas.height = Math.floor(height * ratio);
+                canvas.style.width = `${width}px`;
+                canvas.style.height = `${height}px`;
+                ctx.setTransform(ratio, 0, 0, ratio, 0, 0);
+                const count = Math.max(32, Math.min(90, Math.floor(width / 14)));
+                sparks = Array.from({ length: count }, makeSpark);
+            }
+
+            function makeSpark() {
+                return {
+                    x: Math.random() * Math.max(width, 1),
+                    y: Math.random() * Math.max(height, 1),
+                    r: 0.4 + Math.random() * 1.8,
+                    base: 0.08 + Math.random() * 0.35,
+                    phase: Math.random() * Math.PI * 2,
+                    speed: 0.004 + Math.random() * 0.01,
+                    pink: Math.random() > 0.42
+                };
+            }
+
+            function draw(time) {
+                ctx.clearRect(0, 0, width, height);
+                for (const spark of sparks) {
+                    const pulse = (Math.sin(time * spark.speed + spark.phase) + 1) / 2;
+                    ctx.globalAlpha = spark.base + pulse * 0.35;
+                    ctx.fillStyle = spark.pink ? "#ff2d78" : "#b78cff";
+                    ctx.beginPath();
+                    ctx.arc(spark.x, spark.y, spark.r + pulse * 0.45, 0, Math.PI * 2);
+                    ctx.fill();
+                }
+                ctx.globalAlpha = 1;
+                requestAnimationFrame(draw);
+            }
+
+            resize();
+            window.addEventListener("resize", resize);
+
+            if (!window.matchMedia("(prefers-reduced-motion: reduce)").matches) {
+                requestAnimationFrame(draw);
+            }
+        }
+
+        async function init() {
+            setCopy();
+            bindEvents();
+            startSparkles();
+            updateHud();
+            await Promise.all([loadBank(), loadLeaderboard()]);
+        }
+
+        init();
+    </script>
+</body>
+</html>
