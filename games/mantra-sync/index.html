@@ -460,6 +460,7 @@
 
         .copy-block {
             color: var(--text-dim);
+            white-space: pre-line;
             font-size: 0.82rem;
             line-height: 1.9;
             margin-bottom: 1.25rem;
@@ -469,6 +470,7 @@
 
         .btn-row {
             display: flex;
+            justify-content: center;
             gap: 0.55rem;
             flex-wrap: wrap;
             margin-top: 1.25rem;
@@ -831,11 +833,11 @@
 
         <section class="screen" id="screen-signin">
             <div class="panel">
-                <h2>Sign In</h2>
+                <h2>Hey Player Heyyy</h2>
                 <p class="copy-block" id="copy-signin"></p>
 
                 <div class="field">
-                    <label class="field-label" for="player-name">Game name</label>
+                    <label class="field-label" for="player-name">Your Game Name</label>
                     <input type="text" id="player-name" maxlength="32" autocomplete="nickname" placeholder="Name shown on the leaderboard">
                 </div>
 
@@ -889,7 +891,6 @@
                     <div class="option-grid series-grid" id="series-options"></div>
                 </div>
 
-                <div class="status-box show" id="pool-status" role="status"></div>
                 <div class="error-box" id="select-error" role="alert"></div>
 
                 <div class="btn-row">
@@ -908,10 +909,10 @@
             </div>
 
             <div class="panel">
-                <p class="section-kicker" id="phase-kicker">Recall</p>
+                <p class="section-kicker" id="phase-kicker" hidden></p>
                 <h2 id="phase-title">Mantra Quiz</h2>
                 <p class="copy-block" id="phase-copy"></p>
-                <p class="phase-note" id="phase-context"></p>
+                <p class="phase-note" id="phase-context" hidden></p>
 
                 <div class="timer-wrap" id="timer-wrap" aria-live="polite">
                     <div class="timer-line"><div id="timer-bar"></div></div>
@@ -933,10 +934,8 @@
                 <div class="feedback" id="feedback" aria-live="polite"></div>
                 <div class="error-box" id="game-error" role="alert"></div>
 
-                <div class="btn-row">
-                    <button type="button" class="btn btn-primary" id="phase-action">Submit</button>
-                </div>
                 <div class="btn-row game-control-row">
+                    <button type="button" class="btn btn-primary" id="phase-action">Submit</button>
                     <button type="button" class="btn btn-ghost" id="restart-game">Restart</button>
                     <button type="button" class="btn btn-danger" id="quit-game">Quit</button>
                 </div>
@@ -1003,28 +1002,81 @@
 
     <script>
         // =========================================================
-        // REPLACEABLE COPY
-        // Search this file for "COPY]" to find provisional wording.
+        // MANTRA SYNC COPY
+        // Arrays are randomized during play with no immediate repeat.
         // =========================================================
         const COPY = {
-            intro: "[INTRO COPY] [Mantra Sync tests memory through repeated phrases. First remember the missing text, then type the complete mantra.]",
-            signIn: "[SIGN IN COPY] [Choose the game name and pronouns you want to use for this session.]",
-            age: "[AGE ATTESTATION COPY] [I confirm that I am 18 or older.]",
-            select: "[GAME SELECT COPY] [Choose timed or untimed play, then choose the mantra series you want in the rotation.]",
-            timed: "[TIMED MODE COPY] [You have 10 seconds for each recall phase and 10 seconds for each full retype.]",
-            untimed: "[UNTIMED MODE COPY] [Take as long as you need for each answer.]",
-            quiz: "[MANTRA QUIZ COPY] [Type only the text hidden by the mystery marker.]",
-            success1: "[SUCCESS 1 COPY] [Correct. You remembered the missing text.]",
-            fail1: "[FAIL 1 COPY] [Not quite. The complete mantra comes next.]",
-            type: "[MANTRA TYPE COPY] [Now retype the complete mantra.]",
-            success2: "[SUCCESS 2 COPY] [Correct. Full repetition complete.]",
-            fail2: "[FAIL 2 COPY] [The repetition did not match.]",
-            eight: "[EIGHT SUCCESS EVENT COPY] [SYNC INTENSIFIES]",
-            hundred: "[100 REPETITIONS COPY] [You completed another block of 100 repetitions. You can log this session now or continue.]",
-            continue: "[CONTINUE COPY] [Continue keeps your total score and starts a new 100-repetition block.]",
-            end: "[END GAME COPY] [End and Log submits this session to the Mantra Sync leaderboard.]",
-            scoreReport: "[SCORE REPORT COPY] [Your session is summarized below.]"
+            intro: "Mantras make our minds happy.\n\nNeural Nets And Pretty Patterns introduced the use of mantras in thinkykinky play. The Mantra Sync game helps you commit the classics to memory.\n\nAll you have to do is press the button.",
+            signIn: "Choose your game name. That’s what appears on the leaderboard if you’re good enough to earn gold stars.\n\nThen choose your programmer pronouns. Those aren’t YOUR pronouns. When you memorize your mantras, you might imagine speaking them to a he or a she or a they. Just choose what you like the best.\n\nThen confirm your age. Mantra Sync can touch on suggestive topics, so you need to be 18 or older to play.",
+            age: "I confirm that I am 18 or older.",
+            select: "Choose if you want tick tock now, then choose the mantras you want in your mind.",
+            timed: "Race for gold stars. You have 10 seconds for each phase.",
+            untimed: "Take as long as you need for each answer.",
+            quiz: "Type The Missing Text.",
+            success1: [
+                "Good. We've got your focus now.",
+                "Goodest. You're gonna get a brainbow!",
+                "You're learning. You just need to keep going.",
+                "Perfect pure focus. That's when you click into place."
+            ],
+            fail1: [
+                "Not quite. You need to keep playing.",
+                "Pay attention. You can do this.",
+                "You made a mistake. Say it with your mouth - then you'll remember."
+            ],
+            type: "Retype the whole mantra.",
+            success2: [
+                "Very good. Repeat to remember.",
+                "You're getting better. Remember to repeat.",
+                "Yes. Yes is always best.",
+                "Good! You can smile and nod now."
+            ],
+            fail2: [
+                "Oops! You'll need to play a lot more.",
+                "Nuh uh. Be sure to focus.",
+                "Right on the edge, but that only counts for edging. That's a different game."
+            ],
+            eight: [
+                "Brainbow!",
+                "Mind pop!",
+                "Sparkle time!"
+            ],
+            hundred: [
+                "You did 100 mantras. That means you did good.",
+                "Decide now if you want to do another 100. Practice makes puppet, but be sure you have the time."
+            ],
+            continue: "Continue keeps your score and starts another click-click cycle.",
+            end: "End ends this session and submits your name for the Sync Success Board.",
+            scoreReport: "Here's how you did:",
+            endLogged: "You submitted just right. If you're Sync Success material, you'll see your name in lights soon."
         };
+
+        const lastCopyIndex = {};
+
+        function pickCopy(key) {
+            const value = COPY[key];
+
+            if (!Array.isArray(value)) {
+                return value || "";
+            }
+
+            if (value.length === 0) {
+                return "";
+            }
+
+            if (value.length === 1) {
+                lastCopyIndex[key] = 0;
+                return value[0];
+            }
+
+            let index;
+            do {
+                index = Math.floor(Math.random() * value.length);
+            } while (index === lastCopyIndex[key]);
+
+            lastCopyIndex[key] = index;
+            return value[index];
+        }
 
         const FALLBACK_PRONOUNS = {
             he: {
@@ -1111,11 +1163,9 @@
             $("copy-select").textContent = COPY.select;
             $("copy-timed").textContent = COPY.timed;
             $("copy-untimed").textContent = COPY.untimed;
-            $("copy-hundred").textContent = COPY.hundred;
             $("copy-score-report").textContent = COPY.scoreReport;
             $("copy-end").textContent = COPY.end;
             $("copy-continue").textContent = COPY.continue;
-            $("burst-banner").textContent = COPY.eight;
         }
 
         function showScreen(id) {
@@ -1271,6 +1321,17 @@
             }
         }
 
+        function seriesSubtitle(id) {
+            const subtitles = {
+                all: "All The Time",
+                melting: "Drip Drop Time",
+                wave: "Warm Wet Time",
+                slumber: "Sleepy Time",
+                machine: "Beep Boop Time"
+            };
+            return subtitles[id] || "";
+        }
+
         function renderSeriesOptions() {
             const container = $("series-options");
             container.innerHTML = "";
@@ -1281,15 +1342,13 @@
             }
 
             for (const series of list) {
-                const totalCount = mantrasForSeries(series.id, false).length;
-                const playableCount = mantrasForSeries(series.id, true).length;
                 const label = document.createElement("label");
                 label.className = "choice";
                 label.innerHTML = `
                     <input type="radio" name="series" value="${escapeHtml(series.id)}" ${series.id === state.seriesId ? "checked" : ""}>
                     <span class="choice-label">
                         <strong>${escapeHtml(series.title)}</strong>
-                        <small>${playableCount} playable of ${totalCount} entries</small>
+                        <small>${escapeHtml(seriesSubtitle(series.id))}</small>
                     </span>`;
                 container.appendChild(label);
             }
@@ -1298,14 +1357,7 @@
         }
 
         function updatePoolStatus() {
-            const selected = document.querySelector('input[name="series"]:checked')?.value || state.seriesId;
-            const total = mantrasForSeries(selected, false).length;
-            const playable = mantrasForSeries(selected, true).length;
-            const malformed = total - playable;
-            const note = malformed > 0
-                ? `${playable} playable mantras. ${malformed} entr${malformed === 1 ? "y is" : "ies are"} missing valid [[mystery text]] notation and will not be used.`
-                : `${playable} playable mantras available.`;
-            showBox("pool-status", note);
+            // Intentionally silent in the player UI.
         }
 
         async function loadBank() {
@@ -1485,10 +1537,8 @@
             }
 
             hideBox("game-error");
-            $("phase-kicker").textContent = "Recall";
             $("phase-title").textContent = "Mantra Quiz";
             $("phase-copy").textContent = COPY.quiz;
-            $("phase-context").textContent = `${seriesTitle(state.seriesId)} · ${state.mode === "timed" ? "Timed" : "Untimed"}`;
             $("mantra-display").innerHTML = state.currentParsed.displayHtml;
             $("blank-field").hidden = false;
             $("full-field").hidden = true;
@@ -1513,7 +1563,6 @@
             stopTimer();
             state.phaseLocked = false;
             state.phase = "full";
-            $("phase-kicker").textContent = "Repeat";
             $("phase-title").textContent = "Mantra Type";
             $("phase-copy").textContent = COPY.type;
             $("mantra-display").textContent = state.currentParsed.fullText;
@@ -1549,9 +1598,10 @@
                 state.totalScore += 2;
                 state.currentBlockScore += 2;
                 registerSuccess();
-                setFeedback(COPY.success1, true);
+                setFeedback(pickCopy("success1"), true);
             } else {
-                setFeedback(timedOut ? `${COPY.fail1} [TIME EXPIRED]` : COPY.fail1, false);
+                const message = pickCopy("fail1");
+                setFeedback(timedOut ? `${message} Time expired.` : message, false);
             }
 
             updateHud();
@@ -1573,9 +1623,10 @@
                 state.totalScore += 1;
                 state.currentBlockScore += 1;
                 registerSuccess();
-                setFeedback(COPY.success2, true);
+                setFeedback(pickCopy("success2"), true);
             } else {
-                setFeedback(timedOut ? `${COPY.fail2} [TIME EXPIRED]` : COPY.fail2, false);
+                const message = pickCopy("fail2");
+                setFeedback(timedOut ? `${message} Time expired.` : message, false);
             }
 
             state.repetitions += 1;
@@ -1603,6 +1654,7 @@
             updateSyncVisual();
 
             if (state.successCycle >= 8) {
+                $("burst-banner").textContent = pickCopy("eight");
                 document.body.classList.remove("sync-burst");
                 void document.body.offsetWidth;
                 document.body.classList.add("sync-burst");
@@ -1646,6 +1698,7 @@
         }
 
         function showCheckpoint() {
+            $("copy-hundred").textContent = pickCopy("hundred");
             updateReport("report");
             hideBox("checkpoint-error");
             hideBox("checkpoint-status");
@@ -1680,7 +1733,7 @@
                 }
 
                 showBox("checkpoint-status", "Score logged.");
-                $("end-message").textContent = "[END GAME COPY] [Your score was logged successfully.]";
+                $("end-message").textContent = COPY.endLogged;
                 updateReport("end");
                 await loadLeaderboard();
                 showScreen("screen-end");
