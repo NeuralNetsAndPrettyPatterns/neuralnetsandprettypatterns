@@ -315,6 +315,70 @@
             margin-top: 1rem;
         }
 
+        .nav-buttons {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            gap: 0.6rem;
+            flex-wrap: wrap;
+            padding: 0 0 2rem;
+            margin: 0;
+        }
+
+        .nav-button {
+            min-width: 45px;
+            height: 45px;
+            padding: 0 0.85rem;
+            border: 2px solid var(--text);
+            border-radius: 999px;
+            background: transparent;
+            color: var(--text);
+            font-size: 0.65rem;
+            letter-spacing: 0.12em;
+            cursor: pointer;
+            display: inline-flex;
+            justify-content: center;
+            align-items: center;
+            transition: all 0.3s ease;
+            font-family: var(--mono);
+            flex-shrink: 0;
+            text-decoration: none;
+            line-height: 1;
+            white-space: nowrap;
+        }
+
+        .nav-button.two-line {
+            flex-direction: column;
+            gap: 0.05rem;
+            height: auto;
+            min-height: 45px;
+            padding: 0.4rem 0.7rem;
+            border-radius: 14px;
+            line-height: 1.15;
+        }
+
+        .nav-button.pink-room {
+            color: var(--pink);
+            border-color: var(--pink);
+        }
+
+        .nav-button:hover {
+            background: var(--text);
+            color: var(--bg);
+            transform: scale(1.1);
+        }
+
+        .nav-button.pink-room:hover {
+            background: var(--pink);
+            color: #fff;
+        }
+
+        .nav-button svg {
+            width: 18px;
+            height: 18px;
+            flex-shrink: 0;
+        }
+
         .leaderboard {
             display: grid;
             grid-template-columns: repeat(3, 1fr);
@@ -324,8 +388,8 @@
         }
 
         .leader-card {
-            min-height: 108px;
-            padding: 1rem;
+            min-height: 150px;
+            padding: 1.35rem 1rem;
             border: 1px solid var(--border);
             background: rgba(255,45,120,0.035);
             text-align: center;
@@ -333,7 +397,9 @@
 
         .leader-label {
             display: block;
-            font-size: 0.58rem;
+            font-family: var(--display);
+            font-weight: 800;
+            font-size: clamp(0.95rem, 2.5vw, 1.25rem);
             letter-spacing: 0.13em;
             text-transform: uppercase;
             color: var(--pink);
@@ -343,8 +409,8 @@
         .leader-name {
             display: block;
             font-family: var(--display);
-            font-weight: 700;
-            font-size: 0.92rem;
+            font-weight: 800;
+            font-size: clamp(1.25rem, 3.4vw, 1.8rem);
             line-height: 1.25;
             color: var(--text);
             overflow-wrap: anywhere;
@@ -352,9 +418,11 @@
 
         .leader-stat {
             display: block;
-            margin-top: 0.4rem;
-            color: var(--text-muted);
-            font-size: 0.65rem;
+            margin-top: 0.5rem;
+            color: var(--pink-pale);
+            font-family: var(--display);
+            font-weight: 700;
+            font-size: clamp(1rem, 2.8vw, 1.35rem);
         }
 
         .screen {
@@ -431,6 +499,9 @@
         .btn-primary:hover:not(:disabled) { background: transparent; color: var(--pink); box-shadow: none; }
         .btn-ghost { background: transparent; border: 1px solid var(--border-hi); color: var(--text-dim); }
         .btn-ghost:hover:not(:disabled) { border-color: var(--pink); color: var(--text); box-shadow: 0 0 20px rgba(255,45,120,0.18); }
+        .btn-danger { background: transparent; border: 1px solid rgba(255,193,214,0.55); color: var(--danger); }
+        .btn-danger:hover:not(:disabled) { border-color: var(--danger); color: #fff; box-shadow: 0 0 20px rgba(255,193,214,0.16); }
+        .game-control-row { margin-top: 0.55rem; opacity: 0.92; }
 
         .field { margin-top: 1rem; }
         .field:first-child { margin-top: 0; }
@@ -722,18 +793,10 @@
     <div id="burst-banner" aria-live="polite"></div>
 
     <main>
-        <nav class="breadcrumb-nav" aria-label="Breadcrumb">
-            <a href="/">Neural Nets And Pretty Patterns</a>
-            <span aria-hidden="true">›</span>
-            <span>Games</span>
-            <span aria-hidden="true">›</span>
-            <span aria-current="page">Mantra Sync</span>
-        </nav>
+        <div class="nav-buttons" id="nav-buttons-top" aria-label="Site navigation"></div>
 
         <header class="page-header">
-            <p class="page-kicker"><span class="pink-dot" aria-hidden="true"></span>Memory Game</p>
             <h1 class="page-title">Mantra <span class="pink-word">Sync</span></h1>
-            <p class="page-subtitle">Neural Nets And Pretty Patterns</p>
         </header>
 
         <section class="leaderboard" aria-label="Mantra Sync leaderboard">
@@ -756,7 +819,6 @@
 
         <section class="screen active" id="screen-intro">
             <div class="panel">
-                <p class="section-kicker">Start</p>
                 <h2>Mantra Sync</h2>
                 <p class="copy-block" id="copy-intro"></p>
                 <div class="status-box" id="bank-status" role="status"></div>
@@ -769,7 +831,6 @@
 
         <section class="screen" id="screen-signin">
             <div class="panel">
-                <p class="section-kicker">Identity</p>
                 <h2>Sign In</h2>
                 <p class="copy-block" id="copy-signin"></p>
 
@@ -779,7 +840,7 @@
                 </div>
 
                 <div class="field">
-                    <span class="field-label">Pronouns</span>
+                    <span class="field-label">Programmer Pronouns</span>
                     <div class="option-grid" id="pronoun-options"></div>
                 </div>
 
@@ -874,6 +935,10 @@
 
                 <div class="btn-row">
                     <button type="button" class="btn btn-primary" id="phase-action">Submit</button>
+                </div>
+                <div class="btn-row game-control-row">
+                    <button type="button" class="btn btn-ghost" id="restart-game">Restart</button>
+                    <button type="button" class="btn btn-danger" id="quit-game">Quit</button>
                 </div>
             </div>
         </section>
@@ -1001,6 +1066,15 @@
             { id: "slumber", title: "Slumber" },
             { id: "machine", title: "Machine" }
         ];
+
+        // Temporary UI simulation for layout testing.
+        // Set to false when you want the page to display live D1 winners.
+        const USE_SIMULATED_LEADERBOARD = true;
+        const SIMULATED_LEADERBOARD = {
+            gold_star: { player_name: "Tessa", total_score: 786 },
+            star_quality: { player_name: "Gia", accuracy: 99.0 },
+            play_of_the_game: { player_name: "JenJen", best_block: 300 }
+        };
 
         const state = {
             bank: null,
@@ -1236,7 +1310,7 @@
 
         async function loadBank() {
             hideBox("bank-error");
-            showBox("bank-status", "Loading mantra bank from Cloudflare...");
+            hideBox("bank-status");
 
             try {
                 const response = await fetch("/games/mantra-sync/mantra-bank.json", { cache: "no-store" });
@@ -1256,7 +1330,7 @@
                 renderSeriesOptions();
 
                 const playable = bank.mantras.filter(isPlayableMantra).length;
-                showBox("bank-status", `Mantra bank loaded: ${bank.mantras.length} entries, ${playable} currently playable.`);
+                hideBox("bank-status");
                 $("intro-start").disabled = playable === 0;
 
                 if (playable === 0) {
@@ -1272,6 +1346,11 @@
         }
 
         async function loadLeaderboard() {
+            if (USE_SIMULATED_LEADERBOARD) {
+                renderLeaderboard(SIMULATED_LEADERBOARD);
+                return;
+            }
+
             try {
                 const response = await fetch("/api/mantra-sync/leaderboard", { cache: "no-store" });
                 if (!response.ok) throw new Error(`HTTP ${response.status}`);
@@ -1677,6 +1756,25 @@
             }
         }
 
+        function restartGame() {
+            const confirmed = window.confirm(
+                "Restart this session? Your current score and repetitions will be discarded."
+            );
+            if (!confirmed) return;
+            startConfiguredGame();
+        }
+
+        function quitGame() {
+            const confirmed = window.confirm(
+                "Quit this session? Quitting now means this run cannot be logged for a high score."
+            );
+            if (!confirmed) return;
+
+            resetSession();
+            renderSeriesOptions();
+            showScreen("screen-select");
+        }
+
         function bindEvents() {
             $("intro-start").addEventListener("click", () => showScreen("screen-signin"));
 
@@ -1693,6 +1791,8 @@
             $("series-options").addEventListener("change", updatePoolStatus);
             $("game-start").addEventListener("click", startConfiguredGame);
             $("phase-action").addEventListener("click", phaseAction);
+            $("restart-game").addEventListener("click", restartGame);
+            $("quit-game").addEventListener("click", quitGame);
 
             $("blank-input").addEventListener("keydown", event => {
                 if (event.key === "Enter" && !event.shiftKey) {
@@ -1715,6 +1815,72 @@
                 renderSeriesOptions();
                 showScreen("screen-select");
             });
+        }
+
+        function loadSiteNavigation() {
+            const NAV_JSON_URL = "https://neuralnetsandprettypatterns.com/nav-buttons.json";
+            const ICONS = {
+                envelope:
+                    '<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" width="18" height="18" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">' +
+                    '<path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"/>' +
+                    '<path d="M22 6l-10 7L2 6"/>' +
+                    "</svg>",
+                discord:
+                    '<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" width="18" height="18" fill="currentColor" aria-hidden="true">' +
+                    '<path d="M20.32 4.37a19.8 19.8 0 0 0-4.89-1.52.07.07 0 0 0-.08.04c-.21.38-.45.87-.61 1.26a18.3 18.3 0 0 0-5.48 0 12.6 12.6 0 0 0-.62-1.26.07.07 0 0 0-.08-.04c-1.7.29-3.36.8-4.89 1.52a.07.07 0 0 0-.03.03C.75 8.68.06 12.86.35 16.99a.08.08 0 0 0 .03.06 19.9 19.9 0 0 0 6 3.03.08.08 0 0 0 .08-.03c.46-.63.88-1.3 1.23-2a.08.08 0 0 0-.04-.11 13.1 13.1 0 0 1-1.87-.9.08.08 0 0 1-.01-.13c.13-.09.25-.19.37-.29a.08.08 0 0 1 .08-.01c3.93 1.8 8.18 1.8 12.06 0a.08.08 0 0 1 .08.01c.12.1.24.2.37.29a.08.08 0 0 1-.01.13c-.6.35-1.22.65-1.88.9a.08.08 0 0 0-.04.11c.36.7.78 1.36 1.23 2a.08.08 0 0 0 .08.03 19.8 19.8 0 0 0 6.01-3.03.08.08 0 0 0 .03-.06c.35-4.78-.58-8.93-2.46-12.6a.06.06 0 0 0-.03-.02zM8.02 14.65c-1.18 0-2.15-1.08-2.15-2.42s.95-2.42 2.15-2.42c1.21 0 2.17 1.1 2.15 2.42 0 1.34-.95 2.42-2.15 2.42zm7.97 0c-1.18 0-2.15-1.08-2.15-2.42s.95-2.42 2.15-2.42c1.21 0 2.17 1.1 2.15 2.42 0 1.34-.94 2.42-2.15 2.42z"/>' +
+                    "</svg>",
+                patreon:
+                    '<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512" fill="currentColor" fill-rule="evenodd" clip-rule="evenodd" stroke-linejoin="round" stroke-miterlimit="2" aria-hidden="true">' +
+                    '<g transform="matrix(.47407 0 0 .47407 .383 .422)">' +
+                    '<path d="M1033.05 324.45c-.19-137.9-107.59-250.92-233.6-291.7-156.48-50.64-362.86-43.3-512.28 27.2-181.1 85.46-237.99 272.66-240.11 459.36-1.74 153.5 13.58 557.79 241.62 560.67 169.44 2.15 194.67-216.18 273.07-321.33 55.78-74.81 127.6-95.94 216.01-117.82 151.95-37.61 255.51-157.53 255.29-316.38z" fill-rule="nonzero"/>' +
+                    "</g></svg>"
+            };
+
+            function buildButton(button) {
+                const a = document.createElement("a");
+                const classes = ["nav-button"];
+                if (button.class) classes.push(button.class);
+                a.className = classes.join(" ");
+                a.href = button.href;
+                a.setAttribute("aria-label", button.ariaLabel || button.label || "");
+
+                if (button.target) {
+                    a.target = button.target;
+                    a.rel = "noopener";
+                }
+
+                if (button.icon && ICONS[button.icon]) {
+                    a.innerHTML = ICONS[button.icon];
+                } else if (Array.isArray(button.lines)) {
+                    button.lines.forEach(line => {
+                        const span = document.createElement("span");
+                        span.textContent = line;
+                        a.appendChild(span);
+                    });
+                } else {
+                    a.textContent = button.label || "";
+                }
+
+                return a;
+            }
+
+            fetch(NAV_JSON_URL, { cache: "no-store" })
+                .then(response => {
+                    if (!response.ok) {
+                        throw new Error(`Nav buttons request failed with status ${response.status}`);
+                    }
+                    return response.json();
+                })
+                .then(data => {
+                    const container = $("nav-buttons-top");
+                    const buttons = data && Array.isArray(data.buttons) ? data.buttons : [];
+                    if (!container) return;
+                    container.innerHTML = "";
+                    buttons.forEach(button => container.appendChild(buildButton(button)));
+                })
+                .catch(error => {
+                    console.error("Nav buttons could not be loaded:", error);
+                });
         }
 
         function startSparkles() {
@@ -1776,6 +1942,7 @@
         async function init() {
             setCopy();
             bindEvents();
+            loadSiteNavigation();
             startSparkles();
             updateHud();
             await Promise.all([loadBank(), loadLeaderboard()]);
