@@ -7,6 +7,16 @@ export default {
       return handleContactPost(request, env);
     }
 
+    // Mantra Sync leaderboard
+    if (p === "/api/mantra-sync/leaderboard") {
+      return handleMantraLeaderboard(request, env);
+    }
+
+    // Mantra Sync completed score submission
+    if (p === "/api/mantra-sync/score") {
+      return handleMantraScore(request, env);
+    }
+
     // Mantra Sync D1 connectivity test
     if (p === "/api/mantra-sync/test-db") {
       try {
@@ -1152,6 +1162,431 @@ function contactResponse(
         "Content-Type":
           "text/html; charset=utf-8",
         ...contactCorsHeaders(request),
+        ...extraHeaders
+      }
+    }
+  );
+}
+
+/* =========================================================
+   MANTRA SYNC LEADERBOARD
+   ========================================================= */
+
+async function handleMantraLeaderboard(request, env) {
+  if (request.method !== "GET") {
+    return mantraJsonResponse(
+      {
+        ok: false,
+        error: "Method not allowed."
+      },
+      405,
+      {
+        "Allow": "GET"
+      }
+    );
+  }
+
+  if (!env || !env.mantrasync) {
+    return mantraJsonResponse(
+      {
+        ok: false,
+        error: "Mantra Sync database is not configured."
+      },
+      500
+    );
+  }
+
+  try {
+    const [
+      goldStar,
+      starQuality,
+      playOfTheGame
+    ] = await Promise.all([
+      env.mantrasync
+        .prepare(
+          `SELECT
+             player_name,
+             total_score
+           FROM mantra_scores
+           ORDER BY
+             total_score DESC,
+             created_at ASC,
+             id ASC
+           LIMIT 1`
+        )
+        .first(),
+
+      env.mantrasync
+        .prepare(
+          `SELECT
+             player_name,
+             accuracy
+           FROM mantra_scores
+           ORDER BY
+             accuracy DESC,
+             repetitions DESC,
+             total_score DESC,
+             created_at ASC,
+             id ASC
+           LIMIT 1`
+        )
+        .first(),
+
+      env.mantrasync
+        .prepare(
+          `SELECT
+             player_name,
+             best_block
+           FROM mantra_scores
+           ORDER BY
+             best_block DESC,
+             total_score DESC,
+             created_at ASC,
+             id ASC
+           LIMIT 1`
+        )
+        .first()
+    ]);
+
+    return mantraJsonResponse({
+      ok: true,
+      leaderboard: {
+        gold_star: goldStar
+          ? {
+              player_name: goldStar.player_name,
+              total_score: Number(
+                goldStar.total_score
+              )
+            }
+          : null,
+
+        star_quality: starQuality
+          ? {
+              player_name:
+                starQuality.player_name,
+              accuracy: Number(
+                starQuality.accuracy
+              )
+            }
+          : null,
+
+        play_of_the_game: playOfTheGame
+          ? {
+              player_name:
+                playOfTheGame.player_name,
+              best_block: Number(
+                playOfTheGame.best_block
+              )
+            }
+          : null
+      }
+    });
+  } catch (error) {
+    console.error(
+      "Mantra Sync leaderboard read failed:",
+      error
+    );
+
+    return mantraJsonResponse(
+      {
+        ok: false,
+        error: "Leaderboard could not be loaded."
+      },
+      500
+    );
+  }
+}
+
+async function handleMantraScore(request, env) {
+  if (request.method === "OPTIONS") {
+    return new Response(null, {
+      status: 204,
+      headers: {
+        "Allow": "POST, OPTIONS",
+        "Access-Control-Allow-Methods":
+          "POST, OPTIONS",
+        "Access-Control-Allow-Headers":
+          "Content-Type",
+        "Cache-Control": "no-store"
+      }
+    });
+  }
+
+  if (request.method !== "POST") {
+    return mantraJsonResponse(
+      {
+        ok: false,
+        error: "Method not allowed."
+      },
+      405,
+      {
+        "Allow": "POST, OPTIONS"
+      }
+    );
+  }
+
+  if (!env || !env.mantrasync) {
+    return mantraJsonResponse(
+      {
+        ok: false,
+        error: "Mantra Sync database is not configured."
+      },
+      500
+    );
+  }
+
+  const contentType =
+    request.headers.get("content-type") || "";
+
+  if (!contentType.includes("application/json")) {
+    return mantraJsonResponse(
+      {
+        ok: false,
+        error: "Score submission must be JSON."
+      },
+      415
+    );
+  }
+
+  let score;
+
+  try {
+    score = await request.json();
+  } catch (error) {
+    return mantraJsonResponse(
+      {
+        ok: false,
+        error: "Could not read score submission."
+      },
+      400
+    );
+  }
+
+  const validation =
+    validateMantraScore(score);
+
+  if (!validation.ok) {
+    return mantraJsonResponse(
+      {
+        ok: false,
+        error: validation.error
+      },
+      400
+    );
+  }
+
+  const {
+    playerName,
+    totalScore,
+    repetitions,
+    bestBlock,
+    mode,
+    theme
+  } = validation.value;
+
+  // Each repetition is worth a maximum of 3 points:
+  // 2 for the fill-in-the-blank phase and 1 for
+  // successfully retyping the complete mantra.
+  const accuracy =
+    Math.round(
+      (
+        totalScore /
+        (repetitions * 3)
+      ) *
+      1000
+    ) / 10;
+
+  try {
+    const result = await env.mantrasync
+      .prepare(
+        `INSERT INTO mantra_scores (
+           player_name,
+           total_score,
+           repetitions,
+           accuracy,
+           best_block,
+           mode,
+           theme
+         )
+         VALUES (?, ?, ?, ?, ?, ?, ?)`
+      )
+      .bind(
+        playerName,
+        totalScore,
+        repetitions,
+        accuracy,
+        bestBlock,
+        mode,
+        theme
+      )
+      .run();
+
+    return mantraJsonResponse(
+      {
+        ok: true,
+        message: "Score logged.",
+        score: {
+          player_name: playerName,
+          total_score: totalScore,
+          repetitions,
+          accuracy,
+          best_block: bestBlock,
+          mode,
+          theme
+        },
+        id:
+          result?.meta?.last_row_id ?? null
+      },
+      201
+    );
+  } catch (error) {
+    console.error(
+      "Mantra Sync score write failed:",
+      error
+    );
+
+    return mantraJsonResponse(
+      {
+        ok: false,
+        error: "Score could not be logged."
+      },
+      500
+    );
+  }
+}
+
+function validateMantraScore(score) {
+  if (
+    !score ||
+    typeof score !== "object" ||
+    Array.isArray(score)
+  ) {
+    return {
+      ok: false,
+      error: "Invalid score submission."
+    };
+  }
+
+  const playerName =
+    String(score.player_name || "")
+      .replace(/\s+/g, " ")
+      .trim();
+
+  const theme =
+    String(score.theme || "")
+      .replace(/\s+/g, " ")
+      .trim();
+
+  const mode =
+    String(score.mode || "")
+      .trim()
+      .toLowerCase();
+
+  const totalScore =
+    Number(score.total_score);
+
+  const repetitions =
+    Number(score.repetitions);
+
+  const bestBlock =
+    Number(score.best_block);
+
+  if (
+    playerName.length < 2 ||
+    playerName.length > 32
+  ) {
+    return {
+      ok: false,
+      error:
+        "Game name must be between 2 and 32 characters."
+    };
+  }
+
+  if (
+    !Number.isInteger(repetitions) ||
+    repetitions < 100 ||
+    repetitions % 100 !== 0
+  ) {
+    return {
+      ok: false,
+      error:
+        "Repetitions must be a positive multiple of 100."
+    };
+  }
+
+  if (
+    !Number.isInteger(totalScore) ||
+    totalScore < 0 ||
+    totalScore > repetitions * 3
+  ) {
+    return {
+      ok: false,
+      error:
+        "Total score is outside the valid range."
+    };
+  }
+
+  if (
+    !Number.isInteger(bestBlock) ||
+    bestBlock < 0 ||
+    bestBlock > 300 ||
+    bestBlock > totalScore
+  ) {
+    return {
+      ok: false,
+      error:
+        "Best block is outside the valid range."
+    };
+  }
+
+  if (
+    mode !== "timed" &&
+    mode !== "untimed"
+  ) {
+    return {
+      ok: false,
+      error:
+        "Mode must be timed or untimed."
+    };
+  }
+
+  if (
+    theme.length < 1 ||
+    theme.length > 80
+  ) {
+    return {
+      ok: false,
+      error:
+        "Theme must be between 1 and 80 characters."
+    };
+  }
+
+  return {
+    ok: true,
+    value: {
+      playerName,
+      totalScore,
+      repetitions,
+      bestBlock,
+      mode,
+      theme
+    }
+  };
+}
+
+function mantraJsonResponse(
+  body,
+  status = 200,
+  extraHeaders = {}
+) {
+  return new Response(
+    JSON.stringify(body),
+    {
+      status,
+      headers: {
+        "Content-Type":
+          "application/json; charset=utf-8",
+        "Cache-Control": "no-store",
         ...extraHeaders
       }
     }
