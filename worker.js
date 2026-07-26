@@ -7,6 +7,31 @@ export default {
       return handleContactPost(request, env);
     }
 
+    // Mantra Sync D1 connectivity test
+    if (p === "/api/mantra-sync/test-db") {
+      try {
+        const result = await env.mantrasync
+          .prepare(
+            "SELECT COUNT(*) AS score_count FROM mantra_scores"
+          )
+          .first();
+
+        return Response.json({
+          ok: true,
+          database: "mantrasyncboard",
+          score_count: result?.score_count ?? 0
+        });
+      } catch (error) {
+        return Response.json(
+          {
+            ok: false,
+            error: String(error)
+          },
+          { status: 500 }
+        );
+      }
+    }
+
     const MAIN_REPO_BASE =
       "https://raw.githubusercontent.com/NeuralNetsAndPrettyPatterns/neuralnetsandprettypatterns/main";
 
