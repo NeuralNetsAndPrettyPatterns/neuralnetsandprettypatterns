@@ -1,3 +1,8 @@
 name = "dark-sea-d219"
 main = "worker.js"
 compatibility_date = "2025-01-01"
+
+[[d1_databases]]
+binding = "mantrasync"
+database_name = "mantrasyncboard"
+database_id = "8e2f3ed8-7363-41f7-bdd5-273d54374c68"
