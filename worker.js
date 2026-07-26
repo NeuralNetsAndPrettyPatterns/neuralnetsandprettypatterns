@@ -17,6 +17,11 @@ export default {
       return handleMantraScore(request, env);
     }
 
+    // Mantra Sync mantra bank from Cloudflare KV
+    if (p === "/games/mantra-sync/mantra-bank.json") {
+      return handleMantraBank(request, env);
+    }
+
     // Mantra Sync D1 connectivity test
     if (p === "/api/mantra-sync/test-db") {
       try {
@@ -198,6 +203,18 @@ export default {
       p === "/contact/index.html"
     ) {
       return serveHtml("/contact/index.html", true);
+    }
+
+    // Mantra Sync game page
+    if (
+      p === "/games/mantra-sync" ||
+      p === "/games/mantra-sync/" ||
+      p === "/games/mantra-sync/index.html"
+    ) {
+      return serveHtml(
+        "/games/mantra-sync/index.html",
+        true
+      );
     }
 
     // Sitemap
@@ -1166,6 +1183,72 @@ function contactResponse(
       }
     }
   );
+}
+
+/* =========================================================
+   MANTRA SYNC MANTRA BANK
+   ========================================================= */
+
+async function handleMantraBank(request, env) {
+  if (request.method !== "GET") {
+    return mantraJsonResponse(
+      {
+        ok: false,
+        error: "Method not allowed."
+      },
+      405,
+      {
+        "Allow": "GET"
+      }
+    );
+  }
+
+  if (!env || !env.mantradata) {
+    return mantraJsonResponse(
+      {
+        ok: false,
+        error: "Mantra bank is not configured."
+      },
+      500
+    );
+  }
+
+  try {
+    const data =
+      await env.mantradata.get("mantra-bank");
+
+    if (!data) {
+      return mantraJsonResponse(
+        {
+          ok: false,
+          error: "Mantra bank not found."
+        },
+        404
+      );
+    }
+
+    return new Response(data, {
+      status: 200,
+      headers: {
+        "Content-Type":
+          "application/json; charset=utf-8",
+        "Cache-Control": "no-store"
+      }
+    });
+  } catch (error) {
+    console.error(
+      "Mantra Sync KV read failed:",
+      error
+    );
+
+    return mantraJsonResponse(
+      {
+        ok: false,
+        error: "Mantra bank could not be loaded."
+      },
+      500
+    );
+  }
 }
 
 /* =========================================================
