@@ -1324,7 +1324,7 @@ async function handleMantraLeaderboard(request, env) {
              player_name,
              best_block
            FROM mantra_scores
-           WHERE best_block = 300
+           WHERE best_block = 30
            ORDER BY
              created_at DESC,
              id DESC
@@ -1619,14 +1619,14 @@ function validateMantraScore(score) {
   if (
     !earlyExit &&
     (
-      repetitions < 100 ||
-      repetitions % 100 !== 0
+      repetitions < 10 ||
+      repetitions % 10 !== 0
     )
   ) {
     return {
       ok: false,
       error:
-        "Normal score submissions must use a positive multiple of 100 repetitions."
+        "Normal score submissions must use a positive multiple of 10 repetitions."
     };
   }
 
