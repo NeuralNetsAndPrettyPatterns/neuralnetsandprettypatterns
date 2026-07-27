@@ -1464,20 +1464,28 @@ async function handleMantraScore(request, env) {
     repetitions,
     bestBlock,
     mode,
-    theme
+    theme,
+    earlyExit
   } = validation.value;
 
   // Each repetition is worth a maximum of 3 points:
   // 2 for the fill-in-the-blank phase and 1 for
   // successfully retyping the complete mantra.
+  const rawAccuracy =
+    repetitions > 0
+      ? (
+          totalScore /
+          (repetitions * 3)
+        ) * 100
+      : 0;
+
+  const cappedAccuracy =
+    earlyExit
+      ? Math.min(rawAccuracy, 80)
+      : rawAccuracy;
+
   const accuracy =
-    Math.round(
-      (
-        totalScore /
-        (repetitions * 3)
-      ) *
-      1000
-    ) / 10;
+    Math.round(cappedAccuracy * 10) / 10;
 
   try {
     const result = await env.mantrasync
@@ -1574,6 +1582,9 @@ function validateMantraScore(score) {
   const bestBlock =
     Number(score.best_block);
 
+  const earlyExit =
+    score.early_exit === true;
+
   if (
     playerName.length < 2 ||
     playerName.length > 32
@@ -1585,15 +1596,25 @@ function validateMantraScore(score) {
     };
   }
 
+  if (!Number.isInteger(repetitions) || repetitions < 0) {
+    return {
+      ok: false,
+      error:
+        "Repetitions must be a non-negative integer."
+    };
+  }
+
   if (
-    !Number.isInteger(repetitions) ||
-    repetitions < 100 ||
-    repetitions % 100 !== 0
+    !earlyExit &&
+    (
+      repetitions < 100 ||
+      repetitions % 100 !== 0
+    )
   ) {
     return {
       ok: false,
       error:
-        "Repetitions must be a positive multiple of 100."
+        "Normal score submissions must use a positive multiple of 100 repetitions."
     };
   }
 
@@ -1652,7 +1673,8 @@ function validateMantraScore(score) {
       repetitions,
       bestBlock,
       mode,
-      theme
+      theme,
+      earlyExit
     }
   };
 }
