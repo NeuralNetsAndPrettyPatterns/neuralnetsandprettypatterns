@@ -14,13 +14,13 @@
     <link rel="apple-touch-icon" sizes="512x512" href="https://neuralnetsandprettypatterns.com/favicon-transparent.png">
 
     <meta property="og:title" content="Mantra Sync | Neural Nets And Pretty Patterns">
-    <meta property="og:description" content="A browser-based mantra memory game by Neural Nets And Pretty Patterns.">
+    <meta property="og:description" content="The mantra mind game by Neural Nets And Pretty Patterns.">
     <meta property="og:url" content="https://neuralnetsandprettypatterns.com/games/mantra-sync/">
     <meta property="og:type" content="website">
     <meta property="og:site_name" content="Neural Nets And Pretty Patterns">
     <meta name="twitter:card" content="summary">
     <meta name="twitter:title" content="Mantra Sync | Neural Nets And Pretty Patterns">
-    <meta name="twitter:description" content="A browser-based mantra memory game by Neural Nets And Pretty Patterns.">
+    <meta name="twitter:description" content="The mantra mind game by Neural Nets And Pretty Patterns.">
     <meta name="twitter:creator" content="@MCNeuralNets">
     <meta name="twitter:site" content="@MCNeuralNets">
 
@@ -607,6 +607,35 @@
             outline-offset: 2px;
         }
 
+        .series-choice {
+            display: grid;
+            grid-template-columns: 34px 1fr;
+            align-items: stretch;
+            border: 1px solid var(--border);
+            background: rgba(255,45,120,0.025);
+        }
+
+        .series-choice input {
+            position: static;
+            opacity: 1;
+            pointer-events: auto;
+            width: 17px;
+            height: 17px;
+            margin: auto;
+            accent-color: var(--pink);
+            cursor: pointer;
+        }
+
+        .series-choice .choice-label {
+            border: 0;
+            border-left: 1px solid var(--border);
+        }
+
+        .series-choice input:checked + .choice-label {
+            border-color: var(--pink);
+            background: rgba(255,45,120,0.11);
+        }
+
         .check-row {
             display: flex;
             align-items: flex-start;
@@ -1146,7 +1175,7 @@
             playerName: "",
             pronounId: "they",
             mode: "untimed",
-            seriesId: "all",
+            seriesIds: [],
             pool: [],
             deck: [],
             current: null,
@@ -1329,11 +1358,15 @@
             return list;
         }
 
-        function mantrasForSeries(seriesId, playableOnly = false) {
+        function mantrasForSeries(seriesIds, playableOnly = false) {
             const all = Array.isArray(state.bank?.mantras) ? state.bank.mantras : [];
-            const filtered = seriesId === "all"
-                ? all
-                : all.filter(mantra => Array.isArray(mantra.series) && mantra.series.includes(seriesId));
+            const selected = new Set(seriesIds);
+
+            const filtered = all.filter(mantra =>
+                Array.isArray(mantra.series) &&
+                mantra.series.some(seriesId => selected.has(seriesId))
+            );
+
             return playableOnly ? filtered.filter(isPlayableMantra) : filtered;
         }
 
@@ -1364,7 +1397,8 @@
                 melting: "Drip Drop Time",
                 wave: "Warm Wet Time",
                 slumber: "Sleepy Time",
-                machine: "Beep Boop Time"
+                machine: "Beep Boop Time",
+                money: "Bimcoin Time"
             };
             return subtitles[id] || "";
         }
@@ -1373,16 +1407,26 @@
             const container = $("series-options");
             container.innerHTML = "";
             const list = getSeriesList();
+            const individualSeries = list.filter(series => series.id !== "all");
 
-            if (!list.some(series => series.id === state.seriesId)) {
-                state.seriesId = "all";
+            const validIds = new Set(individualSeries.map(series => series.id));
+            state.seriesIds = state.seriesIds.filter(id => validIds.has(id));
+
+            if (!state.seriesIds.length) {
+                state.seriesIds = individualSeries.map(series => series.id);
             }
 
             for (const series of list) {
+                const isAll = series.id === "all";
+                const checked = isAll
+                    ? individualSeries.length > 0 &&
+                      individualSeries.every(item => state.seriesIds.includes(item.id))
+                    : state.seriesIds.includes(series.id);
+
                 const label = document.createElement("label");
-                label.className = "choice";
+                label.className = "choice series-choice";
                 label.innerHTML = `
-                    <input type="radio" name="series" value="${escapeHtml(series.id)}" ${series.id === state.seriesId ? "checked" : ""}>
+                    <input type="checkbox" name="series" value="${escapeHtml(series.id)}" ${checked ? "checked" : ""}>
                     <span class="choice-label">
                         <strong>${escapeHtml(series.title)}</strong>
                         <small>${escapeHtml(seriesSubtitle(series.id))}</small>
@@ -1390,7 +1434,43 @@
                 container.appendChild(label);
             }
 
+            const allBox = container.querySelector('input[name="series"][value="all"]');
+            const seriesBoxes = [
+                ...container.querySelectorAll(
+                    'input[name="series"]:not([value="all"])'
+                )
+            ];
+
+            if (allBox) {
+                allBox.addEventListener("change", () => {
+                    seriesBoxes.forEach(box => {
+                        box.checked = allBox.checked;
+                    });
+                    syncSeriesSelection();
+                });
+            }
+
+            seriesBoxes.forEach(box => {
+                box.addEventListener("change", () => {
+                    if (allBox) {
+                        allBox.checked =
+                            seriesBoxes.length > 0 &&
+                            seriesBoxes.every(item => item.checked);
+                    }
+                    syncSeriesSelection();
+                });
+            });
+
+            syncSeriesSelection();
             updatePoolStatus();
+        }
+
+        function syncSeriesSelection() {
+            state.seriesIds = [
+                ...document.querySelectorAll(
+                    '#series-options input[name="series"]:not([value="all"]):checked'
+                )
+            ].map(input => input.value);
         }
 
         function updatePoolStatus() {
@@ -1531,16 +1611,21 @@
         function startConfiguredGame() {
             hideBox("select-error");
             const mode = document.querySelector('input[name="mode"]:checked')?.value || "untimed";
-            const seriesId = document.querySelector('input[name="series"]:checked')?.value || "all";
-            const pool = mantrasForSeries(seriesId, true);
+            syncSeriesSelection();
+
+            if (!state.seriesIds.length) {
+                showBox("select-error", "Choose at least one series.");
+                return;
+            }
+
+            const pool = mantrasForSeries(state.seriesIds, true);
 
             if (!pool.length) {
-                showBox("select-error", "This series has no playable mantras with valid [[mystery text]] notation.");
+                showBox("select-error", "The selected series have no playable mantras with valid [[mystery text]] notation.");
                 return;
             }
 
             state.mode = mode;
-            state.seriesId = seriesId;
             resetSession();
             state.pool = pool;
             refillDeck();
@@ -1788,7 +1873,16 @@
                 repetitions: state.repetitions,
                 best_block: state.bestBlock,
                 mode: state.mode,
-                theme: state.seriesId,
+                theme: (() => {
+                    const individualIds = getSeriesList()
+                        .filter(series => series.id !== "all")
+                        .map(series => series.id);
+
+                    return individualIds.length > 0 &&
+                        individualIds.every(id => state.seriesIds.includes(id))
+                        ? "all"
+                        : state.seriesIds.join("+");
+                })(),
                 early_exit: earlyExit,
                 duration_ms: earlyExit
                     ? null
