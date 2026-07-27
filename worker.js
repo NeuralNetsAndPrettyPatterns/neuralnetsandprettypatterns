@@ -1323,9 +1323,8 @@ async function handleMantraLeaderboard(request, env) {
            FROM mantra_scores
            ORDER BY
              best_block DESC,
-             total_score DESC,
-             created_at ASC,
-             id ASC
+             created_at DESC,
+             id DESC
            LIMIT 1`
         )
         .first()
