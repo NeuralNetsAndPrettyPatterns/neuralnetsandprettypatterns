@@ -1619,6 +1619,7 @@
             if (correct) {
                 state.totalScore += 2;
                 state.currentBlockScore += 2;
+                state.currentRoundScore += 2;
                 registerSuccess();
                 setFeedback(pickCopy("success1"), true);
             } else {
@@ -1644,6 +1645,7 @@
             if (correct) {
                 state.totalScore += 1;
                 state.currentBlockScore += 1;
+                state.currentRoundScore += 1;
                 registerSuccess();
                 setFeedback(pickCopy("success2"), true);
             } else {
@@ -1652,6 +1654,7 @@
             }
 
             state.repetitions += 1;
+            state.currentRoundScore = 0;
 
             if (state.repetitions % 100 === 0) {
                 state.bestBlock = Math.max(state.bestBlock, state.currentBlockScore);
@@ -1712,10 +1715,18 @@
             $("hud-sync").textContent = `${Math.min(state.successCycle, 8)}/8`;
         }
 
-        function updateReport(prefix) {
-            $(`${prefix}-score`).textContent = String(state.totalScore);
+        function updateReport(prefix, accuracyOverride = null, scoreOverride = null) {
+            $(`${prefix}-score`).textContent = String(
+                scoreOverride === null ? state.totalScore : scoreOverride
+            );
             $(`${prefix}-reps`).textContent = String(state.repetitions);
-            $(`${prefix}-accuracy`).textContent = `${accuracyPercent().toFixed(1)}%`;
+
+            const reportAccuracy =
+                accuracyOverride === null
+                    ? accuracyPercent()
+                    : Number(accuracyOverride);
+
+            $(`${prefix}-accuracy`).textContent = `${reportAccuracy.toFixed(1)}%`;
             $(`${prefix}-best`).textContent = String(state.bestBlock);
         }
 
@@ -1729,6 +1740,36 @@
             showScreen("screen-checkpoint");
         }
 
+        async function submitScore(options = {}) {
+            const earlyExit = Boolean(options.earlyExit);
+            const completedScore = earlyExit
+                ? Math.max(0, state.totalScore - state.currentRoundScore)
+                : state.totalScore;
+
+            const payload = {
+                player_name: state.playerName,
+                total_score: completedScore,
+                repetitions: state.repetitions,
+                best_block: state.bestBlock,
+                mode: state.mode,
+                theme: state.seriesId,
+                early_exit: earlyExit
+            };
+
+            const response = await fetch("/api/mantra-sync/score", {
+                method: "POST",
+                headers: { "Content-Type": "application/json" },
+                body: JSON.stringify(payload)
+            });
+
+            const data = await response.json().catch(() => ({}));
+            if (!response.ok || !data.ok) {
+                throw new Error(data.error || `HTTP ${response.status}`);
+            }
+
+            return data;
+        }
+
         async function endAndLog() {
             hideBox("checkpoint-error");
             showBox("checkpoint-status", "Logging score...");
@@ -1736,27 +1777,11 @@
             $("checkpoint-continue").disabled = true;
 
             try {
-                const response = await fetch("/api/mantra-sync/score", {
-                    method: "POST",
-                    headers: { "Content-Type": "application/json" },
-                    body: JSON.stringify({
-                        player_name: state.playerName,
-                        total_score: state.totalScore,
-                        repetitions: state.repetitions,
-                        best_block: state.bestBlock,
-                        mode: state.mode,
-                        theme: state.seriesId
-                    })
-                });
-
-                const data = await response.json().catch(() => ({}));
-                if (!response.ok || !data.ok) {
-                    throw new Error(data.error || `HTTP ${response.status}`);
-                }
+                const data = await submitScore({ earlyExit: false });
 
                 showBox("checkpoint-status", "Score logged.");
                 $("end-message").textContent = COPY.endLogged;
-                updateReport("end");
+                updateReport("end", data.score?.accuracy);
                 await loadLeaderboard();
                 showScreen("screen-end");
             } catch (error) {
@@ -1839,15 +1864,46 @@
             startConfiguredGame();
         }
 
-        function quitGame() {
+        async function quitGame() {
             const confirmed = window.confirm(
-                "Quit this session? Quitting now means this run cannot be logged for a high score."
+                "Quit and log this session? Your completed repetitions will be submitted, but early-exit accuracy is capped at 80%."
             );
             if (!confirmed) return;
 
-            resetSession();
-            renderSeriesOptions();
-            showScreen("screen-select");
+            stopTimer();
+            $("quit-game").disabled = true;
+            $("restart-game").disabled = true;
+            $("phase-action").disabled = true;
+
+            try {
+                const completedScore = Math.max(
+                    0,
+                    state.totalScore - state.currentRoundScore
+                );
+
+                const data = await submitScore({ earlyExit: true });
+
+                $("end-message").textContent =
+                    "Session logged. Because you quit early, leaderboard accuracy is capped at 80%.";
+
+                updateReport(
+                    "end",
+                    data.score?.accuracy,
+                    completedScore
+                );
+
+                await loadLeaderboard();
+                showScreen("screen-end");
+            } catch (error) {
+                console.error("Quit score logging failed:", error);
+                showBox(
+                    "game-error",
+                    `Score could not be logged: ${error.message}`
+                );
+                $("quit-game").disabled = false;
+                $("restart-game").disabled = false;
+                $("phase-action").disabled = false;
+            }
         }
 
         function bindEvents() {
