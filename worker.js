@@ -1282,8 +1282,8 @@ async function handleMantraLeaderboard(request, env) {
   try {
     const [
       goldStar,
-      starQuality,
-      playOfTheGame
+      starSpeedrun,
+      flawlessVictory
     ] = await Promise.all([
       env.mantrasync
         .prepare(
@@ -1303,14 +1303,17 @@ async function handleMantraLeaderboard(request, env) {
         .prepare(
           `SELECT
              player_name,
-             accuracy
+             accuracy,
+             duration_ms
            FROM mantra_scores
+           WHERE
+             accuracy = 100
+             AND duration_ms IS NOT NULL
+             AND duration_ms > 0
            ORDER BY
-             accuracy DESC,
-             repetitions DESC,
-             total_score DESC,
-             created_at ASC,
-             id ASC
+             duration_ms ASC,
+             created_at DESC,
+             id DESC
            LIMIT 1`
         )
         .first(),
@@ -1321,14 +1324,29 @@ async function handleMantraLeaderboard(request, env) {
              player_name,
              best_block
            FROM mantra_scores
+           WHERE best_block = 300
            ORDER BY
-             best_block DESC,
              created_at DESC,
              id DESC
            LIMIT 1`
         )
         .first()
     ]);
+
+    const starSpeedrunResult = starSpeedrun
+      ? {
+          player_name: starSpeedrun.player_name,
+          accuracy: Number(starSpeedrun.accuracy),
+          duration_ms: Number(starSpeedrun.duration_ms)
+        }
+      : null;
+
+    const flawlessVictoryResult = flawlessVictory
+      ? {
+          player_name: flawlessVictory.player_name,
+          best_block: Number(flawlessVictory.best_block)
+        }
+      : null;
 
     return mantraJsonResponse({
       ok: true,
@@ -1342,25 +1360,13 @@ async function handleMantraLeaderboard(request, env) {
             }
           : null,
 
-        star_quality: starQuality
-          ? {
-              player_name:
-                starQuality.player_name,
-              accuracy: Number(
-                starQuality.accuracy
-              )
-            }
-          : null,
+        star_speedrun: starSpeedrunResult,
+        flawless_victory: flawlessVictoryResult,
 
-        play_of_the_game: playOfTheGame
-          ? {
-              player_name:
-                playOfTheGame.player_name,
-              best_block: Number(
-                playOfTheGame.best_block
-              )
-            }
-          : null
+        // Temporary aliases keep the current page working
+        // until its labels/rendering are updated.
+        star_quality: starSpeedrunResult,
+        play_of_the_game: flawlessVictoryResult
       }
     });
   } catch (error) {
@@ -1464,7 +1470,8 @@ async function handleMantraScore(request, env) {
     bestBlock,
     mode,
     theme,
-    earlyExit
+    earlyExit,
+    durationMs
   } = validation.value;
 
   // Each repetition is worth a maximum of 3 points:
@@ -1496,9 +1503,10 @@ async function handleMantraScore(request, env) {
            accuracy,
            best_block,
            mode,
-           theme
+           theme,
+           duration_ms
          )
-         VALUES (?, ?, ?, ?, ?, ?, ?)`
+         VALUES (?, ?, ?, ?, ?, ?, ?, ?)`
       )
       .bind(
         playerName,
@@ -1507,7 +1515,8 @@ async function handleMantraScore(request, env) {
         accuracy,
         bestBlock,
         mode,
-        theme
+        theme,
+        durationMs
       )
       .run();
 
@@ -1522,7 +1531,8 @@ async function handleMantraScore(request, env) {
           accuracy,
           best_block: bestBlock,
           mode,
-          theme
+          theme,
+          duration_ms: durationMs
         },
         id:
           result?.meta?.last_row_id ?? null
@@ -1584,6 +1594,12 @@ function validateMantraScore(score) {
   const earlyExit =
     score.early_exit === true;
 
+  const durationMs =
+    score.duration_ms === undefined ||
+    score.duration_ms === null
+      ? null
+      : Number(score.duration_ms);
+
   if (
     playerName.length < 2 ||
     playerName.length > 32
@@ -1643,6 +1659,20 @@ function validateMantraScore(score) {
   }
 
   if (
+    durationMs !== null &&
+    (
+      !Number.isInteger(durationMs) ||
+      durationMs <= 0
+    )
+  ) {
+    return {
+      ok: false,
+      error:
+        "Duration must be a positive integer number of milliseconds."
+    };
+  }
+
+  if (
     mode !== "timed" &&
     mode !== "untimed"
   ) {
@@ -1673,7 +1703,8 @@ function validateMantraScore(score) {
       bestBlock,
       mode,
       theme,
-      earlyExit
+      earlyExit,
+      durationMs
     }
   };
 }
