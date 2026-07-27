@@ -1197,13 +1197,22 @@
         }
 
         function normalizeAnswer(value) {
+            const synonymMap = {
+                dummer: "dumber",
+                dumber: "dumber"
+            };
+
             return String(value || "")
                 .normalize("NFKC")
                 .toLowerCase()
+                .replace(/['’‘`´]/g, "")
                 .replace(/\s+/g, " ")
                 .trim()
-                .replace(/[.!?,;:'\"”’]+$/g, "")
-                .trim();
+                .replace(/[.!?,;:"”]+$/g, "")
+                .trim()
+                .split(" ")
+                .map(word => synonymMap[word] || word)
+                .join(" ");
         }
 
         function capitalizeFirst(value) {
