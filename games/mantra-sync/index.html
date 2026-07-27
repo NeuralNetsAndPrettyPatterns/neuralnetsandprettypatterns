@@ -1123,9 +1123,9 @@
         // Set to false when you want the page to display live D1 winners.
         const USE_SIMULATED_LEADERBOARD = true;
         const SIMULATED_LEADERBOARD = {
-            gold_star: { player_name: "Tessa", total_score: 786 },
-            star_quality: { player_name: "Gia", accuracy: 99.0 },
-            play_of_the_game: { player_name: "JenJen", best_block: 300 }
+            gold_star: { player_name: "Tessa", total_score: 256 },
+            star_quality: { player_name: "Gia", accuracy: 69.0 },
+            play_of_the_game: { player_name: "JenJen", best_block: 42, block_denominator: 100 }
         };
 
         const state = {
@@ -1436,7 +1436,7 @@
             $("leader-quality-stat").textContent = quality ? `${Number(quality.accuracy).toFixed(1)}% accuracy` : "";
 
             $("leader-play-name").textContent = play?.player_name || "No score yet";
-            $("leader-play-stat").textContent = play ? `${play.best_block} / 300 block` : "";
+            $("leader-play-stat").textContent = play ? `${play.best_block} / ${play.block_denominator || 300} block` : "";
         }
 
         function validateSignIn() {
