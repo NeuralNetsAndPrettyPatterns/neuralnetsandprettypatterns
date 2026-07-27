@@ -1177,8 +1177,8 @@
                 "Sparkle time!"
             ],
             hundred: [
-                "You did 100 mantras. That means you did good.",
-                "Decide now if you want to do another 100. Practice makes puppet, but be sure you have the time."
+                "You did 10 mantras. That means you did good.",
+                "Decide now if you want to do another 10. Practice makes puppet, but be sure you have the time."
             ],
             continue: "Continue keeps your score and starts another click-click cycle.",
             end: "End ends this session and submits your name for the Sync Success Board.",
@@ -1261,7 +1261,7 @@
         const SIMULATED_LEADERBOARD = {
             gold_star: { player_name: "Tessa", total_score: 256 },
             star_speedrun: { player_name: "Gia", accuracy: 100, duration_ms: 90500 },
-            flawless_victory: { player_name: "JenJen", best_block: 300 }
+            flawless_victory: { player_name: "JenJen", best_block: 30 }
         };
 
         const state = {
@@ -1688,7 +1688,7 @@
                     : "";
 
             $("leader-flawless-name").textContent = flawless?.player_name || "No perfection yet";
-            $("leader-flawless-stat").textContent = flawless ? "300 / 300" : "";
+            $("leader-flawless-stat").textContent = flawless ? "30 / 30" : "";
         }
 
         function validateSignIn() {
@@ -1907,7 +1907,7 @@
             state.repetitions += 1;
             state.currentRoundScore = 0;
 
-            if (state.repetitions % 100 === 0) {
+            if (state.repetitions % 10 === 0) {
                 state.bestBlock = Math.max(state.bestBlock, state.currentBlockScore);
                 state.completedBlockDurationMs = Math.max(
                     1,
