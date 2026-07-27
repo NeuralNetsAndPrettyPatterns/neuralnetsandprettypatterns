@@ -1121,7 +1121,7 @@
 
         // Temporary UI simulation for layout testing.
         // Set to false when you want the page to display live D1 winners.
-        const USE_SIMULATED_LEADERBOARD = true;
+        const USE_SIMULATED_LEADERBOARD = false;
         const SIMULATED_LEADERBOARD = {
             gold_star: { player_name: "Tessa", total_score: 256 },
             star_quality: { player_name: "Gia", accuracy: 69.0 },
@@ -1233,6 +1233,21 @@
             return capitalizeFirst(resolved);
         }
 
+        function mysteryMask(hidden) {
+            return String(hidden || "")
+                .split(/(\s+)/)
+                .map(part => {
+                    if (/^\s+$/.test(part)) {
+                        return "&nbsp;&nbsp;&nbsp;";
+                    }
+
+                    return [...part]
+                        .map(() => "_")
+                        .join("&nbsp;");
+                })
+                .join("");
+        }
+
         function parseMantra(rawText) {
             const resolved = resolvePronouns(rawText);
             const regex = /\[\[([\s\S]*?)\]\]/g;
@@ -1254,9 +1269,7 @@
                 displayHtml += escapeHtml(resolved.slice(cursor, start));
 
                 const hidden = match[1];
-                const nonSpaceLength = [...hidden].filter(ch => !/\s/.test(ch)).length;
-                const blankLength = Math.max(2, Math.min(18, nonSpaceLength || 2));
-                displayHtml += `<span class="mystery" aria-label="missing text">${"_".repeat(blankLength)}</span>`;
+                displayHtml += `<span class="mystery" aria-label="missing text">${mysteryMask(hidden)}</span>`;
                 cursor = start + match[0].length;
             }
 
