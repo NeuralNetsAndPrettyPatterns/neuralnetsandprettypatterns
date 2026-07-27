@@ -406,6 +406,17 @@
             margin-bottom: 0.35rem;
         }
 
+        .leader-subtitle {
+            display: block;
+            margin: -0.05rem 0 0.5rem;
+            color: var(--pink-pale);
+            font-family: var(--display);
+            font-weight: 700;
+            font-size: 0.78rem;
+            letter-spacing: 0.08em;
+            text-transform: uppercase;
+        }
+
         .leader-name {
             display: block;
             font-family: var(--display);
@@ -808,14 +819,15 @@
                 <span class="leader-stat" id="leader-gold-stat"></span>
             </div>
             <div class="leader-card">
-                <span class="leader-label">Star Quality</span>
-                <span class="leader-name" id="leader-quality-name">Loading...</span>
-                <span class="leader-stat" id="leader-quality-stat"></span>
+                <span class="leader-label">Star Speedrun</span>
+                <span class="leader-name" id="leader-speedrun-name">Loading...</span>
+                <span class="leader-stat" id="leader-speedrun-stat"></span>
             </div>
             <div class="leader-card">
-                <span class="leader-label">Play of the Game</span>
-                <span class="leader-name" id="leader-play-name">Loading...</span>
-                <span class="leader-stat" id="leader-play-stat"></span>
+                <span class="leader-label">Flawless Victory</span>
+                <span class="leader-subtitle">Most Recent Perfection</span>
+                <span class="leader-name" id="leader-flawless-name">Loading...</span>
+                <span class="leader-stat" id="leader-flawless-stat"></span>
             </div>
         </section>
 
@@ -1124,8 +1136,8 @@
         const USE_SIMULATED_LEADERBOARD = false;
         const SIMULATED_LEADERBOARD = {
             gold_star: { player_name: "Tessa", total_score: 256 },
-            star_quality: { player_name: "Gia", accuracy: 69.0 },
-            play_of_the_game: { player_name: "JenJen", best_block: 42, block_denominator: 100 }
+            star_speedrun: { player_name: "Gia", accuracy: 100, duration_ms: 90500 },
+            flawless_victory: { player_name: "JenJen", best_block: 300 }
         };
 
         const state = {
@@ -1146,7 +1158,10 @@
             pointsPossible: 0,
             repetitions: 0,
             currentBlockScore: 0,
+            currentRoundScore: 0,
             bestBlock: 0,
+            blockStartedAtMs: 0,
+            completedBlockDurationMs: null,
             successCycle: 0,
             timerId: null,
             timerDeadline: 0,
@@ -1437,19 +1452,31 @@
             }
         }
 
+        function formatDuration(durationMs) {
+            const totalMs = Math.max(0, Number(durationMs) || 0);
+            const minutes = Math.floor(totalMs / 60000);
+            const seconds = Math.floor((totalMs % 60000) / 1000);
+            const milliseconds = totalMs % 1000;
+
+            return `${minutes}:${String(seconds).padStart(2, "0")}.${String(milliseconds).padStart(3, "0")}`;
+        }
+
         function renderLeaderboard(board) {
             const gold = board.gold_star;
-            const quality = board.star_quality;
-            const play = board.play_of_the_game;
+            const speedrun = board.star_speedrun || board.star_quality;
+            const flawless = board.flawless_victory || board.play_of_the_game;
 
             $("leader-gold-name").textContent = gold?.player_name || "No score yet";
             $("leader-gold-stat").textContent = gold ? `${gold.total_score} total` : "";
 
-            $("leader-quality-name").textContent = quality?.player_name || "No score yet";
-            $("leader-quality-stat").textContent = quality ? `${Number(quality.accuracy).toFixed(1)}% accuracy` : "";
+            $("leader-speedrun-name").textContent = speedrun?.player_name || "No perfection yet";
+            $("leader-speedrun-stat").textContent =
+                speedrun && speedrun.duration_ms
+                    ? `100% · ${formatDuration(speedrun.duration_ms)}`
+                    : "";
 
-            $("leader-play-name").textContent = play?.player_name || "No score yet";
-            $("leader-play-stat").textContent = play ? `${play.best_block} / ${play.block_denominator || 300} block` : "";
+            $("leader-flawless-name").textContent = flawless?.player_name || "No perfection yet";
+            $("leader-flawless-stat").textContent = flawless ? "300 / 300" : "";
         }
 
         function validateSignIn() {
@@ -1490,7 +1517,10 @@
             state.pointsPossible = 0;
             state.repetitions = 0;
             state.currentBlockScore = 0;
+            state.currentRoundScore = 0;
             state.bestBlock = 0;
+            state.blockStartedAtMs = 0;
+            state.completedBlockDurationMs = null;
             state.successCycle = 0;
             state.checkpointPending = false;
             updateSyncVisual();
@@ -1514,6 +1544,7 @@
             resetSession();
             state.pool = pool;
             refillDeck();
+            state.blockStartedAtMs = Date.now();
             showScreen("screen-game");
             nextRound();
         }
@@ -1549,6 +1580,7 @@
             stopTimer();
             state.phaseLocked = false;
             state.phase = "blank";
+            state.currentRoundScore = 0;
             state.checkpointPending = false;
             state.current = drawMantra();
             state.currentParsed = parseMantra(state.current.text);
@@ -1658,6 +1690,10 @@
 
             if (state.repetitions % 100 === 0) {
                 state.bestBlock = Math.max(state.bestBlock, state.currentBlockScore);
+                state.completedBlockDurationMs = Math.max(
+                    1,
+                    Date.now() - state.blockStartedAtMs
+                );
                 state.checkpointPending = true;
                 $("phase-action").textContent = "Checkpoint";
             } else {
@@ -1753,7 +1789,10 @@
                 best_block: state.bestBlock,
                 mode: state.mode,
                 theme: state.seriesId,
-                early_exit: earlyExit
+                early_exit: earlyExit,
+                duration_ms: earlyExit
+                    ? null
+                    : state.completedBlockDurationMs
             };
 
             const response = await fetch("/api/mantra-sync/score", {
@@ -1795,6 +1834,8 @@
 
         function continueAfterCheckpoint() {
             state.currentBlockScore = 0;
+            state.completedBlockDurationMs = null;
+            state.blockStartedAtMs = Date.now();
             state.checkpointPending = false;
             showScreen("screen-game");
             nextRound();
