@@ -879,7 +879,7 @@
 
                 <div class="field">
                     <label class="field-label" for="player-name">Your Game Name</label>
-                    <input type="text" id="player-name" maxlength="32" autocomplete="nickname" placeholder="Name shown on the leaderboard">
+                    <input type="text" id="player-name" autocomplete="nickname" placeholder="Name shown on the leaderboard">
                 </div>
 
                 <div class="field">
@@ -1157,7 +1157,8 @@
             { id: "melting", title: "Melting" },
             { id: "wave", title: "Wave" },
             { id: "slumber", title: "Slumber" },
-            { id: "machine", title: "Machine" }
+            { id: "machine", title: "Machine" },
+            { id: "money", title: "Money" }
         ];
 
         // Temporary UI simulation for layout testing.
@@ -1346,13 +1347,50 @@
 
             for (const series of supplied) {
                 if (!series || typeof series.id !== "string" || typeof series.title !== "string") continue;
-                if (seen.has(series.id)) continue;
-                seen.add(series.id);
-                list.push(series);
+
+                const id = series.id.trim().toLowerCase();
+                if (!id || seen.has(id)) continue;
+
+                seen.add(id);
+                list.push({
+                    ...series,
+                    id
+                });
+            }
+
+            const mantras = Array.isArray(state.bank?.mantras)
+                ? state.bank.mantras
+                : [];
+
+            for (const mantra of mantras) {
+                if (!Array.isArray(mantra?.series)) continue;
+
+                for (const rawId of mantra.series) {
+                    if (typeof rawId !== "string") continue;
+
+                    const id = rawId.trim().toLowerCase();
+                    if (!id || seen.has(id)) continue;
+
+                    seen.add(id);
+                    list.push({
+                        id,
+                        title: id
+                            .split(/[-_\s]+/)
+                            .filter(Boolean)
+                            .map(word => word.charAt(0).toUpperCase() + word.slice(1))
+                            .join(" ")
+                    });
+                }
             }
 
             if (!seen.has("all")) {
                 list.unshift({ id: "all", title: "All", inclusive: true });
+            } else {
+                const allIndex = list.findIndex(series => series.id === "all");
+                if (allIndex > 0) {
+                    const [allSeries] = list.splice(allIndex, 1);
+                    list.unshift(allSeries);
+                }
             }
 
             return list;
@@ -1564,8 +1602,8 @@
             const playerName = $("player-name").value.replace(/\s+/g, " ").trim();
             const pronounId = document.querySelector('input[name="pronoun"]:checked')?.value;
 
-            if (playerName.length < 2 || playerName.length > 32) {
-                showBox("signin-error", "Enter a game name between 2 and 32 characters.");
+            if (!playerName) {
+                showBox("signin-error", "Enter a game name.");
                 return false;
             }
 
