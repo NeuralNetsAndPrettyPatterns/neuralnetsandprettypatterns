@@ -1600,14 +1600,11 @@ function validateMantraScore(score) {
       ? null
       : Number(score.duration_ms);
 
-  if (
-    playerName.length < 2 ||
-    playerName.length > 32
-  ) {
+  if (!playerName) {
     return {
       ok: false,
       error:
-        "Game name must be between 2 and 32 characters."
+        "Game name is required."
     };
   }
 
