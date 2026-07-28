@@ -1,0 +1,690 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <meta name="robots" content="index,follow,max-image-preview:large,max-snippet:-1,max-video-preview:-1">
+    <meta name="googlebot" content="index,follow,max-image-preview:large,max-snippet:-1">
+
+    <title>Neuralverse Games | Neural Nets And Pretty Patterns</title>
+    <link rel="canonical" href="https://neuralnetsandprettypatterns.com/games/">
+
+    <meta name="description" content="Games and interactive experiences from Neural Nets And Pretty Patterns, including Mantra Sync and Deep Dream State quizzes.">
+    <meta name="author" content="Neural Nets And Pretty Patterns">
+    <meta name="application-name" content="Neural Nets And Pretty Patterns">
+    <meta name="apple-mobile-web-app-title" content="Neural Nets And Pretty Patterns">
+    <meta name="theme-color" content="#ff2d78">
+    <meta name="color-scheme" content="dark">
+
+    <link rel="icon" type="image/png" sizes="512x512" href="https://neuralnetsandprettypatterns.com/favicon-transparent.png">
+    <link rel="apple-touch-icon" sizes="512x512" href="https://neuralnetsandprettypatterns.com/favicon-transparent.png">
+
+    <meta property="og:title" content="Neuralverse Games | Neural Nets And Pretty Patterns">
+    <meta property="og:description" content="Games and interactive experiences from across the Neuralverse, including Mantra Sync and Deep Dream State quizzes.">
+    <meta property="og:url" content="https://neuralnetsandprettypatterns.com/games/">
+    <meta property="og:type" content="website">
+    <meta property="og:site_name" content="Neural Nets And Pretty Patterns">
+    <meta property="og:locale" content="en_US">
+
+    <meta name="twitter:card" content="summary">
+    <meta name="twitter:title" content="Neuralverse Games | Neural Nets And Pretty Patterns">
+    <meta name="twitter:description" content="Games and interactive experiences from across the Neuralverse.">
+    <meta name="twitter:creator" content="@MCNeuralNets">
+    <meta name="twitter:site" content="@MCNeuralNets">
+
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Syne:wght@400;700;800&family=Space+Mono:ital,wght@0,400;0,700;1,400&display=swap" rel="stylesheet">
+
+    <style>
+        :root {
+            --bg: #1a0010;
+            --bg2: #2a0018;
+            --bg3: #380020;
+            --pink: #ff2d78;
+            --pink-mid: #c4215a;
+            --pink-pale: #ffb3cc;
+            --pink-glow: rgba(255,45,120,0.18);
+            --pink-subtle: rgba(255,45,120,0.07);
+            --violet: #7b2fff;
+            --text: #ffe8f0;
+            --text-dim: #d4a0b8;
+            --text-muted: #8a5070;
+            --border: rgba(255,45,120,0.15);
+            --border-hi: rgba(255,45,120,0.42);
+            --mono: 'Space Mono', monospace;
+            --display: 'Syne', sans-serif;
+        }
+
+        *, *::before, *::after {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+        }
+
+        html {
+            scroll-behavior: smooth;
+        }
+
+        body {
+            min-height: 100vh;
+            overflow-x: hidden;
+            background: var(--bg);
+            color: var(--text);
+            font-family: var(--mono);
+            font-size: 14px;
+            line-height: 1.75;
+        }
+
+        body::after {
+            content: '';
+            position: fixed;
+            inset: 0;
+            z-index: 999;
+            pointer-events: none;
+            background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 200 200' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.85' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)' opacity='0.04'/%3E%3C/svg%3E");
+        }
+
+        #sparkles {
+            position: fixed;
+            inset: 0;
+            z-index: 0;
+            pointer-events: none;
+        }
+
+        .bg-glow {
+            position: fixed;
+            inset: 0;
+            z-index: 0;
+            pointer-events: none;
+            background:
+                radial-gradient(ellipse 60% 50% at 20% 10%, rgba(255,45,120,0.12) 0%, transparent 60%),
+                radial-gradient(ellipse 50% 40% at 80% 80%, rgba(123,47,255,0.10) 0%, transparent 60%),
+                radial-gradient(ellipse 40% 60% at 60% 30%, rgba(255,45,120,0.07) 0%, transparent 55%);
+        }
+
+        main {
+            position: relative;
+            z-index: 1;
+            max-width: 860px;
+            margin: 0 auto;
+            padding: 3rem 1.5rem 5rem;
+        }
+
+        .page-header {
+            text-align: center;
+            margin-bottom: 2rem;
+            animation: fadeUp 0.5s ease both;
+        }
+
+        .page-kicker {
+            display: inline-flex;
+            align-items: center;
+            gap: 0.5rem;
+            margin-bottom: 1rem;
+            color: var(--text-muted);
+            font-size: 0.62rem;
+            letter-spacing: 0.2em;
+            text-transform: uppercase;
+        }
+
+        .pink-dot {
+            width: 6px;
+            height: 6px;
+            border-radius: 50%;
+            background: var(--pink);
+            box-shadow: 0 0 8px var(--pink), 0 0 16px var(--pink-glow);
+            animation: glowPulse 2s ease-in-out infinite;
+        }
+
+        .page-title {
+            margin-bottom: 0.4em;
+            color: var(--text);
+            font-family: var(--display);
+            font-size: clamp(2.8rem, 8vw, 5.5rem);
+            font-weight: 800;
+            letter-spacing: -0.04em;
+            line-height: 0.95;
+        }
+
+        .page-title .pink-word {
+            color: var(--pink);
+            text-shadow: 0 0 40px rgba(255,45,120,0.4);
+        }
+
+        .page-subtitle {
+            margin-top: 1rem;
+            color: var(--text-muted);
+            font-size: 0.72rem;
+            letter-spacing: 0.1em;
+            text-transform: uppercase;
+        }
+
+        .nav-buttons {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            gap: 0.6rem;
+            flex-wrap: wrap;
+            padding: 0 0 2rem;
+            margin: 0;
+        }
+
+        .nav-button {
+            min-width: 45px;
+            height: 45px;
+            padding: 0 0.85rem;
+            border: 2px solid var(--text);
+            border-radius: 999px;
+            background: transparent;
+            color: var(--text);
+            font-family: var(--mono);
+            font-size: 0.65rem;
+            letter-spacing: 0.12em;
+            line-height: 1;
+            text-decoration: none;
+            white-space: nowrap;
+            cursor: pointer;
+            display: inline-flex;
+            justify-content: center;
+            align-items: center;
+            flex-shrink: 0;
+            transition: all 0.3s ease;
+        }
+
+        .nav-button.two-line {
+            flex-direction: column;
+            gap: 0.05rem;
+            height: auto;
+            min-height: 45px;
+            padding: 0.4rem 0.7rem;
+            border-radius: 14px;
+            line-height: 1.15;
+        }
+
+        .nav-button.pink-room {
+            color: var(--pink);
+            border-color: var(--pink);
+        }
+
+        .nav-button:hover {
+            background: var(--text);
+            color: var(--bg);
+            transform: scale(1.08);
+        }
+
+        .nav-button.pink-room:hover {
+            background: var(--pink);
+            color: #fff;
+        }
+
+        .nav-button svg {
+            width: 18px;
+            height: 18px;
+            flex-shrink: 0;
+        }
+
+        .intro {
+            max-width: 720px;
+            margin: 0 auto 2rem;
+            padding: 1.5rem;
+            border: 1px solid var(--border);
+            background: rgba(255,45,120,0.035);
+            text-align: center;
+            animation: fadeUp 0.5s 0.05s ease both;
+        }
+
+        .intro p + p {
+            margin-top: 1rem;
+        }
+
+        .game-grid {
+            display: grid;
+            grid-template-columns: 1fr;
+            gap: 0.8rem;
+            margin-top: 1.25rem;
+            animation: fadeUp 0.5s 0.1s ease both;
+        }
+
+        .game-card {
+            position: relative;
+            display: block;
+            padding: 1.35rem 1.4rem;
+            overflow: hidden;
+            border: 1px solid var(--border);
+            background:
+                linear-gradient(135deg, rgba(255,45,120,0.065), rgba(123,47,255,0.035));
+            color: var(--text);
+            text-decoration: none;
+            transition:
+                border-color 0.25s ease,
+                transform 0.25s ease,
+                background 0.25s ease;
+        }
+
+        .game-card::before {
+            content: '';
+            position: absolute;
+            inset: 0 auto 0 0;
+            width: 3px;
+            background: var(--pink);
+            opacity: 0.55;
+            transition: opacity 0.25s ease, width 0.25s ease;
+        }
+
+        .game-card:hover {
+            border-color: var(--border-hi);
+            background:
+                linear-gradient(135deg, rgba(255,45,120,0.12), rgba(123,47,255,0.06));
+            transform: translateY(-2px);
+        }
+
+        .game-card:hover::before {
+            width: 5px;
+            opacity: 1;
+        }
+
+        .game-label {
+            display: block;
+            margin-bottom: 0.35rem;
+            color: var(--pink);
+            font-family: var(--display);
+            font-size: 1.35rem;
+            font-weight: 800;
+            line-height: 1.2;
+        }
+
+        .game-type {
+            display: inline-block;
+            margin-bottom: 0.75rem;
+            color: var(--pink-pale);
+            font-size: 0.62rem;
+            letter-spacing: 0.12em;
+            text-transform: uppercase;
+        }
+
+        .game-description {
+            display: block;
+            color: var(--text-dim);
+            font-size: 0.86rem;
+        }
+
+        .section-heading {
+            margin: 2.7rem 0 0.9rem;
+            color: var(--text);
+            font-family: var(--display);
+            font-size: 1.2rem;
+            font-weight: 800;
+            letter-spacing: 0.08em;
+            text-align: center;
+            text-transform: uppercase;
+        }
+
+        .footer-credit {
+            margin-top: 3rem;
+            padding-top: 1.4rem;
+            border-top: 1px solid var(--border);
+            color: var(--text-muted);
+            font-size: 0.72rem;
+            letter-spacing: 0.06em;
+            text-align: center;
+        }
+
+        .footer-credit a {
+            color: var(--text-dim);
+            text-decoration: none;
+        }
+
+        .footer-credit a:hover {
+            color: var(--pink);
+        }
+
+        @keyframes fadeUp {
+            from {
+                opacity: 0;
+                transform: translateY(12px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        @keyframes glowPulse {
+            0%, 100% {
+                opacity: 1;
+                box-shadow: 0 0 8px var(--pink), 0 0 16px var(--pink-glow);
+            }
+            50% {
+                opacity: 0.5;
+                box-shadow: 0 0 4px var(--pink);
+            }
+        }
+
+        @media (min-width: 700px) {
+            .game-grid {
+                grid-template-columns: repeat(3, 1fr);
+            }
+
+            .game-card {
+                min-height: 230px;
+            }
+        }
+
+        @media (max-width: 560px) {
+            main {
+                padding: 2rem 1rem 4rem;
+            }
+
+            .nav-buttons {
+                gap: 0.45rem;
+            }
+
+            .nav-button {
+                min-width: 40px;
+                height: 40px;
+                padding: 0 0.65rem;
+            }
+
+            .intro {
+                padding: 1.2rem;
+                text-align: left;
+            }
+        }
+
+        @media (prefers-reduced-motion: reduce) {
+            *, *::before, *::after {
+                animation-duration: 0.001ms !important;
+                animation-iteration-count: 1 !important;
+                scroll-behavior: auto !important;
+                transition-duration: 0.001ms !important;
+            }
+        }
+    </style>
+
+    <script type="application/ld+json">
+    {
+        "@context": "https://schema.org",
+        "@graph": [
+            {
+                "@type": "WebSite",
+                "@id": "https://neuralnetsandprettypatterns.com/#website",
+                "url": "https://neuralnetsandprettypatterns.com/",
+                "name": "Neural Nets And Pretty Patterns"
+            },
+            {
+                "@type": "Person",
+                "@id": "https://neuralnetsandprettypatterns.com/#nnpp",
+                "name": "Neural Nets And Pretty Patterns",
+                "alternateName": [
+                    "NNPP",
+                    "Neural Nets & Pretty Patterns"
+                ],
+                "url": "https://neuralnetsandprettypatterns.com/",
+                "identifier": {
+                    "@type": "PropertyValue",
+                    "propertyID": "ISNI",
+                    "value": "0000 0005 2877 6254"
+                }
+            },
+            {
+                "@type": "BreadcrumbList",
+                "@id": "https://neuralnetsandprettypatterns.com/games/#breadcrumbs",
+                "itemListElement": [
+                    {
+                        "@type": "ListItem",
+                        "position": 1,
+                        "name": "Neural Nets And Pretty Patterns",
+                        "item": "https://neuralnetsandprettypatterns.com/"
+                    },
+                    {
+                        "@type": "ListItem",
+                        "position": 2,
+                        "name": "Games",
+                        "item": "https://neuralnetsandprettypatterns.com/games/"
+                    }
+                ]
+            },
+            {
+                "@type": "ItemList",
+                "@id": "https://neuralnetsandprettypatterns.com/games/#game-list",
+                "name": "Neuralverse Games",
+                "numberOfItems": 3,
+                "itemListElement": [
+                    {
+                        "@type": "ListItem",
+                        "position": 1,
+                        "name": "Mantra Sync",
+                        "url": "https://neuralnetsandprettypatterns.com/games/mantra-sync/"
+                    },
+                    {
+                        "@type": "ListItem",
+                        "position": 2,
+                        "name": "Sitri Lab Safety Orientation",
+                        "url": "https://neuralnetsandprettypatterns.com/games/sitrilabsafety/"
+                    },
+                    {
+                        "@type": "ListItem",
+                        "position": 3,
+                        "name": "Sitri Dream Team Drills",
+                        "url": "https://neuralnetsandprettypatterns.com/games/sitricharacters/"
+                    }
+                ]
+            },
+            {
+                "@type": "CollectionPage",
+                "@id": "https://neuralnetsandprettypatterns.com/games/#page",
+                "url": "https://neuralnetsandprettypatterns.com/games/",
+                "name": "Neuralverse Games | Neural Nets And Pretty Patterns",
+                "description": "Games and interactive experiences from Neural Nets And Pretty Patterns, including Mantra Sync and Deep Dream State quizzes.",
+                "isPartOf": {
+                    "@id": "https://neuralnetsandprettypatterns.com/#website"
+                },
+                "about": {
+                    "@type": "CreativeWork",
+                    "name": "Neuralverse"
+                },
+                "creator": {
+                    "@id": "https://neuralnetsandprettypatterns.com/#nnpp"
+                },
+                "mainEntity": {
+                    "@id": "https://neuralnetsandprettypatterns.com/games/#game-list"
+                },
+                "breadcrumb": {
+                    "@id": "https://neuralnetsandprettypatterns.com/games/#breadcrumbs"
+                },
+                "inLanguage": "en-US"
+            }
+        ]
+    }
+    </script>
+</head>
+
+<body>
+    <canvas id="sparkles" aria-hidden="true"></canvas>
+    <div class="bg-glow" aria-hidden="true"></div>
+
+    <main>
+        <header class="page-header">
+            <div class="page-kicker">
+                <span class="pink-dot" aria-hidden="true"></span>
+                Neural Nets And Pretty Patterns
+            </div>
+            <h1 class="page-title">Neuralverse <span class="pink-word">Games</span></h1>
+            <p class="page-subtitle">Plug and Play and Play</p>
+        </header>
+
+        <div class="nav-buttons" id="nav-buttons-top" aria-label="Site navigation"></div>
+
+        <section class="intro" aria-labelledby="games-intro">
+            <h2 id="games-intro" class="section-heading" style="margin-top:0;">Games Across The Neuralverse</h2>
+            <p>Games and interactive systems have always been part of the Neural Nets And Pretty Patterns imaginary.</p>
+            <p>Some connect directly to <strong>Deep Dream State</strong>. Others belong to the wider Neuralverse. This page is the home for both.</p>
+        </section>
+
+        <section aria-labelledby="play-heading">
+            <h2 id="play-heading" class="section-heading">Choose A Game</h2>
+
+            <div class="game-grid">
+                <a class="game-card" href="https://neuralnetsandprettypatterns.com/games/mantra-sync/">
+                    <span class="game-label">Mantra Sync</span>
+                    <span class="game-type">Neuralverse Mind Game</span>
+                    <span class="game-description">Choose your mantra sets, remember the missing text, and sync the whole phrase back into place.</span>
+                </a>
+
+                <a class="game-card" href="https://neuralnetsandprettypatterns.com/games/sitrilabsafety/">
+                    <span class="game-label">Sitri Lab Safety Orientation</span>
+                    <span class="game-type">Deep Dream State Quiz</span>
+                    <span class="game-description">A Sitri Center lab safety orientation from the Deep Dream State side of the Neuralverse.</span>
+                </a>
+
+                <a class="game-card" href="https://neuralnetsandprettypatterns.com/games/sitricharacters/">
+                    <span class="game-label">Sitri Dream Team Drills</span>
+                    <span class="game-type">Deep Dream State Quiz</span>
+                    <span class="game-description">Test your recognition of the Sitri dream team and its place inside Deep Dream State.</span>
+                </a>
+            </div>
+        </section>
+
+        <footer class="footer-credit">
+            by <a href="https://neuralnetsandprettypatterns.com/">Neural Nets And Pretty Patterns</a>
+        </footer>
+    </main>
+
+    <script>
+        const $ = id => document.getElementById(id);
+        const NAV_JSON_URL = "https://neuralnetsandprettypatterns.com/nav-buttons.json";
+
+        const ICONS = {
+            envelope:
+                '<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" width="18" height="18" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">' +
+                '<path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"/>' +
+                '<path d="M22 6l-10 7L2 6"/>' +
+                '</svg>',
+            discord:
+                '<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" width="18" height="18" fill="currentColor" aria-hidden="true">' +
+                '<path d="M20.32 4.37a19.8 19.8 0 0 0-4.89-1.52.07.07 0 0 0-.08.04c-.21.38-.45.87-.61 1.26a18.3 18.3 0 0 0-5.48 0 12.6 12.6 0 0 0-.62-1.26.07.07 0 0 0-.08-.04c-1.7.29-3.36.8-4.89 1.52a.07.07 0 0 0-.03.03C.75 8.68.06 12.86.35 16.99a.08.08 0 0 0 .03.06 19.9 19.9 0 0 0 6 3.03.08.08 0 0 0 .08-.03c.46-.63.88-1.3 1.23-2a.08.08 0 0 0-.04-.11 13.1 13.1 0 0 1-1.87-.9.08.08 0 0 1-.01-.13c.13-.09.25-.19.37-.29a.08.08 0 0 1 .08-.01c3.93 1.8 8.18 1.8 12.06 0a.08.08 0 0 1 .08.01c.12.1.24.2.37.29a.08.08 0 0 1-.01.13c-.6.35-1.22.65-1.88.9a.08.08 0 0 0-.04.11c.36.7.78 1.36 1.23 2a.08.08 0 0 0 .08.03 19.8 19.8 0 0 0 6.01-3.03.08.08 0 0 0 .03-.06c.35-4.78-.58-8.93-2.46-12.6a.06.06 0 0 0-.03-.02zM8.02 14.65c-1.18 0-2.15-1.08-2.15-2.42s.95-2.42 2.15-2.42c1.21 0 2.17 1.1 2.15 2.42 0 1.34-.95 2.42-2.15 2.42zm7.97 0c-1.18 0-2.15-1.08-2.15-2.42s.95-2.42 2.15-2.42c1.21 0 2.17 1.1 2.15 2.42 0 1.34-.94 2.42-2.15 2.42z"/>' +
+                '</svg>',
+            patreon:
+                '<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512" fill="currentColor" fill-rule="evenodd" clip-rule="evenodd" stroke-linejoin="round" stroke-miterlimit="2" aria-hidden="true">' +
+                '<g transform="matrix(.47407 0 0 .47407 .383 .422)">' +
+                '<path d="M1033.05 324.45c-.19-137.9-107.59-250.92-233.6-291.7-156.48-50.64-362.86-43.3-512.28 27.2-181.1 85.46-237.99 272.66-240.11 459.36-1.74 153.5 13.58 557.79 241.62 560.67 169.44 2.15 194.67-216.18 273.07-321.33 55.78-74.81 127.6-95.94 216.01-117.82 151.95-37.61 255.51-157.53 255.29-316.38z" fill-rule="nonzero"/>' +
+                '</g></svg>'
+        };
+
+        function buildButton(button) {
+            const a = document.createElement("a");
+            const classes = ["nav-button"];
+            if (button.class) classes.push(button.class);
+            a.className = classes.join(" ");
+            a.href = button.href;
+            a.setAttribute("aria-label", button.ariaLabel || button.label || "");
+
+            if (button.target) {
+                a.target = button.target;
+                a.rel = "noopener";
+            }
+
+            if (button.icon && ICONS[button.icon]) {
+                a.innerHTML = ICONS[button.icon];
+            } else if (Array.isArray(button.lines)) {
+                button.lines.forEach(line => {
+                    const span = document.createElement("span");
+                    span.textContent = line;
+                    a.appendChild(span);
+                });
+            } else {
+                a.textContent = button.label || "";
+            }
+
+            return a;
+        }
+
+        function loadSiteNavigation() {
+            fetch(NAV_JSON_URL, { cache: "no-store" })
+                .then(response => {
+                    if (!response.ok) {
+                        throw new Error(`Nav buttons request failed with status ${response.status}`);
+                    }
+                    return response.json();
+                })
+                .then(data => {
+                    const container = $("nav-buttons-top");
+                    const buttons = data && Array.isArray(data.buttons) ? data.buttons : [];
+                    if (!container) return;
+
+                    container.innerHTML = "";
+                    buttons.forEach(button => {
+                        container.appendChild(buildButton(button));
+                    });
+                })
+                .catch(error => {
+                    console.error("Nav buttons could not be loaded:", error);
+                });
+        }
+
+        function startSparkles() {
+            const canvas = $("sparkles");
+            const ctx = canvas.getContext("2d");
+            if (!ctx) return;
+
+            let width = 0;
+            let height = 0;
+            let sparks = [];
+
+            function makeSpark() {
+                return {
+                    x: Math.random() * Math.max(width, 1),
+                    y: Math.random() * Math.max(height, 1),
+                    r: 0.4 + Math.random() * 1.8,
+                    base: 0.08 + Math.random() * 0.35,
+                    phase: Math.random() * Math.PI * 2,
+                    speed: 0.004 + Math.random() * 0.01,
+                    pink: Math.random() > 0.42
+                };
+            }
+
+            function resize() {
+                const ratio = Math.min(window.devicePixelRatio || 1, 2);
+                width = window.innerWidth;
+                height = window.innerHeight;
+                canvas.width = Math.floor(width * ratio);
+                canvas.height = Math.floor(height * ratio);
+                canvas.style.width = `${width}px`;
+                canvas.style.height = `${height}px`;
+                ctx.setTransform(ratio, 0, 0, ratio, 0, 0);
+
+                const count = Math.max(32, Math.min(90, Math.floor(width / 14)));
+                sparks = Array.from({ length: count }, makeSpark);
+            }
+
+            function draw(time) {
+                ctx.clearRect(0, 0, width, height);
+
+                for (const spark of sparks) {
+                    const pulse = (Math.sin(time * spark.speed + spark.phase) + 1) / 2;
+                    ctx.globalAlpha = spark.base + pulse * 0.35;
+                    ctx.fillStyle = spark.pink ? "#ff2d78" : "#b78cff";
+                    ctx.beginPath();
+                    ctx.arc(spark.x, spark.y, spark.r + pulse * 0.45, 0, Math.PI * 2);
+                    ctx.fill();
+                }
+
+                ctx.globalAlpha = 1;
+                requestAnimationFrame(draw);
+            }
+
+            resize();
+            window.addEventListener("resize", resize);
+
+            if (!window.matchMedia("(prefers-reduced-motion: reduce)").matches) {
+                requestAnimationFrame(draw);
+            }
+        }
+
+        loadSiteNavigation();
+        startSparkles();
+    </script>
+</body>
+</html>
