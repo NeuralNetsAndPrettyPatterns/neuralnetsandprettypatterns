@@ -230,6 +230,19 @@ export default {
       );
     }
 
+
+    // Sitri Dream Team Drills
+    if (
+      p === "/games/sitricharacters" ||
+      p === "/games/sitricharacters/" ||
+      p === "/games/sitricharacters/index.html"
+    ) {
+      return serveHtml(
+        "/games/sitricharacters/index.html",
+        true
+      );
+    }
+
     // Mantra Sync game page
     if (
       p === "/games/mantra-sync" ||
