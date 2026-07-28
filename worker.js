@@ -205,6 +205,18 @@ export default {
       return serveHtml("/contact/index.html", true);
     }
 
+    // Games hub
+    if (
+      p === "/games" ||
+      p === "/games/" ||
+      p === "/games/index.html"
+    ) {
+      return serveHtml(
+        "/games/index.html",
+        true
+      );
+    }
+
     // Mantra Sync game page
     if (
       p === "/games/mantra-sync" ||
