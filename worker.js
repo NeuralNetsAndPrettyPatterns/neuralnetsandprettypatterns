@@ -217,6 +217,19 @@ export default {
       );
     }
 
+
+    // Sitri Lab Safety Orientation
+    if (
+      p === "/games/sitrilabsafety" ||
+      p === "/games/sitrilabsafety/" ||
+      p === "/games/sitrilabsafety/index.html"
+    ) {
+      return serveHtml(
+        "/games/sitrilabsafety/index.html",
+        true
+      );
+    }
+
     // Mantra Sync game page
     if (
       p === "/games/mantra-sync" ||
