@@ -1842,7 +1842,9 @@
   {
     "term": "Celeste",
     "class": "Character",
-    "definition": "A Vale Four research subject who arrives at the island facility in GE28 alongside Vera. She is observant and anxious by nature, the first to voice unease about the study's conditions and the one whose sleep behavior, moving in time with the Better Self hook without remembering it, signals earliest exposure. Her prior work at the Cheesecake Factory is referenced as the economic pressure keeping her from leaving. By Quintessence, Celeste has been fully repurposed as one of Z's Team Leash wolfgirls, held in a kennel and trained to hunt Hespa and Blake by scent. She responds to Z's discipline with animalistic whines and giggles alongside Gia and Clara, a stark endpoint for the anxious, economically pressured subject introduced at the Vale Four island facility.",
+    "definition": "A Vale Four research subject who arrives at the island facility in GE28 alongside Vera. She is observant and anxious by nature, the first to voice unease about the study's conditions and the one whose sleep behavior, moving in time with the Better Self hook without remembering it, signals earliest exposure. Her prior work at the Cheesecake Factory is referenced as the economic pressure keeping her from leaving. By Quintessence, Celeste has been fully repurposed as one of Z's Team Leash wolfgirls, held in a kennel and trained to hunt Hespa and Blake by scent. She responds to Z's discipline with animalistic whines and giggles alongside Gia and Clara. In Rubido, she runs on a wolfgirl wheel as part of the pack while Z uses the clicker to keep Team Leash ready for the hunt.",
+    "performer": "Panda Moanium",
+    "performer_url": "",
     "links": []
   },
   {
@@ -1878,7 +1880,7 @@
   {
     "term": "The Balancing",
     "class": "Plot Detail",
-    "definition": "Named by Naia in GE28 as one of her prior preoccupations — something she expects her opponents to use against her as evidence of instability or repetition. She lists it deliberately in her recorded statement, acknowledging it will be weaponized while refusing to treat it as a symptom. Its meaning is not elaborated in this episode, but its placement alongside Sitri, New Milford, and Protocol 37 marks it as load-bearing lore.",
+    "definition": "Named by Naia in GE28 as one of her prior preoccupations, something she expects her opponents to use against her as evidence of instability or repetition. She lists it deliberately in her recorded statement, acknowledging it will be weaponized while refusing to treat it as a symptom. In Rubido, the concept becomes concrete when Naia and Hespa tell Tessa she will be balanced as they offer her anointing into the pando. The Balancing is not simple moderation or correction, but assimilation into a system that permits personal dominion only inside collective control.",
     "links": []
   },
   {
@@ -2094,9 +2096,9 @@
   {
     "term": "Laura",
     "class": "Character",
-    "definition": "New to the hunt and to this world. Assigned to Team Thorns under Queen Tessa. Nervous and naive, she is worn down scene by scene until she stops resisting what Tessa wants from her.",
-    "performer": "Jade Deckard",
-    "performer_url": "https://www.castingcall.club/jadedeckardvoice",
+    "definition": "New to the hunt and to this world. Assigned to Team Thorns under Queen Tessa. Nervous and naive, she is worn down scene by scene until she stops resisting what Tessa wants from her. In Rubido, Laura names the treatment directly: Tessa ignored her for hours and made her crawl while refusing to look at her. Once Naia and Hespa bind Tessa, Laura and June are allowed to look at each other again, beginning a reversal between the thralls and their queen.",
+    "performer": "Lux Peralta",
+    "performer_url": "",
     "links": []
   },
   {
@@ -2317,10 +2319,10 @@
   {
     "term": "Team Leash",
     "class": "Plot Detail",
-    "definition": "In Snarecraft, three official teams, Team Thorns, Team Alchemy, and Team Flowers, hunt the fugitives openly, but Z reveals in Quintessence that he keeps a fourth, unofficial team in reserve: a group of trained wolfgirls held in a kennel and conditioned to track by scent rather than reasoning. Past subjects appear to end up here, suggesting the kennel is one of the endpoint scenarios built into Vale Four's conditioning protocols rather than an improvised punishment.",
+    "definition": "In Snarecraft, three official teams, Team Thorns, Team Alchemy, and Team Flowers, hunt the fugitives openly, but Z reveals in Quintessence that he keeps a fourth, unofficial team in reserve: a pack of trained wolfgirls held in a kennel and conditioned to track by scent rather than reasoning. Gia, Celeste, and Clara respond to the clicker as a coordinated unit. In Rubido, the pack chooses to run on wolfgirl wheels while Z keeps them ready for the hunt, turning apparent voluntary exercise into another closed conditioning loop. Past subjects appear to end up here, suggesting the kennel is one of the endpoint scenarios built into Vale Four's conditioning protocols rather than an improvised punishment.",
     "links": []
   },
-{
+  {
     "term": "The Corner",
     "class": "Plot Detail",
     "definition": "An unsettling reference to Deep Ward's disciplinary protocols, raised by Leandra in the library scene of Quintessence. Leandra, who knows the place best, is not always coherent about it, but the surrounding context suggests The Corner involves {{spoiler}}extended isolation, comparable to solitary confinement{{/spoiler}}. She distinguishes it from the lesser disciplinary state of Time Out and from the more totalizing, clockless state she calls Notime, without ever fully resolving which of the three she and Meg are actually inside.",
@@ -2349,7 +2351,7 @@
     "definition": "A reward dangled by Naia's INGAME avatar to keep Porsche and Elle playing past the point of safety: 'Don't stop. You're gonna get a BRAINBOW!' The nonsense-reward phrasing sits in the same family as gold stars and liquid praise, sensory-coded incentive language standing in for whatever is actually being extracted from the subject. The term is tied specifically to Iris, whose arc across the Neuralverse repeatedly draws on her namesake in Greek mythology, the goddess of the rainbow and messenger between worlds (see: Rainbow). Brainbow reads as her signature reward-mechanic, a rainbow re-coded as a neurological hook.",
     "links": []
   },
-{
+  {
     "term": "Disgraced. Deadly. Desperate.",
     "class": "Plot Detail",
     "definition": "A three-word chant delivered by the full cast during the Quintessence-closing ad, cataloguing Tessa's descent as she cycles through Vale Four's games. Structurally it mirrors the earlier threefold naming pattern of 'Violet, Velvet, Vixen,' converting a character's unraveling into a marketable, rhythmic tagline. In-world, it doubles as the ad slogan for Claws Out, the fem-fighting game built on subject character data, pitched with a deliberate Russ Meyer-style exploitation-cinema sensibility: high glamour, high camp, high violence.",
@@ -2388,6 +2390,36 @@
     "term": "Panoptic Library",
     "class": "Setting",
     "definition": "{{spoiler}}The formal name for the library at the center of Sealed, a space that indexes, cross-references, and watches its own patrons as thoroughly as it catalogues its maps. The Head Librarian oversees it as a system of surveillance disguised as scholarship: every patron's schedule, tastes, and price are known before they walk through the door. The Corner and Notime are both administered from here, positioning the Panoptic Library as a hub within Deep Ward's disciplinary architecture rather than a mere backdrop.{{/spoiler}}",
+    "links": []
+  },
+  {
+    "term": "Wolfgirl Wheel",
+    "class": "Product",
+    "definition": "An exercise wheel used by Z's Team Leash wolfgirls in Rubido. The pack appears to choose to run, but the wheel turns voluntary exercise into a closed behavioral loop, collapsing movement, obedience, and readiness for the hunt into the same action.",
+    "links": []
+  },
+  {
+    "term": "I Do Fitness!",
+    "class": "Plot Detail",
+    "definition": "Gia's actual entry line in the Targeted Cycle, originally delivered as a bright piece of influencer self-branding. In Rubido, the phrase returns from her wolfgirl wheel during her concubinded phase. The words have not changed, but their meaning has: what began as a cheerful declaration of identity now describes self-chosen conditioning inside Z's pack.",
+    "links": []
+  },
+  {
+    "term": "Second Secret Library",
+    "class": "Setting",
+    "definition": "The living library discovered by Elle and Porsche in Rubido. Roots carry and support pulsing books while the system turns its own pages, reads itself, and exposes scenes from across Snarecraft as both playback and live action. The chamber gives Team Flowers a vantage point from which they can see everything, but its total visibility also makes looking compulsory: once the library opens the action to them, they cannot look away.",
+    "links": []
+  },
+  {
+    "term": "Pando",
+    "class": "Plot Detail",
+    "definition": "Naia and Hespa's name for the root-linked collective they invite Tessa to join in Rubido. The term invokes Pando, the clonal aspen organism whose visible trunks share a single root system. Membership promises Tessa continued dominion inside the system, but only on the condition that the other pando girls determine how she grows. {{spoiler}}After Tessa accepts the anointing, Naia welcomes her home and declares that the pando has one more root.{{/spoiler}}",
+    "links": []
+  },
+  {
+    "term": "Anointing",
+    "class": "Plot Detail",
+    "definition": "The rite by which a person chooses incorporation into the pando. In Rubido, Naia and Hespa offer Tessa a choice between anointing and breaking. {{spoiler}}Tessa chooses the anointing; the vines grow around her, and Naia welcomes her into the shared root system. The scene frames submission not as a punishment imposed from outside, but as consent to a new form of collective control.{{/spoiler}}",
     "links": []
   }
 ]
