@@ -1287,7 +1287,7 @@
       "Z / Dr. Zev Talcott"
     ]
   },
-{
+  {
     "ge": 42,
     "season": 4,
     "episode": 15,
@@ -1348,6 +1348,49 @@
       "The Map Room",
       "Head Librarian",
       "Panoptic Library"
+    ]
+  },
+  {
+    "ge": 41,
+    "season": 4,
+    "episode": 14,
+    "title": "Rubido",
+    "url": "https://neuralnetsandprettypatterns.com/deepdreamstate/arcs/vale-four/episode-14-rubido/",
+    "terms": [
+      "Anointing",
+      "Celeste",
+      "Clicker",
+      "Concubinded",
+      "Elle Lawson",
+      "Gia",
+      "Hespa Apate",
+      "Hubris",
+      "I Do Fitness!",
+      "Iris",
+      "June Lowell",
+      "Laura",
+      "Learn to earn",
+      "Leandra",
+      "Meg Aerin",
+      "Meridian A",
+      "Naia Anderson",
+      "NPC",
+      "Pando",
+      "Panoptic Library",
+      "Porsche",
+      "Second Secret Library",
+      "Sitri Center",
+      "Snarecraft",
+      "Team Alchemy",
+      "Team Flowers",
+      "Team Leash",
+      "Team Thorns",
+      "Tessa Finn",
+      "The Balancing",
+      "Treatstick",
+      "Wolfgirl Wheel",
+      "Yum Yum Time",
+      "Z / Dr. Zev Talcott"
     ]
   }
 ]
