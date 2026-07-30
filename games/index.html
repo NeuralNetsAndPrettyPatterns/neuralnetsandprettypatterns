@@ -10,7 +10,7 @@
     <title>Neuralverse Games | Neural Nets And Pretty Patterns</title>
     <link rel="canonical" href="https://neuralnetsandprettypatterns.com/games/">
 
-    <meta name="description" content="Games and interactive experiences from Neural Nets And Pretty Patterns, including Mantra Sync and Deep Dream State quizzes.">
+    <meta name="description" content="Games and interactive experiences from Neural Nets And Pretty Patterns, including Neuralverse CYOA story votes, Mantra Sync, and Deep Dream State quizzes.">
     <meta name="author" content="Neural Nets And Pretty Patterns">
     <meta name="application-name" content="Neural Nets And Pretty Patterns">
     <meta name="apple-mobile-web-app-title" content="Neural Nets And Pretty Patterns">
@@ -21,17 +21,21 @@
     <link rel="apple-touch-icon" sizes="512x512" href="https://neuralnetsandprettypatterns.com/favicon-transparent.png">
 
     <meta property="og:title" content="Neuralverse Games | Neural Nets And Pretty Patterns">
-    <meta property="og:description" content="Games and interactive experiences from across the Neuralverse, including Mantra Sync and Deep Dream State quizzes.">
+    <meta property="og:description" content="Play games and shape interactive stories across the Neuralverse, including CYOA votes, Mantra Sync, and Deep Dream State quizzes.">
     <meta property="og:url" content="https://neuralnetsandprettypatterns.com/games/">
     <meta property="og:type" content="website">
     <meta property="og:site_name" content="Neural Nets And Pretty Patterns">
     <meta property="og:locale" content="en_US">
+    <meta property="og:image" content="https://neuralnetsandprettypatterns.com/games/mindflayerposter.jpg">
+    <meta property="og:image:alt" content="Poster artwork for Serra vs the Mindflayer, a Neuralverse CYOA story vote.">
 
-    <meta name="twitter:card" content="summary">
+    <meta name="twitter:card" content="summary_large_image">
     <meta name="twitter:title" content="Neuralverse Games | Neural Nets And Pretty Patterns">
-    <meta name="twitter:description" content="Games and interactive experiences from across the Neuralverse.">
+    <meta name="twitter:description" content="Play games and help shape interactive Neuralverse stories through live CYOA votes.">
     <meta name="twitter:creator" content="@MCNeuralNets">
     <meta name="twitter:site" content="@MCNeuralNets">
+    <meta name="twitter:image" content="https://neuralnetsandprettypatterns.com/games/mindflayerposter.jpg">
+    <meta name="twitter:image:alt" content="Poster artwork for Serra vs the Mindflayer, a Neuralverse CYOA story vote.">
 
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -239,6 +243,83 @@
             margin-top: 1rem;
         }
 
+        .cyoa-feature {
+            display: grid;
+            grid-template-columns: minmax(0, 1.25fr) minmax(220px, 0.75fr);
+            margin: 0 auto 2.7rem;
+            overflow: hidden;
+            border: 1px solid var(--border-hi);
+            background:
+                linear-gradient(135deg, rgba(255,45,120,0.14), rgba(123,47,255,0.10));
+            box-shadow: 0 22px 60px rgba(0, 0, 0, 0.28);
+            animation: fadeUp 0.5s 0.08s ease both;
+        }
+
+        .cyoa-feature-copy {
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            padding: clamp(1.5rem, 4vw, 2.4rem);
+        }
+
+        .cyoa-feature-kicker {
+            margin-bottom: 0.65rem;
+            color: var(--pink-pale);
+            font-size: 0.62rem;
+            letter-spacing: 0.16em;
+            text-transform: uppercase;
+        }
+
+        .cyoa-feature-title {
+            margin-bottom: 0.75rem;
+            color: var(--text);
+            font-family: var(--display);
+            font-size: clamp(1.8rem, 5vw, 3rem);
+            font-weight: 800;
+            line-height: 1;
+        }
+
+        .cyoa-feature-description {
+            color: var(--text-dim);
+            font-size: 0.9rem;
+        }
+
+        .cyoa-feature-link {
+            align-self: flex-start;
+            margin-top: 1.25rem;
+            padding: 0.72rem 1rem;
+            border: 1px solid var(--pink);
+            border-radius: 999px;
+            background: var(--pink);
+            color: #fff;
+            font-size: 0.68rem;
+            font-weight: 700;
+            letter-spacing: 0.1em;
+            text-decoration: none;
+            text-transform: uppercase;
+            transition: transform 0.25s ease, filter 0.25s ease;
+        }
+
+        .cyoa-feature-link:hover,
+        .cyoa-feature-link:focus-visible {
+            color: #fff;
+            filter: brightness(1.1);
+            transform: translateY(-2px);
+        }
+
+        .cyoa-feature-poster {
+            display: block;
+            min-height: 100%;
+            background: #09000a;
+        }
+
+        .cyoa-feature-poster img {
+            width: 100%;
+            height: 100%;
+            min-height: 310px;
+            object-fit: cover;
+        }
+
         .game-grid {
             display: grid;
             grid-template-columns: 1fr;
@@ -372,6 +453,22 @@
             }
         }
 
+        @media (max-width: 700px) {
+            .cyoa-feature {
+                grid-template-columns: 1fr;
+            }
+
+            .cyoa-feature-poster {
+                order: -1;
+            }
+
+            .cyoa-feature-poster img {
+                min-height: 0;
+                max-height: 520px;
+                object-position: center top;
+            }
+        }
+
         @media (max-width: 560px) {
             main {
                 padding: 2rem 1rem 4rem;
@@ -449,24 +546,30 @@
             {
                 "@type": "ItemList",
                 "@id": "https://neuralnetsandprettypatterns.com/games/#game-list",
-                "name": "Neuralverse Games",
-                "numberOfItems": 3,
+                "name": "Neuralverse Games and Interactive Stories",
+                "numberOfItems": 4,
                 "itemListElement": [
                     {
                         "@type": "ListItem",
                         "position": 1,
+                        "name": "Neuralverse CYOA",
+                        "url": "https://neuralnetsandprettypatterns.com/games/cyoa/"
+                    },
+                    {
+                        "@type": "ListItem",
+                        "position": 2,
                         "name": "Mantra Sync",
                         "url": "https://neuralnetsandprettypatterns.com/games/mantra-sync/"
                     },
                     {
                         "@type": "ListItem",
-                        "position": 2,
+                        "position": 3,
                         "name": "Sitri Lab Safety Orientation",
                         "url": "https://neuralnetsandprettypatterns.com/games/sitrilabsafety/"
                     },
                     {
                         "@type": "ListItem",
-                        "position": 3,
+                        "position": 4,
                         "name": "Sitri Dream Team Drills",
                         "url": "https://neuralnetsandprettypatterns.com/games/sitricharacters/"
                     }
@@ -477,7 +580,7 @@
                 "@id": "https://neuralnetsandprettypatterns.com/games/#page",
                 "url": "https://neuralnetsandprettypatterns.com/games/",
                 "name": "Neuralverse Games | Neural Nets And Pretty Patterns",
-                "description": "Games and interactive experiences from Neural Nets And Pretty Patterns, including Mantra Sync and Deep Dream State quizzes.",
+                "description": "Games, interactive experiences, and CYOA story votes from Neural Nets And Pretty Patterns, including Mantra Sync and Deep Dream State quizzes.",
                 "isPartOf": {
                     "@id": "https://neuralnetsandprettypatterns.com/#website"
                 },
@@ -521,6 +624,24 @@
             <h2 id="games-intro" class="section-heading" style="margin-top:0;">Games Across The Neuralverse</h2>
             <p>Games and interactive systems have always been part of the Neural Nets And Pretty Patterns imaginary.</p>
             <p>Some connect directly to <strong>Deep Dream State</strong>. Others belong to the wider Neuralverse. This page is the home for both.</p>
+        </section>
+
+        <section class="cyoa-feature" aria-labelledby="cyoa-feature-heading">
+            <div class="cyoa-feature-copy">
+                <p class="cyoa-feature-kicker">Interactive Story Voting</p>
+                <h2 id="cyoa-feature-heading" class="cyoa-feature-title">Choose What Happens Next</h2>
+                <p class="cyoa-feature-description">The Neuralverse CYOA page lets you shape upcoming stories through live votes. The current entry is <strong>Serra vs the Mindflayer</strong>: decide who wins, what Serra's intelligence becomes, and which tool she uses.</p>
+                <a class="cyoa-feature-link" href="https://neuralnetsandprettypatterns.com/games/cyoa/">Vote In The CYOA</a>
+            </div>
+
+            <a class="cyoa-feature-poster" href="https://neuralnetsandprettypatterns.com/games/cyoa/" aria-label="Open Neuralverse CYOA voting">
+                <img
+                    src="https://neuralnetsandprettypatterns.com/games/mindflayerposter.jpg"
+                    alt="Poster artwork for Serra vs the Mindflayer, the current Neuralverse CYOA vote."
+                    loading="eager"
+                    decoding="async"
+                >
+            </a>
         </section>
 
         <section aria-labelledby="play-heading">
@@ -586,7 +707,9 @@
                 a.rel = "noopener";
             }
 
-            if (button.icon && ICONS[button.icon]) {
+            if (button.iconSvg) {
+                a.innerHTML = button.iconSvg;
+            } else if (button.icon && ICONS[button.icon]) {
                 a.innerHTML = ICONS[button.icon];
             } else if (Array.isArray(button.lines)) {
                 button.lines.forEach(line => {
