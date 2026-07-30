@@ -7,6 +7,11 @@ binding = "mantrasync"
 database_name = "mantrasyncboard"
 database_id = "8e2f3ed8-7363-41f7-bdd5-273d54374c68"
 
+[[d1_databases]]
+binding = "CYOA_DB"
+database_name = "cyoa_polls"
+database_id = "PASTE_CYOA_DATABASE_ID_HERE"
+
 [[kv_namespaces]]
 binding = "mantradata"
 id = "dd213c5227bc4ff5b1ee4e4e8c836e14"
