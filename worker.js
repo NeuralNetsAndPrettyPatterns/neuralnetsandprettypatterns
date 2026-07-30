@@ -7,6 +7,16 @@ export default {
       return handleContactPost(request, env);
     }
 
+    // CYOA poll results
+    if (p === "/api/cyoa/results") {
+      return handleCyoaResults(request, env);
+    }
+
+    // CYOA ballot submission
+    if (p === "/api/cyoa/vote") {
+      return handleCyoaVote(request, env);
+    }
+
     // Mantra Sync leaderboard
     if (p === "/api/mantra-sync/leaderboard") {
       return handleMantraLeaderboard(request, env);
@@ -213,6 +223,19 @@ export default {
     ) {
       return serveHtml(
         "/games/index.html",
+        true
+      );
+    }
+
+
+    // Neuralverse CYOA
+    if (
+      p === "/games/cyoa" ||
+      p === "/games/cyoa/" ||
+      p === "/games/cyoa/index.html"
+    ) {
+      return serveHtml(
+        "/games/cyoa/index.html",
         true
       );
     }
@@ -1762,3 +1785,676 @@ function mantraJsonResponse(
     }
   );
 }
+
+/* =========================================================
+   NEURALVERSE CYOA
+   ========================================================= */
+
+async function handleCyoaResults(request, env) {
+  if (request.method !== "GET") {
+    return cyoaJsonResponse(
+      {
+        ok: false,
+        error: "Method not allowed."
+      },
+      405,
+      {
+        "Allow": "GET"
+      }
+    );
+  }
+
+  if (!env || !env.CYOA_DB) {
+    return cyoaJsonResponse(
+      {
+        ok: false,
+        error: "CYOA database is not configured."
+      },
+      500
+    );
+  }
+
+  const url = new URL(request.url);
+  const pollId = normalizeCyoaPollId(
+    url.searchParams.get("poll")
+  );
+
+  if (!pollId) {
+    return cyoaJsonResponse(
+      {
+        ok: false,
+        error: "A valid poll id is required."
+      },
+      400
+    );
+  }
+
+  try {
+    const poll = await loadCyoaPoll(
+      env.CYOA_DB,
+      pollId
+    );
+
+    if (!poll) {
+      return cyoaJsonResponse(
+        {
+          ok: false,
+          error: "Poll not found."
+        },
+        404
+      );
+    }
+
+    return cyoaJsonResponse({
+      ok: true,
+      poll
+    });
+  } catch (error) {
+    console.error(
+      "CYOA results read failed:",
+      error
+    );
+
+    return cyoaJsonResponse(
+      {
+        ok: false,
+        error: "Poll results could not be loaded."
+      },
+      500
+    );
+  }
+}
+
+async function handleCyoaVote(request, env) {
+  if (request.method === "OPTIONS") {
+    return new Response(null, {
+      status: 204,
+      headers: {
+        "Allow": "POST, OPTIONS",
+        "Access-Control-Allow-Methods":
+          "POST, OPTIONS",
+        "Access-Control-Allow-Headers":
+          "Content-Type, Accept",
+        "Cache-Control": "no-store"
+      }
+    });
+  }
+
+  if (request.method !== "POST") {
+    return cyoaJsonResponse(
+      {
+        ok: false,
+        error: "Method not allowed."
+      },
+      405,
+      {
+        "Allow": "POST, OPTIONS"
+      }
+    );
+  }
+
+  if (!env || !env.CYOA_DB) {
+    return cyoaJsonResponse(
+      {
+        ok: false,
+        error: "CYOA database is not configured."
+      },
+      500
+    );
+  }
+
+  if (!isAllowedCyoaOrigin(request)) {
+    return cyoaJsonResponse(
+      {
+        ok: false,
+        error: "Vote origin is not allowed."
+      },
+      403
+    );
+  }
+
+  const contentType =
+    request.headers.get("content-type") || "";
+
+  if (!contentType.includes("application/json")) {
+    return cyoaJsonResponse(
+      {
+        ok: false,
+        error: "Vote submission must be JSON."
+      },
+      415
+    );
+  }
+
+  let submission;
+
+  try {
+    submission = await request.json();
+  } catch (error) {
+    return cyoaJsonResponse(
+      {
+        ok: false,
+        error: "Could not read vote submission."
+      },
+      400
+    );
+  }
+
+  const basicValidation =
+    validateCyoaSubmissionShape(submission);
+
+  if (!basicValidation.ok) {
+    return cyoaJsonResponse(
+      {
+        ok: false,
+        error: basicValidation.error
+      },
+      400
+    );
+  }
+
+  const {
+    pollId,
+    voterId,
+    answers
+  } = basicValidation.value;
+
+  try {
+    const poll = await loadCyoaPoll(
+      env.CYOA_DB,
+      pollId
+    );
+
+    if (!poll) {
+      return cyoaJsonResponse(
+        {
+          ok: false,
+          error: "Poll not found."
+        },
+        404
+      );
+    }
+
+    if (!poll.is_open) {
+      return cyoaJsonResponse(
+        {
+          ok: false,
+          error: "Voting is closed for this poll."
+        },
+        409
+      );
+    }
+
+    const answerValidation =
+      validateCyoaAnswers(poll, answers);
+
+    if (!answerValidation.ok) {
+      return cyoaJsonResponse(
+        {
+          ok: false,
+          error: answerValidation.error
+        },
+        400
+      );
+    }
+
+    const voterHash = await hashCyoaVoter(
+      pollId,
+      voterId
+    );
+
+    await env.CYOA_DB
+      .prepare(
+        `INSERT INTO ballots (
+           poll_id,
+           voter_hash,
+           created_at,
+           updated_at
+         )
+         VALUES (?, ?, CURRENT_TIMESTAMP, CURRENT_TIMESTAMP)
+         ON CONFLICT (poll_id, voter_hash)
+         DO UPDATE SET
+           updated_at = CURRENT_TIMESTAMP`
+      )
+      .bind(
+        pollId,
+        voterHash
+      )
+      .run();
+
+    const ballot = await env.CYOA_DB
+      .prepare(
+        `SELECT id
+         FROM ballots
+         WHERE poll_id = ?
+           AND voter_hash = ?
+         LIMIT 1`
+      )
+      .bind(
+        pollId,
+        voterHash
+      )
+      .first();
+
+    if (!ballot || !ballot.id) {
+      throw new Error(
+        "Ballot could not be created or found."
+      );
+    }
+
+    const ballotId = Number(ballot.id);
+    const statements = [
+      env.CYOA_DB
+        .prepare(
+          `DELETE FROM ballot_answers
+           WHERE ballot_id = ?`
+        )
+        .bind(ballotId)
+    ];
+
+    answerValidation.answers.forEach(
+      function (answer) {
+        statements.push(
+          env.CYOA_DB
+            .prepare(
+              `INSERT INTO ballot_answers (
+                 ballot_id,
+                 question_id,
+                 option_id,
+                 created_at,
+                 updated_at
+               )
+               VALUES (
+                 ?, ?, ?,
+                 CURRENT_TIMESTAMP,
+                 CURRENT_TIMESTAMP
+               )`
+            )
+            .bind(
+              ballotId,
+              answer.questionId,
+              answer.optionId
+            )
+        );
+      }
+    );
+
+    await env.CYOA_DB.batch(statements);
+
+    const updatedPoll = await loadCyoaPoll(
+      env.CYOA_DB,
+      pollId
+    );
+
+    return cyoaJsonResponse(
+      {
+        ok: true,
+        message: "Your ballot has been saved.",
+        poll: updatedPoll
+      },
+      200
+    );
+  } catch (error) {
+    console.error(
+      "CYOA vote write failed:",
+      error
+    );
+
+    return cyoaJsonResponse(
+      {
+        ok: false,
+        error: "Vote could not be saved."
+      },
+      500
+    );
+  }
+}
+
+async function loadCyoaPoll(database, pollId) {
+  const pollRow = await database
+    .prepare(
+      `SELECT
+         id,
+         title,
+         description,
+         image_path,
+         published_at,
+         is_open
+       FROM polls
+       WHERE id = ?
+       LIMIT 1`
+    )
+    .bind(pollId)
+    .first();
+
+  if (!pollRow) {
+    return null;
+  }
+
+  const optionQuery = await database
+    .prepare(
+      `SELECT
+         q.id AS question_id,
+         q.prompt AS question_prompt,
+         q.sort_order AS question_order,
+         o.id AS option_id,
+         o.label AS option_label,
+         o.sort_order AS option_order,
+         COUNT(ba.ballot_id) AS votes
+       FROM questions q
+       JOIN options o
+         ON o.question_id = q.id
+       LEFT JOIN ballot_answers ba
+         ON ba.question_id = q.id
+        AND ba.option_id = o.id
+       WHERE q.poll_id = ?
+       GROUP BY
+         q.id,
+         q.prompt,
+         q.sort_order,
+         o.id,
+         o.label,
+         o.sort_order
+       ORDER BY
+         q.sort_order ASC,
+         o.sort_order ASC`
+    )
+    .bind(pollId)
+    .all();
+
+  const ballotCount = await database
+    .prepare(
+      `SELECT COUNT(*) AS total_ballots
+       FROM ballots
+       WHERE poll_id = ?`
+    )
+    .bind(pollId)
+    .first();
+
+  const questionMap = new Map();
+  const rows =
+    optionQuery && Array.isArray(optionQuery.results)
+      ? optionQuery.results
+      : [];
+
+  rows.forEach(function (row) {
+    const questionId = String(row.question_id);
+
+    if (!questionMap.has(questionId)) {
+      questionMap.set(questionId, {
+        question_id: questionId,
+        prompt: String(row.question_prompt || ""),
+        sort_order: Number(row.question_order || 0),
+        total_votes: 0,
+        options: []
+      });
+    }
+
+    const question = questionMap.get(questionId);
+    const votes = Number(row.votes || 0);
+
+    question.total_votes += votes;
+    question.options.push({
+      option_id: String(row.option_id),
+      label: String(row.option_label || ""),
+      sort_order: Number(row.option_order || 0),
+      votes,
+      percentage: 0
+    });
+  });
+
+  const results = Array.from(
+    questionMap.values()
+  ).map(function (question) {
+    question.options = question.options.map(
+      function (option) {
+        const percentage =
+          question.total_votes > 0
+            ? (
+                option.votes /
+                question.total_votes
+              ) * 100
+            : 0;
+
+        return {
+          ...option,
+          percentage:
+            Math.round(percentage * 10) / 10
+        };
+      }
+    );
+
+    return question;
+  });
+
+  return {
+    id: String(pollRow.id),
+    title: String(pollRow.title || ""),
+    description: String(
+      pollRow.description || ""
+    ),
+    image_path:
+      pollRow.image_path === null
+        ? null
+        : String(pollRow.image_path),
+    published_at: String(
+      pollRow.published_at || ""
+    ),
+    is_open: Number(pollRow.is_open) === 1,
+    total_ballots: Number(
+      ballotCount?.total_ballots || 0
+    ),
+    results
+  };
+}
+
+function validateCyoaSubmissionShape(submission) {
+  if (
+    !submission ||
+    typeof submission !== "object" ||
+    Array.isArray(submission)
+  ) {
+    return {
+      ok: false,
+      error: "Invalid vote submission."
+    };
+  }
+
+  const pollId = normalizeCyoaPollId(
+    submission.poll_id
+  );
+
+  const voterId = String(
+    submission.voter_id || ""
+  ).trim();
+
+  const answers = submission.answers;
+
+  if (!pollId) {
+    return {
+      ok: false,
+      error: "A valid poll id is required."
+    };
+  }
+
+  if (
+    voterId.length < 12 ||
+    voterId.length > 200
+  ) {
+    return {
+      ok: false,
+      error: "A valid browser voter id is required."
+    };
+  }
+
+  if (
+    !answers ||
+    typeof answers !== "object" ||
+    Array.isArray(answers)
+  ) {
+    return {
+      ok: false,
+      error: "Answers must be supplied as an object."
+    };
+  }
+
+  return {
+    ok: true,
+    value: {
+      pollId,
+      voterId,
+      answers
+    }
+  };
+}
+
+function validateCyoaAnswers(poll, answers) {
+  const questions =
+    poll && Array.isArray(poll.results)
+      ? poll.results
+      : [];
+
+  const suppliedQuestionIds =
+    Object.keys(answers);
+
+  if (
+    suppliedQuestionIds.length !==
+    questions.length
+  ) {
+    return {
+      ok: false,
+      error: "Choose one answer for each question."
+    };
+  }
+
+  const normalizedAnswers = [];
+
+  for (const question of questions) {
+    const questionId = question.question_id;
+    const optionId = String(
+      answers[questionId] || ""
+    ).trim();
+
+    if (!optionId) {
+      return {
+        ok: false,
+        error: "Choose one answer for each question."
+      };
+    }
+
+    const validOption = question.options.some(
+      function (option) {
+        return option.option_id === optionId;
+      }
+    );
+
+    if (!validOption) {
+      return {
+        ok: false,
+        error:
+          "One of the selected options is invalid."
+      };
+    }
+
+    normalizedAnswers.push({
+      questionId,
+      optionId
+    });
+  }
+
+  const validQuestionIds = new Set(
+    questions.map(function (question) {
+      return question.question_id;
+    })
+  );
+
+  const hasUnknownQuestion =
+    suppliedQuestionIds.some(
+      function (questionId) {
+        return !validQuestionIds.has(questionId);
+      }
+    );
+
+  if (hasUnknownQuestion) {
+    return {
+      ok: false,
+      error: "One of the submitted questions is invalid."
+    };
+  }
+
+  return {
+    ok: true,
+    answers: normalizedAnswers
+  };
+}
+
+function normalizeCyoaPollId(value) {
+  const pollId = String(value || "")
+    .trim()
+    .toLowerCase();
+
+  return /^[a-z0-9][a-z0-9-]{0,79}$/.test(
+    pollId
+  )
+    ? pollId
+    : "";
+}
+
+function isAllowedCyoaOrigin(request) {
+  const origin =
+    request.headers.get("origin") || "";
+
+  if (!origin) {
+    return true;
+  }
+
+  try {
+    return origin === new URL(request.url).origin;
+  } catch (error) {
+    return false;
+  }
+}
+
+async function hashCyoaVoter(
+  pollId,
+  voterId
+) {
+  const input = new TextEncoder().encode(
+    `${pollId}:${voterId}`
+  );
+
+  const digest = await crypto.subtle.digest(
+    "SHA-256",
+    input
+  );
+
+  return Array.from(
+    new Uint8Array(digest)
+  )
+    .map(function (byte) {
+      return byte
+        .toString(16)
+        .padStart(2, "0");
+    })
+    .join("");
+}
+
+function cyoaJsonResponse(
+  body,
+  status = 200,
+  extraHeaders = {}
+) {
+  return new Response(
+    JSON.stringify(body),
+    {
+      status,
+      headers: {
+        "Content-Type":
+          "application/json; charset=utf-8",
+        "Cache-Control": "no-store",
+        ...extraHeaders
+      }
+    }
+  );
+}
+
