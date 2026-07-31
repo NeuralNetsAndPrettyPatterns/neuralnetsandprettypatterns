@@ -313,6 +313,18 @@ export default {
       );
     }
 
+    // Vale Four Episode 14: Rubido
+    if (
+      p === "/deepdreamstate/arcs/vale-four/episode-14-rubido" ||
+      p === "/deepdreamstate/arcs/vale-four/episode-14-rubido/" ||
+      p === "/deepdreamstate/arcs/vale-four/episode-14-rubido/index.html"
+    ) {
+      return serveHtml(
+        "/deepdreamstate/arcs/vale-four/episode-14-rubido/index.html",
+        true
+      );
+    }
+
     // Deep Dream State migrated arc pages and assets
     // New main repo file wins when present.
     // Missing main repo file falls back to the legacy Deep Dream State site.
@@ -2457,4 +2469,3 @@ function cyoaJsonResponse(
     }
   );
 }
-
