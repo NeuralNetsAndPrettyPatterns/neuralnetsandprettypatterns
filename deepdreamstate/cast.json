@@ -3088,60 +3088,138 @@
         }
       ]
     },
+ {
+  "type": "episode",
+  "ge": 40,
+  "season": 4,
+  "episode": 13,
+  "title": "Sealed",
+  "url": "",
+  "cast": [
     {
-      "type": "episode",
-      "ge": 40,
-      "season": 4,
-      "episode": 13,
-      "title": "Sealed",
-      "url": "",
-      "cast": [
-        {
-          "performerId": "neural-nets-and-pretty-patterns",
-          "stageName": "Neural Nets and Pretty Patterns",
-          "character": "Z / Dr. Zev Talcott"
-        },
-        {
-          "performerId": "valentina-vallay",
-          "stageName": "Valentina Vallay",
-          "character": "Gia"
-        },
-        {
-          "performerId": "panda-moanium",
-          "stageName": "Panda Moanium",
-          "character": "Celeste"
-        },
-        {
-          "performerId": "vixen-clouds",
-          "stageName": "Vixen Clouds",
-          "character": "Clara"
-        },
-        {
-          "performerId": "echo-doll",
-          "stageName": "Echo Doll",
-          "character": "Elle Lawson"
-        },
-        {
-          "performerId": "princess-ella",
-          "stageName": "Princess Ella",
-          "character": "Porsche"
-        },
-        {
-          "performerId": "bun-li",
-          "stageName": "Bun Li",
-          "character": "Meg Aerin"
-        },
-        {
-          "performerId": "talithara",
-          "stageName": "Talithara",
-          "character": "Leandra"
-        },
-        {
-          "performerId": "dizzy-dollie",
-          "stageName": "Dizzy Dollie",
-          "character": "the Head Librarian"
-        }
-      ]
+      "performerId": "neural-nets-and-pretty-patterns",
+      "stageName": "Neural Nets and Pretty Patterns",
+      "character": "Z / Dr. Zev Talcott"
+    },
+    {
+      "performerId": "valentina-vallay",
+      "stageName": "Valentina Vallay",
+      "character": "Gia"
+    },
+    {
+      "performerId": "panda-moanium",
+      "stageName": "Panda Moanium",
+      "character": "Celeste"
+    },
+    {
+      "performerId": "vixen-clouds",
+      "stageName": "Vixen Clouds",
+      "character": "Clara"
+    },
+    {
+      "performerId": "echo-doll",
+      "stageName": "Echo Doll",
+      "character": "Elle Lawson"
+    },
+    {
+      "performerId": "princess-ella",
+      "stageName": "Princess Ella",
+      "character": "Porsche"
+    },
+    {
+      "performerId": "bun-li",
+      "stageName": "Bun Li",
+      "character": "Meg Aerin"
+    },
+    {
+      "performerId": "talithara",
+      "stageName": "Talithara",
+      "character": "Leandra"
+    },
+    {
+      "performerId": "dizzy-dollie",
+      "stageName": "Dizzy Dollie",
+      "character": "the Head Librarian"
+    }
+  ]
+},
+{
+  "type": "episode",
+  "ge": 41,
+  "season": 4,
+  "episode": 14,
+  "title": "Rubido",
+  "url": "/deepdreamstate/arcs/vale-four/episode-14-rubido/",
+  "cast": [
+    {
+      "performerId": "talithara",
+      "stageName": "Talithara",
+      "character": "Leandra"
+    },
+    {
+      "performerId": "bun-li",
+      "stageName": "Bun Li",
+      "character": "Meg Aerin"
+    },
+    {
+      "performerId": "valentina-vallay",
+      "stageName": "Valentina Vallay",
+      "character": "Gia"
+    },
+    {
+      "performerId": "neural-nets-and-pretty-patterns",
+      "stageName": "Neural Nets and Pretty Patterns",
+      "character": "Z / Dr. Zev Talcott"
+    },
+    {
+      "performerId": "panda-moanium",
+      "stageName": "Panda Moanium",
+      "character": "Celeste"
+    },
+    {
+      "performerId": "princess-ella",
+      "stageName": "Princess Ella",
+      "character": "Porsche"
+    },
+    {
+      "performerId": "echo-doll",
+      "stageName": "Echo Doll",
+      "character": "Elle Lawson"
+    },
+    {
+      "performerId": "swirls-and-twirls",
+      "stageName": "Swirls and Twirls",
+      "character": "Iris Vale"
+    },
+    {
+      "performerId": "syndi-rella",
+      "stageName": "Syndi Rella",
+      "character": "Hespa Apate"
+    },
+    {
+      "performerId": "ring-of-kees",
+      "stageName": "Ring of Kees",
+      "character": "Tessa Finn"
+    },
+    {
+      "performerId": "bliss-blank",
+      "stageName": "Bliss Blank",
+      "character": "June Lowell"
+    },
+    {
+      "performerId": "lux-peralta",
+      "stageName": "Lux Peralta",
+      "character": "Laura"
+    },
+    {
+      "performerId": "dizzy-dollie",
+      "stageName": "Dizzy Dollie",
+      "character": "Naia Anderson"
+    }
+  ]
+}
+  ]
+}
     }
   ]
 }
