@@ -1433,9 +1433,12 @@
         }
 
         function getSeriesList() {
-            const supplied = Array.isArray(state.bank?.series_options)
-                ? state.bank.series_options
-                : FALLBACK_SERIES;
+            const supplied = [
+                ...FALLBACK_SERIES,
+                ...(Array.isArray(state.bank?.series_options)
+                    ? state.bank.series_options
+                    : [])
+            ];
 
             const seen = new Set();
             const list = [];
