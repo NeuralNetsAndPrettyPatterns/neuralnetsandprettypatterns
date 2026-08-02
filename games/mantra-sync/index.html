@@ -1432,6 +1432,18 @@
             );
         }
 
+        // LOLLIPOP RENDER FIX v2: merge UI definitions and normalize bank series IDs.
+        function normalizeSeriesIds(value) {
+            const values = Array.isArray(value)
+                ? value
+                : (typeof value === "string" ? [value] : []);
+
+            return values
+                .filter(seriesId => typeof seriesId === "string")
+                .map(seriesId => seriesId.trim().toLowerCase())
+                .filter(Boolean);
+        }
+
         function getSeriesList() {
             const supplied = [
                 ...FALLBACK_SERIES,
@@ -1461,13 +1473,8 @@
                 : [];
 
             for (const mantra of mantras) {
-                if (!Array.isArray(mantra?.series)) continue;
-
-                for (const rawId of mantra.series) {
-                    if (typeof rawId !== "string") continue;
-
-                    const id = rawId.trim().toLowerCase();
-                    if (!id || seen.has(id)) continue;
+                for (const id of normalizeSeriesIds(mantra?.series)) {
+                    if (seen.has(id)) continue;
 
                     seen.add(id);
                     list.push({
@@ -1496,11 +1503,11 @@
 
         function mantrasForSeries(seriesIds, playableOnly = false) {
             const all = Array.isArray(state.bank?.mantras) ? state.bank.mantras : [];
-            const selected = new Set(seriesIds);
+            const selected = new Set(normalizeSeriesIds(seriesIds));
 
             const filtered = all.filter(mantra =>
-                Array.isArray(mantra.series) &&
-                mantra.series.some(seriesId => selected.has(seriesId))
+                normalizeSeriesIds(mantra?.series)
+                    .some(seriesId => selected.has(seriesId))
             );
 
             return playableOnly ? filtered.filter(isPlayableMantra) : filtered;
