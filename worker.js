@@ -1324,7 +1324,7 @@ async function handleMantraBank(request, env) {
   }
 }
 
-/* =========================================================
+/*/* =========================================================
    MANTRA SYNC LEADERBOARD
    ========================================================= */
 
@@ -1362,15 +1362,12 @@ async function handleMantraLeaderboard(request, env) {
         .prepare(
           `SELECT
              player_name,
-             MAX(total_score) AS total_score,
-             MIN(created_at) AS first_score_at,
-             MIN(id) AS first_score_id
+             total_score
            FROM mantra_scores
-           GROUP BY player_name
            ORDER BY
              total_score DESC,
-             first_score_at ASC,
-             first_score_id ASC
+             created_at ASC,
+             id ASC
            LIMIT 5`
         )
         .all(),
@@ -1379,17 +1376,17 @@ async function handleMantraLeaderboard(request, env) {
         .prepare(
           `SELECT
              player_name,
-             100 AS accuracy,
-             MIN(duration_ms) AS duration_ms
+             accuracy,
+             duration_ms
            FROM mantra_scores
            WHERE
              accuracy = 100
              AND duration_ms IS NOT NULL
              AND duration_ms > 0
-           GROUP BY player_name
            ORDER BY
              duration_ms ASC,
-             player_name ASC
+             created_at DESC,
+             id DESC
            LIMIT 5`
         )
         .all(),
@@ -1398,59 +1395,46 @@ async function handleMantraLeaderboard(request, env) {
         .prepare(
           `SELECT
              player_name,
-             30 AS best_block,
-             MAX(id) AS latest_score_id
+             best_block
            FROM mantra_scores
            WHERE best_block = 30
-           GROUP BY player_name
            ORDER BY
-             latest_score_id DESC
+             created_at DESC,
+             id DESC
            LIMIT 5`
         )
         .all()
     ]);
 
-    const goldStarTop = Array.isArray(
-      goldStarQuery?.results
-    )
-      ? goldStarQuery.results.map(row => ({
-          player_name: String(
-            row.player_name || ""
-          ),
-          total_score: Number(
-            row.total_score
-          )
-        }))
-      : [];
+    const goldStarTop = (
+      goldStarQuery.results || []
+    ).map(row => ({
+      player_name: row.player_name,
+      total_score: Number(
+        row.total_score
+      )
+    }));
 
-    const starSpeedrunTop = Array.isArray(
-      starSpeedrunQuery?.results
-    )
-      ? starSpeedrunQuery.results.map(row => ({
-          player_name: String(
-            row.player_name || ""
-          ),
-          accuracy: Number(
-            row.accuracy
-          ),
-          duration_ms: Number(
-            row.duration_ms
-          )
-        }))
-      : [];
+    const starSpeedrunTop = (
+      starSpeedrunQuery.results || []
+    ).map(row => ({
+      player_name: row.player_name,
+      accuracy: Number(
+        row.accuracy
+      ),
+      duration_ms: Number(
+        row.duration_ms
+      )
+    }));
 
-    const flawlessVictoryTop = Array.isArray(
-      flawlessVictoryQuery?.results
-    )
-      ? flawlessVictoryQuery.results.map(row => ({
-          player_name: String(
-            row.player_name || ""
-          ),
-          best_block: Number(
-            row.best_block
-          )
-        }))
-      : [];
+    const flawlessVictoryTop = (
+      flawlessVictoryQuery.results || []
+    ).map(row => ({
+      player_name: row.player_name,
+      best_block: Number(
+        row.best_block
+      )
+    }));
 
     const goldStar =
       goldStarTop[0] || null;
@@ -1474,13 +1458,7 @@ async function handleMantraLeaderboard(request, env) {
           flawless_victory: flawlessVictoryTop
         },
 
-        // Direct array aliases keep every page version working.
-        gold_star_top_five: goldStarTop,
-        star_speedrun_top_five: starSpeedrunTop,
-        flawless_victory_top_five:
-          flawlessVictoryTop,
-
-        // Older single-winner aliases.
+        // Keep the old aliases working.
         star_quality: starSpeedrun,
         play_of_the_game: flawlessVictory
       }
