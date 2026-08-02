@@ -436,18 +436,44 @@
 
         .leaderboard {
             display: grid;
-            grid-template-columns: repeat(3, 1fr);
+            grid-template-columns: repeat(3, minmax(0, 1fr));
+            align-items: start;
             gap: 2px;
             margin-bottom: 2rem;
             animation: fadeUp 0.5s 0.05s ease both;
         }
 
         .leader-card {
-            min-height: 150px;
-            padding: 1.35rem 1rem;
+            min-width: 0;
             border: 1px solid var(--border);
             background: rgba(255,45,120,0.035);
             text-align: center;
+            overflow: hidden;
+        }
+
+        .leader-card-toggle {
+            appearance: none;
+            width: 100%;
+            min-width: 0;
+            min-height: 150px;
+            padding: 1.35rem 1rem 1rem;
+            border: 0;
+            background: transparent;
+            color: inherit;
+            font: inherit;
+            text-align: center;
+            cursor: pointer;
+            transition: background 0.18s, box-shadow 0.18s;
+        }
+
+        .leader-card-toggle:hover,
+        .leader-card-toggle[aria-expanded="true"] {
+            background: rgba(255,45,120,0.075);
+        }
+
+        .leader-card-toggle:focus-visible {
+            outline: 2px solid var(--pink-pale);
+            outline-offset: -3px;
         }
 
         .leader-label {
@@ -474,12 +500,16 @@
 
         .leader-name {
             display: block;
+            width: 100%;
+            min-width: 0;
+            padding: 0 0.15rem;
             font-family: var(--display);
             font-weight: 800;
-            font-size: clamp(1.25rem, 3.4vw, 1.8rem);
-            line-height: 1.25;
+            font-size: 25px;
+            line-height: 1.2;
             color: var(--text);
-            overflow-wrap: anywhere;
+            white-space: nowrap;
+            overflow: hidden;
         }
 
         .leader-stat {
@@ -489,6 +519,79 @@
             font-family: var(--display);
             font-weight: 700;
             font-size: clamp(1rem, 2.8vw, 1.35rem);
+        }
+
+        .leader-expand-hint {
+            display: block;
+            margin-top: 0.8rem;
+            color: var(--text-muted);
+            font-size: 0.55rem;
+            letter-spacing: 0.12em;
+            text-transform: uppercase;
+        }
+
+        .leader-expand-symbol {
+            display: inline-block;
+            width: 1em;
+            color: var(--pink-pale);
+        }
+
+        .leader-top-five {
+            margin: 0;
+            padding: 0.4rem 0.8rem 0.75rem;
+            border-top: 1px solid var(--border);
+            list-style: none;
+            text-align: left;
+        }
+
+        .leader-top-five[hidden] {
+            display: none;
+        }
+
+        .leader-rank {
+            display: grid;
+            grid-template-columns: 1.45rem minmax(0, 1fr) auto;
+            align-items: center;
+            gap: 0.45rem;
+            min-width: 0;
+            padding: 0.48rem 0;
+            border-bottom: 1px solid rgba(255,45,120,0.09);
+        }
+
+        .leader-rank:last-child {
+            border-bottom: 0;
+        }
+
+        .leader-rank-number {
+            color: var(--pink);
+            font-family: var(--display);
+            font-weight: 800;
+            font-size: 0.76rem;
+        }
+
+        .leader-rank-name {
+            display: block;
+            min-width: 0;
+            font-family: var(--display);
+            font-weight: 700;
+            font-size: 14px;
+            line-height: 1.2;
+            color: var(--text);
+            white-space: nowrap;
+            overflow: hidden;
+        }
+
+        .leader-rank-stat {
+            color: var(--pink-pale);
+            font-size: 0.58rem;
+            white-space: nowrap;
+        }
+
+        .leader-empty {
+            padding: 0.8rem 0;
+            color: var(--text-muted);
+            font-size: 0.66rem;
+            text-align: center;
         }
 
         .screen {
@@ -937,20 +1040,34 @@
 
         <section class="leaderboard" aria-label="Mantra Sync leaderboard">
             <div class="leader-card">
-                <span class="leader-label">Gold Star</span>
-                <span class="leader-name" id="leader-gold-name">Loading...</span>
-                <span class="leader-stat" id="leader-gold-stat"></span>
+                <button type="button" class="leader-card-toggle" aria-expanded="false" aria-controls="leader-gold-top">
+                    <span class="leader-label">Gold Star</span>
+                    <span class="leader-name leader-fit" id="leader-gold-name">Loading...</span>
+                    <span class="leader-stat" id="leader-gold-stat"></span>
+                    <span class="leader-expand-hint">Top 5 <span class="leader-expand-symbol" aria-hidden="true">+</span></span>
+                </button>
+                <ol class="leader-top-five" id="leader-gold-top" hidden></ol>
             </div>
+
             <div class="leader-card">
-                <span class="leader-label">Star Speedrun</span>
-                <span class="leader-name" id="leader-speedrun-name">Loading...</span>
-                <span class="leader-stat" id="leader-speedrun-stat"></span>
+                <button type="button" class="leader-card-toggle" aria-expanded="false" aria-controls="leader-speedrun-top">
+                    <span class="leader-label">Star Speedrun</span>
+                    <span class="leader-name leader-fit" id="leader-speedrun-name">Loading...</span>
+                    <span class="leader-stat" id="leader-speedrun-stat"></span>
+                    <span class="leader-expand-hint">Top 5 <span class="leader-expand-symbol" aria-hidden="true">+</span></span>
+                </button>
+                <ol class="leader-top-five" id="leader-speedrun-top" hidden></ol>
             </div>
+
             <div class="leader-card">
-                <span class="leader-label">Flawless Victory</span>
-                <span class="leader-subtitle">Most Recent Perfection</span>
-                <span class="leader-name" id="leader-flawless-name">Loading...</span>
-                <span class="leader-stat" id="leader-flawless-stat"></span>
+                <button type="button" class="leader-card-toggle" aria-expanded="false" aria-controls="leader-flawless-top">
+                    <span class="leader-label">Flawless Victory</span>
+                    <span class="leader-subtitle">Most Recent Perfection</span>
+                    <span class="leader-name leader-fit" id="leader-flawless-name">Loading...</span>
+                    <span class="leader-stat" id="leader-flawless-stat"></span>
+                    <span class="leader-expand-hint">Top 5 <span class="leader-expand-symbol" aria-hidden="true">+</span></span>
+                </button>
+                <ol class="leader-top-five" id="leader-flawless-top" hidden></ol>
             </div>
         </section>
 
@@ -1269,7 +1386,7 @@
             bank: null,
             pronouns: FALLBACK_PRONOUNS,
             playerName: "",
-            pronounId: "they",
+            pronounId: "he",
             mode: "untimed",
             seriesIds: [],
             pool: [],
@@ -1518,8 +1635,8 @@
             container.innerHTML = "";
 
             const entries = Object.entries(state.pronouns);
-            const preferred = entries.some(([key]) => key === "they") ? "they" : entries[0]?.[0];
-            state.pronounId = preferred || "they";
+            const preferred = entries.some(([key]) => key === "he") ? "he" : entries[0]?.[0];
+            state.pronounId = preferred || "he";
 
             for (const [key, pronoun] of entries) {
                 const label = document.createElement("label");
@@ -1685,22 +1802,195 @@
             return `${minutes}:${String(seconds).padStart(2, "0")}.${String(milliseconds).padStart(3, "0")}`;
         }
 
+        function firstLeaderboardEntry(value) {
+            return Array.isArray(value)
+                ? (value[0] || null)
+                : (value || null);
+        }
+
+        function leaderboardEntries(board, key, fallback) {
+            const topFive = board.top_five || {};
+            const direct = topFive[key];
+
+            if (Array.isArray(direct)) {
+                return direct.slice(0, 5);
+            }
+
+            const legacyTopFive = board[`${key}_top_five`];
+
+            if (Array.isArray(legacyTopFive)) {
+                return legacyTopFive.slice(0, 5);
+            }
+
+            if (Array.isArray(board[key])) {
+                return board[key].slice(0, 5);
+            }
+
+            return fallback ? [fallback] : [];
+        }
+
+        function renderTopFive(listId, entries, statFormatter) {
+            const list = $(listId);
+            list.innerHTML = "";
+
+            if (!entries.length) {
+                const empty = document.createElement("li");
+                empty.className = "leader-empty";
+                empty.textContent = "No qualifying scores yet.";
+                list.appendChild(empty);
+                return;
+            }
+
+            entries.slice(0, 5).forEach((entry, index) => {
+                const row = document.createElement("li");
+                row.className = "leader-rank";
+
+                const rank = document.createElement("span");
+                rank.className = "leader-rank-number";
+                rank.textContent = `${index + 1}.`;
+
+                const name = document.createElement("span");
+                name.className = "leader-rank-name leader-fit";
+                name.textContent = entry?.player_name || "Unknown";
+
+                const stat = document.createElement("span");
+                stat.className = "leader-rank-stat";
+                stat.textContent = statFormatter(entry);
+
+                row.append(rank, name, stat);
+                list.appendChild(row);
+            });
+        }
+
+        function fitTextToWidth(element, maxPx, minPx) {
+            if (!element || element.clientWidth <= 0) return;
+
+            let size = maxPx;
+            element.style.fontSize = `${size}px`;
+
+            while (
+                element.scrollWidth > element.clientWidth &&
+                size > minPx
+            ) {
+                size -= 1;
+                element.style.fontSize = `${size}px`;
+            }
+        }
+
+        function fitLeaderboardNames() {
+            document.querySelectorAll(".leader-name.leader-fit").forEach(element => {
+                fitTextToWidth(element, 25, 11);
+            });
+
+            document.querySelectorAll(".leader-rank-name.leader-fit").forEach(element => {
+                fitTextToWidth(element, 14, 9);
+            });
+        }
+
+        let leaderboardFitFrame = null;
+
+        function scheduleLeaderboardFit() {
+            if (leaderboardFitFrame) {
+                cancelAnimationFrame(leaderboardFitFrame);
+            }
+
+            leaderboardFitFrame = requestAnimationFrame(() => {
+                leaderboardFitFrame = null;
+                fitLeaderboardNames();
+            });
+        }
+
         function renderLeaderboard(board) {
-            const gold = board.gold_star;
-            const speedrun = board.star_speedrun || board.star_quality;
-            const flawless = board.flawless_victory || board.play_of_the_game;
+            const gold = firstLeaderboardEntry(board.gold_star);
+            const speedrun = firstLeaderboardEntry(
+                board.star_speedrun || board.star_quality
+            );
+            const flawless = firstLeaderboardEntry(
+                board.flawless_victory || board.play_of_the_game
+            );
 
-            $("leader-gold-name").textContent = gold?.player_name || "No score yet";
-            $("leader-gold-stat").textContent = gold ? `${gold.total_score} total` : "";
+            const goldTop = leaderboardEntries(board, "gold_star", gold);
+            const speedrunTop = leaderboardEntries(
+                board,
+                "star_speedrun",
+                speedrun
+            );
+            const flawlessTop = leaderboardEntries(
+                board,
+                "flawless_victory",
+                flawless
+            );
 
-            $("leader-speedrun-name").textContent = speedrun?.player_name || "No perfection yet";
+            $("leader-gold-name").textContent =
+                gold?.player_name || "No score yet";
+            $("leader-gold-stat").textContent =
+                gold ? `${gold.total_score} total` : "";
+
+            $("leader-speedrun-name").textContent =
+                speedrun?.player_name || "No perfection yet";
             $("leader-speedrun-stat").textContent =
                 speedrun && speedrun.duration_ms
                     ? `100% · ${formatDuration(speedrun.duration_ms)}`
                     : "";
 
-            $("leader-flawless-name").textContent = flawless?.player_name || "No perfection yet";
-            $("leader-flawless-stat").textContent = flawless ? "30 / 30" : "";
+            $("leader-flawless-name").textContent =
+                flawless?.player_name || "No perfection yet";
+            $("leader-flawless-stat").textContent =
+                flawless ? "30 / 30" : "";
+
+            renderTopFive(
+                "leader-gold-top",
+                goldTop,
+                entry => `${Number(entry?.total_score) || 0} total`
+            );
+
+            renderTopFive(
+                "leader-speedrun-top",
+                speedrunTop,
+                entry => entry?.duration_ms
+                    ? formatDuration(entry.duration_ms)
+                    : ""
+            );
+
+            renderTopFive(
+                "leader-flawless-top",
+                flawlessTop,
+                () => "30 / 30"
+            );
+
+            scheduleLeaderboardFit();
+        }
+
+        function bindLeaderboardToggles() {
+            document.querySelectorAll(".leader-card-toggle").forEach(button => {
+                button.addEventListener("click", () => {
+                    const panel = document.getElementById(
+                        button.getAttribute("aria-controls")
+                    );
+
+                    if (!panel) return;
+
+                    const opening =
+                        button.getAttribute("aria-expanded") !== "true";
+
+                    button.setAttribute(
+                        "aria-expanded",
+                        opening ? "true" : "false"
+                    );
+                    panel.hidden = !opening;
+
+                    const symbol =
+                        button.querySelector(".leader-expand-symbol");
+
+                    if (symbol) {
+                        symbol.textContent = opening ? "−" : "+";
+                    }
+
+                    scheduleLeaderboardFit();
+                });
+            });
+
+            window.addEventListener("resize", scheduleLeaderboardFit);
         }
 
         function validateSignIn() {
@@ -2201,6 +2491,7 @@
         }
 
         function bindEvents() {
+            bindLeaderboardToggles();
             $("intro-start").addEventListener("click", () => showScreen("screen-signin"));
 
             document.querySelectorAll("[data-back]").forEach(button => {
