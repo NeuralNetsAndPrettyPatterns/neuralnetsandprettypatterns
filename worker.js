@@ -1324,7 +1324,7 @@ async function handleMantraBank(request, env) {
   }
 }
 
-/* =========================================================
+/*/* =========================================================
    MANTRA SYNC LEADERBOARD
    ========================================================= */
 
@@ -1354,9 +1354,9 @@ async function handleMantraLeaderboard(request, env) {
 
   try {
     const [
-      goldStar,
-      starSpeedrun,
-      flawlessVictory
+      goldStarQuery,
+      starSpeedrunQuery,
+      flawlessVictoryQuery
     ] = await Promise.all([
       env.mantrasync
         .prepare(
@@ -1368,9 +1368,9 @@ async function handleMantraLeaderboard(request, env) {
              total_score DESC,
              created_at ASC,
              id ASC
-           LIMIT 1`
+           LIMIT 5`
         )
-        .first(),
+        .all(),
 
       env.mantrasync
         .prepare(
@@ -1387,9 +1387,9 @@ async function handleMantraLeaderboard(request, env) {
              duration_ms ASC,
              created_at DESC,
              id DESC
-           LIMIT 1`
+           LIMIT 5`
         )
-        .first(),
+        .all(),
 
       env.mantrasync
         .prepare(
@@ -1401,45 +1401,66 @@ async function handleMantraLeaderboard(request, env) {
            ORDER BY
              created_at DESC,
              id DESC
-           LIMIT 1`
+           LIMIT 5`
         )
-        .first()
+        .all()
     ]);
 
-    const starSpeedrunResult = starSpeedrun
-      ? {
-          player_name: starSpeedrun.player_name,
-          accuracy: Number(starSpeedrun.accuracy),
-          duration_ms: Number(starSpeedrun.duration_ms)
-        }
-      : null;
+    const goldStarTop = (
+      goldStarQuery.results || []
+    ).map(row => ({
+      player_name: row.player_name,
+      total_score: Number(
+        row.total_score
+      )
+    }));
 
-    const flawlessVictoryResult = flawlessVictory
-      ? {
-          player_name: flawlessVictory.player_name,
-          best_block: Number(flawlessVictory.best_block)
-        }
-      : null;
+    const starSpeedrunTop = (
+      starSpeedrunQuery.results || []
+    ).map(row => ({
+      player_name: row.player_name,
+      accuracy: Number(
+        row.accuracy
+      ),
+      duration_ms: Number(
+        row.duration_ms
+      )
+    }));
+
+    const flawlessVictoryTop = (
+      flawlessVictoryQuery.results || []
+    ).map(row => ({
+      player_name: row.player_name,
+      best_block: Number(
+        row.best_block
+      )
+    }));
+
+    const goldStar =
+      goldStarTop[0] || null;
+
+    const starSpeedrun =
+      starSpeedrunTop[0] || null;
+
+    const flawlessVictory =
+      flawlessVictoryTop[0] || null;
 
     return mantraJsonResponse({
       ok: true,
       leaderboard: {
-        gold_star: goldStar
-          ? {
-              player_name: goldStar.player_name,
-              total_score: Number(
-                goldStar.total_score
-              )
-            }
-          : null,
+        gold_star: goldStar,
+        star_speedrun: starSpeedrun,
+        flawless_victory: flawlessVictory,
 
-        star_speedrun: starSpeedrunResult,
-        flawless_victory: flawlessVictoryResult,
+        top_five: {
+          gold_star: goldStarTop,
+          star_speedrun: starSpeedrunTop,
+          flawless_victory: flawlessVictoryTop
+        },
 
-        // Temporary aliases keep the current page working
-        // until its labels/rendering are updated.
-        star_quality: starSpeedrunResult,
-        play_of_the_game: flawlessVictoryResult
+        // Keep the old aliases working.
+        star_quality: starSpeedrun,
+        play_of_the_game: flawlessVictory
       }
     });
   } catch (error) {
@@ -1797,7 +1818,6 @@ function mantraJsonResponse(
     }
   );
 }
-
 /* =========================================================
    NEURALVERSE CYOA
    ========================================================= */
