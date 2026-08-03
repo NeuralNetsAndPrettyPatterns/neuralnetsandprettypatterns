@@ -590,6 +590,7 @@
 
     .option-grid.image-option-grid {
       grid-template-columns: repeat(4, minmax(0, 1fr));
+      padding: 0.65rem;
     }
 
     .poll-option {
@@ -610,11 +611,12 @@
     }
 
     .poll-option.image-option {
-      grid-template-columns: auto minmax(0, 1fr);
+      grid-template-columns: 1rem 1.1rem minmax(0, 1fr) 1rem;
       grid-template-areas:
-        "image image"
-        "radio label"
-        "result result";
+        "image image image image"
+        ". radio label ."
+        ". result result .";
+      column-gap: 0.7rem;
       align-items: center;
       min-height: 0;
       padding: 0;
@@ -645,19 +647,19 @@
       grid-area: radio;
       position: relative;
       z-index: 2;
-      margin: 0 0 0 0.95rem;
+      margin: 0;
     }
 
     .image-option .option-label {
       grid-area: label;
-      padding: 0.85rem 0.95rem 0.85rem 0;
+      padding: 0.85rem 0;
     }
 
     .image-option .option-result {
       grid-area: result;
       width: 100%;
       min-width: 0;
-      padding: 0 0.95rem 0.9rem;
+      padding: 0 0 0.9rem;
       text-align: left;
     }
 
