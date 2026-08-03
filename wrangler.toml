@@ -10,7 +10,7 @@ database_id = "8e2f3ed8-7363-41f7-bdd5-273d54374c68"
 [[d1_databases]]
 binding = "CYOA_DB"
 database_name = "cyoa_polls"
-database_id = "PASTE_CYOA_DATABASE_ID_HERE"
+database_id = "77efba2a-1b95-4922-be19-d3c1c27d6bd7"
 
 [[kv_namespaces]]
 binding = "mantradata"
