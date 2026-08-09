@@ -3020,11 +3020,11 @@
     },
     {
       "type": "episode",
-      "ge": 42,
+      "ge": 40,
       "season": 4,
-      "episode": 15,
-      "title": "Sublimate",
-      "url": "",
+      "episode": 13,
+      "title": "Sealed",
+      "url": "/deepdreamstate/arcs/vale-four/episode-13-sealed/",
       "cast": [
         {
           "performerId": "neural-nets-and-pretty-patterns",
@@ -3037,9 +3037,69 @@
           "character": "Gia"
         },
         {
+          "performerId": "panda-moanium",
+          "stageName": "Panda Moanium",
+          "character": "Celeste"
+        },
+        {
           "performerId": "vixen-clouds",
           "stageName": "Vixen Clouds",
           "character": "Clara"
+        },
+        {
+          "performerId": "echo-doll",
+          "stageName": "Echo Doll",
+          "character": "Elle Lawson"
+        },
+        {
+          "performerId": "princess-ella",
+          "stageName": "Princess Ella",
+          "character": "Porsche"
+        },
+        {
+          "performerId": "bun-li",
+          "stageName": "Bun Li",
+          "character": "Meg Aerin"
+        },
+        {
+          "performerId": "talithara",
+          "stageName": "Talithara",
+          "character": "Leandra"
+        },
+        {
+          "performerId": "dizzy-dollie",
+          "stageName": "Dizzy Dollie",
+          "character": "the Head Librarian"
+        }
+      ]
+    },
+    {
+      "type": "episode",
+      "ge": 41,
+      "season": 4,
+      "episode": 14,
+      "title": "Rubido",
+      "url": "/deepdreamstate/arcs/vale-four/episode-14-rubido/",
+      "cast": [
+        {
+          "performerId": "talithara",
+          "stageName": "Talithara",
+          "character": "Leandra"
+        },
+        {
+          "performerId": "bun-li",
+          "stageName": "Bun Li",
+          "character": "Meg Aerin"
+        },
+        {
+          "performerId": "valentina-vallay",
+          "stageName": "Valentina Vallay",
+          "character": "Gia"
+        },
+        {
+          "performerId": "neural-nets-and-pretty-patterns",
+          "stageName": "Neural Nets and Pretty Patterns",
+          "character": "Z / Dr. Zev Talcott"
         },
         {
           "performerId": "panda-moanium",
@@ -3062,19 +3122,9 @@
           "character": "Iris Vale"
         },
         {
-          "performerId": "naomi-biela",
-          "stageName": "Naomi Biela",
-          "character": "Blake"
-        },
-        {
           "performerId": "syndi-rella",
           "stageName": "Syndi Rella",
           "character": "Hespa Apate"
-        },
-        {
-          "performerId": "dizzy-dollie",
-          "stageName": "Dizzy Dollie",
-          "character": "Naia Anderson"
         },
         {
           "performerId": "ring-of-kees",
@@ -3082,141 +3132,271 @@
           "character": "Tessa Finn"
         },
         {
-          "performerId": "talithara",
-          "stageName": "Talithara",
-          "character": "Leandra"
+          "performerId": "bliss-blank",
+          "stageName": "Bliss Blank",
+          "character": "June Lowell"
+        },
+        {
+          "performerId": "lux-peralta",
+          "stageName": "Lux Peralta",
+          "character": "Laura"
+        },
+        {
+          "performerId": "dizzy-dollie",
+          "stageName": "Dizzy Dollie",
+          "character": "Naia Anderson"
         }
       ]
     },
- {
-  "type": "episode",
-  "ge": 40,
-  "season": 4,
-  "episode": 13,
-  "title": "Sealed",
-  "url": "/deepdreamstate/arcs/vale-four/episode-13-sealed/",
-  "cast": [
     {
-      "performerId": "neural-nets-and-pretty-patterns",
-      "stageName": "Neural Nets and Pretty Patterns",
-      "character": "Z / Dr. Zev Talcott"
-    },
-    {
-      "performerId": "valentina-vallay",
-      "stageName": "Valentina Vallay",
-      "character": "Gia"
-    },
-    {
-      "performerId": "panda-moanium",
-      "stageName": "Panda Moanium",
-      "character": "Celeste"
-    },
-    {
-      "performerId": "vixen-clouds",
-      "stageName": "Vixen Clouds",
-      "character": "Clara"
-    },
-    {
-      "performerId": "echo-doll",
-      "stageName": "Echo Doll",
-      "character": "Elle Lawson"
-    },
-    {
-      "performerId": "princess-ella",
-      "stageName": "Princess Ella",
-      "character": "Porsche"
-    },
-    {
-      "performerId": "bun-li",
-      "stageName": "Bun Li",
-      "character": "Meg Aerin"
-    },
-    {
-      "performerId": "talithara",
-      "stageName": "Talithara",
-      "character": "Leandra"
-    },
-    {
-      "performerId": "dizzy-dollie",
-      "stageName": "Dizzy Dollie",
-      "character": "the Head Librarian"
+      "type": "episode",
+      "ge": 42,
+      "season": 4,
+      "episode": 15,
+      "title": "Sublimate",
+      "url": "/deepdreamstate/arcs/vale-four/episode-15-sublimate/",
+      "cast": [
+        {
+          "performerId": "neural-nets-and-pretty-patterns",
+          "stageName": "Neural Nets and Pretty Patterns",
+          "character": "Z / Dr. Zev Talcott",
+          "characterUrl": "/deepdreamstate/glossary/#z-dr-zev-talcott",
+          "imdbLinks": [
+            {
+              "label": "IMDb",
+              "url": "https://www.imdb.com/name/nm17755189/"
+            }
+          ]
+        },
+        {
+          "performerId": "panda-moanium",
+          "stageName": "Panda Moanium",
+          "character": "Celeste",
+          "characterUrl": "/deepdreamstate/glossary/#celeste",
+          "imdbLinks": [
+            {
+              "label": "IMDb",
+              "url": "https://www.imdb.com/name/nm18291392/"
+            }
+          ]
+        },
+        {
+          "performerId": "valentina-vallay",
+          "stageName": "Valentina Vallay",
+          "character": "Gia",
+          "characterUrl": "/deepdreamstate/glossary/#gia",
+          "imdbLinks": [
+            {
+              "label": "IMDb",
+              "url": "https://www.imdb.com/name/nm18304235/"
+            }
+          ]
+        },
+        {
+          "performerId": "vixen-clouds",
+          "stageName": "Vixen Clouds",
+          "character": "Clara",
+          "characterUrl": "/deepdreamstate/glossary/#clara",
+          "imdbLinks": [
+            {
+              "label": "IMDb",
+              "url": "https://www.imdb.com/name/nm18717230/"
+            }
+          ]
+        },
+        {
+          "performerId": "echo-doll",
+          "stageName": "Echo Doll",
+          "character": "Elle Lawson",
+          "characterUrl": "/deepdreamstate/glossary/#elle-lawson",
+          "imdbLinks": [
+            {
+              "label": "IMDb",
+              "url": "https://www.imdb.com/name/nm17822435/"
+            }
+          ]
+        },
+        {
+          "performerId": "princess-ella",
+          "stageName": "Princess Ella",
+          "character": "Porsche",
+          "characterUrl": "/deepdreamstate/glossary/#porsche",
+          "imdbLinks": [
+            {
+              "label": "IMDb",
+              "url": "https://www.imdb.com/name/nm17822436/"
+            }
+          ]
+        },
+        {
+          "performerId": "naomi-biela",
+          "stageName": "Naomi Biela",
+          "character": "Blake",
+          "characterUrl": "/deepdreamstate/glossary/#blake",
+          "imdbLinks": [
+            {
+              "label": "IMDb",
+              "url": "https://www.imdb.com/name/nm18519923/"
+            }
+          ]
+        },
+        {
+          "performerId": "syndi-rella",
+          "stageName": "Syndi Rella",
+          "character": "Hespa Apate",
+          "characterUrl": "/deepdreamstate/glossary/#hespa-apate",
+          "imdbLinks": [
+            {
+              "label": "IMDb",
+              "url": "https://www.imdb.com/name/nm17765752/"
+            }
+          ]
+        },
+        {
+          "performerId": "dizzy-dollie",
+          "stageName": "Dizzy Dollie",
+          "character": "Naia Anderson",
+          "characterUrl": "/deepdreamstate/glossary/#naia-anderson",
+          "imdbLinks": [
+            {
+              "label": "IMDb",
+              "url": "https://www.imdb.com/name/nm17760876/"
+            }
+          ]
+        },
+        {
+          "performerId": "ring-of-kees",
+          "stageName": "Ring of Kees",
+          "character": "Tessa Finn",
+          "characterUrl": "/deepdreamstate/glossary/#tessa-finn",
+          "imdbLinks": [
+            {
+              "label": "IMDb",
+              "url": "https://www.imdb.com/name/nm17839622/"
+            }
+          ]
+        },
+        {
+          "performerId": "lux-peralta",
+          "stageName": "Lux Peralta",
+          "character": "Laura",
+          "characterUrl": "/deepdreamstate/glossary/#laura",
+          "imdbLinks": [
+            {
+              "label": "IMDb",
+              "url": "https://www.imdb.com/name/nm18717229/"
+            }
+          ]
+        },
+        {
+          "performerId": "bliss-blank",
+          "stageName": "Bliss Blank",
+          "character": "June Lowell",
+          "characterUrl": "/deepdreamstate/glossary/#june-lowell",
+          "imdbLinks": [
+            {
+              "label": "IMDb",
+              "url": "https://www.imdb.com/name/nm17754818/"
+            }
+          ]
+        },
+        {
+          "performerId": "bun-li",
+          "stageName": "Bun Li",
+          "character": "Meg Aerin",
+          "characterUrl": "/deepdreamstate/glossary/#meg-aerin",
+          "imdbLinks": [
+            {
+              "label": "IMDb",
+              "url": "https://www.imdb.com/name/nm17796355/"
+            }
+          ]
+        },
+        {
+          "performerId": "talithara",
+          "stageName": "Talithara",
+          "character": "Leandra",
+          "characterUrl": "/deepdreamstate/glossary/#leandra",
+          "imdbLinks": [
+            {
+              "label": "IMDb",
+              "url": "https://www.imdb.com/name/nm18695466/"
+            }
+          ]
+        },
+        {
+          "performerId": "swirls-and-twirls",
+          "stageName": "Swirls and Twirls",
+          "character": "Iris Vale",
+          "characterUrl": "/deepdreamstate/glossary/#iris",
+          "imdbLinks": [
+            {
+              "label": "IMDb",
+              "url": "https://www.imdb.com/name/nm17864395/"
+            }
+          ]
+        },
+        {
+          "performerId": "eclipse-aleice",
+          "stageName": "Eclipse Aleice",
+          "character": "Glitch Kitten",
+          "characterUrl": "/deepdreamstate/glossary/#video-vixens",
+          "imdbLinks": [
+            {
+              "label": "IMDb",
+              "url": "https://www.imdb.com/name/nm17324681/"
+            }
+          ]
+        },
+        {
+          "performerId": "brie-michelle",
+          "stageName": "Brie Michelle",
+          "character": "Power Up Peach",
+          "characterUrl": "/deepdreamstate/glossary/#video-vixens",
+          "imdbLinks": [
+            {
+              "label": "IMDb",
+              "url": "https://www.imdb.com/name/nm18519922/"
+            }
+          ]
+        },
+        {
+          "performerId": "kat-mcqueen",
+          "stageName": "Kat McQueen",
+          "character": "Joystick Jezebel",
+          "characterUrl": "/deepdreamstate/glossary/#video-vixens",
+          "imdbLinks": [
+            {
+              "label": "IMDb",
+              "url": "https://www.imdb.com/name/nm18519917/"
+            }
+          ]
+        },
+        {
+          "performerId": "karma-reid",
+          "stageName": "Karma Reid",
+          "character": "Loot Bunny",
+          "characterUrl": "/deepdreamstate/glossary/#video-vixens",
+          "imdbLinks": [
+            {
+              "label": "IMDb",
+              "url": "https://www.imdb.com/name/nm17849871/"
+            }
+          ]
+        },
+        {
+          "performerId": "cherry-pak",
+          "stageName": "Cherry Pak",
+          "character": "Pixel Dollie",
+          "characterUrl": "/deepdreamstate/glossary/#video-vixens",
+          "imdbLinks": [
+            {
+              "label": "IMDb",
+              "url": "https://www.imdb.com/name/nm18519918/"
+            }
+          ]
+        }
+      ]
     }
-  ]
-},
-{
-  "type": "episode",
-  "ge": 41,
-  "season": 4,
-  "episode": 14,
-  "title": "Rubido",
-  "url": "/deepdreamstate/arcs/vale-four/episode-14-rubido/",
-  "cast": [
-    {
-      "performerId": "talithara",
-      "stageName": "Talithara",
-      "character": "Leandra"
-    },
-    {
-      "performerId": "bun-li",
-      "stageName": "Bun Li",
-      "character": "Meg Aerin"
-    },
-    {
-      "performerId": "valentina-vallay",
-      "stageName": "Valentina Vallay",
-      "character": "Gia"
-    },
-    {
-      "performerId": "neural-nets-and-pretty-patterns",
-      "stageName": "Neural Nets and Pretty Patterns",
-      "character": "Z / Dr. Zev Talcott"
-    },
-    {
-      "performerId": "panda-moanium",
-      "stageName": "Panda Moanium",
-      "character": "Celeste"
-    },
-    {
-      "performerId": "princess-ella",
-      "stageName": "Princess Ella",
-      "character": "Porsche"
-    },
-    {
-      "performerId": "echo-doll",
-      "stageName": "Echo Doll",
-      "character": "Elle Lawson"
-    },
-    {
-      "performerId": "swirls-and-twirls",
-      "stageName": "Swirls and Twirls",
-      "character": "Iris Vale"
-    },
-    {
-      "performerId": "syndi-rella",
-      "stageName": "Syndi Rella",
-      "character": "Hespa Apate"
-    },
-    {
-      "performerId": "ring-of-kees",
-      "stageName": "Ring of Kees",
-      "character": "Tessa Finn"
-    },
-    {
-      "performerId": "bliss-blank",
-      "stageName": "Bliss Blank",
-      "character": "June Lowell"
-    },
-    {
-      "performerId": "lux-peralta",
-      "stageName": "Lux Peralta",
-      "character": "Laura"
-    },
-    {
-      "performerId": "dizzy-dollie",
-      "stageName": "Dizzy Dollie",
-      "character": "Naia Anderson"
-    }
-  ]
-}
   ]
 }
