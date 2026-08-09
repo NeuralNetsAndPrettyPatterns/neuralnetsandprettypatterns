@@ -2331,7 +2331,7 @@
   {
     "term": "xxDarkMage420xx",
     "class": "Plot Detail",
-    "definition": "An online handle referenced in a note found on a storage box inside Snarecraft's library assets: 'Raided storage like xxDarkMage420xx said - good enough for background l - o - l.' Elle traces the name to what looks like a mundane explanation for the game's real documents: an intern grabbed whatever was sitting in storage to fill the library set without checking what was in the boxes. {{spoiler}}The ad sequence closing Quintessence complicates that read considerably. Z tells Iris he's been teaching himself to code, calls it 'DARK MAGIC,' and admits he 'might have made a few errors' - language that lines up with the handle closely enough to raise the question of whether the intern story was ever the whole truth{{/spoiler}}.",
+    "definition": "An online handle referenced in a note found on a storage box inside Snarecraft's library assets: 'Raided storage like xxDarkMage420xx said - good enough for background l - o - l.' Elle traces the name to what looks like a mundane explanation for the game's real documents: an intern grabbed whatever was sitting in storage to fill the library set without checking what was in the boxes. {{spoiler}}The closing sequence of Sublimate complicates that read considerably. Z tells Iris he's been teaching himself to code, calls it 'DARK MAGIC,' and admits he 'might have made a few errors' - language that lines up with the handle closely enough to raise the question of whether the intern story was ever the whole truth.{{/spoiler}}",
     "links": []
   },
   {
@@ -2420,6 +2420,12 @@
     "term": "Anointing",
     "class": "Plot Detail",
     "definition": "The rite by which a person chooses incorporation into the pando. In Rubido, Naia and Hespa offer Tessa a choice between anointing and breaking. {{spoiler}}Tessa chooses the anointing; the vines grow around her, and Naia welcomes her into the shared root system. The scene frames submission not as a punishment imposed from outside, but as consent to a new form of collective control.{{/spoiler}}",
+    "links": []
+  },
+  {
+    "term": "Puppet Ups",
+    "class": "Product",
+    "definition": "Vale Four's inversion of the conventional video game power-up. In Sublimate, Z explains the product directly during the Snarecraft advertising sequence: 'We don't sell power-ups. We sell PUPPET UPS.' Rather than making players more powerful, Puppet Ups turn reward, progression, and customization into mechanisms for increasing dependence and compliance. The joke makes Vale Four's commercial logic explicit: the player pays for the systems that make the player easier to steer.",
     "links": []
   }
 ]
