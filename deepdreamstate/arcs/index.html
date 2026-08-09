@@ -27,81 +27,127 @@
 
   <script type="application/ld+json">
   {
-    "@context": "https://schema.org",
-    "@graph": [
-      {
-        "@type": "WebSite",
-        "@id": "https://neuralnetsandprettypatterns.com/#website",
-        "url": "https://neuralnetsandprettypatterns.com/",
-        "name": "Neural Nets and Pretty Patterns"
+  "@context": "https://schema.org",
+  "@graph": [
+    {
+      "@type": "WebSite",
+      "@id": "https://neuralnetsandprettypatterns.com/#website",
+      "url": "https://neuralnetsandprettypatterns.com/",
+      "name": "Neural Nets and Pretty Patterns"
+    },
+    {
+      "@type": "Person",
+      "@id": "https://neuralnetsandprettypatterns.com/#nnpp",
+      "name": "Neural Nets and Pretty Patterns",
+      "identifier": [
+        {
+          "@type": "PropertyValue",
+          "propertyID": "ISNI",
+          "value": "0000 0005 2877 6254"
+        },
+        {
+          "@type": "PropertyValue",
+          "propertyID": "IPI",
+          "value": "01346215566"
+        },
+        {
+          "@type": "PropertyValue",
+          "propertyID": "IPI",
+          "value": "01346215468"
+        }
+      ],
+      "sameAs": [
+        "https://isni.org/isni/0000000528776254",
+        "https://musicbrainz.org/artist/134bc2e9-16e4-4b1e-b779-b9024f002882",
+        "https://bookbrainz.org/author/59c9b4e8-2b6f-4230-b631-df2b01553b42",
+        "https://www.imdb.com/name/nm17755189/"
+      ]
+    },
+    {
+      "@type": "CollectionPage",
+      "@id": "https://neuralnetsandprettypatterns.com/deepdreamstate/arcs/#page",
+      "url": "https://neuralnetsandprettypatterns.com/deepdreamstate/arcs/",
+      "name": "Arcs | Deep Dream State",
+      "description": "All arcs and episodes of Deep Dream State by Neural Nets and Pretty Patterns.",
+      "isPartOf": {
+        "@id": "https://neuralnetsandprettypatterns.com/#website"
       },
-      {
-        "@type": "Person",
-        "@id": "https://neuralnetsandprettypatterns.com/#nnpp",
-        "name": "Neural Nets and Pretty Patterns",
-        "identifier": [
-          { "@type": "PropertyValue", "propertyID": "ISNI", "value": "0000 0005 2877 6254" },
-          { "@type": "PropertyValue", "propertyID": "IPI", "value": "01346215566" },
-          { "@type": "PropertyValue", "propertyID": "IPI", "value": "01346215468" }
-        ],
-        "sameAs": [
-          "https://isni.org/isni/0000000528776254",
-          "https://musicbrainz.org/artist/134bc2e9-16e4-4b1e-b779-b9024f002882",
-          "https://bookbrainz.org/author/59c9b4e8-2b6f-4230-b631-df2b01553b42",
-          "https://www.imdb.com/name/nm17755189/"
-        ]
+      "about": {
+        "@id": "https://neuralnetsandprettypatterns.com/deepdreamstate/#series"
       },
-      {
-        "@type": "CollectionPage",
-        "@id": "https://neuralnetsandprettypatterns.com/deepdreamstate/arcs/#page",
-        "url": "https://neuralnetsandprettypatterns.com/deepdreamstate/arcs/",
-        "name": "Arcs | Deep Dream State",
-        "description": "All arcs and episodes of Deep Dream State by Neural Nets and Pretty Patterns.",
-        "isPartOf": { "@id": "https://neuralnetsandprettypatterns.com/#website" },
-        "about": { "@id": "https://neuralnetsandprettypatterns.com/deepdreamstate/#series" },
-        "breadcrumb": { "@id": "https://neuralnetsandprettypatterns.com/deepdreamstate/arcs/#breadcrumb" },
-        "mainEntity": { "@id": "https://neuralnetsandprettypatterns.com/deepdreamstate/arcs/#episode-list" }
+      "breadcrumb": {
+        "@id": "https://neuralnetsandprettypatterns.com/deepdreamstate/arcs/#breadcrumb"
       },
-      {
-        "@type": "BreadcrumbList",
-        "@id": "https://neuralnetsandprettypatterns.com/deepdreamstate/arcs/#breadcrumb",
-        "itemListElement": [
-          { "@type": "ListItem", "position": 1, "name": "Neural Nets and Pretty Patterns", "item": "https://neuralnetsandprettypatterns.com/" },
-          { "@type": "ListItem", "position": 2, "name": "Deep Dream State", "item": "https://neuralnetsandprettypatterns.com/deepdreamstate/" },
-          { "@type": "ListItem", "position": 3, "name": "Arcs", "item": "https://neuralnetsandprettypatterns.com/deepdreamstate/arcs/" }
-        ]
-      },
-      {
-        "@type": "PodcastSeries",
-        "@id": "https://neuralnetsandprettypatterns.com/deepdreamstate/#series",
-        "name": "Deep Dream State",
-        "alternateName": "DDS",
-        "url": "https://neuralnetsandprettypatterns.com/deepdreamstate/",
-        "description": "A full-cast desire horror audio drama by Neural Nets and Pretty Patterns.",
-        "creator": { "@id": "https://neuralnetsandprettypatterns.com/#nnpp" },
-        "publisher": { "@id": "https://neuralnetsandprettypatterns.com/#nnpp" },
-        "inLanguage": "en-US",
-        "isFamilyFriendly": false,
-        "genre": ["Audio Drama", "Speculative Fiction", "Desire Horror"],
-        "sameAs": [
-          "https://podcasts.apple.com/us/podcast/deep-dream-state/id1822405042",
-          "https://open.spotify.com/show/5VVhwaymeOKbV9RG7Gre98",
-          "https://deepdreamstate.blubrry.net/",
-          "https://www.imdb.com/title/tt38590860/",
-          "https://www.wikidata.org/wiki/Q139568834"
-        ]
-      },
-      {
-        "@type": "ItemList",
-        "@id": "https://neuralnetsandprettypatterns.com/deepdreamstate/arcs/#episode-list",
-        "name": "Deep Dream State episode list",
-        "itemListOrder": "https://schema.org/ItemListOrderAscending",
-        "numberOfItems": 39,
-        "isPartOf": { "@id": "https://neuralnetsandprettypatterns.com/deepdreamstate/arcs/#page" },
-        "about": { "@id": "https://neuralnetsandprettypatterns.com/deepdreamstate/#series" }
+      "mainEntity": {
+        "@id": "https://neuralnetsandprettypatterns.com/deepdreamstate/arcs/#episode-list"
       }
-    ]
-  }
+    },
+    {
+      "@type": "BreadcrumbList",
+      "@id": "https://neuralnetsandprettypatterns.com/deepdreamstate/arcs/#breadcrumb",
+      "itemListElement": [
+        {
+          "@type": "ListItem",
+          "position": 1,
+          "name": "Neural Nets and Pretty Patterns",
+          "item": "https://neuralnetsandprettypatterns.com/"
+        },
+        {
+          "@type": "ListItem",
+          "position": 2,
+          "name": "Deep Dream State",
+          "item": "https://neuralnetsandprettypatterns.com/deepdreamstate/"
+        },
+        {
+          "@type": "ListItem",
+          "position": 3,
+          "name": "Arcs",
+          "item": "https://neuralnetsandprettypatterns.com/deepdreamstate/arcs/"
+        }
+      ]
+    },
+    {
+      "@type": "PodcastSeries",
+      "@id": "https://neuralnetsandprettypatterns.com/deepdreamstate/#series",
+      "name": "Deep Dream State",
+      "alternateName": "DDS",
+      "url": "https://neuralnetsandprettypatterns.com/deepdreamstate/",
+      "description": "A full-cast desire horror audio drama by Neural Nets and Pretty Patterns.",
+      "creator": {
+        "@id": "https://neuralnetsandprettypatterns.com/#nnpp"
+      },
+      "publisher": {
+        "@id": "https://neuralnetsandprettypatterns.com/#nnpp"
+      },
+      "inLanguage": "en-US",
+      "isFamilyFriendly": false,
+      "genre": [
+        "Audio Drama",
+        "Speculative Fiction",
+        "Desire Horror"
+      ],
+      "sameAs": [
+        "https://podcasts.apple.com/us/podcast/deep-dream-state/id1822405042",
+        "https://open.spotify.com/show/5VVhwaymeOKbV9RG7Gre98",
+        "https://deepdreamstate.blubrry.net/",
+        "https://www.imdb.com/title/tt38590860/",
+        "https://www.wikidata.org/wiki/Q139568834"
+      ]
+    },
+    {
+      "@type": "ItemList",
+      "@id": "https://neuralnetsandprettypatterns.com/deepdreamstate/arcs/#episode-list",
+      "name": "Deep Dream State episode list",
+      "itemListOrder": "https://schema.org/ItemListOrderAscending",
+      "isPartOf": {
+        "@id": "https://neuralnetsandprettypatterns.com/deepdreamstate/arcs/#page"
+      },
+      "about": {
+        "@id": "https://neuralnetsandprettypatterns.com/deepdreamstate/#series"
+      }
+    }
+  ]
+}
   </script>
 
   <link rel="preconnect" href="https://fonts.googleapis.com">
@@ -787,20 +833,7 @@
       <p>The "hidden" Christmas arc, Solsticial, often says that there's an older currency. Vale Four asks what that might be. Each "Cycle" dives into a different advertising phenomenon, and looks at what sort of kink in the collective unconscious it might represent.</p>
       <p>The plotting is detailed. There's a very continuous throughline. The twists are numerous, but they're earned. If you see where this is going from the outset, you are a true galaxy brain. Even cracking the riddle of the name requires knowing audio drama cliches and demonology. Dig in.</p>
 
-      <div class="ep-pipe">
-        <a href="https://neuralnetsandprettypatterns.com/deepdreamstate/arcs/vale-four/episode-1-refrain/">Refrain</a> · S4E1 GE28 |
-        <a href="https://neuralnetsandprettypatterns.com/deepdreamstate/arcs/vale-four/episode-2-hook-line/">Hook Line</a> · S4E2 GE29 |
-        <a href="https://neuralnetsandprettypatterns.com/deepdreamstate/arcs/vale-four/episode-3-sinker/">Sinker</a> · S4E3 GE30 |
-        <a href="https://neuralnetsandprettypatterns.com/deepdreamstate/arcs/vale-four/episode-4-slowplay/">Slowplay</a> · S4E4 GE31 |
-        <a href="https://neuralnetsandprettypatterns.com/deepdreamstate/arcs/vale-four/episode-5-raise/">Raise</a> · S4E5 GE32 |
-        <a href="https://neuralnetsandprettypatterns.com/deepdreamstate/arcs/vale-four/episode-6-pot-limit/">Pot Limit</a> · S4E6 GE33 |
-        <a href="https://neuralnetsandprettypatterns.com/deepdreamstate/arcs/vale-four/episode-7-the-river/">The River</a> · S4E7 GE34 |
-        <a href="https://neuralnetsandprettypatterns.com/deepdreamstate/arcs/vale-four/episode-8-quiver/">Quiver</a> · S4E8 GE35 |
-        <a href="https://neuralnetsandprettypatterns.com/deepdreamstate/arcs/vale-four/episode-9-nock/">Nock</a> · S4E9 GE36 |
-        <a href="https://neuralnetsandprettypatterns.com/deepdreamstate/arcs/vale-four/episode-10-bullseye/">Bullseye</a> · S4E10 GE37 |
-        <a href="https://neuralnetsandprettypatterns.com/deepdreamstate/arcs/vale-four/episode-11-luna/">Luna</a> · S4E11 GE38 |
-        <a href="https://neuralnetsandprettypatterns.com/deepdreamstate/arcs/vale-four/episode-12-quintessence/">Quintessence</a> · S4E12 GE39
-      </div>
+      <div class="ep-pipe" id="vale-four-episode-pipe" aria-live="polite">Loading Vale Four episodes...</div>
     </section>
 
     <footer>
@@ -855,6 +888,55 @@
     document.getElementById('carousel-prev').addEventListener('click', () => goTo((current - 1 + slides.length) % slides.length));
     document.getElementById('carousel-next').addEventListener('click', () => goTo((current + 1) % slides.length));
 
+
+
+    const valeFourEpisodePipe = document.getElementById('vale-four-episode-pipe');
+
+    function escapeEpisodeHtml(value) {
+      return String(value ?? '').replace(/[&<>"']/g, character => ({
+        '&': '&amp;',
+        '<': '&lt;',
+        '>': '&gt;',
+        '"': '&quot;',
+        "'": '&#39;'
+      }[character]));
+    }
+
+    fetch('/deepdreamstate/arcs/vale-four/episodes.json', { cache: 'no-store' })
+      .then(response => {
+        if (!response.ok) throw new Error('Vale Four episode manifest could not load.');
+        return response.json();
+      })
+      .then(data => {
+        const episodes = Array.isArray(data.episodes) ? data.episodes : [];
+
+        if (!episodes.length) {
+          throw new Error('Vale Four episode manifest contains no episodes.');
+        }
+
+        valeFourEpisodePipe.innerHTML = episodes.map(ep => {
+          const title = escapeEpisodeHtml(ep.title);
+          const path = escapeEpisodeHtml(ep.path);
+          const seasonEpisode = escapeEpisodeHtml(ep.seasonEpisode);
+          const globalEpisode = escapeEpisodeHtml(ep.globalEpisode);
+          const imdb = ep.imdb ? escapeEpisodeHtml(ep.imdb) : '';
+
+          const titleHtml = ep.path
+            ? `<a href="${path}">${title}</a>`
+            : title;
+
+          const globalHtml = imdb
+            ? `<a href="${imdb}" target="_blank" rel="noopener">${globalEpisode}</a>`
+            : globalEpisode;
+
+          return `${titleHtml} · ${seasonEpisode} ${globalHtml}`;
+        }).join(' | ');
+      })
+      .catch(error => {
+        console.error(error);
+        valeFourEpisodePipe.innerHTML =
+          '<a href="/deepdreamstate/arcs/vale-four/">Vale Four Arc Hub</a>';
+      });
 
     const archiveSearchInput = document.getElementById('archive-search-input');
     const archiveSearchResults = document.getElementById('archive-search-results');
