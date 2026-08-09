@@ -112,23 +112,60 @@
       "musicBrainz": "https://musicbrainz.org/release/23988d90-4889-4fbd-9fad-312411aa24ba",
       "imdb": "https://www.imdb.com/title/tt43525295/"
     },
- {
-  "seasonEpisode": "S4E11",
-  "globalEpisode": "GE38",
-  "title": "Luna",
-  "topic": "Video Games and Augmented Reality",
-  "cycle": "Snarecraft Cycle",
-  "path": "/deepdreamstate/arcs/vale-four/episode-11-luna/",
-  "blubrry": "https://deepdreamstate.blubrry.net/luna-vale-four-s4e11-ge38/"
-},
-{
-  "seasonEpisode": "S4E12",
-  "globalEpisode": "GE39",
-  "title": "Quintessence",
-  "topic": "Video Games and Augmented Reality",
-  "cycle": "Snarecraft Cycle",
-  "path": "/deepdreamstate/arcs/vale-four/episode-12-quintessence/",
-  "blubrry": "https://deepdreamstate.blubrry.net/quintessence-vale-four-s4e12-ge39/"
-}
-]
+    {
+      "seasonEpisode": "S4E11",
+      "globalEpisode": "GE38",
+      "title": "Luna",
+      "topic": "Video Games and Augmented Reality",
+      "cycle": "Snarecraft Cycle",
+      "path": "/deepdreamstate/arcs/vale-four/episode-11-luna/",
+      "blubrry": "https://deepdreamstate.blubrry.net/luna-vale-four-s4e11-ge38/",
+      "musicBrainz": "https://musicbrainz.org/release/d3a49983-13ec-42b9-9f4c-af425bbcdff2?release-group=4d2e6550-bdf5-4db8-b2c3-c30ed5122654",
+      "imdb": "https://www.imdb.com/title/tt43669492/"
+    },
+    {
+      "seasonEpisode": "S4E12",
+      "globalEpisode": "GE39",
+      "title": "Quintessence",
+      "topic": "Video Games and Augmented Reality",
+      "cycle": "Snarecraft Cycle",
+      "path": "/deepdreamstate/arcs/vale-four/episode-12-quintessence/",
+      "blubrry": "https://deepdreamstate.blubrry.net/quintessence-vale-four-s4e12-ge39/",
+      "musicBrainz": "https://musicbrainz.org/release/7da1e863-8444-4a58-882a-a91bb39c4aaf",
+      "imdb": "https://www.imdb.com/title/tt43689654/"
+    },
+    {
+      "seasonEpisode": "S4E13",
+      "globalEpisode": "GE40",
+      "title": "Sealed",
+      "topic": "Video Games and Augmented Reality",
+      "cycle": "Snarecraft Cycle",
+      "path": "/deepdreamstate/arcs/vale-four/episode-13-sealed/",
+      "blubrry": "https://deepdreamstate.blubrry.net/sealed-vale-four-s4e13-ge40/",
+      "musicBrainz": "https://musicbrainz.org/release/7da1e863-8444-4a58-882a-a91bb39c4aaf",
+      "imdb": "https://www.imdb.com/title/tt43711491/"
+    },
+    {
+      "seasonEpisode": "S4E14",
+      "globalEpisode": "GE41",
+      "title": "Rubido",
+      "topic": "Video Games and Augmented Reality",
+      "cycle": "Snarecraft Cycle",
+      "path": "/deepdreamstate/arcs/vale-four/episode-14-rubido/",
+      "blubrry": "https://deepdreamstate.blubrry.net/rubido-vale-four-s4e14-ge41/",
+      "musicBrainz": "https://musicbrainz.org/release/818cc3f8-c481-4dd4-8f23-c46599cedc7e?release-group=4d2e6550-bdf5-4db8-b2c3-c30ed5122654",
+      "imdb": "https://www.imdb.com/title/tt43726419/"
+    },
+    {
+      "seasonEpisode": "S4E15",
+      "globalEpisode": "GE42",
+      "title": "Sublimate",
+      "topic": "Video Games and Augmented Reality",
+      "cycle": "Snarecraft Cycle",
+      "path": "/deepdreamstate/arcs/vale-four/episode-15-sublimate/",
+      "blubrry": "https://deepdreamstate.blubrry.net/sublimate-vale-four-s4e15-ge42/",
+      "musicBrainz": "https://musicbrainz.org/release/86375949-0041-4e33-b8b4-2e1da03c17a6?release-group=4d2e6550-bdf5-4db8-b2c3-c30ed5122654",
+      "imdb": "https://www.imdb.com/title/tt43757268/"
+    }
+  ]
 }
