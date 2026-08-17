@@ -166,6 +166,17 @@
       "blubrry": "https://deepdreamstate.blubrry.net/sublimate-vale-four-s4e15-ge42/",
       "musicBrainz": "https://musicbrainz.org/release/86375949-0041-4e33-b8b4-2e1da03c17a6?release-group=4d2e6550-bdf5-4db8-b2c3-c30ed5122654",
       "imdb": "https://www.imdb.com/title/tt43757268/"
+    },
+    {
+      "seasonEpisode": "S4E16",
+      "globalEpisode": "GE43",
+      "title": "Radix",
+      "topic": "Astroturfing",
+      "cycle": "Grassroots Cycle",
+      "path": "/deepdreamstate/arcs/vale-four/episode-16-radix/",
+      "blubrry": "https://deepdreamstate.blubrry.net/radix-vale-four-s4e16-ge43/",
+      "musicBrainz": "https://musicbrainz.org/release/1966d1aa-5fce-4cd4-a111-c4ecedafd2fe",
+      "imdb": "https://www.imdb.com/title/tt44196507/"
     }
   ]
 }
