@@ -736,17 +736,158 @@
     });
   }
 
-function buildTermEpisodeMap(appearancesData) {
+function normalizeEpisode(ep) {
+    if (!ep || ep.ge === undefined || ep.ge === null) return null;
+
+    const ge = Number(ep.ge);
+    if (!Number.isFinite(ge)) return null;
+
+    const season = Number(ep.season);
+    const episode = Number(ep.episode);
+
+    return {
+      ge,
+      season: Number.isFinite(season) ? season : null,
+      episode: Number.isFinite(episode) ? episode : null,
+      title: String(ep.title || ''),
+      url: String(ep.url || '')
+    };
+  }
+
+  function mergeEpisodeLists(legacyEpisodes, glossaryEpisodes) {
+    const byGe = new Map();
+
+    // Legacy appearances load first. Embedded glossary appearances load second,
+    // so glossary.json becomes the source of truth whenever the same GE exists
+    // in both places.
+    (legacyEpisodes || []).forEach(ep => {
+      const normalized = normalizeEpisode(ep);
+      if (normalized) byGe.set(normalized.ge, normalized);
+    });
+
+    (glossaryEpisodes || []).forEach(ep => {
+      const normalized = normalizeEpisode(ep);
+      if (normalized) byGe.set(normalized.ge, normalized);
+    });
+
+    return [...byGe.values()].sort((a, b) => a.ge - b.ge);
+  }
+
+  function buildTermEpisodeMap(appearancesData) {
     const map = {};
+
     (appearancesData || []).forEach(ep => {
-      const epInfo = { ge: ep.ge, season: ep.season, episode: ep.episode, title: ep.title, url: ep.url };
+      const epInfo = normalizeEpisode(ep);
+      if (!epInfo) return;
+
       (ep.terms || []).forEach(term => {
         if (!map[term]) map[term] = [];
         map[term].push(epInfo);
       });
     });
-    Object.values(map).forEach(arr => arr.sort((a, b) => a.ge - b.ge));
+
+    Object.keys(map).forEach(term => {
+      map[term] = mergeEpisodeLists(map[term], []);
+    });
+
     return map;
+  }
+
+  function isAppearancePatch(record) {
+    return !!(
+      record &&
+      record.term &&
+      Array.isArray(record.appearances) &&
+      !record.class &&
+      !record.definition
+    );
+  }
+
+  function prepareGlossaryTerms(glossaryData, legacyTermEpisodeMap) {
+    const records = Array.isArray(glossaryData) ? glossaryData : [];
+    const appearancePatches = new Map();
+    const fullRecords = [];
+
+    records.forEach(record => {
+      if (isAppearancePatch(record)) {
+        if (!appearancePatches.has(record.term)) appearancePatches.set(record.term, []);
+        appearancePatches.get(record.term).push(...record.appearances);
+      } else {
+        fullRecords.push(record);
+      }
+    });
+
+    const definedTerms = new Set(fullRecords.map(record => record.term).filter(Boolean));
+    appearancePatches.forEach((episodes, term) => {
+      if (!definedTerms.has(term)) {
+        console.warn('Glossary appearance patch has no matching glossary term:', term, episodes);
+      }
+    });
+
+    return fullRecords.map(record => {
+      const embeddedAppearances = [
+        ...(Array.isArray(record.appearances) ? record.appearances : []),
+        ...(appearancePatches.get(record.term) || [])
+      ];
+
+      const merged = {
+        ...record,
+        episodes: mergeEpisodeLists(
+          legacyTermEpisodeMap[record.term] || [],
+          embeddedAppearances
+        )
+      };
+
+      // `appearances` is maintenance data. The rest of the page already expects
+      // the normalized runtime field to be called `episodes`.
+      delete merged.appearances;
+      return merged;
+    });
+  }
+
+  function buildUnifiedAppearancesIndex(legacyAppearances, terms) {
+    const byGe = new Map();
+
+    const ensureEpisode = ep => {
+      const normalized = normalizeEpisode(ep);
+      if (!normalized) return null;
+
+      if (!byGe.has(normalized.ge)) {
+        byGe.set(normalized.ge, { ...normalized, terms: [] });
+      } else {
+        const existing = byGe.get(normalized.ge);
+        if (normalized.season !== null) existing.season = normalized.season;
+        if (normalized.episode !== null) existing.episode = normalized.episode;
+        if (normalized.title) existing.title = normalized.title;
+        if (normalized.url) existing.url = normalized.url;
+      }
+
+      return byGe.get(normalized.ge);
+    };
+
+    // Keep every historical term association from appearances.json.
+    (legacyAppearances || []).forEach(ep => {
+      const target = ensureEpisode(ep);
+      if (!target) return;
+      (ep.terms || []).forEach(term => {
+        if (term && !target.terms.includes(term)) target.terms.push(term);
+      });
+    });
+
+    // Add all embedded glossary appearances, including future append-only
+    // appearance patches. This lets Index View, filters, and episode chips see
+    // new data without any new write to appearances.json.
+    (terms || []).forEach(term => {
+      (term.episodes || []).forEach(ep => {
+        const target = ensureEpisode(ep);
+        if (!target || !term.term) return;
+        if (!target.terms.includes(term.term)) target.terms.push(term.term);
+      });
+    });
+
+    return [...byGe.values()]
+      .map(ep => ({ ...ep, terms: ep.terms.sort((a, b) => a.localeCompare(b)) }))
+      .sort((a, b) => a.ge - b.ge);
   }
 
   Promise.all([
@@ -757,11 +898,17 @@ function buildTermEpisodeMap(appearancesData) {
       .catch(err => { console.error(err); return []; })
   ])
     .then(([glossaryData, appearancesData]) => {
-      appearancesIndex = appearancesData || [];
-      const termEpisodeMap = buildTermEpisodeMap(appearancesIndex);
-      allTerms = glossaryData
-        .map(t => ({ ...t, episodes: termEpisodeMap[t.term] || [] }))
+      const legacyAppearances = Array.isArray(appearancesData) ? appearancesData : [];
+      const legacyTermEpisodeMap = buildTermEpisodeMap(legacyAppearances);
+
+      allTerms = prepareGlossaryTerms(glossaryData, legacyTermEpisodeMap)
         .sort((a, b) => a.term.localeCompare(b.term));
+
+      // Runtime appearances now represent legacy history PLUS anything embedded
+      // in glossary.json. appearances.json remains a read-only compatibility
+      // source for old episodes and no longer needs future maintenance.
+      appearancesIndex = buildUnifiedAppearancesIndex(legacyAppearances, allTerms);
+
       buildAlphaNav();
       render();
       scrollToHashTarget();
