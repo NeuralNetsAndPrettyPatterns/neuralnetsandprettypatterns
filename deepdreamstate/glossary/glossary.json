@@ -2427,5 +2427,242 @@
     "class": "Product",
     "definition": "Vale Four's inversion of the conventional video game power-up. In Sublimate, Z explains the product directly during the Snarecraft advertising sequence: 'We don't sell power-ups. We sell PUPPET UPS.' Rather than making players more powerful, Puppet Ups turn reward, progression, and customization into mechanisms for increasing dependence and compliance. The joke makes Vale Four's commercial logic explicit: the player pays for the systems that make the player easier to steer.",
     "links": []
+  },
+  {
+    "term": "Astroturf",
+    "class": "Game",
+    "definition": "Vale Four's newest game in Radix. Naia describes it as a system that lets users overhear themselves agreeing and creates puppet strings no one sees, turning astroturfing into a technology of self-reinforcing consensus. It is the central mechanism of the Grassroots Cycle.",
+    "links": [],
+    "appearances": [
+      {
+        "ge": 43,
+        "season": 4,
+        "episode": 16,
+        "title": "Radix",
+        "url": "https://neuralnetsandprettypatterns.com/deepdreamstate/arcs/vale-four/episode-16-radix/"
+      }
+    ]
+  },
+  {
+    "term": "Dryad",
+    "class": "Plot Detail",
+    "definition": "A mythic and ecological identity beginning to attach to Naia Anderson in Radix. Naia describes becoming more like the character through a repeated ritual in a public park, while Z says she is leaning that way but more real and June later describes her as both real and mythic. The term connects Naia's plant affinity, place, attention, and repeated behavior.",
+    "links": [],
+    "appearances": [
+      {
+        "ge": 43,
+        "season": 4,
+        "episode": 16,
+        "title": "Radix",
+        "url": "https://neuralnetsandprettypatterns.com/deepdreamstate/arcs/vale-four/episode-16-radix/"
+      }
+    ]
+  },
+  {
+    "term": "Snatchcraft",
+    "class": "Game",
+    "definition": "One of the Vale Four games named by Naia in Radix alongside Gluckgluck, Assets, Claws Out, and Snarecraft. Its mechanics are not explained in the episode.",
+    "links": [],
+    "appearances": [
+      {
+        "ge": 43,
+        "season": 4,
+        "episode": 16,
+        "title": "Radix",
+        "url": "https://neuralnetsandprettypatterns.com/deepdreamstate/arcs/vale-four/episode-16-radix/"
+      }
+    ]
+  },
+  {
+    "term": "Naia Anderson",
+    "appearances": [
+      {
+        "ge": 43,
+        "season": 4,
+        "episode": 16,
+        "title": "Radix",
+        "url": "https://neuralnetsandprettypatterns.com/deepdreamstate/arcs/vale-four/episode-16-radix/"
+      }
+    ]
+  },
+  {
+    "term": "Z / Dr. Zev Talcott",
+    "appearances": [
+      {
+        "ge": 43,
+        "season": 4,
+        "episode": 16,
+        "title": "Radix",
+        "url": "https://neuralnetsandprettypatterns.com/deepdreamstate/arcs/vale-four/episode-16-radix/"
+      }
+    ]
+  },
+  {
+    "term": "June Lowell",
+    "appearances": [
+      {
+        "ge": 43,
+        "season": 4,
+        "episode": 16,
+        "title": "Radix",
+        "url": "https://neuralnetsandprettypatterns.com/deepdreamstate/arcs/vale-four/episode-16-radix/"
+      }
+    ]
+  },
+  {
+    "term": "Tessa Finn",
+    "appearances": [
+      {
+        "ge": 43,
+        "season": 4,
+        "episode": 16,
+        "title": "Radix",
+        "url": "https://neuralnetsandprettypatterns.com/deepdreamstate/arcs/vale-four/episode-16-radix/"
+      }
+    ]
+  },
+  {
+    "term": "Meg Aerin",
+    "appearances": [
+      {
+        "ge": 43,
+        "season": 4,
+        "episode": 16,
+        "title": "Radix",
+        "url": "https://neuralnetsandprettypatterns.com/deepdreamstate/arcs/vale-four/episode-16-radix/"
+      }
+    ]
+  },
+  {
+    "term": "Garden Nest",
+    "appearances": [
+      {
+        "ge": 43,
+        "season": 4,
+        "episode": 16,
+        "title": "Radix",
+        "url": "https://neuralnetsandprettypatterns.com/deepdreamstate/arcs/vale-four/episode-16-radix/"
+      }
+    ]
+  },
+  {
+    "term": "Clicker",
+    "appearances": [
+      {
+        "ge": 43,
+        "season": 4,
+        "episode": 16,
+        "title": "Radix",
+        "url": "https://neuralnetsandprettypatterns.com/deepdreamstate/arcs/vale-four/episode-16-radix/"
+      }
+    ]
+  },
+  {
+    "term": "Assets",
+    "appearances": [
+      {
+        "ge": 43,
+        "season": 4,
+        "episode": 16,
+        "title": "Radix",
+        "url": "https://neuralnetsandprettypatterns.com/deepdreamstate/arcs/vale-four/episode-16-radix/"
+      }
+    ]
+  },
+  {
+    "term": "Claws Out",
+    "appearances": [
+      {
+        "ge": 43,
+        "season": 4,
+        "episode": 16,
+        "title": "Radix",
+        "url": "https://neuralnetsandprettypatterns.com/deepdreamstate/arcs/vale-four/episode-16-radix/"
+      }
+    ]
+  },
+  {
+    "term": "Snarecraft",
+    "appearances": [
+      {
+        "ge": 43,
+        "season": 4,
+        "episode": 16,
+        "title": "Radix",
+        "url": "https://neuralnetsandprettypatterns.com/deepdreamstate/arcs/vale-four/episode-16-radix/"
+      }
+    ]
+  },
+  {
+    "term": "Nyra",
+    "appearances": [
+      {
+        "ge": 43,
+        "season": 4,
+        "episode": 16,
+        "title": "Radix",
+        "url": "https://neuralnetsandprettypatterns.com/deepdreamstate/arcs/vale-four/episode-16-radix/"
+      }
+    ]
+  },
+  {
+    "term": "Lab Rat",
+    "appearances": [
+      {
+        "ge": 43,
+        "season": 4,
+        "episode": 16,
+        "title": "Radix",
+        "url": "https://neuralnetsandprettypatterns.com/deepdreamstate/arcs/vale-four/episode-16-radix/"
+      }
+    ]
+  },
+  {
+    "term": "Treatstick",
+    "appearances": [
+      {
+        "ge": 43,
+        "season": 4,
+        "episode": 16,
+        "title": "Radix",
+        "url": "https://neuralnetsandprettypatterns.com/deepdreamstate/arcs/vale-four/episode-16-radix/"
+      }
+    ]
+  },
+  {
+    "term": "Trixie",
+    "appearances": [
+      {
+        "ge": 43,
+        "season": 4,
+        "episode": 16,
+        "title": "Radix",
+        "url": "https://neuralnetsandprettypatterns.com/deepdreamstate/arcs/vale-four/episode-16-radix/"
+      }
+    ]
+  },
+  {
+    "term": "Tick-Tock",
+    "appearances": [
+      {
+        "ge": 43,
+        "season": 4,
+        "episode": 16,
+        "title": "Radix",
+        "url": "https://neuralnetsandprettypatterns.com/deepdreamstate/arcs/vale-four/episode-16-radix/"
+      }
+    ]
+  },
+  {
+    "term": "Gluckgluck",
+    "appearances": [
+      {
+        "ge": 43,
+        "season": 4,
+        "episode": 16,
+        "title": "Radix",
+        "url": "https://neuralnetsandprettypatterns.com/deepdreamstate/arcs/vale-four/episode-16-radix/"
+      }
+    ]
   }
 ]
