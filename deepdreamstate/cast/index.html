@@ -716,8 +716,14 @@
     (function () {
       "use strict";
 
-      var dataUrl =
+      var castDataUrl =
         "https://neuralnetsandprettypatterns.com/deepdreamstate/cast.json";
+
+      var glossaryDataUrl =
+        "https://neuralnetsandprettypatterns.com/deepdreamstate/glossary/glossary.json";
+
+      var glossaryBaseUrl =
+        "https://neuralnetsandprettypatterns.com/deepdreamstate/glossary/";
 
       var tableBody = document.getElementById("cast-table-body");
       var searchInput = document.getElementById("cast-search");
@@ -730,6 +736,19 @@
 
       function normalizeId(value) {
         return cleanText(value).toLowerCase();
+      }
+
+      function slugify(value) {
+        return cleanText(value)
+          .toLowerCase()
+          .replace(/&/g, "and")
+          .replace(/[^a-z0-9]+/g, "-")
+          .replace(/^-+|-+$/g, "");
+      }
+
+      function glossaryUrlForTerm(term) {
+        var slug = slugify(term);
+        return slug ? glossaryBaseUrl + "#" + slug : "";
       }
 
       function validLink(link) {
@@ -764,28 +783,76 @@
         }
       }
 
+      function normalizedUrl(value) {
+        return cleanText(value)
+          .replace(/^https?:\/\/neuralnetsandprettypatterns\.com/i, "")
+          .replace(/\/$/, "")
+          .toLowerCase();
+      }
+
       function addUniqueCharacter(target, character, glossaryUrl) {
         var name = cleanText(character);
+        var url = cleanText(glossaryUrl);
 
         if (!name) {
           return;
         }
 
+        var normalizedGlossaryUrl = normalizedUrl(url);
+
         var existing = target.find(function (item) {
+          if (normalizedGlossaryUrl && normalizedUrl(item.glossaryUrl) === normalizedGlossaryUrl) {
+            return true;
+          }
+
           return item.name.toLowerCase() === name.toLowerCase();
         });
 
         if (!existing) {
           target.push({
             name: name,
-            glossaryUrl: cleanText(glossaryUrl)
+            glossaryUrl: url
           });
           return;
         }
 
-        if (!existing.glossaryUrl && cleanText(glossaryUrl)) {
-          existing.glossaryUrl = cleanText(glossaryUrl);
+        if (!existing.glossaryUrl && url) {
+          existing.glossaryUrl = url;
         }
+      }
+
+      function mergeGlossaryCharacter(target, termRecord) {
+        var castConfig = termRecord && termRecord.cast && typeof termRecord.cast === "object"
+          ? termRecord.cast
+          : {};
+
+        var glossaryTerm = cleanText(termRecord.term);
+        var glossaryUrl = glossaryUrlForTerm(glossaryTerm);
+        var displayName = cleanText(castConfig.character) || glossaryTerm;
+        var normalizedGlossaryUrl = normalizedUrl(glossaryUrl);
+
+        var existing = target.find(function (item) {
+          if (normalizedGlossaryUrl && normalizedUrl(item.glossaryUrl) === normalizedGlossaryUrl) {
+            return true;
+          }
+
+          return item.name.toLowerCase() === displayName.toLowerCase() ||
+            item.name.toLowerCase() === glossaryTerm.toLowerCase();
+        });
+
+        if (existing) {
+          if (cleanText(castConfig.character)) {
+            existing.name = cleanText(castConfig.character);
+          }
+
+          if (!existing.glossaryUrl) {
+            existing.glossaryUrl = glossaryUrl;
+          }
+
+          return;
+        }
+
+        addUniqueCharacter(target, displayName, glossaryUrl);
       }
 
       function addUniqueEpisode(target, episode) {
@@ -810,12 +877,44 @@
         });
       }
 
+      function mergeGlossaryEpisode(target, episode) {
+        if (!episode || !Number.isFinite(Number(episode.ge))) {
+          return;
+        }
+
+        var ge = Number(episode.ge);
+        var incoming = {
+          ge: ge,
+          season: Number(episode.season) || null,
+          episode: Number(episode.episode) || null,
+          title: cleanText(episode.title),
+          url: cleanText(episode.url)
+        };
+
+        var index = target.findIndex(function (item) {
+          return item.ge === ge;
+        });
+
+        if (index === -1) {
+          target.push(incoming);
+          return;
+        }
+
+        target[index] = {
+          ge: ge,
+          season: incoming.season || target[index].season || null,
+          episode: incoming.episode || target[index].episode || null,
+          title: incoming.title || target[index].title || "",
+          url: incoming.url || target[index].url || ""
+        };
+      }
+
       function getOrCreatePerformer(map, castEntry) {
         var performerId = normalizeId(castEntry.performerId);
         var stageName = cleanText(castEntry.stageName);
 
         if (!performerId && stageName) {
-          performerId = stageName.toLowerCase().replace(/[^a-z0-9]+/g, "-");
+          performerId = slugify(stageName);
         }
 
         if (!performerId) {
@@ -873,7 +972,7 @@
         });
       }
 
-      function processRecords(data) {
+      function processLegacyCast(data) {
         var map = new Map();
         var records = data && Array.isArray(data.records)
           ? data.records
@@ -946,6 +1045,191 @@
           }
         });
 
+        return map;
+      }
+
+      function mergeAppearanceLists(existing, incoming) {
+        var merged = [];
+
+        (Array.isArray(existing) ? existing : []).forEach(function (episode) {
+          mergeGlossaryEpisode(merged, episode);
+        });
+
+        (Array.isArray(incoming) ? incoming : []).forEach(function (episode) {
+          mergeGlossaryEpisode(merged, episode);
+        });
+
+        return merged.sort(function (a, b) {
+          return a.ge - b.ge;
+        });
+      }
+
+      function foldGlossaryRecords(data) {
+        var records = Array.isArray(data) ? data : [];
+        var folded = new Map();
+
+        records.forEach(function (record) {
+          if (!record || !cleanText(record.term)) {
+            return;
+          }
+
+          var key = cleanText(record.term).toLowerCase();
+          var existing = folded.get(key);
+
+          if (!existing) {
+            existing = {
+              term: cleanText(record.term),
+              class: cleanText(record.class),
+              performer: cleanText(record.performer),
+              performer_url: cleanText(record.performer_url),
+              cast: record.cast && typeof record.cast === "object"
+                ? Object.assign({}, record.cast)
+                : {},
+              appearances: []
+            };
+
+            folded.set(key, existing);
+          } else {
+            if (cleanText(record.class)) {
+              existing.class = cleanText(record.class);
+            }
+
+            if (cleanText(record.performer)) {
+              existing.performer = cleanText(record.performer);
+            }
+
+            if (cleanText(record.performer_url)) {
+              existing.performer_url = cleanText(record.performer_url);
+            }
+
+            if (record.cast && typeof record.cast === "object") {
+              existing.cast = Object.assign({}, existing.cast || {}, record.cast);
+            }
+          }
+
+          existing.appearances = mergeAppearanceLists(
+            existing.appearances,
+            record.appearances
+          );
+        });
+
+        return Array.from(folded.values());
+      }
+
+      function buildPerformerAliases(map) {
+        var aliases = new Map();
+
+        map.forEach(function (performer, performerId) {
+          aliases.set("id:" + normalizeId(performerId), performerId);
+          aliases.set("name:" + normalizeId(performer.stageName), performerId);
+        });
+
+        return aliases;
+      }
+
+      function getOrCreateGlossaryPerformer(map, aliases, termRecord) {
+        var castConfig = termRecord && termRecord.cast && typeof termRecord.cast === "object"
+          ? termRecord.cast
+          : {};
+
+        var stageName = cleanText(castConfig.stageName) || cleanText(termRecord.performer);
+        var explicitId = normalizeId(castConfig.performerId);
+        var performerId = "";
+
+        if (explicitId && aliases.has("id:" + explicitId)) {
+          performerId = aliases.get("id:" + explicitId);
+        } else if (stageName && aliases.has("name:" + normalizeId(stageName))) {
+          performerId = aliases.get("name:" + normalizeId(stageName));
+        } else {
+          performerId = explicitId || slugify(stageName);
+        }
+
+        if (!performerId) {
+          return null;
+        }
+
+        if (!map.has(performerId)) {
+          map.set(performerId, {
+            performerId: performerId,
+            stageName: stageName || performerId,
+            characters: [],
+            episodes: [],
+            imdbLinks: [],
+            socialLinks: [],
+            otherLinks: []
+          });
+        }
+
+        var performer = map.get(performerId);
+
+        if (stageName) {
+          performer.stageName = stageName;
+        }
+
+        aliases.set("id:" + normalizeId(performerId), performerId);
+        aliases.set("name:" + normalizeId(performer.stageName), performerId);
+
+        return performer;
+      }
+
+      function applyGlossaryPerformerUrl(performer, url) {
+        var performerUrl = cleanText(url);
+
+        if (!performerUrl) {
+          return;
+        }
+
+        if (/^https?:\/\/(www\.)?imdb\.com\/name\//i.test(performerUrl)) {
+          addUniqueLink(performer.imdbLinks, {
+            label: "IMDb",
+            url: performerUrl
+          });
+          return;
+        }
+
+        addUniqueLink(performer.otherLinks, {
+          label: "Performer",
+          url: performerUrl
+        });
+      }
+
+      function mergeGlossaryCast(map, glossaryData) {
+        var aliases = buildPerformerAliases(map);
+        var glossaryRecords = foldGlossaryRecords(glossaryData);
+
+        glossaryRecords.forEach(function (termRecord) {
+          if (cleanText(termRecord.class).toLowerCase() !== "character") {
+            return;
+          }
+
+          if (!cleanText(termRecord.performer) &&
+              !(termRecord.cast && cleanText(termRecord.cast.stageName))) {
+            return;
+          }
+
+          var performer = getOrCreateGlossaryPerformer(map, aliases, termRecord);
+
+          if (!performer) {
+            return;
+          }
+
+          mergeGlossaryCharacter(performer.characters, termRecord);
+
+          (Array.isArray(termRecord.appearances)
+            ? termRecord.appearances
+            : []
+          ).forEach(function (episode) {
+            mergeGlossaryEpisode(performer.episodes, episode);
+          });
+
+          applyGlossaryPerformerUrl(performer, termRecord.performer_url);
+          applyLinks(performer, termRecord.cast || {});
+        });
+
+        return map;
+      }
+
+      function finalizePerformers(map) {
         return Array.from(map.values())
           .map(function (performer) {
             performer.characters.sort(function (a, b) {
@@ -1142,20 +1426,40 @@
         }
       }
 
-      fetch(dataUrl, {
-        cache: "no-store"
-      })
-        .then(function (response) {
-          if (!response.ok) {
-            throw new Error(
-              "Cast data request failed with status " + response.status
-            );
-          }
-
-          return response.json();
+      function fetchJson(url, required) {
+        return fetch(url, {
+          cache: "no-store"
         })
-        .then(function (data) {
-          performers = processRecords(data);
+          .then(function (response) {
+            if (!response.ok) {
+              throw new Error(
+                "Data request failed for " + url + " with status " + response.status
+              );
+            }
+
+            return response.json();
+          })
+          .catch(function (error) {
+            if (required) {
+              throw error;
+            }
+
+            console.error("Optional data could not be loaded:", error);
+            return [];
+          });
+      }
+
+      Promise.all([
+        fetchJson(castDataUrl, true),
+        fetchJson(glossaryDataUrl, false)
+      ])
+        .then(function (results) {
+          var castData = results[0];
+          var glossaryData = results[1];
+          var performerMap = processLegacyCast(castData);
+
+          mergeGlossaryCast(performerMap, glossaryData);
+          performers = finalizePerformers(performerMap);
           renderTable();
 
           if (window.location.hash) {
