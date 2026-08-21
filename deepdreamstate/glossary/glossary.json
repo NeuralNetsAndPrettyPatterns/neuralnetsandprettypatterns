@@ -2654,6 +2654,7 @@
     ]
   },
   {
+   {
     "term": "Gluckgluck",
     "appearances": [
       {
@@ -2662,6 +2663,385 @@
         "episode": 16,
         "title": "Radix",
         "url": "https://neuralnetsandprettypatterns.com/deepdreamstate/arcs/vale-four/episode-16-radix/"
+      }
+    ]
+  },
+  {
+    "term": "Judge Webb",
+    "class": "Character",
+    "definition": "The judge in the Vale Four trial. Formal, severe, and apparently ready to end the case after Elle collapses in open court. {{spoiler}}He separates counsel's spectacular failure from the evidence, rules for the plaintiffs on every count, and restores control to the original founder. His repeated insistence that you don't change horses midstream reveals that he has been listening to Midstream Sports, turning a running gag into the hinge of the verdict.{{/spoiler}}",
+    "performer": "Mr. Bun Li",
+    "links": [],
+    "appearances": [
+      {
+        "ge": 44,
+        "season": 4,
+        "episode": 17,
+        "title": "Yield",
+        "url": "https://neuralnetsandprettypatterns.com/deepdreamstate/arcs/vale-four/episode-17-yield/"
+      }
+    ]
+  },
+  {
+    "term": "SAG Card",
+    "class": "Plot Detail",
+    "definition": "Hespa's answer when Blake asks whether Sitri activated her powers: it did, and apparently kept her SAG card active too. The joke carries a strong implication that the show's demons are, somehow, all theatrical. In the Neuralverse, supernatural longevity may come with representation.",
+    "links": [],
+    "appearances": [
+      {
+        "ge": 44,
+        "season": 4,
+        "episode": 17,
+        "title": "Yield",
+        "url": "https://neuralnetsandprettypatterns.com/deepdreamstate/arcs/vale-four/episode-17-yield/"
+      }
+    ]
+  },
+  {
+    "term": "Break Room",
+    "class": "Setting",
+    "definition": "The aggressively mundane location where Cael says the Vale Four job posting was placed. His transfer into one of the most dangerous behavioral research operations in the world may genuinely have begun with a notice in the break room. Not every conspiracy needs a hidden temple.",
+    "links": [],
+    "appearances": [
+      {
+        "ge": 44,
+        "season": 4,
+        "episode": 17,
+        "title": "Yield",
+        "url": "https://neuralnetsandprettypatterns.com/deepdreamstate/arcs/vale-four/episode-17-yield/"
+      }
+    ]
+  },
+  {
+    "term": "Dream Team",
+    "class": "Plot Detail",
+    "definition": "Cael's triumphant name for himself and Hespa after the courtroom victory exposes the importance of Hespa's dream abilities. It is not subtle. It is also increasingly difficult to argue with.",
+    "links": [],
+    "appearances": [
+      {
+        "ge": 44,
+        "season": 4,
+        "episode": 17,
+        "title": "Yield",
+        "url": "https://neuralnetsandprettypatterns.com/deepdreamstate/arcs/vale-four/episode-17-yield/"
+      }
+    ]
+  },
+  {
+    "term": "Bimroll",
+    "class": "Plot Detail",
+    "definition": "Blake's term for what happens when Tessa uses the Better Self ringtone to trigger Elle in the middle of a winning legal argument. Elle goes from precise courtroom strategy to conditioned bimbo mode in seconds. A rickroll would have been less damaging to the case.",
+    "links": [],
+    "appearances": [
+      {
+        "ge": 44,
+        "season": 4,
+        "episode": 17,
+        "title": "Yield",
+        "url": "https://neuralnetsandprettypatterns.com/deepdreamstate/arcs/vale-four/episode-17-yield/"
+      }
+    ]
+  },
+  {
+    "term": "Yumpose",
+    "class": "Plot Detail",
+    "definition": "A pose Elle invents while trying to prove she can still behave appropriately after being triggered in court. It is immediately followed by Yum Yum Time, which does not improve her argument with the judge.",
+    "links": [],
+    "appearances": [
+      {
+        "ge": 44,
+        "season": 4,
+        "episode": 17,
+        "title": "Yield",
+        "url": "https://neuralnetsandprettypatterns.com/deepdreamstate/arcs/vale-four/episode-17-yield/"
+      }
+    ]
+  },
+  {
+    "term": "Swallow It Down",
+    "class": "Plot Detail",
+    "definition": "A conditioning phrase that surfaces when Elle's courtroom performance collapses: swallow it down, no more thoughts, no more choices, we just like to hear the voices. The legal vocabulary disappears first. The installed language is still right there.",
+    "links": [],
+    "appearances": [
+      {
+        "ge": 44,
+        "season": 4,
+        "episode": 17,
+        "title": "Yield",
+        "url": "https://neuralnetsandprettypatterns.com/deepdreamstate/arcs/vale-four/episode-17-yield/"
+      }
+    ]
+  },
+  {
+    "term": "Pressure Mode",
+    "class": "Plot Detail",
+    "definition": "Spotlight's special high-stakes mode. Everyone is watching, the audience goes quiet, and Iris tells the player that she sees them and they already know what to do. The final unlock turns exposure itself into a game mechanic.",
+    "links": [],
+    "appearances": [
+      {
+        "ge": 44,
+        "season": 4,
+        "episode": 17,
+        "title": "Yield",
+        "url": "https://neuralnetsandprettypatterns.com/deepdreamstate/arcs/vale-four/episode-17-yield/"
+      }
+    ]
+  },
+  {
+    "term": "Simmons Grudge",
+    "class": "Plot Detail",
+    "definition": "Cael's extremely committed one-sided rivalry with Simmons. When Midstream reaches number three on Apple, Cael immediately announces that they are coming for him. Even after learning the podcast may have helped save the world, he is still coming for him.",
+    "links": [],
+    "appearances": [
+      {
+        "ge": 44,
+        "season": 4,
+        "episode": 17,
+        "title": "Yield",
+        "url": "https://neuralnetsandprettypatterns.com/deepdreamstate/arcs/vale-four/episode-17-yield/"
+      }
+    ]
+  },
+  {
+    "term": "You Don't Change Horses Midstream",
+    "class": "Plot Detail",
+    "definition": "The Midstream Sports phrase that becomes Judge Webb's legal maxim in Yield. Hespa and Cael built the language into the show over and over in different contexts. {{spoiler}}Webb has been listening, repeats it from the bench, and uses the phrase while ruling against Vale Four. The season's longest running sports joke turns out to have appellate consequences.{{/spoiler}}",
+    "links": [],
+    "appearances": [
+      {
+        "ge": 44,
+        "season": 4,
+        "episode": 17,
+        "title": "Yield",
+        "url": "https://neuralnetsandprettypatterns.com/deepdreamstate/arcs/vale-four/episode-17-yield/"
+      }
+    ]
+  },
+  {
+    "term": "Meg Aerin",
+    "appearances": [
+      {
+        "ge": 44,
+        "season": 4,
+        "episode": 17,
+        "title": "Yield",
+        "url": "https://neuralnetsandprettypatterns.com/deepdreamstate/arcs/vale-four/episode-17-yield/"
+      }
+    ]
+  },
+  {
+    "term": "Iris",
+    "appearances": [
+      {
+        "ge": 44,
+        "season": 4,
+        "episode": 17,
+        "title": "Yield",
+        "url": "https://neuralnetsandprettypatterns.com/deepdreamstate/arcs/vale-four/episode-17-yield/"
+      }
+    ]
+  },
+  {
+    "term": "Tessa Finn",
+    "appearances": [
+      {
+        "ge": 44,
+        "season": 4,
+        "episode": 17,
+        "title": "Yield",
+        "url": "https://neuralnetsandprettypatterns.com/deepdreamstate/arcs/vale-four/episode-17-yield/"
+      }
+    ]
+  },
+  {
+    "term": "June Lowell",
+    "appearances": [
+      {
+        "ge": 44,
+        "season": 4,
+        "episode": 17,
+        "title": "Yield",
+        "url": "https://neuralnetsandprettypatterns.com/deepdreamstate/arcs/vale-four/episode-17-yield/"
+      }
+    ]
+  },
+  {
+    "term": "Elle Lawson",
+    "appearances": [
+      {
+        "ge": 44,
+        "season": 4,
+        "episode": 17,
+        "title": "Yield",
+        "url": "https://neuralnetsandprettypatterns.com/deepdreamstate/arcs/vale-four/episode-17-yield/"
+      }
+    ]
+  },
+  {
+    "term": "Z / Dr. Zev Talcott",
+    "appearances": [
+      {
+        "ge": 44,
+        "season": 4,
+        "episode": 17,
+        "title": "Yield",
+        "url": "https://neuralnetsandprettypatterns.com/deepdreamstate/arcs/vale-four/episode-17-yield/"
+      }
+    ]
+  },
+  {
+    "term": "Hespa Apate",
+    "appearances": [
+      {
+        "ge": 44,
+        "season": 4,
+        "episode": 17,
+        "title": "Yield",
+        "url": "https://neuralnetsandprettypatterns.com/deepdreamstate/arcs/vale-four/episode-17-yield/"
+      }
+    ]
+  },
+  {
+    "term": "Blake",
+    "appearances": [
+      {
+        "ge": 44,
+        "season": 4,
+        "episode": 17,
+        "title": "Yield",
+        "url": "https://neuralnetsandprettypatterns.com/deepdreamstate/arcs/vale-four/episode-17-yield/"
+      }
+    ]
+  },
+  {
+    "term": "Naia Anderson",
+    "appearances": [
+      {
+        "ge": 44,
+        "season": 4,
+        "episode": 17,
+        "title": "Yield",
+        "url": "https://neuralnetsandprettypatterns.com/deepdreamstate/arcs/vale-four/episode-17-yield/"
+      }
+    ]
+  },
+  {
+    "term": "Cael",
+    "appearances": [
+      {
+        "ge": 44,
+        "season": 4,
+        "episode": 17,
+        "title": "Yield",
+        "url": "https://neuralnetsandprettypatterns.com/deepdreamstate/arcs/vale-four/episode-17-yield/"
+      }
+    ]
+  },
+  {
+    "term": "Spotlight",
+    "appearances": [
+      {
+        "ge": 44,
+        "season": 4,
+        "episode": 17,
+        "title": "Yield",
+        "url": "https://neuralnetsandprettypatterns.com/deepdreamstate/arcs/vale-four/episode-17-yield/"
+      }
+    ]
+  },
+  {
+    "term": "Brainbow",
+    "appearances": [
+      {
+        "ge": 44,
+        "season": 4,
+        "episode": 17,
+        "title": "Yield",
+        "url": "https://neuralnetsandprettypatterns.com/deepdreamstate/arcs/vale-four/episode-17-yield/"
+      }
+    ]
+  },
+  {
+    "term": "Better Self",
+    "appearances": [
+      {
+        "ge": 44,
+        "season": 4,
+        "episode": 17,
+        "title": "Yield",
+        "url": "https://neuralnetsandprettypatterns.com/deepdreamstate/arcs/vale-four/episode-17-yield/"
+      }
+    ]
+  },
+  {
+    "term": "Amended charter",
+    "appearances": [
+      {
+        "ge": 44,
+        "season": 4,
+        "episode": 17,
+        "title": "Yield",
+        "url": "https://neuralnetsandprettypatterns.com/deepdreamstate/arcs/vale-four/episode-17-yield/"
+      }
+    ]
+  },
+  {
+    "term": "Kamas",
+    "appearances": [
+      {
+        "ge": 44,
+        "season": 4,
+        "episode": 17,
+        "title": "Yield",
+        "url": "https://neuralnetsandprettypatterns.com/deepdreamstate/arcs/vale-four/episode-17-yield/"
+      }
+    ]
+  },
+  {
+    "term": "Midstream",
+    "appearances": [
+      {
+        "ge": 44,
+        "season": 4,
+        "episode": 17,
+        "title": "Yield",
+        "url": "https://neuralnetsandprettypatterns.com/deepdreamstate/arcs/vale-four/episode-17-yield/"
+      }
+    ]
+  },
+  {
+    "term": "Yum Yum Time",
+    "appearances": [
+      {
+        "ge": 44,
+        "season": 4,
+        "episode": 17,
+        "title": "Yield",
+        "url": "https://neuralnetsandprettypatterns.com/deepdreamstate/arcs/vale-four/episode-17-yield/"
+      }
+    ]
+  },
+  {
+    "term": "Sitri Center",
+    "appearances": [
+      {
+        "ge": 44,
+        "season": 4,
+        "episode": 17,
+        "title": "Yield",
+        "url": "https://neuralnetsandprettypatterns.com/deepdreamstate/arcs/vale-four/episode-17-yield/"
+      }
+    ]
+  },
+  {
+    "term": "Nyra",
+    "appearances": [
+      {
+        "ge": 44,
+        "season": 4,
+        "episode": 17,
+        "title": "Yield",
+        "url": "https://neuralnetsandprettypatterns.com/deepdreamstate/arcs/vale-four/episode-17-yield/"
       }
     ]
   }
