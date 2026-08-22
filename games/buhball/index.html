@@ -1,0 +1,1230 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+  <title>Buh Ball | Neural Nets and Pretty Patterns</title>
+
+  <meta
+    name="description"
+    content="Buh Ball is a very serious game about turning language into buh buh."
+  >
+
+  <style>
+    * {
+      box-sizing: border-box;
+    }
+
+    :root {
+      --ink: #251542;
+      --cream: #fff9d9;
+      --pink: #ff4fc8;
+      --yellow: #ffe845;
+      --cyan: #42e8ff;
+      --purple: #a85cff;
+      --green: #62ff8f;
+      --orange: #ff963d;
+    }
+
+    body {
+      margin: 0;
+      min-height: 100vh;
+      font-family: Arial, Helvetica, sans-serif;
+      color: var(--ink);
+
+      background:
+        radial-gradient(circle at 15% 20%, #ffe845 0 8%, transparent 9%),
+        radial-gradient(circle at 85% 25%, #42e8ff 0 7%, transparent 8%),
+        radial-gradient(circle at 20% 85%, #ff4fc8 0 8%, transparent 9%),
+        radial-gradient(circle at 82% 82%, #62ff8f 0 8%, transparent 9%),
+        linear-gradient(135deg, #ff88dc, #ffe985, #71efff);
+
+      display: flex;
+      align-items: center;
+      justify-content: center;
+
+      padding: 20px;
+    }
+
+    .game-shell {
+      width: min(720px, 100%);
+      background: var(--cream);
+      border: 6px solid var(--ink);
+      border-radius: 28px;
+      box-shadow:
+        10px 10px 0 var(--ink),
+        18px 18px 0 rgba(255, 79, 200, 0.45);
+
+      padding: 26px;
+      position: relative;
+      overflow: hidden;
+    }
+
+    h1 {
+      margin: 0;
+      text-align: center;
+      font-size: clamp(3rem, 10vw, 6rem);
+      line-height: 0.9;
+      letter-spacing: -0.06em;
+      transform: rotate(-2deg);
+      text-shadow:
+        4px 4px 0 var(--yellow),
+        7px 7px 0 var(--pink);
+    }
+
+    .subtitle {
+      text-align: center;
+      margin: 18px 0 24px;
+      font-size: 1.1rem;
+      font-weight: 900;
+    }
+
+    .scoreboard {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 10px;
+      margin-bottom: 22px;
+    }
+
+    .score-box {
+      background: white;
+      border: 4px solid var(--ink);
+      border-radius: 16px;
+      padding: 10px;
+      text-align: center;
+      font-weight: 900;
+      box-shadow: 4px 4px 0 var(--ink);
+    }
+
+    .score-label {
+      display: block;
+      font-size: 0.7rem;
+      letter-spacing: 0.08em;
+      text-transform: uppercase;
+      margin-bottom: 4px;
+    }
+
+    .score-value {
+      display: block;
+      font-size: 1.6rem;
+    }
+
+    .timer-danger {
+      background: #ff6969;
+      animation: timerPulse 0.45s infinite alternate;
+    }
+
+    @keyframes timerPulse {
+      from {
+        transform: scale(1);
+      }
+      to {
+        transform: scale(1.05);
+      }
+    }
+
+    .panel {
+      background: white;
+      border: 4px solid var(--ink);
+      border-radius: 20px;
+      padding: 22px;
+      box-shadow: 5px 5px 0 var(--ink);
+    }
+
+    label {
+      display: block;
+      font-size: 1.1rem;
+      font-weight: 900;
+      margin-bottom: 10px;
+    }
+
+    input {
+      width: 100%;
+      font: inherit;
+      font-size: 1.15rem;
+      border: 4px solid var(--ink);
+      border-radius: 13px;
+      padding: 14px;
+      color: var(--ink);
+      background: #fff;
+      outline: none;
+    }
+
+    input:focus {
+      box-shadow: 0 0 0 5px var(--cyan);
+    }
+
+    button {
+      width: 100%;
+      margin-top: 14px;
+      border: 4px solid var(--ink);
+      border-radius: 14px;
+      padding: 13px 18px;
+
+      font: inherit;
+      font-weight: 1000;
+      font-size: 1.15rem;
+
+      background: var(--yellow);
+      color: var(--ink);
+
+      cursor: pointer;
+
+      box-shadow: 5px 5px 0 var(--ink);
+
+      transition:
+        transform 0.08s ease,
+        box-shadow 0.08s ease;
+    }
+
+    button:hover {
+      background: var(--cyan);
+    }
+
+    button:active {
+      transform: translate(5px, 5px);
+      box-shadow: 0 0 0 var(--ink);
+    }
+
+    .challenge-label {
+      text-align: center;
+      font-weight: 900;
+      text-transform: uppercase;
+      font-size: 0.8rem;
+      letter-spacing: 0.1em;
+    }
+
+    .challenge {
+      margin: 12px 0 24px;
+      text-align: center;
+      font-size: clamp(2rem, 7vw, 4rem);
+      line-height: 1.08;
+      font-weight: 1000;
+      word-break: break-word;
+      color: var(--purple);
+      text-shadow: 3px 3px 0 var(--yellow);
+    }
+
+    .hidden {
+      display: none;
+    }
+
+    .message {
+      min-height: 34px;
+      margin: 18px 0 0;
+      text-align: center;
+      font-size: 1.2rem;
+      font-weight: 1000;
+    }
+
+    .oopsie {
+      color: #d00048;
+      font-size: clamp(1.3rem, 4vw, 2rem);
+      animation: wobble 0.18s alternate 4;
+    }
+
+    @keyframes wobble {
+      from {
+        transform: rotate(-2deg);
+      }
+      to {
+        transform: rotate(2deg);
+      }
+    }
+
+    .brainbow {
+      position: fixed;
+      inset: 0;
+      z-index: 100;
+
+      display: flex;
+      align-items: center;
+      justify-content: center;
+
+      pointer-events: none;
+
+      font-weight: 1000;
+      font-size: clamp(3.5rem, 13vw, 9rem);
+      letter-spacing: -0.05em;
+
+      background: rgba(255,255,255,0.22);
+
+      animation:
+        brainbowPop 1.15s ease forwards;
+    }
+
+    .brainbow span {
+      background: linear-gradient(
+        90deg,
+        #ff384f,
+        #ff9738,
+        #ffe338,
+        #45e76d,
+        #3fddff,
+        #7555ff,
+        #ff46c8
+      );
+
+      background-size: 300% 100%;
+
+      -webkit-background-clip: text;
+      background-clip: text;
+
+      color: transparent;
+
+      -webkit-text-stroke: 3px var(--ink);
+
+      animation: rainbowMove 0.4s linear infinite;
+    }
+
+    @keyframes rainbowMove {
+      from {
+        background-position: 0% 50%;
+      }
+      to {
+        background-position: 100% 50%;
+      }
+    }
+
+    @keyframes brainbowPop {
+      0% {
+        opacity: 0;
+        transform: scale(0.1) rotate(-12deg);
+      }
+
+      25% {
+        opacity: 1;
+        transform: scale(1.15) rotate(5deg);
+      }
+
+      55% {
+        transform: scale(0.95) rotate(-2deg);
+      }
+
+      80% {
+        opacity: 1;
+        transform: scale(1.04);
+      }
+
+      100% {
+        opacity: 0;
+        transform: scale(1.5);
+      }
+    }
+
+    .instructions {
+      margin-top: 20px;
+      text-align: center;
+      font-size: 0.85rem;
+      line-height: 1.4;
+      font-weight: 700;
+    }
+
+    @media (max-width: 520px) {
+      .game-shell {
+        padding: 18px;
+        border-width: 4px;
+        box-shadow: 6px 6px 0 var(--ink);
+      }
+
+      .scoreboard {
+        gap: 6px;
+      }
+
+      .score-box {
+        border-width: 3px;
+        padding: 8px 4px;
+      }
+
+      .score-value {
+        font-size: 1.3rem;
+      }
+    }
+
+    @media (prefers-reduced-motion: reduce) {
+      *,
+      *::before,
+      *::after {
+        animation-duration: 0.01ms !important;
+        animation-iteration-count: 1 !important;
+      }
+    }
+  </style>
+</head>
+
+<body>
+
+  <main class="game-shell">
+
+    <h1>BUH BALL</h1>
+
+    <div class="subtitle">
+      TURN THOUGHT INTO BUH
+    </div>
+
+    <div class="scoreboard">
+
+      <div class="score-box">
+        <span class="score-label">Score</span>
+        <span class="score-value" id="score">0</span>
+      </div>
+
+      <div class="score-box">
+        <span class="score-label">Best</span>
+        <span class="score-value" id="bestScore">0</span>
+      </div>
+
+      <div class="score-box" id="timerBox">
+        <span class="score-label">Seconds</span>
+        <span class="score-value" id="timer">15</span>
+      </div>
+
+    </div>
+
+    <!-- STATEMENT ENTRY -->
+
+    <section class="panel" id="statementPanel">
+
+      <form id="statementForm">
+
+        <label for="statementInput">
+          SAY SOMETHING
+        </label>
+
+        <input
+          id="statementInput"
+          type="text"
+          minlength="5"
+          maxlength="150"
+          autocomplete="off"
+          spellcheck="false"
+          placeholder="Type at least five characters..."
+          required
+        >
+
+        <button type="submit">
+          BUH IT
+        </button>
+
+      </form>
+
+    </section>
+
+    <!-- BUH CHALLENGE -->
+
+    <section class="panel hidden" id="challengePanel">
+
+      <div class="challenge-label">
+        TYPE THE BUH BUH
+      </div>
+
+      <div class="challenge" id="challengeText">
+        buh buh
+      </div>
+
+      <form id="answerForm">
+
+        <label for="answerInput">
+          BUH BACK
+        </label>
+
+        <input
+          id="answerInput"
+          type="text"
+          autocomplete="off"
+          autocapitalize="off"
+          spellcheck="false"
+          required
+        >
+
+        <button type="submit">
+          BUH!
+        </button>
+
+      </form>
+
+    </section>
+
+    <div
+      class="message"
+      id="message"
+      aria-live="polite"
+    ></div>
+
+    <div class="instructions">
+      You have 15 seconds. Match the buh exactly enough.
+      Capitalization and extra spaces don't matter.
+    </div>
+
+  </main>
+
+
+  <script>
+    (() => {
+
+      const BUH_ENDINGS = [
+        "oo",
+        "uh",
+        "um",
+        "uwu",
+        "im",
+        "ow"
+      ];
+
+      const statementPanel =
+        document.getElementById("statementPanel");
+
+      const challengePanel =
+        document.getElementById("challengePanel");
+
+      const statementForm =
+        document.getElementById("statementForm");
+
+      const answerForm =
+        document.getElementById("answerForm");
+
+      const statementInput =
+        document.getElementById("statementInput");
+
+      const answerInput =
+        document.getElementById("answerInput");
+
+      const challengeText =
+        document.getElementById("challengeText");
+
+      const scoreElement =
+        document.getElementById("score");
+
+      const bestScoreElement =
+        document.getElementById("bestScore");
+
+      const timerElement =
+        document.getElementById("timer");
+
+      const timerBox =
+        document.getElementById("timerBox");
+
+      const message =
+        document.getElementById("message");
+
+
+      let score = 0;
+
+      let bestScore =
+        Number(localStorage.getItem("buhBallBest")) || 0;
+
+      let currentChallenge = "";
+
+      let secondsRemaining = 15;
+
+      let timerInterval = null;
+
+      let roundActive = false;
+
+
+      bestScoreElement.textContent = bestScore;
+
+
+      /*
+      --------------------------------
+      TEXT NORMALIZATION
+      --------------------------------
+      */
+
+      function normalizeAnswer(text) {
+
+        return text
+          .toLowerCase()
+          .trim()
+          .replace(/\s+/g, " ");
+
+      }
+
+
+      /*
+      --------------------------------
+      RANDOM BUH ENDING
+      --------------------------------
+      */
+
+      function randomEnding() {
+
+        return BUH_ENDINGS[
+          Math.floor(Math.random() * BUH_ENDINGS.length)
+        ];
+
+      }
+
+
+      /*
+      --------------------------------
+      BASIC WORD CLEANUP
+      --------------------------------
+      */
+
+      function cleanWord(word) {
+
+        return word
+          .toLowerCase()
+          .replace(/[^a-z']/g, "");
+
+      }
+
+
+      /*
+      --------------------------------
+      APPROXIMATE SYLLABLE SPLITTER
+
+      This is deliberately NOT a
+      dictionary-quality linguistic
+      syllabifier.
+
+      Buh Ball wants understandable
+      nonsense, not a phonetics degree.
+      --------------------------------
+      */
+
+      function syllabify(word) {
+
+        word = cleanWord(word);
+
+        if (!word) {
+          return [];
+        }
+
+
+        const vowelRegex = /[aeiouy]+/g;
+
+        const nuclei = [];
+
+        let match;
+
+
+        while ((match = vowelRegex.exec(word)) !== null) {
+
+          nuclei.push({
+            start: match.index,
+            end: match.index + match[0].length
+          });
+
+        }
+
+
+        /*
+        Words without recognizable
+        vowels become one big syllable.
+        */
+
+        if (nuclei.length <= 1) {
+          return [word];
+        }
+
+
+        const boundaries = [];
+
+
+        for (let i = 1; i < nuclei.length; i++) {
+
+          const previous = nuclei[i - 1];
+          const current = nuclei[i];
+
+          const gap = word.slice(
+            previous.end,
+            current.start
+          );
+
+
+          let onsetLength = 1;
+
+
+          /*
+          Preserve a few obvious
+          consonant sounds.
+          */
+
+          const commonClusters = [
+            "th",
+            "sh",
+            "ch",
+            "ph",
+            "wh",
+            "qu"
+          ];
+
+
+          if (commonClusters.includes(gap)) {
+
+            onsetLength = gap.length;
+
+          }
+
+
+          /*
+          If there are no consonants
+          between vowel groups, split
+          directly before the next
+          vowel.
+          */
+
+          if (gap.length === 0) {
+
+            onsetLength = 0;
+
+          }
+
+
+          const boundary =
+            current.start - onsetLength;
+
+
+          boundaries.push(boundary);
+
+        }
+
+
+        const syllables = [];
+
+        let start = 0;
+
+
+        for (const boundary of boundaries) {
+
+          const syllable =
+            word.slice(start, boundary);
+
+          if (syllable) {
+            syllables.push(syllable);
+          }
+
+          start = boundary;
+
+        }
+
+
+        const finalSyllable =
+          word.slice(start);
+
+
+        if (finalSyllable) {
+          syllables.push(finalSyllable);
+        }
+
+
+        return syllables;
+
+      }
+
+
+      /*
+      --------------------------------
+      GET FIRST CONSONANT SOUND
+      --------------------------------
+      */
+
+      function getConsonantSound(syllable) {
+
+        const lower =
+          syllable.toLowerCase();
+
+
+        /*
+        First look for a consonant
+        cluster at the beginning.
+        */
+
+        const opening =
+          lower.match(/^[^aeiouy]+/);
+
+
+        if (opening) {
+
+          return simplifyConsonants(
+            opening[0]
+          );
+
+        }
+
+
+        /*
+        Vowel-led syllables:
+        find the first consonant later
+        in the syllable.
+        */
+
+        const internal =
+          lower.match(/[^aeiouy]+/);
+
+
+        if (internal) {
+
+          return simplifyConsonants(
+            internal[0]
+          );
+
+        }
+
+
+        /*
+        Pure vowel noise gets BUH.
+        */
+
+        return "b";
+
+      }
+
+
+      /*
+      --------------------------------
+      SIMPLIFY CONSONANTS
+      --------------------------------
+      */
+
+      function simplifyConsonants(chunk) {
+
+        chunk = chunk
+          .replace(/[^a-z]/g, "");
+
+
+        /*
+        Repeated consonants:
+        ll -> l
+        pp -> p
+        etc.
+        */
+
+        chunk =
+          chunk.replace(/(.)\1+/g, "$1");
+
+
+        /*
+        Preserve recognizable sounds.
+        */
+
+        const sounds = [
+          "str",
+          "shr",
+          "thr",
+          "spr",
+          "scr",
+          "th",
+          "sh",
+          "ch",
+          "ph",
+          "wh",
+          "qu",
+          "br",
+          "bl",
+          "cr",
+          "cl",
+          "dr",
+          "fl",
+          "fr",
+          "gl",
+          "gr",
+          "pl",
+          "pr",
+          "sk",
+          "sl",
+          "sm",
+          "sn",
+          "sp",
+          "st",
+          "sw",
+          "tr"
+        ];
+
+
+        for (const sound of sounds) {
+
+          if (chunk.startsWith(sound)) {
+            return sound;
+          }
+
+        }
+
+
+        return chunk.charAt(0) || "b";
+
+      }
+
+
+      /*
+      --------------------------------
+      CONVERT ONE SYLLABLE
+      --------------------------------
+      */
+
+      function buhSyllable(syllable) {
+
+        const consonant =
+          getConsonantSound(syllable);
+
+        return consonant + randomEnding();
+
+      }
+
+
+      /*
+      --------------------------------
+      CONVERT FULL STATEMENT
+      --------------------------------
+      */
+
+      function buhify(statement) {
+
+        const words =
+          statement.trim().split(/\s+/);
+
+        const output = [];
+
+
+        for (const word of words) {
+
+          const syllables =
+            syllabify(word);
+
+
+          for (const syllable of syllables) {
+
+            output.push(
+              buhSyllable(syllable)
+            );
+
+          }
+
+        }
+
+
+        return output.join(" ");
+
+      }
+
+
+      /*
+      --------------------------------
+      TIMER
+      --------------------------------
+      */
+
+      function startTimer() {
+
+        stopTimer();
+
+        secondsRemaining = 15;
+
+        timerElement.textContent =
+          secondsRemaining;
+
+        timerBox.classList.remove(
+          "timer-danger"
+        );
+
+
+        timerInterval = setInterval(() => {
+
+          secondsRemaining--;
+
+          timerElement.textContent =
+            secondsRemaining;
+
+
+          if (secondsRemaining <= 5) {
+
+            timerBox.classList.add(
+              "timer-danger"
+            );
+
+          }
+
+
+          if (secondsRemaining <= 0) {
+
+            failRound();
+
+          }
+
+        }, 1000);
+
+      }
+
+
+      function stopTimer() {
+
+        if (timerInterval) {
+
+          clearInterval(timerInterval);
+
+          timerInterval = null;
+
+        }
+
+      }
+
+
+      /*
+      --------------------------------
+      START ROUND
+      --------------------------------
+      */
+
+      function startRound(statement) {
+
+        currentChallenge =
+          buhify(statement);
+
+        challengeText.textContent =
+          currentChallenge;
+
+        statementPanel.classList.add(
+          "hidden"
+        );
+
+        challengePanel.classList.remove(
+          "hidden"
+        );
+
+        message.textContent = "";
+
+        answerInput.value = "";
+
+        roundActive = true;
+
+        startTimer();
+
+        answerInput.focus();
+
+      }
+
+
+      /*
+      --------------------------------
+      CORRECT
+      --------------------------------
+      */
+
+      function winRound() {
+
+        if (!roundActive) {
+          return;
+        }
+
+        roundActive = false;
+
+        stopTimer();
+
+
+        score++;
+
+        scoreElement.textContent = score;
+
+
+        if (score > bestScore) {
+
+          bestScore = score;
+
+          bestScoreElement.textContent =
+            bestScore;
+
+          localStorage.setItem(
+            "buhBallBest",
+            String(bestScore)
+          );
+
+        }
+
+
+        showBrainbow();
+
+
+        setTimeout(() => {
+
+          resetForNextStatement();
+
+        }, 1000);
+
+      }
+
+
+      /*
+      --------------------------------
+      FAILURE
+      --------------------------------
+      */
+
+      function failRound() {
+
+        if (!roundActive) {
+          return;
+        }
+
+        roundActive = false;
+
+        stopTimer();
+
+        score = 0;
+
+        scoreElement.textContent = "0";
+
+        message.textContent =
+          "OOPSIE - GOTTA BUH BUH BETTER";
+
+        message.className =
+          "message oopsie";
+
+        challengePanel.classList.add(
+          "hidden"
+        );
+
+        statementPanel.classList.remove(
+          "hidden"
+        );
+
+        timerElement.textContent = "15";
+
+        timerBox.classList.remove(
+          "timer-danger"
+        );
+
+        statementInput.value = "";
+
+        statementInput.focus();
+
+      }
+
+
+      /*
+      --------------------------------
+      RESET AFTER WIN
+      --------------------------------
+      */
+
+      function resetForNextStatement() {
+
+        challengePanel.classList.add(
+          "hidden"
+        );
+
+        statementPanel.classList.remove(
+          "hidden"
+        );
+
+        message.textContent = "";
+
+        message.className = "message";
+
+        timerElement.textContent = "15";
+
+        timerBox.classList.remove(
+          "timer-danger"
+        );
+
+        statementInput.value = "";
+
+        statementInput.focus();
+
+      }
+
+
+      /*
+      --------------------------------
+      BRAINBOW
+      --------------------------------
+      */
+
+      function showBrainbow() {
+
+        const brainbow =
+          document.createElement("div");
+
+        brainbow.className =
+          "brainbow";
+
+        brainbow.innerHTML =
+          "<span>BRAINBOW!</span>";
+
+        document.body.appendChild(
+          brainbow
+        );
+
+
+        setTimeout(() => {
+
+          brainbow.remove();
+
+        }, 1200);
+
+      }
+
+
+      /*
+      --------------------------------
+      FORM EVENTS
+      --------------------------------
+      */
+
+      statementForm.addEventListener(
+        "submit",
+        event => {
+
+          event.preventDefault();
+
+          const statement =
+            statementInput.value.trim();
+
+
+          if (statement.length < 5) {
+            return;
+          }
+
+
+          startRound(statement);
+
+        }
+      );
+
+
+      answerForm.addEventListener(
+        "submit",
+        event => {
+
+          event.preventDefault();
+
+
+          if (!roundActive) {
+            return;
+          }
+
+
+          const answer =
+            normalizeAnswer(
+              answerInput.value
+            );
+
+          const correct =
+            normalizeAnswer(
+              currentChallenge
+            );
+
+
+          if (answer === correct) {
+
+            winRound();
+
+          } else {
+
+            failRound();
+
+          }
+
+        }
+      );
+
+
+      statementInput.focus();
+
+    })();
+  </script>
+
+</body>
+</html>
