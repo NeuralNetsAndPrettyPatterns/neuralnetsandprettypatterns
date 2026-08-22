@@ -228,6 +228,19 @@ export default {
     }
 
 
+    // Buh Ball
+    if (
+      p === "/games/buhball" ||
+      p === "/games/buhball/" ||
+      p === "/games/buhball/index.html"
+    ) {
+      return serveHtml(
+        "/games/buhball/index.html",
+        true
+      );
+    }
+
+
     // Neuralverse CYOA
     if (
       p === "/games/cyoa" ||
