@@ -473,7 +473,7 @@
 
     .cast-table {
       width: 100%;
-      min-width: 980px;
+      min-width: 1060px;
       border-collapse: collapse;
     }
 
@@ -674,6 +674,7 @@
             <thead>
               <tr>
                 <th scope="col">Stage Name</th>
+                <th scope="col">Bio</th>
                 <th scope="col">Characters</th>
                 <th scope="col">Episodes</th>
                 <th scope="col">IMDb Links</th>
@@ -749,6 +750,38 @@
       function glossaryUrlForTerm(term) {
         var slug = slugify(term);
         return slug ? glossaryBaseUrl + "#" + slug : "";
+      }
+
+      function normalizeBioPage(value) {
+        var bioPage = cleanText(value);
+
+        if (!bioPage) {
+          return "";
+        }
+
+        var relativePattern =
+          /^\/deepdreamstate\/cast\/[a-z0-9]+(?:-[a-z0-9]+)*\/$/i;
+
+        var absolutePattern =
+          /^https:\/\/neuralnetsandprettypatterns\.com\/deepdreamstate\/cast\/[a-z0-9]+(?:-[a-z0-9]+)*\/$/i;
+
+        if (relativePattern.test(bioPage) || absolutePattern.test(bioPage)) {
+          return bioPage;
+        }
+
+        return "";
+      }
+
+      function applyBioPage(performer, source) {
+        if (!performer || !source) {
+          return;
+        }
+
+        var bioPage = normalizeBioPage(source.bio_page);
+
+        if (bioPage) {
+          performer.bioPage = bioPage;
+        }
       }
 
       function validLink(link) {
@@ -925,6 +958,7 @@
           map.set(performerId, {
             performerId: performerId,
             stageName: stageName || performerId,
+            bioPage: "",
             characters: [],
             episodes: [],
             imdbLinks: [],
@@ -1010,6 +1044,7 @@
               );
 
               addUniqueEpisode(performer.episodes, episode);
+              applyBioPage(performer, castEntry);
               applyLinks(performer, castEntry);
             });
           }
@@ -1041,6 +1076,7 @@
               performer.stageName = cleanText(record.stageName);
             }
 
+            applyBioPage(performer, record);
             applyLinks(performer, record);
           }
         });
@@ -1152,6 +1188,7 @@
           map.set(performerId, {
             performerId: performerId,
             stageName: stageName || performerId,
+            bioPage: "",
             characters: [],
             episodes: [],
             imdbLinks: [],
@@ -1223,6 +1260,7 @@
           });
 
           applyGlossaryPerformerUrl(performer, termRecord.performer_url);
+          applyBioPage(performer, termRecord.cast || {});
           applyLinks(performer, termRecord.cast || {});
         });
 
@@ -1258,6 +1296,26 @@
           cell.className = className;
         }
 
+        return cell;
+      }
+
+      function renderBioCell(performer) {
+        var cell = createTextCell();
+
+        if (!performer.bioPage) {
+          cell.className = "empty-cell";
+          return cell;
+        }
+
+        var link = document.createElement("a");
+        link.href = performer.bioPage;
+        link.textContent = "Bio";
+        link.setAttribute(
+          "aria-label",
+          "Read " + performer.stageName + " bio"
+        );
+
+        cell.appendChild(link);
         return cell;
       }
 
@@ -1400,6 +1458,7 @@
           stageNameCell.textContent = performer.stageName;
 
           row.appendChild(stageNameCell);
+          row.appendChild(renderBioCell(performer));
           row.appendChild(renderCharacterCell(performer));
           row.appendChild(renderEpisodeCell(performer));
           row.appendChild(renderLinkCell(performer.imdbLinks));
