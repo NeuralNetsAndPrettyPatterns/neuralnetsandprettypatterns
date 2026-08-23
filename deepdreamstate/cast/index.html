@@ -473,7 +473,7 @@
 
     .cast-table {
       width: 100%;
-      min-width: 1060px;
+      min-width: 980px;
       border-collapse: collapse;
     }
 
@@ -674,7 +674,6 @@
             <thead>
               <tr>
                 <th scope="col">Stage Name</th>
-                <th scope="col">Bio</th>
                 <th scope="col">Characters</th>
                 <th scope="col">Episodes</th>
                 <th scope="col">IMDb Links</th>
@@ -1299,26 +1298,6 @@
         return cell;
       }
 
-      function renderBioCell(performer) {
-        var cell = createTextCell();
-
-        if (!performer.bioPage) {
-          cell.className = "empty-cell";
-          return cell;
-        }
-
-        var link = document.createElement("a");
-        link.href = performer.bioPage;
-        link.textContent = "Bio";
-        link.setAttribute(
-          "aria-label",
-          "Read " + performer.stageName + " bio"
-        );
-
-        cell.appendChild(link);
-        return cell;
-      }
-
       function renderCharacterCell(performer) {
         var cell = createTextCell();
         var wrapper = document.createElement("div");
@@ -1455,10 +1434,21 @@
           row.id = "performer-" + performer.performerId;
 
           var stageNameCell = createTextCell("stage-name");
-          stageNameCell.textContent = performer.stageName;
+
+          if (performer.bioPage) {
+            var stageNameLink = document.createElement("a");
+            stageNameLink.href = performer.bioPage;
+            stageNameLink.textContent = performer.stageName;
+            stageNameLink.setAttribute(
+              "aria-label",
+              "Read " + performer.stageName + " bio"
+            );
+            stageNameCell.appendChild(stageNameLink);
+          } else {
+            stageNameCell.textContent = performer.stageName;
+          }
 
           row.appendChild(stageNameCell);
-          row.appendChild(renderBioCell(performer));
           row.appendChild(renderCharacterCell(performer));
           row.appendChild(renderEpisodeCell(performer));
           row.appendChild(renderLinkCell(performer.imdbLinks));
