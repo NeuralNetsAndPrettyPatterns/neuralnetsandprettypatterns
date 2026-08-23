@@ -3064,5 +3064,16 @@
     "stageName": "Bun Li",
     "bio_page": "/deepdreamstate/cast/bun-li/"
   }
+},
+{
+  "term": "Nyra",
+  "class": "character",
+  "performer": "Dizzy Dollie",
+  "performer_url": "https://neuralnetsandprettypatterns.com/deepdreamstate/cast/dizzy-dollie/",
+  "cast": {
+    "performerId": "dizzy-dollie",
+    "stageName": "Dizzy Dollie",
+    "bio_page": "/deepdreamstate/cast/dizzy-dollie/"
+  }
 }
 ]
