@@ -751,6 +751,38 @@
         return slug ? glossaryBaseUrl + "#" + slug : "";
       }
 
+      function normalizeBioPage(value) {
+        var bioPage = cleanText(value);
+
+        if (!bioPage) {
+          return "";
+        }
+
+        var relativePattern =
+          /^\/deepdreamstate\/cast\/[a-z0-9]+(?:-[a-z0-9]+)*\/$/i;
+
+        var absolutePattern =
+          /^https:\/\/neuralnetsandprettypatterns\.com\/deepdreamstate\/cast\/[a-z0-9]+(?:-[a-z0-9]+)*\/$/i;
+
+        if (relativePattern.test(bioPage) || absolutePattern.test(bioPage)) {
+          return bioPage;
+        }
+
+        return "";
+      }
+
+      function applyBioPage(performer, source) {
+        if (!performer || !source) {
+          return;
+        }
+
+        var bioPage = normalizeBioPage(source.bio_page);
+
+        if (bioPage) {
+          performer.bioPage = bioPage;
+        }
+      }
+
       function validLink(link) {
         return Boolean(
           link &&
@@ -925,7 +957,7 @@
           map.set(performerId, {
             performerId: performerId,
             stageName: stageName || performerId,
-            profileUrl: "",
+            bioPage: "",
             characters: [],
             episodes: [],
             imdbLinks: [],
@@ -1011,6 +1043,7 @@
               );
 
               addUniqueEpisode(performer.episodes, episode);
+              applyBioPage(performer, castEntry);
               applyLinks(performer, castEntry);
             });
           }
@@ -1042,6 +1075,7 @@
               performer.stageName = cleanText(record.stageName);
             }
 
+            applyBioPage(performer, record);
             applyLinks(performer, record);
           }
         });
@@ -1153,7 +1187,7 @@
           map.set(performerId, {
             performerId: performerId,
             stageName: stageName || performerId,
-            profileUrl: "",
+            bioPage: "",
             characters: [],
             episodes: [],
             imdbLinks: [],
@@ -1174,6 +1208,11 @@
         return performer;
       }
 
+      function isNnppCastProfileUrl(url) {
+        return /^https:\/\/neuralnetsandprettypatterns\.com\/deepdreamstate\/cast\/[a-z0-9]+(?:-[a-z0-9]+)*\/?$/i
+          .test(cleanText(url));
+      }
+
       function applyGlossaryPerformerUrl(performer, url) {
         var performerUrl = cleanText(url);
 
@@ -1189,11 +1228,26 @@
           return;
         }
 
-        if (
-          /^https:\/\/neuralnetsandprettypatterns\.com\/deepdreamstate\/cast\/[a-z0-9]+(?:-[a-z0-9]+)*\/?$/i
-            .test(performerUrl)
-        ) {
-          performer.profileUrl = performerUrl;
+        var hasMigratedProfile = performer.otherLinks.some(function (link) {
+          return cleanText(link.label).toLowerCase() === "performer" &&
+            isNnppCastProfileUrl(link.url);
+        });
+
+        if (isNnppCastProfileUrl(performerUrl)) {
+          performer.otherLinks = performer.otherLinks.filter(function (link) {
+            return cleanText(link.label).toLowerCase() !== "performer";
+          });
+
+          addUniqueLink(performer.otherLinks, {
+            label: "Performer",
+            url: performerUrl
+          });
+
+          return;
+        }
+
+        if (hasMigratedProfile) {
+          return;
         }
 
         addUniqueLink(performer.otherLinks, {
@@ -1232,6 +1286,7 @@
           });
 
           applyGlossaryPerformerUrl(performer, termRecord.performer_url);
+          applyBioPage(performer, termRecord.cast || {});
           applyLinks(performer, termRecord.cast || {});
         });
 
@@ -1407,13 +1462,13 @@
 
           var stageNameCell = createTextCell("stage-name");
 
-          if (performer.profileUrl) {
+          if (performer.bioPage) {
             var stageNameLink = document.createElement("a");
-            stageNameLink.href = performer.profileUrl;
+            stageNameLink.href = performer.bioPage;
             stageNameLink.textContent = performer.stageName;
             stageNameLink.setAttribute(
               "aria-label",
-              "Read " + performer.stageName + " profile"
+              "Read " + performer.stageName + " bio"
             );
             stageNameCell.appendChild(stageNameLink);
           } else {
