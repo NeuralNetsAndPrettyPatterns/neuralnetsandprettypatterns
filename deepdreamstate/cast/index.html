@@ -780,6 +780,7 @@
 
         if (bioPage) {
           performer.bioPage = bioPage;
+          performer.profileUrl = bioPage;
         }
       }
 
@@ -958,6 +959,7 @@
             performerId: performerId,
             stageName: stageName || performerId,
             bioPage: "",
+            profileUrl: "",
             characters: [],
             episodes: [],
             imdbLinks: [],
@@ -1188,6 +1190,7 @@
             performerId: performerId,
             stageName: stageName || performerId,
             bioPage: "",
+            profileUrl: "",
             characters: [],
             episodes: [],
             imdbLinks: [],
@@ -1234,8 +1237,21 @@
         });
 
         if (isNnppCastProfileUrl(performerUrl)) {
+          performer.profileUrl = performerUrl;
+
           performer.otherLinks = performer.otherLinks.filter(function (link) {
-            return cleanText(link.label).toLowerCase() !== "performer";
+            var label = cleanText(link.label).toLowerCase();
+            var url = cleanText(link.url);
+
+            if (label === "performer") {
+              return false;
+            }
+
+            if (/deepdreamstate\.blubrry\.net/i.test(url)) {
+              return false;
+            }
+
+            return true;
           });
 
           addUniqueLink(performer.otherLinks, {
@@ -1296,6 +1312,26 @@
       function finalizePerformers(map) {
         return Array.from(map.values())
           .map(function (performer) {
+            if (performer.profileUrl) {
+              performer.otherLinks = performer.otherLinks.filter(function (link) {
+                var url = cleanText(link.url);
+                var label = cleanText(link.label).toLowerCase();
+
+                if (/deepdreamstate\.blubrry\.net/i.test(url)) {
+                  return false;
+                }
+
+                if (
+                  label === "performer" &&
+                  !isNnppCastProfileUrl(url)
+                ) {
+                  return false;
+                }
+
+                return true;
+              });
+            }
+
             performer.characters.sort(function (a, b) {
               return a.name.localeCompare(b.name, undefined, {
                 sensitivity: "base"
@@ -1462,9 +1498,12 @@
 
           var stageNameCell = createTextCell("stage-name");
 
-          if (performer.bioPage) {
+          var stageProfileUrl =
+            performer.profileUrl || performer.bioPage;
+
+          if (stageProfileUrl) {
             var stageNameLink = document.createElement("a");
-            stageNameLink.href = performer.bioPage;
+            stageNameLink.href = stageProfileUrl;
             stageNameLink.textContent = performer.stageName;
             stageNameLink.setAttribute(
               "aria-label",
