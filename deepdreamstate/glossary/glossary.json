@@ -3075,5 +3075,16 @@
     "stageName": "Dizzy Dollie",
     "bio_page": "/deepdreamstate/cast/dizzy-dollie/"
   }
+},
+{
+  "term": "Elle Lawson",
+  "class": "character",
+  "performer": "Echo Doll",
+  "performer_url": "https://neuralnetsandprettypatterns.com/deepdreamstate/cast/echo-doll/",
+  "cast": {
+    "performerId": "echo-doll",
+    "stageName": "Echo Doll",
+    "bio_page": "/deepdreamstate/cast/echo-doll/"
+  }
 }
 ]
