@@ -111,7 +111,10 @@ export default {
     }
 
     async function serveHtml(repoPath, noStore = false) {
-      const res = await fetch(mainRepoUrl(repoPath));
+      const res = await fetch(
+        mainRepoUrl(repoPath),
+        { cache: "no-store" }
+      );
 
       return new Response(await res.text(), {
         status: res.ok ? 200 : 404,
@@ -183,7 +186,10 @@ export default {
       requestUrl
     ) {
       const repoPath = mainRepoPathForRequest(path);
-      const migratedRes = await fetch(mainRepoUrl(repoPath));
+      const migratedRes = await fetch(
+        mainRepoUrl(repoPath),
+        { cache: "no-store" }
+      );
 
       if (migratedRes.ok) {
         const ct =
@@ -543,15 +549,15 @@ export default {
       );
     }
 
-    // Deep Dream State cast page
+    // Deep Dream State cast pages
+    // Main repo wins when present; missing paths fall back to the legacy DDS site.
     if (
       p === "/deepdreamstate/cast" ||
-      p === "/deepdreamstate/cast/" ||
-      p === "/deepdreamstate/cast/index.html"
+      p.startsWith("/deepdreamstate/cast/")
     ) {
-      return serveHtml(
-        "/deepdreamstate/cast/index.html",
-        true
+      return serveMigratedDeepDreamStatePathWithFallback(
+        p,
+        url
       );
     }
 
