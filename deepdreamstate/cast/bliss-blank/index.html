@@ -30,17 +30,10 @@
     href="https://neuralnetsandprettypatterns.com/deepdreamstate/cast/bliss-blank/"
   >
 
-  <!-- Known-working NNPP favicon pattern -->
   <link
     rel="icon"
     type="image/png"
     sizes="512x512"
-    href="https://neuralnetsandprettypatterns.github.io/neuralnetsandprettypatterns/favicon-transparent.png"
-  >
-
-  <link
-    rel="shortcut icon"
-    type="image/png"
     href="https://neuralnetsandprettypatterns.github.io/neuralnetsandprettypatterns/favicon-transparent.png"
   >
 
@@ -311,18 +304,14 @@
       min-height: 100vh;
       overflow-x: hidden;
       color: #e8e8e8;
-      background:
-        radial-gradient(
-          circle at top,
-          rgba(52, 32, 70, 0.34),
-          transparent 34rem
-        ),
-        #050408;
+      background: #050408;
       font-family: "IM Fell DW Pica", serif;
       line-height: 1.7;
     }
 
     .container {
+      position: relative;
+      z-index: 1;
       width: min(1000px, 100%);
       margin: 0 auto;
       padding: 0 2rem;
@@ -337,17 +326,17 @@
     h1 {
       margin-bottom: 0.65rem;
       color: #f4f4f8;
-      font-size: clamp(2.6rem, 8vw, 4.6rem);
+      font-size: clamp(2.4rem, 7vw, 4rem);
       font-weight: normal;
       line-height: 1.05;
-      letter-spacing: 0.055em;
+      letter-spacing: 0.06em;
     }
 
     .logline {
       display: block;
       width: 100%;
-      color: rgba(232, 232, 232, 0.72);
-      font-size: 1.08rem;
+      color: rgba(232, 232, 232, 0.7);
+      font-size: 1.1rem;
       font-style: italic;
       letter-spacing: 0.04em;
       text-align: center;
@@ -359,34 +348,35 @@
       align-items: center;
       gap: 0.6rem;
       padding: 1.5rem 0 0;
-      flex-wrap: wrap;
     }
 
     .nav-button {
-      width: 45px;
-      min-width: 45px;
-      height: 45px;
-      padding: 0;
-      border: 1.5px solid #e8e8e8;
-      border-radius: 50%;
-      background: transparent;
-      color: #e8e8e8;
-      cursor: pointer;
       display: inline-flex;
+      flex-shrink: 0;
       justify-content: center;
       align-items: center;
-      flex-shrink: 0;
-      text-decoration: none;
+      width: 45px;
+      height: 45px;
+      border: 1.5px solid #e8e8e8;
+      border-radius: 50%;
+      color: #e8e8e8;
+      background: transparent;
+      cursor: pointer;
       font-family: "IM Fell DW Pica", serif;
       font-size: 0.65rem;
-      line-height: 1;
       letter-spacing: 0.1em;
-      text-align: center;
-      white-space: normal;
+      text-decoration: none;
       transition:
         background 0.25s ease,
         color 0.25s ease,
         transform 0.25s ease;
+    }
+
+    .nav-button:hover,
+    .nav-button:focus-visible {
+      color: #130c1c;
+      background: #e8e8e8;
+      transform: scale(1.08);
     }
 
     .nav-button.text-btn {
@@ -394,23 +384,11 @@
       font-size: 0.55rem;
       line-height: 1.05;
       letter-spacing: 0.04em;
-    }
-
-    .nav-button:hover,
-    .nav-button:focus-visible {
-      background: #e8e8e8;
-      color: #1a0a2e;
-      transform: scale(1.08);
-    }
-
-    .nav-button svg {
-      width: 20px;
-      height: 20px;
-      fill: currentColor;
+      text-align: center;
     }
 
     main {
-      padding: 2.75rem 0 3.5rem;
+      padding: 2.75rem 0 3rem;
     }
 
     article {
@@ -419,29 +397,32 @@
     }
 
     article p {
-      margin-bottom: 1.25rem;
+      margin-bottom: 1.2rem;
       color: #ececf0;
-      font-size: 1.06rem;
+      font-size: 1.05rem;
+    }
+
+    article a,
+    footer a {
+      color: #f4f4f8;
+      text-decoration: underline;
+      text-decoration-color: rgba(244, 244, 248, 0.45);
+      text-underline-offset: 0.2em;
+    }
+
+    article a:hover,
+    article a:focus-visible,
+    footer a:hover,
+    footer a:focus-visible {
+      text-decoration-color: #f4f4f8;
     }
 
     h2 {
-      margin: 2.4rem 0 1rem;
-      color: #ffffff;
+      margin: 2.35rem 0 1rem;
+      color: #f4f4f8;
       font-size: 1.55rem;
       font-weight: normal;
       letter-spacing: 0.04em;
-    }
-
-    a {
-      color: #ffffff;
-      text-decoration: underline;
-      text-decoration-color: rgba(255, 255, 255, 0.42);
-      text-underline-offset: 0.18em;
-    }
-
-    a:hover,
-    a:focus-visible {
-      text-decoration-color: #ffffff;
     }
 
     .role-list,
@@ -459,35 +440,22 @@
       background: rgba(255, 255, 255, 0.035);
     }
 
-    .role-name {
-      color: #ffffff;
-      font-weight: bold;
-    }
-
-    .page-links {
-      display: flex;
-      flex-wrap: wrap;
-      gap: 0.6rem 1.2rem;
-      margin-top: 2.7rem;
-      padding-top: 1.6rem;
-      border-top: 1px solid rgba(232, 232, 232, 0.14);
-      justify-content: center;
-    }
-
-    footer {
+    .footer-text {
+      max-width: 900px;
+      margin: 3rem auto 0;
       padding: 2rem 0 3rem;
       border-top: 1px solid rgba(232, 232, 232, 0.14);
-      color: rgba(232, 232, 232, 0.72);
+      color: rgba(232, 232, 232, 0.8);
       text-align: center;
     }
 
-    footer p {
-      margin-bottom: 0.7rem;
+    .footer-text p {
+      margin-bottom: 1rem;
     }
 
     .isni {
-      font-size: 0.76rem;
-      letter-spacing: 0.06em;
+      font-size: 0.72rem;
+      letter-spacing: 0.08em;
     }
 
     @media (max-width: 700px) {
@@ -509,7 +477,6 @@
 
       .nav-button {
         width: 40px;
-        min-width: 40px;
         height: 40px;
       }
 
@@ -529,7 +496,6 @@
         Voice Actor · Co-Director · Editor · Archivist
       </span>
 
-      <!-- Shared DDS button row. Do not hardcode navigation buttons here. -->
       <div
         class="nav-buttons dynamic-dds-nav"
         role="navigation"
@@ -601,30 +567,13 @@
 
         <ul class="role-list">
           <li>
-            <span class="role-name">
-              <a href="https://neuralnetsandprettypatterns.com/deepdreamstate/glossary/#olivia">
-                Olivia
-              </a>
-            </span>
-            · <em>Chthonic</em>
+            <strong>Olivia</strong> · <em>Chthonic</em>
           </li>
-
           <li>
-            <span class="role-name">
-              <a href="https://neuralnetsandprettypatterns.com/deepdreamstate/glossary/#april">
-                April
-              </a>
-            </span>
-            · <em>Incognitoh</em>
+            <strong>April</strong> · <em>Incognitoh</em>
           </li>
-
           <li>
-            <span class="role-name">
-              <a href="https://neuralnetsandprettypatterns.com/deepdreamstate/glossary/#june-lowell">
-                Dr. June Lowell
-              </a>
-            </span>
-            · <em>The Sitri Center</em> · <em>Vale Four</em>
+            <strong>Dr. June Lowell</strong> · <em>The Sitri Center</em> · <em>Vale Four</em>
           </li>
         </ul>
 
@@ -640,7 +589,6 @@
               IMDb
             </a>
           </li>
-
           <li>
             <a
               href="https://www.tumblr.com/blog/blink-blank-bliss"
@@ -655,10 +603,11 @@
         <h2>More Neural Nets and Pretty Patterns</h2>
 
         <p>
-          Neural Nets and Pretty Patterns maintains a much larger catalogue
-          beyond <em>Deep Dream State</em>. Explore the
+          Neural Nets and Pretty Patterns maintains a vast catalogue beyond
+          <em>Deep Dream State</em>. To explore more of that world or support
+          future releases, visit
           <a href="https://neuralnetsandprettypatterns.com/">
-            Neural Nets and Pretty Patterns catalogue
+            Neural Nets and Pretty Patterns
           </a>
           or
           <a
@@ -666,41 +615,30 @@
             target="_blank"
             rel="noopener"
           >
-            support future releases on Patreon
+            Patreon
           </a>.
         </p>
+      </article>
 
-        <div class="page-links">
+      <footer class="footer-text">
+        <p>
           <a href="https://neuralnetsandprettypatterns.com/deepdreamstate/cast/">
-            Cast
+            Return to the Deep Dream State cast.
           </a>
+        </p>
 
-          <a href="https://neuralnetsandprettypatterns.com/deepdreamstate/glossary/">
-            Lore Glossary
-          </a>
-
+        <p class="isni">
           <a href="https://neuralnetsandprettypatterns.com/deepdreamstate/">
             Deep Dream State
           </a>
-        </div>
-      </article>
+          by
+          <a href="https://neuralnetsandprettypatterns.com/">
+            Neural Nets and Pretty Patterns
+          </a>
+          · ISNI 0000 0005 2877 6254
+        </p>
+      </footer>
     </main>
-
-    <footer>
-      <p>
-        <a href="https://neuralnetsandprettypatterns.com/deepdreamstate/">
-          Deep Dream State
-        </a>
-        by
-        <a href="https://neuralnetsandprettypatterns.com/">
-          Neural Nets and Pretty Patterns
-        </a>
-      </p>
-
-      <p class="isni">
-        ISNI: 0000 0005 2877 6254
-      </p>
-    </footer>
   </div>
 </body>
 </html>
