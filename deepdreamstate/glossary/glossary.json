@@ -3032,16 +3032,26 @@
       }
     ]
   },
-  {
-    "term": "Nyra",
-    "appearances": [
-      {
-        "ge": 44,
-        "season": 4,
-        "episode": 17,
-        "title": "Yield",
-        "url": "https://neuralnetsandprettypatterns.com/deepdreamstate/arcs/vale-four/episode-17-yield/"
-      }
-    ]
+{
+  "term": "Nyra",
+  "appearances": [
+    {
+      "ge": 44,
+      "season": 4,
+      "episode": 17,
+      "title": "Yield",
+      "url": "https://neuralnetsandprettypatterns.com/deepdreamstate/arcs/vale-four/episode-17-yield/"
+    }
+  ]
+},
+{
+  "term": "Olivia",
+  "class": "character",
+  "performer": "Bliss Blank",
+  "cast": {
+    "performerId": "bliss-blank",
+    "stageName": "Bliss Blank",
+    "bio_page": "/deepdreamstate/cast/bliss-blank/"
   }
+}
 ]
