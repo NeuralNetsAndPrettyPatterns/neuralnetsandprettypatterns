@@ -3091,5 +3091,16 @@
     "stageName": "Echo Doll",
     "bio_page": "/deepdreamstate/cast/echo-doll/"
   }
+},
+{
+  "term": "Lyra Crosswell",
+  "class": "character",
+  "performer": "Flux Lynniegal",
+  "performer_url": "https://neuralnetsandprettypatterns.com/deepdreamstate/cast/flux-lynniegal/",
+  "cast": {
+    "performerId": "flux-lynniegal",
+    "stageName": "Flux Lynniegal",
+    "bio_page": "/deepdreamstate/cast/flux-lynniegal/"
+  }
 }
 ]
