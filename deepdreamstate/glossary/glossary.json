@@ -448,14 +448,19 @@
       }
     ]
   },
-  {
-    "term": "Nikita",
-    "class": "Character",
-    "definition": "Ship maid of the Chthonic, introduced by Olivia as a demonstration. Her uniform is described as scandalous. She hears things no one else notices because no one locks up their secrets around the maid. Her whispered phrase after Room 203 — puppets program puppets — surfaces something the show will not let go of. In E7 she appears in surveillance playback as Nikki, fully conditioned, reporting on Holly's movements and reciting the gold star creed for Captain Dyer and Olivia. In E8 she administers liquid praise to Holly inside the Lotus and helps brand her with the Naditu sigil. In E9 she hands out gold-star rave merchandise as the ship's flooding begins.",
-    "performer": "Echo",
-    "performer_url": "https://deepdreamstate.blubrry.net/echo/",
-    "links": []
+ {
+  "term": "Nikita",
+  "class": "Character",
+  "definition": "Ship maid of the Chthonic, introduced by Olivia as a demonstration. Her uniform is described as scandalous. She hears things no one else notices because no one locks up their secrets around the maid. Her whispered phrase after Room 203 — puppets program puppets — surfaces something the show will not let go of. In E7 she appears in surveillance playback as Nikki, fully conditioned, reporting on Holly's movements and reciting the gold star creed for Captain Dyer and Olivia. In E8 she administers liquid praise to Holly inside the Lotus and helps brand her with the Naditu sigil. In E9 she hands out gold-star rave merchandise as the ship's flooding begins.",
+  "performer": "Echo Doll",
+  "performer_url": "https://neuralnetsandprettypatterns.com/deepdreamstate/cast/echo-doll/",
+  "cast": {
+    "performerId": "echo-doll",
+    "stageName": "Echo Doll",
+    "bio_page": "/deepdreamstate/cast/echo-doll/"
   },
+  "links": []
+},
   {
     "term": "Non-Euclidean",
     "class": "Plot Detail",
