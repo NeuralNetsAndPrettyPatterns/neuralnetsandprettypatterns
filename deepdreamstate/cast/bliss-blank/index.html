@@ -89,8 +89,18 @@
   >
 
   <meta
+    property="og:image"
+    content="https://neuralnetsandprettypatterns.com/deepdreamstate/dds-cast.webp"
+  >
+
+  <meta
+    property="og:image:alt"
+    content="A dark theatrical stage representing the cast of Deep Dream State"
+  >
+
+  <meta
     name="twitter:card"
-    content="summary"
+    content="summary_large_image"
   >
 
   <meta
@@ -101,6 +111,16 @@
   <meta
     name="twitter:description"
     content="Meet Bliss Blank, voice actor, co-director, editor, archivist, and one of the defining creative voices of Deep Dream State."
+  >
+
+  <meta
+    name="twitter:image"
+    content="https://neuralnetsandprettypatterns.com/deepdreamstate/dds-cast.webp"
+  >
+
+  <meta
+    name="twitter:image:alt"
+    content="A dark theatrical stage representing the cast of Deep Dream State"
   >
 
   <meta
@@ -207,10 +227,7 @@
         "sameAs": [
           "https://www.imdb.com/name/nm17754818/",
           "https://www.tumblr.com/blog/blink-blank-bliss"
-        ],
-        "mainEntityOfPage": {
-          "@id": "https://neuralnetsandprettypatterns.com/deepdreamstate/cast/bliss-blank/#page"
-        }
+        ]
       },
       {
         "@type": "BreadcrumbList",
@@ -263,6 +280,10 @@
         "breadcrumb": {
           "@id": "https://neuralnetsandprettypatterns.com/deepdreamstate/cast/bliss-blank/#breadcrumb"
         },
+        "primaryImageOfPage": {
+          "@type": "ImageObject",
+          "url": "https://neuralnetsandprettypatterns.com/deepdreamstate/dds-cast.webp"
+        },
         "inLanguage": "en-US"
       }
     ]
@@ -309,10 +330,26 @@
       line-height: 1.7;
     }
 
+    #background-container {
+      position: fixed;
+      inset: 0;
+      z-index: 0;
+      background-color: #050408;
+      background-image:
+        linear-gradient(
+          rgba(0, 0, 0, 0.45),
+          rgba(0, 0, 0, 0.55)
+        ),
+        url("/deepdreamstate/dds-cast.webp");
+      background-position: center;
+      background-repeat: no-repeat;
+      background-size: cover;
+    }
+
     .container {
       position: relative;
       z-index: 1;
-      width: min(1000px, 100%);
+      width: min(1100px, 100%);
       margin: 0 auto;
       padding: 0 2rem;
     }
@@ -391,53 +428,52 @@
       padding: 2.75rem 0 3rem;
     }
 
-    article {
-      max-width: 820px;
+    .profile {
+      max-width: 900px;
       margin: 0 auto;
+      padding: 2rem;
+      border: 1px solid rgba(232, 232, 232, 0.18);
+      background: rgba(4, 3, 7, 0.78);
+      box-shadow: 0 20px 60px rgba(0, 0, 0, 0.35);
     }
 
-    article p {
+    .profile p {
       margin-bottom: 1.2rem;
       color: #ececf0;
       font-size: 1.05rem;
     }
 
-    article a,
-    footer a {
+    .profile a,
+    .footer-text a {
       color: #f4f4f8;
       text-decoration: underline;
       text-decoration-color: rgba(244, 244, 248, 0.45);
       text-underline-offset: 0.2em;
     }
 
-    article a:hover,
-    article a:focus-visible,
-    footer a:hover,
-    footer a:focus-visible {
+    .profile a:hover,
+    .profile a:focus-visible,
+    .footer-text a:hover,
+    .footer-text a:focus-visible {
       text-decoration-color: #f4f4f8;
     }
 
     h2 {
-      margin: 2.35rem 0 1rem;
+      margin: 2.2rem 0 0.85rem;
       color: #f4f4f8;
-      font-size: 1.55rem;
+      font-size: 1.45rem;
       font-weight: normal;
-      letter-spacing: 0.04em;
+      letter-spacing: 0.05em;
     }
 
     .role-list,
     .profile-links {
-      list-style: none;
-      margin: 0 0 1.5rem;
-      padding: 0;
+      margin: 0 0 1.5rem 1.3rem;
     }
 
     .role-list li,
     .profile-links li {
-      margin-bottom: 0.6rem;
-      padding: 0.8rem 1rem;
-      border-left: 2px solid rgba(232, 232, 232, 0.32);
-      background: rgba(255, 255, 255, 0.035);
+      margin-bottom: 0.5rem;
     }
 
     .footer-text {
@@ -480,7 +516,11 @@
         height: 40px;
       }
 
-      article p {
+      .profile {
+        padding: 1.3rem;
+      }
+
+      .profile p {
         font-size: 1rem;
       }
     }
@@ -488,6 +528,8 @@
 </head>
 
 <body>
+  <div id="background-container"></div>
+
   <div class="container">
     <header>
       <h1>Bliss Blank</h1>
@@ -506,7 +548,7 @@
     </header>
 
     <main>
-      <article>
+      <article class="profile">
         <p>
           Bliss Blank is one of the defining voices and creative forces of
           Neural Nets and Pretty Patterns. As co-director, editorial guru,
@@ -566,14 +608,11 @@
         <h2>Deep Dream State Roles</h2>
 
         <ul class="role-list">
+          <li><strong>Olivia</strong> · <em>Chthonic</em></li>
+          <li><strong>April</strong> · <em>Incognitoh</em></li>
           <li>
-            <strong>Olivia</strong> · <em>Chthonic</em>
-          </li>
-          <li>
-            <strong>April</strong> · <em>Incognitoh</em>
-          </li>
-          <li>
-            <strong>Dr. June Lowell</strong> · <em>The Sitri Center</em> · <em>Vale Four</em>
+            <strong>Dr. June Lowell</strong> ·
+            <em>The Sitri Center</em> · <em>Vale Four</em>
           </li>
         </ul>
 
@@ -589,6 +628,7 @@
               IMDb
             </a>
           </li>
+
           <li>
             <a
               href="https://www.tumblr.com/blog/blink-blank-bliss"
