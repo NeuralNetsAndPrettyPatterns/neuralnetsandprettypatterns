@@ -64,10 +64,13 @@ export default {
       "https://neuralnetsandprettypatterns.github.io/deepdreamstate";
 
     const RELEASES_JSON_PATH =
-      "/neuralnetsandprettypatterns/releases.json";
+      "/releases.json";
 
     const GLOSSARY_JSON_PATH =
       "/deepdreamstate/glossary/glossary.json";
+
+    const DDS_RSS_URL =
+      "https://deepdreamstate.blubrry.net/feed/podcast/";
 
     const contentTypes = {
       ".html": "text/html; charset=utf-8",
@@ -278,18 +281,43 @@ export default {
           ? data.new_releases
           : [];
 
-      return releases
+      const published = releases
         .filter(release => {
           const date =
             String(release?.release_date ?? "").trim();
 
           return /^\d{4}-\d{2}-\d{2}$/.test(date);
         })
-        .sort((a, b) =>
-          String(b.release_date).localeCompare(
-            String(a.release_date)
-          )
-        )[0] || null;
+        .map((release, index) => ({
+          release,
+          sourceIndex: index
+        }))
+        .sort((a, b) => {
+          const dateCompare =
+            String(a.release.release_date)
+              .localeCompare(
+                String(b.release.release_date)
+              );
+
+          if (dateCompare !== 0) {
+            return dateCompare;
+          }
+
+          return a.sourceIndex - b.sourceIndex;
+        });
+
+      if (published.length === 0) {
+        return null;
+      }
+
+      const latest =
+        published[published.length - 1];
+
+      return {
+        ...latest.release,
+        release_number: published.length,
+        release_total: published.length
+      };
     }
 
     function episodeRichness(episode) {
@@ -315,7 +343,7 @@ export default {
                 : []
             );
 
-      let latest = null;
+      const byGe = new Map();
 
       records.forEach(record => {
         const appearances =
@@ -342,21 +370,34 @@ export default {
               String(appearance?.url ?? "").trim()
           };
 
+          const existing = byGe.get(ge);
+
           if (
-            !latest ||
-            candidate.ge > latest.ge ||
-            (
-              candidate.ge === latest.ge &&
-              episodeRichness(candidate) >
-                episodeRichness(latest)
-            )
+            !existing ||
+            episodeRichness(candidate) >
+              episodeRichness(existing)
           ) {
-            latest = candidate;
+            byGe.set(ge, candidate);
           }
         });
       });
 
-      return latest;
+      const episodes =
+        Array.from(byGe.values())
+          .sort((a, b) => a.ge - b.ge);
+
+      if (episodes.length === 0) {
+        return null;
+      }
+
+      const latest =
+        episodes[episodes.length - 1];
+
+      return {
+        ...latest,
+        episode_number_overall: episodes.length,
+        episode_total: episodes.length
+      };
     }
 
     function renderHomeLinks(links) {
@@ -436,6 +477,7 @@ export default {
         String(release.length ?? "").trim();
 
       const meta = [
+        ...series,
         date,
         length,
         ...genres
@@ -458,15 +500,6 @@ export default {
           )
         : "";
 
-      const seriesMarkup =
-        series.length > 0
-          ? (
-              `<div class="featured-kicker">` +
-              `${homeEscapeHtml(series.join(" · "))}` +
-              `</div>`
-            )
-          : "";
-
       const metaMarkup =
         meta.length > 0
           ? (
@@ -481,12 +514,23 @@ export default {
           ? `<p>${homeEscapeHtml(description)}</p>`
           : "";
 
+      const counterMarkup =
+        release.release_number &&
+        release.release_total
+          ? (
+              `<div class="featured-counter">` +
+              `Release ${homeEscapeHtml(release.release_number)}` +
+              ` of ${homeEscapeHtml(release.release_total)}` +
+              `</div>`
+            )
+          : "";
+
       return (
         `<article class="featured-card` +
         `${image ? " has-art" : ""}">` +
         imageMarkup +
         `<div class="featured-copy">` +
-        seriesMarkup +
+        counterMarkup +
         `<h2>${titleMarkup}</h2>` +
         metaMarkup +
         descriptionMarkup +
@@ -494,6 +538,351 @@ export default {
         `</div>` +
         `</article>`
       );
+    }
+
+    function homeEpisodeArcName(url) {
+      const text = String(url ?? "").trim();
+      const match = text.match(/\/arcs\/([^/]+)/i);
+
+      if (!match) return "";
+
+      return match[1]
+        .split("-")
+        .filter(Boolean)
+        .map(
+          word =>
+            word.charAt(0).toUpperCase() +
+            word.slice(1)
+        )
+        .join(" ");
+    }
+
+    function homeEpisodeRepoPath(url) {
+      const safe = homeSafeUrl(url);
+
+      if (!safe) return "";
+
+      try {
+        const parsed = new URL(safe);
+
+        if (
+          parsed.hostname !==
+          "neuralnetsandprettypatterns.com"
+        ) {
+          return "";
+        }
+
+        const path = parsed.pathname;
+
+        if (path.endsWith("/")) {
+          return `${path}index.html`;
+        }
+
+        if (fileType(path)) {
+          return path;
+        }
+
+        return `${path}/index.html`;
+      } catch (error) {
+        return "";
+      }
+    }
+
+    function homeHtmlTextLines(html) {
+      return String(html ?? "")
+        .replace(
+          /<script\b[^>]*>[\s\S]*?<\/script>/gi,
+          " "
+        )
+        .replace(
+          /<style\b[^>]*>[\s\S]*?<\/style>/gi,
+          " "
+        )
+        .replace(
+          /<(?:br|\/p|\/div|\/h[1-6]|\/li|\/section|\/article|\/header|\/footer|\/figure|\/nav)>/gi,
+          "\n"
+        )
+        .replace(/<[^>]+>/g, " ")
+        .replace(/&nbsp;/gi, " ")
+        .replace(/&amp;/gi, "&")
+        .replace(/&quot;/gi, '"')
+        .replace(/&#39;|&apos;/gi, "'")
+        .replace(/&lt;/gi, "<")
+        .replace(/&gt;/gi, ">")
+        .split(/\n+/)
+        .map(line =>
+          line.replace(/\s+/g, " ").trim()
+        )
+        .filter(Boolean);
+    }
+
+    function homeFindEpisodeTagline(
+      lines,
+      episode
+    ) {
+      const metadataPattern =
+        new RegExp(
+          `^S${episode.season}\\s*E${episode.episode}` +
+          `.*GE${episode.ge}`,
+          "i"
+        );
+
+      const index =
+        lines.findIndex(line =>
+          metadataPattern.test(line)
+        );
+
+      if (index === -1) return "";
+
+      for (
+        let i = index + 1;
+        i < Math.min(lines.length, index + 8);
+        i += 1
+      ) {
+        const line = lines[i];
+
+        if (
+          !line ||
+          line === "‹" ||
+          line === "›" ||
+          line.length > 180 ||
+          /^Official cover art/i.test(line) ||
+          /^Image:/i.test(line)
+        ) {
+          continue;
+        }
+
+        return line;
+      }
+
+      return "";
+    }
+
+    function homeFindEpisodeSummary(lines) {
+      const index =
+        lines.findIndex(
+          line =>
+            line.trim().toLowerCase() ===
+            "summary"
+        );
+
+      if (index === -1) return "";
+
+      for (
+        let i = index + 1;
+        i < Math.min(lines.length, index + 8);
+        i += 1
+      ) {
+        const line = lines[i];
+
+        if (
+          line &&
+          line.length <= 360
+        ) {
+          return line;
+        }
+      }
+
+      return "";
+    }
+
+    function homeDecodeFeedText(value) {
+      return String(value ?? "")
+        .replace(/^<!\[CDATA\[|\]\]>$/g, "")
+        .replace(/&nbsp;/gi, " ")
+        .replace(/&amp;/gi, "&")
+        .replace(/&quot;/gi, '"')
+        .replace(/&#39;|&apos;/gi, "'")
+        .replace(/&lt;/gi, "<")
+        .replace(/&gt;/gi, ">")
+        .replace(/&#(\d+);/g, (_, code) =>
+          String.fromCharCode(Number(code))
+        )
+        .replace(/<[^>]+>/g, " ")
+        .replace(/\s+/g, " ")
+        .trim();
+    }
+
+    function homeFeedTag(item, tagName) {
+      const escaped =
+        String(tagName).replace(":", "\\:");
+
+      const match = item.match(
+        new RegExp(
+          `<${escaped}[^>]*>([\\s\\S]*?)<\\/${escaped}>`,
+          "i"
+        )
+      );
+
+      return match
+        ? homeDecodeFeedText(match[1])
+        : "";
+    }
+
+    function homeFirstSentences(text, count = 2) {
+      const clean =
+        String(text ?? "")
+          .replace(/\s+/g, " ")
+          .trim();
+
+      if (!clean) return "";
+
+      const sentences =
+        clean.match(/[^.!?]+[.!?]+(?:["')\]]+)?|[^.!?]+$/g)
+          || [];
+
+      return sentences
+        .slice(0, count)
+        .join(" ")
+        .trim();
+    }
+
+    function homeFindEpisodeFeedSummary(
+      xml,
+      episode
+    ) {
+      const items =
+        String(xml ?? "")
+          .match(/<item\b[\s\S]*?<\/item>/gi)
+          || [];
+
+      const geNeedle =
+        `GE${episode.ge}`.toLowerCase();
+
+      const titleNeedle =
+        String(episode.title ?? "")
+          .trim()
+          .toLowerCase();
+
+      let selected = "";
+
+      for (const item of items) {
+        const title =
+          homeFeedTag(item, "title")
+            .toLowerCase();
+
+        if (
+          title.includes(geNeedle) ||
+          (
+            titleNeedle &&
+            title.includes(titleNeedle)
+          )
+        ) {
+          selected = item;
+          break;
+        }
+      }
+
+      if (!selected) return "";
+
+      const summary =
+        homeFeedTag(
+          selected,
+          "itunes:summary"
+        ) ||
+        homeFeedTag(
+          selected,
+          "description"
+        );
+
+      return homeFirstSentences(summary, 2);
+    }
+
+    async function enrichLatestEpisode(episode) {
+      if (!episode) return null;
+
+      const enriched = {
+        ...episode,
+        arc: homeEpisodeArcName(episode.url),
+        tagline: "",
+        summary: ""
+      };
+
+      const repoPath =
+        homeEpisodeRepoPath(episode.url);
+
+      const requests = [
+        fetch(
+          DDS_RSS_URL,
+          { cache: "no-store" }
+        )
+      ];
+
+      if (repoPath) {
+        requests.push(
+          fetch(
+            mainRepoUrl(repoPath),
+            { cache: "no-store" }
+          )
+        );
+      }
+
+      const results =
+        await Promise.allSettled(requests);
+
+      const rssResult = results[0];
+
+      if (
+        rssResult.status === "fulfilled" &&
+        rssResult.value.ok
+      ) {
+        try {
+          const feedSummary =
+            homeFindEpisodeFeedSummary(
+              await rssResult.value.text(),
+              episode
+            );
+
+          if (feedSummary) {
+            enriched.summary = feedSummary;
+          }
+        } catch (error) {
+          console.error(
+            "Homepage RSS summary parsing failed:",
+            error
+          );
+        }
+      }
+
+      const pageResult =
+        repoPath ? results[1] : null;
+
+      if (
+        pageResult &&
+        pageResult.status === "fulfilled" &&
+        pageResult.value.ok
+      ) {
+        try {
+          const pageHtml =
+            await pageResult.value.text();
+
+          const lines =
+            homeHtmlTextLines(pageHtml);
+
+          enriched.tagline =
+            homeFindEpisodeTagline(
+              lines,
+              episode
+            );
+
+          if (!enriched.summary) {
+            enriched.summary =
+              homeFirstSentences(
+                homeFindEpisodeSummary(lines),
+                2
+              );
+          }
+
+          return enriched;
+        } catch (error) {
+          console.error(
+            "Homepage episode page enrichment failed:",
+            error
+          );
+        }
+      }
+
+      return enriched;
     }
 
     function renderLatestEpisode(episode) {
@@ -525,9 +914,27 @@ export default {
 
       const meta = [
         "Deep Dream State",
+        episode.arc || "",
         episodeLabel,
         `GE${episode.ge}`
       ].filter(Boolean);
+
+      const taglineMarkup =
+        episode.tagline
+          ? (
+              `<div class="featured-tagline">` +
+              `${homeEscapeHtml(episode.tagline)}` +
+              `</div>`
+            )
+          : "";
+
+      const summaryMarkup =
+        episode.summary
+          ? `<p>${homeEscapeHtml(episode.summary)}</p>`
+          : (
+              `<p>The latest episode of ` +
+              `<em>Deep Dream State</em>.</p>`
+            );
 
       const action = url
         ? (
@@ -537,14 +944,27 @@ export default {
           )
         : "";
 
+      const counterMarkup =
+        episode.episode_number_overall &&
+        episode.episode_total
+          ? (
+              `<div class="featured-counter">` +
+              `Episode ${homeEscapeHtml(episode.episode_number_overall)}` +
+              ` of ${homeEscapeHtml(episode.episode_total)}` +
+              `</div>`
+            )
+          : "";
+
       return (
         `<article class="featured-card">` +
         `<div class="featured-copy">` +
-        `<div class="featured-kicker">Latest episode</div>` +
+        counterMarkup +
         `<h2>${titleMarkup}</h2>` +
         `<div class="featured-meta">` +
         `${homeEscapeHtml(meta.join(" · "))}` +
         `</div>` +
+        taglineMarkup +
+        summaryMarkup +
         action +
         `</div>` +
         `</article>`
@@ -650,14 +1070,22 @@ export default {
           const glossaryData =
             await glossaryRes.json();
 
+          const latestEpisode =
+            latestEpisodeFromGlossary(
+              glossaryData
+            );
+
+          const enrichedEpisode =
+            await enrichLatestEpisode(
+              latestEpisode
+            );
+
           html = replaceHomeRegion(
             html,
             "<!-- LATEST_EPISODE_START -->",
             "<!-- LATEST_EPISODE_END -->",
             renderLatestEpisode(
-              latestEpisodeFromGlossary(
-                glossaryData
-              )
+              enrichedEpisode
             )
           );
         } catch (error) {
