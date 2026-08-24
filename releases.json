@@ -276,7 +276,7 @@
         "music": ""
       }
     },
-    {
+   {
       "title": "Performance Plan",
       "series": [
         "Neuroplex"
@@ -306,10 +306,45 @@
           "url": "https://musicbrainz.org/release/aadd992a-ccfb-4370-b261-7871b3152054"
         }
       ],
-     "is_free": false,
+      "is_free": false,
       "description": "Kitten Azazel performs C Suite. She previously performed on Pump. The track depicts an office setting within the Neuralverse's control economy, following prior tracks depicting baristas, secretaries, flight attendants, influencers, and gym trainers. The controlling entity is Neuroplex. Part of the Neuralverse's Return to Simplicity, a mantric, stripped-down style distinct from the main narrative's prose.",
       "credits": {
         "music": ""
+      }
+    },
+    {
+      "title": "Pom Buzz",
+      "series": [
+        "1 2 3 4"
+      ],
+      "release_date": "2026-08-23",
+      "genre": [
+        "Chant",
+        "Dance"
+      ],
+      "power_geometry": [
+        "fs"
+      ],
+      "format": "Pure audio",
+      "length": "31:22",
+      "duration_iso": "PT31M22S",
+      "canonical_url": "https://www.patreon.com/minderaser/posts/pom-buzz-all-fem-167510408",
+      "same_as": [],
+      "image": "https://neuralnetsandprettypatterns.com/neuralpedia/pombuzz.jpg",
+      "links": [
+        {
+          "label": "Patreon",
+          "url": "https://www.patreon.com/minderaser/posts/pom-buzz-all-fem-167510408"
+        },
+        {
+          "label": "Series",
+          "url": "https://neuralnetsandprettypatterns.com/neuralpedia/1-2-3-4/"
+        }
+      ],
+      "is_free": false,
+      "description": "Pom Buzz is the latest in a line of 1 2 3 4 chant releases for varsity-level cheer spirit. It's pure vibes, without the extensive lore and backstory of many recent releases. The squad performs a high-energy routine in a crowded stadium, showing off their best pomgrip.",
+      "credits": {
+        "performer": "Vampy McVampface, Echo Doll, Bun Li, TBQ"
       }
     }
   ]
