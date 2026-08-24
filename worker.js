@@ -69,9 +69,6 @@ export default {
     const GLOSSARY_JSON_PATH =
       "/deepdreamstate/glossary/glossary.json";
 
-    const DDS_RSS_URL =
-      "https://deepdreamstate.blubrry.net/feed/podcast/";
-
     const contentTypes = {
       ".html": "text/html; charset=utf-8",
       ".jpg": "image/jpeg",
@@ -343,7 +340,7 @@ export default {
                 : []
             );
 
-      const byGe = new Map();
+      let latest = null;
 
       records.forEach(record => {
         const appearances =
@@ -370,33 +367,28 @@ export default {
               String(appearance?.url ?? "").trim()
           };
 
-          const existing = byGe.get(ge);
-
           if (
-            !existing ||
-            episodeRichness(candidate) >
-              episodeRichness(existing)
+            !latest ||
+            candidate.ge > latest.ge ||
+            (
+              candidate.ge === latest.ge &&
+              episodeRichness(candidate) >
+                episodeRichness(latest)
+            )
           ) {
-            byGe.set(ge, candidate);
+            latest = candidate;
           }
         });
       });
 
-      const episodes =
-        Array.from(byGe.values())
-          .sort((a, b) => a.ge - b.ge);
-
-      if (episodes.length === 0) {
+      if (!latest) {
         return null;
       }
 
-      const latest =
-        episodes[episodes.length - 1];
-
       return {
         ...latest,
-        episode_number_overall: episodes.length,
-        episode_total: episodes.length
+        episode_number_overall: latest.ge,
+        episode_total: latest.ge
       };
     }
 
@@ -588,107 +580,8 @@ export default {
       }
     }
 
-    function homeHtmlTextLines(html) {
-      return String(html ?? "")
-        .replace(
-          /<script\b[^>]*>[\s\S]*?<\/script>/gi,
-          " "
-        )
-        .replace(
-          /<style\b[^>]*>[\s\S]*?<\/style>/gi,
-          " "
-        )
-        .replace(
-          /<(?:br|\/p|\/div|\/h[1-6]|\/li|\/section|\/article|\/header|\/footer|\/figure|\/nav)>/gi,
-          "\n"
-        )
-        .replace(/<[^>]+>/g, " ")
-        .replace(/&nbsp;/gi, " ")
-        .replace(/&amp;/gi, "&")
-        .replace(/&quot;/gi, '"')
-        .replace(/&#39;|&apos;/gi, "'")
-        .replace(/&lt;/gi, "<")
-        .replace(/&gt;/gi, ">")
-        .split(/\n+/)
-        .map(line =>
-          line.replace(/\s+/g, " ").trim()
-        )
-        .filter(Boolean);
-    }
-
-    function homeFindEpisodeTagline(
-      lines,
-      episode
-    ) {
-      const metadataPattern =
-        new RegExp(
-          `^S${episode.season}\\s*E${episode.episode}` +
-          `.*GE${episode.ge}`,
-          "i"
-        );
-
-      const index =
-        lines.findIndex(line =>
-          metadataPattern.test(line)
-        );
-
-      if (index === -1) return "";
-
-      for (
-        let i = index + 1;
-        i < Math.min(lines.length, index + 8);
-        i += 1
-      ) {
-        const line = lines[i];
-
-        if (
-          !line ||
-          line === "‹" ||
-          line === "›" ||
-          line.length > 180 ||
-          /^Official cover art/i.test(line) ||
-          /^Image:/i.test(line)
-        ) {
-          continue;
-        }
-
-        return line;
-      }
-
-      return "";
-    }
-
-    function homeFindEpisodeSummary(lines) {
-      const index =
-        lines.findIndex(
-          line =>
-            line.trim().toLowerCase() ===
-            "summary"
-        );
-
-      if (index === -1) return "";
-
-      for (
-        let i = index + 1;
-        i < Math.min(lines.length, index + 8);
-        i += 1
-      ) {
-        const line = lines[i];
-
-        if (
-          line &&
-          line.length <= 360
-        ) {
-          return line;
-        }
-      }
-
-      return "";
-    }
-
-    function homeDecodeFeedText(value) {
+    function homeDecodeHtmlEntities(value) {
       return String(value ?? "")
-        .replace(/^<!\[CDATA\[|\]\]>$/g, "")
         .replace(/&nbsp;/gi, " ")
         .replace(/&amp;/gi, "&")
         .replace(/&quot;/gi, '"')
@@ -698,94 +591,53 @@ export default {
         .replace(/&#(\d+);/g, (_, code) =>
           String.fromCharCode(Number(code))
         )
-        .replace(/<[^>]+>/g, " ")
         .replace(/\s+/g, " ")
         .trim();
     }
 
-    function homeFeedTag(item, tagName) {
-      const escaped =
-        String(tagName).replace(":", "\\:");
-
-      const match = item.match(
-        new RegExp(
-          `<${escaped}[^>]*>([\\s\\S]*?)<\\/${escaped}>`,
-          "i"
-        )
-      );
-
-      return match
-        ? homeDecodeFeedText(match[1])
-        : "";
-    }
-
-    function homeFirstSentences(text, count = 2) {
-      const clean =
-        String(text ?? "")
+    function homeFirstSentence(value) {
+      const text =
+        String(value ?? "")
           .replace(/\s+/g, " ")
           .trim();
 
-      if (!clean) return "";
+      if (!text) return "";
 
-      const sentences =
-        clean.match(/[^.!?]+[.!?]+(?:["')\]]+)?|[^.!?]+$/g)
-          || [];
+      const match =
+        text.match(/^.*?[.!?](?:["')\]]+)?(?=\s|$)/);
 
-      return sentences
-        .slice(0, count)
-        .join(" ")
-        .trim();
+      return match
+        ? match[0].trim()
+        : text;
     }
 
-    function homeFindEpisodeFeedSummary(
-      xml,
-      episode
+    function homeMetaContent(
+      html,
+      attribute,
+      key
     ) {
-      const items =
-        String(xml ?? "")
-          .match(/<item\b[\s\S]*?<\/item>/gi)
-          || [];
+      const source = String(html ?? "");
+      const escapedKey =
+        String(key)
+          .replace(/[.*+?^${}()|[\]\\]/g, "\\$&");
 
-      const geNeedle =
-        `GE${episode.ge}`.toLowerCase();
+      const firstPattern = new RegExp(
+        `<meta\\s+[^>]*${attribute}=["']${escapedKey}["'][^>]*content=(["'])([\\s\\S]*?)\\1[^>]*>`,
+        "i"
+      );
 
-      const titleNeedle =
-        String(episode.title ?? "")
-          .trim()
-          .toLowerCase();
+      const secondPattern = new RegExp(
+        `<meta\\s+[^>]*content=(["'])([\\s\\S]*?)\\1[^>]*${attribute}=["']${escapedKey}["'][^>]*>`,
+        "i"
+      );
 
-      let selected = "";
+      const match =
+        source.match(firstPattern) ||
+        source.match(secondPattern);
 
-      for (const item of items) {
-        const title =
-          homeFeedTag(item, "title")
-            .toLowerCase();
-
-        if (
-          title.includes(geNeedle) ||
-          (
-            titleNeedle &&
-            title.includes(titleNeedle)
-          )
-        ) {
-          selected = item;
-          break;
-        }
-      }
-
-      if (!selected) return "";
-
-      const summary =
-        homeFeedTag(
-          selected,
-          "itunes:summary"
-        ) ||
-        homeFeedTag(
-          selected,
-          "description"
-        );
-
-      return homeFirstSentences(summary, 2);
+      return match
+        ? homeDecodeHtmlEntities(match[2])
+        : "";
     }
 
     async function enrichLatestEpisode(episode) {
@@ -801,88 +653,53 @@ export default {
       const repoPath =
         homeEpisodeRepoPath(episode.url);
 
-      const requests = [
-        fetch(
-          DDS_RSS_URL,
+      if (!repoPath) {
+        return enriched;
+      }
+
+      try {
+        const response = await fetch(
+          mainRepoUrl(repoPath),
           { cache: "no-store" }
-        )
-      ];
-
-      if (repoPath) {
-        requests.push(
-          fetch(
-            mainRepoUrl(repoPath),
-            { cache: "no-store" }
-          )
         );
-      }
 
-      const results =
-        await Promise.allSettled(requests);
-
-      const rssResult = results[0];
-
-      if (
-        rssResult.status === "fulfilled" &&
-        rssResult.value.ok
-      ) {
-        try {
-          const feedSummary =
-            homeFindEpisodeFeedSummary(
-              await rssResult.value.text(),
-              episode
-            );
-
-          if (feedSummary) {
-            enriched.summary = feedSummary;
-          }
-        } catch (error) {
-          console.error(
-            "Homepage RSS summary parsing failed:",
-            error
-          );
-        }
-      }
-
-      const pageResult =
-        repoPath ? results[1] : null;
-
-      if (
-        pageResult &&
-        pageResult.status === "fulfilled" &&
-        pageResult.value.ok
-      ) {
-        try {
-          const pageHtml =
-            await pageResult.value.text();
-
-          const lines =
-            homeHtmlTextLines(pageHtml);
-
-          enriched.tagline =
-            homeFindEpisodeTagline(
-              lines,
-              episode
-            );
-
-          if (!enriched.summary) {
-            enriched.summary =
-              homeFirstSentences(
-                homeFindEpisodeSummary(lines),
-                2
-              );
-          }
-
+        if (!response.ok) {
           return enriched;
-        } catch (error) {
-          console.error(
-            "Homepage episode page enrichment failed:",
-            error
-          );
         }
-      }
 
-      return enriched;
+        const html =
+          await response.text();
+
+        enriched.tagline =
+          homeMetaContent(
+            html,
+            "property",
+            "og:description"
+          ) ||
+          homeMetaContent(
+            html,
+            "name",
+            "twitter:description"
+          );
+
+        enriched.summary =
+          homeFirstSentence(
+            homeMetaContent(
+              html,
+              "name",
+              "description"
+            )
+          );
+
+        return enriched;
+      } catch (error) {
+        console.error(
+          "Homepage episode metadata enrichment failed:",
+          error
+        );
+
+        return enriched;
+      }
     }
 
     function renderLatestEpisode(episode) {
