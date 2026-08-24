@@ -573,6 +573,170 @@
       opacity: 1;
     }
 
+    .featured-section {
+      padding: 2.75rem 0;
+    }
+
+    .featured-section + .featured-section {
+      padding-top: 0.5rem;
+    }
+
+    .featured-card {
+      display: grid;
+      grid-template-columns: 1fr;
+      gap: 1.75rem;
+      padding: clamp(1.4rem, 4vw, 2.5rem);
+      border: 1px solid rgba(240, 244, 255, 0.2);
+      border-radius: 18px;
+      background:
+        linear-gradient(
+          145deg,
+          rgba(18, 22, 32, 0.9),
+          rgba(11, 13, 21, 0.82)
+        );
+      box-shadow:
+        0 22px 60px rgba(0, 0, 0, 0.28),
+        inset 0 1px 0 rgba(255, 255, 255, 0.035);
+    }
+
+    .featured-card.has-art {
+      grid-template-columns:
+        minmax(150px, 230px)
+        minmax(0, 1fr);
+      align-items: center;
+    }
+
+    .featured-art {
+      overflow: hidden;
+      border: 1px solid var(--border);
+      border-radius: 12px;
+      background: rgba(0, 0, 0, 0.24);
+      aspect-ratio: 1 / 1;
+    }
+
+    .featured-art img {
+      display: block;
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+    }
+
+    .featured-copy {
+      min-width: 0;
+    }
+
+    .featured-kicker {
+      margin-bottom: 0.65rem;
+      color: var(--accent);
+      font-family: var(--mono);
+      font-size: 0.62rem;
+      letter-spacing: 0.22em;
+      text-transform: uppercase;
+    }
+
+    .featured-card h2 {
+      margin-bottom: 0.7rem;
+      font-size: clamp(1.8rem, 5vw, 3rem);
+      line-height: 1.05;
+    }
+
+    .featured-meta {
+      margin-bottom: 1.15rem;
+      color: var(--text-dim);
+      font-family: var(--mono);
+      font-size: 0.68rem;
+      line-height: 1.6;
+      letter-spacing: 0.08em;
+      text-transform: uppercase;
+    }
+
+    .featured-card p {
+      max-width: 58ch;
+      margin-bottom: 1.25rem;
+      color: var(--text);
+    }
+
+    .featured-links {
+      display: flex;
+      flex-wrap: wrap;
+      align-items: center;
+      gap: 0.6rem;
+      font-family: var(--mono);
+      font-size: 0.68rem;
+      letter-spacing: 0.08em;
+      text-transform: uppercase;
+    }
+
+    .featured-links a {
+      color: var(--accent);
+      text-decoration: none;
+    }
+
+    .featured-links a:hover,
+    .featured-links a:focus-visible {
+      color: var(--text-bright);
+    }
+
+    .featured-links span {
+      color: var(--dim);
+    }
+
+    .featured-empty {
+      color: var(--text-dim);
+    }
+
+    .home-fold {
+      border-bottom: 1px solid var(--border);
+    }
+
+    .home-fold > summary {
+      position: relative;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 1rem;
+      padding: 2rem 0;
+      cursor: pointer;
+      list-style: none;
+      user-select: none;
+    }
+
+    .home-fold > summary::-webkit-details-marker {
+      display: none;
+    }
+
+    .home-fold > summary::after {
+      content: "+";
+      flex: 0 0 auto;
+      color: var(--accent);
+      font-family: var(--mono);
+      font-size: 1.2rem;
+      font-weight: 300;
+    }
+
+    .home-fold[open] > summary::after {
+      content: "−";
+    }
+
+    .home-fold > summary .section-label {
+      margin: 0;
+      opacity: 0.9;
+    }
+
+    .fold-content > section {
+      padding-top: 0;
+      border-bottom: none;
+      animation: none;
+    }
+
+    .fold-content > section:last-child {
+      border-bottom: none;
+    }
+
+    .home-fold[open] .fold-content {
+      animation: fadeUp 0.35s ease both;
+    }
+
     footer {
       padding: 3rem 0 4rem;
       border-top: 1px solid var(--border);
@@ -656,6 +820,18 @@
       .card {
         padding: 1.5rem;
       }
+
+      .featured-card.has-art {
+        grid-template-columns: 1fr;
+      }
+
+      .featured-art {
+        width: min(100%, 320px);
+      }
+
+      .home-fold > summary {
+        padding: 1.6rem 0;
+      }
     }
   </style>
 </head>
@@ -670,114 +846,162 @@
 
     <div class="nav-buttons" id="nav-buttons-top" aria-label="Site navigation"></div>
 
-    <section>
-      <div class="section-label">Entity</div>
-      <h2>Working at the intersection of speculative fiction, immersive sound, and desire horror</h2>
-      <p>Neural Nets And Pretty Patterns is a writer, performer, and audio producer whose work asks a consistent question: what does it mean to want something, and what systems are built to exploit that wanting?</p>
-      <p>Neural Nets And Pretty Patterns originated the synthesized haptic narrative — the first implementation of synchronized physical sensation as a deliberate storytelling layer in audio production. That formal innovation extends immersive audio beyond what speaker or headphone alone can deliver, and predates any comparable implementation.</p>
-      <p>His primary creative universe is <a href="https://neuralnetsandprettypatterns.com/neuralpedia/">the Neuralverse</a>: an interconnected body of original work spanning immersive audio, electronic music, experimental writing, and haptic integration, built over more than a decade of continuous production.</p>
+    <section class="featured-section" aria-labelledby="latest-release-label">
+      <div class="section-label" id="latest-release-label">Latest Release</div>
+      <!-- LATEST_RELEASE_START -->
+      <div class="featured-card featured-empty">
+        <p>Latest release data will appear here.</p>
+      </div>
+      <!-- LATEST_RELEASE_END -->
     </section>
 
-    <section>
-      <div class="section-label">Catalogue</div>
-      <h2><a href="https://neuralnetsandprettypatterns.com/neuralpedia/">The Neuralverse</a></h2>
-      <p>More than 750 original productions, unified by a consistent interest in consciousness, identity, and the architecture of desire. No direct equivalent exists in independent audio production at this scale or consistency.</p>
-
-      <div class="inline-archive-link">
-        <a class="nav-button" href="https://neuralnetsandprettypatterns.com/neuralpedia/chronology/page-1/" aria-label="Chronological Archive">◷</a>
-        <a class="archive-text-link" href="https://neuralnetsandprettypatterns.com/neuralpedia/chronology/page-1/">You can browse the series chronologically.</a>
-        <a class="nav-button" href="https://neuralnetsandprettypatterns.com/neuralpedia/chronology/page-1/" aria-label="Chronological Archive">◷</a>
+    <section class="featured-section" aria-labelledby="latest-episode-label">
+      <div class="section-label" id="latest-episode-label">Latest Episode</div>
+      <!-- LATEST_EPISODE_START -->
+      <div class="featured-card featured-empty">
+        <p>Latest episode data will appear here.</p>
       </div>
-
-      <div class="card">
-        <div class="card-meta">Catalogue — Ongoing</div>
-        <h3><a href="https://neuralnetsandprettypatterns.com/neuralpedia/">The Neuralverse Archive</a></h3>
-        <p>Spanning standalone immersive audio, electronic compositions, experimental written pieces, and live performance. Each production is built as both narrative and formal construction — rhythm, pacing, and structure chosen for immersive impact.</p>
-        <div class="card-stat">750+ productions &nbsp;·&nbsp; Est. 2017 &nbsp;·&nbsp; ISNI 0000 0005 2877 6254</div>
-      </div>
+      <!-- LATEST_EPISODE_END -->
     </section>
 
-    <section>
-      <div class="section-label">Audio Drama</div>
-      <nav aria-label="breadcrumb">
-        <ol itemscope itemtype="https://schema.org/BreadcrumbList">
-          <li itemprop="itemListElement" itemscope itemtype="https://schema.org/ListItem">
-            <a itemprop="item" href="https://neuralnetsandprettypatterns.com/"><span itemprop="name">Neural Nets And Pretty Patterns</span></a>
-            <meta itemprop="position" content="1" />
-          </li>
-          <li aria-hidden="true">/</li>
-          <li itemprop="itemListElement" itemscope itemtype="https://schema.org/ListItem">
-            <a itemprop="item" href="https://neuralnetsandprettypatterns.com/deepdreamstate/"><span itemprop="name">Deep Dream State</span></a>
-            <meta itemprop="position" content="2" />
-          </li>
-        </ol>
-      </nav>
-      <h2><a href="https://neuralnetsandprettypatterns.com/deepdreamstate/">Deep Dream State</a></h2>
-      <p>The flagship work of the Neuralverse. The only active serialized audio drama of its kind on the open web, and the originating work of the desire horror genre.</p>
-      <p>Each arc is built around a documented psychological, sociological, or technological phenomenon — facial telemetry, dream linking, behavioral economics — rendered as desire horror and performed by a rotating ensemble cast of voice actors. Arcs to date have spanned cosmic horror, reality television surveillance, dream research, and advertising technology.</p>
-      <p><a href="https://neuralnetsandprettypatterns.com/deepdreamstate/">Deep Dream State</a> combines full-cast performance, layered soundscapes, Podcasting 2.0 infrastructure, and formal narrative ambition. It explores consciousness, identity, and institutional power through the specific lens of desire. It is not niche content wearing a broad costume. It is genuinely broad work, made independently.</p>
-
-      <div class="card">
-        <div class="card-meta">Audio Drama — Active Series</div>
-        <h3><a href="https://neuralnetsandprettypatterns.com/deepdreamstate/">Deep Dream State</a></h3>
-        <p>Available on Apple Podcasts, Spotify, and Blubrry. Full-cast. Serialized arcs. Desire horror.</p>
-        <div class="card-stat">Available now &nbsp;·&nbsp; deepdreamstate.blubrry.net</div>
+    <details class="home-fold">
+      <summary>
+        <span class="section-label">Entity</span>
+      </summary>
+      <div class="fold-content">
+        <section>
+          <h2>Working at the intersection of speculative fiction, immersive sound, and desire horror</h2>
+          <p>Neural Nets And Pretty Patterns is a writer, performer, and audio producer whose work asks a consistent question: what does it mean to want something, and what systems are built to exploit that wanting?</p>
+          <p>Neural Nets And Pretty Patterns originated the synthesized haptic narrative — the first implementation of synchronized physical sensation as a deliberate storytelling layer in audio production. That formal innovation extends immersive audio beyond what speaker or headphone alone can deliver, and predates any comparable implementation.</p>
+          <p>His primary creative universe is <a href="https://neuralnetsandprettypatterns.com/neuralpedia/">the Neuralverse</a>: an interconnected body of original work spanning immersive audio, electronic music, experimental writing, and haptic integration, built over more than a decade of continuous production.</p>
+        </section>
       </div>
-    </section>
+    </details>
 
-    <section>
-      <div class="section-label">Weekly Broadcast</div>
-      <nav aria-label="breadcrumb">
-        <ol itemscope itemtype="https://schema.org/BreadcrumbList">
-          <li itemprop="itemListElement" itemscope itemtype="https://schema.org/ListItem">
-            <a itemprop="item" href="https://neuralnetsandprettypatterns.com/"><span itemprop="name">Neural Nets And Pretty Patterns</span></a>
-            <meta itemprop="position" content="1" />
-          </li>
-          <li aria-hidden="true">/</li>
-          <li itemprop="itemListElement" itemscope itemtype="https://schema.org/ListItem">
-            <a itemprop="item" href="https://neuralnetsandprettypatterns.com/deep-drop-party/"><span itemprop="name">Deep Drop Party</span></a>
-            <meta itemprop="position" content="2" />
-          </li>
-        </ol>
-      </nav>
-      <h2><a href="https://neuralnetsandprettypatterns.com/deep-drop-party/">Deep Drop Party</a></h2>
-      <p>A weekly live broadcast on Discord featuring the immersive audio art of Neural Nets And Pretty Patterns. Every Saturday at 9 PM Eastern, hosted by <a href="https://www.imdb.com/name/nm17754818/" target="_blank" rel="noopener">Bliss Blank</a> and a rotating cast of guest co-hostesses. Running continuously since February 23, 2018.</p>
-      <p>The show is one layer of a larger body of work — every episode a live traversal of the Neuralverse. It features devotional audio, haptic narrative, desire horror, and running storylines that unfold across episodes over months and years.</p>
-      <p>The show is free. The archive is growing. The catalogue crosslinks run deep.</p>
+    <details class="home-fold">
+      <summary>
+        <span class="section-label">Catalogue</span>
+      </summary>
+      <div class="fold-content">
+        <section>
+          <h2><a href="https://neuralnetsandprettypatterns.com/neuralpedia/">The Neuralverse</a></h2>
+          <p>More than 750 original productions, unified by a consistent interest in consciousness, identity, and the architecture of desire. No direct equivalent exists in independent audio production at this scale or consistency.</p>
 
-      <div class="card">
-        <div class="card-meta">Live Broadcast — Every Saturday</div>
-        <h3><a href="https://neuralnetsandprettypatterns.com/deep-drop-party/">Deep Drop Party</a></h3>
-        <p>9 PM Eastern on Discord in The Pink Room. Three hours. Free to attend. Haptic integration in the final tracks. Episode archive with full tracklists and catalogue crosslinks available on this site.</p>
-        <div class="card-stat">Est. February 23, 2018 &nbsp;·&nbsp; <a href="https://neuralnetsandprettypatterns.com/deep-drop-party/episodes/">Episode Archive</a> &nbsp;·&nbsp; <a href="https://neuralnetsandprettypatterns.com/deep-drop-party/faq/">FAQ</a> &nbsp;·&nbsp; <a href="https://neuralnetsandprettypatterns.com/the-pink-room/" target="_blank" rel="noopener">Discord</a></div>
+          <div class="inline-archive-link">
+            <a class="nav-button" href="https://neuralnetsandprettypatterns.com/neuralpedia/chronology/page-1/" aria-label="Chronological Archive">◷</a>
+            <a class="archive-text-link" href="https://neuralnetsandprettypatterns.com/neuralpedia/chronology/page-1/">You can browse the series chronologically.</a>
+            <a class="nav-button" href="https://neuralnetsandprettypatterns.com/neuralpedia/chronology/page-1/" aria-label="Chronological Archive">◷</a>
+          </div>
+
+          <div class="card">
+            <div class="card-meta">Catalogue — Ongoing</div>
+            <h3><a href="https://neuralnetsandprettypatterns.com/neuralpedia/">The Neuralverse Archive</a></h3>
+            <p>Spanning standalone immersive audio, electronic compositions, experimental written pieces, and live performance. Each production is built as both narrative and formal construction — rhythm, pacing, and structure chosen for immersive impact.</p>
+            <div class="card-stat">750+ productions &nbsp;·&nbsp; Est. 2017 &nbsp;·&nbsp; ISNI 0000 0005 2877 6254</div>
+          </div>
+        </section>
       </div>
-    </section>
+    </details>
 
-    <section>
-      <div class="section-label">Written Works</div>
-      <nav aria-label="breadcrumb">
-        <ol itemscope itemtype="https://schema.org/BreadcrumbList">
-          <li itemprop="itemListElement" itemscope itemtype="https://schema.org/ListItem">
-            <a itemprop="item" href="https://neuralnetsandprettypatterns.com/"><span itemprop="name">Neural Nets And Pretty Patterns</span></a>
-            <meta itemprop="position" content="1" />
-          </li>
-          <li aria-hidden="true">/</li>
-          <li itemprop="itemListElement" itemscope itemtype="https://schema.org/ListItem">
-            <a itemprop="item" href="https://neuralnetsandprettypatterns.com/scripts/"><span itemprop="name">Scripts</span></a>
-            <meta itemprop="position" content="2" />
-          </li>
-        </ol>
-      </nav>
-      <h2><a href="https://neuralnetsandprettypatterns.com/scripts/">Scripts</a></h2>
-      <p>The words the audio is built from. Scriptbooks and production texts drawn from across the Neuralverse arcs, published as official print and eBook editions. Commerce horror, cosmic horror, surveillance nightmare, mantric text. A selected catalogue, not a complete one.</p>
+    <details class="home-fold">
+      <summary>
+        <span class="section-label">Audio Drama</span>
+      </summary>
+      <div class="fold-content">
+        <section>
+          <nav aria-label="breadcrumb">
+            <ol itemscope itemtype="https://schema.org/BreadcrumbList">
+              <li itemprop="itemListElement" itemscope itemtype="https://schema.org/ListItem">
+                <a itemprop="item" href="https://neuralnetsandprettypatterns.com/"><span itemprop="name">Neural Nets And Pretty Patterns</span></a>
+                <meta itemprop="position" content="1" />
+              </li>
+              <li aria-hidden="true">/</li>
+              <li itemprop="itemListElement" itemscope itemtype="https://schema.org/ListItem">
+                <a itemprop="item" href="https://neuralnetsandprettypatterns.com/deepdreamstate/"><span itemprop="name">Deep Dream State</span></a>
+                <meta itemprop="position" content="2" />
+              </li>
+            </ol>
+          </nav>
+          <h2><a href="https://neuralnetsandprettypatterns.com/deepdreamstate/">Deep Dream State</a></h2>
+          <p>The flagship work of the Neuralverse. The only active serialized audio drama of its kind on the open web, and the originating work of the desire horror genre.</p>
+          <p>Each arc is built around a documented psychological, sociological, or technological phenomenon — facial telemetry, dream linking, behavioral economics — rendered as desire horror and performed by a rotating ensemble cast of voice actors. Arcs to date have spanned cosmic horror, reality television surveillance, dream research, and advertising technology.</p>
+          <p><a href="https://neuralnetsandprettypatterns.com/deepdreamstate/">Deep Dream State</a> combines full-cast performance, layered soundscapes, Podcasting 2.0 infrastructure, and formal narrative ambition. It explores consciousness, identity, and institutional power through the specific lens of desire. It is not niche content wearing a broad costume. It is genuinely broad work, made independently.</p>
 
-      <div class="card">
-        <div class="card-meta">Written Works — Selected Catalogue</div>
-        <h3><a href="https://neuralnetsandprettypatterns.com/scripts/">Scripts and Scriptbooks</a></h3>
-        <p>Published volumes and production scripts from the Neuralverse. Searchable by format, structure, and status. Updated as new works are released or greenlit.</p>
-        <div class="card-stat"><a href="https://neuralnetsandprettypatterns.com/scripts/">Browse the catalogue</a></div>
+          <div class="card">
+            <div class="card-meta">Audio Drama — Active Series</div>
+            <h3><a href="https://neuralnetsandprettypatterns.com/deepdreamstate/">Deep Dream State</a></h3>
+            <p>Available on Apple Podcasts, Spotify, and Blubrry. Full-cast. Serialized arcs. Desire horror.</p>
+            <div class="card-stat">Available now &nbsp;·&nbsp; deepdreamstate.blubrry.net</div>
+          </div>
+        </section>
       </div>
-    </section>
+    </details>
+
+    <details class="home-fold">
+      <summary>
+        <span class="section-label">Weekly Broadcast</span>
+      </summary>
+      <div class="fold-content">
+        <section>
+          <nav aria-label="breadcrumb">
+            <ol itemscope itemtype="https://schema.org/BreadcrumbList">
+              <li itemprop="itemListElement" itemscope itemtype="https://schema.org/ListItem">
+                <a itemprop="item" href="https://neuralnetsandprettypatterns.com/"><span itemprop="name">Neural Nets And Pretty Patterns</span></a>
+                <meta itemprop="position" content="1" />
+              </li>
+              <li aria-hidden="true">/</li>
+              <li itemprop="itemListElement" itemscope itemtype="https://schema.org/ListItem">
+                <a itemprop="item" href="https://neuralnetsandprettypatterns.com/deep-drop-party/"><span itemprop="name">Deep Drop Party</span></a>
+                <meta itemprop="position" content="2" />
+              </li>
+            </ol>
+          </nav>
+          <h2><a href="https://neuralnetsandprettypatterns.com/deep-drop-party/">Deep Drop Party</a></h2>
+          <p>A weekly live broadcast on Discord featuring the immersive audio art of Neural Nets And Pretty Patterns. Every Saturday at 9 PM Eastern, hosted by <a href="https://www.imdb.com/name/nm17754818/" target="_blank" rel="noopener">Bliss Blank</a> and a rotating cast of guest co-hostesses. Running continuously since February 23, 2018.</p>
+          <p>The show is one layer of a larger body of work — every episode a live traversal of the Neuralverse. It features devotional audio, haptic narrative, desire horror, and running storylines that unfold across episodes over months and years.</p>
+          <p>The show is free. The archive is growing. The catalogue crosslinks run deep.</p>
+
+          <div class="card">
+            <div class="card-meta">Live Broadcast — Every Saturday</div>
+            <h3><a href="https://neuralnetsandprettypatterns.com/deep-drop-party/">Deep Drop Party</a></h3>
+            <p>9 PM Eastern on Discord in The Pink Room. Three hours. Free to attend. Haptic integration in the final tracks. Episode archive with full tracklists and catalogue crosslinks available on this site.</p>
+            <div class="card-stat">Est. February 23, 2018 &nbsp;·&nbsp; <a href="https://neuralnetsandprettypatterns.com/deep-drop-party/episodes/">Episode Archive</a> &nbsp;·&nbsp; <a href="https://neuralnetsandprettypatterns.com/deep-drop-party/faq/">FAQ</a> &nbsp;·&nbsp; <a href="https://neuralnetsandprettypatterns.com/the-pink-room/" target="_blank" rel="noopener">Discord</a></div>
+          </div>
+        </section>
+      </div>
+    </details>
+
+    <details class="home-fold">
+      <summary>
+        <span class="section-label">Written Works</span>
+      </summary>
+      <div class="fold-content">
+        <section>
+          <nav aria-label="breadcrumb">
+            <ol itemscope itemtype="https://schema.org/BreadcrumbList">
+              <li itemprop="itemListElement" itemscope itemtype="https://schema.org/ListItem">
+                <a itemprop="item" href="https://neuralnetsandprettypatterns.com/"><span itemprop="name">Neural Nets And Pretty Patterns</span></a>
+                <meta itemprop="position" content="1" />
+              </li>
+              <li aria-hidden="true">/</li>
+              <li itemprop="itemListElement" itemscope itemtype="https://schema.org/ListItem">
+                <a itemprop="item" href="https://neuralnetsandprettypatterns.com/scripts/"><span itemprop="name">Scripts</span></a>
+                <meta itemprop="position" content="2" />
+              </li>
+            </ol>
+          </nav>
+          <h2><a href="https://neuralnetsandprettypatterns.com/scripts/">Scripts</a></h2>
+          <p>The words the audio is built from. Scriptbooks and production texts drawn from across the Neuralverse arcs, published as official print and eBook editions. Commerce horror, cosmic horror, surveillance nightmare, mantric text. A selected catalogue, not a complete one.</p>
+
+          <div class="card">
+            <div class="card-meta">Written Works — Selected Catalogue</div>
+            <h3><a href="https://neuralnetsandprettypatterns.com/scripts/">Scripts and Scriptbooks</a></h3>
+            <p>Published volumes and production scripts from the Neuralverse. Searchable by format, structure, and status. Updated as new works are released or greenlit.</p>
+            <div class="card-stat"><a href="https://neuralnetsandprettypatterns.com/scripts/">Browse the catalogue</a></div>
+          </div>
+        </section>
+      </div>
+    </details>
 
     <div class="nav-buttons bottom-nav" id="nav-buttons-bottom" aria-label="Site navigation footer"></div>
 
