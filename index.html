@@ -630,14 +630,14 @@
       border: 1px solid var(--border);
       border-radius: 12px;
       background: rgba(0, 0, 0, 0.24);
-      aspect-ratio: 1 / 1;
     }
 
     .featured-art img {
       display: block;
       width: 100%;
-      height: 100%;
-      object-fit: cover;
+      height: auto;
+      max-height: 420px;
+      object-fit: contain;
     }
 
     .featured-copy {
@@ -1147,6 +1147,89 @@
         .catch(function (error) {
           console.error("Nav buttons could not be loaded:", error);
         });
+    })();
+  </script>
+
+
+  <script>
+    (function () {
+      "use strict";
+
+      function loadLatestEpisodeArt() {
+        var section = document.querySelector(
+          'section[aria-labelledby="latest-episode-label"]'
+        );
+
+        if (!section) return;
+
+        var card = section.querySelector(".featured-card");
+        if (!card) return;
+
+        // If the Worker already supplied episode art, do nothing.
+        if (card.querySelector(".featured-art img")) {
+          card.classList.add("has-art");
+          return;
+        }
+
+        var episodeLink = card.querySelector(".featured-copy h2 a");
+        if (!episodeLink || !episodeLink.href) return;
+
+        fetch(episodeLink.href, { cache: "no-store" })
+          .then(function (response) {
+            if (!response.ok) {
+              throw new Error(
+                "Episode page request failed with status " + response.status
+              );
+            }
+            return response.text();
+          })
+          .then(function (html) {
+            var doc = new DOMParser().parseFromString(html, "text/html");
+
+            var imageMeta =
+              doc.querySelector('meta[property="og:image"]') ||
+              doc.querySelector('meta[name="twitter:image"]');
+
+            if (!imageMeta) return;
+
+            var imageUrl = (imageMeta.getAttribute("content") || "").trim();
+            if (!imageUrl) return;
+
+            var altMeta =
+              doc.querySelector('meta[property="og:image:alt"]') ||
+              doc.querySelector('meta[name="twitter:image:alt"]');
+
+            var title =
+              (episodeLink.textContent || "").trim() || "Latest episode";
+
+            var altText =
+              altMeta && altMeta.getAttribute("content")
+                ? altMeta.getAttribute("content").trim()
+                : title + " episode art";
+
+            var art = document.createElement("div");
+            art.className = "featured-art";
+
+            var img = document.createElement("img");
+            img.src = imageUrl;
+            img.alt = altText;
+            img.loading = "lazy";
+            img.decoding = "async";
+
+            art.appendChild(img);
+            card.insertBefore(art, card.firstElementChild);
+            card.classList.add("has-art");
+          })
+          .catch(function (error) {
+            console.error("Latest episode art could not be loaded:", error);
+          });
+      }
+
+      if (document.readyState === "loading") {
+        document.addEventListener("DOMContentLoaded", loadLatestEpisodeArt);
+      } else {
+        loadLatestEpisodeArt();
+      }
     })();
   </script>
 
