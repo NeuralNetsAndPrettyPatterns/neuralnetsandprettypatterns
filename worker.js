@@ -63,6 +63,12 @@ export default {
     const LEGACY_DDS_BASE =
       "https://neuralnetsandprettypatterns.github.io/deepdreamstate";
 
+    const RELEASES_JSON_PATH =
+      "/neuralnetsandprettypatterns/releases.json";
+
+    const GLOSSARY_JSON_PATH =
+      "/deepdreamstate/glossary/glossary.json";
+
     const contentTypes = {
       ".html": "text/html; charset=utf-8",
       ".jpg": "image/jpeg",
@@ -207,9 +213,479 @@ export default {
       return legacyDeepDreamStateProxy(path, requestUrl);
     }
 
+    function homeEscapeHtml(value) {
+      return String(value ?? "").replace(
+        /[&<>"']/g,
+        ch =>
+          ({
+            "&": "&amp;",
+            "<": "&lt;",
+            ">": "&gt;",
+            '"': "&quot;",
+            "'": "&#39;"
+          })[ch]
+      );
+    }
+
+    function homeSafeUrl(value) {
+      const text = String(value ?? "").trim();
+
+      if (!text) return "";
+
+      try {
+        const parsed = new URL(text);
+
+        if (
+          parsed.protocol === "http:" ||
+          parsed.protocol === "https:"
+        ) {
+          return text;
+        }
+      } catch (error) {
+        return "";
+      }
+
+      return "";
+    }
+
+    function homeFormatDate(value) {
+      const text = String(value ?? "").trim();
+
+      if (!/^\d{4}-\d{2}-\d{2}$/.test(text)) {
+        return "";
+      }
+
+      const date = new Date(`${text}T00:00:00Z`);
+
+      if (Number.isNaN(date.getTime())) {
+        return "";
+      }
+
+      return new Intl.DateTimeFormat(
+        "en-US",
+        {
+          year: "numeric",
+          month: "long",
+          day: "numeric",
+          timeZone: "UTC"
+        }
+      ).format(date);
+    }
+
+    function latestReleaseFromData(data) {
+      const releases =
+        data && Array.isArray(data.new_releases)
+          ? data.new_releases
+          : [];
+
+      return releases
+        .filter(release => {
+          const date =
+            String(release?.release_date ?? "").trim();
+
+          return /^\d{4}-\d{2}-\d{2}$/.test(date);
+        })
+        .sort((a, b) =>
+          String(b.release_date).localeCompare(
+            String(a.release_date)
+          )
+        )[0] || null;
+    }
+
+    function episodeRichness(episode) {
+      if (!episode) return 0;
+
+      let score = 0;
+
+      if (episode.title) score += 1;
+      if (episode.url) score += 2;
+      if (episode.season) score += 1;
+      if (episode.episode) score += 1;
+
+      return score;
+    }
+
+    function latestEpisodeFromGlossary(data) {
+      const records =
+        Array.isArray(data)
+          ? data
+          : (
+              data && Array.isArray(data.records)
+                ? data.records
+                : []
+            );
+
+      let latest = null;
+
+      records.forEach(record => {
+        const appearances =
+          record && Array.isArray(record.appearances)
+            ? record.appearances
+            : [];
+
+        appearances.forEach(appearance => {
+          const ge = Number(appearance?.ge);
+
+          if (!Number.isFinite(ge)) {
+            return;
+          }
+
+          const candidate = {
+            ge,
+            season:
+              Number(appearance?.season) || null,
+            episode:
+              Number(appearance?.episode) || null,
+            title:
+              String(appearance?.title ?? "").trim(),
+            url:
+              String(appearance?.url ?? "").trim()
+          };
+
+          if (
+            !latest ||
+            candidate.ge > latest.ge ||
+            (
+              candidate.ge === latest.ge &&
+              episodeRichness(candidate) >
+                episodeRichness(latest)
+            )
+          ) {
+            latest = candidate;
+          }
+        });
+      });
+
+      return latest;
+    }
+
+    function renderHomeLinks(links) {
+      const items =
+        Array.isArray(links)
+          ? links
+              .map(link => {
+                const label =
+                  String(link?.label ?? "").trim();
+                const url =
+                  homeSafeUrl(link?.url);
+
+                if (!label || !url) {
+                  return "";
+                }
+
+                return (
+                  `<a href="${homeEscapeHtml(url)}"` +
+                  ` target="_blank" rel="noopener">` +
+                  `${homeEscapeHtml(label)}</a>`
+                );
+              })
+              .filter(Boolean)
+          : [];
+
+      if (items.length === 0) {
+        return "";
+      }
+
+      return (
+        `<div class="featured-links">` +
+        items.join("<span aria-hidden=\"true\">·</span>") +
+        `</div>`
+      );
+    }
+
+    function renderLatestRelease(release) {
+      if (!release) {
+        return (
+          `<div class="featured-card featured-empty">` +
+          `<p>No dated release is currently available.</p>` +
+          `</div>`
+        );
+      }
+
+      const title =
+        String(release.title ?? "").trim() ||
+        "Untitled release";
+
+      const canonical =
+        homeSafeUrl(release.canonical_url);
+
+      const image =
+        homeSafeUrl(release.image);
+
+      const description =
+        String(release.description ?? "").trim();
+
+      const series =
+        Array.isArray(release.series)
+          ? release.series
+              .map(value => String(value ?? "").trim())
+              .filter(Boolean)
+          : [];
+
+      const genres =
+        Array.isArray(release.genre)
+          ? release.genre
+              .map(value => String(value ?? "").trim())
+              .filter(Boolean)
+          : [];
+
+      const date =
+        homeFormatDate(release.release_date);
+
+      const length =
+        String(release.length ?? "").trim();
+
+      const meta = [
+        date,
+        length,
+        ...genres
+      ].filter(Boolean);
+
+      const titleMarkup = canonical
+        ? (
+            `<a href="${homeEscapeHtml(canonical)}"` +
+            ` target="_blank" rel="noopener">` +
+            `${homeEscapeHtml(title)}</a>`
+          )
+        : homeEscapeHtml(title);
+
+      const imageMarkup = image
+        ? (
+            `<div class="featured-art">` +
+            `<img src="${homeEscapeHtml(image)}"` +
+            ` alt="${homeEscapeHtml(title)} cover art">` +
+            `</div>`
+          )
+        : "";
+
+      const seriesMarkup =
+        series.length > 0
+          ? (
+              `<div class="featured-kicker">` +
+              `${homeEscapeHtml(series.join(" · "))}` +
+              `</div>`
+            )
+          : "";
+
+      const metaMarkup =
+        meta.length > 0
+          ? (
+              `<div class="featured-meta">` +
+              `${homeEscapeHtml(meta.join(" · "))}` +
+              `</div>`
+            )
+          : "";
+
+      const descriptionMarkup =
+        description
+          ? `<p>${homeEscapeHtml(description)}</p>`
+          : "";
+
+      return (
+        `<article class="featured-card` +
+        `${image ? " has-art" : ""}">` +
+        imageMarkup +
+        `<div class="featured-copy">` +
+        seriesMarkup +
+        `<h2>${titleMarkup}</h2>` +
+        metaMarkup +
+        descriptionMarkup +
+        renderHomeLinks(release.links) +
+        `</div>` +
+        `</article>`
+      );
+    }
+
+    function renderLatestEpisode(episode) {
+      if (!episode) {
+        return (
+          `<div class="featured-card featured-empty">` +
+          `<p>No episode appearance data is currently available.</p>` +
+          `</div>`
+        );
+      }
+
+      const title =
+        episode.title || `GE${episode.ge}`;
+
+      const url =
+        homeSafeUrl(episode.url);
+
+      const titleMarkup = url
+        ? (
+            `<a href="${homeEscapeHtml(url)}">` +
+            `${homeEscapeHtml(title)}</a>`
+          )
+        : homeEscapeHtml(title);
+
+      const episodeLabel =
+        episode.season && episode.episode
+          ? `S${episode.season}E${episode.episode}`
+          : "";
+
+      const meta = [
+        "Deep Dream State",
+        episodeLabel,
+        `GE${episode.ge}`
+      ].filter(Boolean);
+
+      const action = url
+        ? (
+            `<div class="featured-links">` +
+            `<a href="${homeEscapeHtml(url)}">Episode page</a>` +
+            `</div>`
+          )
+        : "";
+
+      return (
+        `<article class="featured-card">` +
+        `<div class="featured-copy">` +
+        `<div class="featured-kicker">Latest episode</div>` +
+        `<h2>${titleMarkup}</h2>` +
+        `<div class="featured-meta">` +
+        `${homeEscapeHtml(meta.join(" · "))}` +
+        `</div>` +
+        action +
+        `</div>` +
+        `</article>`
+      );
+    }
+
+    function replaceHomeRegion(
+      html,
+      startMarker,
+      endMarker,
+      replacement
+    ) {
+      const start = html.indexOf(startMarker);
+      const end = html.indexOf(endMarker);
+
+      if (
+        start === -1 ||
+        end === -1 ||
+        end < start
+      ) {
+        return html;
+      }
+
+      const before =
+        html.slice(0, start + startMarker.length);
+
+      const after =
+        html.slice(end);
+
+      return (
+        before +
+        "\n" +
+        replacement +
+        "\n" +
+        after
+      );
+    }
+
+    async function serveHomePage() {
+      const [
+        pageRes,
+        releasesRes,
+        glossaryRes
+      ] = await Promise.all([
+        fetch(
+          mainRepoUrl("/index.html"),
+          { cache: "no-store" }
+        ),
+        fetch(
+          mainRepoUrl(RELEASES_JSON_PATH),
+          { cache: "no-store" }
+        ),
+        fetch(
+          mainRepoUrl(GLOSSARY_JSON_PATH),
+          { cache: "no-store" }
+        )
+      ]);
+
+      if (!pageRes.ok) {
+        return new Response(
+          await pageRes.text(),
+          {
+            status: 404,
+            headers: {
+              "content-type":
+                "text/html; charset=utf-8",
+              "cache-control": "no-store"
+            }
+          }
+        );
+      }
+
+      let html = await pageRes.text();
+
+      if (releasesRes.ok) {
+        try {
+          const releaseData =
+            await releasesRes.json();
+
+          html = replaceHomeRegion(
+            html,
+            "<!-- LATEST_RELEASE_START -->",
+            "<!-- LATEST_RELEASE_END -->",
+            renderLatestRelease(
+              latestReleaseFromData(releaseData)
+            )
+          );
+        } catch (error) {
+          console.error(
+            "Homepage release data could not be parsed:",
+            error
+          );
+        }
+      } else {
+        console.error(
+          "Homepage release data request failed:",
+          releasesRes.status
+        );
+      }
+
+      if (glossaryRes.ok) {
+        try {
+          const glossaryData =
+            await glossaryRes.json();
+
+          html = replaceHomeRegion(
+            html,
+            "<!-- LATEST_EPISODE_START -->",
+            "<!-- LATEST_EPISODE_END -->",
+            renderLatestEpisode(
+              latestEpisodeFromGlossary(
+                glossaryData
+              )
+            )
+          );
+        } catch (error) {
+          console.error(
+            "Homepage glossary data could not be parsed:",
+            error
+          );
+        }
+      } else {
+        console.error(
+          "Homepage glossary data request failed:",
+          glossaryRes.status
+        );
+      }
+
+      return new Response(html, {
+        status: 200,
+        headers: {
+          "content-type":
+            "text/html; charset=utf-8",
+          "cache-control": "no-store"
+        }
+      });
+    }
+
     // Root
     if (p === "/" || p === "/index.html") {
-      return serveHtml("/index.html");
+      return serveHomePage();
     }
 
     // Contact
