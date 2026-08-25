@@ -743,6 +743,8 @@
           "https://neuralnetsandprettypatterns.com/deepdreamstate/cast/jade-wolf/",
         "jade-wolf":
           "https://neuralnetsandprettypatterns.com/deepdreamstate/cast/jade-wolf/",
+        "jericho-caine":
+          "https://neuralnetsandprettypatterns.com/deepdreamstate/cast/jericho-caine/",
         "kitten-azazel":
           "https://neuralnetsandprettypatterns.com/deepdreamstate/cast/kitten-azazel/",
         "princess-ella":
@@ -756,6 +758,18 @@
         "syndi-rella":
           "https://neuralnetsandprettypatterns.com/deepdreamstate/cast/syndi-rella/"
       };
+
+      /*
+       * Temporary exceptions: these performers still have legacy performer URLs
+       * in source data, but no current NNPP cast profile yet. Keep the stage name
+       * plain text and do not render a Performer link.
+       */
+      var noPerformerPage = new Set([
+        "korrupted-innocence",
+        "britt-reprogrammed",
+        "tender-confusion",
+        "pipp"
+      ]);
 
       var tableBody = document.getElementById("cast-table-body");
       var searchInput = document.getElementById("cast-search");
@@ -778,12 +792,67 @@
           .replace(/^-+|-+$/g, "");
       }
 
-      function migratedProfileUrlFor(performer) {
+      function canonicalPerformerId(performerId, stageName) {
+        var id = normalizeId(performerId);
+        var stageSlug = slugify(stageName);
+
+        if (
+          id === "jade" ||
+          id === "jade-wolf" ||
+          stageSlug === "jade" ||
+          stageSlug === "jade-wolf"
+        ) {
+          return "jade-wolf";
+        }
+
+        if (
+          id === "ring-of-keys" ||
+          id === "ring-of-kees" ||
+          stageSlug === "ring-of-keys" ||
+          stageSlug === "ring-of-kees"
+        ) {
+          return "ring-of-kees";
+        }
+
+        return id || stageSlug;
+      }
+
+      function canonicalStageName(performerId, stageName) {
+        var canonicalId = canonicalPerformerId(performerId, stageName);
+
+        if (canonicalId === "jade-wolf") {
+          return "Jade Wolf";
+        }
+
+        if (canonicalId === "ring-of-kees") {
+          return "Ring of Kees";
+        }
+
+        return cleanText(stageName);
+      }
+
+      function performerHasNoProfile(performer) {
         if (!performer) {
+          return false;
+        }
+
+        var canonicalId = canonicalPerformerId(
+          performer.performerId,
+          performer.stageName
+        );
+
+        return noPerformerPage.has(canonicalId);
+      }
+
+      function migratedProfileUrlFor(performer) {
+        if (!performer || performerHasNoProfile(performer)) {
           return "";
         }
 
-        var performerId = normalizeId(performer.performerId);
+        var performerId = canonicalPerformerId(
+          performer.performerId,
+          performer.stageName
+        );
         var stageSlug = slugify(performer.stageName);
 
         return migratedProfileUrls[performerId] ||
@@ -800,6 +869,16 @@
         var links = Array.isArray(performer.otherLinks)
           ? performer.otherLinks.slice()
           : [];
+
+        if (performerHasNoProfile(performer)) {
+          return links.filter(function (link) {
+            var label = cleanText(link && link.label).toLowerCase();
+            var url = cleanText(link && link.url);
+
+            return label !== "performer" &&
+              !isBlubrryPerformerUrl(url);
+          });
+        }
 
         var migratedUrl = migratedProfileUrlFor(performer);
 
@@ -1027,8 +1106,16 @@
       }
 
       function getOrCreatePerformer(map, castEntry) {
-        var performerId = normalizeId(castEntry.performerId);
-        var stageName = cleanText(castEntry.stageName);
+        var rawPerformerId = normalizeId(castEntry.performerId);
+        var rawStageName = cleanText(castEntry.stageName);
+        var performerId = canonicalPerformerId(
+          rawPerformerId,
+          rawStageName
+        );
+        var stageName = canonicalStageName(
+          rawPerformerId,
+          rawStageName
+        );
 
         if (!performerId && stageName) {
           performerId = slugify(stageName);
@@ -1135,7 +1222,12 @@
           }
 
           if (record.type === "performer-update") {
-            var performerId = normalizeId(record.performerId);
+            var rawPerformerId = normalizeId(record.performerId);
+            var rawStageName = cleanText(record.stageName);
+            var performerId = canonicalPerformerId(
+              rawPerformerId,
+              rawStageName
+            );
 
             if (!performerId) {
               return;
@@ -1146,7 +1238,9 @@
             if (!performer) {
               performer = {
                 performerId: performerId,
-                stageName: cleanText(record.stageName) || performerId,
+                stageName:
+                  canonicalStageName(rawPerformerId, rawStageName) ||
+                  performerId,
                 characters: [],
                 episodes: [],
                 imdbLinks: [],
@@ -1157,8 +1251,11 @@
               map.set(performerId, performer);
             }
 
-            if (cleanText(record.stageName)) {
-              performer.stageName = cleanText(record.stageName);
+            if (rawStageName) {
+              performer.stageName = canonicalStageName(
+                rawPerformerId,
+                rawStageName
+              );
             }
 
             applyBioPage(performer, record);
@@ -1243,6 +1340,18 @@
         map.forEach(function (performer, performerId) {
           aliases.set("id:" + normalizeId(performerId), performerId);
           aliases.set("name:" + normalizeId(performer.stageName), performerId);
+
+          if (performerId === "jade-wolf") {
+            aliases.set("id:jade", performerId);
+            aliases.set("name:jade", performerId);
+            aliases.set("name:jade wolf", performerId);
+          }
+
+          if (performerId === "ring-of-kees") {
+            aliases.set("id:ring-of-keys", performerId);
+            aliases.set("name:ring of keys", performerId);
+            aliases.set("name:ring of kees", performerId);
+          }
         });
 
         return aliases;
@@ -1253,8 +1362,18 @@
           ? termRecord.cast
           : {};
 
-        var stageName = cleanText(castConfig.stageName) || cleanText(termRecord.performer);
-        var explicitId = normalizeId(castConfig.performerId);
+        var rawStageName =
+          cleanText(castConfig.stageName) ||
+          cleanText(termRecord.performer);
+        var rawExplicitId = normalizeId(castConfig.performerId);
+        var explicitId = canonicalPerformerId(
+          rawExplicitId,
+          rawStageName
+        );
+        var stageName = canonicalStageName(
+          rawExplicitId,
+          rawStageName
+        );
         var performerId = "";
 
         if (explicitId && aliases.has("id:" + explicitId)) {
@@ -1301,6 +1420,13 @@
       }
 
       function applyGlossaryPerformerUrl(performer, url) {
+        if (performerHasNoProfile(performer)) {
+          performer.profileUrl = "";
+          performer.bioPage = "";
+          performer.otherLinks = authoritativeOtherLinks(performer);
+          return;
+        }
+
         var migratedUrl = migratedProfileUrlFor(performer);
 
         if (migratedUrl) {
@@ -1405,6 +1531,21 @@
       function finalizePerformers(map) {
         return Array.from(map.values())
           .map(function (performer) {
+            performer.performerId = canonicalPerformerId(
+              performer.performerId,
+              performer.stageName
+            );
+            performer.stageName = canonicalStageName(
+              performer.performerId,
+              performer.stageName
+            ) || performer.stageName;
+
+            if (performerHasNoProfile(performer)) {
+              performer.profileUrl = "";
+              performer.bioPage = "";
+              performer.otherLinks = authoritativeOtherLinks(performer);
+            }
+
             var migratedUrl = migratedProfileUrlFor(performer);
 
             if (migratedUrl) {
@@ -1599,10 +1740,13 @@
 
           var stageNameCell = createTextCell("stage-name");
 
-          var stageProfileUrl =
-            migratedProfileUrlFor(performer) ||
-            performer.profileUrl ||
-            performer.bioPage;
+          var stageProfileUrl = performerHasNoProfile(performer)
+            ? ""
+            : (
+              migratedProfileUrlFor(performer) ||
+              performer.profileUrl ||
+              performer.bioPage
+            );
 
           if (stageProfileUrl) {
             var stageNameLink = document.createElement("a");
