@@ -9,7 +9,7 @@
   <meta name="theme-color" content="#130c25">
 
   <title>Neuralverse CYOA | Interactive Story Votes by Neural Nets And Pretty Patterns</title>
-  <meta name="description" content="Interactive Neuralverse stories from Neural Nets And Pretty Patterns. The companion vote is closed: Warlock won, and Ring of Kees has been cast in the role.">
+  <meta name="description" content="Interactive Neuralverse stories from Neural Nets And Pretty Patterns. Warlock won Serra's companion vote, with the final vote totals preserved on the page, and Ring of Kees has been cast in the role.">
   <link rel="canonical" href="https://neuralnetsandprettypatterns.com/games/cyoa/">
 
   <link rel="icon" type="image/png" sizes="512x512" href="https://neuralnetsandprettypatterns.com/NeuralNetsAndPrettyPatternsfavicon.png">
@@ -18,14 +18,14 @@
   <meta property="og:type" content="website">
   <meta property="og:site_name" content="Neural Nets And Pretty Patterns">
   <meta property="og:title" content="Neuralverse CYOA">
-  <meta property="og:description" content="The latest Neuralverse CYOA vote is closed. Warlock won, and Ring of Kees has been cast in the role.">
+  <meta property="og:description" content="Warlock won Serra's companion vote. See the final vote totals and the casting of Ring of Kees as the Warlock.">
   <meta property="og:url" content="https://neuralnetsandprettypatterns.com/games/cyoa/">
   <meta property="og:image" content="https://neuralnetsandprettypatterns.com/games/mindflayerposter.jpg">
   <meta property="og:image:alt" content="Poster artwork for Serra vs the Mindflayer, an interactive Neuralverse story vote.">
 
   <meta name="twitter:card" content="summary_large_image">
   <meta name="twitter:title" content="Neuralverse CYOA">
-  <meta name="twitter:description" content="The latest Neuralverse CYOA vote is closed. Warlock won, and Ring of Kees has been cast in the role.">
+  <meta name="twitter:description" content="Warlock won Serra's companion vote. The final vote totals remain on display, and Ring of Kees has been cast as the Warlock.">
   <meta name="twitter:image" content="https://neuralnetsandprettypatterns.com/games/mindflayerposter.jpg">
   <meta name="twitter:image:alt" content="Poster artwork for Serra vs the Mindflayer, an interactive Neuralverse story vote.">
 
@@ -131,7 +131,7 @@
       "url": "https://neuralnetsandprettypatterns.com/games/cyoa/#serra-and-the-mindflayer",
       "name": "Serra And The Mindflayer",
       "headline": "Serra And The Mindflayer",
-      "description": "The companion vote is closed. Warlock won the vote. Neural Nets And Pretty Patterns favored Barbarian, but the people have spoken. Ring of Kees has been cast as the Warlock.",
+      "description": "Warlock won Serra's companion vote. Neural Nets And Pretty Patterns favored Barbarian, but the people have spoken. The final vote totals remain on display, and Ring of Kees has been cast as the Warlock.",
       "datePublished": "2026-08-03",
       "dateModified": "2026-08-25",
       "inLanguage": "en-US",
@@ -772,6 +772,44 @@
       font-size: 0.88rem;
     }
 
+    .poll-result-announcement {
+      margin: 0;
+      padding: clamp(1.2rem, 4vw, 2rem);
+      border-top: 1px solid var(--border);
+      border-left: 4px solid var(--gold);
+      background: rgba(244, 215, 138, 0.07);
+    }
+
+    .poll-result-announcement p {
+      margin: 0 0 0.75rem;
+      color: var(--text-soft);
+    }
+
+    .poll-result-announcement p:last-child {
+      margin-bottom: 0;
+    }
+
+    .poll-result-announcement strong {
+      color: var(--white);
+    }
+
+    .poll-option.is-winner {
+      border-color: var(--gold);
+      box-shadow: inset 0 0 0 1px rgba(244, 215, 138, 0.28);
+    }
+
+    .poll-option.is-winner .option-label::after {
+      content: " · WINNER";
+      color: var(--gold);
+      font-family: var(--mono);
+      font-size: 0.68em;
+      letter-spacing: 0.08em;
+    }
+
+    .poll-option input:disabled {
+      cursor: not-allowed;
+    }
+
     .site-footer {
       padding: 2rem 0 3rem;
       text-align: center;
@@ -868,51 +906,114 @@
         <article
           class="cyoa-entry"
           id="serra-and-the-mindflayer"
+          data-cyoa-entry
+          data-poll-id="serra-and-the-mindflayer"
+          data-force-closed="true"
         >
-          <div class="entry-header">
-            <figure class="poster-wrap">
-              <img
-                src="/games/cyoa/cyoa-serra-companion-warlock.jpg"
-                alt="Warlock, winner of the Serra companion vote."
-                loading="eager"
-                decoding="async"
-              >
-            </figure>
-
+          <div class="entry-header text-only">
             <div class="entry-copy">
-              <p class="entry-date">
-                <time datetime="2026-08-03">August 3, 2026</time>
-                · Poll closed
-              </p>
-
+              <p class="entry-date"><time datetime="2026-08-03">August 3, 2026</time></p>
               <h2>II. Serra And The Mindflayer</h2>
-
-              <p>
-                The mindflayer track was an enormous success, thanks in no small part
-                to your participation.
-              </p>
-
-              <p>
-                The companion vote is closed. <strong>Warlock won the vote.</strong>
-                I favored Barbarian, but the people have spoken.
-              </p>
-
-              <p>
-                <a href="https://neuralnetsandprettypatterns.com/deepdreamstate/cast/ring-of-kees/"><strong>Ring of Kees</strong></a>
-                has been cast as the Warlock.
-              </p>
+              <p>The mindflayer track was an enormous success - thanks, in no small part - to your participation.</p>
+              <p>It likely goes without saying that the encounter leads to an understanding of sorts between Serra and the illithid.</p>
+              <p><strong>Warlock won the vote.</strong> I favored Barbarian, but the people have spoken.</p>
+              <p><a href="https://neuralnetsandprettypatterns.com/deepdreamstate/cast/ring-of-kees/"><strong>Ring of Kees</strong></a> has been cast as the Warlock.</p>
             </div>
           </div>
 
+          <div class="poll-result-announcement">
+            <p><strong>Poll closed. Winner: Warlock.</strong></p>
+            <p>The final vote totals are preserved below.</p>
+          </div>
+
           <div class="poll-shell">
-            <div class="poll-meta">
-              <span>Status: <strong>Closed</strong></span>
-              <span>Result: <strong>Warlock</strong></span>
+            <div class="poll-meta" aria-live="polite">
+              <span>Status: <strong data-poll-open>Loading</strong></span>
+              <span>Winner: <strong>Warlock</strong></span>
+              <span>Ballots: <strong data-total-ballots>0</strong></span>
             </div>
 
-            <p class="poll-note">
-              Voting is closed. The winning companion will appear in Serra's next adventure.
-            </p>
+            <form data-cyoa-form novalidate>
+              <fieldset data-question-id="serra-mindflayer-companion">
+                <legend>Who's up next for the psionic blast? You decide.</legend>
+                <div class="option-grid image-option-grid">
+                  <label class="poll-option image-option" data-option-id="companion-barbarian-berserker">
+                    <span class="result-fill" data-result-fill></span>
+                    <span class="option-image-wrap">
+                      <img
+                        class="option-image"
+                        src="/games/cyoa/cyoa-serra-companion-barbarian-berserker.jpg"
+                        alt="Barbarian Berserker companion option."
+                        loading="eager"
+                        decoding="async"
+                        onerror="this.parentElement.hidden=true"
+                      >
+                    </span>
+                    <input type="radio" name="serra-mindflayer-companion" value="companion-barbarian-berserker" required>
+                    <span class="option-label">A. Barbarian Berserker</span>
+                    <span class="option-result"><span data-result-votes>0</span> votes · <span data-result-percent>0%</span></span>
+                  </label>
+
+                  <label class="poll-option image-option is-winner" data-option-id="companion-warlock">
+                    <span class="result-fill" data-result-fill></span>
+                    <span class="option-image-wrap">
+                      <img
+                        class="option-image"
+                        src="/games/cyoa/cyoa-serra-companion-warlock.jpg"
+                        alt="Warlock companion option."
+                        loading="lazy"
+                        decoding="async"
+                        onerror="this.parentElement.hidden=true"
+                      >
+                    </span>
+                    <input type="radio" name="serra-mindflayer-companion" value="companion-warlock" required>
+                    <span class="option-label">B. Warlock</span>
+                    <span class="option-result"><span data-result-votes>0</span> votes · <span data-result-percent>0%</span></span>
+                  </label>
+
+                  <label class="poll-option image-option" data-option-id="companion-illusionist">
+                    <span class="result-fill" data-result-fill></span>
+                    <span class="option-image-wrap">
+                      <img
+                        class="option-image"
+                        src="/games/cyoa/cyoa-serra-companion-illusionist.jpg"
+                        alt="Illusionist companion option."
+                        loading="lazy"
+                        decoding="async"
+                        onerror="this.parentElement.hidden=true"
+                      >
+                    </span>
+                    <input type="radio" name="serra-mindflayer-companion" value="companion-illusionist" required>
+                    <span class="option-label">C. Illusionist</span>
+                    <span class="option-result"><span data-result-votes>0</span> votes · <span data-result-percent>0%</span></span>
+                  </label>
+
+                  <label class="poll-option image-option" data-option-id="companion-monk">
+                    <span class="result-fill" data-result-fill></span>
+                    <span class="option-image-wrap">
+                      <img
+                        class="option-image"
+                        src="/games/cyoa/cyoa-serra-companion-monk.jpg"
+                        alt="Monk companion option."
+                        loading="lazy"
+                        decoding="async"
+                        onerror="this.parentElement.hidden=true"
+                      >
+                    </span>
+                    <input type="radio" name="serra-mindflayer-companion" value="companion-monk" required>
+                    <span class="option-label">D. Monk</span>
+                    <span class="option-result"><span data-result-votes>0</span> votes · <span data-result-percent>0%</span></span>
+                  </label>
+                </div>
+              </fieldset>
+
+              <div class="form-actions">
+                <button class="vote-button" type="submit" data-vote-button>Submit votes</button>
+                <p class="status" data-status aria-live="polite"></p>
+              </div>
+
+              <p class="poll-note">Voting is closed. These are the final recorded results.</p>
+            </form>
           </div>
         </article>
 
@@ -1158,6 +1259,11 @@
         form.addEventListener("submit", function (event) {
           event.preventDefault();
 
+          if (entry.getAttribute("data-force-closed") === "true") {
+            setStatus(status, "Voting is closed. Final results are shown below.", "");
+            return;
+          }
+
           var answers = collectAnswers(entry);
           var questionCount = entry.querySelectorAll("[data-question-id]").length;
 
@@ -1253,12 +1359,19 @@
         var openNode = entry.querySelector("[data-poll-open]");
         var ballotNode = entry.querySelector("[data-total-ballots]");
         var button = entry.querySelector("[data-vote-button]");
-        var isOpen = poll.is_open === true || poll.is_open === 1;
+        var forceClosed = entry.getAttribute("data-force-closed") === "true";
+        var isOpen =
+          !forceClosed &&
+          (poll.is_open === true || poll.is_open === 1);
 
         openNode.textContent = isOpen ? "Open" : "Closed";
         ballotNode.textContent = String(Number(poll.total_ballots || 0));
         button.disabled = !isOpen;
         button.textContent = isOpen ? "Submit votes" : "Voting closed";
+
+        entry.querySelectorAll('input[type="radio"]').forEach(function (input) {
+          input.disabled = !isOpen;
+        });
 
         var results = Array.isArray(poll.results) ? poll.results : [];
 
