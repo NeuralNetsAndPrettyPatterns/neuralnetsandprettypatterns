@@ -725,6 +725,13 @@
       var glossaryBaseUrl =
         "https://neuralnetsandprettypatterns.com/deepdreamstate/glossary/";
 
+
+      /*
+       * Migrated performer profiles are authoritative.
+       * For these performers, never render the old Blubrry performer page.
+       * The NNPP cast profile is used both for the stage name and the
+       * "Performer" link in the Other column.
+       */
       var migratedProfileUrls = {
         "bliss-blank":
           "https://neuralnetsandprettypatterns.com/deepdreamstate/cast/bliss-blank/",
@@ -769,6 +776,58 @@
           .replace(/&/g, "and")
           .replace(/[^a-z0-9]+/g, "-")
           .replace(/^-+|-+$/g, "");
+      }
+
+      function migratedProfileUrlFor(performer) {
+        if (!performer) {
+          return "";
+        }
+
+        var performerId = normalizeId(performer.performerId);
+        var stageSlug = slugify(performer.stageName);
+
+        return migratedProfileUrls[performerId] ||
+          migratedProfileUrls[stageSlug] ||
+          "";
+      }
+
+      function isBlubrryPerformerUrl(url) {
+        return /^https?:\/\/deepdreamstate\.blubrry\.net\//i
+          .test(cleanText(url));
+      }
+
+      function authoritativeOtherLinks(performer) {
+        var links = Array.isArray(performer.otherLinks)
+          ? performer.otherLinks.slice()
+          : [];
+
+        var migratedUrl = migratedProfileUrlFor(performer);
+
+        if (!migratedUrl) {
+          return links;
+        }
+
+        links = links.filter(function (link) {
+          var label = cleanText(link && link.label).toLowerCase();
+          var url = cleanText(link && link.url);
+
+          if (label === "performer") {
+            return false;
+          }
+
+          if (isBlubrryPerformerUrl(url)) {
+            return false;
+          }
+
+          return true;
+        });
+
+        links.unshift({
+          label: "Performer",
+          url: migratedUrl
+        });
+
+        return links;
       }
 
       function glossaryUrlForTerm(term) {
@@ -1242,6 +1301,15 @@
       }
 
       function applyGlossaryPerformerUrl(performer, url) {
+        var migratedUrl = migratedProfileUrlFor(performer);
+
+        if (migratedUrl) {
+          performer.profileUrl = migratedUrl;
+          performer.bioPage = migratedUrl;
+          performer.otherLinks = authoritativeOtherLinks(performer);
+          return;
+        }
+
         var performerUrl = cleanText(url);
 
         if (!performerUrl) {
@@ -1334,45 +1402,17 @@
         return map;
       }
 
-      function applyMigratedProfiles(map) {
-        Object.keys(migratedProfileUrls).forEach(function (performerId) {
-          if (!map.has(performerId)) {
-            return;
-          }
-
-          var performer = map.get(performerId);
-          var profileUrl = migratedProfileUrls[performerId];
-
-          performer.profileUrl = profileUrl;
-          performer.bioPage = profileUrl;
-
-          performer.otherLinks = performer.otherLinks.filter(function (link) {
-            var label = cleanText(link.label).toLowerCase();
-            var url = cleanText(link.url);
-
-            if (label === "performer") {
-              return false;
-            }
-
-            if (/deepdreamstate\.blubrry\.net/i.test(url)) {
-              return false;
-            }
-
-            return true;
-          });
-
-          addUniqueLink(performer.otherLinks, {
-            label: "Performer",
-            url: profileUrl
-          });
-        });
-
-        return map;
-      }
-
       function finalizePerformers(map) {
         return Array.from(map.values())
           .map(function (performer) {
+            var migratedUrl = migratedProfileUrlFor(performer);
+
+            if (migratedUrl) {
+              performer.profileUrl = migratedUrl;
+              performer.bioPage = migratedUrl;
+              performer.otherLinks = authoritativeOtherLinks(performer);
+            }
+
             if (performer.profileUrl) {
               performer.otherLinks = performer.otherLinks.filter(function (link) {
                 var url = cleanText(link.url);
@@ -1560,7 +1600,9 @@
           var stageNameCell = createTextCell("stage-name");
 
           var stageProfileUrl =
-            performer.profileUrl || performer.bioPage;
+            migratedProfileUrlFor(performer) ||
+            performer.profileUrl ||
+            performer.bioPage;
 
           if (stageProfileUrl) {
             var stageNameLink = document.createElement("a");
@@ -1580,7 +1622,9 @@
           row.appendChild(renderEpisodeCell(performer));
           row.appendChild(renderLinkCell(performer.imdbLinks));
           row.appendChild(renderLinkCell(performer.socialLinks));
-          row.appendChild(renderLinkCell(performer.otherLinks));
+          row.appendChild(
+            renderLinkCell(authoritativeOtherLinks(performer))
+          );
 
           tableBody.appendChild(row);
         });
@@ -1635,7 +1679,6 @@
           var performerMap = processLegacyCast(castData);
 
           mergeGlossaryCast(performerMap, glossaryData);
-          applyMigratedProfiles(performerMap);
           performers = finalizePerformers(performerMap);
           renderTable();
 
