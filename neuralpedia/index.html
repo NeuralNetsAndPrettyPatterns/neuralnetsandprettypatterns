@@ -499,7 +499,7 @@
     .search-result-main {
       display: flex;
       align-items: flex-start;
-      gap: 0.8rem;
+      gap: 0.75rem;
       flex: 1 1 auto;
       min-width: 0;
     }
@@ -510,8 +510,8 @@
 
     .search-result-thumb {
       flex: 0 0 auto;
-      width: 72px;
-      max-height: 72px;
+      width: 64px;
+      max-height: 64px;
       display: flex;
       align-items: flex-start;
       justify-content: center;
@@ -520,20 +520,19 @@
     .search-result-thumb img {
       display: block;
       width: auto;
-      max-width: 72px;
+      max-width: 64px;
       height: auto;
-      max-height: 72px;
+      max-height: 64px;
       object-fit: contain;
       border: 1px solid var(--border);
       border-radius: 5px;
     }
 
     .search-result-description {
-      margin-top: 0.3rem;
-      max-width: 55ch;
+      margin-top: 0.28rem;
+      max-width: 56ch;
       color: var(--text-dim);
-      font-family: var(--serif);
-      font-size: 0.88rem;
+      font-size: 0.86rem;
       line-height: 1.35;
       display: -webkit-box;
       -webkit-line-clamp: 2;
@@ -875,8 +874,9 @@
 
   const CHRONOLOGY_URL =
     'https://neuralnetsandprettypatterns.com/neuralpedia/chronology/chronology.json';
+
   const RELEASES_URL =
-    'https://neuralnetsandprettypatterns.com/releases.json';
+    'https://raw.githubusercontent.com/NeuralNetsAndPrettyPatterns/neuralnetsandprettypatterns/main/releases.json';
 
   const MAX_SERIES_RESULTS = 8;
   const MAX_TOTAL_RESULTS = 40;
@@ -938,191 +938,173 @@
 
   const seriesIndex = buildSeriesIndex();
 
-  function firstReleaseLink(release) {
-    if (release?.canonical_url) return release.canonical_url;
+  function releaseCanonicalUrl(release) {
+    if (release && release.canonical_url) {
+      return String(release.canonical_url).trim();
+    }
 
-    if (Array.isArray(release?.links)) {
-      const patreon = release.links.find(
-        item => String(item?.label || '').toLowerCase() === 'patreon'
+    if (release && Array.isArray(release.links)) {
+      const patreon = release.links.find(item =>
+        String(item?.label || '').toLowerCase() === 'patreon'
       );
-      if (patreon?.url) return patreon.url;
+      if (patreon?.url) return String(patreon.url).trim();
 
       const first = release.links.find(item => item?.url);
-      if (first?.url) return first.url;
+      if (first?.url) return String(first.url).trim();
     }
 
     return '';
   }
 
-  function normalizeRelease(release) {
-    const genre = Array.isArray(release?.genre) ? release.genre : [];
-    const geometry = Array.isArray(release?.power_geometry)
-      ? release.power_geometry
-      : [];
+  function releaseTags(release) {
+    const values = [];
 
+    if (Array.isArray(release?.genre)) {
+      values.push(...release.genre);
+    }
+
+    if (release?.format) {
+      values.push(release.format);
+    }
+
+    if (Array.isArray(release?.power_geometry)) {
+      values.push(...release.power_geometry);
+    }
+
+    return [...new Set(values.filter(Boolean))];
+  }
+
+  function enrichChronologyTrack(track, release) {
+    track.description =
+      String(release?.description || track.description || '').trim();
+
+    track.image =
+      String(release?.image || track.image || '').trim();
+
+    track.releaseGenre =
+      Array.isArray(release?.genre) ? release.genre : [];
+
+    track.releaseFormat =
+      String(release?.format || '').trim();
+
+    track.releaseLinks =
+      Array.isArray(release?.links) ? release.links : [];
+
+    // Chronology remains authoritative for title, date, ID, series and URL.
+    // releases.json contributes richer optional fields.
+    return track;
+  }
+
+  function releaseToTrack(release) {
     return {
-      type: 'release',
-      title: String(release?.title || '').trim(),
-      series: Array.isArray(release?.series)
-        ? release.series
-        : (release?.series ? [release.series] : []),
-      tags: [
-        ...genre,
-        ...geometry,
-        release?.format || ''
-      ].filter(Boolean),
-      date: String(release?.release_date || '').trim(),
+      type: 'track',
       id: String(release?.nnpp_id || '').trim(),
-      url: firstReleaseLink(release),
+      title: String(release?.title || '').trim(),
+      date: String(release?.release_date || '').trim(),
+      duration: String(release?.length || '').trim(),
+      series: Array.isArray(release?.series) ? release.series : [],
+      tags: releaseTags(release),
+      url: releaseCanonicalUrl(release),
+      links: {},
       description: String(release?.description || '').trim(),
       image: String(release?.image || '').trim(),
-      length: String(release?.length || '').trim(),
-      genre,
-      format: String(release?.format || '').trim(),
-      releaseLinks: Array.isArray(release?.links) ? release.links : [],
-      fromReleasesFeed: true
+      releaseGenre: Array.isArray(release?.genre) ? release.genre : [],
+      releaseFormat: String(release?.format || '').trim(),
+      releaseLinks: Array.isArray(release?.links) ? release.links : []
     };
   }
 
-  function getTrackLink(track) {
-    if (track?.url) return track.url;
-    if (track?.link) return track.link;
+  function overlayReleases(chronologyTracks, releases) {
+    const tracks = chronologyTracks.map(track => ({ ...track }));
 
-    if (track?.links && !Array.isArray(track.links)) {
-      return (
-        track.links.patreon ||
-        track.links.spotify ||
-        track.links.soundgasm ||
-        ''
-      );
-    }
+    const byUrl = new Map();
 
-    if (Array.isArray(track?.releaseLinks)) {
-      const first = track.releaseLinks.find(item => item?.url);
-      if (first?.url) return first.url;
-    }
+    tracks.forEach(track => {
+      const key = normalizeUrl(track.url);
+      if (key) byUrl.set(key, track);
+    });
 
-    return '';
-  }
+    releases.forEach(release => {
+      const url = releaseCanonicalUrl(release);
+      const key = normalizeUrl(url);
 
-  function trackKeys(track) {
-    const keys = [];
-
-    const url = normalizeUrl(getTrackLink(track));
-    if (url) keys.push(`url:${url}`);
-
-    const title = normalizeSearchValue(track?.title);
-    const date = normalizeSearchValue(track?.date);
-    if (title && date) keys.push(`title-date:${title}|${date}`);
-
-    const id = normalizeSearchValue(track?.id);
-    if (id && id !== 'tbd') keys.push(`id:${id}`);
-
-    return keys;
-  }
-
-  function mergeArrays(first, second) {
-    return [...new Set(
-      [...(Array.isArray(first) ? first : []), ...(Array.isArray(second) ? second : [])]
-        .filter(Boolean)
-    )];
-  }
-
-  function mergeTrack(existing, incoming) {
-    existing.series = existing.series?.length
-      ? existing.series
-      : incoming.series;
-
-    existing.tags = mergeArrays(existing.tags, incoming.tags);
-    existing.genre = mergeArrays(existing.genre, incoming.genre);
-
-    existing.url = getTrackLink(existing) || getTrackLink(incoming);
-    existing.description = existing.description || incoming.description || '';
-    existing.image = existing.image || incoming.image || '';
-    existing.length = existing.length || incoming.length || '';
-    existing.format = existing.format || incoming.format || '';
-    existing.releaseLinks =
-      existing.releaseLinks?.length
-        ? existing.releaseLinks
-        : (incoming.releaseLinks || []);
-
-    existing.fromReleasesFeed =
-      Boolean(existing.fromReleasesFeed || incoming.fromReleasesFeed);
-
-    return existing;
-  }
-
-  function mergeTrackSources(chronologyTracks, releases) {
-    const merged = [];
-    const byKey = new Map();
-
-    function addTrack(track) {
-      const keys = trackKeys(track);
-      let existing = null;
-
-      for (const key of keys) {
-        if (byKey.has(key)) {
-          existing = byKey.get(key);
-          break;
-        }
-      }
-
-      if (existing) {
-        mergeTrack(existing, track);
-        trackKeys(existing).forEach(key => byKey.set(key, existing));
+      if (key && byUrl.has(key)) {
+        enrichChronologyTrack(byUrl.get(key), release);
         return;
       }
 
-      merged.push(track);
-      keys.forEach(key => byKey.set(key, track));
+      const track = releaseToTrack(release);
+      tracks.push(track);
+
+      if (key) {
+        byUrl.set(key, track);
+      }
+    });
+
+    return tracks;
+  }
+
+  async function loadReleasesOptional() {
+    try {
+      const response = await fetch(RELEASES_URL, { cache: 'no-store' });
+
+      if (!response.ok) {
+        throw new Error(
+          `Releases request failed with status ${response.status}`
+        );
+      }
+
+      const data = await response.json();
+
+      return Array.isArray(data?.new_releases)
+        ? data.new_releases
+        : [];
+    } catch (error) {
+      console.warn(
+        'releases.json could not be loaded; chronology search will continue.',
+        error
+      );
+      return [];
     }
-
-    chronologyTracks.forEach(addTrack);
-    releases.map(normalizeRelease).forEach(addTrack);
-
-    return merged;
   }
 
   async function loadData() {
     if (allTracks || loadError) return;
 
     try {
-      const [chronologyRes, releasesRes] = await Promise.all([
-        fetch(CHRONOLOGY_URL, { cache: 'no-store' }),
-        fetch(RELEASES_URL, { cache: 'no-store' })
-      ]);
+      const chronologyResponse = await fetch(
+        CHRONOLOGY_URL,
+        { cache: 'no-store' }
+      );
 
-      if (!chronologyRes.ok) {
-        throw new Error('Chronology search index request failed.');
+      if (!chronologyResponse.ok) {
+        throw new Error(
+          `Chronology request failed with status ${chronologyResponse.status}`
+        );
       }
 
-      if (!releasesRes.ok) {
-        throw new Error('Releases search index request failed.');
-      }
-
-      const [chronologyData, releasesData] = await Promise.all([
-        chronologyRes.json(),
-        releasesRes.json()
-      ]);
+      const chronologyData = await chronologyResponse.json();
 
       if (!Array.isArray(chronologyData)) {
-        throw new Error('Chronology search index has an invalid structure.');
+        throw new Error('chronology.json has an invalid structure.');
       }
 
-      const releases = Array.isArray(releasesData?.new_releases)
-        ? releasesData.new_releases
-        : [];
+      const releases = await loadReleasesOptional();
 
-      allTracks = mergeTrackSources(chronologyData, releases);
+      allTracks = overlayReleases(
+        chronologyData,
+        releases
+      );
 
       if (!searchInput.value.trim()) {
         statusEl.textContent =
           `${seriesIndex.length} series and ${allTracks.length} tracks indexed.`;
       }
-    } catch (err) {
-      console.error(err);
+    } catch (error) {
+      console.error(error);
       loadError = true;
-      statusEl.textContent = 'Search index could not be loaded.';
+      statusEl.textContent =
+        'Search index could not be loaded.';
     }
   }
 
@@ -1202,6 +1184,21 @@
     resultsEl.appendChild(row);
   }
 
+  function trackLink(track) {
+    if (track?.url) return track.url;
+
+    if (track?.links && !Array.isArray(track.links)) {
+      return (
+        track.links.patreon ||
+        track.links.spotify ||
+        track.links.soundgasm ||
+        ''
+      );
+    }
+
+    return '';
+  }
+
   function appendTrackResult(track) {
     const row = document.createElement('div');
     row.className = 'search-result';
@@ -1229,7 +1226,7 @@
     const titleWrap = document.createElement('div');
     titleWrap.className = 'search-result-title';
 
-    const link = getTrackLink(track);
+    const link = trackLink(track);
 
     if (link) {
       const anchor = document.createElement('a');
@@ -1263,7 +1260,7 @@
     meta.textContent = [
       seriesText,
       track.date,
-      track.length
+      track.duration
     ].filter(Boolean).join(' · ');
 
     row.appendChild(main);
@@ -1305,7 +1302,9 @@
       .filter(result => result.score > 0)
       .sort((a, b) =>
         b.score - a.score ||
-        String(a.track.title || '').localeCompare(String(b.track.title || ''))
+        String(a.track.title || '').localeCompare(
+          String(b.track.title || '')
+        )
       );
 
     const visibleSeries = seriesMatches
@@ -1331,7 +1330,8 @@
       visibleTracks.length < trackMatches.length;
 
     statusEl.textContent =
-      `${statusParts.join(' and ')}${isTruncated ? ' · showing first 40 results' : ''}`;
+      `${statusParts.join(' and ')}` +
+      `${isTruncated ? ' · showing first 40 results' : ''}`;
 
     if (visibleSeries.length) {
       appendResultHeading('Series');
@@ -1344,7 +1344,8 @@
     }
 
     if (!visibleSeries.length && !visibleTracks.length) {
-      statusEl.textContent = 'No matching series or tracks.';
+      statusEl.textContent =
+        'No matching series or tracks.';
     }
   }
 
