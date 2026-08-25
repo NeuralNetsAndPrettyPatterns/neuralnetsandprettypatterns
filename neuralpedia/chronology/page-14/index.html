@@ -126,6 +126,29 @@
     .track-link:hover { opacity: 1; }
     .nnppid { font-family: 'Inconsolata', monospace; font-size: 0.55rem; letter-spacing: 0.15em; color: #4a5568; margin-top: 0.5rem; }
     .gap-note { font-family: 'Inconsolata', monospace; font-size: 0.6rem; letter-spacing: 0.1em; color: #4a5568; border-top: 1px dashed rgba(240,244,255,0.08); padding: 0.8rem 0; text-align: center; }
+    .catalogue-search { margin: 0.25rem 0 2rem; }
+    .catalogue-search-box { display: flex; align-items: center; gap: 0.7rem; border: 1px solid rgba(240,244,255,0.18); background: rgba(8,10,18,0.34); padding: 0.7rem 0.9rem; }
+    .catalogue-search-box svg { width: 18px; height: 18px; flex: 0 0 auto; color: #7eb8c9; }
+    .catalogue-search-box input { width: 100%; border: 0; background: transparent; color: #f0f4ff; font-family: 'Cormorant Garamond', Georgia, serif; font-size: 1.05rem; outline: none; }
+    .catalogue-search-box input::placeholder { color: rgba(240,244,255,0.4); }
+    .catalogue-search-status { margin-top: 0.65rem; font-family: 'Inconsolata', monospace; font-size: 0.62rem; letter-spacing: 0.1em; color: #6b7c99; }
+    .catalogue-search-results { margin-top: 0.85rem; }
+    .catalogue-search-result { border-top: 1px solid rgba(240,244,255,0.1); padding: 0.85rem 0; display: flex; justify-content: space-between; align-items: flex-start; gap: 1rem; }
+    .catalogue-search-main { display: flex; gap: 0.75rem; align-items: flex-start; min-width: 0; flex: 1 1 auto; }
+    .catalogue-search-thumb { width: 64px; max-height: 64px; flex: 0 0 auto; display: flex; align-items: flex-start; justify-content: center; }
+    .catalogue-search-thumb img { display: block; width: auto; max-width: 64px; height: auto; max-height: 64px; object-fit: contain; border: 1px solid rgba(240,244,255,0.15); border-radius: 5px; }
+    .catalogue-search-copy { min-width: 0; }
+    .catalogue-search-title { font-size: 1.05rem; color: #f0f4ff; }
+    .catalogue-search-title a { color: inherit; text-decoration: none; }
+    .catalogue-search-title a:hover { color: #7eb8c9; }
+    .catalogue-search-description { margin-top: 0.2rem; max-width: 58ch; color: #9aa9c8; font-size: 0.86rem; line-height: 1.35; display: -webkit-box; -webkit-line-clamp: 2; -webkit-box-orient: vertical; overflow: hidden; }
+    .catalogue-search-meta { flex: 0 0 auto; font-family: 'Inconsolata', monospace; font-size: 0.58rem; letter-spacing: 0.08em; color: #6b7c99; text-align: right; }
+    .dynamic-track .track-info { min-width: 0; }
+    .dynamic-track-content { display: flex; gap: 0.9rem; align-items: flex-start; }
+    .dynamic-track-art { width: 112px; max-height: 100px; flex: 0 0 auto; display: flex; align-items: flex-start; justify-content: center; }
+    .dynamic-track-art img { display: block; width: auto; max-width: 112px; height: auto; max-height: 100px; object-fit: contain; border: 1px solid rgba(240,244,255,0.15); border-radius: 6px; }
+    .dynamic-track-copy { min-width: 0; }
+    .dynamic-track-description { margin-top: 0.55rem; max-width: 58ch; color: #c8d4f0; font-size: 0.9rem; line-height: 1.4; display: -webkit-box; -webkit-line-clamp: 3; -webkit-box-orient: vertical; overflow: hidden; }
     .pagination { text-align: center; padding: 2rem 0; font-family: 'Inconsolata', monospace; font-size: 0.65rem; letter-spacing: 0.2em; color: #7eb8c9; opacity: 0.7; }
     .pagination a { color: #7eb8c9; }
     .footer-artist { border-top: 1px solid rgba(240,244,255,0.1); padding: 2rem 0; display: flex; flex-direction: column; gap: 1rem; align-items: center; text-align: center; }
@@ -136,7 +159,7 @@
     .footer-platform-link { font-family: 'Inconsolata', monospace; font-size: 0.6rem; letter-spacing: 0.2em; text-transform: uppercase; color: #7eb8c9; text-decoration: none; opacity: 0.7; transition: opacity 0.2s; }
     .footer-platform-link:hover { opacity: 1; }
     .footer-isni { font-family: 'Inconsolata', monospace; font-size: 0.55rem; letter-spacing: 0.2em; color: #4a5568; }
-    @media (max-width: 600px) { main { padding: 2rem 1rem; } .page-title { font-size: 1.8rem; } .track-entry { grid-template-columns: 2rem 1fr; } .track-links { display: none; } .artist-strip { flex-direction: column; align-items: flex-start; } }
+    @media (max-width: 600px) { main { padding: 2rem 1rem; } .page-title { font-size: 1.8rem; } .track-entry { grid-template-columns: 2rem 1fr; } .track-links { display: none; } .artist-strip { flex-direction: column; align-items: flex-start; } .catalogue-search-result { flex-direction: column; } .catalogue-search-meta { text-align: left; } .dynamic-track-content { flex-direction: column; } .dynamic-track-art { width: min(100%, 220px); max-height: 150px; } .dynamic-track-art img { max-width: 220px; max-height: 150px; } }
   </style>
 </head>
 <body>
@@ -164,6 +187,24 @@
     </a>
   </div>
 
+  <div class="catalogue-search" aria-label="Search Neuralverse catalogue">
+    <div class="catalogue-search-box">
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+        <circle cx="11" cy="11" r="7"></circle>
+        <path d="M21 21l-4.3-4.3"></path>
+      </svg>
+      <input
+        type="search"
+        id="catalogue-search-input"
+        placeholder="Search the full Neuralverse catalogue..."
+        autocomplete="off"
+        aria-label="Search the full Neuralverse catalogue"
+      >
+    </div>
+    <div class="catalogue-search-status" id="catalogue-search-status">Loading catalogue…</div>
+    <div class="catalogue-search-results" id="catalogue-search-results"></div>
+  </div>
+
   <div class="artist-strip">
     <span class="artist-strip-label">Neural Nets and Pretty Patterns &nbsp;·&nbsp; Listen</span>
     <div class="artist-strip-links">
@@ -182,10 +223,10 @@
   </div>
 
   <div class="section">
-    <div class="section-label">Complete Archive — Page 14 of 14 — Tracks 651–657 — November 2025 – July 2026</div>
+    <div class="section-label" id="archive-range-label">Complete Archive — Page 14 of 14 — Tracks 651–657 — November 2025 – July 2026</div>
     <h2>Chronological Archive</h2>
 
-    <div class="track-list">
+    <div class="track-list" id="track-list">
 
       <div class="track-entry" id="ICISBMP">
         <span class="track-number">651</span>
@@ -321,7 +362,7 @@
     </a>
   </div>
 
-  <div class="pagination">
+  <div class="pagination" id="archive-pagination">
     ← <a href="https://neuralnetsandprettypatterns.com/neuralpedia/chronology/page-13/">Page 13</a>
     &nbsp;&nbsp;·&nbsp;&nbsp;
     Page 14 of 14 &nbsp;·&nbsp; End of Archive
@@ -341,5 +382,713 @@
   </div>
 
 </main>
+
+<script>
+(function () {
+  "use strict";
+
+  const CHRONOLOGY_URL =
+    "https://neuralnetsandprettypatterns.com/neuralpedia/chronology/chronology.json";
+  const RELEASES_URL =
+    "https://neuralnetsandprettypatterns.com/releases.json";
+
+  const PAGE_START_INDEX = 650;
+  const PAGE_START_NUMBER = 651;
+  const MAX_SEARCH_RESULTS = 40;
+
+  const trackList = document.getElementById("track-list");
+  const rangeLabel = document.getElementById("archive-range-label");
+  const pagination = document.getElementById("archive-pagination");
+  const searchInput = document.getElementById("catalogue-search-input");
+  const searchStatus = document.getElementById("catalogue-search-status");
+  const searchResults = document.getElementById("catalogue-search-results");
+
+  let cataloguePromise = null;
+  let catalogue = [];
+
+  function normalizeUrl(value) {
+    return String(value || "")
+      .trim()
+      .toLowerCase()
+      .replace(/\/+$/, "");
+  }
+
+  function normalizeSearch(value) {
+    return String(value || "")
+      .toLowerCase()
+      .normalize("NFKD")
+      .replace(/[\u0300-\u036f]/g, "")
+      .replace(/&/g, " and ")
+      .replace(/[^a-z0-9]+/g, " ")
+      .replace(/\s+/g, " ")
+      .trim();
+  }
+
+  function validDate(value) {
+    const date = String(value || "").trim();
+    return /^\d{4}-\d{2}-\d{2}$/.test(date) ? date : "";
+  }
+
+  function slugify(value) {
+    return normalizeSearch(value).replace(/\s+/g, "-");
+  }
+
+  function seriesUrl(name) {
+    const slug = slugify(name);
+    return slug
+      ? `https://neuralnetsandprettypatterns.com/neuralpedia/${slug}/`
+      : "";
+  }
+
+  function releasePrimaryUrl(release) {
+    if (release?.canonical_url) return release.canonical_url;
+
+    if (Array.isArray(release?.links)) {
+      const patreon = release.links.find(
+        item => String(item?.label || "").toLowerCase() === "patreon"
+      );
+      if (patreon?.url) return patreon.url;
+
+      const first = release.links.find(item => item?.url);
+      if (first?.url) return first.url;
+    }
+
+    return "";
+  }
+
+  function unique(values) {
+    return [...new Set(values.filter(Boolean))];
+  }
+
+  function chronologyLinks(track) {
+    const links = [];
+
+    if (track?.links && !Array.isArray(track.links)) {
+      Object.entries(track.links).forEach(([label, url]) => {
+        if (!url || !/^https?:/i.test(String(url))) return;
+        links.push({
+          label: label
+            .replace(/_/g, " ")
+            .replace(/\b\w/g, char => char.toUpperCase()),
+          url
+        });
+      });
+    }
+
+    if (!links.length && track?.url) {
+      links.push({ label: "Patreon", url: track.url });
+    }
+
+    return links;
+  }
+
+  function mergeLinks(existingLinks, releaseLinks) {
+    const result = [];
+    const seen = new Set();
+
+    [...(existingLinks || []), ...(releaseLinks || [])].forEach(item => {
+      if (!item?.url) return;
+      const key = normalizeUrl(item.url);
+      if (!key || seen.has(key)) return;
+      seen.add(key);
+      result.push({
+        label: item.label || "Link",
+        url: item.url
+      });
+    });
+
+    return result;
+  }
+
+  function prepareChronology(chronology) {
+    const nextKnownDate = new Array(chronology.length).fill("");
+    let nextDate = "";
+
+    for (let i = chronology.length - 1; i >= 0; i -= 1) {
+      nextKnownDate[i] = nextDate;
+      const current = validDate(chronology[i]?.date);
+      if (current) nextDate = current;
+    }
+
+    return chronology.map((track, index) => {
+      const date = validDate(track?.date);
+      const next = nextKnownDate[index];
+
+      return {
+        type: "track",
+        id: String(track?.id || "").trim(),
+        title: String(track?.title || "").trim(),
+        aliases: [],
+        date,
+        duration: String(track?.duration || "").trim(),
+        series: Array.isArray(track?.series) ? track.series : [],
+        tags: Array.isArray(track?.tags) ? track.tags : [],
+        url: String(track?.url || "").trim(),
+        links: chronologyLinks(track),
+        description: "",
+        image: "",
+        genre: [],
+        format: "",
+        source: "chronology",
+        chronologyIndex: index,
+        releaseIndex: null,
+        sortDate: date || next || "9999-12-31",
+        sortRank: date ? 1 : (next ? 0 : 2)
+      };
+    });
+  }
+
+  function applyReleaseOverlay(track, release, releaseIndex) {
+    const releaseTitle = String(release?.title || "").trim();
+    if (
+      releaseTitle &&
+      normalizeSearch(releaseTitle) !== normalizeSearch(track.title)
+    ) {
+      track.aliases = unique([...(track.aliases || []), releaseTitle]);
+    }
+
+    const releaseDate = validDate(release?.release_date);
+    if (!track.date && releaseDate) {
+      track.date = releaseDate;
+      track.sortDate = releaseDate;
+      track.sortRank = 1;
+    }
+
+    track.series = unique([
+      ...(track.series || []),
+      ...(Array.isArray(release?.series) ? release.series : [])
+    ]);
+
+    track.genre = unique([
+      ...(track.genre || []),
+      ...(Array.isArray(release?.genre) ? release.genre : [])
+    ]);
+
+    track.tags = unique([
+      ...(track.tags || []),
+      ...track.genre,
+      ...(Array.isArray(release?.power_geometry)
+        ? release.power_geometry
+        : []),
+      String(release?.format || "").trim()
+    ]);
+
+    track.duration =
+      track.duration ||
+      String(release?.length || "").trim();
+
+    track.description =
+      track.description ||
+      String(release?.description || "").trim();
+
+    track.image =
+      track.image ||
+      String(release?.image || "").trim();
+
+    track.format =
+      track.format ||
+      String(release?.format || "").trim();
+
+    track.links = mergeLinks(
+      track.links,
+      Array.isArray(release?.links) ? release.links : []
+    );
+
+    track.releaseIndex = releaseIndex;
+    return track;
+  }
+
+  function releaseAsTrack(release, releaseIndex) {
+    const date = validDate(release?.release_date);
+    const genre = Array.isArray(release?.genre)
+      ? release.genre
+      : [];
+
+    return {
+      type: "track",
+      id: String(release?.nnpp_id || "").trim(),
+      title: String(release?.title || "").trim(),
+      aliases: [],
+      date,
+      duration: String(release?.length || "").trim(),
+      series: Array.isArray(release?.series) ? release.series : [],
+      tags: unique([
+        ...genre,
+        ...(Array.isArray(release?.power_geometry)
+          ? release.power_geometry
+          : []),
+        String(release?.format || "").trim()
+      ]),
+      url: releasePrimaryUrl(release),
+      links: mergeLinks(
+        [],
+        Array.isArray(release?.links) ? release.links : []
+      ),
+      description: String(release?.description || "").trim(),
+      image: String(release?.image || "").trim(),
+      genre,
+      format: String(release?.format || "").trim(),
+      source: "release",
+      chronologyIndex: null,
+      releaseIndex,
+      sortDate: date || "9999-12-31",
+      sortRank: date ? 1 : 2
+    };
+  }
+
+  function mergeCatalogue(chronology, releasesData) {
+    const merged = prepareChronology(chronology);
+    const byUrl = new Map();
+
+    merged.forEach(track => {
+      const key = normalizeUrl(track.url);
+      if (key) byUrl.set(key, track);
+    });
+
+    const releases = Array.isArray(releasesData?.new_releases)
+      ? releasesData.new_releases
+      : [];
+
+    releases.forEach((release, releaseIndex) => {
+      const key = normalizeUrl(releasePrimaryUrl(release));
+      const existing = key ? byUrl.get(key) : null;
+
+      if (existing) {
+        applyReleaseOverlay(existing, release, releaseIndex);
+        return;
+      }
+
+      const added = releaseAsTrack(release, releaseIndex);
+      merged.push(added);
+
+      const addedKey = normalizeUrl(added.url);
+      if (addedKey) byUrl.set(addedKey, added);
+    });
+
+    return merged;
+  }
+
+  async function loadCatalogue() {
+    if (cataloguePromise) return cataloguePromise;
+
+    cataloguePromise = (async () => {
+      const chronologyResponse = await fetch(
+        CHRONOLOGY_URL,
+        { cache: "no-store" }
+      );
+
+      if (!chronologyResponse.ok) {
+        throw new Error(
+          `Chronology request failed with status ${chronologyResponse.status}`
+        );
+      }
+
+      const chronology = await chronologyResponse.json();
+
+      if (!Array.isArray(chronology)) {
+        throw new Error("Chronology JSON is not an array.");
+      }
+
+      let releasesData = null;
+
+      try {
+        const releasesResponse = await fetch(
+          RELEASES_URL,
+          { cache: "no-store" }
+        );
+
+        if (releasesResponse.ok) {
+          releasesData = await releasesResponse.json();
+        }
+      } catch (releaseError) {
+        console.warn(
+          "Release enrichment unavailable; chronology search remains active.",
+          releaseError
+        );
+      }
+
+      catalogue = mergeCatalogue(chronology, releasesData);
+
+      return {
+        chronology,
+        catalogue
+      };
+    })();
+
+    return cataloguePromise;
+  }
+
+  function tailRecords(chronology, mergedCatalogue) {
+    const startTrack = chronology[PAGE_START_INDEX];
+    const startDate =
+      validDate(startTrack?.date) ||
+      "0000-00-00";
+
+    return mergedCatalogue
+      .filter(track => {
+        if (
+          Number.isInteger(track.chronologyIndex) &&
+          track.chronologyIndex >= PAGE_START_INDEX
+        ) {
+          return true;
+        }
+
+        return (
+          track.chronologyIndex === null &&
+          track.sortDate >= startDate
+        );
+      })
+      .sort((a, b) => {
+        const dateCompare =
+          String(a.sortDate).localeCompare(String(b.sortDate));
+
+        if (dateCompare) return dateCompare;
+
+        if (a.sortRank !== b.sortRank) {
+          return a.sortRank - b.sortRank;
+        }
+
+        const aOrder =
+          Number.isInteger(a.chronologyIndex)
+            ? a.chronologyIndex
+            : 100000 + (a.releaseIndex || 0);
+
+        const bOrder =
+          Number.isInteger(b.chronologyIndex)
+            ? b.chronologyIndex
+            : 100000 + (b.releaseIndex || 0);
+
+        return aOrder - bOrder;
+      });
+  }
+
+  function addText(parent, className, text) {
+    const node = document.createElement("div");
+    node.className = className;
+    node.textContent = text;
+    parent.appendChild(node);
+    return node;
+  }
+
+  function buildSeriesTags(track) {
+    const wrap = document.createElement("div");
+    wrap.className = "track-series";
+
+    (track.series || []).forEach(name => {
+      const link = document.createElement("a");
+      link.className = "track-series-tag";
+      link.href = seriesUrl(name);
+      link.textContent = name;
+      wrap.appendChild(link);
+    });
+
+    return wrap;
+  }
+
+  function safeElementId(track, number) {
+    const id = String(track?.id || "").trim();
+
+    if (id && normalizeSearch(id) !== "tbd") {
+      return id.replace(/[^A-Za-z0-9_-]/g, "-");
+    }
+
+    return `catalogue-track-${number}`;
+  }
+
+  function buildTrackRow(track, number) {
+    const entry = document.createElement("div");
+    entry.className = "track-entry dynamic-track";
+    entry.id = safeElementId(track, number);
+
+    const numberNode = document.createElement("span");
+    numberNode.className = "track-number";
+    numberNode.textContent = String(number);
+    entry.appendChild(numberNode);
+
+    const info = document.createElement("div");
+    info.className = "track-info";
+
+    const content = document.createElement("div");
+    content.className = "dynamic-track-content";
+
+    if (track.image) {
+      const art = document.createElement("div");
+      art.className = "dynamic-track-art";
+
+      const image = document.createElement("img");
+      image.src = track.image;
+      image.alt = `${track.title || "Track"} artwork`;
+      image.loading = "lazy";
+      image.decoding = "async";
+
+      art.appendChild(image);
+      content.appendChild(art);
+    }
+
+    const copy = document.createElement("div");
+    copy.className = "dynamic-track-copy";
+
+    addText(copy, "track-title", track.title || "Untitled");
+
+    const meta = [
+      track.date,
+      track.duration,
+      ...(track.tags || [])
+    ].filter(Boolean);
+
+    if (meta.length) {
+      addText(copy, "track-meta", meta.join(" · "));
+    }
+
+    const series = buildSeriesTags(track);
+    if (series.children.length) copy.appendChild(series);
+
+    if (track.description) {
+      addText(
+        copy,
+        "dynamic-track-description",
+        track.description
+      );
+    }
+
+    if (track.id && normalizeSearch(track.id) !== "tbd") {
+      addText(copy, "nnppid", `NNPPID: ${track.id}`);
+    }
+
+    content.appendChild(copy);
+    info.appendChild(content);
+    entry.appendChild(info);
+
+    const links = document.createElement("div");
+    links.className = "track-links";
+
+    (track.links || []).forEach(item => {
+      if (!item?.url) return;
+      const link = document.createElement("a");
+      link.className = "track-link";
+      link.href = item.url;
+      link.textContent = item.label || "Link";
+      links.appendChild(link);
+    });
+
+    entry.appendChild(links);
+    return entry;
+  }
+
+  function monthYear(dateText) {
+    const parts = String(dateText || "").split("-");
+    if (parts.length !== 3) return "";
+
+    const date = new Date(
+      Number(parts[0]),
+      Number(parts[1]) - 1,
+      Number(parts[2])
+    );
+
+    return new Intl.DateTimeFormat("en-US", {
+      month: "long",
+      year: "numeric"
+    }).format(date);
+  }
+
+  function renderTail(chronology, mergedCatalogue) {
+    if (!trackList) return;
+
+    const tail = tailRecords(chronology, mergedCatalogue);
+    if (!tail.length) return;
+
+    trackList.innerHTML = "";
+
+    tail.forEach((track, index) => {
+      trackList.appendChild(
+        buildTrackRow(track, PAGE_START_NUMBER + index)
+      );
+    });
+
+    const lastNumber =
+      PAGE_START_NUMBER + tail.length - 1;
+
+    const datedTail = tail.filter(track => track.date);
+    const finalDate =
+      datedTail.length
+        ? datedTail[datedTail.length - 1].date
+        : "";
+
+    if (rangeLabel) {
+      rangeLabel.textContent =
+        `Complete Archive · Page 14 of 14 · ` +
+        `Tracks ${PAGE_START_NUMBER}–${lastNumber} · ` +
+        `November 2025 – ${monthYear(finalDate)}`;
+    }
+
+    if (pagination) {
+      pagination.innerHTML =
+        `← <a href="https://neuralnetsandprettypatterns.com/neuralpedia/chronology/page-13/">Page 13</a>` +
+        ` &nbsp;&nbsp;·&nbsp;&nbsp; ` +
+        `Page 14 of 14 &nbsp;·&nbsp; End of Archive` +
+        ` &nbsp;·&nbsp; ${mergedCatalogue.length} tracks indexed`;
+    }
+  }
+
+  function trackSearchScore(track, query) {
+    const title = normalizeSearch(track.title);
+    const aliases = normalizeSearch((track.aliases || []).join(" "));
+    const series = normalizeSearch((track.series || []).join(" "));
+    const tags = normalizeSearch((track.tags || []).join(" "));
+    const description = normalizeSearch(track.description);
+    const date = normalizeSearch(track.date);
+    const id = normalizeSearch(track.id);
+
+    if (title === query) return 200;
+    if (title.startsWith(query)) return 180;
+    if (aliases === query) return 170;
+    if (title.includes(query)) return 160;
+    if (aliases.includes(query)) return 150;
+    if (series.includes(query)) return 120;
+    if (tags.includes(query)) return 100;
+    if (date.includes(query) || id.includes(query)) return 90;
+    if (description.includes(query)) return 80;
+
+    return 0;
+  }
+
+  function clearSearchResults() {
+    if (searchResults) searchResults.innerHTML = "";
+  }
+
+  function buildSearchResult(track) {
+    const row = document.createElement("div");
+    row.className = "catalogue-search-result";
+
+    const main = document.createElement("div");
+    main.className = "catalogue-search-main";
+
+    if (track.image) {
+      const thumb = document.createElement("div");
+      thumb.className = "catalogue-search-thumb";
+
+      const image = document.createElement("img");
+      image.src = track.image;
+      image.alt = `${track.title || "Track"} artwork`;
+      image.loading = "lazy";
+      image.decoding = "async";
+
+      thumb.appendChild(image);
+      main.appendChild(thumb);
+    }
+
+    const copy = document.createElement("div");
+    copy.className = "catalogue-search-copy";
+
+    const title = document.createElement("div");
+    title.className = "catalogue-search-title";
+
+    if (track.url) {
+      const link = document.createElement("a");
+      link.href = track.url;
+      link.textContent = track.title || "Untitled";
+      link.target = "_blank";
+      link.rel = "noopener";
+      title.appendChild(link);
+    } else {
+      title.textContent = track.title || "Untitled";
+    }
+
+    copy.appendChild(title);
+
+    if (track.description) {
+      const description = document.createElement("div");
+      description.className = "catalogue-search-description";
+      description.textContent = track.description;
+      copy.appendChild(description);
+    }
+
+    main.appendChild(copy);
+
+    const meta = document.createElement("div");
+    meta.className = "catalogue-search-meta";
+    meta.textContent = [
+      (track.series || []).join(", "),
+      track.date,
+      track.duration
+    ].filter(Boolean).join(" · ");
+
+    row.appendChild(main);
+    row.appendChild(meta);
+    return row;
+  }
+
+  function renderSearch(rawQuery) {
+    clearSearchResults();
+
+    const query = normalizeSearch(rawQuery);
+
+    if (!query) {
+      searchStatus.textContent =
+        `${catalogue.length} tracks indexed.`;
+      return;
+    }
+
+    const matches = catalogue
+      .map(track => ({
+        track,
+        score: trackSearchScore(track, query)
+      }))
+      .filter(result => result.score > 0)
+      .sort((a, b) =>
+        b.score - a.score ||
+        String(a.track.title || "").localeCompare(
+          String(b.track.title || "")
+        )
+      );
+
+    const visible = matches.slice(0, MAX_SEARCH_RESULTS);
+
+    searchStatus.textContent =
+      `${matches.length} matching track${matches.length === 1 ? "" : "s"}` +
+      `${matches.length > MAX_SEARCH_RESULTS ? " · showing first 40" : ""}`;
+
+    visible.forEach(result => {
+      searchResults.appendChild(
+        buildSearchResult(result.track)
+      );
+    });
+
+    if (!matches.length) {
+      searchStatus.textContent = "No matching tracks.";
+    }
+  }
+
+  loadCatalogue()
+    .then(({ chronology, catalogue: mergedCatalogue }) => {
+      renderTail(chronology, mergedCatalogue);
+
+      if (searchStatus) {
+        searchStatus.textContent =
+          `${mergedCatalogue.length} tracks indexed.`;
+      }
+
+      if (searchInput?.value.trim()) {
+        renderSearch(searchInput.value);
+      }
+    })
+    .catch(error => {
+      console.error("Catalogue could not be loaded:", error);
+
+      if (searchStatus) {
+        searchStatus.textContent =
+          "Catalogue search could not be loaded.";
+      }
+
+      // The original static page-14 rows remain visible as a fallback.
+    });
+
+  searchInput?.addEventListener("input", event => {
+    if (!catalogue.length) return;
+    renderSearch(event.target.value);
+  });
+})();
+</script>
+
 </body>
 </html>
