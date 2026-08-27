@@ -313,39 +313,86 @@
       }
     },
     {
-      "title": "Pom Buzz",
-      "series": [
-        "1 2 3 4"
-      ],
-      "release_date": "2026-08-23",
-      "genre": [
-        "Chant",
-        "Dance"
-      ],
-      "power_geometry": [
-        "fs"
-      ],
-      "format": "Pure audio",
-      "length": "31:22",
-      "duration_iso": "PT31M22S",
-      "canonical_url": "https://www.patreon.com/minderaser/posts/pom-buzz-all-fem-167510408",
-      "same_as": [],
-      "image": "https://neuralnetsandprettypatterns.com/neuralpedia/pombuzz.jpg",
-      "links": [
-        {
-          "label": "Patreon",
-          "url": "https://www.patreon.com/minderaser/posts/pom-buzz-all-fem-167510408"
-        },
-        {
-          "label": "Series",
-          "url": "https://neuralnetsandprettypatterns.com/neuralpedia/1-2-3-4/"
-        }
-      ],
-      "is_free": false,
-      "description": "Pom Buzz is the latest in a line of 1 2 3 4 chant releases for varsity-level cheer spirit. It's pure vibes, without the extensive lore and backstory of many recent releases. The squad performs a high-energy routine in a crowded stadium, showing off their best pomgrip.",
-      "credits": {
-        "performer": "Vampy McVampface, Echo Doll, Bun Li, TBQ"
-      }
+  "title": "Pom Buzz",
+  "series": [
+    "1 2 3 4"
+  ],
+  "release_date": "2026-08-23",
+  "genre": [
+    "Chant",
+    "Dance"
+  ],
+  "power_geometry": [
+    "fs"
+  ],
+  "format": "Pure audio",
+  "length": "31:22",
+  "duration_iso": "PT31M22S",
+  "canonical_url": "https://www.patreon.com/minderaser/posts/pom-buzz-all-fem-167510408",
+  "same_as": [],
+  "image": "https://neuralnetsandprettypatterns.com/neuralpedia/pombuzz.jpg",
+  "links": [
+    {
+      "label": "Patreon",
+      "url": "https://www.patreon.com/minderaser/posts/pom-buzz-all-fem-167510408"
+    },
+    {
+      "label": "Series",
+      "url": "https://neuralnetsandprettypatterns.com/neuralpedia/1-2-3-4/"
     }
+  ],
+  "is_free": false,
+  "description": "Pom Buzz is the latest in a line of 1 2 3 4 chant releases for varsity-level cheer spirit. It's pure vibes, without the extensive lore and backstory of many recent releases. The squad performs a high-energy routine in a crowded stadium, showing off their best pomgrip.",
+  "credits": {
+    "performer": "Vampy McVampface, Echo Doll, Bun Li, TBQ"
+  }
+},
+{
+  "title": "Driptank Buzzies",
+  "series": [
+    "Mermaid",
+    "Mythic"
+  ],
+  "release_date": "2026-08-27",
+  "genre": [
+    "Haptic Narrative",
+    "Paranormal Romance",
+    "Experimental Audio"
+  ],
+  "power_geometry": [
+    "fs"
+  ],
+  "format": "Haptic audio",
+  "length": "35:37",
+  "duration_iso": "PT35M37S",
+  "canonical_url": "https://www.patreon.com/minderaser/posts/driptank-buzzies-167790495",
+  "same_as": [
+    "https://musicbrainz.org/release/61bcf5d8-aeae-4d8b-a30b-6cd8dee70c4d"
+  ],
+  "image": "https://neuralnetsandprettypatterns.com/neuralpedia/Driptank%20Buzzies%20Cover.jpg",
+  "links": [
+    {
+      "label": "Patreon",
+      "url": "https://www.patreon.com/minderaser/posts/driptank-buzzies-167790495"
+    },
+    {
+      "label": "MusicBrainz",
+      "url": "https://musicbrainz.org/release/61bcf5d8-aeae-4d8b-a30b-6cd8dee70c4d"
+    },
+    {
+      "label": "Series",
+      "url": "https://neuralnetsandprettypatterns.com/neuralpedia/mermaid/"
+    },
+    {
+      "label": "Series",
+      "url": "https://neuralnetsandprettypatterns.com/neuralpedia/mythic/"
+    }
+  ],
+  "is_free": false,
+  "description": "Driptank Buzzies is the first haptic narrative release from Neural Nets And Pretty Patterns (ISNI 0000 0005 2877 6254) in months. Echo Doll, assisted by TBQ, Shadow V, and Vampy McVampface, recounts paranormal romantic dreams centered around a familiar mermaid figure. The haptic patterns follow Echo Doll's thoughts directly: bells trigger maximum pulse, sine waves create long rising and falling patterns, and specific words activate haptic responses on a variable reward schedule. Part narrative, part haptic puzzle, and part pure mood piece.",
+  "credits": {
+    "performer": "Echo Doll, TBQ, Shadow V, Vampy McVampface"
+  }
+}
   ]
 }
