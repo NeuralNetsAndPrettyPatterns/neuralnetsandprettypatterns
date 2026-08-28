@@ -3102,5 +3102,211 @@
     "stageName": "Flux Lynniegal",
     "bio_page": "/deepdreamstate/cast/flux-lynniegal/"
   }
+},
+{
+  "term": "Mr. Beefcake",
+  "class": "character",
+  "performer": "Chavito",
+  "cast": {
+    "performerId": "chavito",
+    "stageName": "Chavito",
+    "bio_page": "/deepdreamstate/cast/chavito/"
+  }
+},
+{
+  "term": "Hespa Apate",
+  "class": "character",
+  "performer": "Syndi Rella",
+  "performer_url": "https://www.imdb.com/name/nm17765752/",
+  "cast": {
+    "performerId": "syndi-rella",
+    "stageName": "Syndi Rella",
+    "bio_page": "/deepdreamstate/cast/syndi-rella/"
+  }
+},
+{
+  "term": "Z / Dr. Zev Talcott",
+  "class": "character",
+  "performer": "Neural Nets And Pretty Patterns",
+  "performer_url": "https://www.imdb.com/name/nm17755189/",
+  "cast": {
+    "performerId": "neural-nets-and-pretty-patterns",
+    "stageName": "Neural Nets And Pretty Patterns",
+    "bio_page": "/deepdreamstate/cast/neural-nets-and-pretty-patterns/"
+  }
+},
+{
+  "term": "Tessa Finn",
+  "class": "character",
+  "performer": "Ring of Kees",
+  "performer_url": "https://www.imdb.com/name/nm17839622/",
+  "cast": {
+    "performerId": "ring-of-kees",
+    "stageName": "Ring of Kees",
+    "bio_page": "/deepdreamstate/cast/ring-of-kees/"
+  }
+},
+{
+  "term": "Iris",
+  "class": "character",
+  "performer": "Swirls and Twirls",
+  "performer_url": "https://www.imdb.com/name/nm17864395/",
+  "cast": {
+    "performerId": "swirls-and-twirls",
+    "stageName": "Swirls and Twirls",
+    "bio_page": "/deepdreamstate/cast/swirls-and-twirls/"
+  }
+},
+{
+  "term": "Naia Anderson",
+  "class": "character",
+  "performer": "Dizzy Dollie",
+  "performer_url": "https://www.imdb.com/name/nm17760876/",
+  "cast": {
+    "performerId": "dizzy-dollie",
+    "stageName": "Dizzy Dollie",
+    "bio_page": "/deepdreamstate/cast/dizzy-dollie/"
+  }
+},
+{
+  "term": "June Lowell",
+  "class": "character",
+  "performer": "Bliss Blank",
+  "performer_url": "https://www.imdb.com/name/nm17754818/",
+  "cast": {
+    "performerId": "bliss-blank",
+    "stageName": "Bliss Blank",
+    "bio_page": "/deepdreamstate/cast/bliss-blank/"
+  }
+},
+{
+  "term": "Hilton",
+  "class": "character",
+  "performer": "Tickled Panda",
+  "performer_url": "https://www.imdb.com/name/nm18291391/",
+  "cast": {
+    "performerId": "tickled-panda",
+    "stageName": "Tickled Panda",
+    "bio_page": "/deepdreamstate/cast/tickled-panda/"
+  }
+},
+{
+  "term": "Astoria",
+  "class": "character",
+  "performer": "Dakota Dream",
+  "performer_url": "https://www.imdb.com/name/nm18291393/",
+  "cast": {
+    "performerId": "dakota-dream",
+    "stageName": "Dakota Dream",
+    "bio_page": "/deepdreamstate/cast/dakota-dream/"
+  }
+},
+{
+  "term": "Mr. Beefcake",
+  "appearances": [
+    {
+      "ge": 45,
+      "season": 4,
+      "episode": 18,
+      "title": "Evergreen",
+      "url": "https://neuralnetsandprettypatterns.com/deepdreamstate/arcs/vale-four/episode-18-evergreen/"
+    }
+  ]
+},
+{
+  "term": "Hespa Apate",
+  "appearances": [
+    {
+      "ge": 45,
+      "season": 4,
+      "episode": 18,
+      "title": "Evergreen",
+      "url": "https://neuralnetsandprettypatterns.com/deepdreamstate/arcs/vale-four/episode-18-evergreen/"
+    }
+  ]
+},
+{
+  "term": "Z / Dr. Zev Talcott",
+  "appearances": [
+    {
+      "ge": 45,
+      "season": 4,
+      "episode": 18,
+      "title": "Evergreen",
+      "url": "https://neuralnetsandprettypatterns.com/deepdreamstate/arcs/vale-four/episode-18-evergreen/"
+    }
+  ]
+},
+{
+  "term": "Tessa Finn",
+  "appearances": [
+    {
+      "ge": 45,
+      "season": 4,
+      "episode": 18,
+      "title": "Evergreen",
+      "url": "https://neuralnetsandprettypatterns.com/deepdreamstate/arcs/vale-four/episode-18-evergreen/"
+    }
+  ]
+},
+{
+  "term": "Iris",
+  "appearances": [
+    {
+      "ge": 45,
+      "season": 4,
+      "episode": 18,
+      "title": "Evergreen",
+      "url": "https://neuralnetsandprettypatterns.com/deepdreamstate/arcs/vale-four/episode-18-evergreen/"
+    }
+  ]
+},
+{
+  "term": "Naia Anderson",
+  "appearances": [
+    {
+      "ge": 45,
+      "season": 4,
+      "episode": 18,
+      "title": "Evergreen",
+      "url": "https://neuralnetsandprettypatterns.com/deepdreamstate/arcs/vale-four/episode-18-evergreen/"
+    }
+  ]
+},
+{
+  "term": "June Lowell",
+  "appearances": [
+    {
+      "ge": 45,
+      "season": 4,
+      "episode": 18,
+      "title": "Evergreen",
+      "url": "https://neuralnetsandprettypatterns.com/deepdreamstate/arcs/vale-four/episode-18-evergreen/"
+    }
+  ]
+},
+{
+  "term": "Hilton",
+  "appearances": [
+    {
+      "ge": 45,
+      "season": 4,
+      "episode": 18,
+      "title": "Evergreen",
+      "url": "https://neuralnetsandprettypatterns.com/deepdreamstate/arcs/vale-four/episode-18-evergreen/"
+    }
+  ]
+},
+{
+  "term": "Astoria",
+  "appearances": [
+    {
+      "ge": 45,
+      "season": 4,
+      "episode": 18,
+      "title": "Evergreen",
+      "url": "https://neuralnetsandprettypatterns.com/deepdreamstate/arcs/vale-four/episode-18-evergreen/"
+    }
+  ]
 }
 ]
