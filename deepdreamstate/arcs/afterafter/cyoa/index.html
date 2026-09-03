@@ -208,6 +208,8 @@
       padding: 1.5rem 0 4rem;
     }
 
+    /* AFTER AFTER MENU */
+
     .afterafter-menu {
       margin-bottom: 2rem;
       border-top: 1px solid rgba(255,255,255,0.6);
@@ -248,6 +250,8 @@
       padding: 0 0 1.5rem;
     }
 
+    /* DDS NAV */
+
     .nav-buttons {
       display: flex;
       justify-content: center;
@@ -281,6 +285,8 @@
       text-decoration: none;
     }
 
+    /* INTRO */
+
     .intro-copy {
       font-size: 1.03rem;
     }
@@ -294,6 +300,8 @@
       text-align: center;
       font-size: 1.35rem;
     }
+
+    /* SPOILERS */
 
     .spoiler-text {
       display: inline;
@@ -326,6 +334,8 @@
       color: #ffffff !important;
     }
 
+    /* MAIN TITLE */
+
     .choice-title {
       margin: 1rem 0 1.5rem;
       text-align: center;
@@ -334,7 +344,8 @@
       letter-spacing: 0.05em;
     }
 
-    /* Smaller carousel / image footprint */
+    /* CAROUSEL */
+
     .carousel {
       position: relative;
       width: min(360px, 88vw);
@@ -342,6 +353,7 @@
     }
 
     .carousel-frame {
+      width: 100%;
       overflow: hidden;
       border: 1px solid rgba(255,255,255,0.75);
       background: rgba(0,0,0,0.25);
@@ -349,12 +361,25 @@
 
     .carousel-track {
       display: flex;
+      width: 100%;
+      align-items: flex-start;
       transition: transform 0.4s ease;
     }
 
+    /*
+      IMPORTANT:
+      Every slide is exactly the visible carousel width.
+      Nothing inside can grow wider and push text off center.
+    */
     .faction-slide {
       flex: 0 0 100%;
+      width: 100%;
       min-width: 100%;
+      max-width: 100%;
+      margin: 0;
+      padding: 0;
+      overflow: hidden;
+      text-align: center;
     }
 
     .faction-image {
@@ -363,6 +388,8 @@
       object-fit: cover;
       background: #08040d;
     }
+
+    /* ARROWS */
 
     .carousel-arrow {
       position: absolute;
@@ -394,32 +421,55 @@
       right: 0.5rem;
     }
 
+    /*
+      FIX:
+      Details are now locked to 100% of the slide,
+      not a 500px box inside a 360px carousel.
+    */
     .slide-details {
-      width: min(500px, 90vw);
-      margin: 0 auto;
-      padding: 1.1rem 0 0;
+      display: block;
+      width: 100%;
+      max-width: 100%;
+      margin: 0;
+      padding: 1.1rem 1rem 0;
+      text-align: center;
+    }
+
+    .slide-details p {
+      width: 100%;
+      max-width: 100%;
+      margin-left: auto;
+      margin-right: auto;
       text-align: center;
     }
 
     .slide-byline {
-      margin: 0;
+      margin-top: 0;
+      margin-bottom: 0;
       font-size: 1.35rem;
       letter-spacing: 0.08em;
       text-transform: uppercase;
     }
 
     .slide-tagline {
-      margin: 0.25rem 0 0;
+      margin-top: 0.25rem;
+      margin-bottom: 0;
       font-size: 1.08rem;
     }
 
     .slide-members {
-      margin: 0.7rem 0 0;
+      margin-top: 0.7rem;
+      margin-bottom: 0;
       font-size: 0.95rem;
     }
 
+    .slide-members a {
+      display: inline;
+    }
+
     .vote-total {
-      margin: 0.8rem 0 0;
+      margin-top: 0.8rem;
+      margin-bottom: 0;
       font-size: 1.08rem;
     }
 
@@ -428,11 +478,15 @@
       font-variant-numeric: tabular-nums;
     }
 
+    /* DOTS */
+
     .carousel-dots {
       display: flex;
       justify-content: center;
+      align-items: center;
       gap: 0.65rem;
-      margin: 1rem 0 0;
+      width: 100%;
+      margin: 1rem auto 0;
     }
 
     .carousel-dot {
@@ -449,24 +503,36 @@
       background: #ffffff;
     }
 
+    /* CHOICE */
+
     .choose-row {
       display: flex;
+      width: 100%;
+      max-width: 100%;
       justify-content: center;
       align-items: center;
       gap: 0.6rem;
-      margin-top: 1rem;
+      margin: 1rem auto 0;
+      padding: 0;
+      text-align: center;
     }
 
     .faction-radio {
       width: 18px;
       height: 18px;
+      flex: 0 0 18px;
+      margin: 0;
       accent-color: #ffffff;
     }
 
     .choose-row label {
+      margin: 0;
       cursor: pointer;
       font-size: 1rem;
+      text-align: center;
     }
+
+    /* VOTE BUTTON */
 
     .vote-controls {
       margin: 1.6rem auto 0;
@@ -506,6 +572,8 @@
       opacity: 0.75;
     }
 
+    /* SEASON CONTEXT */
+
     .season-context {
       margin: 3rem auto 0;
       padding: 1.5rem 0;
@@ -532,6 +600,8 @@
       text-transform: uppercase;
     }
 
+    /* RATING */
+
     .rating-cta {
       display: none;
       max-width: 600px;
@@ -551,6 +621,8 @@
       flex-wrap: wrap;
       gap: 1rem;
     }
+
+    /* FOOTER */
 
     footer {
       margin-top: 3rem;
@@ -572,6 +644,11 @@
         top: 165px;
         width: 36px;
         height: 36px;
+      }
+
+      .slide-details {
+        padding-left: 0.75rem;
+        padding-right: 0.75rem;
       }
     }
   </style>
@@ -709,10 +786,7 @@
           id="carousel-track"
         >
 
-          <article
-            class="faction-slide"
-            data-faction="orphics"
-          >
+          <article class="faction-slide" data-faction="orphics">
 
             <img
               class="faction-image"
@@ -752,7 +826,6 @@
                   name="faction"
                   value="orphics"
                 >
-
                 <label for="vote-orphics">
                   Choose Orphics
                 </label>
@@ -763,10 +836,7 @@
           </article>
 
 
-          <article
-            class="faction-slide"
-            data-faction="triplings"
-          >
+          <article class="faction-slide" data-faction="triplings">
 
             <img
               class="faction-image"
@@ -805,7 +875,6 @@
                   name="faction"
                   value="triplings"
                 >
-
                 <label for="vote-triplings">
                   Choose Triplings
                 </label>
@@ -816,10 +885,7 @@
           </article>
 
 
-          <article
-            class="faction-slide"
-            data-faction="pando"
-          >
+          <article class="faction-slide" data-faction="pando">
 
             <img
               class="faction-image"
@@ -857,7 +923,6 @@
                   name="faction"
                   value="pando"
                 >
-
                 <label for="vote-pando">
                   Choose Pando
                 </label>
@@ -868,10 +933,7 @@
           </article>
 
 
-          <article
-            class="faction-slide"
-            data-faction="lilies"
-          >
+          <article class="faction-slide" data-faction="lilies">
 
             <img
               class="faction-image"
@@ -909,7 +971,6 @@
                   name="faction"
                   value="lilies"
                 >
-
                 <label for="vote-lilies">
                   Choose Lilies
                 </label>
@@ -920,10 +981,7 @@
           </article>
 
 
-          <article
-            class="faction-slide"
-            data-faction="liminites"
-          >
+          <article class="faction-slide" data-faction="liminites">
 
             <img
               class="faction-image"
@@ -961,7 +1019,6 @@
                   name="faction"
                   value="liminites"
                 >
-
                 <label for="vote-liminites">
                   Choose Liminites
                 </label>
@@ -972,10 +1029,7 @@
           </article>
 
 
-          <article
-            class="faction-slide"
-            data-faction="synthservs"
-          >
+          <article class="faction-slide" data-faction="synthservs">
 
             <img
               class="faction-image"
@@ -1013,7 +1067,6 @@
                   name="faction"
                   value="synthservs"
                 >
-
                 <label for="vote-synthservs">
                   Choose Synthservs
                 </label>
@@ -1024,10 +1077,7 @@
           </article>
 
 
-          <article
-            class="faction-slide"
-            data-faction="the-pack"
-          >
+          <article class="faction-slide" data-faction="the-pack">
 
             <img
               class="faction-image"
@@ -1067,7 +1117,6 @@
                   name="faction"
                   value="the-pack"
                 >
-
                 <label for="vote-the-pack">
                   Choose The Pack
                 </label>
@@ -1528,7 +1577,7 @@
       }
 
     } catch (error) {
-      /* SSR values remain visible */
+      /* Keep rendered totals visible. */
     }
 
   }
