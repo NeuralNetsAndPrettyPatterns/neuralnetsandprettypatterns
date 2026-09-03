@@ -17,6 +17,16 @@ export default {
       return handleCyoaVote(request, env);
     }
 
+    // After After faction totals
+    if (p === "/api/afterafter/votes") {
+      return handleAfterAfterVotes(request, env);
+    }
+
+    // After After faction ballot submission
+    if (p === "/api/afterafter/vote") {
+      return handleAfterAfterVote(request, env);
+    }
+
     // Mantra Sync leaderboard
     if (p === "/api/mantra-sync/leaderboard") {
       return handleMantraLeaderboard(request, env);
@@ -211,6 +221,46 @@ export default {
       }
 
       return legacyDeepDreamStateProxy(path, requestUrl);
+    }
+
+    async function serveAfterAfterCyoaPage() {
+      const repoPath =
+        "/deepdreamstate/arcs/afterafter/cyoa/index.html";
+
+      const pageRes = await fetch(
+        mainRepoUrl(repoPath),
+        { cache: "no-store" }
+      );
+
+      if (!pageRes.ok) {
+        return new Response(await pageRes.text(), {
+          status: 404,
+          headers: {
+            "content-type": "text/html; charset=utf-8",
+            "cache-control": "no-store"
+          }
+        });
+      }
+
+      let html = await pageRes.text();
+
+      try {
+        const counts = await getAfterAfterVoteCounts(env);
+        html = injectAfterAfterVoteCounts(html, counts);
+      } catch (error) {
+        console.error(
+          "After After SSR vote totals failed:",
+          error
+        );
+      }
+
+      return new Response(html, {
+        status: 200,
+        headers: {
+          "content-type": "text/html; charset=utf-8",
+          "cache-control": "no-store"
+        }
+      });
     }
 
     function homeEscapeHtml(value) {
@@ -1065,11 +1115,23 @@ export default {
       );
     }
 
+    // After After CYOA page
+    // Served specially so D1 vote totals are injected into the HTML before delivery.
+    if (
+      p === "/deepdreamstate/arcs/afterafter/cyoa" ||
+      p === "/deepdreamstate/arcs/afterafter/cyoa/" ||
+      p === "/deepdreamstate/arcs/afterafter/cyoa/index.html"
+    ) {
+      return serveAfterAfterCyoaPage();
+    }
+
     // Deep Dream State migrated arc pages and assets
     // New main repo file wins when present.
     // Missing main repo file falls back to the legacy Deep Dream State site.
     // This must run before the generic image handler so migrated arc images can use fallback too.
     if (
+      p === "/deepdreamstate/arcs/afterafter" ||
+      p.startsWith("/deepdreamstate/arcs/afterafter/") ||
       p === "/deepdreamstate/arcs/chthonic" ||
       p.startsWith("/deepdreamstate/arcs/chthonic/") ||
       p === "/deepdreamstate/arcs/incognitoh" ||
@@ -2558,6 +2620,380 @@ function mantraJsonResponse(
     }
   );
 }
+/* =========================================================
+   AFTER AFTER FACTION VOTING
+   ========================================================= */
+
+const AFTERAFTER_FACTIONS = [
+  "orphics",
+  "triplings",
+  "pando",
+  "lilies",
+  "liminites",
+  "synthservs",
+  "the-pack"
+];
+
+const AFTERAFTER_FACTION_SET = new Set(
+  AFTERAFTER_FACTIONS
+);
+
+async function ensureAfterAfterTables(env) {
+  if (!env || !env.CYOA_DB) {
+    throw new Error(
+      "After After voting database is not configured."
+    );
+  }
+
+  await env.CYOA_DB.batch([
+    env.CYOA_DB.prepare(
+      `CREATE TABLE IF NOT EXISTS afterafter_votes (
+         voter_hash TEXT PRIMARY KEY,
+         faction TEXT NOT NULL,
+         created_at TEXT NOT NULL DEFAULT CURRENT_TIMESTAMP,
+         updated_at TEXT NOT NULL DEFAULT CURRENT_TIMESTAMP
+       )`
+    ),
+
+    env.CYOA_DB.prepare(
+      `CREATE INDEX IF NOT EXISTS idx_afterafter_votes_faction
+       ON afterafter_votes (faction)`
+    ),
+
+    env.CYOA_DB.prepare(
+      `CREATE TABLE IF NOT EXISTS afterafter_vote_batches (
+         id INTEGER PRIMARY KEY AUTOINCREMENT,
+         faction TEXT NOT NULL,
+         votes INTEGER NOT NULL,
+         source TEXT NOT NULL DEFAULT 'manual',
+         note TEXT,
+         created_at TEXT NOT NULL DEFAULT CURRENT_TIMESTAMP
+       )`
+    ),
+
+    env.CYOA_DB.prepare(
+      `CREATE INDEX IF NOT EXISTS idx_afterafter_vote_batches_faction
+       ON afterafter_vote_batches (faction)`
+    )
+  ]);
+}
+
+function blankAfterAfterCounts() {
+  return Object.fromEntries(
+    AFTERAFTER_FACTIONS.map(function (faction) {
+      return [faction, 0];
+    })
+  );
+}
+
+async function getAfterAfterVoteCounts(env) {
+  await ensureAfterAfterTables(env);
+
+  const [siteVotesQuery, batchVotesQuery] =
+    await Promise.all([
+      env.CYOA_DB
+        .prepare(
+          `SELECT
+             faction,
+             COUNT(*) AS votes
+           FROM afterafter_votes
+           GROUP BY faction`
+        )
+        .all(),
+
+      env.CYOA_DB
+        .prepare(
+          `SELECT
+             faction,
+             COALESCE(SUM(votes), 0) AS votes
+           FROM afterafter_vote_batches
+           GROUP BY faction`
+        )
+        .all()
+    ]);
+
+  const counts = blankAfterAfterCounts();
+
+  const applyRows = function (rows) {
+    (rows || []).forEach(function (row) {
+      const faction = String(row.faction || "");
+
+      if (!AFTERAFTER_FACTION_SET.has(faction)) {
+        return;
+      }
+
+      const votes = Number(row.votes || 0);
+
+      if (!Number.isFinite(votes)) {
+        return;
+      }
+
+      counts[faction] += votes;
+    });
+  };
+
+  applyRows(siteVotesQuery?.results);
+  applyRows(batchVotesQuery?.results);
+
+  return counts;
+}
+
+function injectAfterAfterVoteCounts(html, counts) {
+  let output = String(html || "");
+
+  AFTERAFTER_FACTIONS.forEach(function (faction) {
+    const markerName =
+      faction === "the-pack"
+        ? "THE-PACK"
+        : faction.toUpperCase();
+
+    const startMarker =
+      `<!--AFTERAFTER:${markerName}-->`;
+
+    const endMarker =
+      `<!--/AFTERAFTER:${markerName}-->`;
+
+    const value = String(
+      Number(counts?.[faction] || 0)
+    );
+
+    const start = output.indexOf(startMarker);
+    const end = output.indexOf(endMarker);
+
+    if (
+      start === -1 ||
+      end === -1 ||
+      end < start
+    ) {
+      return;
+    }
+
+    output =
+      output.slice(0, start + startMarker.length) +
+      value +
+      output.slice(end);
+  });
+
+  return output;
+}
+
+async function handleAfterAfterVotes(request, env) {
+  if (request.method !== "GET") {
+    return afterAfterJsonResponse(
+      {
+        ok: false,
+        error: "Method not allowed."
+      },
+      405,
+      {
+        "Allow": "GET"
+      }
+    );
+  }
+
+  try {
+    const counts = await getAfterAfterVoteCounts(env);
+
+    return afterAfterJsonResponse({
+      ok: true,
+      counts
+    });
+  } catch (error) {
+    console.error(
+      "After After vote totals read failed:",
+      error
+    );
+
+    return afterAfterJsonResponse(
+      {
+        ok: false,
+        error: "Vote totals could not be loaded."
+      },
+      500
+    );
+  }
+}
+
+async function handleAfterAfterVote(request, env) {
+  if (request.method === "OPTIONS") {
+    return new Response(null, {
+      status: 204,
+      headers: {
+        "Allow": "POST, OPTIONS",
+        "Access-Control-Allow-Methods":
+          "POST, OPTIONS",
+        "Access-Control-Allow-Headers":
+          "Content-Type, Accept",
+        "Cache-Control": "no-store"
+      }
+    });
+  }
+
+  if (request.method !== "POST") {
+    return afterAfterJsonResponse(
+      {
+        ok: false,
+        error: "Method not allowed."
+      },
+      405,
+      {
+        "Allow": "POST, OPTIONS"
+      }
+    );
+  }
+
+  if (!env || !env.CYOA_DB) {
+    return afterAfterJsonResponse(
+      {
+        ok: false,
+        error: "After After voting database is not configured."
+      },
+      500
+    );
+  }
+
+  if (!isAllowedCyoaOrigin(request)) {
+    return afterAfterJsonResponse(
+      {
+        ok: false,
+        error: "Vote origin is not allowed."
+      },
+      403
+    );
+  }
+
+  const contentType =
+    request.headers.get("content-type") || "";
+
+  if (!contentType.includes("application/json")) {
+    return afterAfterJsonResponse(
+      {
+        ok: false,
+        error: "Vote submission must be JSON."
+      },
+      415
+    );
+  }
+
+  let submission;
+
+  try {
+    submission = await request.json();
+  } catch (error) {
+    return afterAfterJsonResponse(
+      {
+        ok: false,
+        error: "Could not read vote submission."
+      },
+      400
+    );
+  }
+
+  const token = String(
+    submission?.token || ""
+  ).trim();
+
+  const faction = String(
+    submission?.faction || ""
+  ).trim().toLowerCase();
+
+  if (
+    token.length < 12 ||
+    token.length > 200
+  ) {
+    return afterAfterJsonResponse(
+      {
+        ok: false,
+        error: "A valid browser voter token is required."
+      },
+      400
+    );
+  }
+
+  if (!AFTERAFTER_FACTION_SET.has(faction)) {
+    return afterAfterJsonResponse(
+      {
+        ok: false,
+        error: "Choose a valid After After faction."
+      },
+      400
+    );
+  }
+
+  try {
+    await ensureAfterAfterTables(env);
+
+    const voterHash = await hashCyoaVoter(
+      "afterafter-factions-v1",
+      token
+    );
+
+    await env.CYOA_DB
+      .prepare(
+        `INSERT INTO afterafter_votes (
+           voter_hash,
+           faction,
+           created_at,
+           updated_at
+         )
+         VALUES (
+           ?, ?,
+           CURRENT_TIMESTAMP,
+           CURRENT_TIMESTAMP
+         )
+         ON CONFLICT (voter_hash)
+         DO UPDATE SET
+           faction = excluded.faction,
+           updated_at = CURRENT_TIMESTAMP`
+      )
+      .bind(
+        voterHash,
+        faction
+      )
+      .run();
+
+    const counts = await getAfterAfterVoteCounts(env);
+
+    return afterAfterJsonResponse({
+      ok: true,
+      selectedFaction: faction,
+      counts
+    });
+  } catch (error) {
+    console.error(
+      "After After vote write failed:",
+      error
+    );
+
+    return afterAfterJsonResponse(
+      {
+        ok: false,
+        error: "Vote could not be saved."
+      },
+      500
+    );
+  }
+}
+
+function afterAfterJsonResponse(
+  body,
+  status = 200,
+  extraHeaders = {}
+) {
+  return new Response(
+    JSON.stringify(body),
+    {
+      status,
+      headers: {
+        "Content-Type":
+          "application/json; charset=utf-8",
+        "Cache-Control": "no-store",
+        ...extraHeaders
+      }
+    }
+  );
+}
+
 /* =========================================================
    NEURALVERSE CYOA
    ========================================================= */
