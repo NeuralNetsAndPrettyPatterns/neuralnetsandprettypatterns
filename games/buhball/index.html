@@ -11,6 +11,22 @@
     content="Buh Ball is a very serious game about turning language into buhbuh."
   >
 
+
+  <link
+    rel="icon"
+    type="image/png"
+    href="https://neuralnetsandprettypatterns.com/favicon-transparent.png"
+  >
+  <link
+    rel="shortcut icon"
+    type="image/png"
+    href="https://neuralnetsandprettypatterns.com/favicon-transparent.png"
+  >
+  <link
+    rel="apple-touch-icon"
+    href="https://neuralnetsandprettypatterns.com/favicon-transparent.png"
+  >
+
   <style>
     * {
       box-sizing: border-box;
@@ -467,9 +483,32 @@
         "oo",
         "uh",
         "um",
-        "uwu",
         "im",
         "ow"
+      ];
+
+
+      /*
+      --------------------------------
+      FILLER SPEECH
+
+      Fillers are inserted after the
+      one-word-per-word simplification.
+
+      Each sentence gets two or three
+      filler WORDS total. Multi-word
+      fillers stay together.
+      --------------------------------
+      */
+
+      const FILLER_PHRASES = [
+        ["like"],
+        ["totally"],
+        ["whatever"],
+        ["you", "know?"],
+        ["I", "mean..."],
+        ["literally"],
+        ["ohmygawd"]
       ];
 
       const statementPanel =
@@ -544,7 +583,7 @@
 
       /*
       --------------------------------
-      RANDOM BUH ENDING
+      RANDOM HELPERS
       --------------------------------
       */
 
@@ -552,6 +591,24 @@
 
         return BUH_ENDINGS[
           Math.floor(Math.random() * BUH_ENDINGS.length)
+        ];
+
+      }
+
+
+      function randomInteger(min, max) {
+
+        return Math.floor(
+          Math.random() * (max - min + 1)
+        ) + min;
+
+      }
+
+
+      function randomChoice(items) {
+
+        return items[
+          Math.floor(Math.random() * items.length)
         ];
 
       }
@@ -574,239 +631,26 @@
 
       /*
       --------------------------------
-      APPROXIMATE SYLLABLE SPLITTER
-
-      This is deliberately NOT a
-      dictionary-quality linguistic
-      syllabifier.
-
-      Buh Ball wants understandable
-      nonsense, not a phonetics degree.
-      --------------------------------
-      */
-
-      function syllabify(word) {
-
-        word = cleanWord(word);
-
-        if (!word) {
-          return [];
-        }
-
-
-        const vowelRegex = /[aeiouy]+/g;
-
-        const nuclei = [];
-
-        let match;
-
-
-        while ((match = vowelRegex.exec(word)) !== null) {
-
-          nuclei.push({
-            start: match.index,
-            end: match.index + match[0].length
-          });
-
-        }
-
-
-        /*
-        Words without recognizable
-        vowels become one big syllable.
-        */
-
-        if (nuclei.length <= 1) {
-          return [word];
-        }
-
-
-        const boundaries = [];
-
-
-        for (let i = 1; i < nuclei.length; i++) {
-
-          const previous = nuclei[i - 1];
-          const current = nuclei[i];
-
-          const gap = word.slice(
-            previous.end,
-            current.start
-          );
-
-
-          let onsetLength = 1;
-
-
-          /*
-          Preserve a few obvious
-          consonant sounds.
-          */
-
-          const commonClusters = [
-            "th",
-            "sh",
-            "ch",
-            "ph",
-            "wh",
-            "qu"
-          ];
-
-
-          if (commonClusters.includes(gap)) {
-
-            onsetLength = gap.length;
-
-          }
-
-
-          /*
-          If there are no consonants
-          between vowel groups, split
-          directly before the next
-          vowel.
-          */
-
-          if (gap.length === 0) {
-
-            onsetLength = 0;
-
-          }
-
-
-          const boundary =
-            current.start - onsetLength;
-
-
-          boundaries.push(boundary);
-
-        }
-
-
-        const syllables = [];
-
-        let start = 0;
-
-
-        for (const boundary of boundaries) {
-
-          const syllable =
-            word.slice(start, boundary);
-
-          if (syllable) {
-            syllables.push(syllable);
-          }
-
-          start = boundary;
-
-        }
-
-
-        const finalSyllable =
-          word.slice(start);
-
-
-        if (finalSyllable) {
-          syllables.push(finalSyllable);
-        }
-
-
-        return syllables;
-
-      }
-
-
-      /*
-      --------------------------------
-      GET FIRST CONSONANT SOUND
-      --------------------------------
-      */
-
-      function getConsonantSound(syllable) {
-
-        const lower =
-          syllable.toLowerCase();
-
-
-        /*
-        First look for a consonant
-        cluster at the beginning.
-        */
-
-        const opening =
-          lower.match(/^[^aeiouy]+/);
-
-
-        if (opening) {
-
-          return simplifyConsonants(
-            opening[0]
-          );
-
-        }
-
-
-        /*
-        Vowel-led syllables:
-        find the first consonant later
-        in the syllable.
-        */
-
-        const internal =
-          lower.match(/[^aeiouy]+/);
-
-
-        if (internal) {
-
-          return simplifyConsonants(
-            internal[0]
-          );
-
-        }
-
-
-        /*
-        Pure vowel noise gets BUH.
-        */
-
-        return "b";
-
-      }
-
-
-      /*
-      --------------------------------
-      SIMPLIFY CONSONANTS
+      SIMPLE CONSONANT SOUND
+
+      One source word now makes exactly
+      one short buh-word.
+
+      This deliberately avoids the old
+      syllable expansion, so the first
+      pass has the SAME word count as
+      the user's sentence.
       --------------------------------
       */
 
       function simplifyConsonants(chunk) {
 
         chunk = chunk
-          .replace(/[^a-z]/g, "");
+          .replace(/[^a-z]/g, "")
+          .replace(/(.)\1+/g, "$1");
 
-
-        /*
-        Repeated consonants:
-        ll -> l
-        pp -> p
-        etc.
-        */
-
-        chunk =
-          chunk.replace(/(.)\1+/g, "$1");
-
-
-        /*
-        Preserve recognizable sounds.
-        */
 
         const sounds = [
-          "str",
-          "shr",
-          "thr",
-          "spr",
-          "scr",
           "th",
           "sh",
           "ch",
@@ -849,18 +693,217 @@
       }
 
 
+      function getConsonantSound(word) {
+
+        const lower =
+          cleanWord(word);
+
+
+        if (!lower) {
+          return "b";
+        }
+
+
+        const opening =
+          lower.match(/^[^aeiouy]+/);
+
+
+        if (opening) {
+
+          return simplifyConsonants(
+            opening[0]
+          );
+
+        }
+
+
+        /*
+        If the word starts with a vowel,
+        grab the first consonant later in
+        the word. Pure vowel noise gets b.
+        */
+
+        const internal =
+          lower.match(/[^aeiouy]+/);
+
+
+        if (internal) {
+
+          return simplifyConsonants(
+            internal[0]
+          );
+
+        }
+
+
+        return "b";
+
+      }
+
+
+      function buhWord(word) {
+
+        return (
+          getConsonantSound(word) +
+          randomEnding()
+        );
+
+      }
+
+
       /*
       --------------------------------
-      CONVERT ONE SYLLABLE
+      SENTENCE / FILLER HANDLING
       --------------------------------
       */
 
-      function buhSyllable(syllable) {
+      function splitIntoSentences(statement) {
 
-        const consonant =
-          getConsonantSound(syllable);
+        const matches =
+          statement.match(
+            /[^.!?]+(?:[.!?]+|$)/g
+          );
 
-        return consonant + randomEnding();
+
+        if (!matches) {
+          return [statement.trim()];
+        }
+
+
+        return matches
+          .map(sentence => sentence.trim())
+          .filter(Boolean);
+
+      }
+
+
+      function wordsFromSentence(sentence) {
+
+        return (
+          sentence.match(/[A-Za-z']+/g) ||
+          []
+        );
+
+      }
+
+
+      /*
+      Pick filler PHRASES until they add
+      exactly two or three filler WORDS.
+
+      Examples:
+      "you know?" counts as two.
+      "I mean..." counts as two.
+      --------------------------------
+      */
+
+      function getFillerPhrases() {
+
+        let wordsRemaining =
+          randomInteger(2, 3);
+
+        const chosen = [];
+
+
+        while (wordsRemaining > 0) {
+
+          const validPhrases =
+            FILLER_PHRASES.filter(
+              phrase =>
+                phrase.length <= wordsRemaining
+            );
+
+
+          const phrase =
+            randomChoice(validPhrases);
+
+
+          chosen.push(phrase);
+
+          wordsRemaining -=
+            phrase.length;
+
+        }
+
+
+        return chosen;
+
+      }
+
+
+      function insertFillers(words) {
+
+        const output =
+          [...words];
+
+        const phrases =
+          getFillerPhrases();
+
+
+        for (const phrase of phrases) {
+
+          const position =
+            randomInteger(
+              0,
+              output.length
+            );
+
+
+          output.splice(
+            position,
+            0,
+            ...phrase
+          );
+
+        }
+
+
+        return output;
+
+      }
+
+
+      /*
+      --------------------------------
+      EXCLAMATION NOISE
+
+      Exclamation marks show up often,
+      but not in a fixed pattern.
+
+      Existing ? / ... filler endings
+      may randomly become ! too.
+      --------------------------------
+      */
+
+      function maybeExclaim(word, isSentenceEnd) {
+
+        const chance =
+          isSentenceEnd
+            ? 0.70
+            : 0.32;
+
+
+        if (Math.random() >= chance) {
+          return word;
+        }
+
+
+        return word
+          .replace(/[.!?]+$/g, "") +
+          "!";
+
+      }
+
+
+      function addRandomExclamations(words) {
+
+        return words.map(
+          (word, index) =>
+            maybeExclaim(
+              word,
+              index === words.length - 1
+            )
+        );
 
       }
 
@@ -868,30 +911,78 @@
       /*
       --------------------------------
       CONVERT FULL STATEMENT
+
+      1. One source word = one buh word.
+      2. Add 2-3 filler words per sentence.
+      3. Add randomized exclamation marks.
+      4. If the final utterance reaches
+         ten words, word ten becomes "um"
+         and the utterance stops there.
       --------------------------------
       */
 
       function buhify(statement) {
 
-        const words =
-          statement.trim().split(/\s+/);
+        const sentences =
+          splitIntoSentences(statement);
 
         const output = [];
 
 
-        for (const word of words) {
+        for (const sentence of sentences) {
 
-          const syllables =
-            syllabify(word);
+          const sourceWords =
+            wordsFromSentence(sentence);
 
 
-          for (const syllable of syllables) {
+          if (sourceWords.length === 0) {
+            continue;
+          }
 
-            output.push(
-              buhSyllable(syllable)
+
+          /*
+          SAME COUNT on the first pass:
+          every source word becomes exactly
+          one short generated word.
+          */
+
+          const simplifiedWords =
+            sourceWords.map(buhWord);
+
+
+          const withFillers =
+            insertFillers(
+              simplifiedWords
             );
 
-          }
+
+          const punctuated =
+            addRandomExclamations(
+              withFillers
+            );
+
+
+          output.push(
+            ...punctuated
+          );
+
+        }
+
+
+        /*
+        Ten words or more:
+        the tenth word is exactly "um",
+        then speech just stops.
+        */
+
+        if (output.length >= 10) {
+
+          const stopped =
+            output.slice(0, 10);
+
+          stopped[9] = "um";
+
+          return stopped.join(" ");
 
         }
 
