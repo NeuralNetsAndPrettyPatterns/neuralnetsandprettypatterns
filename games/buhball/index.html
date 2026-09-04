@@ -736,12 +736,115 @@
       }
 
 
+      function compressToOneSyllable(word) {
+
+        const lower =
+          cleanWord(word);
+
+
+        if (!lower) {
+          return "buh";
+        }
+
+
+        if (lower.length <= 4) {
+          return lower;
+        }
+
+
+        /*
+        Keep roughly the first spoken beat:
+        opening consonants + first vowel group
+        + at most two closing consonants.
+        */
+
+        const match =
+          lower.match(
+            /^([^aeiouy]*[aeiouy]+[^aeiouy]{0,2})/
+          );
+
+
+        if (match && match[1]) {
+          return match[1];
+        }
+
+
+        return lower.slice(0, 4);
+
+      }
+
+
       function buhWord(word) {
 
-        return (
-          getConsonantSound(word) +
-          randomEnding()
-        );
+        const lower =
+          cleanWord(word);
+
+        const first =
+          lower.charAt(0);
+
+
+        /*
+        Special substitutions:
+        each relevant starting letter gets
+        a 25% chance at its named swap.
+        */
+
+        if (
+          first === "b" &&
+          Math.random() < 0.25
+        ) {
+          return randomChoice([
+            "bun",
+            "boing"
+          ]);
+        }
+
+
+        if (
+          first === "l" &&
+          Math.random() < 0.25
+        ) {
+          return "lolly";
+        }
+
+
+        if (
+          first === "d" &&
+          Math.random() < 0.25
+        ) {
+          return "duh";
+        }
+
+
+        if (
+          first === "g" &&
+          Math.random() < 0.25
+        ) {
+          return "guh";
+        }
+
+
+        /*
+        All other substitution behavior
+        now fires only 20% of the time.
+        */
+
+        if (Math.random() < 0.20) {
+
+          return (
+            getConsonantSound(word) +
+            randomEnding()
+          );
+
+        }
+
+
+        /*
+        Otherwise keep the source idea,
+        but cut it toward one syllable.
+        */
+
+        return compressToOneSyllable(word);
 
       }
 
@@ -793,9 +896,9 @@
 
       Exactly one exclamation point is
       added at a random position. If the
-      tenth word becomes terminal "um",
+      tenth word becomes terminal "ummmm...",
       the exclamation stays before it so
-      that word remains exactly "um".
+      that ending remains untouched.
       --------------------------------
       */
 
@@ -813,7 +916,7 @@
 
         if (
           output.length >= 10 &&
-          output[9] === "um"
+          output[9] === "ummmm..."
         ) {
           lastEligibleIndex = 8;
         }
@@ -839,12 +942,13 @@
       CONVERT FULL STATEMENT
 
       1. One source word = one short word.
-      2. Add exactly one filler word.
-      3. Total words = source words + 1.
-      4. Add exactly one exclamation point.
-      5. If the result reaches ten words,
-         word ten becomes exactly "um" and
-         the utterance stops there.
+      2. B/L/D/G get special 25% swaps.
+      3. Other substitutions fire at 20%.
+      4. Otherwise cut the source word down.
+      5. Add exactly one filler word.
+      6. Add exactly one exclamation point.
+      7. Maximum ten words. Word ten is
+         terminal "ummmm..." and speech stops.
       --------------------------------
       */
 
@@ -870,7 +974,7 @@
 
         /*
         Ten words or more:
-        word ten is exactly "um",
+        word ten is terminal "ummmm...",
         and speech stops there.
         */
 
@@ -879,7 +983,7 @@
           output =
             output.slice(0, 10);
 
-          output[9] = "um";
+          output[9] = "ummmm...";
 
         }
 
