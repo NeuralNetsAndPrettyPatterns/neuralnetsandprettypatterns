@@ -492,23 +492,18 @@
       --------------------------------
       FILLER SPEECH
 
-      Fillers are inserted after the
-      one-word-per-word simplification.
-
-      Each sentence gets two or three
-      filler WORDS total. Multi-word
-      fillers stay together.
+      One source word becomes one short
+      generated word. Then exactly one
+      single-word filler is inserted.
       --------------------------------
       */
 
-      const FILLER_PHRASES = [
-        ["like"],
-        ["totally"],
-        ["whatever"],
-        ["you", "know?"],
-        ["I", "mean..."],
-        ["literally"],
-        ["ohmygawd"]
+      const FILLER_WORDS = [
+        "like",
+        "totally",
+        "whatever",
+        "literally",
+        "ohmygawd"
       ];
 
       const statementPanel =
@@ -753,110 +748,39 @@
 
       /*
       --------------------------------
-      SENTENCE / FILLER HANDLING
+      WORD / FILLER HANDLING
       --------------------------------
       */
 
-      function splitIntoSentences(statement) {
-
-        const matches =
-          statement.match(
-            /[^.!?]+(?:[.!?]+|$)/g
-          );
-
-
-        if (!matches) {
-          return [statement.trim()];
-        }
-
-
-        return matches
-          .map(sentence => sentence.trim())
-          .filter(Boolean);
-
-      }
-
-
-      function wordsFromSentence(sentence) {
+      function wordsFromStatement(statement) {
 
         return (
-          sentence.match(/[A-Za-z']+/g) ||
+          statement.match(/[A-Za-z']+/g) ||
           []
         );
 
       }
 
 
-      /*
-      Pick filler PHRASES until they add
-      exactly two or three filler WORDS.
-
-      Examples:
-      "you know?" counts as two.
-      "I mean..." counts as two.
-      --------------------------------
-      */
-
-      function getFillerPhrases() {
-
-        let wordsRemaining =
-          randomInteger(2, 3);
-
-        const chosen = [];
-
-
-        while (wordsRemaining > 0) {
-
-          const validPhrases =
-            FILLER_PHRASES.filter(
-              phrase =>
-                phrase.length <= wordsRemaining
-            );
-
-
-          const phrase =
-            randomChoice(validPhrases);
-
-
-          chosen.push(phrase);
-
-          wordsRemaining -=
-            phrase.length;
-
-        }
-
-
-        return chosen;
-
-      }
-
-
-      function insertFillers(words) {
+      function insertOneFiller(words) {
 
         const output =
           [...words];
 
-        const phrases =
-          getFillerPhrases();
+        const filler =
+          randomChoice(FILLER_WORDS);
 
-
-        for (const phrase of phrases) {
-
-          const position =
-            randomInteger(
-              0,
-              output.length
-            );
-
-
-          output.splice(
-            position,
+        const position =
+          randomInteger(
             0,
-            ...phrase
+            output.length
           );
 
-        }
-
+        output.splice(
+          position,
+          0,
+          filler
+        );
 
         return output;
 
@@ -865,45 +789,47 @@
 
       /*
       --------------------------------
-      EXCLAMATION NOISE
+      ONE EXCLAMATION POINT
 
-      Exclamation marks show up often,
-      but not in a fixed pattern.
-
-      Existing ? / ... filler endings
-      may randomly become ! too.
+      Exactly one exclamation point is
+      added at a random position. If the
+      tenth word becomes terminal "um",
+      the exclamation stays before it so
+      that word remains exactly "um".
       --------------------------------
       */
 
-      function maybeExclaim(word, isSentenceEnd) {
+      function addOneExclamation(words) {
 
-        const chance =
-          isSentenceEnd
-            ? 0.70
-            : 0.32;
-
-
-        if (Math.random() >= chance) {
-          return word;
+        if (words.length === 0) {
+          return words;
         }
 
+        const output =
+          [...words];
 
-        return word
-          .replace(/[.!?]+$/g, "") +
+        let lastEligibleIndex =
+          output.length - 1;
+
+        if (
+          output.length >= 10 &&
+          output[9] === "um"
+        ) {
+          lastEligibleIndex = 8;
+        }
+
+        const index =
+          randomInteger(
+            0,
+            Math.max(0, lastEligibleIndex)
+          );
+
+        output[index] =
+          output[index]
+            .replace(/[.!?]+$/g, "") +
           "!";
 
-      }
-
-
-      function addRandomExclamations(words) {
-
-        return words.map(
-          (word, index) =>
-            maybeExclaim(
-              word,
-              index === words.length - 1
-            )
-        );
+        return output;
 
       }
 
@@ -912,79 +838,54 @@
       --------------------------------
       CONVERT FULL STATEMENT
 
-      1. One source word = one buh word.
-      2. Add 2-3 filler words per sentence.
-      3. Add randomized exclamation marks.
-      4. If the final utterance reaches
-         ten words, word ten becomes "um"
-         and the utterance stops there.
+      1. One source word = one short word.
+      2. Add exactly one filler word.
+      3. Total words = source words + 1.
+      4. Add exactly one exclamation point.
+      5. If the result reaches ten words,
+         word ten becomes exactly "um" and
+         the utterance stops there.
       --------------------------------
       */
 
       function buhify(statement) {
 
-        const sentences =
-          splitIntoSentences(statement);
+        const sourceWords =
+          wordsFromStatement(statement);
 
-        const output = [];
-
-
-        for (const sentence of sentences) {
-
-          const sourceWords =
-            wordsFromSentence(sentence);
-
-
-          if (sourceWords.length === 0) {
-            continue;
-          }
-
-
-          /*
-          SAME COUNT on the first pass:
-          every source word becomes exactly
-          one short generated word.
-          */
-
-          const simplifiedWords =
-            sourceWords.map(buhWord);
-
-
-          const withFillers =
-            insertFillers(
-              simplifiedWords
-            );
-
-
-          const punctuated =
-            addRandomExclamations(
-              withFillers
-            );
-
-
-          output.push(
-            ...punctuated
-          );
-
+        if (sourceWords.length === 0) {
+          return "";
         }
+
+
+        const simplifiedWords =
+          sourceWords.map(buhWord);
+
+
+        let output =
+          insertOneFiller(
+            simplifiedWords
+          );
 
 
         /*
         Ten words or more:
-        the tenth word is exactly "um",
-        then speech just stops.
+        word ten is exactly "um",
+        and speech stops there.
         */
 
         if (output.length >= 10) {
 
-          const stopped =
+          output =
             output.slice(0, 10);
 
-          stopped[9] = "um";
-
-          return stopped.join(" ");
+          output[9] = "um";
 
         }
+
+
+        output =
+          addOneExclamation(output);
 
 
         return output.join(" ");
