@@ -56,7 +56,7 @@
 
   <meta
     property="og:title"
-    content="After After | Make Your Monster Choice"
+    content="After After | Choose Your Monster"
   >
 
   <meta
@@ -73,7 +73,7 @@
 
   <meta
     name="twitter:title"
-    content="After After | Make Your Monster Choice"
+    content="After After | Choose Your Monster"
   >
 
   <meta
@@ -134,7 +134,7 @@
         "@type": "WebPage",
         "@id": "https://neuralnetsandprettypatterns.com/deepdreamstate/arcs/afterafter/cyoa/#webpage",
         "url": "https://neuralnetsandprettypatterns.com/deepdreamstate/arcs/afterafter/cyoa/",
-        "name": "After After: Make Your Monster Choice",
+        "name": "After After: Choose Your Monster",
         "description": "Vote for your favorite faction in After After, the monster romance fifth season of Deep Dream State, with desire horror elements.",
         "genre": [
           "Monster romance",
@@ -208,46 +208,115 @@
       padding: 1.5rem 0 4rem;
     }
 
-    /* AFTER AFTER MENU */
+    /* TOP INFO PANELS */
 
-    .afterafter-menu {
-      margin-bottom: 2rem;
-      border-top: 1px solid rgba(255,255,255,0.6);
-      border-bottom: 1px solid rgba(255,255,255,0.6);
+    .top-panels {
+      display: grid;
+      grid-template-columns: repeat(2, minmax(0, 1fr));
+      gap: 0.8rem;
+      margin-bottom: 1.5rem;
     }
 
-    .afterafter-menu > summary {
+    .info-panel {
+      border: 1px solid rgba(255,255,255,0.62);
+      background: rgba(5, 3, 14, 0.16);
+    }
+
+    .info-panel > summary {
       position: relative;
-      padding: 1rem 2.5rem 1rem 0;
+      padding: 0.85rem 2.35rem 0.85rem 1rem;
       list-style: none;
       cursor: pointer;
       text-align: center;
-      font-size: 1.45rem;
-      letter-spacing: 0.16em;
+      font-size: 1rem;
+      letter-spacing: 0.13em;
       text-transform: uppercase;
     }
 
-    .afterafter-menu > summary::-webkit-details-marker {
+    .info-panel > summary::-webkit-details-marker {
       display: none;
     }
 
-    .afterafter-menu > summary::after {
+    .info-panel > summary::after {
       content: "+";
       position: absolute;
-      right: 0.5rem;
+      right: 0.8rem;
       top: 50%;
       transform: translateY(-50%);
-      font-size: 1.6rem;
+      font-size: 1.35rem;
     }
 
-    .afterafter-menu[open] > summary::after {
+    .info-panel[open] > summary::after {
       content: "−";
     }
 
-    .menu-inner {
+    .menu-inner,
+    .leaderboard-body {
       max-width: 760px;
       margin: 0 auto;
-      padding: 0 0 1.5rem;
+      padding: 0 1rem 1.15rem;
+    }
+
+    .leaderboard-body {
+      text-align: center;
+    }
+
+    .leaderboard-total-line {
+      margin: 0.2rem 0 1rem;
+      font-size: 1.05rem;
+    }
+
+    .leaderboard-total-number {
+      font-size: 1.35rem;
+      font-variant-numeric: tabular-nums;
+    }
+
+    .leaderboard-heading {
+      margin: 1rem 0 0.45rem;
+      font-size: 0.82rem;
+      font-weight: normal;
+      letter-spacing: 0.12em;
+      text-transform: uppercase;
+      opacity: 0.85;
+    }
+
+    .leaderboard-top-three {
+      list-style: none;
+      padding: 0;
+      margin: 0;
+    }
+
+    .leaderboard-top-three li,
+    .leaderboard-row {
+      display: flex;
+      justify-content: space-between;
+      align-items: baseline;
+      gap: 1rem;
+      width: 100%;
+      padding: 0.3rem 0;
+      border-bottom: 1px solid rgba(255,255,255,0.14);
+      font-variant-numeric: tabular-nums;
+    }
+
+    .leaderboard-top-three li:last-child,
+    .leaderboard-row:last-child {
+      border-bottom: 0;
+    }
+
+    .leaderboard-rank {
+      display: inline-block;
+      width: 1.7rem;
+      text-align: left;
+      opacity: 0.7;
+    }
+
+    .leaderboard-full {
+      width: 100%;
+      margin: 0 auto;
+    }
+
+    .leaderboard-faction {
+      text-align: left;
     }
 
     /* DDS NAV */
@@ -348,7 +417,7 @@
 
     .carousel {
       position: relative;
-      width: min(360px, 88vw);
+      width: min(240px, 76vw);
       margin: 0 auto;
     }
 
@@ -393,7 +462,7 @@
 
     .carousel-arrow {
       position: absolute;
-      top: 180px;
+      top: 120px;
       z-index: 5;
       width: 42px;
       height: 42px;
@@ -636,12 +705,16 @@
         width: min(100% - 1rem, 900px);
       }
 
+      .top-panels {
+        grid-template-columns: 1fr;
+      }
+
       .carousel {
-        width: min(330px, 88vw);
+        width: min(220px, 76vw);
       }
 
       .carousel-arrow {
-        top: 165px;
+        top: 110px;
         width: 36px;
         height: 36px;
       }
@@ -658,13 +731,15 @@
 
 <main>
 
-  <details class="afterafter-menu">
+  <div class="top-panels">
 
-    <summary>
-      After After
-    </summary>
+    <details class="info-panel about-panel">
 
-    <div class="menu-inner">
+      <summary>
+        About the Season
+      </summary>
+
+      <div class="menu-inner">
 
       <nav
         class="nav-buttons bottom-nav-buttons dynamic-dds-nav"
@@ -752,14 +827,51 @@
         </p>
 
       </div>
+      </div>
 
-    </div>
+    </details>
 
-  </details>
+    <details class="info-panel leaderboard-panel">
 
+      <summary>
+        Leaderboard
+      </summary>
+
+      <div class="leaderboard-body">
+      <p class="leaderboard-total-line">
+        <span class="leaderboard-total-number" data-leaderboard-total><!--AFTERAFTER:TOTAL-VOTES-->0<!--/AFTERAFTER:TOTAL-VOTES--></span>
+        total votes
+      </p>
+
+      <h2 class="leaderboard-heading">Top Three</h2>
+
+      <ol class="leaderboard-top-three" id="leaderboard-top-three">
+        <!--AFTERAFTER:TOP-THREE-->
+        <li><span><span class="leaderboard-rank">1.</span> Orphics</span><strong>0</strong></li>
+        <li><span><span class="leaderboard-rank">2.</span> Triplings</span><strong>0</strong></li>
+        <li><span><span class="leaderboard-rank">3.</span> Pando</span><strong>0</strong></li>
+        <!--/AFTERAFTER:TOP-THREE-->
+      </ol>
+
+      <h2 class="leaderboard-heading">All Factions</h2>
+
+      <div class="leaderboard-full">
+        <div class="leaderboard-row"><span class="leaderboard-faction">Orphics</span><strong data-vote-count="orphics"><!--AFTERAFTER:ORPHICS-->0<!--/AFTERAFTER:ORPHICS--></strong></div>
+        <div class="leaderboard-row"><span class="leaderboard-faction">Triplings</span><strong data-vote-count="triplings"><!--AFTERAFTER:TRIPLINGS-->0<!--/AFTERAFTER:TRIPLINGS--></strong></div>
+        <div class="leaderboard-row"><span class="leaderboard-faction">Pando</span><strong data-vote-count="pando"><!--AFTERAFTER:PANDO-->0<!--/AFTERAFTER:PANDO--></strong></div>
+        <div class="leaderboard-row"><span class="leaderboard-faction">Lilies</span><strong data-vote-count="lilies"><!--AFTERAFTER:LILIES-->0<!--/AFTERAFTER:LILIES--></strong></div>
+        <div class="leaderboard-row"><span class="leaderboard-faction">Liminites</span><strong data-vote-count="liminites"><!--AFTERAFTER:LIMINITES-->0<!--/AFTERAFTER:LIMINITES--></strong></div>
+        <div class="leaderboard-row"><span class="leaderboard-faction">Synthservs</span><strong data-vote-count="synthservs"><!--AFTERAFTER:SYNTHSERVS-->0<!--/AFTERAFTER:SYNTHSERVS--></strong></div>
+        <div class="leaderboard-row"><span class="leaderboard-faction">The Pack</span><strong data-vote-count="the-pack"><!--AFTERAFTER:THE-PACK-->0<!--/AFTERAFTER:THE-PACK--></strong></div>
+      </div>
+      </div>
+
+    </details>
+
+  </div>
 
   <h1 class="choice-title">
-    Make Your Monster Choice
+    Choose Your Monster
   </h1>
 
 
@@ -1187,7 +1299,7 @@
     </h2>
 
     <p>
-      Choose Your Faction
+      Choose Your Monster
     </p>
 
     <p class="small">
@@ -1271,6 +1383,26 @@
 
   const CHOICE_KEY =
     "afterafter-faction-choice-v1";
+
+  const FACTION_LABELS = {
+    "orphics": "Orphics",
+    "triplings": "Triplings",
+    "pando": "Pando",
+    "lilies": "Lilies",
+    "liminites": "Liminites",
+    "synthservs": "Synthservs",
+    "the-pack": "The Pack"
+  };
+
+  const FACTION_ORDER = [
+    "orphics",
+    "triplings",
+    "pando",
+    "lilies",
+    "liminites",
+    "synthservs",
+    "the-pack"
+  ];
 
 
   const track =
@@ -1513,6 +1645,69 @@
   }
 
 
+  function renderLeaderboard(counts) {
+
+    const normalized = FACTION_ORDER.map(
+      (faction, order) => ({
+        faction,
+        order,
+        count: Number(counts?.[faction] || 0)
+      })
+    );
+
+    const total = normalized.reduce(
+      (sum, item) => sum + item.count,
+      0
+    );
+
+    const totalTarget =
+      document.querySelector("[data-leaderboard-total]");
+
+    if (totalTarget) {
+      totalTarget.textContent = total.toLocaleString();
+    }
+
+    const topThree =
+      document.getElementById("leaderboard-top-three");
+
+    if (topThree) {
+      const ranked = normalized
+        .slice()
+        .sort(
+          (a, b) =>
+            b.count - a.count ||
+            a.order - b.order
+        )
+        .slice(0, 3);
+
+      topThree.replaceChildren();
+
+      ranked.forEach((item, index) => {
+        const li = document.createElement("li");
+        const label = document.createElement("span");
+        const rank = document.createElement("span");
+        const count = document.createElement("strong");
+
+        rank.className = "leaderboard-rank";
+        rank.textContent = `${index + 1}.`;
+        label.appendChild(rank);
+        label.append(
+          document.createTextNode(
+            ` ${FACTION_LABELS[item.faction]}`
+          )
+        );
+
+        count.textContent =
+          item.count.toLocaleString();
+
+        li.append(label, count);
+        topThree.appendChild(li);
+      });
+    }
+
+  }
+
+
   function renderCounts(counts) {
 
     if (!counts) {
@@ -1522,14 +1717,10 @@
     Object.entries(counts)
       .forEach(([faction, count]) => {
 
-        const target =
-          document.querySelector(
+        const targets =
+          document.querySelectorAll(
             `[data-vote-count="${faction}"]`
           );
-
-        if (!target) {
-          return;
-        }
 
         const numeric =
           Number(count);
@@ -1538,10 +1729,14 @@
           return;
         }
 
-        target.textContent =
-          numeric.toLocaleString();
+        targets.forEach(target => {
+          target.textContent =
+            numeric.toLocaleString();
+        });
 
       });
+
+    renderLeaderboard(counts);
 
   }
 
