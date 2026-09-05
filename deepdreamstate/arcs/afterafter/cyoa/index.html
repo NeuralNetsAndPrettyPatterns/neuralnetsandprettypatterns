@@ -208,6 +208,12 @@
       padding: 1.5rem 0 4rem;
     }
 
+    /*
+      Search snippet note:
+      changing vote totals are server-rendered for crawlers and users,
+      but marked data-nosnippet so search results favor stable season copy.
+    */
+
     /* TOP INFO PANELS */
 
     .top-panels {
@@ -831,7 +837,7 @@
 
     </details>
 
-    <details class="info-panel leaderboard-panel">
+    <details class="info-panel leaderboard-panel" data-nosnippet>
 
       <summary>
         Leaderboard
@@ -922,7 +928,7 @@
                 <a href="/deepdreamstate/glossary/#iris">Iris</a>
               </p>
 
-              <p class="vote-total">
+              <p class="vote-total" data-nosnippet>
                 <span
                   class="vote-count"
                   data-vote-count="orphics"
@@ -971,7 +977,7 @@
                 <a href="/deepdreamstate/glossary/#emma">Emma</a>
               </p>
 
-              <p class="vote-total">
+              <p class="vote-total" data-nosnippet>
                 <span
                   class="vote-count"
                   data-vote-count="triplings"
@@ -1019,7 +1025,7 @@
                 <a href="/deepdreamstate/glossary/#naia-anderson">Naia</a>
               </p>
 
-              <p class="vote-total">
+              <p class="vote-total" data-nosnippet>
                 <span
                   class="vote-count"
                   data-vote-count="pando"
@@ -1067,7 +1073,7 @@
                 <a href="/deepdreamstate/glossary/#tessa-finn">Tessa</a>
               </p>
 
-              <p class="vote-total">
+              <p class="vote-total" data-nosnippet>
                 <span
                   class="vote-count"
                   data-vote-count="lilies"
@@ -1115,7 +1121,7 @@
                 <a href="/deepdreamstate/glossary/#elle-lawson">Elle</a>
               </p>
 
-              <p class="vote-total">
+              <p class="vote-total" data-nosnippet>
                 <span
                   class="vote-count"
                   data-vote-count="liminites"
@@ -1163,7 +1169,7 @@
                 <a href="/deepdreamstate/glossary/#meg-aerin">Meg</a>
               </p>
 
-              <p class="vote-total">
+              <p class="vote-total" data-nosnippet>
                 <span
                   class="vote-count"
                   data-vote-count="synthservs"
@@ -1213,7 +1219,7 @@
                 <a href="/deepdreamstate/glossary/#clara">Clara</a>
               </p>
 
-              <p class="vote-total">
+              <p class="vote-total" data-nosnippet>
                 <span
                   class="vote-count"
                   data-vote-count="the-pack"
@@ -1275,6 +1281,7 @@
       <p
         class="vote-status"
         id="vote-status"
+        data-nosnippet
         role="status"
         aria-live="polite"
       ></p>
