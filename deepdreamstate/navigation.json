@@ -3,7 +3,7 @@
     {
       "label": "NNPP",
       "url": "https://neuralnetsandprettypatterns.com/",
-      "ariaLabel": "Neural Nets and Pretty Patterns"
+      "ariaLabel": "Neural Nets And Pretty Patterns"
     },
     {
       "label": "DDS",
@@ -24,6 +24,11 @@
       "label": "CAST",
       "url": "https://neuralnetsandprettypatterns.com/deepdreamstate/cast/",
       "ariaLabel": "Cast"
+    },
+    {
+      "label": "VOTE",
+      "url": "https://neuralnetsandprettypatterns.com/deepdreamstate/arcs/afterafter/cyoa/",
+      "ariaLabel": "Vote for the After After faction"
     }
   ]
 }
