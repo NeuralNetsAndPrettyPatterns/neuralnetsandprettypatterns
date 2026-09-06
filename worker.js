@@ -2784,25 +2784,107 @@ function injectAfterAfterVoteCounts(html, counts) {
     "the-pack": "THE-PACK"
   };
 
-  let output = String(html || "");
+  const factionLabels = {
+    "orphics": "Orphics",
+    "triplings": "Triplings",
+    "pando": "Pando",
+    "lilies": "Lilies",
+    "liminites": "Liminites",
+    "synthservs": "Synthservs",
+    "the-pack": "The Pack"
+  };
 
-  for (const faction of AFTER_AFTER_FACTIONS) {
-    const marker = markerNames[faction];
+  function replaceAllMarkerRegions(source, marker, value) {
     const startMarker = `<!--AFTERAFTER:${marker}-->`;
     const endMarker = `<!--/AFTERAFTER:${marker}-->`;
-    const start = output.indexOf(startMarker);
-    const end = output.indexOf(endMarker);
 
-    if (start === -1 || end === -1 || end < start) {
-      continue;
+    let output = String(source || "");
+    let searchFrom = 0;
+
+    while (true) {
+      const start =
+        output.indexOf(startMarker, searchFrom);
+
+      if (start === -1) {
+        break;
+      }
+
+      const contentStart =
+        start + startMarker.length;
+
+      const end =
+        output.indexOf(endMarker, contentStart);
+
+      if (end === -1) {
+        break;
+      }
+
+      output =
+        output.slice(0, contentStart) +
+        String(value) +
+        output.slice(end);
+
+      searchFrom =
+        contentStart +
+        String(value).length +
+        endMarker.length;
     }
 
-    const before = output.slice(0, start + startMarker.length);
-    const after = output.slice(end);
-    const value = Number(counts?.[faction] || 0);
-
-    output = before + String(value) + after;
+    return output;
   }
+
+  let output = String(html || "");
+
+  const normalized = AFTER_AFTER_FACTIONS.map(
+    (faction, order) => ({
+      faction,
+      order,
+      votes: Number(counts?.[faction] || 0)
+    })
+  );
+
+  for (const item of normalized) {
+    output = replaceAllMarkerRegions(
+      output,
+      markerNames[item.faction],
+      item.votes
+    );
+  }
+
+  const totalVotes = normalized.reduce(
+    (sum, item) => sum + item.votes,
+    0
+  );
+
+  output = replaceAllMarkerRegions(
+    output,
+    "TOTAL-VOTES",
+    totalVotes
+  );
+
+  const topThree = normalized
+    .slice()
+    .sort(
+      (a, b) =>
+        b.votes - a.votes ||
+        a.order - b.order
+    )
+    .slice(0, 3);
+
+  const topThreeHtml = topThree
+    .map(
+      (item, index) =>
+        `<li><span><span class="leaderboard-rank">${index + 1}.</span> ` +
+        `${factionLabels[item.faction]}</span>` +
+        `<strong>${item.votes}</strong></li>`
+    )
+    .join("");
+
+  output = replaceAllMarkerRegions(
+    output,
+    "TOP-THREE",
+    topThreeHtml
+  );
 
   return output;
 }
