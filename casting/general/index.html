@@ -430,23 +430,69 @@
       padding: 0 1.2rem 1.3rem;
     }
 
-    .faq-item {
-      padding: 1rem 0;
+
+    .form-heading {
+      font-family: var(--mono);
+      font-size: 0.85rem;
+      letter-spacing: 0.14em;
+      text-transform: uppercase;
+      color: var(--text-bright);
+      font-weight: 400;
+      margin: 0 0 1rem;
+    }
+
+    .casting-intro {
+      margin: 0.25rem 0 1.25rem;
+      color: var(--text-bright);
+      font-size: 1.05rem;
+      line-height: 1.65;
+    }
+
+    details.faq-item {
       border-top: 1px solid var(--border);
     }
 
-    .faq-item:first-child { border-top: 0; padding-top: 0; }
+    details.faq-item:first-child { border-top: 0; }
 
-    .faq-item h3 {
+    details.faq-item > summary {
+      list-style: none;
+      cursor: pointer;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 0.75rem;
+      padding: 0.8rem 0;
       color: var(--text-bright);
-      font-weight: 400;
       font-size: 1.08rem;
-      margin-bottom: 0.35rem;
+      font-weight: 400;
+      user-select: none;
     }
 
-    .faq-item p + p { margin-top: 0.45rem; }
-    .faq-item ol { padding-left: 1.4rem; }
-    .faq-item a { color: var(--accent); }
+    details.faq-item > summary::-webkit-details-marker { display: none; }
+    details.faq-item > summary::after {
+      content: '+';
+      font-family: var(--serif);
+      font-size: 1.15rem;
+      line-height: 1;
+      color: var(--text-dim);
+      flex-shrink: 0;
+    }
+    details.faq-item[open] > summary::after { content: '\2212'; }
+    details.faq-item > summary:hover,
+    details.faq-item > summary:focus-visible { color: var(--accent); outline: none; }
+
+    .faq-answer {
+      padding: 0 0 1rem;
+    }
+
+    .faq-answer p + p { margin-top: 0.45rem; }
+    .faq-answer ol { padding-left: 1.4rem; }
+    .faq-answer a { color: var(--accent); }
+
+    .section-note {
+      margin-bottom: 0.4rem;
+      color: var(--text-bright);
+    }
 
     .footer-credit {
       display: flex;
@@ -503,201 +549,259 @@
     </a>
   </nav>
 
-  <nav class="breadcrumb" aria-label="breadcrumb">
-    <ol itemscope itemtype="https://schema.org/BreadcrumbList">
-      <li itemprop="itemListElement" itemscope itemtype="https://schema.org/ListItem">
-        <a itemprop="item" href="https://neuralnetsandprettypatterns.com/"><span itemprop="name">Neural Nets and Pretty Patterns</span></a>
-        <meta itemprop="position" content="1">
-      </li>
-      <li aria-hidden="true">/</li>
-      <li itemprop="itemListElement" itemscope itemtype="https://schema.org/ListItem">
-        <span itemprop="name">Casting</span>
-        <meta itemprop="position" content="2">
-      </li>
-    </ol>
-  </nav>
+
+
+  <p class="casting-intro">This is general information about auditioning for NNPP projects or other subsidiaries of the Escandalo Network.</p>
 
   <section class="sections" aria-label="Casting information">
     <details class="info-section">
+      <summary>Quick Summary</summary>
+      <div class="details-body">
+        <details class="faq-item">
+          <summary>What age range of VA?</summary>
+          <div class="faq-answer">
+            <p>18+. No exceptions. The Deep Dream State is marked explicit, R-rated</p>
+          </div>
+        </details>
+
+        <details class="faq-item">
+          <summary>Is it paid?</summary>
+          <div class="faq-answer">
+            <p>No. This is a passion project.</p>
+          </div>
+        </details>
+
+        <details class="faq-item">
+          <summary>Will this be used for AI?</summary>
+          <div class="faq-answer">
+            <p>No.</p>
+            <p>Not if we have anything to say about it. We pledge to never ever use your voice for training data or resale. Ever.</p>
+          </div>
+        </details>
+      </div>
+    </details>
+
+    <details class="info-section">
       <summary>General Info : FAQ</summary>
       <div class="details-body">
-        <div class="faq-item">
-          <p>This is general information about auditioning for NNPP projects or other subsidiaries of the Escandalo Network.</p>
-        </div>
+        <details class="faq-item">
+          <summary>What age range of VA?</summary>
+          <div class="faq-answer">
+            <p>18+. No exceptions. The Deep Dream State is marked explicit, R-rated</p>
+            <p>Age verification through third parties – such as CCC or Reddit forums – preferred to in-house ID handling.</p>
+          </div>
+        </details>
 
-        <div class="faq-item">
-          <h3>What age range of VA?</h3>
-          <p>18+. No exceptions. The Deep Dream State is marked explicit, R-rated</p>
-          <p>Age verification through third parties – such as CCC or Reddit forums – preferred to in-house ID handling.</p>
-        </div>
+        <details class="faq-item">
+          <summary>Is it paid?</summary>
+          <div class="faq-answer">
+            <p>No. This is a passion project.</p>
+            <p>We do our best to maximize actor exposure, including multiple high profile mentions. We’ve cast over 50 people with no complaints, but we cannot offer compensation unless we take advertising.</p>
+          </div>
+        </details>
 
-        <div class="faq-item">
-          <h3>Is it paid?</h3>
-          <p>No. This is a passion project.</p>
-          <p>We do our best to maximize actor exposure, including multiple high profile mentions. We’ve cast over 50 people with no complaints, but we cannot offer compensation unless we take advertising.</p>
-        </div>
+        <details class="faq-item">
+          <summary>What will you need from me?</summary>
+          <div class="faq-answer">
+            <p>You’ll need to record all the lines by the due date.</p>
+            <p>Each line should be said twice, with varying inflection. This helps the sound designer find the best take and control for unexpected noise.</p>
+            <p>Before recording a scene take, be silent for 5-10 seconds. This allows us to identify noise for cleaning.</p>
+          </div>
+        </details>
 
-        <div class="faq-item">
-          <h3>What will you need from me?</h3>
-          <p>You’ll need to record all the lines by the due date.</p>
-          <p>Each line should be said twice, with varying inflection. This helps the sound designer find the best take and control for unexpected noise.</p>
-          <p>Before recording a scene take, be silent for 5-10 seconds. This allows us to identify noise for cleaning.</p>
-        </div>
+        <details class="faq-item">
+          <summary>What equipment do I need?</summary>
+          <div class="faq-answer">
+            <p>You don’t need a particular microphone. iPhone voice memos is the minimum standard. ASMR and gaming mics are discouraged.</p>
+            <p>Use your best mic for auditions and demo reels. Don’t use a higher quality mic than you’ll have access to for the recording.</p>
+            <p>You need to be able to send sound files and respond to email.</p>
+          </div>
+        </details>
 
-        <div class="faq-item">
-          <h3>What equipment do I need?</h3>
-          <p>You don’t need a particular microphone. iPhone voice memos is the minimum standard. ASMR and gaming mics are discouraged.</p>
-          <p>Use your best mic for auditions and demo reels. Don’t use a higher quality mic than you’ll have access to for the recording.</p>
-          <p>You need to be able to send sound files and respond to email.</p>
-        </div>
+        <details class="faq-item">
+          <summary>Will this be used for AI?</summary>
+          <div class="faq-answer">
+            <p>No.</p>
+            <p>Not if we have anything to say about it. We pledge to never ever use your voice for training data or resale. Ever.</p>
+          </div>
+        </details>
 
-        <div class="faq-item">
-          <h3>Will this be used for AI?</h3>
-          <p>No.</p>
-          <p>Not if we have anything to say about it. We pledge to never ever use your voice for training data or resale. Ever.</p>
-        </div>
+        <details class="faq-item">
+          <summary>Will my samples be used for promos or remixes?</summary>
+          <div class="faq-answer">
+            <p>That’s possible. If you want to opt out of that, please specify in your audition email.</p>
+          </div>
+        </details>
 
-        <div class="faq-item">
-          <h3>Will my samples be used for promos or remixes?</h3>
-          <p>That’s possible. If you want to opt out of that, please specify in your audition email.</p>
-        </div>
+        <details class="faq-item">
+          <summary>What name will be used for credits?</summary>
+          <div class="faq-answer">
+            <p>The name you specify in your audition email.</p>
+            <p>Please do specify clearly, and make sure it’s in an email for recordkeeping purposes. We recommend using a stage name, but that’s your choice. A two word name is preferable because of IMDb credits.</p>
+            <p>We will not list names that are vulgar, racist, or politically charged. We have never encountered this, but never say never.</p>
+          </div>
+        </details>
 
-        <div class="faq-item">
-          <h3>What name will be used for credits?</h3>
-          <p>The name you specify in your audition email.</p>
-          <p>Please do specify clearly, and make sure it’s in an email for recordkeeping purposes. We recommend using a stage name, but that’s your choice. A two word name is preferable because of IMDb credits.</p>
-          <p>We will not list names that are vulgar, racist, or politically charged. We have never encountered this, but never say never.</p>
-        </div>
-
-        <div class="faq-item">
-          <h3>What links will be used for credits?</h3>
-          <p>The links you specify in your audition email.</p>
-          <p>Please choose one or two. We can’t list a ton of socials.</p>
-        </div>
+        <details class="faq-item">
+          <summary>What links will be used for credits?</summary>
+          <div class="faq-answer">
+            <p>The links you specify in your audition email.</p>
+            <p>Please choose one or two. We can’t list a ton of socials.</p>
+          </div>
+        </details>
       </div>
     </details>
 
     <details class="info-section">
       <summary>Casting Decisions</summary>
       <div class="details-body">
-        <div class="faq-item">
-          <h3>Is this a selective casting call?</h3>
-          <p>Yes.</p>
-        </div>
+        <details class="faq-item">
+          <summary>Is this a selective casting call?</summary>
+          <div class="faq-answer">
+            <p>Yes.</p>
+          </div>
+        </details>
 
-        <div class="faq-item">
-          <h3>What factors influence casting decisions?</h3>
-          <ol>
-            <li>Speed of response. Responses within 72 hours preferred. Responses within a week are still in the running, though.</li>
-            <li>Previous work on the Deep Dream State.</li>
-            <li>Previous work on Neuralverse or Escandalo Network projects.</li>
-            <li>Existence and quality of demo reel.</li>
-            <li>Familiarity with the Deep Dream State ongoing show.</li>
-          </ol>
-          <p style="margin-top:0.75rem;">Once these factors have been decided, ties are broken by:</p>
-          <ol start="6">
-            <li>Fit for the part, determined by ass’t director and current cast through anonymous listen.</li>
-            <li>Further ties broken by directorial decision.</li>
-          </ol>
-        </div>
+        <details class="faq-item">
+          <summary>What factors influence casting decisions?</summary>
+          <div class="faq-answer">
+            <ol>
+              <li>Speed of response. Responses within 72 hours preferred. Responses within a week are still in the running, though.</li>
+              <li>Previous work on the Deep Dream State.</li>
+              <li>Previous work on Neuralverse or Escandalo Network projects.</li>
+              <li>Existence and quality of demo reel.</li>
+              <li>Familiarity with the Deep Dream State ongoing show.</li>
+            </ol>
+            <p style="margin-top:0.75rem;">Once these factors have been decided, ties are broken by:</p>
+            <ol start="6">
+              <li>Fit for the part, determined by ass’t director and current cast through anonymous listen.</li>
+              <li>Further ties broken by directorial decision.</li>
+            </ol>
+          </div>
+        </details>
 
-        <div class="faq-item">
-          <h3>How will I know I’ve been cast?</h3>
-          <p>You will be contacted via email. You can also check the casting page here: <a href="https://neuralnetsandprettypatterns.com/casting/general">neuralnetsandprettypatterns.com/casting/</a></p>
-        </div>
+        <details class="faq-item">
+          <summary>How will I know I’ve been cast?</summary>
+          <div class="faq-answer">
+            <p>You will be contacted via email. You can also check the casting page here: <a href="https://neuralnetsandprettypatterns.com/casting/general">neuralnetsandprettypatterns.com/casting/</a></p>
+          </div>
+        </details>
 
-        <div class="faq-item">
-          <h3>How will I know if I’ve not been cast?</h3>
-          <p>The page will make it clear. We will also try to contact you via email, but can’t guarantee that.</p>
-          <p>If you’re not cast for a particular part, you may be contacted for another role within the DDS / Escandalo Neuralverse. If that offer’s extended, it will be automatic, should the VA respond within 48 hours from offer.</p>
-        </div>
+        <details class="faq-item">
+          <summary>How will I know if I’ve not been cast?</summary>
+          <div class="faq-answer">
+            <p>The page will make it clear. We will also try to contact you via email, but can’t guarantee that.</p>
+            <p>If you’re not cast for a particular part, you may be contacted for another role within the DDS / Escandalo Neuralverse. If that offer’s extended, it will be automatic, should the VA respond within 48 hours from offer.</p>
+          </div>
+        </details>
 
-        <div class="faq-item">
-          <h3>Is the project transinclusive?</h3>
-          <p>Yes. Every episode of the Deep Dream State has included one or more trans VAs. This wasn’t decided via quota; we just cast talented people who fit the roles and that’s how it worked out.</p>
-        </div>
+        <details class="faq-item">
+          <summary>Is the project transinclusive?</summary>
+          <div class="faq-answer">
+            <p>Yes. Every episode of the Deep Dream State has included one or more trans VAs. This wasn’t decided via quota; we just cast talented people who fit the roles and that’s how it worked out.</p>
+          </div>
+        </details>
       </div>
     </details>
 
     <details class="info-section">
-      <summary>Contact and Communications</summary>
+      <summary>CONTACT AND COMMUNICATIONS</summary>
       <div class="details-body">
-        <div class="faq-item">
-          <h3>How should we communicate?</h3>
-          <p>Email is necessary. Discord is helpful, but not a prereq.</p>
-          <p>Other forms of contact are helpful, but don’t count on them. Reddit chat in particular is very wonky.</p>
-        </div>
+        <details class="faq-item">
+          <summary>How should we communicate?</summary>
+          <div class="faq-answer">
+            <p>Email is necessary. Discord is helpful, but not a prereq.</p>
+            <p>Other forms of contact are helpful, but don’t count on them. Reddit chat in particular is very wonky.</p>
+          </div>
+        </details>
 
-        <div class="faq-item">
-          <h3>How quickly should I expect a response?</h3>
-          <p>Between casting and submission of your final sample, expect a response to email within 48 hours. You should commit to a similar timetable.</p>
-          <p>Chatting is good. Direction is good. Please do NOT expect immediate responses, particularly for advice or direction.</p>
-        </div>
+        <details class="faq-item">
+          <summary>How quickly should I expect a response?</summary>
+          <div class="faq-answer">
+            <p>Between casting and submission of your final sample, expect a response to email within 48 hours. You should commit to a similar timetable.</p>
+            <p>Chatting is good. Direction is good. Please do NOT expect immediate responses, particularly for advice or direction.</p>
+          </div>
+        </details>
 
-        <div class="faq-item">
-          <h3>Are retake requests possible?</h3>
-          <p>Yes. We’ll try to minimize them, but sometimes noise or other factors result in a blown take.</p>
-          <p>We won’t hit this button often, but if there’s a truck backing up throughout your whole take, we will try to get a better take, of course.</p>
-        </div>
+        <details class="faq-item">
+          <summary>Are retake requests possible?</summary>
+          <div class="faq-answer">
+            <p>Yes. We’ll try to minimize them, but sometimes noise or other factors result in a blown take.</p>
+            <p>We won’t hit this button often, but if there’s a truck backing up throughout your whole take, we will try to get a better take, of course.</p>
+          </div>
+        </details>
 
-        <div class="faq-item">
-          <h3>What’s the mailing list?</h3>
-          <p>If you’re in the DDS, you’ll be on a mailing list. It’ll be used to announce milestones, episode drops, and additional casting calls.</p>
-          <p>DDS related emails will be marked [DDS] in the subject line. Other emails will be marked [Neuralverse] or [Escandalo].</p>
-          <p>Often, these will be casting calls for intimate audio projects. Please be aware of the possible contents.</p>
-        </div>
+        <details class="faq-item">
+          <summary>What’s the mailing list?</summary>
+          <div class="faq-answer">
+            <p>If you’re in the DDS, you’ll be on a mailing list. It’ll be used to announce milestones, episode drops, and additional casting calls.</p>
+            <p>DDS related emails will be marked [DDS] in the subject line. Other emails will be marked [Neuralverse] or [Escandalo].</p>
+            <p>Often, these will be casting calls for intimate audio projects. Please be aware of the possible contents.</p>
+          </div>
+        </details>
 
-        <div class="faq-item">
-          <h3>Will I get a complimentary copy?</h3>
-          <p>Yes. When you’re notified of an episode release via email, respond for a CC. Most VAs want one; some don’t, so we let you call the tune.</p>
-        </div>
+        <details class="faq-item">
+          <summary>Will I get a complimentary copy?</summary>
+          <div class="faq-answer">
+            <p>Yes. When you’re notified of an episode release via email, respond for a CC. Most VAs want one; some don’t, so we let you call the tune.</p>
+          </div>
+        </details>
       </div>
     </details>
 
     <details class="info-section">
       <summary>Technical Specifications</summary>
       <div class="details-body">
-        <div class="faq-item">
-          <p>This section’s about best practices. It’s familiar to experienced VAs.</p>
-        </div>
+        <p class="section-note">This section’s about best practices. It’s familiar to experienced VAs.</p>
 
-        <div class="faq-item">
-          <h3>What file format should I use?</h3>
-          <p>In order of preference: WAV, MP3, M4A.</p>
-          <p>Don’t CONVERT files to meet the spex. If you have an m4a, send an m4a. Unnecessary conversions compromise quality.</p>
-          <p>If you need to use another file format, check with us for compatibility first.</p>
-        </div>
+        <details class="faq-item">
+          <summary>What file format should I use?</summary>
+          <div class="faq-answer">
+            <p>In order of preference: WAV, MP3, M4A.</p>
+            <p>Don’t CONVERT files to meet the spex. If you have an m4a, send an m4a. Unnecessary conversions compromise quality.</p>
+            <p>If you need to use another file format, check with us for compatibility first.</p>
+          </div>
+        </details>
 
-        <div class="faq-item">
-          <h3>Should I noise clean my own sample?</h3>
-          <p>No. Consistency is key.</p>
-        </div>
+        <details class="faq-item">
+          <summary>Should I noise clean my own sample?</summary>
+          <div class="faq-answer">
+            <p>No. Consistency is key.</p>
+          </div>
+        </details>
 
-        <div class="faq-item">
-          <h3>How should I divide up takes and sound files?</h3>
-          <p>Each scene should be a distinct sound file.</p>
-          <p>Don’t divide it up more than that. (Some VAs have sent a file for each line. While we appreciate the precision, that gets unwieldy in the edit phase.)</p>
-        </div>
+        <details class="faq-item">
+          <summary>How should I divide up takes and sound files?</summary>
+          <div class="faq-answer">
+            <p>Each scene should be a distinct sound file.</p>
+            <p>Don’t divide it up more than that. (Some VAs have sent a file for each line. While we appreciate the precision, that gets unwieldy in the edit phase.)</p>
+          </div>
+        </details>
 
-        <div class="faq-item">
-          <h3>How do I send my sample?</h3>
-          <p>When sending a take, be sure to flag that it’s sent via an email to <a href="mailto:deepdreamstates@gmail.com">deepdreamstates@gmail.com</a> .</p>
-          <p>Many VAs primarily use Discord. That’s OK. At the same time, we need to have a searchable record in case something falls through the cracks.</p>
-          <p>Discord, Dropbox, and Google Drive all work. Other file transfer mechanisms are possible, but prior testing is ideal.</p>
-        </div>
+        <details class="faq-item">
+          <summary>How do I send my sample?</summary>
+          <div class="faq-answer">
+            <p>When sending a take, be sure to flag that it’s sent via an email to <a href="mailto:deepdreamstates@gmail.com">deepdreamstates@gmail.com</a> .</p>
+            <p>Many VAs primarily use Discord. That’s OK. At the same time, we need to have a searchable record in case something falls through the cracks.</p>
+            <p>Discord, Dropbox, and Google Drive all work. Other file transfer mechanisms are possible, but prior testing is ideal.</p>
+          </div>
+        </details>
 
-        <div class="faq-item">
-          <h3>WHAT SHOULD I NAME THE FILE?</h3>
-          <p>Name it by [Character Name] [Series] [Episode] [Scene]</p>
-          <p>So – for example –</p>
-          <p>Ivy Deep Dream State After After E1 S2</p>
-          <p>If your program doesn’t allow spaces, dashes or just a text string is fine.</p>
-        </div>
+        <details class="faq-item">
+          <summary>WHAT SHOULD I NAME THE FILE?</summary>
+          <div class="faq-answer">
+            <p>Name it by [Character Name] [Series] [Episode] [Scene]</p>
+            <p>So – for example –</p>
+            <p>Ivy Deep Dream State After After E1 S2</p>
+            <p>If your program doesn’t allow spaces, dashes or just a text string is fine.</p>
+          </div>
+        </details>
       </div>
     </details>
   </section>
 
   <section class="card" aria-label="Casting form">
+    <h2 class="form-heading">CONTACT TO GET CAST</h2>
     <form id="casting-form" action="/api/contact" method="POST" novalidate>
       <div class="form-grid">
         <div class="form-row">
