@@ -1051,6 +1051,19 @@ export default {
       return serveHtml("/contact/index.html", true);
     }
 
+    // Casting: General
+    if (
+      p === "/casting/general" ||
+      p === "/casting/general/" ||
+      p === "/casting/general/index.html"
+    ) {
+      return serveHtml(
+        "/casting/general/index.html",
+        true
+      );
+    }
+
+
     // Games hub
     if (
       p === "/games" ||
