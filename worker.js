@@ -17,6 +17,16 @@ export default {
       return handleCastingCallsGet(request, env);
     }
 
+    // Script age attestation
+    if (p === "/api/scripts/attest") {
+      return handleScriptAgeAttestation(request, env);
+    }
+
+    // Protected script downloads from private R2 storage
+    if (p.startsWith("/scripts/download/")) {
+      return handleScriptDownload(request, env, p);
+    }
+
     // CYOA poll results
     if (p === "/api/cyoa/results") {
       return handleCyoaResults(request, env);
@@ -1625,6 +1635,377 @@ export default {
     });
   }
 };
+
+/* =========================================================
+   PROTECTED SCRIPT DOWNLOADS
+   ========================================================= */
+
+const SCRIPT_AGE_COOKIE = "nnpp_script_age";
+const SCRIPT_AGE_MAX_AGE = 12 * 60 * 60;
+
+async function handleScriptAgeAttestation(request, env) {
+  if (request.method !== "POST") {
+    return scriptJsonResponse(
+      { ok: false, error: "Method not allowed." },
+      405,
+      { Allow: "POST" }
+    );
+  }
+
+  if (!env || !env.SCRIPT_AGE_SECRET) {
+    return scriptJsonResponse(
+      { ok: false, error: "Script age attestation is not configured." },
+      500
+    );
+  }
+
+  if (!isSameOriginScriptRequest(request)) {
+    return scriptJsonResponse(
+      { ok: false, error: "Invalid request origin." },
+      403
+    );
+  }
+
+  let body;
+
+  try {
+    body = await request.json();
+  } catch (error) {
+    return scriptJsonResponse(
+      { ok: false, error: "Invalid request body." },
+      400
+    );
+  }
+
+  if (body?.attest !== true) {
+    return scriptJsonResponse(
+      { ok: false, error: "Age attestation is required." },
+      400
+    );
+  }
+
+  const issuedAt = Math.floor(Date.now() / 1000);
+  const payload = `18plus:${issuedAt}`;
+  const signature = await signScriptAgePayload(
+    env.SCRIPT_AGE_SECRET,
+    payload
+  );
+  const value = `${payload}.${signature}`;
+
+  return scriptJsonResponse(
+    { ok: true, attested: true },
+    200,
+    {
+      "Set-Cookie":
+        `${SCRIPT_AGE_COOKIE}=${value}; ` +
+        `Max-Age=${SCRIPT_AGE_MAX_AGE}; Path=/scripts; ` +
+        "HttpOnly; Secure; SameSite=Strict"
+    }
+  );
+}
+
+async function handleScriptDownload(request, env, path) {
+  if (request.method !== "GET") {
+    return new Response("Method not allowed.", {
+      status: 405,
+      headers: {
+        "content-type": "text/plain; charset=utf-8",
+        "cache-control": "no-store",
+        "allow": "GET"
+      }
+    });
+  }
+
+  if (!env || !env.calendar) {
+    return new Response("Script database is not configured.", {
+      status: 500,
+      headers: {
+        "content-type": "text/plain; charset=utf-8",
+        "cache-control": "no-store"
+      }
+    });
+  }
+
+  if (!env.scripts) {
+    return new Response("Script storage is not configured.", {
+      status: 500,
+      headers: {
+        "content-type": "text/plain; charset=utf-8",
+        "cache-control": "no-store"
+      }
+    });
+  }
+
+  const idText = path.slice("/scripts/download/".length);
+
+  if (!/^\d+$/.test(idText)) {
+    return new Response("Script not found.", {
+      status: 404,
+      headers: {
+        "content-type": "text/plain; charset=utf-8",
+        "cache-control": "no-store"
+      }
+    });
+  }
+
+  const scriptId = Number(idText);
+  let row;
+
+  try {
+    row = await env.calendar
+      .prepare(
+        `SELECT id, title, series, r2_key, adult_material
+         FROM writing_scripts
+         WHERE id = ?
+         LIMIT 1`
+      )
+      .bind(scriptId)
+      .first();
+  } catch (error) {
+    console.error("Script lookup failed:", error);
+
+    return new Response("Script could not be loaded.", {
+      status: 500,
+      headers: {
+        "content-type": "text/plain; charset=utf-8",
+        "cache-control": "no-store"
+      }
+    });
+  }
+
+  if (!row || !row.r2_key) {
+    return new Response("Script not found.", {
+      status: 404,
+      headers: {
+        "content-type": "text/plain; charset=utf-8",
+        "cache-control": "no-store"
+      }
+    });
+  }
+
+  if (Number(row.adult_material) === 1) {
+    const attested = await hasValidScriptAgeAttestation(
+      request,
+      env
+    );
+
+    if (!attested) {
+      return new Response(
+        "Age attestation required before downloading this script.",
+        {
+          status: 403,
+          headers: {
+            "content-type": "text/plain; charset=utf-8",
+            "cache-control": "no-store"
+          }
+        }
+      );
+    }
+  }
+
+  let object;
+
+  try {
+    object = await env.scripts.get(row.r2_key);
+  } catch (error) {
+    console.error("R2 script fetch failed:", error);
+
+    return new Response("Script could not be loaded.", {
+      status: 500,
+      headers: {
+        "content-type": "text/plain; charset=utf-8",
+        "cache-control": "no-store"
+      }
+    });
+  }
+
+  if (!object) {
+    return new Response("Script file not found.", {
+      status: 404,
+      headers: {
+        "content-type": "text/plain; charset=utf-8",
+        "cache-control": "no-store"
+      }
+    });
+  }
+
+  const filename = scriptDownloadFilename(
+    row.r2_key,
+    row.title
+  );
+  const headers = new Headers();
+
+  object.writeHttpMetadata(headers);
+  headers.set(
+    "content-type",
+    headers.get("content-type") || "application/octet-stream"
+  );
+  headers.set(
+    "content-disposition",
+    `attachment; filename="${filename}"`
+  );
+  headers.set("cache-control", "private, no-store");
+  headers.set("x-content-type-options", "nosniff");
+
+  if (object.httpEtag) {
+    headers.set("etag", object.httpEtag);
+  }
+
+  return new Response(object.body, {
+    status: 200,
+    headers
+  });
+}
+
+async function hasValidScriptAgeAttestation(request, env) {
+  if (!env || !env.SCRIPT_AGE_SECRET) {
+    return false;
+  }
+
+  const cookies = parseScriptCookies(
+    request.headers.get("cookie") || ""
+  );
+  const value = cookies[SCRIPT_AGE_COOKIE];
+
+  if (!value) return false;
+
+  const dot = value.lastIndexOf(".");
+
+  if (dot <= 0) return false;
+
+  const payload = value.slice(0, dot);
+  const signature = value.slice(dot + 1);
+  const match = payload.match(/^18plus:(\d+)$/);
+
+  if (!match) return false;
+
+  const issuedAt = Number(match[1]);
+  const now = Math.floor(Date.now() / 1000);
+
+  if (
+    !Number.isFinite(issuedAt) ||
+    issuedAt > now + 60 ||
+    now - issuedAt > SCRIPT_AGE_MAX_AGE
+  ) {
+    return false;
+  }
+
+  const expected = await signScriptAgePayload(
+    env.SCRIPT_AGE_SECRET,
+    payload
+  );
+
+  return scriptConstantTimeEqual(signature, expected);
+}
+
+async function signScriptAgePayload(secret, payload) {
+  const encoder = new TextEncoder();
+  const key = await crypto.subtle.importKey(
+    "raw",
+    encoder.encode(String(secret)),
+    { name: "HMAC", hash: "SHA-256" },
+    false,
+    ["sign"]
+  );
+  const signature = await crypto.subtle.sign(
+    "HMAC",
+    key,
+    encoder.encode(payload)
+  );
+
+  return bytesToBase64Url(new Uint8Array(signature));
+}
+
+function bytesToBase64Url(bytes) {
+  let binary = "";
+
+  for (const byte of bytes) {
+    binary += String.fromCharCode(byte);
+  }
+
+  return btoa(binary)
+    .replace(/\+/g, "-")
+    .replace(/\//g, "_")
+    .replace(/=+$/g, "");
+}
+
+function scriptConstantTimeEqual(a, b) {
+  const left = String(a || "");
+  const right = String(b || "");
+
+  if (left.length !== right.length) {
+    return false;
+  }
+
+  let result = 0;
+
+  for (let i = 0; i < left.length; i += 1) {
+    result |= left.charCodeAt(i) ^ right.charCodeAt(i);
+  }
+
+  return result === 0;
+}
+
+function parseScriptCookies(header) {
+  const result = {};
+
+  for (const part of String(header || "").split(";")) {
+    const index = part.indexOf("=");
+
+    if (index <= 0) continue;
+
+    const key = part.slice(0, index).trim();
+    const value = part.slice(index + 1).trim();
+
+    if (key) {
+      result[key] = value;
+    }
+  }
+
+  return result;
+}
+
+function scriptDownloadFilename(r2Key, title) {
+  const keyName = String(r2Key || "")
+    .split("/")
+    .pop()
+    .trim();
+  const fallback = `${String(title || "script").trim() || "script"}.txt`;
+
+  return (keyName || fallback)
+    .replace(/[\r\n"]/g, "")
+    .slice(0, 180);
+}
+
+function isSameOriginScriptRequest(request) {
+  const origin = request.headers.get("origin") || "";
+
+  if (!origin) return true;
+
+  try {
+    return origin === new URL(request.url).origin;
+  } catch (error) {
+    return false;
+  }
+}
+
+function scriptJsonResponse(
+  body,
+  status = 200,
+  extraHeaders = {}
+) {
+  return new Response(
+    JSON.stringify(body),
+    {
+      status,
+      headers: {
+        "content-type": "application/json; charset=utf-8",
+        "cache-control": "no-store",
+        ...extraHeaders
+      }
+    }
+  );
+}
 
 /* =========================================================
    CASTING CALLS SSR
