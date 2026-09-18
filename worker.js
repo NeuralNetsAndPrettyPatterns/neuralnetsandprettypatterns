@@ -1652,7 +1652,7 @@ async function handleScriptAgeAttestation(request, env) {
     );
   }
 
-  if (!env || !env.SCRIPT_AGE_SECRET) {
+  if (!env || !env.SCRIPT_GATE_SECRET) {
     return scriptJsonResponse(
       { ok: false, error: "Script age attestation is not configured." },
       500
@@ -1687,7 +1687,7 @@ async function handleScriptAgeAttestation(request, env) {
   const issuedAt = Math.floor(Date.now() / 1000);
   const payload = `18plus:${issuedAt}`;
   const signature = await signScriptAgePayload(
-    env.SCRIPT_AGE_SECRET,
+    env.SCRIPT_GATE_SECRET,
     payload
   );
   const value = `${payload}.${signature}`;
@@ -1858,7 +1858,7 @@ async function handleScriptDownload(request, env, path) {
 }
 
 async function hasValidScriptAgeAttestation(request, env) {
-  if (!env || !env.SCRIPT_AGE_SECRET) {
+  if (!env || !env.SCRIPT_GATE_SECRET) {
     return false;
   }
 
@@ -1891,7 +1891,7 @@ async function hasValidScriptAgeAttestation(request, env) {
   }
 
   const expected = await signScriptAgePayload(
-    env.SCRIPT_AGE_SECRET,
+    env.SCRIPT_GATE_SECRET,
     payload
   );
 
