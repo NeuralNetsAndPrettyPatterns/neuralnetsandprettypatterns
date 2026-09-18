@@ -12,6 +12,11 @@ export default {
       return handleCalendarEventsGet(request, env);
     }
 
+    // Public casting call data
+    if (p === "/api/casting/calls") {
+      return handleCastingCallsGet(request, env);
+    }
+
     // CYOA poll results
     if (p === "/api/cyoa/results") {
       return handleCyoaResults(request, env);
@@ -146,7 +151,7 @@ export default {
       });
     }
 
-    async function serveCastingCallsPage() {
+    async function serveCastingCallsPage(env) {
       const templateRes = await fetch(
         mainRepoUrl("/casting/calls/index.html"),
         { cache: "no-store" }
@@ -179,45 +184,28 @@ export default {
           status: 200,
           headers: {
             "content-type": "text/html; charset=utf-8",
-            "cache-control": "no-store"
+            "cache-control": "no-store",
+            "x-nnpp-casting-ssr": "1"
           }
         });
       }
 
       try {
-        const [callsResult, rolesResult] =
-          await Promise.all([
-            env.calendar
-              .prepare(
-                `SELECT *
-                 FROM calendar_casting_calls
-                 ORDER BY is_filled ASC,
-                          callback_at ASC,
-                          id ASC`
-              )
-              .all(),
-            env.calendar
-              .prepare(
-                `SELECT *
-                 FROM calendar_casting_roles
-                 ORDER BY casting_call_id ASC,
-                          sort_order ASC,
-                          id ASC`
-              )
-              .all()
-          ]);
+        const { calls, roles } =
+          await loadCastingCallsData(env);
 
         html = renderCastingCallsTemplate(
           html,
-          callsResult.results || [],
-          rolesResult.results || []
+          calls,
+          roles
         );
 
         return new Response(html, {
           status: 200,
           headers: {
             "content-type": "text/html; charset=utf-8",
-            "cache-control": "no-store"
+            "cache-control": "no-store",
+            "x-nnpp-casting-ssr": "1"
           }
         });
       } catch (error) {
@@ -237,7 +225,8 @@ export default {
           status: 200,
           headers: {
             "content-type": "text/html; charset=utf-8",
-            "cache-control": "no-store"
+            "cache-control": "no-store",
+            "x-nnpp-casting-ssr": "1"
           }
         });
       }
@@ -1171,7 +1160,7 @@ export default {
       p === "/casting/calls/" ||
       p === "/casting/calls/index.html"
     ) {
-      return serveCastingCallsPage();
+      return serveCastingCallsPage(env);
     }
 
 
@@ -1640,6 +1629,80 @@ export default {
 /* =========================================================
    CASTING CALLS SSR
    ========================================================= */
+
+async function loadCastingCallsData(env) {
+  if (!env || !env.calendar) {
+    throw new Error("Calendar database is not configured.");
+  }
+
+  const [callsResult, rolesResult] =
+    await Promise.all([
+      env.calendar
+        .prepare(
+          `SELECT *
+           FROM calendar_casting_calls
+           ORDER BY is_filled ASC,
+                    callback_at ASC,
+                    id ASC`
+        )
+        .all(),
+      env.calendar
+        .prepare(
+          `SELECT *
+           FROM calendar_casting_roles
+           ORDER BY casting_call_id ASC,
+                    sort_order ASC,
+                    id ASC`
+        )
+        .all()
+    ]);
+
+  return {
+    calls: callsResult.results || [],
+    roles: rolesResult.results || []
+  };
+}
+
+async function handleCastingCallsGet(request, env) {
+  if (request.method !== "GET") {
+    return Response.json(
+      { ok: false, error: "Method not allowed." },
+      {
+        status: 405,
+        headers: {
+          "cache-control": "no-store",
+          "allow": "GET"
+        }
+      }
+    );
+  }
+
+  try {
+    const { calls, roles } =
+      await loadCastingCallsData(env);
+
+    return Response.json(
+      { ok: true, calls, roles },
+      {
+        status: 200,
+        headers: { "cache-control": "no-store" }
+      }
+    );
+  } catch (error) {
+    console.error("Casting calls API failed:", error);
+
+    return Response.json(
+      {
+        ok: false,
+        error: "Casting data could not be loaded."
+      },
+      {
+        status: 500,
+        headers: { "cache-control": "no-store" }
+      }
+    );
+  }
+}
 
 function renderCastingCallsTemplate(
   template,
