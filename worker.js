@@ -7,6 +7,11 @@ export default {
       return handleContactPost(request, env);
     }
 
+    // Public project calendar data
+    if (p === "/api/calendar/events") {
+      return handleCalendarEventsGet(request, env);
+    }
+
     // CYOA poll results
     if (p === "/api/cyoa/results") {
       return handleCyoaResults(request, env);
@@ -1064,6 +1069,19 @@ export default {
     }
 
 
+    // Public project calendar
+    if (
+      p === "/calendar" ||
+      p === "/calendar/" ||
+      p === "/calendar/index.html"
+    ) {
+      return serveHtml(
+        "/calendar/index.html",
+        true
+      );
+    }
+
+
     // Games hub
     if (
       p === "/games" ||
@@ -1512,6 +1530,124 @@ export default {
     });
   }
 };
+
+/* =========================================================
+   PUBLIC PROJECT CALENDAR
+   ========================================================= */
+
+async function handleCalendarEventsGet(request, env) {
+  if (request.method !== "GET") {
+    return new Response(
+      JSON.stringify({
+        ok: false,
+        error: "Method not allowed."
+      }),
+      {
+        status: 405,
+        headers: {
+          "Content-Type": "application/json; charset=utf-8",
+          "Cache-Control": "no-store",
+          "Allow": "GET"
+        }
+      }
+    );
+  }
+
+  if (!env || !env.calendar) {
+    return new Response(
+      JSON.stringify({
+        ok: false,
+        error: "Calendar database is not configured."
+      }),
+      {
+        status: 500,
+        headers: {
+          "Content-Type": "application/json; charset=utf-8",
+          "Cache-Control": "no-store"
+        }
+      }
+    );
+  }
+
+  try {
+    const [
+      scriptsResult,
+      castingResult,
+      productionsResult,
+      castResult
+    ] = await Promise.all([
+      env.calendar
+        .prepare(
+          "SELECT * FROM calendar_scripts ORDER BY expected_completion_date, id"
+        )
+        .all(),
+      env.calendar
+        .prepare(
+          "SELECT * FROM calendar_casting_calls ORDER BY callback_at, id"
+        )
+        .all(),
+      env.calendar
+        .prepare(
+          "SELECT * FROM calendar_productions ORDER BY expected_completion_date, id"
+        )
+        .all(),
+      env.calendar
+        .prepare(
+          "SELECT * FROM calendar_production_cast ORDER BY production_id, id"
+        )
+        .all()
+    ]);
+
+    const scripts = scriptsResult.results || [];
+    const castingCalls = castingResult.results || [];
+    const productionCast = castResult.results || [];
+    const productions = (productionsResult.results || []).map(
+      production => ({
+        ...production,
+        cast: productionCast.filter(
+          member =>
+            Number(member.production_id) ===
+            Number(production.id)
+        )
+      })
+    );
+
+    return new Response(
+      JSON.stringify({
+        ok: true,
+        scripts,
+        casting_calls: castingCalls,
+        productions
+      }),
+      {
+        status: 200,
+        headers: {
+          "Content-Type": "application/json; charset=utf-8",
+          "Cache-Control": "no-store"
+        }
+      }
+    );
+  } catch (error) {
+    console.error(
+      "Calendar data request failed:",
+      error
+    );
+
+    return new Response(
+      JSON.stringify({
+        ok: false,
+        error: "Calendar data could not be loaded."
+      }),
+      {
+        status: 500,
+        headers: {
+          "Content-Type": "application/json; charset=utf-8",
+          "Cache-Control": "no-store"
+        }
+      }
+    );
+  }
+}
 
 // Recipient fallback is in the Worker, not in contact/index.html.
 // Override either value with Worker environment variables if needed.
