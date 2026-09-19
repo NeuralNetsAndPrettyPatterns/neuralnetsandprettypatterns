@@ -999,14 +999,23 @@
           });
 
           if (!response.ok) {
-            throw new Error('Attestation failed.');
+            let detail = `Attestation failed (${response.status}).`;
+            try {
+              const data = await response.json();
+              if (data && data.error) detail = data.error;
+            } catch (_) {}
+            throw new Error(detail);
           }
 
           const scriptId = button.dataset.scriptId;
           window.location.assign(`/scripts/download/${encodeURIComponent(scriptId)}`);
           if (message) message.textContent = 'Download started.';
         } catch (error) {
-          if (message) message.textContent = 'Download could not be started.';
+          if (message) {
+            message.textContent = error && error.message
+              ? error.message
+              : 'Download could not be started.';
+          }
           button.disabled = !checkbox.checked;
         }
       });
