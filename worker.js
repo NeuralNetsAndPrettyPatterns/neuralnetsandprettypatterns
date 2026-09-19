@@ -242,6 +242,92 @@ export default {
       }
     }
 
+    async function serveScriptsPage(env) {
+      const templateRes = await fetch(
+        mainRepoUrl("/scripts/index.html"),
+        { cache: "no-store" }
+      );
+
+      if (!templateRes.ok) {
+        return new Response(
+          "Scripts page template not found.",
+          {
+            status: 404,
+            headers: {
+              "content-type": "text/plain; charset=utf-8",
+              "cache-control": "no-store"
+            }
+          }
+        );
+      }
+
+      let html = await templateRes.text();
+
+      if (!env || !env.calendar) {
+        html = renderWritingScriptsPage(html, []);
+
+        return new Response(html, {
+          status: 200,
+          headers: {
+            "content-type": "text/html; charset=utf-8",
+            "cache-control": "no-store",
+            "x-nnpp-scripts-ssr": "1"
+          }
+        });
+      }
+
+      try {
+        const result = await env.calendar
+          .prepare(
+            `SELECT *
+             FROM writing_scripts
+             ORDER BY id DESC`
+          )
+          .all();
+
+        const scripts = (result.results || []).map(row => {
+          const isResonance =
+            String(row.title || "").trim() === "Resonance" &&
+            String(row.series || "").trim() === "The Music Lesson";
+
+          return {
+            ...row,
+            // Migration fallback for the first R2-backed script. D1 values win
+            // once date_published and word_count exist in the table.
+            date_published:
+              row.date_published ||
+              (isResonance ? "2026-09-18" : ""),
+            word_count:
+              row.word_count ||
+              (isResonance ? 1857 : null)
+          };
+        });
+
+        scripts.sort((a, b) => {
+          const aDate = String(a.date_published || a.created_at || "");
+          const bDate = String(b.date_published || b.created_at || "");
+          const dateCompare = bDate.localeCompare(aDate);
+
+          if (dateCompare !== 0) return dateCompare;
+          return Number(b.id || 0) - Number(a.id || 0);
+        });
+
+        html = renderWritingScriptsPage(html, scripts);
+      } catch (error) {
+        console.error("Scripts SSR failed:", error);
+        html = renderWritingScriptsPage(html, []);
+      }
+
+      return new Response(html, {
+        status: 200,
+        headers: {
+          "content-type": "text/html; charset=utf-8",
+          "cache-control": "no-store",
+          "x-nnpp-scripts-ssr": "1"
+        }
+      });
+    }
+
     async function serveAsset(
       repoPath,
       ct,
@@ -1438,26 +1524,13 @@ export default {
       );
     }
 
-    // Scripts
+    // Scripts: existing catalogue in GitHub + new script records rendered from D1
     if (
       p === "/scripts" ||
-      p === "/scripts/"
+      p === "/scripts/" ||
+      p === "/scripts/index.html"
     ) {
-      return serveHtml("/scripts/index.html", true);
-    }
-
-    if (p === "/scripts/scripts.json") {
-      const res = await fetch(
-        mainRepoUrl("/scripts/scripts.json")
-      );
-
-      return new Response(await res.text(), {
-        status: res.ok ? 200 : 404,
-        headers: {
-          "content-type": "application/json; charset=utf-8",
-          "cache-control": "no-store"
-        }
-      });
+      return serveScriptsPage(env);
     }
 
     // Neuralpedia assets and pages
@@ -2005,6 +2078,202 @@ function scriptJsonResponse(
       }
     }
   );
+}
+
+/* =========================================================
+   WRITING SCRIPTS SSR
+   ========================================================= */
+
+function renderWritingScriptsPage(template, scripts) {
+  const rows = Array.isArray(scripts) ? scripts : [];
+  const cards = rows.map(renderWritingScriptCard).join("\n");
+  const schema = renderWritingScriptsSchema(rows);
+
+  return String(template || "")
+    .replace("<!--WRITING_SCRIPTS_SSR-->", cards)
+    .replace("<!--WRITING_SCRIPTS_SCHEMA_SSR-->", schema);
+}
+
+function renderWritingScriptCard(row) {
+  const slug = writingScriptSlug(row.title || `script-${row.id}`);
+  const status = Number(row.is_filled) === 1 ? "Filled" : "Open";
+  const statusClass = Number(row.is_filled) === 1
+    ? "tag-status-filled"
+    : "tag-structure";
+  const structure = "Standalone";
+  const series = String(row.series || "").trim();
+  const actors = String(row.actors || "").trim();
+  const summary = String(row.summary || "").trim();
+  const date = writingScriptDate(row.date_published);
+  const wordCount = Number(row.word_count);
+  const wordCountText = Number.isFinite(wordCount) && wordCount > 0
+    ? `${wordCount.toLocaleString("en-US")} words`
+    : "";
+
+  const searchText = [
+    row.title,
+    row.series,
+    row.actors,
+    row.summary,
+    status,
+    date,
+    wordCountText
+  ]
+    .filter(Boolean)
+    .join(" ");
+
+  const summaryHtml = writingScriptSummaryHtml(summary);
+  const metaParts = [
+    series ? `Series: ${escapeHtml(series)}` : "",
+    actors ? `Actors: ${escapeHtml(actors)}` : "",
+    date ? escapeHtml(date) : "",
+    wordCountText ? escapeHtml(wordCountText) : ""
+  ].filter(Boolean);
+
+  const metaHtml = metaParts.length
+    ? `<div class="work-card-meta">${metaParts.join('<span class="meta-sep">&nbsp;·&nbsp;</span>')}</div>`
+    : "";
+
+  const adultGate = Number(row.adult_material) === 1
+    ? `
+      <div class="script-gate" data-script-id="${escapeHtml(row.id)}">
+        <p class="adult-material-note">Contains some adult material. Profanity and some scenes of sexuality.</p>
+        <label class="script-attestation-label">
+          <input class="script-attestation" type="checkbox">
+          <span>I attest that I am 18 years of age or older.</span>
+        </label>
+        <button class="script-download" type="button" data-script-id="${escapeHtml(row.id)}" disabled>DOWNLOAD SCRIPT</button>
+        <div class="script-gate-message" role="status" aria-live="polite"></div>
+      </div>`
+    : `
+      <div class="script-gate" data-script-id="${escapeHtml(row.id)}">
+        <button class="script-download" type="button" data-script-id="${escapeHtml(row.id)}">DOWNLOAD SCRIPT</button>
+        <div class="script-gate-message" role="status" aria-live="polite"></div>
+      </div>`;
+
+  return `
+    <article
+      class="work-card format-script"
+      id="${escapeHtml(slug)}"
+      role="listitem"
+      data-id="${escapeHtml(slug)}"
+      data-format="Script"
+      data-structure="${structure}"
+      data-status="${escapeHtml(status)}"
+      data-searchtext="${escapeHtml(searchText.toLowerCase())}">
+      <div class="work-card-body">
+        <div class="work-card-tags">
+          <span class="tag tag-format-script">Script</span>
+          <span class="tag tag-structure">${structure}</span>
+          <span class="tag ${statusClass}">${escapeHtml(status)}</span>
+        </div>
+        <h3>${escapeHtml(row.title || "Untitled script")}</h3>
+        ${series ? `<p class="script-series">${escapeHtml(series)}</p>` : ""}
+        <div class="script-summary">${summaryHtml}</div>
+        ${metaHtml}
+        ${adultGate}
+      </div>
+    </article>`;
+}
+
+function writingScriptSummaryHtml(summary) {
+  if (!summary) return "";
+
+  return String(summary)
+    .split(/\n\s*\n/)
+    .map(part => part.trim())
+    .filter(Boolean)
+    .map(part => `<p>${escapeHtml(part).replace(/\n/g, "<br>")}</p>`)
+    .join("");
+}
+
+function writingScriptSlug(value) {
+  const slug = String(value || "script")
+    .toLowerCase()
+    .replace(/[^a-z0-9]+/g, "-")
+    .replace(/^-+|-+$/g, "");
+
+  return slug || "script";
+}
+
+function writingScriptDate(value) {
+  const text = String(value || "").trim();
+  const match = text.match(/^(\d{4})-(\d{2})-(\d{2})$/);
+
+  if (!match) return text;
+
+  const date = new Date(`${text}T00:00:00Z`);
+
+  if (Number.isNaN(date.getTime())) return text;
+
+  return new Intl.DateTimeFormat("en-US", {
+    year: "numeric",
+    month: "long",
+    day: "numeric",
+    timeZone: "UTC"
+  }).format(date);
+}
+
+function renderWritingScriptsSchema(scripts) {
+  const rows = Array.isArray(scripts) ? scripts : [];
+
+  if (rows.length === 0) return "";
+
+  const graph = rows.map(row => {
+    const slug = writingScriptSlug(row.title || `script-${row.id}`);
+    const item = {
+      "@type": ["Play", "CreativeWork"],
+      "@id": `https://neuralnetsandprettypatterns.com/scripts/#${slug}`,
+      "url": `https://neuralnetsandprettypatterns.com/scripts/#${slug}`,
+      "name": String(row.title || "Untitled script"),
+      "author": {
+        "@id": "https://neuralnetsandprettypatterns.com/#nnpp"
+      },
+      "description": String(row.summary || ""),
+      "inLanguage": "en",
+      "additionalType": "Audio Drama Script",
+      "creativeWorkStatus": Number(row.is_filled) === 1 ? "Filled" : "Open"
+    };
+
+    const series = String(row.series || "").trim();
+    if (series) {
+      item.isPartOf = {
+        "@type": "CreativeWorkSeries",
+        "name": series
+      };
+    }
+
+    const actors = String(row.actors || "")
+      .split(",")
+      .map(name => name.trim())
+      .filter(Boolean);
+
+    if (actors.length) {
+      item.contributor = actors.map(name => ({
+        "@type": "Person",
+        "name": name
+      }));
+    }
+
+    const datePublished = String(row.date_published || "").trim();
+    if (/^\d{4}-\d{2}-\d{2}$/.test(datePublished)) {
+      item.datePublished = datePublished;
+    }
+
+    const wordCount = Number(row.word_count);
+    if (Number.isFinite(wordCount) && wordCount > 0) {
+      item.wordCount = wordCount;
+    }
+
+    return item;
+  });
+
+  const json = JSON.stringify({
+    "@context": "https://schema.org",
+    "@graph": graph
+  }).replace(/<\/script/gi, "<\\/script");
+
+  return `<script type="application/ld+json" id="writing-scripts-schema">${json}</script>`;
 }
 
 /* =========================================================
