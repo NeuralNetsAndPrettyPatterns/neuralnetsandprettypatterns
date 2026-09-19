@@ -1969,16 +1969,51 @@ async function handleScriptDownload(request, env, path) {
   const headers = new Headers();
 
   object.writeHttpMetadata(headers);
-  headers.set(
-    "content-type",
-    headers.get("content-type") || "application/octet-stream"
-  );
+
+  const storedContentType =
+    headers.get("content-type") || "";
+  const isPlainText =
+    /\.txt$/i.test(filename) ||
+    storedContentType
+      .toLowerCase()
+      .startsWith("text/plain");
+
   headers.set(
     "content-disposition",
-    `attachment; filename="${filename}"`
+    `attachment; filename="${filename}"; filename*=UTF-8''${encodeURIComponent(filename)}`
   );
   headers.set("cache-control", "private, no-store");
   headers.set("x-content-type-options", "nosniff");
+
+  if (isPlainText) {
+    // R2 stores the original bytes. For downloadable TXT files,
+    // normalize them to UTF-8 and add a UTF-8 BOM so Windows
+    // text editors reliably preserve curly apostrophes/quotes.
+    const text = await object.text();
+    const bom = new Uint8Array([0xef, 0xbb, 0xbf]);
+    const encoded = new TextEncoder().encode(text);
+    const body = new Uint8Array(
+      bom.length + encoded.length
+    );
+    body.set(bom, 0);
+    body.set(encoded, bom.length);
+
+    headers.set(
+      "content-type",
+      "text/plain; charset=utf-8"
+    );
+    headers.delete("content-length");
+
+    return new Response(body, {
+      status: 200,
+      headers
+    });
+  }
+
+  headers.set(
+    "content-type",
+    storedContentType || "application/octet-stream"
+  );
 
   if (object.httpEtag) {
     headers.set("etag", object.httpEtag);
