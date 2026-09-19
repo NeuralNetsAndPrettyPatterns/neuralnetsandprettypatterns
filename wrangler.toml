@@ -1,6 +1,7 @@
 name = "dark-sea-d219"
 main = "worker.js"
 compatibility_date = "2025-01-01"
+keep_vars = true
 
 [[d1_databases]]
 binding = "mantrasync"
@@ -11,6 +12,15 @@ database_id = "8e2f3ed8-7363-41f7-bdd5-273d54374c68"
 binding = "CYOA_DB"
 database_name = "cyoa_polls"
 database_id = "77efba2a-1b95-4922-be19-d3c1c27d6bd7"
+
+[[d1_databases]]
+binding = "calendar"
+database_name = "nnpp-calendar"
+database_id = "YOUR_REAL_NNPP_CALENDAR_DATABASE_ID"
+
+[[r2_buckets]]
+binding = "scripts"
+bucket_name = "nnpp-scripts"
 
 [[kv_namespaces]]
 binding = "mantradata"
