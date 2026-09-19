@@ -22,6 +22,11 @@ export default {
       return handleScriptAgeAttestation(request, env);
     }
 
+    // Script backend status, safe diagnostic with no secret values exposed
+    if (p === "/api/scripts/status") {
+      return handleScriptBackendStatus(request, env);
+    }
+
     // Protected script downloads from private R2 storage
     if (p.startsWith("/scripts/download/")) {
       return handleScriptDownload(request, env, p);
@@ -1715,6 +1720,61 @@ export default {
 
 const SCRIPT_AGE_COOKIE = "nnpp_script_age";
 const SCRIPT_AGE_MAX_AGE = 12 * 60 * 60;
+
+async function handleScriptBackendStatus(request, env) {
+  if (request.method !== "GET") {
+    return scriptJsonResponse(
+      { ok: false, error: "Method not allowed." },
+      405,
+      { Allow: "GET" }
+    );
+  }
+
+  const status = {
+    ok: true,
+    calendar_binding: Boolean(env && env.calendar),
+    scripts_binding: Boolean(env && env.scripts),
+    gate_secret: Boolean(env && env.SCRIPT_GATE_SECRET),
+    resonance_row: false,
+    r2_object: false
+  };
+
+  if (status.calendar_binding) {
+    try {
+      const row = await env.calendar
+        .prepare(
+          `SELECT id, r2_key
+           FROM writing_scripts
+           WHERE title = 'Resonance'
+           LIMIT 1`
+        )
+        .first();
+
+      status.resonance_row = Boolean(row);
+
+      if (row && row.r2_key && status.scripts_binding) {
+        try {
+          status.r2_object = Boolean(
+            await env.scripts.head(row.r2_key)
+          );
+        } catch (error) {
+          status.r2_error = String(error);
+        }
+      }
+    } catch (error) {
+      status.d1_error = String(error);
+    }
+  }
+
+  status.ok =
+    status.calendar_binding &&
+    status.scripts_binding &&
+    status.gate_secret &&
+    status.resonance_row &&
+    status.r2_object;
+
+  return scriptJsonResponse(status, status.ok ? 200 : 500);
+}
 
 async function handleScriptAgeAttestation(request, env) {
   if (request.method !== "POST") {
