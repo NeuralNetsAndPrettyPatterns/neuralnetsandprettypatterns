@@ -2659,11 +2659,14 @@ function renderCastingRole(role) {
   const roleStatusClass = isFilled ? "filled" : "open";
   const heat = String(role.heat || "").toUpperCase();
   const heatClass = heat === "R" ? "r" : "pg";
+  const actorName = isFilled
+    ? String(role.actor_name || "").trim()
+    : "";
 
   const searchText = [
     role.character_name,
     role.role_label,
-    isFilled ? role.actor_name : "",
+    actorName,
     role.gender,
     role.description,
     role.spotlight,
@@ -2689,7 +2692,6 @@ function renderCastingRole(role) {
     .join("");
 
   const specs = [
-    ["Actor", isFilled ? role.actor_name : ""],
     ["Gender", role.gender],
     ["Episodes", role.episodes],
     ["Heat", heat],
@@ -2711,6 +2713,7 @@ function renderCastingRole(role) {
         <div>
           <div class="role-name">${escapeHtml(role.character_name)}</div>
           ${role.role_label ? `<div class="role-label">${escapeHtml(role.role_label)}</div>` : ""}
+          ${actorName ? `<div class="role-label"><strong>Actor:</strong> ${escapeHtml(actorName)}</div>` : ""}
         </div>
         <div class="role-badges">${badges}</div>
       </div>
