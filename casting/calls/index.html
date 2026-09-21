@@ -855,6 +855,79 @@
   const callSelect = document.getElementById('audition-call');
   const roleSelect = document.getElementById('audition-role');
 
+
+  async function addVoiceActors() {
+    const roleCards = Array.from(document.querySelectorAll('.role-card'));
+
+    function setVA(card, value) {
+      const specs = card.querySelector('.role-specs');
+      if (!specs || specs.querySelector('.va-spec')) return;
+
+      const va = document.createElement('span');
+      va.className = 'va-spec';
+
+      const label = document.createElement('strong');
+      label.textContent = 'VA:';
+
+      va.appendChild(label);
+      va.appendChild(document.createTextNode(` ${value || 'OPEN'}`));
+
+      const heatSpec = Array.from(specs.querySelectorAll('span')).find(span =>
+        span.textContent.trim().toLowerCase().startsWith('heat:')
+      );
+
+      if (heatSpec) {
+        heatSpec.insertAdjacentElement('afterend', va);
+      } else {
+        specs.appendChild(va);
+      }
+    }
+
+    try {
+      const response = await fetch('/api/casting/calls', {
+        headers: { 'Accept': 'application/json' }
+      });
+
+      if (!response.ok) throw new Error('Casting data unavailable');
+
+      const data = await response.json();
+      const calls = Array.isArray(data.calls) ? data.calls : [];
+      const roles = Array.isArray(data.roles) ? data.roles : [];
+
+      document.querySelectorAll('.casting-call').forEach(callElement => {
+        const displayedTitle =
+          callElement.querySelector('summary span')?.textContent?.trim() || '';
+
+        const call = calls.find(item => {
+          const apiTitle = [
+            item.series,
+            item.series_title || item.title
+          ].filter(Boolean).join(' : ');
+
+          return apiTitle === displayedTitle;
+        });
+
+        callElement.querySelectorAll('.role-card').forEach(card => {
+          const characterName =
+            card.querySelector('.role-name')?.textContent?.trim() || '';
+
+          const role = call
+            ? roles.find(item =>
+                Number(item.casting_call_id) === Number(call.id) &&
+                String(item.character_name || '').trim() === characterName
+              )
+            : null;
+
+          setVA(card, role?.actor_name || 'OPEN');
+        });
+      });
+    } catch (error) {
+      roleCards.forEach(card => setVA(card, 'OPEN'));
+    }
+  }
+
+  addVoiceActors();
+
   function setStatus(message, type) {
     statusEl.textContent = message || '';
     statusEl.className = type ? `form-status ${type}` : 'form-status';
