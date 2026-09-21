@@ -58,64 +58,11 @@
         "@type": "ItemList",
         "@id": "https://neuralnetsandprettypatterns.com/scripts/#list",
         "name": "Written Works by Neural Nets and Pretty Patterns",
-        "numberOfItems": 6,
+        "numberOfItems": 5,
         "itemListElement": [
           {
             "@type": "ListItem",
             "position": 1,
-            "item": {
-              "@type": [
-                "Play",
-                "CreativeWork"
-              ],
-              "@id": "https://neuralnetsandprettypatterns.com/scripts/#warlocked",
-              "name": "Warlocked",
-              "author": {
-                "@id": "https://neuralnetsandprettypatterns.com/#nnpp"
-              },
-              "creativeWorkStatus": "Casting",
-              "dateCreated": "2026-09-21",
-              "additionalType": "Audio Drama Script",
-              "contentRating": "R",
-              "genre": [
-                "Dark Romance",
-                "Fantasy",
-                "RomPG",
-                "Role-playing Game",
-                "Orcs",
-                "Magic"
-              ],
-              "keywords": [
-                "enchantment",
-                "friends to lovers",
-                "enemies to lovers",
-                "orcs",
-                "warlord/commander hero",
-                "magic",
-                "roleplaying game",
-                "RomPG",
-                "dark romance",
-                "twist",
-                "transformation",
-                "cosplay"
-              ],
-              "description": "This is the next chapter of Rolled. Flay Queen Flay was the first. Rolled is Dungeon RomPG. It’s romance in a dungeon setting. It shifts between levels of the fantasy dungeon and the actual play scene.",
-              "inLanguage": "en",
-              "url": "https://neuralnetsandprettypatterns.com/scripts/#warlocked",
-              "isPartOf": {
-                "@type": "CreativeWorkSeries",
-                "name": "Rolled",
-                "isPartOf": {
-                  "@type": "CreativeWorkSeries",
-                  "name": "The Neuralverse",
-                  "@id": "https://neuralnetsandprettypatterns.com/#neuralverse"
-                }
-              }
-            }
-          },
-          {
-            "@type": "ListItem",
-            "position": 2,
             "item": {
               "@type": "Book",
               "@id": "https://neuralnetsandprettypatterns.com/scripts/#vale-four-collected-scripts",
@@ -146,7 +93,7 @@
           },
           {
             "@type": "ListItem",
-            "position": 3,
+            "position": 2,
             "item": {
               "@type": "Book",
               "@id": "https://neuralnetsandprettypatterns.com/scripts/#incognitoh-collected-scripts",
@@ -177,7 +124,7 @@
           },
           {
             "@type": "ListItem",
-            "position": 4,
+            "position": 3,
             "item": {
               "@type": "Book",
               "@id": "https://neuralnetsandprettypatterns.com/scripts/#the-chthonic-collected-scripts",
@@ -208,7 +155,7 @@
           },
           {
             "@type": "ListItem",
-            "position": 5,
+            "position": 4,
             "item": {
               "@type": "Book",
               "@id": "https://neuralnetsandprettypatterns.com/scripts/#wavetrained",
@@ -239,7 +186,7 @@
           },
           {
             "@type": "ListItem",
-            "position": 6,
+            "position": 5,
             "item": {
               "@type": [
                 "Play",
@@ -561,7 +508,6 @@
     .filter-btn.active[data-group="structure"] { border-color: var(--accent); color: var(--accent); background: rgba(126,184,201,0.1); }
     .filter-btn.active[data-group="status"][data-filter="Audio Published"] { border-color: rgba(255,45,120,0.7); color: var(--pink); background: var(--tag-production); }
     .filter-btn.active[data-group="status"][data-filter="Greenlit"] { border-color: rgba(100,200,120,0.8); color: rgb(100,200,120); background: rgba(100,200,120,0.15); }
-    .filter-btn.active[data-group="status"][data-filter="Casting"] { border-color: rgba(255,45,120,0.75); color: var(--pink); background: rgba(255,45,120,0.10); }
 
     .filter-divider { width: 1px; height: 18px; background: var(--border); align-self: center; flex-shrink: 0; }
 
@@ -634,7 +580,6 @@
     .tag-status-production { background: var(--tag-production); border-color: var(--tag-production-border); color: var(--pink); }
     .tag-status-greenlit { background: var(--tag-greenlit); border-color: var(--tag-greenlit-border); color: rgb(100,200,120); }
     .tag-status-filled { background: rgba(100, 200, 120, 0.15); border-color: rgba(100, 200, 120, 0.5); color: rgb(130, 220, 145); }
-    .tag-status-casting { background: rgba(255,45,120,0.10); border-color: rgba(255,45,120,0.45); color: var(--pink); }
 
     .script-series {
       font-family: var(--mono);
@@ -653,45 +598,6 @@
     }
 
     .script-summary p:last-child { margin-bottom: 0; }
-
-    .casting-details {
-      margin-top: 1.35rem;
-      padding-top: 1.1rem;
-      border-top: 1px solid var(--border);
-    }
-
-    .casting-details summary {
-      font-family: var(--mono);
-      font-size: 0.64rem;
-      letter-spacing: 0.16em;
-      text-transform: uppercase;
-      color: var(--accent-warm);
-      cursor: pointer;
-    }
-
-    .casting-role { margin-top: 1.15rem; }
-    .casting-role h4 {
-      font-family: var(--serif);
-      font-size: 1.08rem;
-      font-weight: 400;
-      color: var(--text-bright);
-      margin-bottom: 0.35rem;
-    }
-    .casting-role p, .script-notation p {
-      font-size: 0.92rem;
-      color: var(--text-dim);
-      max-width: 60ch;
-      margin: 0 0 0.55rem;
-    }
-    .script-notation { margin-top: 1.35rem; }
-    .script-notation h4 {
-      font-family: var(--mono);
-      font-size: 0.64rem;
-      letter-spacing: 0.16em;
-      text-transform: uppercase;
-      color: var(--accent-warm);
-      margin-bottom: 0.55rem;
-    }
 
     .script-gate {
       margin-top: 1.35rem;
@@ -864,7 +770,6 @@
           <div class="filter-divider" aria-hidden="true"></div>
           <button class="filter-btn" data-group="status" data-filter="Audio Published">AUDIO PUBLISHED</button>
           <button class="filter-btn" data-group="status" data-filter="Greenlit">GREENLIT</button>
-          <button class="filter-btn" data-group="status" data-filter="Casting">CASTING</button>
           <button class="filter-btn" data-group="status" data-filter="Filled">FILLED</button>
         </div>
       </div>
@@ -873,113 +778,12 @@
 
       <!--
         SCRIPT CATALOGUE
-        D1/SSR and static entries can appear in either source position.
-        Client-side catalogue logic sorts all cards newest-first from structured
-        dates, data-sort-date, or visible date metadata before filtering/search.
+        New downloadable scripts are injected server-side from D1 first,
+        followed by the existing static and crawlable catalogue.
       -->
       <div class="works-list" id="works-list" role="list">
 
         <!--WRITING_SCRIPTS_SSR-->
-
-        <article id="warlocked" class="work-card static-only format-script" role="listitem" data-id="warlocked" data-format="Script" data-structure="Standalone" data-status="Casting" data-sort-date="2026-09-21">
-          <div class="work-card-body">
-            <div class="work-card-tags">
-              <span class="tag tag-format-script">Script</span>
-              <span class="tag tag-structure">Standalone</span>
-              <span class="tag tag-status-casting">Casting</span>
-            </div>
-
-            <div class="script-series">ROLLED · DARK DUNGEON ROMPG</div>
-            <h3>Warlocked</h3>
-
-            <div class="script-summary">
-              <p>This is the next chapter of Rolled. Flay Queen Flay was the first.</p>
-              <p>Rolled is Dungeon RomPG. It’s romance in a dungeon setting.</p>
-              <p>It shifts between levels of the fantasy dungeon and the actual play scene. The scene shifting allows the series to have all the emotional depth and spice of a romance, combined with the mechanics and joys of a role-playing game. The dungeon RPG is familiar to most.</p>
-              <p>This series is definitely dark romance, so it’s most appropriately called Dark Dungeon RomPG. That’s a mouthful. In this episode, Ashlyn gets a mouthful a well.</p>
-              <p>In the actual play, she’s reminded of the terms of her pact. She is a vessel and a gateway. One day a week, she has to empty her mind and prepare herself ritualistically for occupation by her Patron.</p>
-              <p>The DM comments on this, blurring the line between the RPG and reality.</p>
-              <p>She’s reminded of the price for this – she has to retain her calm. It’s necessary to be a vessel. That isn’t easy for her; she has a strong sense of justice and doesn’t want to be ignored.</p>
-            </div>
-
-            <div class="lore-terms" aria-label="Warlocked tags">
-              <span class="lore-term">enchantment</span>
-              <span class="lore-term">friends to lovers</span>
-              <span class="lore-term">enemies to lovers</span>
-              <span class="lore-term">orcs</span>
-              <span class="lore-term">warlord/commander hero</span>
-              <span class="lore-term">magic</span>
-              <span class="lore-term">roleplaying game</span>
-              <span class="lore-term">RomPG</span>
-              <span class="lore-term">dark romance</span>
-              <span class="lore-term">twist</span>
-              <span class="lore-term">transformation</span>
-              <span class="lore-term">cosplay</span>
-            </div>
-
-            <details class="casting-details">
-              <summary>Characters for Casting</summary>
-
-              <div class="casting-role">
-                <h4>1. Ashlyn (Fem)</h4>
-                <p>She is played as snarky, defiant, and whip smart in Act One.</p>
-                <p>She is in the midst of action, heated and ready for combat in Act Two. She is battling an orc chieftain to free his prisoners.</p>
-                <p>She is much changed in Act Three.</p>
-                <p><strong>PEAKS AND VALLEYS:</strong> She undergoes a few evolutions in the course of the script. She goes from sassy and snarky, to violently defiant in an action movie way, to really quite cowed.</p>
-                <p><strong>SUBTEXT:</strong> She is very much fascinated by her dire accounts of the Orcs.</p>
-                <p><strong>RATING:</strong> R</p>
-              </div>
-
-              <div class="casting-role">
-                <h4>2. DM (Masc)</h4>
-                <p>He is accommodating in Act One. He receives and weathers the storms of Ashlyn’s rage.</p>
-                <p>He lights up more in Act Two.</p>
-                <p>His character evolution in Act Three is substantial.</p>
-                <p><strong>PEAKS AND VALLEYS:</strong> He gradually transforms from a neutral game mechanic to an actual element in the game.</p>
-                <p><strong>SUBTEXT:</strong> Although he is accommodating, there is steel beneath.</p>
-                <p><strong>SUBTEXT:</strong> While he appears to bend to Ashlyn’s foibles, he knows how they can be leveraged.</p>
-                <p><strong>RATING:</strong> R</p>
-              </div>
-
-              <div class="casting-role">
-                <h4>3. Asta (Masc)</h4>
-                <p>Asta appears as a voice in Ashyln’s head. He appears as an Archfey Patron – cold, but playful. The transformation is within the story.</p>
-                <p><strong>RATING:</strong> R</p>
-              </div>
-
-              <div class="casting-role">
-                <h4>4. Orc Boss</h4>
-                <p>The Orc Boss is the antagonist for Act Two. He is beefy, powerful, and played more or less like a high fantasy gym bro.</p>
-                <p><strong>RATING:</strong> PG-13 FOR COARSE LANGUAGE.</p>
-              </div>
-
-              <div class="casting-role">
-                <h4>5. Captive</h4>
-                <p>Ashlyn discovers the captive. She is frustrated by what seems to be deeply rooted Stockholm Syndrome. If you’re familiar with horror, you might think of Amanda Young in the Saw Franchise.</p>
-                <p><strong>RATING:</strong> R</p>
-              </div>
-
-              <div class="script-notation">
-                <h4>Script Notation</h4>
-                <p>Notes on NNPP scripts:</p>
-                <p>1. There are a lot of parenthetical stage directions. That’s hopefully more helpful than micromanaging.</p>
-                <p>2. SFX (sound effects) – SFX BG (sound effects background) – PN (Production Note) can all be disregarded.</p>
-                <p>3. Remixing and performance rights are almost always granted, with appropriate credits. But you have to ask.</p>
-                <p>4. Absolutely no AI or AI associated projects. Period.</p>
-              </div>
-            </details>
-
-            <div class="script-gate">
-              <p class="adult-material-note">R-rated script. Adult material.</p>
-              <label class="script-attestation-label">
-                <input type="checkbox" class="script-attestation" />
-                <span>I confirm I am 18 or older and want to access this script.</span>
-              </label>
-              <button class="script-download" type="button" data-script-id="WarlockedScript.txt" disabled>DOWNLOAD SCRIPT</button>
-              <div class="script-gate-message" aria-live="polite"></div>
-            </div>
-          </div>
-        </article>
 
         <article class="work-card static-only" role="listitem" data-id="vale-four-collected-scripts" data-format="Book" data-structure="Serial" data-status="Audio Published">
           <div class="work-card-body">
@@ -1089,122 +893,6 @@
       return [...document.querySelectorAll('.work-card')];
     }
 
-    function parseSortDate(value) {
-      if (!value) return 0;
-      const parsed = Date.parse(String(value).trim());
-      return Number.isNaN(parsed) ? 0 : parsed;
-    }
-
-    function getSchemaDateMaps() {
-      const byId = new Map();
-      const byName = new Map();
-
-      function remember(key, timestamp, map) {
-        if (!key || !timestamp) return;
-        const normalized = String(key).trim().toLowerCase();
-        const existing = map.get(normalized) || 0;
-        if (timestamp > existing) map.set(normalized, timestamp);
-      }
-
-      function walk(node) {
-        if (!node) return;
-        if (Array.isArray(node)) {
-          node.forEach(walk);
-          return;
-        }
-        if (typeof node !== 'object') return;
-
-        const timestamp = Math.max(
-          parseSortDate(node.datePublished),
-          parseSortDate(node.dateCreated),
-          parseSortDate(node.dateModified),
-          parseSortDate(node.uploadDate)
-        );
-
-        if (timestamp) {
-          remember(node['@id'], timestamp, byId);
-          remember(node.url, timestamp, byId);
-          remember(node.name, timestamp, byName);
-
-          const idValue = node['@id'] || node.url || '';
-          const hash = String(idValue).split('#')[1];
-          if (hash) remember(hash, timestamp, byId);
-        }
-
-        Object.values(node).forEach(walk);
-      }
-
-      document.querySelectorAll('script[type="application/ld+json"]').forEach(script => {
-        try {
-          walk(JSON.parse(script.textContent));
-        } catch (_) {}
-      });
-
-      return { byId, byName };
-    }
-
-    function getCardSortTimestamp(card, schemaDates) {
-      const explicitDates = [
-        card.dataset.sortDate,
-        card.dataset.date,
-        card.dataset.published,
-        card.dataset.publishedAt,
-        card.dataset.created,
-        card.dataset.createdAt,
-        card.dataset.updatedAt
-      ];
-
-      for (const value of explicitDates) {
-        const timestamp = parseSortDate(value);
-        if (timestamp) return timestamp;
-      }
-
-      const cardId = (card.dataset.id || card.id || '').trim().toLowerCase();
-      if (cardId && schemaDates.byId.has(cardId)) return schemaDates.byId.get(cardId);
-
-      const heading = card.querySelector('h3');
-      const cardName = heading ? heading.textContent.trim().toLowerCase() : '';
-      if (cardName && schemaDates.byName.has(cardName)) return schemaDates.byName.get(cardName);
-
-      const time = card.querySelector('time[datetime]');
-      if (time) {
-        const timestamp = parseSortDate(time.getAttribute('datetime'));
-        if (timestamp) return timestamp;
-      }
-
-      const metaText = card.querySelector('.work-card-meta')?.textContent || '';
-      const fullDate = metaText.match(/\b(20\d{2})-(\d{2})-(\d{2})\b/);
-      if (fullDate) {
-        const timestamp = parseSortDate(fullDate[0]);
-        if (timestamp) return timestamp;
-      }
-
-      const year = metaText.match(/\b(20\d{2})\b/);
-      if (year) return Date.UTC(Number(year[1]), 0, 1);
-
-      return 0;
-    }
-
-    function sortCardsNewestFirst() {
-      const list = document.getElementById('works-list');
-      if (!list) return;
-
-      const schemaDates = getSchemaDateMaps();
-      const cards = [...list.querySelectorAll(':scope > .work-card')];
-      const ranked = cards.map((card, index) => ({
-        card,
-        index,
-        timestamp: getCardSortTimestamp(card, schemaDates)
-      }));
-
-      ranked.sort((a, b) => {
-        if (b.timestamp !== a.timestamp) return b.timestamp - a.timestamp;
-        return a.index - b.index;
-      });
-
-      ranked.forEach(({ card }) => list.appendChild(card));
-    }
-
     function matchCard(card) {
       if (activeFilters.format && card.dataset.format !== activeFilters.format) return false;
       if (activeFilters.structure && card.dataset.structure !== activeFilters.structure) return false;
@@ -1242,8 +930,6 @@
       updateMeta(visible, cards.length);
       setEmptyState(visible);
     }
-
-    sortCardsNewestFirst();
 
     getCards().forEach(card => {
       if (!card.dataset.searchtext) {
