@@ -74,6 +74,7 @@
                 "@id": "https://neuralnetsandprettypatterns.com/#nnpp"
               },
               "creativeWorkStatus": "Casting",
+              "dateCreated": "2026-09-21",
               "additionalType": "Audio Drama Script",
               "contentRating": "R",
               "genre": [
@@ -872,14 +873,15 @@
 
       <!--
         SCRIPT CATALOGUE
-        New downloadable scripts are injected server-side from D1 first,
-        followed by the existing static and crawlable catalogue.
+        D1/SSR and static entries can appear in either source position.
+        Client-side catalogue logic sorts all cards newest-first from structured
+        dates, data-sort-date, or visible date metadata before filtering/search.
       -->
       <div class="works-list" id="works-list" role="list">
 
         <!--WRITING_SCRIPTS_SSR-->
 
-        <article id="warlocked" class="work-card static-only format-script" role="listitem" data-id="warlocked" data-format="Script" data-structure="Standalone" data-status="Casting">
+        <article id="warlocked" class="work-card static-only format-script" role="listitem" data-id="warlocked" data-format="Script" data-structure="Standalone" data-status="Casting" data-sort-date="2026-09-21">
           <div class="work-card-body">
             <div class="work-card-tags">
               <span class="tag tag-format-script">Script</span>
@@ -1087,6 +1089,122 @@
       return [...document.querySelectorAll('.work-card')];
     }
 
+    function parseSortDate(value) {
+      if (!value) return 0;
+      const parsed = Date.parse(String(value).trim());
+      return Number.isNaN(parsed) ? 0 : parsed;
+    }
+
+    function getSchemaDateMaps() {
+      const byId = new Map();
+      const byName = new Map();
+
+      function remember(key, timestamp, map) {
+        if (!key || !timestamp) return;
+        const normalized = String(key).trim().toLowerCase();
+        const existing = map.get(normalized) || 0;
+        if (timestamp > existing) map.set(normalized, timestamp);
+      }
+
+      function walk(node) {
+        if (!node) return;
+        if (Array.isArray(node)) {
+          node.forEach(walk);
+          return;
+        }
+        if (typeof node !== 'object') return;
+
+        const timestamp = Math.max(
+          parseSortDate(node.datePublished),
+          parseSortDate(node.dateCreated),
+          parseSortDate(node.dateModified),
+          parseSortDate(node.uploadDate)
+        );
+
+        if (timestamp) {
+          remember(node['@id'], timestamp, byId);
+          remember(node.url, timestamp, byId);
+          remember(node.name, timestamp, byName);
+
+          const idValue = node['@id'] || node.url || '';
+          const hash = String(idValue).split('#')[1];
+          if (hash) remember(hash, timestamp, byId);
+        }
+
+        Object.values(node).forEach(walk);
+      }
+
+      document.querySelectorAll('script[type="application/ld+json"]').forEach(script => {
+        try {
+          walk(JSON.parse(script.textContent));
+        } catch (_) {}
+      });
+
+      return { byId, byName };
+    }
+
+    function getCardSortTimestamp(card, schemaDates) {
+      const explicitDates = [
+        card.dataset.sortDate,
+        card.dataset.date,
+        card.dataset.published,
+        card.dataset.publishedAt,
+        card.dataset.created,
+        card.dataset.createdAt,
+        card.dataset.updatedAt
+      ];
+
+      for (const value of explicitDates) {
+        const timestamp = parseSortDate(value);
+        if (timestamp) return timestamp;
+      }
+
+      const cardId = (card.dataset.id || card.id || '').trim().toLowerCase();
+      if (cardId && schemaDates.byId.has(cardId)) return schemaDates.byId.get(cardId);
+
+      const heading = card.querySelector('h3');
+      const cardName = heading ? heading.textContent.trim().toLowerCase() : '';
+      if (cardName && schemaDates.byName.has(cardName)) return schemaDates.byName.get(cardName);
+
+      const time = card.querySelector('time[datetime]');
+      if (time) {
+        const timestamp = parseSortDate(time.getAttribute('datetime'));
+        if (timestamp) return timestamp;
+      }
+
+      const metaText = card.querySelector('.work-card-meta')?.textContent || '';
+      const fullDate = metaText.match(/\b(20\d{2})-(\d{2})-(\d{2})\b/);
+      if (fullDate) {
+        const timestamp = parseSortDate(fullDate[0]);
+        if (timestamp) return timestamp;
+      }
+
+      const year = metaText.match(/\b(20\d{2})\b/);
+      if (year) return Date.UTC(Number(year[1]), 0, 1);
+
+      return 0;
+    }
+
+    function sortCardsNewestFirst() {
+      const list = document.getElementById('works-list');
+      if (!list) return;
+
+      const schemaDates = getSchemaDateMaps();
+      const cards = [...list.querySelectorAll(':scope > .work-card')];
+      const ranked = cards.map((card, index) => ({
+        card,
+        index,
+        timestamp: getCardSortTimestamp(card, schemaDates)
+      }));
+
+      ranked.sort((a, b) => {
+        if (b.timestamp !== a.timestamp) return b.timestamp - a.timestamp;
+        return a.index - b.index;
+      });
+
+      ranked.forEach(({ card }) => list.appendChild(card));
+    }
+
     function matchCard(card) {
       if (activeFilters.format && card.dataset.format !== activeFilters.format) return false;
       if (activeFilters.structure && card.dataset.structure !== activeFilters.structure) return false;
@@ -1124,6 +1242,8 @@
       updateMeta(visible, cards.length);
       setEmptyState(visible);
     }
+
+    sortCardsNewestFirst();
 
     getCards().forEach(card => {
       if (!card.dataset.searchtext) {
