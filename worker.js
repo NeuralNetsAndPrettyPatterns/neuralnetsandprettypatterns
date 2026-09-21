@@ -2663,6 +2663,7 @@ function renderCastingRole(role) {
   const searchText = [
     role.character_name,
     role.role_label,
+    isFilled ? role.actor_name : "",
     role.gender,
     role.description,
     role.spotlight,
@@ -2688,6 +2689,7 @@ function renderCastingRole(role) {
     .join("");
 
   const specs = [
+    ["Actor", isFilled ? role.actor_name : ""],
     ["Gender", role.gender],
     ["Episodes", role.episodes],
     ["Heat", heat],
