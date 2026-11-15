@@ -693,15 +693,58 @@ export default {
       };
     }
 
-    function renderHomeLinks(links) {
+    function homeSlug(value) {
+      return String(value ?? "")
+        .toLowerCase()
+        .trim()
+        .replace(/[^a-z0-9]+/g, "-")
+        .replace(/^-+|-+$/g, "");
+    }
+
+    // A link labeled "Series" gets the series name instead, taken from the
+    // last part of its address (".../neuralpedia/mermaid/" -> "Mermaid").
+    // If the release lists that series by name, its exact spelling is used.
+    function homeSeriesLabel(url, seriesNames) {
+      let segment = "";
+
+      try {
+        const parts = new URL(url).pathname
+          .split("/")
+          .filter(Boolean);
+        segment = decodeURIComponent(parts[parts.length - 1] || "");
+      } catch (error) {
+        return "Series";
+      }
+
+      if (!segment) return "Series";
+
+      const slug = homeSlug(segment);
+      const named = (seriesNames || []).find(
+        name => homeSlug(name) === slug
+      );
+
+      if (named) return named;
+
+      return slug
+        .split("-")
+        .filter(Boolean)
+        .map(word => word.charAt(0).toUpperCase() + word.slice(1))
+        .join(" ");
+    }
+
+    function renderHomeLinks(links, seriesNames = []) {
       const items =
         Array.isArray(links)
           ? links
               .map(link => {
-                const label =
-                  String(link?.label ?? "").trim();
                 const url =
                   homeSafeUrl(link?.url);
+                let label =
+                  String(link?.label ?? "").trim();
+
+                if (url && label.toLowerCase() === "series") {
+                  label = homeSeriesLabel(url, seriesNames);
+                }
 
                 if (!label || !url) {
                   return "";
@@ -720,11 +763,18 @@ export default {
         return "";
       }
 
+      // Spacing comes from CSS; no separator characters.
       return (
         `<div class="featured-links">` +
-        items.join("<span aria-hidden=\"true\">·</span>") +
+        items.join("") +
         `</div>`
       );
+    }
+
+    function homeJoinList(items) {
+      if (items.length <= 1) return items.join("");
+      if (items.length === 2) return `${items[0]} and ${items[1]}`;
+      return `${items.slice(0, -1).join(", ")}, and ${items[items.length - 1]}`;
     }
 
     function renderLatestRelease(release) {
@@ -769,12 +819,24 @@ export default {
       const length =
         String(release.length ?? "").trim();
 
-      const meta = [
-        ...series,
-        date,
-        length,
-        ...genres
-      ].filter(Boolean);
+      // Plain sentences instead of a dot-separated chain, e.g.
+      // "Released August 27, 2026. Runs 35:37. Part of Mermaid and Mythic.
+      //  Haptic narrative, paranormal romance, experimental audio."
+      const sentences = [];
+
+      if (date) sentences.push(`Released ${date}.`);
+      if (length) sentences.push(`Runs ${length}.`);
+      if (series.length) sentences.push(`Part of ${homeJoinList(series)}.`);
+      if (genres.length) {
+        // Genres are stored title case ("Paranormal Romance"); in a
+        // sentence they read better lowercased after the first word.
+        const genreText = genres.join(", ").toLowerCase();
+        sentences.push(
+          genreText.charAt(0).toUpperCase() +
+          genreText.slice(1) +
+          "."
+        );
+      }
 
       const titleMarkup = canonical
         ? (
@@ -794,11 +856,11 @@ export default {
         : "";
 
       const metaMarkup =
-        meta.length > 0
+        sentences.length > 0
           ? (
-              `<div class="featured-meta">` +
-              `${homeEscapeHtml(meta.join(" · "))}` +
-              `</div>`
+              `<p class="featured-meta">` +
+              `${homeEscapeHtml(sentences.join(" "))}` +
+              `</p>`
             )
           : "";
 
@@ -807,27 +869,15 @@ export default {
           ? `<p>${homeEscapeHtml(description)}</p>`
           : "";
 
-      const counterMarkup =
-        release.release_number &&
-        release.release_total
-          ? (
-              `<div class="featured-counter">` +
-              `Release ${homeEscapeHtml(release.release_number)}` +
-              ` of ${homeEscapeHtml(release.release_total)}` +
-              `</div>`
-            )
-          : "";
-
       return (
         `<article class="featured-card` +
         `${image ? " has-art" : ""}">` +
         imageMarkup +
         `<div class="featured-copy">` +
-        counterMarkup +
         `<h2>${titleMarkup}</h2>` +
         metaMarkup +
         descriptionMarkup +
-        renderHomeLinks(release.links) +
+        renderHomeLinks(release.links, series) +
         `</div>` +
         `</article>`
       );
@@ -839,7 +889,18 @@ export default {
 
       if (!match) return "";
 
-      return match[1]
+      const slug = match[1].toLowerCase();
+
+      // Explicit names for arcs whose slug doesn't title-case cleanly.
+      const ARC_NAMES = {
+        "afterafter": "After After",
+        "vale-four": "Vale Four",
+        "chthonic": "The Chthonic"
+      };
+
+      if (ARC_NAMES[slug]) return ARC_NAMES[slug];
+
+      return slug
         .split("-")
         .filter(Boolean)
         .map(
@@ -1025,17 +1086,15 @@ export default {
           )
         : homeEscapeHtml(title);
 
-      const episodeLabel =
-        episode.season && episode.episode
-          ? `S${episode.season}E${episode.episode}`
-          : "";
+      // e.g. "Deep Dream State, After After. Season 5, episode 3 (GE48)."
+      const showPart = episode.arc
+        ? `Deep Dream State, ${episode.arc}.`
+        : "Deep Dream State.";
 
-      const meta = [
-        "Deep Dream State",
-        episode.arc || "",
-        episodeLabel,
-        `GE${episode.ge}`
-      ].filter(Boolean);
+      const numberPart =
+        episode.season && episode.episode
+          ? ` Season ${episode.season}, episode ${episode.episode} (GE${episode.ge}).`
+          : ` GE${episode.ge}.`;
 
       const taglineMarkup =
         episode.tagline
@@ -1057,30 +1116,18 @@ export default {
       const action = url
         ? (
             `<div class="featured-links">` +
-            `<a href="${homeEscapeHtml(url)}">Episode page</a>` +
+            `<a href="${homeEscapeHtml(url)}">Go to the episode</a>` +
             `</div>`
           )
         : "";
 
-      const counterMarkup =
-        episode.episode_number_overall &&
-        episode.episode_total
-          ? (
-              `<div class="featured-counter">` +
-              `Episode ${homeEscapeHtml(episode.episode_number_overall)}` +
-              ` of ${homeEscapeHtml(episode.episode_total)}` +
-              `</div>`
-            )
-          : "";
-
       return (
         `<article class="featured-card">` +
         `<div class="featured-copy">` +
-        counterMarkup +
         `<h2>${titleMarkup}</h2>` +
-        `<div class="featured-meta">` +
-        `${homeEscapeHtml(meta.join(" · "))}` +
-        `</div>` +
+        `<p class="featured-meta">` +
+        `${homeEscapeHtml(showPart + numberPart)}` +
+        `</p>` +
         taglineMarkup +
         summaryMarkup +
         action +
