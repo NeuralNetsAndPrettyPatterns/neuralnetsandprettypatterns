@@ -393,6 +393,41 @@
   "credits": {
     "performer": "Echo Doll, TBQ, Shadow V, Vampy McVampface"
   }
+},
+{
+  "nnpp_id": "NNPP-CRS",
+  "title": "Carouseller",
+  "series": [
+    "Shelf"
+  ],
+  "release_date": "2026-11-14",
+  "genre": [
+    "Dark Whimsy"
+  ],
+  "power_geometry": [],
+  "format": "Pure audio",
+  "length": "18:25",
+  "duration_iso": "PT18M25S",
+  "canonical_url": "https://www.patreon.com/minderaser/posts/carouseller-all-175351723",
+  "same_as": [
+    "https://musicbrainz.org/release/24e6464a-1741-4450-8ad7-9d84b5d2b533"
+  ],
+  "image": "https://neuralnetsandprettypatterns.com/neuralpedia/Carouseller.jpg",
+  "links": [
+    {
+      "label": "Patreon",
+      "url": "https://www.patreon.com/minderaser/posts/carouseller-all-175351723"
+    },
+    {
+      "label": "MusicBrainz",
+      "url": "https://musicbrainz.org/release/24e6464a-1741-4450-8ad7-9d84b5d2b533"
+    }
+  ],
+  "is_free": false,
+  "description": "Everyone loves the carousel. It's a set of spinning doll dreams, and this is no exception. It is pure vibes, overlaid with a recurring three note sparkle pattern. It's whimsical, steampunky, and very very hot.",
+  "credits": {
+    "performer": "Bun Li, Dizzy Dollie, Panda Moanium, Pipp, Ring of Kees, Vampy McVampface"
+  }
 }
   ]
 }
