@@ -231,63 +231,105 @@
 
     .release-card {
       border-top: 1px solid rgba(240, 244, 255, 0.1);
-      padding: 2rem 0;
+      padding: 2.25rem 0;
     }
 
     .release-card:last-child {
       border-bottom: 1px solid rgba(240, 244, 255, 0.1);
     }
 
+    .release-card.has-art {
+      display: grid;
+      grid-template-columns: minmax(140px, 200px) minmax(0, 1fr);
+      gap: 1.75rem;
+      align-items: start;
+    }
+
+    .release-art img {
+      display: block;
+      width: 100%;
+      height: auto;
+      border: 1px solid rgba(240, 244, 255, 0.12);
+      border-radius: 10px;
+    }
+
+    .release-copy {
+      min-width: 0;
+    }
+
     .release-title {
-      font-size: 1.5rem;
+      font-size: 1.55rem;
       font-weight: 450;
       line-height: 1.2;
       color: var(--text-bright);
-      margin-bottom: 0.35rem;
+      margin-bottom: 0.7rem;
     }
 
-    .release-meta {
-      font-size: 0.95rem;
-      font-style: italic;
-      color: var(--text-dim);
+    .release-title a {
+      color: inherit;
+    }
+
+    .release-title a:hover {
+      color: var(--accent);
+    }
+
+    .release-pitch {
+      font-size: 1.02rem;
+      max-width: 62ch;
       margin-bottom: 0.9rem;
     }
 
-    .release-details {
+    .release-details > summary {
+      display: inline-block;
+      cursor: pointer;
+      list-style: none;
+      color: var(--accent);
+      font-size: 0.95rem;
+    }
+
+    .release-details > summary::-webkit-details-marker {
+      display: none;
+    }
+
+    .release-details > summary::before {
+      content: "+ ";
+    }
+
+    .release-details[open] > summary::before {
+      content: "\2212  ";
+    }
+
+    .release-details > summary:hover {
+      color: var(--text-bright);
+    }
+
+    .release-details-body {
+      margin-top: 0.8rem;
       font-size: 0.93rem;
       color: var(--text-dim);
-      margin-bottom: 1rem;
     }
 
-    .release-details span {
-      display: block;
-    }
-
-    .release-description {
-      font-size: 1.02rem;
-      max-width: 64ch;
-      margin-bottom: 1.1rem;
-    }
-
-    .release-image {
-      width: 100%;
-      max-width: 420px;
-      display: block;
-      margin: 0 0 1.1rem;
-      border: 1px solid rgba(240, 244, 255, 0.1);
+    .release-details-body p {
+      font-size: 0.93rem;
+      margin-bottom: 0.35rem;
     }
 
     .release-links {
       display: flex;
       flex-wrap: wrap;
-      gap: 0.35rem 1.2rem;
-      font-size: 0.97rem;
-      margin-bottom: 0.9rem;
+      gap: 0.3rem 1.1rem;
+      margin-top: 0.6rem;
     }
 
-    .release-fineprint {
-      font-size: 0.85rem;
-      color: var(--muted);
+    @media (max-width: 600px) {
+      .release-card.has-art {
+        grid-template-columns: 1fr;
+        gap: 1.1rem;
+      }
+
+      .release-art {
+        width: min(100%, 260px);
+      }
     }
 
     .state-message {
@@ -615,47 +657,72 @@
         const genres = cleanList(release.genre);
         const series = cleanList(release.series);
         const powerGeometry = [...new Set(cleanList(release.power_geometry).map(p => p.toUpperCase()))];
-        const links = Array.isArray(release.links) ? release.links : [];
+        const links = (Array.isArray(release.links) ? release.links : [])
+          .map(l => ({ label: String(l?.label ?? '').trim(), url: String(l?.url ?? '').trim() }))
+          .filter(l => l.url);
 
-        // One plain sentence: date, format, length, episode.
-        const metaParts = [];
+        // The title links to the release itself; that link isn't repeated below.
+        const mainUrl = String(release.canonical_url || links[0]?.url || '').trim();
+        const titleHtml = mainUrl
+          ? `<a href="${escapeHtml(mainUrl)}" target="_blank" rel="noopener">${escapeHtml(release.title)}</a>`
+          : escapeHtml(release.title);
+
+        // The pitch, without an inline ISNI (the ISNI is in the page footer).
+        const pitch = String(release.description || '')
+          .replace(/\s*\(ISNI[^)]*\)/gi, '')
+          .replace(/\s{2,}/g, ' ')
+          .trim();
+
+        // Details, closed by default.
+        const facts = [];
         const date = formatDate(release.release_date);
-        if (date) metaParts.push(`Released ${date}.`);
         const format = String(release.format || '').trim();
         const length = String(release.length || '').trim();
-        if (format && length) metaParts.push(`${format}, ${length}.`);
-        else if (format) metaParts.push(`${format}.`);
-        else if (length) metaParts.push(`Runs ${length}.`);
-        if (release.episode) metaParts.push(`Episode ${release.episode}.`);
+        const factLine = [
+          date ? `Released ${date}.` : '',
+          format && length ? `${format}, ${length}.` : (format ? `${format}.` : (length ? `Runs ${length}.` : '')),
+          release.episode ? `Episode ${release.episode}.` : '',
+          release.is_free ? 'Free to listen.' : ''
+        ].filter(Boolean).join(' ');
+        if (factLine) facts.push(factLine);
+        if (series.length) facts.push(`Part of ${joinList(series)}.`);
+        if (genres.length) facts.push(`${genres.join(', ')}.`);
+        facts.push(...creditLines(release.credits));
+        const fine = [
+          rawId ? `Catalogue ID ${rawId}.` : '',
+          powerGeometry.length ? `Power geometry: ${powerGeometry.join(', ')}.` : ''
+        ].filter(Boolean).join(' ');
+        if (fine) facts.push(fine);
 
-        const details = [];
-        if (series.length) details.push(`Part of ${joinList(series)}.`);
-        if (genres.length) details.push(`${genres.join(', ')}.`);  // kept as written: EDM, Club Neuralverse
-        if (powerGeometry.length) details.push(`Power geometry: ${powerGeometry.join(', ')}.`);
-        if (release.is_free) details.push('Free to listen.');
+        const otherLinks = links
+          .filter(l => l.url !== mainUrl)
+          .map(l => {
+            const label = l.label.toLowerCase() === 'series' ? seriesLabel(l.url, series) : (l.label || l.url);
+            return `<a href="${escapeHtml(l.url)}" target="_blank" rel="noopener">${escapeHtml(label)}</a>`;
+          }).join('');
 
-        const linkHtml = links.map(l => {
-          let label = String(l?.label ?? '').trim();
-          const url = String(l?.url ?? '').trim();
-          if (!url) return '';
-          if (label.toLowerCase() === 'series') label = seriesLabel(url, series);
-          return `<a href="${escapeHtml(url)}" target="_blank" rel="noopener">${escapeHtml(label)}</a>`;
-        }).filter(Boolean).join('');
+        const detailsHtml = (facts.length || otherLinks)
+          ? `<details class="release-details">
+               <summary>Details</summary>
+               <div class="release-details-body">
+                 ${facts.map(f => `<p>${escapeHtml(f)}</p>`).join('')}
+                 ${otherLinks ? `<div class="release-links">${otherLinks}</div>` : ''}
+               </div>
+             </details>`
+          : '';
 
-        const fineprint = [...creditLines(release.credits)];
-        if (rawId) fineprint.push(`Catalogue ID ${rawId}.`);
+        const image = String(release.image || '').trim();
 
         const card = document.createElement('article');
-        card.className = 'release-card';
+        card.className = image ? 'release-card has-art' : 'release-card';
         card.id = anchor;
         card.innerHTML = `
-          <h3 class="release-title">${escapeHtml(release.title)}</h3>
-          ${metaParts.length ? `<p class="release-meta">${escapeHtml(metaParts.join(' '))}</p>` : ''}
-          ${details.length ? `<p class="release-details">${details.map(d => `<span>${escapeHtml(d)}</span>`).join('')}</p>` : ''}
-          ${release.description ? `<p class="release-description">${escapeHtml(release.description)}</p>` : ''}
-          ${release.image ? `<img class="release-image" src="${escapeHtml(release.image)}" alt="${escapeHtml(release.title)} cover art" loading="lazy">` : ''}
-          ${linkHtml ? `<div class="release-links">${linkHtml}</div>` : ''}
-          ${fineprint.length ? `<p class="release-fineprint">${escapeHtml(fineprint.join(' '))}</p>` : ''}
+          ${image ? `<div class="release-art"><img src="${escapeHtml(image)}" alt="${escapeHtml(release.title)} cover art" loading="lazy"></div>` : ''}
+          <div class="release-copy">
+            <h3 class="release-title">${titleHtml}</h3>
+            ${pitch ? `<p class="release-pitch">${escapeHtml(pitch)}</p>` : ''}
+            ${detailsHtml}
+          </div>
         `;
         list.appendChild(card);
       });
