@@ -16,7 +16,7 @@ database_id = "77efba2a-1b95-4922-be19-d3c1c27d6bd7"
 [[d1_databases]]
 binding = "calendar"
 database_name = "nnpp-calendar"
-database_id = "YOUR_REAL_NNPP_CALENDAR_DATABASE_ID"
+database_id = "74ad666a-0b47-4904-ae3c-202ef1464df0"
 
 [[r2_buckets]]
 binding = "scripts"
